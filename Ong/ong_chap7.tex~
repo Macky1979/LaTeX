@@ -1,0 +1,48 @@
+\chapter{Simulace Monte-Carlo}
+
+Postup při simulaci kreditních ztrát metodou Monte-Carlo je následující.
+\begin{numerize}
+\item Prvním krokem je odhad pravděpodobností defaultu $PD$, expozice v případě defaultu $AE$ a podmíněné ztráty $LGD$ pro uvažované portfolio.
+\item Následně odhadneme korelace aktiv mezi jednotlivými dlužníky.
+\item Vygenerujeme set nezávislých náhodných čísel ze standardizovaného normálního rozdělení.
+\item Následně tyto náhodné veličiny zkorelujeme pomocí korelační matice (např. pomocí Cholesky dekompozice).
+\item Pro každého dlužníka vypočteme bod defaultu na základě jeho pravděpodobnosti defaultu. Připomeňme, že se jedná o kvantil normovaného normálního rozdělení.
+\item Porovnáme bod defaultu s nasimulovanými náhodnými veličinami a rozhodneme, zda-li došlo k defaultu.
+\item Jestliže došlo k defaultu, simulujeme s pomocí uniformního rozdělení podmíněnou ztrátu $lgd$. Středního hodnota uniformího rozdělení je rovna $LGD$ a její rozptyl pak $LGD(1 - LGD)$. Následně vypočteme ztrátu jako $AE \times PD \times lgd$.
+\item Posledním krokem je výpočet celkové kreditní ztráty, která je součtem dílčích ztrát přes všechny dlužníky. Opakováním kroků 3 až 7 získáme požadovaný počet simulací.
+\end{numerize}
+Typický výsledek simulace zachycuje následující obrázek.
+
+OBRÁZEK
+
+\section{Matematika za simulací Monte-Carlo}
+
+V následujícím textu se zaměříme na body 3 až 7.
+
+\subsection{Generování náhodných veličin}
+
+Pro každého z $N$ dlužníků v rámci potrfolia vygenerujeme náhodné číslo ze standardizovaného normálního rozdělení.
+\begin{equation}
+\epsilon =
+\begin{bmatrix}
+\epsilon_1\\
+\epsilon_2\\
+\hdots
+\epsilon_N
+\end{bmatrix}
+\end{equation}
+kde $\epsilon_i ~ N(0, 1)$ pro všechna $i$. Abychom získali vektor vzájemně korelovaných náhodných veličin, je třeba provést transformaci
+\begin{equation*}
+\epsilon'_u = \sum_{p = 1}^N m_{up}\epsilon_p
+\end{equation*}
+což lze maticově vyjádřit jako
+\begin{equation}
+\epsilon' = M \epsilon
+\end{equation}
+Úkolem je tedy nalézt vhodnou transformační matici $M$, s jejíž pomocí jsme schopni převést vektor $\epsilon$ na vektor $\epslion'$, který bude náhodným výběrem z vícerozměrného normálního rozdělení s požadovanou kovarianční strukturou. Hledaná transformační matice $M$ musí splňovat podmínku
+\begin{multline}
+\Sigma = D[\epsilon'] = E[(M\epsilon)^2] - E[M\epsilon]^2\\
+= 
+\end{multline}
+kde $\Sigma$ je korelační matice. Tuto podmínku lze odvodit následovně.
+

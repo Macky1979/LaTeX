@@ -1,0 +1,144 @@
+\documentclass[a4paper]{article}
+\usepackage{pstricks}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{mathrsfs}
+
+\setlength{\unitlength}{1.0mm}
+\sloppy
+
+\begin{document}
+
+\title{Macroeconomic Model and Stressing Migration Matrix, version 2}
+\author{Michal Mackanic (RMO)}
+\date{July 2018}
+\maketitle
+
+\tableofcontents{}
+
+\section{Estimation of Systematic Risk Factor $Z$}
+
+Link between systematic risk factor $Z$ and observed default rates $DR_t$ is established via well-known Vasicek formula. If systematic risk factor $Z$ comes from a standardized normal distribution, $DR_t$ follows so-called Vasicek distribution. Under these assumptions $\Phi^{-1}[DR_t]$ follows normal distribution with mean value of
+\begin{equation}
+\mu = \frac{\Phi^{-1}[PD_{TTC}]}{\sqrt{1-\rho}}
+\end{equation}
+and variance of
+\begin{equation}
+\sigma^2 = \frac{\rho}{1-\rho}.
+\end{equation}
+
+Given observed default rates, systematic risk factor $Z$ could be determined using Vasicek formula
+\begin{equation}
+Z_t = \frac{\Phi^{-1}[PD_{TTC}] - \sqrt{1 - \rho} \Phi^{-1}[DR_t]}{\sqrt{\rho}}.
+\end{equation}
+The formula requires knowledge of pairwise correlation $\rho$ and through-the-cycle probability of default $PD_{TTC}$. One could first estimate mean $\mu$ and variance $\sigma^2$ of $\Phi^{-1}[DR_t]$ and then, using (1) and (2), estimate $\rho$ as
+\begin{equation}
+\hat{\rho} = \frac{\hat{\sigma}^2}{1 + \hat{\sigma}^2}
+\end{equation}
+and $PD_{TTC}$ as
+\begin{equation}
+\widehat{PD}_{TTC} = \Phi[\hat{\mu}\sqrt{1 - \hat{\rho}}].
+\end{equation}
+Inserting $\hat{\rho}$ and $\widehat{PD}_{TTC}$ in (3), $Z_t$ derived from observed default rates will have zero mean and unit variance.
+
+\section{Practical Problems}
+
+\subsection{Observed Defaults Rates}
+
+\subsubsection{Implicit Assumptions}
+
+Observed default rates are a major input to macroeconomic model as they are used to determine systematic risk factor $Z$. When converting observed default rates into $Z$, we make two implicit assumptions. First, we assume that definition of default is consistent in time (or that default rates are updated according to the latest methodology). Second, we assume that portfolio composition is constant across time. The latter problem could be partly addressed if observed default rates are based on the worst ratings where most of the defaults are occurring. In this way we make portfolio composition more comparable across time.
+
+The very basic idea of credit stress testing is that default rates should be directly linked to an economic cycle, which could be described through macroeconomic variables. Clearly, if the above assumptions are not met, the resulting noise in observed default rates could distort the link. In such case building a macroeconomic model is pointless.
+
+\subsubsection{Average Observed Default Rate vs TTC Migration Matrix}
+
+The major methodological challenge is what quantity to use as proxy for $PD_{TTC}$ in equation (3). A natural choice is to use default rate predicted by through-the-cycle migration matrix and portfolio composition. Unfortunately, using the estimate could lead to a dramatic increase in default rates if it is significantly lower than historically observed default rates.\footnote{For example in the case of CSOB SME default rate predicted by through-the-cycle migration matrix and portfolio composition was 1.30\% as of December 2017. However, average observed probability of default for period 2006 - 2016 was 3.24\%. Even for IFRS9 up scenario the predicted default rate was well over 3.00\% when applying Vasicek formula blindly.}
+
+To illustrate the issue, consider an average observed default rate of 3.00\% with fluctuations between 2.00\% and 4.00\%. Suppose that default rate implied by through-the-cycle migration matrix and portfolio composition is 1.00\%, i.e. given our current knowledge we expect that throughout the coming economic cycle we will experience average default rate of 1.00\%. Let us further assume that macroeconomic model is based only on GDP growth, which fluctuated between -5.00\% and 5.00\% during historical window used for model calibration. Clearly, for the macroeconomic model to produce $Z$ in line with predicted default rate of 1.00\%, GDP growth would have to substantially exceed 5.00\%, which is not very realistic. In other words, we are facing an inconsistency between historical data and our expectations.
+
+The most straight forward solution to the above described problem is to re-scale historical default rates. If we denote average historical default rate as $\overline{DR} = E[DR_t]$ and default rate predicted by through-the-cycle migration matrix and portfolio composition as $\widetilde{DR}$, we can re-scale historical default rates $DR_t$ as
+\begin{equation}
+DR^*_t = DR_t \cdot \frac{\widetilde{DR}}{\overline{DR}} = DR_t \cdot I_{DR}
+\end{equation}
+The re-scaled default rate time series $DR^*_t$ will be used in the following text. Although this transformation does address the problem numerically, we are aware that its methodological background could be easily questioned.
+
+\subsection{Systematic Risk Factor $Z$}
+
+In practise $Z_t$ implied by observed default rates does not follow normal distribution regardless of choices made about pairwise correlation $\rho$ and through-the-cycle probability of default. This violates basic assumption of Vasicek model.
+
+Even if true $Z_t$ followed normal distribution, our historical time window used for calibration does not necessarily consist of the whole multiples of economic cycles. Again, this means that $Z_t$ implied by observed default rates does not follow standard normal distribution.
+
+Unfortunately, we are not aware of any solution to the above two problems.
+
+\subsection{Pairwise Correlation $\rho$}
+
+Estimation of pairwise correlation $\rho$ based on observed default rates is typically too low. Therefore credit stress testing guidelines recommends to replace the estimate with Basel correlation. This adjustment results in variance of $Z$ which is lower than one.\footnote{In case of Czech mortgage portfolio the pair-wise correlation was estimated to about $3\%$. Pairwise correlation proposed by Basel II is $15\%$. The pairwise correlation increase resulted in variance decrease from $1.00$ to about $0.20$.} When performing stress testing, lower variance means narrowing a gap between ``good'' and ``bad'' years; in extreme case one could be hardly able to tell a difference between the two.
+
+\subsection{Through-the-cycle Probability of Default}
+
+Unless $\hat{\rho}$ is large we have $\widehat{PD}_{TTC} \approx E[DR_t] = \frac{1}{N}\sum_{t = 1}^N DR_t$. As stated above default rate $\widetilde{DR}$ implied by through-the-cycle migration matrix and current portfolio composition usually does not correspond to $\overline{DR} = E[DR_t]$. This is because macroeconomic model and the migration matrix are typically calibrated on different time windows.
+
+Please note that if we sample from a standardized normal distribution for $Z$ and plug it into
+\begin{equation}
+PD_{PIT}^t = \Phi\Big[\frac{\Phi^{-1}[PD_{TTC}] - \sqrt{\rho}Z_t}{\sqrt{1-\rho}}\Big],
+\end{equation}
+then $E[PD_{PIT}^t] = PD_{TTC}$.\footnote{$PD_{PIT}^t$ is a function of $Z_t$. Since $E[Z_t] = 0$ represents an ``average'' year, it might be tempting to assume
+\begin{equation*}
+E[PD_{PIT}^t(Z_t)] = PD_{PIT}^t(E[Z_t]) = PD_{PIT}^t(0) = \Phi\Big[\frac{\Phi^{-1}[PD_{TTC}]}{\sqrt{1-\rho}}\Big].
+\end{equation*}
+That would be valid only if $PD_{PIT}$ were a linear transformation of $Z_t$, which is not the case. The statement could be easily verified through a numerical simulation.} Therefore it is natural to replace definition of through-the-cycle probability of default based on (7) with $\widetilde{DR}$ as it reflects our current best knowledge of through-the-cycle probability of default.
+
+\section{Macroeconomic Model}
+
+Macroeconomic model is calibrated on standardized macroeconomic variables, which are used as explanatory variables in the regression. Standardization brings two main advantages. First, all variables are on the same scale, which enables us to visually assess them in a single graph. Second, regression coefficients of the macroeconomic model are a direct measure of their importance.
+
+Since we standardize macroeconomic variables, we also apply standardization on systematic risk factor $Z$, which plays role of a dependent variable.
+
+We noticed that standardized $Z$ is not effected by a choice $\rho$ and $PD_{TTC}$. In other words, the macroeconomic model is independent of $\rho$ and $PD_{TTC}$, even though the two parameters are important when translating standardized $Z$ back to its original scale. This is apparent if you realize that the only random variable in (3) is $DR_t$. Therefore we have
+\begin{equation}
+E[Z_t] = \frac{1}{\sqrt{\rho}}\Phi^{-1}[PD_{TTC}] + \frac{\sqrt{1-\rho}}{\sqrt{\rho}}E[\Phi^{-1}[DR_t]]
+\end{equation}
+and
+\begin{equation}
+var[Z_t] = \frac{1 - \rho}{\rho}var[\Phi^{-1}[DR_t]].
+\end{equation}
+Standardized $Z$ is then independent of $\rho$ and $PD_{TTC}$ since
+\begin{multline}
+\frac{Z_t - E[Z_t]}{\sqrt{var[Z_t]}} = \frac{\frac{\sqrt{1-\rho}}{\sqrt{\rho}}\Phi^{-1}[DR_t] - \frac{\sqrt{1-\rho}}{\sqrt{\rho}}E[\Phi^{-1}[DR_t]]}{\frac{\sqrt{1 - \rho}}{\sqrt{\rho}}\sqrt{var[\Phi^{-1}[DR_t]]}}\\
+= \frac{\Phi^{-1}[DR_t] - E[\Phi^{-1}[DR_t]]}{\sqrt{var[\Phi^{-1}[DR_t]]}}
+\end{multline}
+does not include any of the two parameters. This statement could be also easily verified numerically.
+
+In the following text we denote standardized values of systematic risk factor as $Z^*_t$ and their original counterparts as $Z_t$.
+
+\section{Stressing Migration Matrix}
+
+\subsection{Systematic Risk Factor $Z$}
+
+Before we can calibrate macroeconomic model, we have to determine $Z_t$ implied by re-scaled default rates $DR^*_t$. To do so, we have to choose appropriate estimates of $PD_{TTC}$ and $\rho$. As mentioned above, we propose to use $E[DR^*_t]$ as a proxy for $PD_{TTC}$ and to use Basel methodology to determine $\rho$.
+
+Time series $Z_t$ will typically have non-zero mean and non-unit variation for reasons discussed above. Macroeconomic model is estimated on standardized $Z^*_t = \frac{Z_t - E[Z_t]}{\sqrt{var[Z_t]}}$ rather than on $Z_t$ itself. As explained above, using standardized $Z^*_t$, we remove assumption on $PD_{TTC}$ and $\rho$ from the model. This is a very convenient feature as it enables us to compare various portfolios.
+
+Since macroeconomic model is based on standardized $Z_t^*$, values predicted by the model for a given stress scenario are standardized as well. Therefore we have to re-scale predicted $\hat{Z}^*_k$ to take into account values of $\rho$ and $PD_{TTC}$ used in equation (3), i.e.
+\begin{equation}
+\hat{Z}_k = \hat{Z}^*_k \cdot \sqrt{var[Z_t]} + E[Z_t].
+\end{equation}
+
+\subsection{Translating Predicted $Z$ into a Stress}
+
+First, we use macroeconomic model to transform stress scenario on standardized $\hat{Z}^*_k$, which is then translated back to its original scale to get $\hat{Z}_k$ using (11).
+
+After that we can stress through-the-cycle migration matrix. Let us assume that the migration matrix contains $N$ different ratings, where rating $1$ is the best and rating $N$ is the worst. Individual elements of the migration matrix denoted as $MP^{ij}_{TTC}$ represent a probability that entity with rating $i$ will change its rating to $j$ within a year. Please note that $MP^{iN}_{TTC}$ is a probability of default, which is more commonly denoted as $PD^i_{TTC}$.
+
+Each row of the through-the-cycle migration matrix is stressed independently from others. We always start from rating $N$, i.e. from default state. Through-the-cycle probabilities of default are stress as
+\begin{equation}
+PD_{PIT}^i = \Phi \Big[\frac{\Phi^{-1}[PD^i_{TTC}] - \sqrt{\rho} \hat{Z}_k}{\sqrt{1 - \rho}}\Big].
+\end{equation}
+Since stressing of migration matrix is a bootstrapping process, we proceed iteratively, i.e. one by one, with ratings $N-1, N-2, ..., 1$. Stressed migration probabilities for higher ratings are determined as
+\begin{equation}
+MP_{PIT}^{ij} = \Phi \Big[\frac{\Phi^{-1}[\sum_{k = j}^N MP^{ik}_{TTC}] - \sqrt{\rho} \hat{Z}_k}{\sqrt{1 - \rho}}\Big] - \sum_{k = j + 1}^N MP_{PIT}^{ik}.
+\end{equation}
+In this way we can stress through-the-cycle migration matrix row by row.
+\end{document}

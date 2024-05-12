@@ -1,0 +1,273 @@
+\chapter{Příloha A}
+
+\section{Řady a kombinatorika}
+
+\subsection{Značení řady součtu a součinu}
+
+\begin{definition}[Součet řady]
+Součet členů $a_1 + a_2 + ... + a_n$ se označuje jako $\sum_{i = 1}^n a_i$.
+\end{definition}
+
+\begin{example}
+\begin{equation*}
+\sum_{i = 2}^5 (-1)^{i - 2}i x^{2i} = 2x^4 - 3 x^6 + 4 x^8 - 5 x^{10}
+\end{equation*}
+\end{example}
+
+\begin{definition}[Součin řady]
+Analogicky součin členů $a_1 \cdot a_2 \cdots a_n$ značíme jako $\prod_{i = 1}^n a_i$.
+\end{definition}
+
+\begin{example}
+\begin{equation*}
+\prod_{i = 1}^5 \Big[a + (-1)^t \frac{i}{b} \Big] = \Big(a - \frac{1}{b}\Big)\Big(a + \frac{2}{b}\Big)\Big(a - \frac{3}{b}\Big)\Big(a + \frac{4}{b}\Big)\Big(a - \frac{5}{b}\Big)
+\end{equation*}
+\end{example}
+
+\begin{theorem}
+V této větě předkládáme čtenáři seznam nejběžněji používaných řad součtu. Jednotlivé vztahy nebudeme dokazovat. Případný důkaz lze provést indukcí.
+\begin{gather*}
+\sum_{i = 1}^n i = \frac{n(n + 1)}{2}\\
+\sum_{i = 1}^n i^2 = \frac{n(n + 1)(2n + 1)}{6}\\
+\sum_{i = 1}^n i^3 = \Big(\frac{n(n + 1)}{2}\Big)^2\\
+\sum_{i = 1}^n i^4 = \frac{n(n + 1)(2n + 1)(3n^2 + 3n - 1)}{30}
+\end{gather*}
+\end{theorem}
+
+\begin{theorem}[Součet aritmerické posloupnosti]
+První z výše uvedených rovnic lze použít k odvození součtu aritmetické posloupnosti.
+\begin{equation*}
+\sum_{i = 1}^n [a + (i - 1)d] = na + \frac{d}{2}n(n - 1)
+\end{equation*}
+\end{theorem}
+
+\begin{theorem}[Součet geometrické posloupnosti]
+Součet geometrické posloupnosti je dán vztahem
+\begin{equation*}
+\sum_{i = 0}^{n - 1} ar^j = a \frac{1 - r^n}{1 - r}
+\end{equation*}
+\end{theorem}
+
+\subsection{Faktoriál a značení v kombinatorice}
+
+\begin{definition}[Faktoriál]
+Součin řady $1 \cdot 2 \cdot 3 \cdots n$ značíme $n!$ a nazýváme faktoriálem.
+\begin{equation*}
+n! = \prod_{i = 0}^{n - 1} (n - i)
+\end{equation*}
+Z definice platí $0! = 1$.
+\end{definition}
+
+\begin{definition}[Permutační koeficient]
+Součin řady $(n - k + 1) \cdot (n - k + 2) \cdots n$ značíme jako $(n)_k$. Výraz $(n)_k$ tak vyjadřuje počet uspořádaných $k$-tic, které lze vybrat z $n$ prvků.
+\begin{equation*}
+(n)_k = \prod_{i = 1}^k (n - i + 1)
+\end{equation*}
+\end{definition}
+Platí $(n)_k = \frac{n!}{(n - k)!}$ a $(n)_n = \frac{n!}{0!}$
+
+\begin{definition}[Binomický koeficient]
+Binomický koeficient vyjadřuje počet neuspořádaných $k$-tic, které lze vybrat z $n$ prvků.
+\begin{equation*}
+\binom{n}{k} = \frac{(n)_k}{k!} = \frac{n!}{(n - k)!k!}
+\end{equation*}
+Z definice platí
+\begin{equation*}
+\binom{n}{k} = 0 ~~~\textit{pro} ~ k < 0 ~ \textit{nebo} ~ k > n
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+\begin{gather*}
+\binom{n}{0} = \binom{n}{n} = 1\\
+\binom{n}{k} = \binom{n}{n - k}\\
+\binom{n + 1}{k} = \binom{n}{k} + \binom{n}{k - 1} ~~~\textit{pro}~ n = 1, 2, ... ~ \textit{a}~ k = 0, \pm 1, \pm 2, ...
+\end{gather*}
+\end{theorem}
+
+Jak permutační tak binomický koeficient mohou být zobecněny z libovolného přirozeného čísla $n$ na libovolné reálné číslo $t$ tak, že definujeme
+\begin{gather*}
+(t)_k = t (t - 1) \cdots (t - k + 1)\\
+\binom{t}{k} = \frac{t(t - 1)\cdot(t - k + 1)}{k!} ~~~\textit{pro}~ k = 1, 2, ...\\
+\binom{t}{k} = 1 ~~~\textit{pro}~ k = 0 
+\end{gather*}
+
+\begin{theorem}
+\begin{gather*}
+\binom{-n}{k} = \frac{(-n)(-n - 1)\cdots(-n - k + 1)}{k!} = (-1)^k \frac{n(n + 1)\cdots(n + k - 1)}{k!} = (-1)^k \binom{n + k - 1}{k}
+\end{gather*}
+\end{theorem}
+
+\subsection{Stirlingova aproximace}
+
+\begin{definition}[Stirlingova aproximace]
+Stirlingovu aproximaci lze použít pro přibližný výpočet faktoriálu. Podle této aproximace platí
+\begin{equation*}
+n! \approx (2 \pi)^{\frac{1}{2}}e^{-n}n^{n + \frac{1}{2}}
+\end{equation*}
+nebo také
+\begin{equation*}
+n! = (2 \pi)^{\frac{1}{2}}e^{-n} n^{n + \frac{1}{2}}e^{r(n)/12n} ~~~\textit{kde}~ 1 - \frac{1}{12n + 1} < r(n) < 1
+\end{equation*}
+\end{definition}
+
+Přesnost lze ilustrovat na příkladu $10!$, které je rovno 3 628 800, zatímco Stirlingovy aproximace dává 3 599 000. Celková chyba je tedy méně než jedno procento a tato odchylka se zmenšuje s tím, jak roste $n$.
+
+\subsection{Binomická věta}
+
+\begin{definition}[Binomická věta]
+Binomická věta má tvar
+\begin{equation*}
+(a + b)^n = \sum_{i = 0}^n \binom{n}{j} a^j b^{n - j}
+\end{equation*}
+kde $n$ je přirozené číslo.
+\end{definition}
+
+\begin{theorem}
+\begin{gather*}
+(1 + t)^n = \sum_{i = 0}^n \binom{n}{i}t^i\\
+(1 - t)^n = \sum_{i = 0}^n \binom{n}{i}(-1)^it^i\\
+2^n = \sum_{i = 0}^n \binom{n}{i}\\
+0 = \sum_{i = 0}^n (-1)^i \binom{n}{i}
+\end{gather*}
+Rozvojem obou stran vztahu $(1 + x)^a(1 + x)^b = (1 + x)^{a + b}$ a následnými úpravami získáme
+\begin{equation*}
+\sum_{i = 0}^n \binom{a}{i} \binom{b}{n - i} = \binom{a + b}{n}
+\end{equation*}
+\end{theorem}
+
+\begin{theorem}
+Binomickou větu lze zobecnit do podoby
+\begin{equation*}
+\Big(\sum_{j = 1}^k \Big)^n = \sum \frac{n!}{\prod_{i = 1}^k n_i!} \prod_{i = 1}^k a_i^{n_i}
+\end{equation*}
+kde součet je přes všechna přirozená čísla $n_1, n_2, ..., n_k$ jejichž součtem je $n$.
+\end{theorem}
+
+\begin{theorem}
+\begin{equation*}
+\Big(\sum_{j = 1} a_j \Big)^2 = \Big(\sum_{i = 1}^k a_i \Big)\Big(\sum_{j = 1}^k a_j \Big) = \sum_{i = 1}^k \sum_{j = 1}^k a_i a_j
+\end{equation*}
+\end{theorem}
+
+\section{Integrální a diferenciální počet}
+
+\subsection{Úvod}
+
+Předpokládá se, že čtenář je obeznámen s konceptem limity, spojitosti, derivace, integrace a nekonečnými řadami. V této knize se velmi často odvoláváme na jednu specifickou limitu a to konkrétně limitu pro základ přirozeného logaritmu $e$.
+\begin{equation*}
+\lim_{x \rightarrow \infty}(1 + x)^{1/x} = e
+\end{equation*}
+Výše uvedený vztah lze dokázat pomocí logaritmu a následnou aplikací l'Hospitalova pravidla, které ve stručnosti představíme níže. S tímto vztahem je možné se setkat také v několika dalších variantách a to např.
+\begin{gather*}
+\lim_{x \rightarrow \infty}(1 + x^{-1})^x = e\\
+\lim_{x \rightarrow 0}(1 + \lambda x)^{1/x} = e^{\lambda} ~~~\textit{pro konstantu}~ \lambda
+\end{gather*}
+
+\begin{definition}[l'Hospitalovo pravidlo]
+l'Hospitalovo pravidlo je velmi užitečné při odvozování limit. Jestliže $f(\cdot)$ a $g(\cdot)$ jsou funkce pro které $\lim_{x \rightarrow a}f(x) = \lim_{x \rightarrow b}g(x) = 0$ a zároveň $\lim_{x \rightarrow a} \frac{f'(x)}{g'(x)}$ existuje, pak existuje také $\lim_{x \rightarrow a} \frac{f(x)}{g(x)}$ a platí
+\begin{equation*}
+\lim_{x \rightarrow a} \frac{f(x)}{g(x)} = \lim_{x \rightarrow a} \frac{f'(x)}{g'(x)}
+\end{equation*}
+\end{definition}
+
+\begin{example}
+Nalezněme $\lim_{x \rightarrow 0}[(1/x)ln(1 + x)]$.
+Nechť $f(x) = ln(1 + x)$ a $g(x) = x$. Pak
+\begin{equation*}
+\lim_{x \rightarrow 0} \frac{f'(x)}{g'(x)} = \lim_{x \rightarrow 0} \frac{1}{1 + x} = 1 = \lim_{x \rightarrow 0}\Big[\frac{1}{x} ln(1 + x)\Big]
+\end{equation*}
+\end{example}
+
+\begin{definition}[Leibnitzovo pravidlo]
+Nechť $I(t) = \int_{g(t)}^{h(t)}f(x;t)dx$, kde $f(\cdot,\cdot), g(\cdot)$ a $h(\cdot)$ jsou derivovatelné. Pak
+\begin{equation*}
+\frac{dI}{dt} = \int_{g(t)}^{h(t)}\frac{\partial f}{\partial t}dx + f(h(t);t) \frac{dh}{dt} - f(g(t);t) \frac{dg}{dt}
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+Mezi nejznámnější aplikace Leibnitzova pravidla patří
+\begin{gather*}
+\frac{d}{dt}\Big[\int_{g(t)}^{h(t)}f(x)dx \Big] = f(h(t)) \frac{dh}{dt} - f(g(t)) \frac{dg}{dt}\\
+\frac{d}{dt}\Big[\int_c^t f(x)dx \Big] = f(t)
+\end{gather*}
+\end{theorem}
+
+\subsection{Taylorovy řady}
+
+\begin{definition}[Taylorův rozvoj funkce jedné proměnné]
+Taylorův rozvoj funkce $f(x)$ kolem bodu $x = a$ je definován jako
+\begin{equation*}
+f(x) = f(a) + f^{(1)}(a)(x-a) + \frac{f^{(2)}(a)(x-a)^2}{2!} + ... + \frac{f^{(n)}(a)(x - a)^n}{n!} + R_n
+\end{equation*}
+kde
+\begin{gather*}
+f^{(i)}(a) = \frac{d^i f(x)}{d x^i}\Big|_{x = a}\\
+R_n = \frac{f^{(n + 1)}(c)(x - a)^{n + 1}}{(n + 1)!}\\
+a \le c \le x
+\end{gather*}
+$R_n$ se nazývá zbytkem. O funkci $f(x)$ předpokládáme, že je derivovatelná alespoň do $n + 1$ řádu. Jestliže není $R_n$ příliš velké, pak je výše uvedená rovnice polynomickou aproximací $n$-tého stupně funce $f(x)$. Odpovídající nekonečná řada konverguje v určitém intervalu, jestliže $\lim_{n \rightarrow \infty} R_n = 0$ v tomto intervalu.
+\end{definition}
+
+\begin{theorem}
+Mezi nejznámější aplikace Taylorova rozvoje patří
+\begin{gather*}
+e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + ... = \sum_{j = 0}^\infty \frac{x^j}{j!} ~~~\textit{pro}~ a = 0\\
+(1 - x)^t = \sum_{j = 0}^{\infty}(-1)^j(t)_j \frac{x^j}{j!} = \sum_{j = 0}^{\infty}\binom{t}{j}(-x)^j ~~~\textit{pro}~ a = 0 ~\textit{a}~ -1 < x < 1\\
+(1 - x)^{-1} = \sum_{j = 0}^{\infty} x^j  ~~~\textit{pro}~ a = 0\\
+(1 - x)^{-2} = \sum_{j = 0}^{\infty}(j + 1)x^j  ~~~\textit{pro}~ a = 0\\
+(1 - x)^{-t} = \sum_{j = 0}^{\infty}\binom{-t}{j}(-x)^j = \sum_{j = 0}^{\infty}\binom{n + j - 1}{j}x^j ~~~\textit{pro}~ a = 0 ~\textit{a}~ -1 < x < 1\\
+\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + ... = \sum_{j = 0}^{\infty} (-1)^{j}\frac{x^{j + 1}}{j + 1} ~~~\textit{pro}~ a = 0 ~\textit{a}~ -1 < x \le 1
+\end{gather*}
+\end{theorem}
+
+\begin{definition}[Taylorův rozvoj funkce dvou proměnných]
+Taylorovy řady lze zobecnit také na funkce více proměnných. Např. Taylorův rozvoj funkce $f(x,y)$ kolem bodů $x = a$ a $y = b$ lze vyjádřit jako
+\begin{gather*}
+f(x,y) = f(a,b) + f_x(a,b)(x - a) + f_y(a, b)(y - b)\\
++ \frac{1}{2!}\big[f_{xx}(a, b)(x - a)^2 + 2 f_{xy}(a, b)(x - a)(y - b) + f_{yy}(a, b)(y - b)^2 \big] + ...
+\end{gather*}
+\begin{gather*}
+f_x(a, b) = \frac{\partial f}{\partial x} \Big|_{x = a, y = b}\\
+f_{xy}(a, b) = \frac{\partial^2 f}{\partial y \partial x} \Big|_{x = a, y = b}
+\end{gather*}
+\end{definition}
+
+\subsection{Gamma a beta funkce}
+
+\begin{definition}[Gamma funkce]
+Gamma funkce $\Gamma(\cdot)$ je definována jako
+\begin{equation*}
+\Gamma(t) = \int_0^{\infty} x^{t - 1}e^{-x}dx ~~~\textit{pro}~ t > 0
+\end{equation*}
+\end{definition}
+
+Integrací per partes lze dokázat
+\begin{equation*}
+\Gamma(t + 1) = t \Gamma(t)
+\end{equation*}
+Proto, je-li $t = n$, platí
+\begin{equation*}
+\Gamma(n + 1) = n!
+\end{equation*}
+Je-li $n$ celé číslo, pak
+\begin{equation*}
+\Gamma \big(n + \frac{1}{2} \big) = \frac{1 \cdot 3 \cdot 5 \cdots (2n - 1)}{2^n}\sqrt{\pi}
+\end{equation*}
+
+\begin{definition}[Beta funkce]
+Funkce beta $B(\cdot, \cdot)$ je definována jako
+\begin{equation*}
+B(a, b) = \int_0^1 x^{a - 1}(1 - x)^{b - 1}dx ~~~\textit{pro}~ a > 0, b > 0
+\end{equation*}
+\end{definition}
+
+Pouhým prohozením proměnných ve výše uvedené rovnici lze dokázat $B(a, b) = B(b, a)$.
+
+Mezi gamma a beta funkcí existuje následující vztah
+\begin{equation*}
+B(a, b) = \frac{\Gamma(a) \Gamma(b)}{\Gamma(a + b)}
+\end{equation*}
+
+\end{document}

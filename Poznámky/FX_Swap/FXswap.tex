@@ -1,0 +1,165 @@
+\documentclass[a4paper]{article}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\section{FX swap}
+
+FX swap je obchod, ve kterém dochází v čase $T_0$ ke směně dvou částek denominovaných v různé měně za spotový kurz $E_{T_0}$. Součástí FX swapu je také dohoda o zpětné směně v čase $T_n$ ze předem dohodnutý forwardový kurz $E^f_{T_n}$.\\
+
+\noindent \textbf{Příklad:} KB směnila 1.1.2007 se svým klientem 1~000 EUR za 27~000 CZK. Zároveň se zavázala, že od něj 1.1.2010 zpětně nakoupí 1~000 EUR za 26~000 CZK.\\
+
+Výše uvedený příklad je v terminologii KB označová jako tzv. ''round FX swap''. Tento typ FX swapu je charakteriský tím, že nominále jedné ze swapových nohou je v čase $T_0$ a $T_n$ shodné (v našem případě se jedná o $1~000$ EUR).\\
+
+Vedle round FX swapu existuje také tzv. ''non-round FX swap''. Tento swap se liší od round FX swapu tím, že ani v jednom případě není částka v čase $T_0$ a $T_n$ shodná.\\
+
+\noindent \textbf{Příklad:} Uvažujme následující tříletý non-round swap: $k_{eur}^{T_0}$ = 1~000.00 EUR, $k_{czk}^{T_0}$ = 27~000.00 CZK (tj. spotový směnný kurz $E_{T_0}$ je roven 27 CZK/EUR), $k_{eur}^{T_3}$= 1~118 EUR, $k_{czk}^{T_2}$ = 29~076 CZK (tj. forwardový směnný kurz $E^f_{T_3}$ je roven 26 CZK/EUR). Úrokové sazby jsou neměnné po celé tříleté období a rovny $i_{czk}$=2.500\% p.a. a $i_{eur}$=3.798\% p.a.
+
+\begin{picture}(125,100)
+\small
+\put(25,18){\makebox(5,5){(a)}}
+\put(90,18){\makebox(5,5){(b)}}
+\put(0,10){\makebox(125,5){Jednotlivé nohy non-round FX swapu z pohledu subjektu, který v čase $T_0$ směňoval EUR za CZK}}
+\put(0,5){\makebox(125,5){(a) cash-flow z CZK nohy, (b) cash-flow z EUR nohy (náklady obětové příležitosti)}}
+
+\thicklines
+\put(0,60){\line(1,0){50}}
+\thinlines
+\put(3,60){\vector(0,1){25}}
+\put(18,60){\vector(0,1){15}}
+\put(32,60){\vector(0,1){15}}
+\put(47,60){\vector(0,1){15}}
+\multiput(47,60)(0,-1){25}{\line(0,-1){0.5}}
+\put(47,35){\vector(0,-1){2}}
+\small
+\put(0,55){\makebox(5,5){$T_0$}}
+\put(15,55){\makebox(5,5){$T_1$}}
+\put(30,55){\makebox(5,5){$T_2$}}
+\put(48,55){\makebox(5,5){$T_3$}}
+\tiny
+\put(4,85){\makebox(20,5)[l]{27~000 CZK}}
+\put(18,75){\makebox(20,5)[l]{675 CZK}}
+\put(32,75){\makebox(20,5)[l]{675 CZK}}
+\put(47,75){\makebox(20,5)[l]{675 CZK}}
+\put(31,30){\makebox(20,5)[l]{-29~076 CZK}}
+\normalsize
+
+\thicklines
+\put(60,60){\line(1,0){50}}
+\thinlines
+\put(63,60){\vector(0,-1){25}}
+\put(78,60){\vector(0,-1){15}}
+\put(92,60){\vector(0,-1){15}}
+\put(107,60){\vector(0,-1){15}}
+\multiput(107,60)(0,1){25}{\line(0,-1){0.5}}
+\put(107,85){\vector(0,1){2}}
+\small
+\put(60,60){\makebox(5,5){ $T_0$}}
+\put(75,60){\makebox(5,5){$T_1$}}
+\put(90,60){\makebox(5,5){$T_2$}}
+\put(108,60){\makebox(5,5){$T_3$}}
+\tiny
+\put(66,32){\makebox(20,5)[l]{-1~000.00 EUR}}
+\put(65,40){\makebox(20,5)[l]{-37.97 EUR}}
+\put(80,40){\makebox(20,5)[l]{-37.97 EUR}}
+\put(95,40){\makebox(20,5)[l]{-37.97 EUR}}
+\put(90,85){\makebox(20,5)[l]{1118.30 EUR}}
+\normalsize
+
+\end{picture}
+
+Tržní cena výše uvedeného non-round FX swapu je za předpokladu neexistence arbitráže nulová. V tomto konkrétním případě totiž pro nohu (a) platí
+\begin{equation}
+k_{eur}^{T_0} E_{T_0} (1 + i_{czk})^3 = k_{czk}^{T_3}
+\end{equation}
+a pro nohu (b)
+\begin{equation}
+k_{eur}^{T_0}(1 + i_{eur})^3 = k_{eur}^{T_3}
+\end{equation}
+Tržní hodnota obou noh tohoto non-round FX swapu je tedy nulová. Rovnovážný forwardový směnný kurz je pak dán následujícím vztahem.
+
+\begin{displaymath}
+E^f_{T_3} = \frac{k_{czk}^{T_3}}{k_{eur}^{T_3}}
+\end{displaymath}
+Forwardový kurz je možné také vyjádřit z obecných rovnic pro FX swap
+\begin{equation}
+E_{T_0} (1 + i_{czk})^{\Delta T} \frac{1}{E^f_{T_1}} = (1 + i_{eur})^{\Delta T}
+\end{equation}
+resp.
+\begin{equation}
+\frac{1}{E_{T_0}}(1 + i_{eur})^{\Delta T} E^f_{T_1} = (1 + i_{czk})^{\Delta T}
+\end{equation}
+Rovnovážný forwardový směnný kurz je roven \footnote{Uvedený výpočet nebere v potaz existenci úrokových a měnových spreadů.}
+\begin{displaymath}
+E^f_{T_1} = E_{T_0} \Bigg( \frac{1+i_{czk}}{1+i_{eur}} \Bigg)^{\Delta T}
+\end{displaymath}
+
+Rovnice (3) a (4) mimojiné naznačují možnost replikace FX swapu. Např. první z rovnic říká, že majitel částky v EUR má v zásadě dvě možnosti, které by z hlediska výnosu měly být ekvivalentí \footnote{Jestliže tyto dvě možnosti nejsou ekvivalentní, existuje prostor pro arbitráž.}. První možností je nejprve částku v čase $T_0$ směnit na CZK, úročit úrokovou sazbou $i_{czk}$ po dobu $\Delta T$ a v čase $T_n$ ji zpětně směnit na EUR. Druhou možností je částku v EUR rovnou úročit sazbou $i_{eur}$.\\'
+V rámci FX swapu majitel částky v EUR také nejprve tuto částku v čase $T_0$ smění na CZK. Za $\Delta T$ pak zpětně prodá CZK za EUR podle předem dohodnutého kurzu $E^f_{T_n}$.\\
+
+V případě "spravedlivého" spotového a forwardového směnného kurzu je tržní hodnota non-round FX swapu v čase $T_0$ nulová. Navíc, platí-li rovnice (1) a (2), je také tržní hodnota obou jeho noh nulová. V opačném případě je tržní hodnota jedné nohy kladná a druhé záporná. Obě nohy se přitom vzájemně ''kompenzují'', čímž je splněn předpoklad nulové tržní ceny.\\
+
+\noindent \textbf{Příklad:} Uvažujme nyní následující tříletý round swap: $k_{eur}^{T_0}$ = 1~000 EUR, $k_{czk}^{T_0}$ = 27~000 CZK (tj. $E_{T_0}$ = 27 CZK/EUR), $k_{eur}^{T_1}$= 1~000 EUR, $k_{czk}^{T_1}$ = 26~000 CZK (tj. $E^f_{T_3}$ = 26 CZK/EUR). Úrokové sazby jsou neměnné po celé tříleté období a rovny $i_{czk}$=2.500\% p.a. a $i_{eur}$=3.798\% p.a.
+
+\begin{picture}(125,100)
+\small
+\put(25,18){\makebox(5,5){(a)}}
+\put(90,18){\makebox(5,5){(b)}}
+\put(0,10){\makebox(125,5){Jednotlivé nohy round FX swapu z pohledu subjektu, který v čase $T_0$ směňoval EUR za CZK}}
+\put(0,5){\makebox(125,5){(a) cash-flow z CZK nohy, (b) cash-flow z EUR nohy (náklady obětové příležitosti)}}
+
+\thicklines
+\put(0,60){\line(1,0){50}}
+\thinlines
+\put(3,60){\vector(0,1){25}}
+\put(18,60){\vector(0,1){15}}
+\put(32,60){\vector(0,1){15}}
+\put(47,60){\vector(0,1){15}}
+\multiput(47,60)(0,-1){25}{\line(0,-1){0.5}}
+\put(47,35){\vector(0,-1){2}}
+\small
+\put(0,55){\makebox(5,5){$T_0$}}
+\put(15,55){\makebox(5,5){$T_1$}}
+\put(30,55){\makebox(5,5){$T_2$}}
+\put(48,55){\makebox(5,5){$T_3$}}
+\tiny
+\put(4,85){\makebox(20,5)[l]{27~000 CZK}}
+\put(18,75){\makebox(20,5)[l]{675 CZK}}
+\put(32,75){\makebox(20,5)[l]{675 CZK}}
+\put(47,75){\makebox(20,5)[l]{675 CZK}}
+\put(31,30){\makebox(20,5)[l]{-26~000 CZK}}
+\normalsize
+
+\thicklines
+\put(60,60){\line(1,0){50}}
+\thinlines
+\put(63,60){\vector(0,-1){25}}
+\put(78,60){\vector(0,-1){15}}
+\put(92,60){\vector(0,-1){15}}
+\put(107,60){\vector(0,-1){15}}
+\multiput(107,60)(0,1){25}{\line(0,-1){0.5}}
+\put(107,85){\vector(0,1){2}}
+\small
+\put(60,60){\makebox(5,5){ $T_0$}}
+\put(75,60){\makebox(5,5){$T_1$}}
+\put(90,60){\makebox(5,5){$T_2$}}
+\put(108,60){\makebox(5,5){$T_3$}}
+\tiny
+\put(66,32){\makebox(20,5)[l]{-1~000.00 EUR}}
+\put(65,40){\makebox(20,5)[l]{-37.97 EUR}}
+\put(80,40){\makebox(20,5)[l]{-37.97 EUR}}
+\put(95,40){\makebox(20,5)[l]{-37.97 EUR}}
+\put(90,85){\makebox(20,5)[l]{1~000.00 EUR}}
+\normalsize
+\end{picture}
+
+Jestliže v případě non-round FX swapu může být tržní hodnota obou noh nulová, v případě round FX swapu toto nikdy neplatí \footnote{Jedinou vyjímkou by byl hypotetický případ nulových úrokových sazeb.}. V našem konkrétním případě je současná tržní hodnota v čase $T_0$ nohy (a) 2~856 CZK a nohy (b) -105.80 EUR, což je -2~856.70 CZK \footnote{Rozdíl 0.70 CZK je dán zaokrouhlováním.}. Opět však platí, že tržní hodnota round FX swapu v čase $T_0$ je nulová - obě nohy se totiž vykompenzují.\\
+
+V případě, že jsou spotový a forwardový směnný kurz nastaveny na ''spravedlivou'' úroveň, je tržní hodnota non-round i round FX swapu nulová.
+V případě non-round swapu, jsou-li splněny rovnice (1) a (2), navíc platí, že obě nohy mají nulovou tržní hodnotu. V ostatních případech má jedna z nohou kladnou a druhá zápornou tržní hodnotu. Obě tyto nohy se však vzájemně kompenzují a výsledná tržní hodnota FX swapu je tak nulová.\\
+
+\end{document}

@@ -1,0 +1,186 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{Úrokový swap}
+
+\section{Teoretický úvod}
+
+Úrokový swap je obchodem, kdy dochází k výměně peněžních toků mezi zúčastněnými stranami. Klasický úrokový swap, kdy dochází ke směně plovoucí úrokové sazby za fixní, lze modelovat pomocí imaginárního floatového a fixního dluhopisu. Vzhledem k tomu, že úrokový swap lze rozložit na jednodušší instrumenty, jedná se o syntetický instrument.\\
+
+\noindent \textbf{Příklad:} Uvažujme tříletý úrokový swap s podkladovým kapitálem 100 MCZK. Jedna ze smluvních stran platí dvakrát ročně úroky odpovídající aktuální sazbě PRIBOR a zároveň obdrží od druhé strany jednou ročně fixní sazbu 4\% p.a. Úrokové platby jsou vztaženy k podkladovému kapitálu 100 MCZK.
+\begin{center}
+	\begin{pspicture}(0,0)(8,7.5)
+		\rput(4,0.0){Rozklad úrokového swapu: (a) floatový dluhopis, (b) fixní dluhopis}
+		\psline[arrows=->](0.5,4)(7.5,4)
+		\rput(7.3,3.7){$t$}
+		\rput(0.2,3.7){\tiny 0}
+		\psline[arrows=>, linewidth=0.1mm, linestyle=dashed](0.5,7)(0.5,4)
+		\rput(0.8,6.8){(a)}
+		\psline[arrows=>, linewidth=0.1mm](0.5,1)(0.5,4)
+		\rput(0.8,1.2){(b)}
+		\psline[arrows=>, linewidth=0.1mm, linestyle=dashed](1.5,3)(1.5,4)
+		\rput(2.2,3.7){\tiny 1Y}
+		\psline[arrows=>, linewidth=0.1mm, linestyle=dashed](2.5,3)(2.5,4)
+		\psline[arrows=>, linewidth=0.1mm](2.5,6)(2.5,4)
+		\psline[arrows=>, linewidth=0.1mm, linestyle=dashed](3.5,3)(3.5,4)
+		\rput(4.2,3.7){\tiny 2Y}
+		\psline[arrows=>, linewidth=0.1mm, linestyle=dashed](4.5,3)(4.5,4)
+		\psline[arrows=>, linewidth=0.1mm](4.5,6)(4.5,4)
+		\psline[arrows=>, linewidth=0.1mm, linestyle=dashed](5.5,3)(5.5,4)
+		\rput(6.1,3.7){\tiny 3Y}
+		\psline[arrows=>, linewidth=0.1mm](6.5,7)(6.5,4)
+		\psline[arrows=>, linewidth=0.1mm, linestyle=dashed](6.5,1)(6.5,4)
+		\psline[arrows=>, linewidth=0.1mm, linestyle=dashed](6.4,3)(6.4,4)
+		\psline[arrows=>, linewidth=0.1mm](6.4,6)(6.4,4)
+	\end{pspicture}
+\end{center}
+Tento swap lze tedy "rozložit" na dva imaginární dluhopisy. První z nich je fixní s kupónovou sazbou 4\% p.a. a roční výplatou kupónů. Druhý dluhopis má kupónovou sazbu definovanou sazbou PRIBOR a půlroční výplatu kupónů. Tu část úrokového swapu, kterou představuje cash-flow generované fixním dluhopisem, nazýváme fixní nohou. Cash-flow generované imaginárním floatovým dluhopisem pak nazýváme floatovou nohou. Jednotlivé platby, je-li to možné, se vzájemně kompenzují a vyplácí se pouze rozdíl mezi oběma peněžními toky. Z toho principu mimojiné vyplývá, že podkladový kapitál se na začátku a na konci kontraktu nesměňuje. Z hlediska oceňování není kompenzace cash-flow důležitá.
+
+\section{Matematické pozadí}
+
+\subsection{Hodnota úrokového swapu v čase $t_0 = 0$}
+
+Uvažujme jednoroční úrokový swap s podkladovým kapitálem $A$, v rámci kterého dochází k výměně floatové sazby $F$ za fixní sazbu $R$. Předpokládejme, že rok má 360 dní a definujme časový interval mezi $t_2$ a $t_1$ v ročním vyjádření jako 
+\begin{equation*}
+\alpha_{t_1, t_2} = \frac{t_2 - t_1}{360}
+\end{equation*}
+Dále definujme diskontní faktor $DF_{t_1, t_2}$ pro časové období $t_1$ až $t_2$ jako
+\begin{equation*}
+DF_{t_1, t_2} = \frac{1}{1 + F_{t_1, t_2} \alpha_{t_1, t_2}}
+\end{equation*}
+kde $F_{t_1, t_2}$ je forwardová úroková míra v čase $t_0$ platná pro časový interval $t_1$ až $t_2$. Předpokládejme, že pro forwardovou sazbu platí
+\begin{equation*}
+(1 + F_{t_0, t_2} \alpha_{t_0, t_2})  = (1 + F_{t_0, t_1} \alpha_{t_0, t_1})(1 + F_{t_1, t_2} \alpha_{t_1, t_2})
+\end{equation*}
+
+\subsubsection{Fixní noha}
+
+Výplata $L_{fix}^{1Y}$ z fixní nohy na konci roku je definována jako
+\begin{equation*}
+L_{fix}^{1Y} = A R_{1Y} \alpha_{0,1Y}
+\end{equation*}
+kde $R_{1Y}$ představuje výši fixního kupónu jednoročního swapu. Současná hodnota fixní nohy je tedy definována jako
+\begin{equation*}
+PV(L_{fix}^{1Y}) = DF_{0, 1Y} L_{fix}^1 =  DF_{0, 1Y} A R_{1Y} \alpha_{0,1Y}
+\end{equation*}
+
+Obecný vzorec pro současnou hodnotu fixní nohy $n$-letého úrokového swapu v době uzavření kontraktu je
+\begin{equation}
+AR_{nY}(DF_{0,t_1} \alpha_{0,t_1} + DF_{0, t_2} \alpha_{t_1,t_2} + ... + DF_{0, t_n} \alpha_{t_{n-1},t_n})
+\end{equation}
+
+\subsubsection{Floatová noha}
+
+Floatová noha se skládá ze dvou cash-flow. První cash-flow $L_{float}^{6M}$ generováno po půl roce trvání kontraktu je rovno
+\begin{equation*}
+L_{float}^{6M} = A F_{0,6M} \alpha_{0,6M}
+\end{equation*}
+Floatovou sazbu platnou za půl roku tedy odhadujeme pomocí forwardové sazby $F_{0,6M}$. Současná hodnota tohoto cash-flow je
+\begin{equation*}
+PV(L_{float}^{6M}) = DF_{0,6M} L_{float}^{6M} = DF_{0,6M} A F_{0,6M} \alpha_{0,6M} =
+\end{equation*}
+\begin{equation*}
+= DF_{0,6M} A \bigg( \frac{DF_{0,0}}{DF_{0,6M}} - 1 \bigg) = DF_{0,6M} A \bigg( \frac{1}{DF_{0,6M}} - 1 \bigg) = A (1 - DF_{0,6M})
+\end{equation*}
+Obdobně současná hodnota druhého cash-flow $L_{float}^{1Y}$ generovaného na konci kontraktu je rovna
+\begin{equation*}
+PV(L_{float}^{1Y}) = DF_{0,1Y} A \bigg( \frac{DF_{0,6M}}{DF_{0,1Y}} - 1 \bigg) = A (DF_{0,6M} - DF_{0,1Y})
+\end{equation*}
+Současná hodnota celé floatové nohy je tedy
+\begin{equation*}
+PV(L_{float}^{6M}) + PV(L_{float}^{1Y}) = A (1 - DF_{0,6M}) + A (DF_{0,6M} - DF_{0,1Y}) = A (1 - DF_{0,1Y})
+\end{equation*}
+
+Obecný vzorec pro současnou hodnotu floatové nohy $n$-letého úrokového swapu v době uzavření kontraktu je
+\begin{equation}
+A(1 - DF_{0,nY})
+\end{equation}
+
+\subsubsection{Hodnota úrokového swapu}
+
+Vzhledem k tomu, že při neexistenci arbitráže by měla být hodnota úrokového swapu v okamžiku jeho sjednání rovna nule, musí se současná hodnota fixní nohy rovnat současné hodnotě floatové nohy. Pro námi uvažovaný jednoroční úrokový swap tedy musí platit
+\begin{equation*}
+PV(L_{fix}^{1Y}) = PV(L_{float}^{6M}) + PV(L_{float}^{1Y}) 
+\end{equation*}
+\begin{equation}
+DF_{0, 1Y} A R_{1Y} \alpha_{0,1Y} = A (1 - DF_{0,1Y})
+\end{equation}
+
+Dle (1.1) a (1.2) je obecná rovnice pro $n$-roční úrokový swap definována jako
+\begin{equation*}
+AR_{nY}(DF_{0,t_1} \alpha_{0,t_1} + DF_{t_1, t_2} \alpha_{0,t_2} + ... + DF_{0, t_n} \alpha_{t_{n-1},t_2}) = A(1 - DF_{0,nY})
+\end{equation*}
+Jestliže budeme uvažovat směnu podkladového kapitálu na začátku a na konci kontraktu, změní se nám tento obecný vzorec do podoby
+\begin{equation*}
+-A + AR_{nY}(DF_{0,t_1} \alpha_{0,t_1} + DF_{0, t_2} \alpha_{t_1,t_2} + ... + DF_{0, t_n} \alpha_{t_{n-1},t_n}) + A DF_{0, t_n} =
+\end{equation*}
+\begin{equation*}
+= -A + A(1 - DF_{0,nY}) + A DF_{0, t_n}
+\end{equation*}
+\begin{equation*}
+-A + AR_{nY}(DF_{0,t_1} \alpha_{0,t_1} + DF_{0, t_2} \alpha_{t_1,t_2} + ... + DF_{0, t_n} \alpha_{t_{n-1},t_n}) + A DF_{0, t_n} = 0
+\end{equation*}
+\begin{equation*}
+R_{nY}(DF_{0,t_1} \alpha_{0,t_1} + DF_{t_1, t_2} \alpha_{0,t_2} + ... + DF_{0, t_n} \alpha_{t_{n-1},t_2}) + DF_{0, t_n} = 1
+\end{equation*}
+Tento vzorec v podstatě neříká nic jiného, než že v případě rovnovážné swapové sazby $R_{nY}$ je současná hodnota imaginárního fixního dluhopisu rovna jeho nominální hodnotě. Z toho vyplývá, že také hodnota floatové nohy je rovna nominální hodnotě podkladového aktiva\footnote{V opačném případě by nebyla zachována rovnost.}. 
+
+\subsection{Hodnota úrokového swapu v čase $t$}
+
+Výše uvedený postup lze aplikovat v případě, že chceme vypočítat hodnotu úrokového swapu v čase $t_0 = 0$. Hodnotu úrokového swapu v obecném čase $t$ lze opět vyjádřit jako rozdíl hodnoty fixní a floatové nohy diskontované k času $t$.
+
+Současná hodnota fixní nohy v čase $t$ je za předpokladu roční výplaty rovna
+\begin{equation*}
+PV_t(L_{fix}^{t_1}) + PV_t(L_{fix}^{t_2}) + ... + PV_t(L_{fix}^{t_n}) = A R_{nY}(DF_{t, t_1} + DF_{t, t_2} + ... + DF_{t, t_n})
+\end{equation*}
+Současná hodnota floatové nohy v čase $t$ je pak rovna
+\begin{equation*}
+PV_t(L_{float}^{t_1}) + PV_t(L_{float}^{t_2}) + ... + PV_t(L_{float}^{t_n}) = A \bigg(\frac{DF_{t,t_1}}{DF_{t_1 - 1, t_1}} - DF_{t, nY} \bigg)
+\end{equation*}
+Hodnota úrokového swapu v čase $t$ je tedy rovna
+\begin{equation*}
+A R_{nY}(DF_{t, t_1} + DF_{t, t_2} + ... + DF_{t, t_n}) - A \bigg(\frac{DF_{t,t_1}}{DF_{t_1 - 1, t_1}} - DF_{t, nY} \bigg)
+\end{equation*}
+Ačkoliv by hodnota úrokového swapu v okamžiku jeho uzavření měla být nulová, neplatí tento předpoklad po dobu životnosti kontraktu. Hodnota swapu se mění s tím, jak se mění forwardové úrokové sazby.
+
+\subsection{Výpočet diskontního faktoru}
+
+Z (1.3) lze vypočíst diskontní faktor $DF_{0, 1Y}$. Po elemetnárních úpravách získáváme
+\begin{equation*}
+DF_{0, 1Y} = \frac{1}{1 + R_{1Y} \alpha_{0,1Y}}
+\end{equation*}
+Vzhledem k tomu, že platí $R_{1Y} = F_{0,1Y}$, je tento vzorec v souladu s výše uvedenou definicí diskontního faktoru.
+
+Analogickým postupem lze z dvouletého swapu odvodit diskontní faktor $DF_{0,2Y}$ jako
+\begin{equation*}
+DF_{0,2Y} = \frac{1 - R_{2Y} \alpha_{0,1Y}DF_{0,1Y}}{1 + R_{2Y} \alpha_{1Y, 2Y}}
+\end{equation*}
+a diskontní faktor $DF_{0,3Y}$ z tříletého swapu jako
+\begin{equation*}
+DF_{0,3Y} = \frac{1 - R_{3Y}(\alpha_{0,1Y}DF_{0,1Y} + \alpha_{1Y,2Y}DF_{0,2Y})}{1 + R_{3Y} \alpha_{2Y, 3Y}}
+\end{equation*}
+Pro výpočet diskontního faktoru je tedy zapotřebí znalost diskotních faktorů pro předchozí období.
+
+Obecný vzorec pro výpočet diskontního faktoru $DF_{0,nY}$ je
+\begin{equation}
+DF_{0,nY} = \frac{1 - R_{nY} \bigg( \sum_{t = 1Y}^{(n-1)Y} \alpha_{(t-1)Y,tY DF_{0,t}} \bigg)}{1 + R_{nY} \alpha_{(n-1)Y,nY}}
+\end{equation}
+
+\subsection{Zero kupón křivka}
+
+Zero kupón křivku vypočteme z diskontních faktorů, které získáme dle (1.4). Vzorec pro výpočet diskotního faktoru, ze kterého se určí výnosové míry $Y_{0,t}$ této křivky, je definován jako
+\begin{equation*}
+DF_{0,t} = \frac{1}{(1 + Y_{0,t})^{\alpha_{t, t_0}}}
+\end{equation*}
+Elementární úpravou pak získáváme
+\begin{equation*}
+Y_{0,t} = \sqrt[\alpha_{t, t_0}]{\frac{1}{DF_{0,t}}} - 1
+\end{equation*}
+\end{document}

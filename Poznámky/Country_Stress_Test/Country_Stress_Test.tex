@@ -1,0 +1,25 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{Country Stress Test}
+
+Tento stress test se v případě KB týká CZK, SKK, PLN a HUF vládních dluhopisů a je popsán v dokumentu \textit{Stress testing methodology}. Jeho úkolem je simulovat dopady případného propadu cen těchto dluhopisů. Country stress test má dvě složky a to
+\begin{itemize}
+\item posun úrokových křivek,
+\item propad tržní ceny dluhopisů o stanovené procento.
+\end{itemize}
+
+Posun úrokových křivek je společný všem měnám a je počítán aplikací TRAAB. Posun je dán obecným úrokových scénářem růstu popř. propadu sazeb pro jednotlivé měny, který je specifikován v dokumentu \textit{Stress testing methodology}. Tento scénář je aplikován na sazby uložené v aplikaci TRAAB. Výsledná hodnota stress testu je dána součinem posunů křivek a senzitivit na vládní dluhopisy. Výstup testu je uložen v souboru \textit{country\_risk.XL2}, kde jsou také uvedeny senzitivity pro jednotlivé časové buckety.
+
+Propad tržní ceny dluhopisů je počítán pouze pro měny s ratingem 8 a horší\footnote{V době psaní tohoto článku se to týkalo pouze měny HUF.}. O kvantifikaci dopadu se stará SQL procedura LIMp\_CST a její výstup je uložen v tabulce RM01..LIM\_CST.\\
+
+Dílčí výsledky pro jednotlivé měny jsou k dispozici v pohledu LIMv\_CSummary. Vzhledem ke konstrukci stress testu může dojít také v pasivnímu překročení limitu\footnote{Pasivním překročením rozumíme situaci, kdy se pozice oproti předešlému dni nezměnila, přesto však došlo k překročení limitu.} a to z důvodu růstu úrokových sazeb\footnote{Propad úrokových sazeb je definován pro řadu měn nikoliv absolutně ale relativně. Čím vyšší úroveň úrokových sazeb, tím vyšší je i jejich simulovaný propad a tím vyšší je i dopad stress testu v případě dlouhé pozice.}, změny měnového kurzu\footnote{Stress test je počítán v EUR, kdežto tržní hodnota vládních dluhopisů je vyjádřená v domácí měně příslušné země.} a v případě měn s nižším rating také paradoxně v důsledku růstu tržních cen vládních dluhopisů. 
+
+\end{document}

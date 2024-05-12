@@ -1,0 +1,552 @@
+\chapter{Hierarchické modely}
+
+\section{Parametrizované apriorní rozdělení}
+
+\subsection{Analýza jednoduchého experimentu v kontextu historických dat}
+
+Uvažujme situaci, kdy odhadujeme parametr $\theta$ pomocí dat získaných v rámci malého experimentu s pomocí apriorní funkce zkonstruované na základě podobných historických experimentů. Jinými slovy, současná a historická data budeme považovat za náhodný výběr ze stejné populace.
+
+\subsubsection{Ilustrativní příklad - odhad rizika nádoru}
+
+Řada farmaceutických studií je prováděna na laboratorních potkanech. Předpokládejme, že potřebujeme odhadnout parametr $\theta$, který představuje pravděpodobnost nádoru ve skupině laboratorních potkanů, které není podáván lék a která tak představuje tzv. kontrolní skupinu. Z dat lze vyčíst, že z celkového počtu 14 potkanů se u 4 objevil nádor. Pro modelování počtu nádorů je přirozené použít binomické rozdělení. Pro zjednodušení budeme předpokládat, že apriorní rozdělení parametru $\theta$ sleduje $\textit{Beta}(\alpha, \beta)$ z odpovídající konjugátní rodiny.
+
+\subparagraph{Fixní apriorní rozdělení.} Předpokládejme, že na základě historických dat víme, že pravděpodobnost výskytu nádoru představovaná parametrem $\theta$ sleduje přibližně beta rozdělení se známou střední hodnotou a směrodatnou odchylkou. Pokud v minulosti proběhlo několik podobných experimentů, lze z historických dat vypočíst střední hodnotu a směrodatnou odchylku a na jejich základě vybrat vhodné hodnoty parametrů $\alpha$ a $\beta$. Pokud předpokládáme apriorní rozdělení $\textit{Beta}(\alpha, \beta)$, pak má aposteriorní rozdělení parametru $\theta$ tvar $\textit{Beta}(\alpha, \beta)$.
+
+\subparagraph{Odhad populačního rozdělení na základě historických dat.} Uvažujme historická data ze 70 podobných experimentů v tabulce na obrázku 5.1.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/tbl_5_1.eps}
+\caption{Výskyt nádoru u kontrolní skupiny potkanů; údaje jsou zobrazeny ve tvaru $\frac{\textit{počet nádorů ve skupině}}{\textit{velikost skupiny}}$.}
+\label{tbl_5_1}
+\end{figure}
+Pro $j$-tý experiment použijme pro počet nádorů veličinu $y_j$ a pro velikost skupiny veličinu $n_j$. $y_j$ budeme modelovat jako vzájemně nezávislá binomická data pro dané $n_j$ a hodnotu parametru $\theta_j$ specifickou pro daný experiment. Pokud budeme předpokládat, že apriorní rozdělení $\textit{Beta}(\alpha, \beta)$ je vhodným popisem populačního rozdělení parametrů $\theta_j$ z historických experimentů, můžeme použít tzv. hierarchický model, který je schématicky znázorněn na obrázku 5.2. Index 1 až 70 představuje historické experimenty; index 71 pak představuje aktuální experiment.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/fig_5_1.eps}
+\caption{Struktura hierarchického modelu pro ilustrativní příklad odhadu rizika nádoru.}
+\label{fig_5_1}
+\end{figure}
+Střední hodnota a směrodatná odchylka parametru $\theta$ odhadnuté z historických dat jsou 0.136 a 0.103, čemuž odpovídá apriorní rozdělení $\textit{Beta}(1.4, 8.6)$. Tento jednoduchý odhad apriorního rozdělení pak odpovídá aposteriornímu rozdělení $\textit{Beta}(5.4, 18.6)$ pro aktuální parametr $\theta_{71}$. Aposteriorní střední hodnota a směrodatná odchylka parametru $\theta_{71}$ jsou tak 0.223 a 0.083.\footnote{Apriorní data způsobila, že aposteriorní střední hodnota je výrazně nižší než poměr nádorů v rámci aktuálního experimentu, tj. $4 / 14 = 0.286$. Historická zkušenost totiž říká, že počet nádorů v aktuálním experimentu je nezvykle vysoký.}
+
+Výše uvedená analýza předpokládá, že historické parametry $\theta_1$ až $\theta_{70}$ a současný parametr $\theta_{71}$ pocházejí se stejného pravděpodobnostního rozdělení. Pokud existuje oprávněný důvod zpochybňující tento předpoklad, mohou být závěry výše uvedené analýzy zavádějící.
+
+V předchozím textu jsme použili 70 historických experimentů ke konstrukci apriorního rozdělení parametru $\theta_{71}$. Toto apriorní rozdělení však můžeme, alespoň teoreticky, použít také k získání Bayesiánských inferencí parametrů $\theta_1$ až $\theta_{70}$. S tímto přístupem se však pojí několik praktických problémů.
+\begin{itemize}
+\item Pokud bychom apriorní rozdělení použili také pro inference historickým experimentů, pak bychom data z těchto experimentů použili dvakrát. To by mělo za následek nadhodnocení přesnosti takto získaných odhadů.
+\item Odhad $\alpha$ a $\beta$ je do určité míry arbitrární. Použití bodového odhadu těchto parametrů pak ignoruje část aposteriorní nejistoty.
+\item V návaznosti na předchozí bod se také můžeme ptát, zda-li mají být parametry $\alpha$ a $\beta$ vůbec odhadovány. Tyto parametry jsou totiž součástí apriorního rozdělení je tak otázkou, zda-li mají být v souladu s logikou Bayesiánské inference známy před tím, než máme k dispozici data ze současného experimentu.
+\end{itemize}
+
+\subsection{Kombinování informací}
+
+Navzdory výše uvedeným problémům je smysluplnější odhadnout populační rozdělení na základě všech dat a tak pomoci odhadnout každé $\theta_j$, spíše než odhadnout všech 71 hodnot $\theta_j$ samostatně. Uvažujme parametry $\theta_{26}$ a $\theta_{27}$, které odpovídají experimentům s dvěma pozorovanými nádory v rámci skupinky 20 potkanů. Předpokládejme, že námi uvažované apriorní rozdělení pro oba parametry je centrováno na hodnotu 0.15. Dále předpokládejme, že dokončení analýzy dat nám bylo řečeno, že přesná hodnota $\theta_{26}$ je rovna 0.10. To by mělo mít vliv na odhad parametru $\theta_{27}$. Na základě této nové informace bychom se mohli oprávněně domnívat, že hodnota $\theta_{27}$ je nižší, než jsme se původně domnívali, proto že data pro $\theta_{26}$ a $\theta_{27}$ jsou identická. Proto by parametry $\theta_{26}$ a $\theta_{27}$ měly být s ohledem na aposteriorní rozdělení závislé a neměly by tak být analyzovány odděleně.
+
+Pokud aplikujeme pravděpodobnostní model na celou sadu parametrů $\theta_j$ a následně provedeme Bayesiánskou analýzu na sdruženém pravděpodobnostním rozdělení těchto parametrů, zachováme výhody plynoucí z použití dat pro odhad apriorních parametrů a zároveň se zbavíme výše zmiňovaných nevýhod. Kompletní Bayesiánská analýza je popsána v sekci 5.3. Na analýzu využívající data pro odhad apriorních parametrů, která je někdy nazývána empirickou Bayesiánskou analýzou, můžeme pohlížet jako aproximaci kompletní Bayesiánské analýzy.
+
+\section{Zaměnitelnost a hierarchický model}
+
+Uvažujme skupinu experimentů $j = 1, ..., J$, kdy experiment $j$ je charakterizován daty $y_j$ a parametrem $\theta_j$ s věrohodnostní funkcí $p(y_j|\theta_j)$. Abychom zkonstruovali sdružený pravděpodobnostní model všech parametrů $\theta$, využijeme již dříve popsané myšlenky zaměnitelnosti.
+
+\subsection{Zaměnitelnost}
+
+Parametry $(\theta_1, ..., \theta_J)$ jsou v rámci sdruženého pravděpodobnostního rozdělení zaměnitelné, pokud je $p(\theta_1, ..., \theta_J)$ invariantní vzhledem k permutacím indexů $(1, ..., J)$. Pokud bychom např. v našem ilustrativním příkladu neměli pro 71 experimentů k dispozici jinou informaci, než je velikost $n_j$ testovaných skupin, o kterých můžeme předpokládat, že nesouvisí s hodnotou parametru $\theta_j$, pak můžeme pro parametry $\theta_j$ použít předpoklad zaměnitelnosti.
+
+V rámci nejjednodušší formy zaměnitelného pravděpodobnostního rozdělení má každý parametr $\theta_j$ charakter náhodného výběru z apriorního (popř. populačního) rozdělení, které je dané neznámým parametrem $\phi$, neboli
+\begin{equation}
+p(\theta|\phi) = \prod_{j = 1}^J p(\theta_j | \phi).
+\end{equation}
+Obecně platí, že $\phi$ je neznámé, a proto pravděpodobnostní rozdělení parametru $\theta$ musí odrážet naši nejistotu ohledně $\phi$, tj.
+\begin{equation}
+p(\theta) = \int \Big(\prod_{j = 1}^J p(\theta_j | \phi) \Big) p(\phi) d\phi.
+\end{equation}
+
+\subsection{Zaměnitelnost a nová informace}
+
+Často se stávám že pozorování nejsou plně zaměnitelná, ale pouze částečně či podmíněně zaměnitelná.
+\begin{itemize}
+\item Jestliže můžeme pozorování rozřadit do skupin, můžeme zkonstruovat hierarchický model, ve kterém má každá skupina svůj vlastní podmodel, jehož parametry však neznáme. Jestliže předpokládáme, že v rámci skupiny jsou pozorování zaměnitelná, můžeme pro danou skupinu zkonstruovat apriorní rozdělení parametrů charakterizujících tuto skupinu.
+\item Jestliže je pozorování $y_i$ doprovázeno dodatečnou informací $x_i$ tak, že $x_i$ a $y_i$ nejsou zaměnitelné, avšak jednotlivé dvojce $(y_i, x_i)$ zaměnitelné jsou, pak můžeme zkonstruovat sdružený model pro $(y_i, x_i)$ nebo podmíněný model pro $y_i|x_i$.
+\end{itemize}
+
+Obvyklý způsob modelování zaměnitelnosti nezávislých veličin je přes podmíněnou nezávislost, tj. $p(\theta_1, ..., \theta_J|x_1, ..., x_J) = \int \Big[\prod_{j = 1}^J p(\theta_j | \phi, x_j)\Big]p(\phi|x)d\phi$, kde $x = (x_1, .., x_J)$. Tímto způsobem se modely založené na zaměnitelnosti stávají univerzálně použitelné, protože každá informace, která nám umožňuje rozlišit jednotlivá pozorování, by měla být zohledněna v proměnných $x$ a $y$.
+
+V případě našeho ilustrativní příkladu výskytu nádoru je jedinou informací, která nám umožňuje odlišit jednotlivé experimenty, velikost skupiny $n_j$. Ačkoliv není pravděpodobné, že by velikost skupiny vysvětlovala pravděpodobnost výskytu nádoru, můžeme zkonstruovat model pro $J$ párů $(n, y)_j$. Prvním přirozeným krokem je vytvoření grafu, který bude porovnávat výskyt nádoru $y_j / n_j$ s velikostí skupiny $n_j$, s cílem zjistit případnou vazbu $y_j / n_j$ na $n_j$. Např. se mohlo stát, že některé experimenty byly prováděny na větší skupině potkanů, protože se očekávala nižší míra výskytu nádoru, tj. nižší $\theta_j$, což by se pak odrazilo na nižším $y_j / n_j$. V našem případě se však žádný takový vztah nepotvrdil.
+
+\subsection{Námitky vůči zaměnitelnému modelu}
+
+Je přirozené odmítat předpoklad zaměnitelnosti, protože v praxi se okolnosti, za kterých byla získána jednotlivá pozorování, často liší. Např. v případě 71 experimentů v rámci ilustrativního případu byly jednotlivé experimenty prováděny v různé době, na různých skupinách potkanů, v různých laboratořích atd. Na druhou stranu, pokud nám informace, kterou máme k dispozici, neumožňuje jednotlivá pozorování odlišit, pak neexistuje důvod, proč bychom je neměli považovat za zaměnitelná.
+
+\subsection{Hierarchický model v kontextu Bayesiánského přístupu}
+
+Pokud se vrátíme k problému inference, pak slovo `hierarchický' znamená, že $\phi$ je neznámý parametr s vlastním apriorním rozdělením $p(\phi)$. Aposteriorní rozdělení tak má charakter vektoru $(\phi, \theta)$. Sdružené apriorní rozdělení má pak podobu
+\begin{equation}
+p(\phi, \theta) = p(\phi) p(\theta | \phi),
+\end{equation}
+a sdružené aposteriorní rozdělení podobu
+\begin{equation}
+\begin{split}
+p(\phi, \theta|y) & \varpropto p(\phi, \theta) p(y|\phi, \theta)\\
+ & = p(\phi, \theta) p(y | \theta),
+\end{split}
+\end{equation}
+kde výše uvedené zjednodušení je platné, protože pravděpodobnostní rozdělení dat $p(y|\phi, \theta)$ závisí pouze na parametru $\theta$; $\phi$ ovlivňuje $y$ pouze skrze $\theta$.
+
+\subsection{Hyperapriorní rozdělení}
+
+Abychom mohli zkonstruovat sdružené pravděpodobnostní rozdělení pro $(\phi, \theta)$, musíme nejprve přiřadit apriorní rozdělení parametru $\phi$. Pokud máme o parametru $\phi$ pouze omezené informace, můžeme použít nevlastní apriorní rozdělení, pouze se musíme ujistit, že výsledné aposteriorní rozdělení má konečný integrál a kvantifikovat, do jaké míry jsou naše závěry citlivé na předpoklady ohledně zvoleného apriorního rozdělení. Ve většině reálných případů bychom však měli mít k dispozici dostatek informací k tomu, abychom pro $\phi$ vytyčili rozumný parametrický prostor popř. také přiřadili vhodné apriorní rozdělení.
+
+\subsection{Aposteriorní prediktivní rozdělení}
+
+Hierarchické modely jsou charakterizovány jak hyperparametrem $\phi$, tak parametrem $\theta$. Existují dvě aposteriorní prediktivní rozdělení, která nás zajímají a to (1) pravděpodobnostní rozdělení budoucích pozorování $\tilde{y}$ odpovídající existujícím hodnotám $\theta_j$ a (2) pravděpodobnostní rozdělení pozorování $\tilde{y}$ odpovídající budoucím výběrům hodnot $\theta_j$ ze populace. Pro účely následující textu označujeme budoucí hodnoty parametrů $\theta_j$ jako $\tilde{\theta}$.
+
+V našem ilustrativním příkladě může být (1) dodatečný potkan v rámci již existujícího experimentu a (2) výsledek budoucího experimentu. V prvním případě je aposteriorní prediktivní výběr založen a aposteriorním výběru $\theta_j$ existujícího experimentu. V druhém případě je třeba nejprve náhodně vybrat $\tilde{\theta}$ pro nový experiment z populačního rozdělení pro aposteriorní výběr $\phi$, a následně vybrat $\tilde{y}$ pro simulované $\tilde{\theta}$.
+
+\section{Bayesiánská analýza konjugátního hierarchického modelu}
+
+\subsection{Analytické odvození podmíněného a marginálního rozdělení}
+
+Nejprve provedeme následující tři kroky analyticky.
+\begin{itemize}
+\item Vyjádříme sdružené aposteriorní rozdělení $p(\theta, \phi | y)$ v nenormalizované podobě jako součin hyperapriorního rozdělení $p(\phi)$, populačního rozdělení $p(\theta|\phi)$ a věrohodnostní funkce $p(y | \theta)$.
+\item Analyticky určíme podmíněné aposteriorní rozdělení parametru $\theta$ pro daný hyperparametr $\phi$. V případě fixního pozorování $y$ má toto rozdělení podobu funkce $\phi$, konkrétně pak $p(\theta | \phi, y)$.
+\item Odhadneme $\phi$ s pomocí Bayesiánského paradigmatu, tj. získáme jeho aposteriorní rozdělení $p(\phi|y)$.
+\end{itemize}
+
+První krok lze aplikovat relativně přímočaře. Druhý krok je poměrně snadný pro konjugátní modely, protože podmíněně na $\phi$ je populační rozdělení parametru $\theta$ je nezávislý a identicky rozdělený model (5.1), takže podmíněné aposteriorní rozdělení je součinem konjugátních aposteriorních rozdělení pro jednotlivé komponenty $\theta_j$.
+
+Třetí krok lze řešit pomocí `hrubé' výpočetní síly, kdy numericky integrujeme sdružené pravděpodobnostní rozdělení přes $\theta$, tj.
+\begin{equation}
+p(\phi | y) = \int p(\theta, \phi | y) d \theta.
+\end{equation}
+V případě řady standardních modelů, které jsou založeny na normálním rozdělení, lze marginální aposteriorní rozdělení $\phi$ spočítat algebraicky s použitím podmíněné pravděpodobnosti jako
+\begin{equation}
+p(\phi | y) = \frac{p(\theta, \phi | y)}{p(\theta | \phi, y)}.
+\end{equation}
+Výše uvedený výraz lze snadno použít, protože jeho čitatel je sdružené aposteriorní rozdělení (5.4) a jeho jmenovatel je aposteriorní rozdělení $\theta$ za předpokladu známého $\phi$. Obtížnost použití (5.6) spočítá v tom, že s výjimkou několika málo standardních konjugátních modelů má jmenovatel $p(\theta | \phi, y)$ normalizační faktor, který závisí jak na $\phi$ tak na $y$. Při aplikaci normalizační konstanty v rámci Bayesovy věty je třeba se ujistit, a to zejména v případě hierarchických modelů, že se skutečně jedná o konstantu.
+
+\subsection{Náhodný výběr z aposteriorního rozdělení}
+
+Následující postup je vhodný pro náhodný výběr ze sdruženého pravděpodobnostního rozdělení $p(\theta, \phi | y)$ v případě jednoduchého hierarchického modelu, jaký uvažujeme v této kapitole.
+\begin{itemize}
+\item Náhodně vyberme hyperparametr $\phi$ z jeho aposteriorního marginálního rozdělení $p(\phi | y)$. Pokud má $\phi$ povahu skaláru, můžeme pro náhodný výběr použít stejnou metodu jako v kapitole 3. Pokud má $\phi$ charakter vektoru, je třeba použít sofistikovanější metodu, viz. např. část III této knihy.
+\item Náhodně vyberme parametr $\theta$ z aposteriorního podmíněné rozdělení $p(\theta | \phi, y)$ pro hodnotu $\phi$ získanou v předchozím kroku. Např. pokud platí faktorizace $p(\theta | \phi, y) = \prod_j p(\theta_j | \phi, y)$, lze jednotlivé komponenty $\theta_j$ vybrat postupně nezávisle na sobě.
+\item Prediktivní hodnoty $\tilde{y}$ lze získat z aposteriorního prediktivního rozdělení pro dané $\theta$. V závislosti na uvažovaném problému může být nejprve nutné náhodně vybrat novou hodnotu $\tilde{\theta}$ pro dané $\phi$ tak, jak bylo diskutováno na konci předchozí sekce.
+\end{itemize}
+Výše uvedené kroky jsou zopakovány $L$-krát s cílem získat $L$ náhodných výběrů. Na základě aposteriorní sdružené simulace $\theta$ a $\tilde{y}$ lze vypočíst aposteriorní rozdělení libovolného odhadu nebo prediktivního ukazatele.
+
+\subsection{Aplikace modelu na riziko výskytu nádoru}
+
+Nyní aplikujeme Bayesiánskou analýzu na náš experiment výskytu nádoru, který je popsán v sekci 5.1. Opět předpokládáme, že data z experimentů $j = 1, ..., J$, kde $J = 71$, sledují nezávislá binomická rozdělení
+\begin{equation}
+y_j \sim \textit{Bin}(n_j, \theta_j),
+\end{equation}
+kde $n_j$ představuje počet potkanů ve skupině. O parametrech $\theta_j$ předpokládáme, že se jedná o nezávislé výběry z beta rozdělení, tj.
+\begin{equation}
+\theta_j \sim \textit{Beta}(\alpha, \beta)
+\end{equation}
+a hyperparametru $\phi$ přiřadíme neinformativní rozdělení s ohledem na naši neznalost jeho skutečného rozdělení. Pokud se hyperapriorní rozdělení z pohledu výsledné inference ukáže jako zásadní, měli bychom toto v naší studii zmínit a případně se pokusit získat další data, která by nám umožnila konstrukci `informativnějšího' apriorního rozdělení. Pokud bychom použili nevlastní apriorní rozdělení pro parametry $(\alpha, \beta)$, musíme zkontrolovat, že výsledné aposteriorní rozdělení má konečný integrál.
+
+\subsubsection{Sdružené, podmíněné a marginální aposteriorní rozdělení}
+
+Sdružené aposteriorní rozdělení všech parametrů má podobu
+\begin{equation}
+\begin{split}
+p(\theta, \alpha, \beta | y) & \varpropto p(\alpha, \beta) p(\theta | \alpha, \beta) p(y | \theta, \alpha, \beta)\\
+ & \varpropto p(\alpha, \beta) \prod_{j = 1}^J \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} \theta_j^{\alpha - 1}(1 - \theta_j)^{\beta - 1} \prod_{j = 1}^J \theta_j^{y_j}(1 - \theta_j)^{n_j - y_j}.
+\end{split}
+\end{equation}
+Pro dané $(\alpha, \beta)$ sledují komponenty vektoru $\theta$ identická aposteriorní rozdělení, která mají formu beta rozdělení $\theta_j^A(1 - \theta_j)^B$ a sdružené rozdělení má tak tvar
+\begin{equation}
+p(\theta | \alpha, \beta, y) = \prod_{j = 1}^J \frac{\Gamma(\alpha + \beta + n_j)}{\Gamma(\alpha + y_j)\Gamma(\beta + n_j - y_j)} \theta_j^{\alpha + y_j - 1}(1 - \theta_j)^{\beta + n_j - y_j - 1}.
+\end{equation}
+Aposteriorní marginální rozdělení $(\alpha, \beta)$ můžeme získat dosazením (5.9) a (5.10) do rovnice podmíněné pravděpodobnosti (5.6), čímž získáme
+\begin{equation}
+p(\alpha, \beta | y) \varpropto p(\alpha, \beta) \prod_{j = 1}^J \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} \frac{\Gamma(\alpha + y_j)\Gamma(\beta + n_j - y_j)}{\Gamma(\alpha + \beta + n_j)}.
+\end{equation}
+
+\subsubsection{Standardní parametrizace a nastavení neinformativního hyperapriorního rozdělení}
+
+Protože nemáme k dispozici informaci o pravděpodobnostním rozdělení výskytu nádoru, použijeme pro $(\alpha, \beta)$ relativně `obecné' hyperapriorní rozdělení. Před samotným výběrem hyperapriorního rozdělení aplikujeme transformaci $logit\big(\frac{\alpha}{\alpha + \beta}\big) = \ln\big(\frac{\alpha}{\beta}\big)$ a $\ln \big(\alpha + \beta \big)$, což jsou logit střední hodnoty a logaritmus `velikosti výběru' beta rozdělení pro parametr $\theta$, které tyto parametry převádí na interval $(-\infty, \infty)$. V dalším kroku pak takto transformované střední hodnotě a `velikosti výběru' přiřadíme nezávislá hyperapriorní rozdělení. Pokud bychom však pro tato hyperapriorní rozdělení použily uniformní rozdělení, získáme nevlastní aposteriorní rozdělení, které má nekonečný integrál v limitě $(\alpha + \beta) \rightarrow \infty$. Proto v tomto konkrétním případě musíme zvolit jiný typ hyperapriorního rozdělení.
+
+V našem ilustrativním příkladě je možné použít `neinformativní' hyperapriorní rozdělení, nad kterým dominuje věrohodnostní funkce, což má za následek vlastní aposteriorní rozdělení. Jednou z takovýchto možný hyperapriorních rozdělení je uniformní rozdělení nad intervalem $\big(\frac{\alpha}{\alpha + \beta}, (\alpha, \beta)^{-1/2} \big)$, které po vynásobení příslušným Jacobiánem vede k
+\begin{equation}
+p \Big(\ln \big(\ln \frac{\alpha}{\beta}\big), \ln(\alpha + \beta) \Big) \varpropto \alpha \beta (\alpha + \beta)^{-5/2}
+\end{equation}
+a převedením na původní škálu k
+\begin{equation}
+p(\alpha, \beta) \varpropto (\alpha + \beta)^{-5/2}.
+\end{equation}
+
+Pracné kontrole integrálu aposteriorního rozdělení se lze vyhnout, pokud použijeme vlastní hyperapriorní rozdělení. Alternativním řešením je použití uniformního rozdělení typu $p(\frac{\alpha}{\alpha + \beta}, \alpha + \beta) \varpropto 1$ popř. $p(\alpha, \beta) \varpropto 1$ a následně získat kontury a simulace z výsledného aposteriorního rozdělení. Z těchto výsledků by mělo být patrné, zda-li aposteriorní kontury směřují do nekonečna, což indikuje, že aposteriorní rozdělení nemá konečný integrál. Stejně jako v předchozím případech, i zde je řešením volba jiného apriorního rozdělení.
+
+Bohužel použití apriorního uniformního rozdělení pro $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$ i nad poměrně `velkorysým' intervalem jako např. $[-10^{10}, 10^{10}] \times [-10^{10}, 10^{10}]$ není řešením, protože většina pravděpodobnostní masy je koncentrováno v regionu, kde se $\alpha$ a $\beta$ blíží nekonečnu. To odpovídá $\textit{Beta}(\alpha, \beta)$ rozdělení s nulovým rozptylem, což znamená, že všechny parametry $\theta_j$  jsou v rámci aposteriorního rozdělení totožné. Pokud věrohodnostní funkce nemá konečný integrál, pak aplikace konečného - byť vzdáleného - hraničního bodu tento problém neřeší.
+
+\subsubsection{Výpočet marginálního aposteriorního rozdělení hyperparametrů}
+
+Po té, co jsme odvodili pravděpodobnostní modely pro data a parametry, můžeme vypočíst marginální aposteriorní rozdělení hyperparametrů. Obrázek 5.2 zobrazuje konturový graf nenormalizovaného aposteriorního rozdělení na mřížce $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/fig_5_2.eps}
+\caption{První pokus o konturový graf marginálního aposteriorního rozdělení parametrů $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$ pro ilustrativní příklad míry výskytu nádoru.}
+\label{fig_5_2}
+\end{figure}
+Graf byl zkonstruován tak, že jsme nejprve vypočetli logaritmus pravděpodobnostního rozdělení (5.11) s využitím apriorního rozdělení (5.13) a následně vynásobili Jacobiánem s cílem získat pravděpodobnostní rozdělení $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$. Mřížku v grafu jsme nastavili na $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big) \in [-2.5, -1.0] \times [1.5, 3.0]$ vycentrovanou na bod našeho předchozího odhadu $(-1.8, 2.3)$, což odpovídá $(\alpha, \beta) \in (1.4, 8.6)$. Nakonec, abychom ve vyhnuli numerickým problémům, jsme odečetli maximální hodnoty logaritmu pravděpodobnostního rozdělení od každého bodu mřížky a aplikovali exponenciálu, čímž jsme získali nenormalizované marginální aposteriorní rozdělení zobrazené v grafu.
+
+Z výše uvedeného konturového grafu je zřejmé, že (1) mód není příliš daleko od bodového odhadu a (2) významná část marginálního aposteriorního rozdělení se nachází mimo uvažovanou mřížku. Proto přepočteme $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$ nad mřížkou $[-2.3, -1.3] \times [1.0, 5.0]$. Výsledný graf je pak zobrazen na obrázku 5.4a, který zachycuje téměř celé marginální aposteriorní rozdělení.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/fig_5_3.eps}
+\caption{(a) Konturový graf marginálního aposteriorního rozdělení parametrů $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$ pro ilustrativní příklad míry výskytu nádoru. Konturové linie jsou zobrazeny pro 0.05, 0.15, ..., 0.95 násobek hustoty pravděpodobnosti v módu. (b) Korelační diagram 1~000 náhodných výběrů $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$ z numericky vypočtené marginálního aposteriorního rozdělení.}
+\label{fig_5_3}
+\end{figure}
+Graf na obrázku 5.4b pak zobrazuje 1~000 náhodných výběrů z numericky vypočteného aposteriorního rozdělení. Z obou grafů je také patrné, že po aplikaci transformací je aposteriorní rozdělení hyperparametrů přibližně symetrické okolo módu a to v rozpětí $(-1.75, 2.80)$. To odpovídá přibližně hodnotám $(\alpha, \beta) = (2.40, 14.0)$, což se do určité míry odlišuje od našich dřívějších hrubých odhadů.
+
+Po té, co jsme vypočetli relativní aposteriorní rozdělení nad mřížkou, která pokrývá efektivní rozpětí parametrů $(\alpha, \beta)$, můžeme toto rozdělení aproximovat schodovou funkcí a následně normalizovat tak, aby součet jejích pravděpodobnostní byl roven jedné.
+
+V dalším kroku pak můžeme vypočíst aposteriorní momenty založené na mřížce $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$, kdy např. $E(\alpha | y)$ je odhadnuto jako
+\begin{equation}
+E(\alpha | y) = \sum_{\ln\big(\frac{\alpha}{\beta}\big), \ln(\alpha + \beta)} \alpha \cdot p\Big(\ln\big(\frac{\alpha}{\beta}\big), \ln(\alpha + \beta) | y \Big).
+\end{equation}
+
+\subsubsection{Výběr ze sdruženého aposteriorního rozdělení parametrů a hyperparametrů}
+
+Náhodný výběr o velikosti 1~000 vzorků ze sdruženého aposteriorního rozdělení pro $(\alpha, \beta, \theta_1, ..., \theta_J)$ získáme následujícím způsobem.
+
+\begin{enumerate}
+\item Nejprve náhodně vybereme 1~000 vzorků $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$ z aposteriorního rozdělení zobrazeného na obrázku 5.4. Pro výběr použijeme stejný postup jako v případě výběru $(\alpha, \beta)$ u obrázku (3.3).
+\item Pro $l = 1, ..., 1~000$:
+\begin{enumerate}
+\item Transformujeme $l$-tý výběr $\big(\ln(\frac{\alpha}{\beta}), \ln(\alpha + \beta) \big)$ na $(\alpha, \beta)$ cílem získat náhodný výběr hyperparametrů z jejich marginálního aposteriorního rozdělení.
+\item Pro každé $j = 1, ..., J$ náhodně vybereme $\theta_j$ z podmíněného aposteriorního rozdělení $\theta_j | \alpha, \beta, y \sim \textit{Beta}(\alpha + y_j, \beta + n_j - y_j)$.
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Zobrazení výsledků}
+
+Obrázek 5.4 zobrazuje aposteriorní mediány a 95\% intervaly spolehlivosti pro jednotlivá $\theta_j$ získaná pomocí simulace.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/fig_5_4.eps}
+\caption{Aposteriorní mediány a 95\% intervaly spolehlivosti míry výskytu nádoru $\theta_j$ (vs. pozorované míry výskytu $y_j / n_j$) založené na náhodných výběrech ze sdruženého aposteriorního rozdělení.}
+\label{fig_5_4}
+\end{figure}
+Míry nádorů $\theta_j$ pro jednotlivé experimenty jsou namísto bodových odhadů $y_j / n_j$ representovány populačním rozdělením se střední hodnotou 0.14. Použitím populačního rozdělení jsme docílili, že experimenty s méně pozorováními vykazují vyšší aposteriorní rozptyl. Střední hodnoty odhadovaných parametrů $\theta_i$ jsou přibližně stejné jako v případě bodových odhadů, což není vzhledem k relativně velkému počtu experimentů překvapivé. Nicméně zásadním rozdílem je vyšší rozptyl těchto parametrů, což je odrazem aposteriorní nejistoty hyperparametrů $\alpha$ a $\beta$.
+
+\section{Odhad zaměnitelných parametrů z normálního modelu}
+
+\subsection{Datová struktura}
+
+Uvažujme $J$ nezávislých experimentů, kde v rámci $j$-tého experimentu odhadujeme parametr $\theta_j$ na základě $n_j$ nezávislých pozorování $y_{ij}$ z normálního rozdělení se známým rozptylem $\sigma^2$, tj.
+\begin{equation}
+y_{ij} | \theta_j \sim N(\theta_j, \sigma^2)
+\end{equation}
+pro $i = 1, ..., n_j$ a $j = 1, ..., J$. Pro každý jednotlivý experiment definujme výběrovou střední hodnotu
+\begin{equation}
+\overline{y}_{\cdot j} = \frac{1}{n_j} \sum_{i = 1}^{n_j} y_{ij}
+\end{equation}
+a výběrový rozptyl
+\begin{equation}
+\sigma^2_j = \frac{\sigma^2}{n_j}.
+\end{equation}
+Věrohodnostní funkci $\theta_j$ pak můžeme zapsat s pomocí dostatečné statistiky $\overline{y}_{\cdot j}$ jako
+\begin{equation}
+\overline{y}_{\cdot j} | \theta_j \sim N(\theta_j, \sigma^2_j).
+\end{equation}
+Následujícím textu této kapitoly budou všechny výrazy implicitně podmíněny známými hodnotami $\sigma_j^2$.
+
+\subsection{Konstrukce apriorního rozdělení pro účely pragmatických úvah}
+
+Zamysleme se nad tím, jaký typ aposteriorních odhadů může být přijatelný pro $\theta$ pro daná data $(y_{ij})$. Nejjednodušší přístup je odhadnout $\theta_j$ pomocí $\overline{y}_{\cdot j}$, tj. pomocí průměru $j$-tého experimentu. Nicméně se může stát, že budeme mít např. $J = 20$ experimentů s pouze $n_j = 2$ pozorováními na skupinu. V tomto případě můžeme odhadnout $\theta_j$ pomocí tzv. sdíleného odhadu (pooled estimate)
+\begin{equation}
+\overline{y}_{\cdot \cdot} = \frac{\sum_{j = 1}^J \frac{1}{\sigma_j^2}\overline{y}_{\cdot j}}{\sum_{j = 1}^J \frac{1}{\sigma^2_j}}.
+\end{equation}
+
+Abychom rozhodli, který odhad použít, lze aplikovat $F$ test z klasické statistiky na rozdíly mezi jednotlivými středními hodnotami. Pokud se neprokáže, že střední hodnoty v rámci $J$ experimentů jsou statisticky významně odlišné, lze použít $\overline{y}_{\cdot \cdot}$. Následující tabulka shrnuje analýzu rozptylu, kde $\tau^2$ představuje rozptyl parametru $\theta_1, ..., \theta_J$. Pro zjednodušení předpokládáme $n_j = n$ a $\sigma_j^2 = \sigma^2 / n$ pro všechna $j$.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/tbl_5_2.eps}
+\caption{Tabulka analýzy rozptylu}
+\label{fig_5_2}
+\end{figure}
+V klasické analýze rozptylu se vypočte sloupec součtů čtverců (SS - sum of squares) a sloupec průměru čtverců (MS - mean square) a následně se použije `between' a `within' průměr čtverců pro odhad $\tau$. Pokud je poměr `between' a `within' průměru čtverců výrazně vyšší než 1.0, pak na základě této analýzy rozptylu budeme jednotlivá $\theta_j$ odhadovat odhadovat zvlášť, tj. $\hat{\theta}_j = \overline{y}_{\cdot \cdot}$. Pokud je však poměr průměrů čtverců statisticky nevýznamný, odhadujeme $\theta_j$ jednou hodnotou $\overline{y}_{\cdot \cdot}$ pro všechna $j$. Alternativně můžeme použít vážený průměr těchto dvou přístupů, tj.
+\begin{equation}
+\hat{\theta}_j = \lambda_j \overline{y}_{\cdot j} + (1 - \lambda_j) \overline{y}_{\cdot \cdot},
+\end{equation}
+kde $\lambda_j$ představuje váhu mezi $0$ a $1$. Na tento přístup lze také pohlížet jako na zobecnění dvou předchozích přístupů, které jsou zohledněny skrze krajní hodnoty $\lambda = 0$ a $\lambda = 1$.
+
+Následující body shrnují, jaké typy apriorních modelů vedou k jakým typům aposteriorních odhadů.
+\begin{enumerate}
+\item Odhad $\hat{\theta}_j = \overline{y}_{\cdot j}$ je aposteriorní střední hodnotou, pokud $J$ hodnot $\theta_j$ sleduje nezávislé apriorní uniformní rozdělení nad intervalem $(-\infty, \infty)$.
+\item Odhad $\hat{\theta} = \overline{y}_{\cdot \cdot}$ je aposteriorní střední hodnotou, pokud je všech $J$ hodnot $\theta_j$ shodných s uniformním apriorním rozdělením pro společné $\theta$.
+\item Vážený průměr dvou výše uvedených přístupů je aposteriorní střední hodnotou, pokud $J$ hodnot $\theta_j$ sleduje nezávislá a identická apriorní normální rozdělení.
+\end{enumerate}
+
+\subsection{Hierarchický model}
+
+Z důvodu konjugace předpokládáme, že jsou parametry $\theta_j$ náhodně vybrány z normálního rozdělení popsaného hyperparametry $(\mu, \tau)$
+\begin{equation}
+\begin{split}
+p(\theta_1 ..., \theta_J | \mu, \tau) = \prod_{j = 1}^J N(\theta_j | \mu, \tau^2)\\
+p(\theta_1, ..., \theta_J) = \int \prod_{j = 1}^J \big[N(\theta_j | \mu, \tau^2)\big]p(\mu, \tau)d(\mu, \tau).
+\end{split}
+\end{equation}
+To znamená, že $\theta_j$ jsou podmíněně na $(\mu, \tau)$ vzájemně nezávislá. Hierarchický model také dovoluje interpretovat jednotlivá $\theta_j$ jako náhodný výběr z populačního rozdělení tak, jak to ilustruje obrázek 5.1.
+
+Přiřaďme hyperparametru $\mu$ neinformativní uniformní rozdělení za předpokladu znalosti $\tau$
+\begin{equation}
+p(\mu, \tau) = p(\mu | \tau) p(\tau) \varpropto p(\tau).
+\end{equation}
+Použití uniformního apriorního rozdělení je v tomto případě rozumné - vzhledem k tomu, že kombinovaná data ze všech $J$ experimentů jsou obecně velmi informativní ohledně $\mu$, můžeme si v případě apriorního rozdělení dovolit být relativně vágní. Apriorní rozdělení hyperparametru $\tau$ budeme diskutovat později.
+
+\subsection{Sdružené aposteriorní rozdělení}
+
+Kombinací výběrového modelu pro pozorování $y_{ij}$ a apriorního rozdělení získáme sdružené aposteriorní rozdělení všech parametrů a hyperparametrů, které můžeme vyjádřit pomocí dostatečných statistik $\overline{y}_{\cdot j}$ jako
+\begin{equation}
+\begin{split}
+p(\theta, \mu, \tau | y) & \varpropto p(\mu, \tau) p(\tau | \mu, \tau) p(y | \theta)\\
+ & \varpropto p(\mu, \tau) \prod_{j = 1}^J N(\theta_j | \mu, \tau^2) \prod_{j = 1}^J N(\overline{y}_{\cdot j} | \theta_j, \sigma_j^2),
+\end{split}
+\end{equation}
+kde můžeme ignorovat členy, které závisí pouze na $y$ a parametrech $\sigma_j$, o kterých předpokládáme, že je známe.
+
+\subsection{Podmíněné aposteriorní rozdělení normálních středních hodnot pro známé hyperparametry}
+
+Stejně jako v obecném hierarchické struktuře jsou parametry $\theta_j$ v apriorním rozdělení nezávislé (pro dané $\mu$ a $\tau$) a figurují ve věrohodnostní funkci (5.15). To znamená, že podmíněné aposteriorní rozdělení $p(\theta | \mu, \tau, y)$ lze rozložit na součin $J$ komponent.
+
+Podmíněně na hyperparametrech tak máme $J$ nezávislých neznámých středních hodnot, které sledují dané apriorní normální rozdělení, a proto můžeme nezávisle na každé $\theta_j$ aplikovat metody ze sekce 2.5. Podmíněná aposteriorní rozdělení parametrů $\theta_j$ definovaná jako
+\begin{equation}
+\theta_j | \mu, \tau, y \sim N(\hat{\theta}_j, V_j)
+\end{equation}
+jsou vzájemně nezávislá, kde
+\begin{equation}
+\hat{\theta}_j = \frac{\frac{1}{\sigma_j^2} \overline{y}_{\cdot j} + \frac{1}{\tau^2}}{\frac{1}{\sigma_j^2} + \frac{1}{\tau^2}}
+\end{equation}
+a
+\begin{equation}
+V_j = \frac{1}{\frac{1}{\sigma^2_j} + \frac{1}{\tau^2}}.
+\end{equation}
+Aposteriorní střední hodnota je tak váženým průměrem apriorní populační střední hodnoty a výběrové střední hodnoty $j$-tého experimentu. Výše uvedené vztahy pro $\hat{\theta_j}$ a $V_j$ jsou funkcemi $\mu$ a $\tau$ stejně jako dat. Podmíněné aposteriorní rozdělení parametrů $\theta_j$ pro daná $\mu$ a $\tau$ jsou vlastní.
+
+\subsection{Marginální aposteriorní rozdělení hyperparametrů}
+
+Výše nabízené řešení je pouze částečné, protože závisí na neznámých hyperparametrech $\mu$ a $\tau$. Sekce 5.3 zmiňuje integraci nebo analytický výpočet jako dva možné způsoby odvození $p(\mu, \tau | y)$ ze sdruženého aposteriorního rozdělení $p(\theta, \mu, \tau | y)$. V případě hierarchického normálního modelu můžeme přímo zohlednit informaci ohledně hyperparametrů poskytnutou daty přímo jako
+\begin{equation}
+p(\mu, \tau | y) \varpropto p(\mu, \theta)p(y | \mu, \tau).
+\end{equation}
+V řadě případů však tento rozklad nepomůže, protože `marginální' věrohodnost $p(y| \mu, \tau)$ nelze obecně vyjádřit v uzavřené formě. Marginální rozdělení středních hodnot $\overline{y}_{\cdot j}$ zprůměrovaná přes $\theta$ sledují nezávislá (avšak nikoliv identická) normální rozdělení
+\begin{equation}
+\overline{y}_{\cdot, j} | \mu, \tau \sim N(\mu, \sigma_j^2 + \tau^2).
+\end{equation}
+Marginální aposteriorní rozdělení tak můžeme zapsat jako
+\begin{equation}
+p(\mu, \tau | y) \varpropto p(\mu, \tau) \prod_{j = 1}^J N(\overline{y}_{\cdot, j} | \mu, \sigma_j^2 + \tau^2).
+\end{equation}
+
+\subsubsection{Aposteriorní rozdělení $\mu$ pro dané $\tau$}
+
+Vztah (5.29) můžeme použít pro výpočet aposteriorního rozdělení $p(\mu, \tau | y)$ jako funkce dvou proměnných a pokračovat stejně jako v případě ilustrativního příkladu s mírou výskytu nádoru ve skupině potkanů. V případě normálního modelu však můžeme zjednodušit integraci přes $\mu$, což nám umožní jednoduše numericky vypočíst $p(\tau | y)$. Marginální aposteriorní rozdělení hyperparametrů rozložíme na součin dvou členů stejně, jako jsme to udělali v případě (5.22), tj.
+\begin{equation}
+p(\mu, \tau | y) = p(\mu | \tau, y)p(\tau | y).
+\end{equation}
+První člen na pravé straně (5.30) je aposteriorní rozdělení $\mu$ pro dané $\tau$. Pokud se pozorně podíváme na (5.29), u které předpokládáme známé $\tau$, pak za předpokladu uniformního podmíněného aposteriorního rozdělení $p(\mu | \tau)$ je logaritmus aposteriorního rozdělení kvadratickou funkcí v $\mu$, a proto $p(\mu | \tau, y)$ musí sledovat normální rozdělení. Střední hodnotu a rozptyl tohoto rozdělení lze získat ze středních hodnot $\overline{y}_{\cdot j}$, které jsou považovány za $J$ nezávislých odhadů parametru $\mu$ a rozptylem $(\sigma_j^2 + \tau^2)$. Kombinací dat s uniformním apriorním rozdělením $p(\mu | \tau)$ získáváme
+\begin{equation}
+\mu | \tau, y \sim N(\hat{\mu}, V_{\mu}),
+\end{equation}
+kde $\hat{\mu}$ je váženým průměrem jednotlivých $\overline{y}_{\cdot, j}$, tj.
+\begin{equation}
+\hat{\mu} = \frac{\sum_{j = 1}^J \frac{1}{\sigma_j^2 + \tau^2} \overline{y}_{\cdot, j}}{\sum_{j = 1}^J \frac{1}{\sigma_j^2 + \tau^2}}
+\end{equation}
+a $V_{\mu}^{-1}$ je celková přesnost, tj.
+\begin{equation}
+V_{\mu}^{-1} = \sum_{j = 1}^J \frac{1}{\sigma_j^2 + \tau^2}.
+\end{equation}
+Výsledek je vlastní aposteriorní rozdělení parametru $\mu$ pro dané $\tau$.
+
+\subsubsection{Aposteriorní rozdělení $\tau$}
+
+Nyní můžeme s pomocí (5.30), (5.32) a (5.33) odvodit aposteriorní rozdělení parametru $\tau$ jako
+\begin{equation}
+\begin{split}
+p(\tau | y) & = \frac{p(\mu, \tau | y)}{p(\mu | \tau, y)}\\
+ & \varpropto \frac{p(\tau) \prod_{j = 1}^J N(\overline{y}_{\cdot, j} | \mu, \sigma_j^2 + \tau^2)}{N(\mu | \hat{\mu}, V_{\mu})}.
+\end{split}
+\end{equation}
+Tato identita musí být splněna pro všechny hodnoty $\mu$. Jinými slovy, pokud se tento výraz zjednoduší, musí se všechny členy parametru $\mu$  vzájemně vyrušit. Konkrétně je tato podmínka splněná, pokud $\mu = \hat{\mu}$, čímž získáváme
+\begin{equation}
+\begin{split}
+p(\tau | y) & \varpropto \frac{p(\tau)\prod_{j = 1}^J N(\overline{y}_{\cdot j} | \hat{\mu}, \sigma_j^2 + \tau^2)}{N(\hat{\mu} | \hat{\mu}, V_{\mu})}\\
+ & \varpropto p(\tau) V_{\mu}^{\frac{1}{2}} \prod_{j = 1}^J (\sigma_j^2 + \tau^2)^{-\frac{1}{2}} e^{-\frac{(\overline{y}_{\cdot j} - \hat{\mu})^2}{2(\sigma_j^2 + \tau^2)}},
+\end{split}
+\end{equation}
+kde $\hat{\mu}$ a $V_{\mu}$ jsou definovány skrze (5.32) a (5.33). Protože jsou jak $\hat{\mu}$ tak $V_{\mu}$ funkcí $\tau$, je $p(\tau | y)$ poměrně složitou funkcí $\tau$.
+
+\subsubsection{Apriorní rozdělení $\tau$}
+
+Abychom dokončili naši analýzu, musíme parametru $\tau$ přiřadit apriorní rozdělení. Pro tento účel použijeme neinformativní aposteriorní rozdělení $p(\tau) \varpropto 1$, a proto bychom měli zkontrolovat, zda-li má výsledné aposteriorní rozdělení konečný integrál. Lze však dokázat, že uniformní rozdělení v případě $\tau$ vede k vlastnímu aposteriornímu rozdělení.\footnote{Naopak zdánlivě rozumné apriorní rozdělení $p\big(\ln(\tau)\big)$ vede k nevlastnímu aposteriornímu rozdělení.} Alternativně pak lze jako apriorní rozdělení pro $\tau^2$ použít škálované inverzní $\chi^2$ rozdělení, které kalibrujeme na odhad střední hodnoty a odhad hraniční hodnoty, který budeme považovat např. za 99\% kvantil.
+
+\subsection{Výpočet}
+
+Výpočet aposteriorního rozdělení parametru $\theta$ je nejjednodušší skrze simulaci s využitím následující faktorizace
+\begin{equation}
+p(\theta, \mu, \tau | y) = p(\tau | y) p(\mu, \tau, y)p(\tau | \mu, \tau, y).
+\end{equation}
+První krok, simulace $\tau$, lze snadno provést numericky s využitím inverzní kumulativní pravděpodobnostní funkce na mřížce s uniformně rozmístěnými hodnotami $\tau$ a $p(\tau | y)$ vypočteným pomocí (5.35). Druhý a třetí krok, simulace $\mu$ a následná simulace $\theta$, lze implementovat formou náhodného výběru z normálního rozdělení, kde nejprve použijeme (5.32) a (5.33) k získání $\mu$ a následně pak (5.25) a (5.26) k získání jednotlivých $\theta_j$.
+
+\subsection{Aposteriorní prediktivní rozdělení}
+
+Uvažujme dva scénáře - (1) budoucí data $\tilde{y}$ jako `pokračování' stávajících experimentů se středními hodnotami $\theta = (\theta_1, ..., \theta_J)$ a (2) budoucí data $\tilde{y}$ jako výsledek $\tilde{J}$ nových experimentů se středními hodnotami $\tilde{\theta} = (\tilde{\theta}_1, ..., \tilde{\theta}_{\tilde{J}})$. V druhém případě musíme také specifikovat celkem $\tilde{J}$ velikostí $\tilde{n}_j$ skupin potkanů pro nově uvažované experimenty.
+
+Abychom získali náhodný výběr $\tilde{y}$ z aposteriorního prediktivního rozdělení pro stávající experimenty charakterizované stávajícími hodnotami $\theta_j$, použijme (5.15).
+
+Náhodný výběr $\tilde{y}$ z aposteriorního prediktivního rozdělení pro $\tilde{J}$ nových experimentů lze provést v následujících třech krocích. Nejprve náhodně vybereme $(\mu, \tau)$ z jejich aposteriorního rozdělení. Následně náhodně vybereme $\tilde{J}$ nových parametrů $\tilde{\theta} = (\tilde{\theta}_1, ..., \tilde{\theta}_{\tilde{J}})$ z populačního rozdělení $p(\tilde{\theta}_j | \mu, \tau)$. Na závěr náhodně vybereme $\tilde{y}$ pro dané $\tilde{\theta}$ z rozdělení (5.15).
+
+\subsection{Nebayesiánské odhady hyperparametrů}
+
+Abychom ilustrovali výhody Bayesiánského  přístupu, porovnáme ho s přibližnou metodou, která je založená na bodovém odhadu $\mu$ a $\tau$ z pozorovaných dat. Nezkreslené bodové odhady, které jsme prezentovali výše, mají podobu
+\begin{equation}
+\begin{split}
+\hat{\mu} = \overline{y}_{\cdot \cdot}\\
+\tau^2 = (MS_B - MS_W)/n,
+\end{split}
+\end{equation}
+kde $MS_B$ a $MS_W$ představují `between' a `within' součet čtverců. V tomto alternativním přístupu jsou inference pro $\theta_1, ..., \theta_J$ založeny na podmíněném aposteriorním rozdělení $p(\theta | \hat{\mu}, \hat{\tau})$ pro dané bodové odhady.
+
+V rámci ilustrativního příkladu míry výskytu nádoru jsme již dříve uvedli, že hlavní problém bodových odhadů hyperparametrů je, že ignorují část reálné nejistoty. Výsledná inference pro $\theta$ tak nemůže interpretována jako Bayesiánská aposteriorní souhrnná statistika. Navíc bodový odhad $\hat{\theta}$ získaný na základě (5.37) může být záporný! To nastane v situacích, kdy $MS_B < MS_W$, což může nastat, pokud je velikost vzorku příliš malá na to, abychom mohli zamítnout hypotézu $\tau^2 = 0$. To je však něco jiného, než tvrzení $\tau^2 = 0$. Pokud bychom v těchto případech předpokládali $\tau^2 = 0$, pak bychom také implicitně předpokládali, že všechna $\theta_j$ jsou shodná. To však, jak si ukážeme v následující sekci, vede ke kontroverzním tvrzením.
+
+\section{Ilustrativní příklad - paralelní experiment na osmi školách}
+
+Ve Spojených státech byla pro agenturu Educational Testing Service provedena studie, jejíž cílem bylo analyzovat efekt speciálního programu pro studenty na jimi dosažené skóre v celonárodním testu. V testu může student získat 200 až 800 bodů; střední hodnota 500 bodů, směrodatná odchylka 100 bodů. Studie probíhala současně na osmi školách.
+
+\subsection{Inference založené na nehierarchických modelech a jejich problémy}
+
+Nejprve uvažujme dvě jednoduché nehierarchické metody - (a) odhad efektu programu pro všech osmi experimentů nezávisle na sobě (b) odhad efektu programu pro všech osm experimentů najednou.
+
+\subsubsection{Nezávislé odhady}
+
+Na první pohled by se z tabulky na obrázku 5.7 mohlo zdát, že na některých školách měl program větší úspěch než na jiných. Pokud však vezmeme v potaz směrodatnou odchylku, je složité od sebe jednotlivé experimenty odlišit. Např. pokud pro výsledek každé školy zkonstruujeme 95\% interval spolehlivosti, budou se jednotlivé intervaly z velké části vzájemně překrývat.
+
+\subsubsection{Společný odhad}
+
+Výše zmiňovaný překryv intervalů spolehlivosti naznačuje, že by mohlo být vhodné efekt programu odhadnout za všechny zúčastněné školy najednou spíše než jednotlivě.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/tbl_5_3.eps}
+\caption{Pozorovaný efekt speciálního programu pro studenty prováděný na osmi školách}
+\label{tbl_5_3}
+\end{figure}
+Implicitním předpokladem tohoto přístupu je, že všechny experimenty mají stejný efekt a data v tabulce na obrázku 5.7 tak lze považovat za osm pozorování z normální rozdělení se známou střední hodnotou. Při použití neinformativního apriorního rozdělení je aposteriorní střední hodnota společného efektu programu na uvažovaných osmi školách $\overline{y}_{\cdot \cdot}$ dle (5.19) s tím, že $\overline{y}_{\cdot j}$ je nahrazeno $\overline{y}_j$. Takto získaný aposteriorní odhad je $\overline{y}_{\cdot \cdot} = 7.7$ s aposteriorním rozptylem $\sum_{j = 1}^8 \frac{1}{\sigma_j^2}^{-1} = 16.6$.\footnote{Při výpočtu rozptylu bylo využito skutečnosti, že jednotlivé experimenty jsou nezávislé.} Odpovídající 95\% aposteriorní interval spolehlivosti je tak $[-0.5, 15.9]$ nebo také $[8 \pm 8]$. Pro klasický test hypotézy o shodnosti jednotlivých $\theta_j$ je $\chi^2$ statistika menší než je počet stupňů volnosti, konkrétně $\sum_{j = 1}^8 \frac{(y_j - \overline{y}_{\cdot \cdot})}{\sigma_j^2} = 4.6$. Jinými slovy, $\hat{\tau}^2$ vypočtené dle (5.37) je záporné.
+
+Otázkou nicméně zůstává, zda-li je výsledek dodatečných 28 bodů školy A v kontextu ostatních škol vůbec uvěřitelný. Předpokládejme, že tabulka na obrázku 5.7 představuje náhodné výběry z normálního rozdělení se střední hodnotou 8 bodů a směrodatnou odchylkou 13 bodů. \footnote{Směrodatná odchylka byla vypočtena jako odmocnina průměru rozptylů za uvažovaných osm škol.} Pak, na základě očekávaných hodnot normálních pořadových statistik, můžeme očekávat hodnoty 26, 19, 14, 10, 6, 2, -3 a -9 bodů, což je v souladu s hodnotami uvedenými v tabulce na obrázku 5.7.
+
+\subsubsection{Problémy nezávislých a společných odhadů}
+
+Uvažujme efekt ve škole A, tj. $\theta_1$, který je 28.4 dodatečných bodů se standardní směrodatnou odchylkou 14.9 za předpokladu nezávislých odhadů. To je v kontrastu se společným odhadem, který má střední hodnotu 7.7 a směrodatnou odchylku 4.1. Nezávislé odhady implikují následující aposteriorní tvrzení `pravděpodobnost, že skutečný efekt v případě školy A je větší než 28.4 bodů, je 50\%', což je, s ohledem na výsledky ostatních škol, zpochybnitelné. Na druhou stranu, společný odhad implikuje tvrzení, že `pravděpodobnost, že skutečný efekt programu v případě školy A je menší než 7.7 bodů, je 50\%', což se zdá v být v příkrém rozporu s pozorovaných efektem 28 bodů. Další tvrzení, které společný odhad implikuje je `pravděpodobnost, že skutečný efekt programu na škole A je menší než na škole B, je 50\%', což je opět poměrně těžké obhájit tváří v tvář tabulce na obrázku 5.7. Řešením je zkombinovat informaci ze všech osmi experimentů bez toho, aniž bychom předpokládali, že všechna $\theta_j$ jsou shodná, což nám umožňuje výše diskutovaný hierarchický model.
+
+\subsection{Aposteriorní simulace v rámci hierarchického modelu}
+
+Následně můžeme vypočíst aposteriorní rozdělení parametrů $\theta_1, ..., \theta_8$ založeném na normálním modelu, který jsme představili v sekci 5.4. Nejprve náhodně vybereme hodnoty parametrů $\tau$, $\mu$ a $\theta$ z jejich aposteriorních rozdělení, přičemž (a) předpokládáme, že známe výběrové směrodatné odchylky $\sigma_j$ a že jsou dány hodnotami v tabulce na obrázku 5.7 a (b) předpokládáme nezávislé apriorní uniformní rozdělení pro parametry $\mu$ a $\tau$.
+
+\subsection{Výsledky}
+
+Marginální aposteriorní rozdělení $p(\tau|y)$ získané na základě (5.35) je zobrazeno na obrázku 5.8.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/fig_5_5.eps}
+\caption{Marginální aposteriorní rozdělení $p(\tau | y)$ pro standardní směrodatnou odchylku efektu speciálního programu na podporu studentů}
+\label{fig_5_5}
+\end{figure}
+Hodnoty okolo nula bodů mají přiřazenu nejvyšší hustotu pravděpodobnosti; hodnoty vyšší než 25 bodů mají téměř nulovou hustotu pravděpodobnosti. Inference týkající se marginálního rozdělení ostatních parametrů a jejich sdružené rozdělení lze získat z nasimulovaných hodnot.
+
+Podmíněné střední hodnoty $E(\theta_j|\tau, y)$ získané průměrováním přes $\mu$ jsou zobrazeny jako funkce $\tau$ na obrázku 5.8.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/fig_5_6.eps}
+\caption{Podmíněné aposteriorní střední hodnoty $E(\theta_j | \tau, y)$ efektu programu na podporu studentů jako funkce směrodatné odchylky $\tau$. Graf školy C protíná grafy škol E a F, protože C má vyšší směrodatnou odchylku a jeho odhad je proto vychýlen směrem k celkové střední hodnotě.}
+\label{fig_5_6}
+\end{figure}
+Porovnáním obrázků 5.5 a 5.6, které mají shodné měřítko na vodorovné ose, vidíme, že pro většinu `pravděpodobných' hodnot  parametru $\tau$ jsou odhadnuté efekty relativně blízko u sebe. S tím, jak se $\tau$ stává větším, což odpovídá větším rozdílům mezi jednotlivými školami, se jednotlivé odhady blíží více a více hodnotám v tabulce na obrázku 5.7.
+
+Grafy na obrázku 5.10 představují podmíněné směrodatné odchylky $sd(\theta_j | \tau, y)$ jako funkci $\tau$. S tím, jak se $\tau$ zvyšuje, zvyšuje se potenciál pro odlišnost dopadu programu pro jednotlivé školy, což se projevuje nárůstem aposteriorní nejistoty jednotlivých $\theta_j$, která se blíží standardním směrodatným odchylkám v tabulce na obrázku 5.7 v limitě $\tau \rightarrow \infty$.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/fig_5_7.eps}
+\caption{Podmíněné aposteriorní směrodatné odchylky $sd(\theta_j | \tau, y)$ vlivu programu na podporu studentů jako funkce parametru $\tau$}
+\label{fig_5_7}
+\end{figure}
+
+Na závěr bychom měli poznamenat, že nezískáme přesnou sumární statistiku dat, pokud aplikujeme podmínění na aposteriorní mód parametru $\tau$. Technika podmínění modální hodnotu (např. odhad metodou maximální věrohodnosti) hyperparametru jako je $\tau$ se často používá v praxi (alespoň jako aproximace), ačkoliv ignoruje nejistotu jeho aposteriorního rozdělení. Pro $\tau = 0$ je efekt programu pro všechny školy shodný, tj. předpokládáme střední hodnotu 7.7 bodů a směrodatnou odchylku 4.1 bodů. Obrázky 5.8 až 5.10 ilustrují, že tento stav předpokládá `konvergenci' odhadů pro všech osm škol. Tento problém je v našem ilustrativním příkladě obzvlášť akutní, protože se aposteriorní mód $\tau$ nachází na hranici parametrického prostoru. Sdružený aposteriorní modální odhad $(\theta_1, ..., \theta_J, \mu, \tau)$ pak `trpí' ještě většími problémy.
+
+\subsection{Diskuse}
+
+Tabulka na obrázku 5.11 sumarizuje 200 simulací pro uvažovaných osm škol. V jistém slova smyslu jsou tyto výsledky podobné společnému 95\% intervalu spolehlivosti $[8 \pm 8]$ v tom, že odpovídající Bayesiánské 95\% intervaly spolehlivosti se z velké části překrývají jsou centrovány na mediánu v rozmezí 5 až 10 bodů. Na druhou stranu jsou tyto výsledky odlišné a to v tom, že naznačují různý efekt pro jednotlivé školy - 95\% Bayesiánské intervaly spolehlivosti jsou téměř dvakrát tak široké než interval spolehlivosti pro společný odhad s výrazně vyšší pravděpodobností efektu převyšujícím 16 bodů (obzvláště v případě školy A) a větší pravděpodobnosti záporných efektů (obzvláště v případě školy C).
+
+Pořadí škol v závislosti na efektu programu na podporu studentů naznačené v tabulce na obrázku 5.11 je v podstatě totožné s pořadím, které bychom získali na základě osmi oddělených odhadů. Nicméně existují určité rozdíly v detailech - např. Bayesiánská pravděpodobnost, že efekt programu na škole A je vyšší než 28 bodů je méně než 10\%, což je významně méně než 50\% pravděpodobnost založená na samostatném odhadu pro tuto školu.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/tbl_5_4.eps}
+\caption{Sumarizace 200 simulací dopadu programu na osm uvažovaných škol}
+\label{tbl_5_4}
+\end{figure}
+
+Obrázek 5.12a představuje histogram 200 simulací efektů pro školu A. Pokud máme k dispozici nasimulované hodnoty parametru $\theta$, můžeme klást i komplikovanější otázky jako např. jaké je aposteriorní rozdělení $max\{\theta_j\}$, kde $max\{\theta_j\}$ představuje efekt na nejúspěšnější z osmi škol. Obrázek 5.12b zobrazuje histogram 200 simulovaných efektů pro $max\{\theta_j\}$. Z obrázku vyplývá, že pouze 22 hodnot je vyšších než 28.4 bodů, a proto $Pr(max\{\theta_j\} > 28.4) \approx \frac{22}{200}$. Dalším příkladem je odhad $Pr(\theta_1 > \theta_3 | y)$, tj. aposteriorní pravděpodobnosti, že na škole A je program úspěšnější než na škole C, která je na základě nasimulovaných hodnot odhadnuta na $\frac{141}{200}$.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/fig_5_8.eps}
+\caption{Histogramy zkonstruované na základě 200 nasimulovaných hodnot - (a) histogram $\theta_1$, (b) histogram $max\{\theta_j\}$}
+\label{fig_5_8}
+\end{figure}
+
+\section{Hierarchický model aplikovaný na meta analýzu}
+
+Meta analýza je proces souhrnu závěrů výzkumných studií z určité oblasti výzkumu. Jako metoda kombinování informací z různých zdrojů je meta analýza blízká hierarchickému modelování. V následujícím textu se zaměříme na poměrně jednoduchou aplikaci hierarchického modelování na meta analýzu v medicíně.
+
+Data pro náš příklad jsou uvedeny v tabulce na obrázku 5.13. Data se skládají ze dvou skupin pacientů postihnutých infarktem myokardu náhodně rozdělených do dvou skupin podle toho, zda-li jim byli aplikovány beta blokátory\footnote{Beta blokátory jsou skupina léků, která ovlivňuje centrální nervový systém a která pomáhá uvolňovat srdeční svaly.} Úmrtnost se pohybuje od 3\% do 21\% napříč studiemi, z nichž většina vykazuje mírný, byť statisticky nevýznamný, přínos beta blokátorů. Cílem meta analýzy je poskytnout kombinovanou analýzu studií s cílem získat indikovat celkovou sílu důkazů podporujících aplikaci beta blokátorů.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/tbl_5_5.eps}
+\caption{Výsledky 22 klinických testů tzv. beta blokátorů na snížení úmrtnosti po infarktu myokardu s empirickými log-odd hodnotami a přibližnými výběrovými rozptyly. Aposteriorní kvantily jsou založeny na 5~000 simulacích z Bayesiánského hierarchického modelu. Záporné efekty odpovídají snížené pravděpodobnosti úmrtí.}
+\label{tbl_5_5}
+\end{figure}
+
+\subsection{Definování parametru}
+
+Meta analýza zahrnuje data ve formě několika tabulek formátu 2x2. Jestliže $j$-tý klinický test zahrnuje $n_{0j}$ subjektů v kontrolní skupině (tj. ve skupině, které nebyl poskytnut lék) a $n_{1j}$ subjektů v testovací skupině (tj. ve skupině, které byl poskytnut lék) s počtem úmrtí $y_{0j}$ a $y_{1j}$ v první resp. ve druhé skupině, pak obvyklý model náhodného výběru zahrnuje dvě nezávislá binomická rozdělení s pravděpodobností úmrtí $p_{0j}$ a $p_{1j}$. Předmětem našeho zájmu jsou pak rozdíl pravděpodobností $p_{1j} - p_{0j}$, podíl pravděpodobností $p_{1j} / p_{0j}$ popř. podíl $\rho_j = \frac{p_{1j}}{1 - p_{1j}} / \frac{p_{0j}}{1 - p_{0j}}$. Z důvodu relativně snadné interpretace a skutečnosti, že se jeho aposteriorní rozdělení blíží normálnímu i v pro relativně malé výběry, se v následujícím textu zaměříme na logaritmus $\rho_j$, který budeme značit $\theta_j = \ln(\rho_j)$.
+
+\subsection{Normální aproximace věrohodnostní funkce}
+
+Jednoduchou Bayesiánskou analýzu můžeme založit na předpokladu normality, který jsme představili v předchozím textu, pokud závěry každého testu $j$ vyjádříme pomocí normální věrohodnostní funkce definované pro parametr $\theta_j$. Jeden z možných přístupů je založený na logit funkci, kdy $\theta_j$ můžeme odhadnout pomocí
+\begin{equation}
+y_j = \ln \Big(\frac{y_{1j}}{n_{1j} - y_{1j}}\Big) - \ln \Big(\frac{y_{0j}}{n_{0j} - y_{0j}}\Big)
+\end{equation}
+s výběrovým rozptylem
+\begin{equation}
+\sigma_j^2 = \frac{1}{y_{1j}} + \frac{1}{n_{1j} - y_{1j}} + \frac{1}{y_{0j}} + \frac{1}{n_{0j} - y_{0j}}.
+\end{equation}
+
+Odhadované hodnoty $y_j$ a jím odpovídající směrodatné odchylky $\sigma_j^2$ jsou zobrazeny jako čtvrtý a pátý sloupec tabulky na obrázku 5.13. V následujícím textu použijeme hierarchickou Bayesiánskou analýzu ke kombinaci výsledků 22 studií uvedených v této tabulce, čímž získáme lepší odhady jednotlivých parametrů $\theta_j$ společně s odhadem střední hodnoty a směrodatné odchylky přes všechny klinické testy.
+
+\subsection{Inference v meta analýze}
+
+Pomocí Bayesiánského přístupu se pokusíme zjistit, zda-li je možné považovat všechny studie za vzájemně porovnatelné v tom smyslu, že můžeme všechny jedince v těchto studiích považovat za náhodně vybrané z téže populace. V opačném případě nelze z výsledků jedné studie uvažovat na možné výsledky ostatních studií. Další možností je, že jednotlivé studie je možné považovat za vzájemně zaměnitelné, avšak nikoliv nezbytně nutně za identické popř. vzájemně nesouvisející. Jinými slovy, mezi jednotlivými testy existují rozdíly, nicméně tyto rozdíly nemají předvídatelný efekt. Tato poslední verze tak představuje kompromis mezi dvěma předchozími přístupy.
+
+\subsection{Hierarchický normální model}
+
+Nechť $y_j$ představuje bodové odhady $\theta_j$ získané na základě (5.38), kde $j = 1, ..., J$. Hierarchický normální model předpokládá
+\begin{equation}
+y_j | \theta_j, \sigma_j \sim N(\theta_j, \sigma_j^2),
+\end{equation}
+kde $\sigma_j$ je odpovídající směrodatná odchylka vypočtená pomocí (5.39), o které předpokládáme, že ji známe a že není zatížená chybou. Toto zjednodušení ve smyslu známé směrodatné odchylky má jen malý vliv, protože pro velké výběry (téměř všechny studie mají více než 50 pacientů jak v kontrolní tak testovací skupině) jsou binominální rozptyly poměrně přesně odhadnuty.
+
+Nejprve s využitím předpokladu zaměnitelnosti použijeme normální apriorní rozdělení se střední hodnotu $\mu$ a směrodatnou odchylkou $\tau$, což jsou neznámé hyperparametry. K tomu budeme potřebovat hyperapriorní rozdělení pro $\mu$ a $\tau$. Pro hyperparametr $\mu$ je možné použít lokálně uniformní apriorní rozdělení, protože i v případě relativně malého počtu studií budou kombinovaná data dostatečně informativní ohledně populační střední hodnoty. Také v případě hyperparametru $\tau$ je nejjednodušší variantou aplikace lokálně uniformního rozdělení.
+
+\subsection{Výsledky analýzy a porovnání s jednoduššími metodami}
+
+Pokud bychom zkonstruovali graf, který je analogií grafu na obrázku 5.8, zjistili bychom, že marginální aposteriorní rozdělení hyperparametru $\tau$ dosahuje maxima pro nenulové hodnoty, ačkoliv hodnoty blízké nule jsou poměrně pravděpodobné s tím, že $\tau = 0$ má hustotu pravděpodobnosti pouze o 25\% menší než v modální hodnotě. Aposteriorní kvantily parametrů $\theta_j$ na logit měřítku pro uvažovaných 22 studií jsou uvedeny v posledních sloupcích tabulky na obrázku 5.13.
+
+Protože je aposteriorní rozdělení parametru $\tau$ koncentrováno kolem hodnot, které jsou v porovnání s výběrovými směrodatnými odchylkami poměrně malé\footnote{To je patrné, pokud porovnáme hodnotu mediánu $\tau$ z tabulky na obrázku 5.14 s hodnotami $\sigma_j$ na obr8}, 
+\begin{figure}[htp]
+\centering
+\includegraphics[scale = 0.45]{pictures/tbl_5_6.eps}
+\caption{Vybrané kvantily pro střední hodnotu, směrodatnou odchylku a predikovaný parametr $\tilde{\theta}_j$ pro hypotetickou budoucí studii. Souhrnné statistiky jsou odvozeny z údajů v tabulce na obrázku 5.13 pro klinické testy beta blokátoru. Parametry $\tilde{\theta}_j$ předpokládají log-odd transformaci.}
+\label{tbl_5_6}
+\end{figure}

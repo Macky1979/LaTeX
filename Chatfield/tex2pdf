@@ -1,0 +1,20 @@
+# Skript na konverzi souboru .dvi na .pdf
+# parameter $1 - jmeno souboru .tex urceneho ke konverzi na .pdf
+# Michal Mackanic 26.3.2007
+
+# Vymazani stavajicich souboru
+if
+	rm -f $1.dvi
+then
+	rm -f $1.dvi
+fi
+
+if
+	rm -f $1.pdf
+then
+	rm -f $1.pdf
+fi
+
+# Konverze z .tex do .dvi a z .dvi do .pdf
+latex $1.tex
+dvipdf $1.dvi $1.pdf

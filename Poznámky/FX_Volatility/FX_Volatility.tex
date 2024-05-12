@@ -1,0 +1,75 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{FX Volatilita}
+
+\textbf{Poznámka:} Ve finanční terminologii označuje pojem "volatilita" směrodatnou odchylku (tj. druhou odmocninu rozptylu).
+
+\section{Výpočet}
+
+Uvažujme měnové páry TRY-USD a EUR-USD. Jestliže pro tyto dva měnové páry známe směrodatnou odchylku a korelaci, je možné dopočítat směrodatnou odchylku pro měnový pár TRY-EUR.
+
+Definujme měnové kurzy $X_t$, $Y_t$ a $Z_t$ pro časový okamžik $t$ jako
+\begin{equation*}
+X_t = \frac{TRY_t}{USD_t} 
+\end{equation*}
+\begin{equation*}
+Y_t = \frac{EUR_t}{USD_t}
+\end{equation*}
+\begin{equation*}
+Z_t = \frac{TRY_t}{EUR_t}
+\end{equation*}
+Je zřejmé že, za předpokladu neexistence arbitráže, platí pro měnový kurz $Z_t$
+\begin{equation*}
+Z_t = \frac{X_t}{Y_t}
+\end{equation*}
+resp.
+\begin{equation*}
+\ln Z_t = \ln X_t - \ln Y_t
+\end{equation*}
+Nechť je relativní změna $X$ v časovém intervalu $t-1$ až $t$ dána vztahem
+\begin{equation*}
+X^{\%}_{t, t-1} = \frac{X_t - X_{t-1}}{X_{t-1}} \approx \ln \frac{X_t}{X_{t-1}} = \ln X_t - \ln X_{t-1}
+\end{equation*}
+Relativní změnu pro měnové kurzy $Y$ a $Z$ definujme analogicky.
+
+Z logiky věci vyplývá, že $Z^{\%}_{t, t-1}$ lze vypočítat dle
+\begin{equation*}
+Z^{\%}_{t, t-1} \approx \ln Z_t - \ln Z_{t-1} = (\ln X_t - \ln Y_t) - (\ln X_{t-1} -  \ln Y_{t-1}) =
+\end{equation*}
+\begin{equation*}
+= (\ln X_t - \ln X_{t-1}) - (\ln Y_t - \ln Y_{t-1}) = X^{\%}_{t, t-1} - Y^{\%}_{t, t-1} 
+\end{equation*}
+S ohledem na definici rozptylu složené náhodné veličiny $A - B$
+\begin{equation*}
+D[A - B] = D[A] + D[B] - 2cov(A,B)
+\end{equation*}
+tedy pro rozptyl měnového kurzu $Z$ platí
+\begin{equation*}
+D[Z^{\%}_{\Delta t}] = D[X^{\%}_{\Delta t} - Y^{\%}_{\Delta t}] = D[X^{\%}_{\Delta t}] + D[Y^{\%}_{\Delta t}] - 2 cov(X^{\%}_{\Delta t}, Y^{\%}_{\Delta t})
+\end{equation*}
+kde $\Delta t$ představuje časový interval délky $t, t-1$. Výše uvedenou rovnici lze dále upravit do tvaru
+\begin{equation*}
+D[Z^{\%}_{\Delta t}] = D[X^{\%}_{\Delta t}] + D[Y^{\%}_{\Delta t}] - 2 \rho(X^{\%}_{\Delta t}, Y^{\%}_{\Delta t}) \sqrt{D[X^{\%}_{\Delta t}]D[Y^{\%}_{\Delta t}]}
+\end{equation*}
+
+\subsection{Přepočet volatility na roční bázi}
+
+Takto vypočtený rozptyl je vztažen k časovému intervalu $t, t-1$. Je tedy třeba ho přepočítat na roční bázi. Klasicky je časový interval $t, t-1$ roven jednomu pracovnímu dni. Jestliže budeme předpokládat, že rok má 252 pracovních dní a že jednotlivé denní změny kurzu jsou vzájemně nezávislé \footnote{To znamená, že kovariance mezidenních změn je rovna nule.}, platí pro roční rozptyl
+\begin{equation*}
+D[Z^{\%}_Y] = 252 \cdot D[Z^{\%}_D]
+\end{equation*}
+kde $D[Z^{\%}_D]$ je denním rozptylem relativní změny měnového kurzu $Z$.
+
+\section{Reuters}
+
+Na Reuters jsou velice často k dispozici volatity pouze ve vztahu k USD. Jestliže je zapotřebí volatilita např. vůči EUR, je třeba ji vypočítat křížově dle výše uvedeného postupu. Jediné, co je třeba dopočítat "ručně" z historických dat, je korelace $\rho(X^{\%}_{\Delta t}, Y^{\%}_{\Delta t})$ mezi měnovými páry.
+
+\end{document}

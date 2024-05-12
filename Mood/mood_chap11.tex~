@@ -1,0 +1,66 @@
+\chapter{Neparametrické metody}
+
+Při aplikaci obecného věrohodnostního poměru jsme pracovali s parametrickým prostorem, který definoval určitou rodinu pravděpodobnostních rozdělení. Při testování hypotéz jsme tak znali funkční předpis pravděpodobnostního rozdělení. Jediné, co jsme neznali, byly parametry tohoto rozdělení. Metody, které představíme v následujícím textu, se neopírají o znalost funkčního předpisu ani o znalost parametrů a jsou tak aplikovatelné pro široké spektrum pravděpodobnostních rozdělení\footnote{To znamená, že pro svou aplikaci nevyžadují určité konkrétní pravděpodobnostní rozdělení jako např. normální rozdělní.}. Význam těchto metod pro praxi je zřejmý, protože pravděpodobnostní rozdělení populace, ze které provádíme náhodný výběr, obvykle neznáme.
+
+\section{Kumulativní distribuční funkce}
+
+\subsection{Výběrová kumulativní distribuční funkce}
+
+V kapitole (6.4.3) jsme výběrovou kumulativní distribuční funkci definovali jako
+\begin{equation*}
+F_n(x) = \frac{1}{n}(\textit{počet} ~ X_i ~ \textit{menších nebo rovných} ~ x) = \frac{1}{n}\sum_{i = 1}^n I_{(-\infty, x]}(X_i)
+\end{equation*}
+kde $X_1, ..., X_n$ představuje náhodný výběr z určité kumulativní distribuční funkce $F(\cdot)$. Dle věty (6.19) platí
+\begin{equation}
+P\left[F_n(x) = \frac{k}{n}\right] = \binom{n}{k}[F(x)]^k[1 - F(x)]^{n - k}, ~~~ k = 0, 1, ..., n
+\end{equation}
+kde $F_n(\cdot)$ je výběrovou kumulativní distribuční funkcí odpovídající $F(\cdot)$. Z rovnice (11.2) vyplývá
+\begin{equation}
+E[F_n(x)] = \sum_{k = 0}^n \frac{k}{n}\binom{n}{k}[F(x)]^k[1 - F(x)]^{n - k} = F(x)
+\end{equation}
+a podobně
+\begin{equation}
+D[F_n(x)] = \frac{1}{n}F(x)[1 - F(x)]
+\end{equation}
+
+Protože je $F_n(x)$ výběrovou střední hodnotou náhodných veličin $I_{(-\infty, x]}, ..., I_{-\infty, x}(X_n)$, sleduje $F_n(x)$ dle centrálního limitního teorému
+asymptoticky normální rozdělení se střední hodnotou $F(x)$ a rozptylem $\frac{1}{n}F(x)[1 - F(x)]$.
+
+Z rovnic (11.3) a (11.4) vyplývá, že pro fixní $x$ je $F_n(x)$ nezkreslenou a MSE konzistentní funkcí odhadu pro $F(x)$ bez ohledu na její konkrétní funkční předpis. Protože nás však zajímá odhad $F(x)$ pro všechny hodnoty $x$, potřebujeme vědět, jak blízké je $F_n(x)$ k $F(x)$ sdruženě přes všechny hodnoty $x$. To znamená, že předmětem našeho zájmu je
+\begin{equation*}
+P[\sup_{-\infty < x < \infty} |F_n(x) - F(x)| \xrightarrow{n \rightarrow \infty} 0] = 1
+\end{equation*}
+Tato rovnice, nazývaná Glivenko-Canteliovou větou, říká, že $F_n(x)$ konverguje s pravděpodobností k $F(x)$ pro libovolné $x$. Definujme
+\begin{equation*}
+D_n = \sup_{-\infty < x < \infty}|F_n(x) - F(x)|
+\end{equation*}
+kde $D_n$ náhodná veličina, která měří vzdálenost mezi $F_n(\cdot)$ a $F(\cdot)$. Rovnice (11.5) tedy říká, že $P[\lim_{n \rightarrow \infty} D_n = 0] = 1$. To znamená, že kumulativní distribuční funkce $F_{D_n}(\cdot)$ náhodné proměnné $D_n$ konverguje k diskrétní kumulativní distribuční funkce s jediným bodem koncentrace v 0.
+
+Namísto bodového odhadu $F(x) = P[X \le x]$ může být někdy žádoucí bodový odhad $F(y) - F(x) = P[x < X < y]$ pro fixní $x < y$. Následující tvrzení ukazuje, že $F_n(y) - F_n(x)$ je nezkreslenou MSE konsistení funkcí odhadu pro $F(y) - F(x)$.
+
+\begin{corollary}
+\begin{equation}
+cov[F_n(x), F_n(y)] = \frac{1}{n}F(x)[1 - F(y)] ~~~ \textit{pro} ~ y \ge x
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+\begin{multline*}
+cov[F_n(x), F_n(y)] = cov\left[\frac{1}{n}\sum_{i = 1}^n I_{(-\infty, x]}(X_i), \frac{1}{n}\sum_{j = 1}^n I_{(-\infty, y]}(X_j)\right]\\
+= \left(\frac{1}{n}\right)^2 cov \left[\sum_{i = 1}^n I_{(-\infty, x]}(X_i), \sum_{j = 1}^n I_{-\infty, y}(X_j)\right] = \left(\frac{1}{n}\right)^2 \sum_{i = 1}^n \sum_{j = 1}^n cov[I_{(-\infty, x]}(X_i), \sum_{(-\infty, y]}(X_j)]\\
+= \frac{1}{n}cov[I_{(-\infty, x]}(X_1), I_{(-\infty, x]}(X_1)] = \frac{1}{n}\left(E[I_{(-\infty, x]}(X_1)I_{(-\infty, y]}(X_1)] - E[I_{(-\infty, x]}(X_1)]E[I_{(-\infty, y]}(X_1)]\right)\\
+= \frac{1}{n}[F(x) - F(x)F(y)] = \frac{1}{n}F(x)[1 - F(y)]
+\end{multline*}
+\end{proof}
+
+Z tvrzení (11.1) je zřejmé, že
+\begin{equation*}
+D[F_n(y) - F_n(x)] = D[F_n(y)] - 2 cov[F_n(x), F_n(y)] + D[F_n(x)] = \frac{1}{n}[F(y) - F(x)][1 - F(y) + F(x)]
+\end{equation*}
+z čehož vyplývá konzistence $F_n(y) - F_n(x)$ s $F(x) - F(y)$ ve smyslu MSE.
+
+Namísto odhadu $P[x < X \le y]$ uvažujme obecnější $P[X \in B]$, kde $B$ představuje určitou množinu. Lze dokázat, že $\frac{1}{n}\sum_{i = 1}^n I_B(X_i)$ je nezkreslenou funkcí odhadu pro $P[X \in B]$ a že
+\begin{equation*}
+D\left[\frac{1}{n}\sum_{i = 1}^n I_B(X_i)\right] = \frac{1}{n}P[X \in B](1 - P[X \in B])
+\end{equation*}
+a proto je tato funkce odhadu také MSE konzistentní.

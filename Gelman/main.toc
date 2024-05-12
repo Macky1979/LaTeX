@@ -1,0 +1,225 @@
+\babel@toc {czech}{}
+\contentsline {part}{I\hspace {1em}\IeC {\'U}vod do Bayesi\IeC {\'a}nsk\IeC {\'e} statistiky}{7}% 
+\contentsline {chapter}{\numberline {1}Pravd\IeC {\v e}podobnost a inference}{9}% 
+\contentsline {section}{\numberline {1.1}\IeC {\'U}vod}{9}% 
+\contentsline {subsection}{\numberline {1.1.1}Bayesi\IeC {\'a}nsk\IeC {\'a} statistika}{9}% 
+\contentsline {subsubsection}{Historie}{9}% 
+\contentsline {subsubsection}{Bayesi\IeC {\'a}nsk\IeC {\'e} vs. frekven\IeC {\v c}n\IeC {\'\i } pojet\IeC {\'\i } pravd\IeC {\v e}podobnosti}{9}% 
+\contentsline {subsubsection}{Aplikace Bayesi\IeC {\'a}nsk\IeC {\'e} statistiky}{9}% 
+\contentsline {subsection}{\numberline {1.1.2}Notace}{10}% 
+\contentsline {subsection}{\numberline {1.1.3}Zam\IeC {\v e}nitelnost}{10}% 
+\contentsline {section}{\numberline {1.2}Bayesi\IeC {\'a}nsk\IeC {\'a} inference}{10}% 
+\contentsline {subsection}{\numberline {1.2.1}Bayesova v\IeC {\v e}ta}{10}% 
+\contentsline {subsection}{\numberline {1.2.2}Predikce}{11}% 
+\contentsline {subsection}{\numberline {1.2.3}V\IeC {\v e}rohodnostn\IeC {\'\i } funkce}{11}% 
+\contentsline {subsection}{\numberline {1.2.4}Aposteriorn\IeC {\'\i } pravd\IeC {\v e}podobnostn\IeC {\'\i } pom\IeC {\v e}r}{11}% 
+\contentsline {section}{\numberline {1.3}Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klady}{11}% 
+\contentsline {subsection}{\numberline {1.3.1}Genetika}{11}% 
+\contentsline {subsubsection}{Apriorn\IeC {\'\i } pravd\IeC {\v e}podobnost}{12}% 
+\contentsline {subsubsection}{Model a data}{12}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } pravd\IeC {\v e}podobnost}{12}% 
+\contentsline {subsubsection}{P\IeC {\v r}id\IeC {\'a}n\IeC {\'\i } v\IeC {\'\i }cero dat}{12}% 
+\contentsline {subsection}{\numberline {1.3.2}P\IeC {\v r}eklepy}{12}% 
+\contentsline {subsubsection}{Apriorn\IeC {\'\i } pravd\IeC {\v e}podobnost}{13}% 
+\contentsline {subsubsection}{V\IeC {\v e}rohodnostn\IeC {\'\i } funkce}{13}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } pravd\IeC {\v e}podobnost}{13}% 
+\contentsline {subsection}{\numberline {1.3.3}Americk\IeC {\'y} fotbal}{14}% 
+\contentsline {subsubsection}{Bodov\IeC {\'e} rozp\IeC {\v e}t\IeC {\'\i }}{14}% 
+\contentsline {subsubsection}{Parametrick\IeC {\'y} model pro rozd\IeC {\'\i }l mezi v\IeC {\'y}sledkem z\IeC {\'a}pasu a bodov\IeC {\'y}m rozp\IeC {\v e}t\IeC {\'\i }m}{14}% 
+\contentsline {subsubsection}{Ur\IeC {\v c}en\IeC {\'\i } pravd\IeC {\v e}podobnosti pomoc\IeC {\'\i } parametrick\IeC {\'e}ho modelu}{14}% 
+\contentsline {subsection}{\numberline {1.3.4}P\IeC {\'a}rov\IeC {\'a}n\IeC {\'\i } z\IeC {\'a}znam\IeC {\r u}}{15}% 
+\contentsline {subsubsection}{Empirick\IeC {\'y} odhad pravd\IeC {\v e}podobnosti shody}{15}% 
+\contentsline {section}{\numberline {1.4}N\IeC {\v e}kolik u\IeC {\v z}ite\IeC {\v c}n\IeC {\'y}ch poznatk\IeC {\r u} z teorie pravd\IeC {\v e}podobnosti}{17}% 
+\contentsline {subsection}{\numberline {1.4.1}Podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'e} pravd\IeC {\v e}podobnosti}{17}% 
+\contentsline {subsection}{\numberline {1.4.2}Hypot\IeC {\'e}zy}{17}% 
+\contentsline {subsection}{\numberline {1.4.3}St\IeC {\v r}edn\IeC {\'\i } hodnota a rozptyl}{17}% 
+\contentsline {subsection}{\numberline {1.4.4}Modelov\IeC {\'a}n\IeC {\'\i } a podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'a} pravd\IeC {\v e}podobnost}{17}% 
+\contentsline {subsection}{\numberline {1.4.5}St\IeC {\v r}edn\IeC {\'\i } hodnota a rozptyl podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'y}ch rozd\IeC {\v e}len\IeC {\'\i }}{17}% 
+\contentsline {subsection}{\numberline {1.4.6}Transformace prom\IeC {\v e}nn\IeC {\'y}ch}{18}% 
+\contentsline {chapter}{\numberline {2}Jednoparametrov\IeC {\'e} modely}{19}% 
+\contentsline {section}{\numberline {2.1}Odhad pravd\IeC {\v e}podobnosti z binomick\IeC {\'y}ch dat}{19}% 
+\contentsline {subsection}{\numberline {2.1.1}Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad - odhad pravd\IeC {\v e}podobnosti odhadu narozen\IeC {\'\i } \IeC {\v z}eny}{19}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{19}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } predikce}{20}% 
+\contentsline {subsubsection}{Historick\IeC {\'a} vsuvka}{21}% 
+\contentsline {section}{\numberline {2.2}Aposteriorn\IeC {\'\i } pravd\IeC {\v e}podobnost jako kompromis mezi daty a apriorn\IeC {\'\i } informac\IeC {\'\i }}{21}% 
+\contentsline {section}{\numberline {2.3}Charakteristiky aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{22}% 
+\contentsline {section}{\numberline {2.4}Informativn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{22}% 
+\contentsline {subsection}{\numberline {2.4.1}Binomick\IeC {\'y} model s alternativn\IeC {\'\i }m apriorn\IeC {\'\i }m rozd\IeC {\v e}len\IeC {\'\i }m}{22}% 
+\contentsline {subsubsection}{Apriorn\IeC {\'\i } beta rozd\IeC {\v e}len\IeC {\'\i }}{22}% 
+\contentsline {subsubsection}{Apriorn\IeC {\'\i } norm\IeC {\'a}ln\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{23}% 
+\contentsline {subsection}{\numberline {2.4.2}Konjug\IeC {\'a}tn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{23}% 
+\contentsline {subsection}{\numberline {2.4.3}Nekonjug\IeC {\'a}tn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{23}% 
+\contentsline {subsection}{\numberline {2.4.4}Konjug\IeC {\'a}tn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }, rodina exponenci\IeC {\'a}ln\IeC {\'\i }ch pravd\IeC {\v e}podobnostn\IeC {\'\i }ch rozd\IeC {\v e}len\IeC {\'\i } a dostate\IeC {\v c}n\IeC {\'a} statistika}{23}% 
+\contentsline {subsection}{\numberline {2.4.5}Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad}{24}% 
+\contentsline {subsubsection}{Apriorn\IeC {\'\i } uniformn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{24}% 
+\contentsline {subsubsection}{Alternativn\IeC {\'\i } konjug\IeC {\'a}tn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{25}% 
+\contentsline {subsubsection}{Nekonjug\IeC {\'a}tn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{25}% 
+\contentsline {section}{\numberline {2.5}Odhad norm\IeC {\'a}ln\IeC {\'\i } st\IeC {\v r}edn\IeC {\'\i } hodnoty p\IeC {\v r}i zn\IeC {\'a}m\IeC {\'e}m rozptylu}{26}% 
+\contentsline {subsection}{\numberline {2.5.1}Jedno aposteriorn\IeC {\'\i } pozorov\IeC {\'a}n\IeC {\'\i }}{26}% 
+\contentsline {subsubsection}{V\IeC {\v e}rohodnostn\IeC {\'\i } funkce}{26}% 
+\contentsline {subsubsection}{Konjug\IeC {\'a}tn\IeC {\'\i } apriorn\IeC {\'\i } a aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{26}% 
+\contentsline {subsubsection}{Norm\IeC {\'a}ln\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } a p\IeC {\v r}esnost}{27}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } prediktivn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{27}% 
+\contentsline {subsection}{\numberline {2.5.2}V\IeC {\'\i }cero aposteriorn\IeC {\'\i }ch pozorov\IeC {\'a}n\IeC {\'\i }}{28}% 
+\contentsline {section}{\numberline {2.6}Ostatn\IeC {\'\i } jednoparametrov\IeC {\'e} modely}{29}% 
+\contentsline {subsection}{\numberline {2.6.1}Norm\IeC {\'a}ln\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } se zn\IeC {\'a}mou st\IeC {\v r}edn\IeC {\'\i } hodnotou a nezn\IeC {\'a}m\IeC {\'y}m rozptylem}{29}% 
+\contentsline {subsection}{\numberline {2.6.2}Poisson\IeC {\r u}v model}{30}% 
+\contentsline {subsection}{\numberline {2.6.3}Negativn\IeC {\'\i } binomick\IeC {\'y} model}{30}% 
+\contentsline {subsection}{\numberline {2.6.4}Poisson\IeC {\r u}v model parametrizovan\IeC {\'y} pomoc\IeC {\'\i } m\IeC {\'\i }ry a expozice}{31}% 
+\contentsline {subsubsection}{Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad}{31}% 
+\contentsline {subsection}{\numberline {2.6.5}Exponenci\IeC {\'a}ln\IeC {\'\i } model}{32}% 
+\contentsline {section}{\numberline {2.7}Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad - rakovina ledvin v USA}{32}% 
+\contentsline {subsection}{\numberline {2.7.1}Rozlo\IeC {\v z}en\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }pad\IeC {\r u} nap\IeC {\v r}\IeC {\'\i }\IeC {\v c} USA}{32}% 
+\contentsline {subsection}{\numberline {2.7.2}Bayesi\IeC {\'a}nsk\IeC {\'a} inference}{32}% 
+\contentsline {subsection}{\numberline {2.7.3}D\IeC {\r u}sledky velikosti okresu}{33}% 
+\contentsline {section}{\numberline {2.8}Neinformativn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{34}% 
+\contentsline {subsection}{\numberline {2.8.1}Vlastn\IeC {\'\i } na nevlastn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{34}% 
+\contentsline {subsection}{\numberline {2.8.2}Nevlastn\IeC {\'\i } apriorn\IeC {\'\i } vs. vlastn\IeC {\'\i } aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{35}% 
+\contentsline {subsection}{\numberline {2.8.3}Jeffreyovo pravidlo}{35}% 
+\contentsline {subsection}{\numberline {2.8.4}Neinformativn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } pro binomick\IeC {\'y} parametr}{35}% 
+\contentsline {subsection}{\numberline {2.8.5}Kl\IeC {\'\i }\IeC {\v c}ov\IeC {\'a} hodnota, loka\IeC {\v c}n\IeC {\'\i } a \IeC {\v s}k\IeC {\'a}lovac\IeC {\'\i } parametr}{36}% 
+\contentsline {subsection}{\numberline {2.8.6}Komplikace spojen\IeC {\'e} s neinformativn\IeC {\'\i }m apriorn\IeC {\'\i }m rozd\IeC {\v e}len\IeC {\'\i }m}{36}% 
+\contentsline {section}{\numberline {2.9}Slab\IeC {\v e} informativn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{37}% 
+\contentsline {chapter}{\numberline {3}V\IeC {\'\i }ceparametrov\IeC {\'e} modely}{39}% 
+\contentsline {section}{\numberline {3.1}Pr\IeC {\r u}m\IeC {\v e}rov\IeC {\'a}n\IeC {\'\i } p\IeC {\v r}es nadbyte\IeC {\v c}n\IeC {\'e} parametry}{39}% 
+\contentsline {section}{\numberline {3.2}Norm\IeC {\'a}ln\IeC {\'\i } data s neinformativn\IeC {\'\i }m apriorn\IeC {\'\i }m rozd\IeC {\v e}len\IeC {\'\i }m}{39}% 
+\contentsline {subsection}{\numberline {3.2.1}Neinformativn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{40}% 
+\contentsline {subsection}{\numberline {3.2.2}Sdru\IeC {\v z}en\IeC {\'e} aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } $p(\mu , \sigma ^2 | y)$}{40}% 
+\contentsline {subsection}{\numberline {3.2.3}Podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'e} aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } $p(\mu | \sigma ^2, y)$}{40}% 
+\contentsline {subsection}{\numberline {3.2.4}Margin\IeC {\'a}ln\IeC {\'\i } aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } $p(\sigma ^2 | y)$}{40}% 
+\contentsline {subsection}{\numberline {3.2.5}V\IeC {\'y}b\IeC {\v e}r ze sdru\IeC {\v z}en\IeC {\'e}ho aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{41}% 
+\contentsline {subsection}{\numberline {3.2.6}Analytick\IeC {\'a} forma margin\IeC {\'a}ln\IeC {\'\i }ho aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i } $\mu $}{41}% 
+\contentsline {subsection}{\numberline {3.2.7}Aposteriorn\IeC {\'\i } prediktivn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } budouc\IeC {\'\i }ch pozorov\IeC {\'a}n\IeC {\'\i }}{41}% 
+\contentsline {section}{\numberline {3.3}Norm\IeC {\'a}ln\IeC {\'\i } data s apriorn\IeC {\'\i }m konjug\IeC {\'a}tn\IeC {\'\i }m rozd\IeC {\v e}len\IeC {\'\i }m}{42}% 
+\contentsline {subsection}{\numberline {3.3.1}Rodina apriorn\IeC {\'\i }ch konjug\IeC {\'a}tn\IeC {\'\i }ch rozd\IeC {\v e}len\IeC {\'\i }}{42}% 
+\contentsline {subsection}{\numberline {3.3.2}Sdru\IeC {\v z}en\IeC {\'e} aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } $p(\mu , \sigma ^2 | y)$}{42}% 
+\contentsline {subsection}{\numberline {3.3.3}Podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'e} aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } $p(\mu | \sigma ^2, y)$}{43}% 
+\contentsline {subsection}{\numberline {3.3.4}Margin\IeC {\'a}ln\IeC {\'\i } aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } $p(\sigma ^2 | y)$}{43}% 
+\contentsline {subsection}{\numberline {3.3.5}V\IeC {\'y}b\IeC {\v e}r ze sdru\IeC {\v z}en\IeC {\'e}ho aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{43}% 
+\contentsline {subsection}{\numberline {3.3.6}Analytick\IeC {\'a} forma margin\IeC {\'a}ln\IeC {\'\i }ho aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i } parametru $\mu $}{43}% 
+\contentsline {section}{\numberline {3.4}Multinomick\IeC {\'y} model pro kategorick\IeC {\'a} data}{43}% 
+\contentsline {subsection}{\numberline {3.4.1}Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad - p\IeC {\v r}edvolebn\IeC {\'\i } pr\IeC {\r u}zkum}{44}% 
+\contentsline {section}{\numberline {3.5}V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'y} norm\IeC {\'a}ln\IeC {\'\i } model se zn\IeC {\'a}m\IeC {\'y}m rozptylem}{44}% 
+\contentsline {subsection}{\numberline {3.5.1}V\IeC {\v e}rohodnostn\IeC {\'\i } funkce}{44}% 
+\contentsline {subsection}{\numberline {3.5.2}Konjug\IeC {\'a}tn\IeC {\'\i } anal\IeC {\'y}za}{45}% 
+\contentsline {subsubsection}{Konjug\IeC {\'a}tn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } parametru $\mu $ se zn\IeC {\'a}mou kovarian\IeC {\v c}n\IeC {\'\i } matic\IeC {\'\i } $\Sigma $}{45}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } parametru $\mu $ se zn\IeC {\'a}mou kovarian\IeC {\v c}n\IeC {\'\i } matic\IeC {\'\i } $\Sigma $}{45}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'e} a margin\IeC {\'a}ln\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } podmno\IeC {\v z}iny vektoru $\mu $ se zn\IeC {\'a}mou kovarian\IeC {\v c}n\IeC {\'\i } matic\IeC {\'\i } $\Sigma $}{46}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } prediktivn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } pro nov\IeC {\'a} data}{46}% 
+\contentsline {subsubsection}{Neinformativn\IeC {\'\i } apriorn\IeC {\'\i } hustota pravd\IeC {\v e}podobnosti parametru $\mu $}{46}% 
+\contentsline {section}{\numberline {3.6}V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'y} norm\IeC {\'a}ln\IeC {\'\i } model s nezn\IeC {\'a}mou st\IeC {\v r}edn\IeC {\'\i } hodnotou a rozptylem}{47}% 
+\contentsline {subsection}{\numberline {3.6.1}Konjug\IeC {\'a}tn\IeC {\'\i } inverzn\IeC {\'\i } Wishartova rodina apriorn\IeC {\'\i }ch rozd\IeC {\v e}len\IeC {\'\i }}{47}% 
+\contentsline {subsection}{\numberline {3.6.2}Dal\IeC {\v s}\IeC {\'\i } neinformativn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{47}% 
+\contentsline {subsubsection}{Inverzn\IeC {\'\i } Wishartovo rozd\IeC {\v e}len\IeC {\'\i } s $d + 1$ stupni volnosti}{47}% 
+\contentsline {subsubsection}{Inverzn\IeC {\'\i } Wishartovo rozd\IeC {\v e}len\IeC {\'\i } s $d - 1$ stupni volnosti}{48}% 
+\contentsline {subsubsection}{\IeC {\v S}k\IeC {\'a}lovan\IeC {\'y} inverzn\IeC {\'\i } Wishart\IeC {\r u}v model}{48}% 
+\contentsline {section}{\numberline {3.7}Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad - biotest}{48}% 
+\contentsline {subsection}{\numberline {3.7.1}Popis problematiky}{48}% 
+\contentsline {subsection}{\numberline {3.7.2}Modelov\IeC {\'a}n\IeC {\'\i } vztahu mezi d\IeC {\'a}vkov\IeC {\'a}n\IeC {\'\i }m a v\IeC {\'y}sledky test\IeC {\r u}}{48}% 
+\contentsline {subsection}{\numberline {3.7.3}V\IeC {\v e}rohodnostn\IeC {\'\i } funkce}{49}% 
+\contentsline {subsection}{\numberline {3.7.4}Apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{49}% 
+\contentsline {subsection}{\numberline {3.7.5}Hrub\IeC {\'y} odhad parametr\IeC {\r u}}{50}% 
+\contentsline {subsection}{\numberline {3.7.6}Graf sdru\IeC {\v z}en\IeC {\'e} aposteriorn\IeC {\'\i } hustoty pravd\IeC {\v e}podobnosti}{50}% 
+\contentsline {subsection}{\numberline {3.7.7}N\IeC {\'a}hodn\IeC {\'y} v\IeC {\'y}b\IeC {\v e}r ze sdru\IeC {\v z}en\IeC {\'e}ho aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{50}% 
+\contentsline {subsection}{\numberline {3.7.8}Aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } LD50}{51}% 
+\contentsline {subsubsection}{Odhad LD50 v p\IeC {\v r}\IeC {\'\i }pad\IeC {\v e}, \IeC {\v z}e l\IeC {\'e}k m\IeC {\'a} pozitivn\IeC {\'\i } \IeC {\'u}\IeC {\v c}inek}{51}% 
+\contentsline {chapter}{\numberline {4}Asymptotick\IeC {\'e} vlastnosti a souvislost s nebayesi\IeC {\'a}nsk\IeC {\'y}mi\\ metodami}{53}% 
+\contentsline {section}{\numberline {4.1}Norm\IeC {\'a}ln\IeC {\'\i } aproximace aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{53}% 
+\contentsline {subsection}{\numberline {4.1.1}Norm\IeC {\'a}ln\IeC {\'\i } aproximace aposteriorn\IeC {\'\i }ho sdru\IeC {\v z}en\IeC {\'e}ho rozd\IeC {\v e}len\IeC {\'\i }}{53}% 
+\contentsline {subsubsection}{Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad - norm\IeC {\'a}ln\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } s nezn\IeC {\'a}mou st\IeC {\v r}edn\IeC {\'\i } hodnotou a rozptylem}{53}% 
+\contentsline {subsection}{\numberline {4.1.2}Interpretace aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i } s ohledem na jeho maximum}{54}% 
+\contentsline {subsection}{\numberline {4.1.3}P\IeC {\v r}edpoklad normality}{55}% 
+\contentsline {subsection}{\numberline {4.1.4}Redukce dat a souhrnn\IeC {\'e} statistiky}{55}% 
+\contentsline {subsection}{\numberline {4.1.5}Aproximace n\IeC {\'\i }zkorozm\IeC {\v e}rn\IeC {\'y}m norm\IeC {\'a}ln\IeC {\'\i }m rozd\IeC {\v e}len\IeC {\'\i }m}{55}% 
+\contentsline {subsubsection}{Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad - biotest (pokra\IeC {\v c}ov\IeC {\'a}n\IeC {\'\i })}{55}% 
+\contentsline {subparagraph}{Norm\IeC {\'a}ln\IeC {\'\i } aproximace aposteriorn\IeC {\'\i }ho sdru\IeC {\v z}en\IeC {\'e}ho rozd\IeC {\v e}len\IeC {\'\i } parametr\IeC {\r u} $(\alpha , \beta )$.}{55}% 
+\contentsline {subparagraph}{Aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } LD50 s vyu\IeC {\v z}it\IeC {\'\i }m norm\IeC {\'a}ln\IeC {\'\i } aproximace parametr\IeC {\r u} $(\alpha , \beta )$.}{56}% 
+\contentsline {section}{\numberline {4.2}V\IeC {\'y}b\IeC {\v e}r velk\IeC {\'e}ho rozsahu}{57}% 
+\contentsline {subsection}{\numberline {4.2.1}\IeC {\'U}vod do problematiky}{57}% 
+\contentsline {subsection}{\numberline {4.2.2}Asymptotick\IeC {\'a} normalita a konzistence}{57}% 
+\contentsline {subsection}{\numberline {4.2.3}Dominance v\IeC {\v e}rohodnostn\IeC {\'\i } funkce nad apriorn\IeC {\'\i }m rozd\IeC {\v e}len\IeC {\'\i }m}{57}% 
+\contentsline {section}{\numberline {4.3}Nespln\IeC {\v e}n\IeC {\'\i } p\IeC {\v r}edpoklad\IeC {\r u} norm\IeC {\'a}ln\IeC {\'\i } aproximace}{58}% 
+\contentsline {subsection}{\numberline {4.3.1}Nedostate\IeC {\v c}n\IeC {\v e} identifikovan\IeC {\'e} modely}{58}% 
+\contentsline {subsection}{\numberline {4.3.2}Nedostate\IeC {\v c}n\IeC {\v e} identifikovan\IeC {\'e} parametry}{58}% 
+\contentsline {subsection}{\numberline {4.3.3}Po\IeC {\v c}et parametr\IeC {\r u} nar\IeC {\r u}st\IeC {\'a} s velikost\IeC {\'\i } v\IeC {\'y}b\IeC {\v e}ru}{58}% 
+\contentsline {subsection}{\numberline {4.3.4}Zam\IeC {\v e}niteln\IeC {\'e} parametry}{58}% 
+\contentsline {subsection}{\numberline {4.3.5}Neohrani\IeC {\v c}en\IeC {\'a} v\IeC {\v e}rohodnostn\IeC {\'\i } funkce}{59}% 
+\contentsline {subsection}{\numberline {4.3.6}Nevlastn\IeC {\'\i } aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{59}% 
+\contentsline {subsection}{\numberline {4.3.7}Apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }, kter\IeC {\'e} nezahrnuje konvergen\IeC {\v c}n\IeC {\'\i } bod}{59}% 
+\contentsline {subsection}{\numberline {4.3.8}Konvergence k hranici parametrick\IeC {\'e}ho prostoru}{59}% 
+\contentsline {subsection}{\numberline {4.3.9}Chvosty pravd\IeC {\v e}podobnostn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{60}% 
+\contentsline {section}{\numberline {4.4}Bayesi\IeC {\'a}nsk\IeC {\'e} inference}{60}% 
+\contentsline {subsection}{\numberline {4.4.1}Shoda ve v\IeC {\'y}b\IeC {\v e}rech velk\IeC {\'e}ho rozsahu}{60}% 
+\contentsline {subsection}{\numberline {4.4.2}Bodov\IeC {\'y} odhad, konzistence a efektivita odhadu}{60}% 
+\contentsline {subsection}{\numberline {4.4.3}Interval spolehlivosti}{61}% 
+\contentsline {section}{\numberline {4.5}Bayesi\IeC {\'a}nsk\IeC {\'a} interpretace ostatn\IeC {\'\i }ch statistick\IeC {\'y}ch metod}{61}% 
+\contentsline {subsection}{\numberline {4.5.1}Metoda maxim\IeC {\'a}ln\IeC {\'\i } v\IeC {\v e}rohodnosti a dal\IeC {\v s}\IeC {\'\i } bodov\IeC {\'e} odhady}{61}% 
+\contentsline {subsection}{\numberline {4.5.2}Nezkreslen\IeC {\'e} odhady}{62}% 
+\contentsline {subsubsection}{Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad - predikce pomoc\IeC {\'\i } regrese}{62}% 
+\contentsline {subsection}{\numberline {4.5.3}Intervaly spolehlivosti}{62}% 
+\contentsline {subsection}{\numberline {4.5.4}Testov\IeC {\'a}n\IeC {\'\i } hypot\IeC {\'e}z}{63}% 
+\contentsline {subsection}{\numberline {4.5.5}Vz\IeC {\'a}jemn\IeC {\'e} porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'\i }cero parametr\IeC {\r u}}{63}% 
+\contentsline {chapter}{\numberline {5}Hierarchick\IeC {\'e} modely}{65}% 
+\contentsline {section}{\numberline {5.1}Parametrizovan\IeC {\'e} apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{65}% 
+\contentsline {subsection}{\numberline {5.1.1}Anal\IeC {\'y}za jednoduch\IeC {\'e}ho experimentu v kontextu historick\IeC {\'y}ch dat}{65}% 
+\contentsline {subsubsection}{Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad - odhad pravd\IeC {\v e}podobnosti n\IeC {\'a}doru}{65}% 
+\contentsline {subparagraph}{Fixn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }.}{65}% 
+\contentsline {subparagraph}{Odhad popula\IeC {\v c}n\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i } na z\IeC {\'a}klad\IeC {\v e} historick\IeC {\'y}ch dat.}{65}% 
+\contentsline {subsection}{\numberline {5.1.2}Kombinov\IeC {\'a}n\IeC {\'\i } informac\IeC {\'\i }}{67}% 
+\contentsline {section}{\numberline {5.2}Zam\IeC {\v e}nitelnost a hierarchick\IeC {\'y} model}{68}% 
+\contentsline {subsection}{\numberline {5.2.1}Zam\IeC {\v e}nitelnost}{68}% 
+\contentsline {subsection}{\numberline {5.2.2}Zam\IeC {\v e}nitelnost a nov\IeC {\'a} informace}{68}% 
+\contentsline {subsection}{\numberline {5.2.3}N\IeC {\'a}mitky v\IeC {\r u}\IeC {\v c}i zam\IeC {\v e}niteln\IeC {\'e}mu modelu}{69}% 
+\contentsline {subsection}{\numberline {5.2.4}Hierarchick\IeC {\'y} model v kontextu Bayesi\IeC {\'a}nsk\IeC {\'e}ho p\IeC {\v r}\IeC {\'\i }stupu}{69}% 
+\contentsline {subsection}{\numberline {5.2.5}Hyperapriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{69}% 
+\contentsline {subsection}{\numberline {5.2.6}Aposteriorn\IeC {\'\i } prediktivn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{69}% 
+\contentsline {section}{\numberline {5.3}Bayesi\IeC {\'a}nsk\IeC {\'a} anal\IeC {\'y}za konjug\IeC {\'a}tn\IeC {\'\i }ho hierarchick\IeC {\'e}ho modelu}{70}% 
+\contentsline {subsection}{\numberline {5.3.1}Analytick\IeC {\'e} odvozen\IeC {\'\i } podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'e}ho a margin\IeC {\'a}ln\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{70}% 
+\contentsline {subsection}{\numberline {5.3.2}N\IeC {\'a}hodn\IeC {\'y} v\IeC {\'y}b\IeC {\v e}r z aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{70}% 
+\contentsline {subsection}{\numberline {5.3.3}Aplikace modelu na pravd\IeC {\v e}podobnost v\IeC {\'y}skytu n\IeC {\'a}doru}{71}% 
+\contentsline {subsubsection}{Sdru\IeC {\v z}en\IeC {\'e}, podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'e} a margin\IeC {\'a}ln\IeC {\'\i } aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{71}% 
+\contentsline {subsubsection}{Standardn\IeC {\'\i } parametrizace a nastaven\IeC {\'\i } neinformativn\IeC {\'\i }ho hyperapriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{72}% 
+\contentsline {subsubsection}{V\IeC {\'y}po\IeC {\v c}et margin\IeC {\'a}ln\IeC {\'\i }ho aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i } hyperparametr\IeC {\r u}}{72}% 
+\contentsline {subsubsection}{V\IeC {\'y}b\IeC {\v e}r ze sdru\IeC {\v z}en\IeC {\'e}ho aposteriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i } parametr\IeC {\r u} a hyperparametr\IeC {\r u}}{74}% 
+\contentsline {subsubsection}{Zobrazen\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u}}{74}% 
+\contentsline {section}{\numberline {5.4}Odhad zam\IeC {\v e}niteln\IeC {\'y}ch parametr\IeC {\r u} z norm\IeC {\'a}ln\IeC {\'\i }ho modelu}{75}% 
+\contentsline {subsection}{\numberline {5.4.1}Datov\IeC {\'a} struktura}{75}% 
+\contentsline {subsection}{\numberline {5.4.2}Konstrukce apriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i } pro \IeC {\'u}\IeC {\v c}ely pragmatick\IeC {\'y}ch \IeC {\'u}vah}{75}% 
+\contentsline {subsection}{\numberline {5.4.3}Hierarchick\IeC {\'y} model}{76}% 
+\contentsline {subsection}{\numberline {5.4.4}Sdru\IeC {\v z}en\IeC {\'e} aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{76}% 
+\contentsline {subsection}{\numberline {5.4.5}Podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'e} aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } norm\IeC {\'a}ln\IeC {\'\i }ch st\IeC {\v r}edn\IeC {\'\i }ch hodnot pro zn\IeC {\'a}m\IeC {\'e} hyperparametry}{77}% 
+\contentsline {subsection}{\numberline {5.4.6}Margin\IeC {\'a}ln\IeC {\'\i } aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } hyperparametr\IeC {\r u}}{77}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } $\mu $ pro dan\IeC {\'e} $\tau $}{78}% 
+\contentsline {subsubsection}{Aposteriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } $\tau $}{78}% 
+\contentsline {subsubsection}{Apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } $\tau $}{79}% 
+\contentsline {subsection}{\numberline {5.4.7}V\IeC {\'y}po\IeC {\v c}et}{79}% 
+\contentsline {subsection}{\numberline {5.4.8}Aposteriorn\IeC {\'\i } prediktivn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{79}% 
+\contentsline {subsection}{\numberline {5.4.9}Nebayesi\IeC {\'a}nsk\IeC {\'e} odhady hyperparametr\IeC {\r u}}{79}% 
+\contentsline {section}{\numberline {5.5}Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad - paraleln\IeC {\'\i } experiment na osmi \IeC {\v s}kol\IeC {\'a}ch}{80}% 
+\contentsline {subsection}{\numberline {5.5.1}Inference zalo\IeC {\v z}en\IeC {\'e} na nehierarchick\IeC {\'y}ch modelech}{80}% 
+\contentsline {subsubsection}{Nez\IeC {\'a}visl\IeC {\'e} odhady}{80}% 
+\contentsline {subsubsection}{Sd\IeC {\'\i }len\IeC {\'y} odhad}{80}% 
+\contentsline {subsubsection}{Problematika nez\IeC {\'a}visl\IeC {\'y}ch a sd\IeC {\'\i }len\IeC {\'y}ch odhad\IeC {\r u}}{81}% 
+\contentsline {subsection}{\numberline {5.5.2}Aposteriorn\IeC {\'\i } simulace v r\IeC {\'a}mci hierarchick\IeC {\'e}ho modelu}{81}% 
+\contentsline {subsection}{\numberline {5.5.3}V\IeC {\'y}sledky}{81}% 
+\contentsline {subsection}{\numberline {5.5.4}Diskuse}{83}% 
+\contentsline {section}{\numberline {5.6}Hierarchick\IeC {\'y} model aplikovan\IeC {\'y} na meta anal\IeC {\'y}zu}{84}% 
+\contentsline {subsection}{\numberline {5.6.1}Definov\IeC {\'a}n\IeC {\'\i } parametru}{84}% 
+\contentsline {subsection}{\numberline {5.6.2}Norm\IeC {\'a}ln\IeC {\'\i } aproximace v\IeC {\v e}rohodnostn\IeC {\'\i } funkce}{86}% 
+\contentsline {subsection}{\numberline {5.6.3}Inference v meta anal\IeC {\'y}ze}{86}% 
+\contentsline {subsection}{\numberline {5.6.4}Hierarchick\IeC {\'y} norm\IeC {\'a}ln\IeC {\'\i } model}{86}% 
+\contentsline {subsection}{\numberline {5.6.5}V\IeC {\'y}sledky anal\IeC {\'y}zy a porovn\IeC {\'a}n\IeC {\'\i } s jednodu\IeC {\v s}\IeC {\v s}\IeC {\'\i }mi metodami}{87}% 
+\contentsline {section}{\numberline {5.7}Slab\IeC {\v e} informativn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } hierarchick\IeC {\'y}ch parametr\IeC {\r u} rozptylu}{88}% 
+\contentsline {subsection}{\numberline {5.7.1}Volba apriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{88}% 
+\contentsline {subsubsection}{Nevlastn\IeC {\'\i } limita apriorn\IeC {\'\i }ho rozd\IeC {\v e}len\IeC {\'\i }}{88}% 
+\contentsline {subsubsection}{Kalibrace}{88}% 
+\contentsline {subsection}{\numberline {5.7.2}T\IeC {\v r}\IeC {\'\i }dy neinformativn\IeC {\'\i } a slab\IeC {\v e} informativn\IeC {\'\i }ch apriorn\IeC {\'\i }ch rozd\IeC {\v e}len\IeC {\'\i } pro parametry rozptylu v hierarchick\IeC {\'e}m modelu}{89}% 
+\contentsline {subsection}{\numberline {5.7.3}Obecn\IeC {\'e} p\IeC {\v r}edpoklady}{89}% 
+\contentsline {subsubsection}{Apriorn\IeC {\'\i } uniformn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{89}% 
+\contentsline {subsubsection}{Inverzn\IeC {\'\i } apriorn\IeC {\'\i } gamma rozd\IeC {\v e}len\IeC {\'\i }}{89}% 
+\contentsline {subsubsection}{Polovi\IeC {\v c}n\IeC {\'\i } apriorn\IeC {\'\i } Cauchyho rozd\IeC {\v e}len\IeC {\'\i }}{90}% 
+\contentsline {subsection}{\numberline {5.7.4}Aplikace na ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad osmi \IeC {\v s}kol}{91}% 
+\contentsline {subsubsection}{Neinformativn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{91}% 
+\contentsline {subsection}{\numberline {5.7.5}Slab\IeC {\v e} informativn\IeC {\'\i } apriorn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{91}% 
+\contentsline {chapter}{\numberline {6}Slovn\IeC {\'\i }k}{93}% 

@@ -1,0 +1,615 @@
+ \documentclass{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usetheme{Warsaw}
+
+\newcommand\applyFontA{\fontsize{6}{6}\selectfont}
+\newcommand\applyFontB{\fontsize{8}{8}\selectfont}
+
+\title[Single Currency Bootstrapping]{Single Currency Curve Construction before and after Financial Crisis of 2008}
+\author{Michal Mackanic}
+\institute{RMO/CZ}
+\date{November 2015}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Section}
+    \begin{beamercolorbox}[sep=4pt,center]{part title}
+		\large{\insertsectionhead}\par%
+    \end{beamercolorbox}
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Section}
+    \begin{beamercolorbox}[sep=4pt,center]{part title}
+		\insertsubsectionhead\par%
+    \end{beamercolorbox}
+  \end{frame}
+}
+
+\AtBeginSubsubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Section}
+    \begin{beamercolorbox}[sep=2pt,center]{part title}
+		\insertsubsubsectionhead\par%
+    \end{beamercolorbox}
+  \end{frame}
+}
+
+\applyFontB
+
+\section{Symbols Used}
+
+\begin{frame}{Symbols Used}
+\begin{tabular}{l l}
+FRA & forward rate agreement\\
+IRS & interest rate swap\\
+OIS & over-night index swap\\
+LIBOR & London Interbank Offered Rate\\
+CIM & cross interest maturity spread\\
+$IR^{swp}(T)$ & swap rate for an IRS maturing at $T$\\
+$IR^{ois}(T)$ & OIS rate for an OIS maturing at $T$\\
+$IR^{on}(T)$ & a quoted overnight rate maturing at $T$\\
+$\delta_{n-i, n}$ & $i$-th interest period of an IRS leg\\
+$N$ & number of interest payments on an IRS leg\\
+$DF(t, T)$ & value of a zero coupon bond maturing at $T$ as of $t$\\
+$r(T)$ & continuous compounded zero rate maturing at $T$\\
+$IR^{fwd}(T_{n-1}, T_n)$ & xIBOR corresponding to currency and payment frequency\\
+ & of a floating leg\\
+$cim^{1m3m}(T)$ & 1M vs 3M CIM spread for IRS maturing at $T$\\
+$cim^{3m6m}(T)$ & 3M vs 6M CIM spread for IRS maturing at $T$\\
+$cim^{3m12m}(T)$ & 3M vs 12M CIM spread for IRS maturing at $T$\\
+\end{tabular}
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Before and After 2008 Crisis}
+\setbeamertemplate{itemize items}[ball]
+Before 2008
+\begin{itemize}
+\item IRS traded OTC - no collateral or daily settlement
+\item a swap curve considered as risk-free (implicit assumption of AA rated financial institutions - credit risk was regarded as negligible before the crisis)
+\item a swap curve used both for re-pricing and discounting (floating IRS leg values at par on inception)
+\item no CIM spread considered, i.e. one curve used irrespective to re-pricing tenor
+\end{itemize}
+After 2008
+\begin{itemize}
+\item IRS collaterilazed with daily settlement (LCH Clearnet; Dodd-Frank Act)
+\item a swap curve no longer considered as a risk-free benchmark; the role taken over by OIS curve
+\item OIS curve is used for discounting; swap curve is used for re-pricing (floating IRS leg does not value at par on inception any more)
+\item recognition of CIM spreads due to liquity concerns, i.e. different curves for different re-pricing tenors
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Basic Definitions - LIBOR Rate}
+\setbeamertemplate{itemize items}[ball]
+LIBOR is an average rate at which banks can obtain unsecured short-term USD funding. It could be understood as an index that measures funding costs of major banks operating in London market.
+\begin{itemize}
+\item LIBOR rates are quoted for several maturities ranging from overnight to 1Y. The most important maturities are 1M, 3M, 6M and 12M.
+\item LIBOR is administered by ICE (Intercontinental Exchange, Inc.) which, after the LIBOR scandal in 2012\footnote{\tiny{LIBOR used to be based on believed rather than actual funding costs ("It is in many ways the rate at which banks do not lend to each other, ... it is not a rate at which anyone is actually borrowing" - Merwyn King, the Governor of the Bank of England to UK Parliament, late 2008). However bonds, IRS, mortgages and commercial loans re-pricing is directly linked to it. Since LIBOR rate is underlying trades of 350 trillions USD, the risk of manipulation was high.}}, took over from BBA (British Bankers' Association).
+\item There is a number of non-London non-USD equivalents with EURIBOR being the most important example.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Basic Definitions - Swap Rate}
+\setbeamertemplate{itemize items}[ball]
+In a standard IRS a fixed swap rate is exchanged for a floating xIBOR rate over the contract lifetime.
+\begin{itemize}
+\item Swap rates are quoted wrt. underlying IRS maturity and re-pricing tenor, e.g. 10Y USD swap rate with 3M LIBOR re-pricing tenor.
+\item Swap rates could be quoted directly or indirectly via CIM in terms of basis.
+\item As explained later, CIM can be understood as a liquity spread between two different re-pricing tenors.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Basic Definitions - OIS Rate}
+\setbeamertemplate{itemize items}[ball]
+In OIS a fixed OIS rate is exchanged for a geometric average of overnight rates over the contract lifetime.
+\begin{itemize}
+\item OIS rate can be interpreted as a market expectation of an average overnight rate for a certain maturity.
+\item OIS-LIBOR spread could be regarded as an indication of a default risk level in the interbank market as OIS is regared as a contract with virtually no credit risk.
+\item In USA the overnight rate is the Federal Funds rate, i.e. rate at which banks trade overnight their balances at the Federal Reserve on unsecured basis. In Europe overnight rate is EONIA (EUR Overnight Index Average) rate, i.e. rate of overnight unsecured funding on interbank market. EONIA is administred by ECB (European Central Bank).
+\end{itemize}
+\end{frame}
+
+\section{Curve Construction Before 2008}
+
+\begin{frame}{FRA Pricing}
+Forward LIBOR rate for period $[T_{n-1}, T_n]$ is defined as
+\begin{equation*}
+IR^{fwd}(T_{n-1}, T_n) = \frac{1}{\delta_{n-1, n}} \left(\frac{DF(0, T_{n-1})}{DF(0, T_n)} - 1\right)
+\end{equation*}
+and the value of the corresponding FRA with a fixed rate $K$ is
+\begin{equation*}
+V_{T_n} = \big(IR^{fwd}(T_{n-1}, T_n) - K \big) \cdot \delta_{n-1, n} \cdot DF(0, T_n)
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Introduction}
+\setbeamertemplate{itemize items}[ball]
+In a standard IRS a fixed swap rate is exchanged for a floating LIBOR rate over the contract lifetime.
+\begin{itemize}
+\item Cash-flow linked to a fixed swap rate is refered to as a fixed leg. Cash-flow linked to a floating LIBOR rate is refered to as a floating leg.
+\item At IRS inception date fixed and floating leg have the same NPV. Therefore IRS has a zero NPV on its inception date.
+\item IRS could be viewed as a portfolio of FRAs.
+\item After adding a ficticious notional to both legs IRS could be also viewed as a portfolio of a fixed and a floating bond.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Basic Equation}
+Let us consider a newly issued IRS with maturity $T_N$. We know its fixed and floating leg have the same NPV. Realizing that IRS can be viewed as portfolio of FRAs, we can separate fixed and floating part of idividual underlying FRAs and write
+\begin{multline*}
+IR^{swp}(T_N) \sum_{m = 1}^N \delta_{m - 1, m}^{fi} \cdot DF(0, T_m) = \\
+\sum_{n = 1}^N IR^{fwd}(T_{n-1}, T_n) \cdot \delta_{n - 1, n}^{fl} \cdot DF(0, T_n)
+\end{multline*}
+where a fixed swap rate $IR^{swp}(T_N)$ replaces $K$.
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Basic Equation}
+Let us add $DF(0, T_N)$, which represents notional NPV, to both sides of the equation.
+\begin{multline*}
+IR^{swp} \sum_{m = 1}^N \delta_{m - 1, m}^{fi} \cdot DF(0, T_m) + DF(0, T_N) = \\
+\sum_{n = 1}^N IR^{fwd}(T_{n-1}, T_n) \cdot \delta_{n - 1, n}^{fl} \cdot DF(0, T_n) + DF(0, T_N)
+\end{multline*}
+Please note that right side of the equation represents floating bond cash-flow on a re-pricing date!
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Basic Equation}
+Assuming that both forward and discount rates are derived from the same curve, floating bond NPV equals its nominal at re-pricing date.
+\begin{equation*}
+IR^{swp} \sum_{m = 1}^N \delta_{m - 1, m}^{fi} \cdot DF(0, T_m) + DF(0, T_N) = 1
+\end{equation*}
+
+Note: IRS inception date is also a re-pricing date since the first floating payment is fixed according to actual LIBOR rate.
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Bootstrapping}
+We can reverse the last equation to boostrap discount factors implied by swap rates. In this way a swap curve is constructed. Bootstrapping requires an initial discount factor, which is usually derived from xIBOR rate. In case of 6M LIBOR rate discount factor is defined as
+\begin{equation*}
+DF(0, 6M) = \frac{1}{1 + IR^{fwd}(0, 6M) \cdot \delta_{0, 6M}}
+\end{equation*}
+Remaining discount factors could be calculated one by one using formula
+\begin{equation*}
+DF(0, T_N)  = \frac{1 - IR^{swp}(T_N) \sum_{m = 1}^{N-1} \delta_{m - 1, m}^{fi} \cdot DF(0, T_m)}{1 + IR^{swp}(T_N) \cdot \delta_{N - 1, N}^{fi}}
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Zero Rates}
+The last step is to convert bootstrapped discounting factors into zero rates. Continous compounding zero rates are calculated as
+\begin{equation*}
+r(T_N) = -\frac{\ln(DF(0, T_N))}{\delta_{0, T_N}}
+\end{equation*}
+These zero rates define our swap curve. Missing maturities can be interpolated from existing zero rates.
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Example}
+Let us bootstrap USD swap curve assuming 6M LIBOR = 0.13895\%, 1Y swap rate = 0.13990\%, 1Y6M swap rate = 0.14657\% and 2Y swap rate = 0.16289\%.
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Example}
+\begin{equation*}
+DF(0, 6M) = \frac{1}{1 + 0.0013895 \cdot 0.50} = 99.93057\% 
+\end{equation*}
+\begin{equation*}
+DF(0, 1Y) = \frac{1 - 0.0013990 \cdot 0.50 \cdot 0.9993057}{1 + 0.0013990 \cdot 0.50} = 99.86025\%
+\end{equation*}
+\begin{equation*}
+DF(0, 1Y6M) = \frac{1 - 0.0014657 \cdot 0.50 \cdot (0.9993057 + 0.9986025)}{1 + 0.0014657 \cdot 0.50} = 99.78046\%
+\end{equation*}
+\begin{equation*}
+DF(0, 2Y) = \frac{1 - 0.0016289 \cdot 0.50 \cdot (0.9993057 + 0.9986025 + 0.9978046)}{1 + 0.0016289 \cdot 0.50} = 99.67483\%
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Example}
+To check correctness of the procedure, let us value a 2Y USD IRS being re-priced at 6M LIBOR. We expect its NPV equals to 0.
+\\~\\
+First, let us calculate fixed leg NPV. Interest payments corresponding to 2Y swap rate of 0.16289\% are realized at times 6M, 1Y, 1Y6M and 2Y.
+\begin{equation*}
+NPV_{fix} = 0.0016289 \cdot 0.50 \cdot (0.9993057 + 0.9993015 + 0.9978041 + 0.9967483) = 0.003
+\end{equation*}
+In case of a floating leg we first need to calculate forward LIBOR rates.
+\begin{equation*}
+IR^{fwd}(0M, 6M) = 0.13895\%
+\end{equation*}
+\begin{equation*}
+IR^{fwd}(6M, 1Y) = \left(\frac{0.9993057}{0.9993015} - 1 \right)/0.50 = 0.14085\%
+\end{equation*}
+\begin{equation*}
+IR^{fwd}(1Y, 1Y6M) = \left(\frac{0.9993015}{0.9978041} - 1 \right)/0.50 = 0.15993\%
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Newly Issued IRS - Example}
+\begin{equation*}
+IR^{fwd}(1Y6M, 2Y) = \left(\frac{0.9978041}{0.9967483} - 1 \right)/0.50 = 0.21194\%
+\end{equation*}
+\begin{multline*}
+NPV_{float} = (0.0013895 \cdot 0.9993057 + 0.0014085 \cdot 0.9993015\\
++ 0.0015993 \cdot 0.9978041 + 0.0021194 \cdot 0.9967483) \cdot 0.50 = 0.003
+\end{multline*}
+Since NPV of fixed and floating leg are the same, NPV of the IRS is indeed zero. Please note we have made a full circle! Using swap rates and an assumption of zero NPV at IRS inception date, we bootstrapped discount factors which in turn were used to calculate forward rates. Non-zero NPV would indicate flawed calculation!
+\end{frame}
+
+\section{Curve Construction After 2008}
+
+\subsection{OIS Curve Construction}
+
+\begin{frame}{Basic Definitions}
+\setbeamertemplate{itemize items}[ball]
+In OIS a fixed OIS rate is exchanged for a geometric average of overnight rates over the contract lifetime. Therefore OIS can be viewed as a specific type of IRS.
+\begin{itemize}
+\item OIS rate is an analogy of a swap rate - they both determine fixed leg pay-off.
+\item Overnight rate is a an analogy of LIBOR rate - they both determine floating leg pay-off.
+\item OIS fixed leg pays at the maturity date if the maturity date is lower than 1Y and on an annual basis otherwise. Because of that OIS discount factor calculation methodology has to be split accordingly.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Newly Issued OIS $<$ 1Y - Basic Equation}
+Let us consider a newly issued OIS with maturity $T_N < 1Y$. Similar to IRS we assume its fixed and floating leg have the same NPV.
+\begin{multline*}
+IR^{ois}(T_N) \cdot \delta_{0, T_N}^{fi} \cdot DF(0, T_N) =\\
+\bigg(\prod_{m = 1} ^ M \big(1 + IR^{on}(T_m) \cdot \delta_{m - 1, m}^{fl}\big) - 1 \bigg) \cdot DF(0, T_N) 
+\end{multline*}
+Adding discounted notional to both side and realizing that NPV of the floating leg equals to 1, we get
+\begin{equation*}
+IR^{ois}(T_N) \cdot \delta_{0, T_N}^{fi} \cdot DF(0, T_N) + DF(0, T_N) = 1
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Newly Issued OIS $<$ 1Y - Bootstrapping}
+Applying simple algebra on the previous equation, discounting factor $DF(0, T_N)$ can be calculated as
+\begin{equation*}
+DF(0, T_N) = \frac{1}{1 + IR^{ois}(T_N) \cdot \delta_{0, T_N}^{fi}}
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Newly Issued OIS $>$ 1Y - Basic Equation}
+Let us consider a newly issued OIS with maturity $T_N$ being $N$ years where $N > 1$. Again its fixed and floating leg have the same NPV.
+\begin{multline*}
+IR^{ois}(T_n) \sum_{n = 1}^N \delta_{n - 1, n}^{fi} \cdot DF(0, T_n) =\\
+\left(\prod_{m = 1} ^ M \left(1 + IR^{on}(T_m) \cdot \delta_{m - 1, m}^{fl}\right) - 1 \right) \cdot DF(0, T_N) 
+\end{multline*}
+Adding discounted notional to both side and realizing that NPV of the floating leg equals to 1, we get
+\begin{equation*}
+IR^{ois}(T_N) \sum_{n = 1}^N \delta_{n - 1, n}^{fi} \cdot DF(0, T_n) + DF(0, T_N) = 1
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Newly Issued OIS $>$ 1Y - Bootstrapping}
+Using the previous equation discounting factor $DF(0, T_N)$ can be bootstrapped in a way similar to IRS.
+\begin{equation*}
+DF(0, T_N) = \frac{1 - IR^{ois}(T_N) \sum_{n = 1}^{N - 1} \delta_{n - 1, n}^{fi} \cdot DF(0, T_n)}{1 + IR^{ois}(T_N) \cdot \delta_{T_{N-1}, T_N}}
+\end{equation*}
+Note: Calculation of discount factors $DF(0, T_n)$ with $T_n < 1Y$, which are needed to bootstrap discount factors for higher maturities, was illustrated on the previous slides.
+\end{frame}
+
+\begin{frame}{Newly Issued OIS - Zero Rates}
+The last step is to convert discounting factors into zero rates. Continous compounding zero rates are calculated as
+\begin{equation*}
+r(T_N) = -\frac{\ln(DF(0, T_N))}{\delta_{0, T_N}}
+\end{equation*}
+These zero rates define our OIS curve. Missing maturities can be interpolated from existing zero rates.
+\end{frame}
+
+\begin{frame}{Newly Issued OIS - Role}
+\setbeamertemplate{itemize items}[ball]
+\begin{itemize}
+\item Today most IRS are collateralized and subjected to daily settlement. Collateral earns overnight rate - OIS curve can be viewed as a funding curve for IRS. Therefore OIS curve is used as a discounting curve for collateralized IRS contracts. This practice has been also adopted by LCH Clearnet, which is the main IRS clearing center.
+\item Before 2008 non-collateralized IRS valuation was a routine business. After 2008 market lost its consensus. Some financial organizations use pre-crisis swap curve both for discounting and re-pricing, some use internal funding curve for discounting and after-crisis swap curve for re-pricing. To avoid (at least theoretically) possible arbitrage some organizations tie prices of collateralized and non-collateralized IRSs together via CVA (credit value adjustment), DVA (default value adjustment) and LVA (liquidity value adjustment)\footnote{\tiny{CVA is expected credit loss due to counterparty default. DVA represents credit risk of the entity itselft. LVA is defined as the cost carry of collateral over the IRS lifetime.}}.
+\begin{equation*}
+NPV(IRS_{colateralized}) = NPV(IRS_{non-colateralized}) + CVA - DVA - LVA
+\end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Newly Issued OIS - Example}
+Let us bootstrap USD OIS curve assuming 6M OIS rate = 0.13900\%, 1Y OIS rate = 0.1400\%, 2Y OIS rate = 0.1630\% and 3Y OIS rate = 0.2300\%.
+\end{frame}
+
+\begin{frame}{Newly Issued OIS - Example}
+\begin{equation*}
+DF(0, 6M) = \frac{1}{1 + 0.0013900 \cdot 0.50} = 99.93055\%
+\end{equation*}
+\begin{equation*}
+DF(0, 1Y) = \frac{1}{1 + 0.0014000 \cdot 1.00} = 99.86020\%
+\end{equation*}
+\begin{equation*}
+DF(0, 2Y) = \frac{1 - 0.0016300 \cdot 0.9986020}{1 + 0.0016300} = 99.67476\%
+\end{equation*}
+\begin{equation*}
+DF(0, 3Y) = \frac{1 - 0.0023000 \cdot (0.9986020 + 0.9967476)}{1 + 0.0016300} = 99.31265\%
+\end{equation*}
+\end{frame}
+
+\subsection{Forward Rate Curve Construction}
+
+\begin{frame}{Introduction}
+\setbeamertemplate{itemize items}[ball]
+To illustrate changes after 2008 we will boostrap forward rates for USD market. Most often USD IRS exchanges fixed semiannual interest payments for 3M LIBOR. Therefore all CIMs are quoted wrt. to 3M tenor, which is a base re-pricing tenor. We will start with 3M LIBOR re-pricing followed by 1M, 6M and 12M LIBOR re-pricing.
+\\~\\
+The following text assumes that IRS is
+\begin{itemize}
+\item subjected to daily settlement,
+\item collateralized in cash which is denominated in the same currency as the underlying IRS
+\item with collateral earning overnight interest rate.
+\end{itemize}
+If some of these assumptions are relaxed (e.g. non-cash collateral, settlement frequency), curve construction should be adjusted accordingly, which would in turn lead to a modified curve. However counting for each and every possibility our curves would multiply like rabbits! Therefore some balance between practicality and academic precision needs to be achieved.
+\end{frame}
+
+\subsubsection{3M USD IRS}
+
+\begin{frame}{Newly Issued 3M USD IRS - Basic Equation}
+For a newly issued 3M USD IRS the logic remains the same as before 2008 - again, we assume that its fixed leg NPV equals to its floating leg NPV.
+\begin{equation*}
+IR^{swp}(T_N) \sum_{n = 1} ^ N \delta_{n - 1, n}^{fi} \cdot DF(0, T_n) = \sum_{m = 1} ^ M IR^{fwd}(T_{m-1}, T_m) \cdot \delta_{m - 1, m}^{fl} \cdot DF(0, T_m)
+\end{equation*}
+Note: After adding present value of underlying notional the two legs do not have be valued at par as it was the case previously! The reason is that this time we are using OIS curve for discounting and swap curve for re-pricing.
+\\~\\
+In case of 3M USD IRS the fixed leg pays semiannually and the floating leg pays quarterly - for one summand of the left there are two summands on the right. As a result, our equations are "underdetermined".
+\end{frame}
+
+\begin{frame}{Newly Issued 3M USD IRS - Basic Equation}
+To be able to solve for $IR^{fwd}(T_{m-1}, T_m)$, we have to add a new set of constrains. Namely, we will assume
+\begin{equation*}
+IR^{fwd}(6M, 9M) = IR^{fwd}(9M, 12M)
+\end{equation*}
+\begin{equation*}
+IR^{fwd}(12M, 15M) = IR^{fwd}(15M, 18M)
+\end{equation*}
+\begin{equation*}
+IR^{fwd}(18M, 21M) = IR^{fwd}(21M, 24M)
+\end{equation*}
+and so on. When boostrapping forward rates we move forward 6M in each step solving two forward rates at a time.
+\end{frame}
+
+\begin{frame}{Newly Issued 3M USD IRS - Boostrapping}
+Using the above constrains, forward LIBOR rate can be derived as
+\begin{multline*}
+IR^{fwd}(T_{N - 1}, T_N) = IR^{fwd}(T_{N - 2}, T_{N - 1}) =\\
+\frac{IR^{swp}_{T_N} \sum_{n = 1} ^ N \delta_{n - 1, n}^{fi} \cdot DF(0, T_n) - \sum_{m = 1} ^ {M - 2} IR^{fwd}(T_{m-1}, T_m) \cdot DF(0, T_m)}{\delta_{m - 2, m - 1}^{fl} \cdot DF(0, T_{m - 1}) + \delta_{m - 1, m}^{fl} \cdot DF(0, T_m)}
+\end{multline*}
+Boostrapping procedure requires an initial input $IR^{fwd}(0, 3M)$, which is actual 3M LIBOR rate.
+\\~\\
+Note: Constructing forward rates using the above bootstrapping method leads to a stairs-like pattern (due to additional set of constrains). To get rid of the stairs, a smoothing method has to be applied.
+\end{frame}
+
+\begin{frame}{Newly Issued 3M USD IRS - Remarks}
+\setbeamertemplate{itemize items}[ball]
+There is one important difference to the bootstrapping procedure before and after 2008.
+\begin{itemize}
+\item Before 2008 discount factors were bootstrapped from swap rates, converted into zero rates, which were used to calculate forward rates as well.
+\item After 2008 discount factors are bootstrapped from OIS rates and forward rates are directly bootsrapped from swap rates.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Newly Issued 3M IRS - Example}
+Let us bootstrap 3M tenor forward rates assuming 3M LIBOR = 0.31000\%, 6M swap rate = 0.31070\%, 1Y swap rate = 0.32840\% and 1Y6M swap rate = 0.34880\%. Using results from previous example (and interpolating missing maturities) OIS discount factors are $DF(0, 3M)$ = 99.96351\%, $DF(0, 6M)$ = 99.93055\%, $DF(0, 9M)$ = 99.89586\%, $DF(0, 1Y)$ = 99.86020\%, $DF(0, 1Y3M)$ = 99.82244\% and $DF(0, 1Y6M)$ = 99.78039\%.
+\end{frame}
+
+\begin{frame}{Newly Issued 3M USD IRS - Example}
+\applyFontA
+\begin{equation*}
+IR^{fwd}(0, 3M) = 0.31000\%
+\end{equation*}
+\begin{equation*}
+IR^{fwd}(3M, 6M) = \frac{0.0031070 \cdot 0.50 \cdot 0.9993055 - 0.0031000 \cdot 0.25 \cdot 0.9996351}{0.25 \cdot 0.9993055} = 0.31130\%
+\end{equation*}
+\begin{multline*}
+IR^{fwd}(6M, 9M) = IR^{fwd}(9M, 1Y) = \frac{0.0032840 \cdot 0.50 \cdot (0.999305 + 0.9986020)}{0.25 \cdot 0.9989586 + 0.25 \cdot 0.9986020}\\
+- \frac{0.25 \cdot (0.0031000 \cdot 0.9996351 + 0.0031130 \cdot 0.9993055)}{0.25 \cdot 0.9989586 + 0.25 \cdot 0.9986020} = 0.34605\%
+\end{multline*}
+\end{frame}
+
+\begin{frame}{Newly Issued 3M IRS - Example}
+\applyFontA
+\begin{multline*}
+IR^{fwd}(1Y, 1Y3M) = IR^{fwd}(1Y3M, 1Y6M) =\\
+\frac{0.0034880 \cdot 0.50 \cdot (0.999305 + 0.9986020 + 0.9978039 + 0.9967476)}{0.25 \cdot 0.9973195 + 0.25 \cdot 0.9967476}\\
+- \\ \frac{0.25 \cdot (0.0031000 \cdot 0.9996351 + 0.0031130 \cdot 0.9993055 + 0.0034605 \cdot (0.9989586 + 0.9986020))}{0.25 \cdot 0.9973195 + 0.25 \cdot 0.9967476}
+\\= 0.38956\%
+\end{multline*}
+\end{frame}
+
+\begin{frame}{Newly Issued 3M USD IRS - Example}
+To check correctness of the procedure, let us value a 1Y6M USD IRS being re-priced at 3M LIBOR. We expect its NPV equals to 0.
+\\~\\
+First, let us calculate fixed leg NPV. Interest payments corresponding to 1Y6M swap rate of 0.34880\% are realized at times 6M, 1Y, 1Y6M and 2Y.
+\begin{equation*}
+NPV_{fix} = 0.0034880 \cdot 0.50 \cdot (0.9993055 + 0.9986020 + 0.9978039) = 0.005
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Newly Issued 3M USD IRS - Example}
+Unlike the previous IRS example we do not have to calculate forward rates as these are output of bootstrapping.
+\begin{multline*}
+NPV_{float} = (0.0031000 \cdot 0.9996351 + 0.0031130 \cdot 0.9993055 + 0.0034605 \cdot 0.9989586\\
++ 0.0034605 \cdot 0.9982244 + 0.0038956 \cdot 0.9978039) \cdot 0.25 = 0.005
+\end{multline*}
+Since NPV of fixed and floating leg are the same, NPV of the IRS is indeed zero. Please note we have made a full circle again! Using OIS based discount factors, swap rates with 3M tenor and an assumption of zero NPV at IRS inception date, we bootstrapped forwards which in turn were used to value IRS. Non-zero value would indicate flawed calculation!
+\end{frame}
+
+\subsubsection{1M USD IRS}
+
+\begin{frame}{Newly Issued 1M USD IRS}
+When constructing USD swap curve with 1M re-pricing tenor, maturities under and over 1Y has to be distinguished. The reason is that swap rates for maturities under 1Y are directly available. In case of maturities above 1Y, swap rates are quoted indirectly via 1M vs 3M CIM. Therefore forward rate bootstrapping is different for the two cases.
+\end{frame}
+
+\begin{frame}{Newly Issued 1M USD IRS $<$ 1Y - Basic Equation}
+As stated above for maturities under 1Y swap rates are readily available. As usual we assume that IRS NPV on its inception date is zero.
+\begin{multline*}
+IR^{swp}(T_N) \sum_{n = 1}^N \delta_{n - 1, n}^{fi} \cdot DF(0, T_n)\\
+= \sum_{n - 1}^N IR^{fwd}(T_{n - 1}, T_n) \cdot \delta_{n - 1, n}^{fl} \cdot DF(0, T_n)
+\end{multline*}
+\end{frame}
+
+\begin{frame}{Newly Issued 1M USD IRS $<$ 1Y - Bootstrapping}
+Since we know all OIS based discount factors, we can easily bootstrap forward rates from the previous equation.
+\begin{multline*}
+IR^{fwd}(T_{N - 1}, T_N) = \frac{IR^{swp}(T_N) \sum_{n = 1}^N \delta_{n - 1, n}^{fi} \cdot DF(0, T_n)}{\delta_{T_{N - 1}, T_N} \cdot DF(0, T_N)} \\
+- \frac{\sum_{n - 1}^{N - 1} IR^{fwd}(T_{n - 1}, T_n) \cdot \delta_{n - 1, n}^{fl} \cdot DF(0, T_n)}{\delta_{T_{N - 1}, T_N} \cdot DF(0, T_N)}
+\end{multline*}
+Boostrapping procedure requires $IR^{fwd}(0, 1M)$ as an initial input - we use 1M LIBOR as of curve construction date.
+\\~\\
+Note: Both legs pay on a monthly basis - unlike in case of 3M IRS no additional constrains have to be applied.
+\end{frame}
+
+\begin{frame}{Newly Issued 1M USD IRS $<$ 1Y - Example}
+Let us bootstrap 1M tenor forward rates tenor assuming 1M LIBOR = 0.20850\%, 2M swap rate = 0.211250\% and 3M swap rate = 0.0.21360\%. OIS discount factors (with interpolated missing maturities) are $DF(0, 1M)$ = 99.98684\%, $DF(0, 2M)$ = 99.97501\%, $DF(0, 3M)$ = 99.96351\%.
+\end{frame}
+
+\begin{frame}{Newly Issued 1M USD IRS $<$ 1Y - Example}
+\applyFontA
+\begin{equation*}
+IR^{fwd}(0, 1M) = 0.20850\%
+\end{equation*}
+\begin{equation*}
+IR^{fwd}(1M, 2M) = \frac{0.00211250 \cdot \frac{1}{12} \cdot (0.9998684 + 0.9997501) - 0.0020850 \cdot \frac{1}{12} \cdot 0.9997501}{\frac{1}{12} \cdot 0.9997501} = 0.21650\%
+\end{equation*}
+\begin{multline*}
+IR^{fwd}(2M, 3M) =\\
+\frac{0.0021360 \cdot \frac{1}{12} \cdot (0.9998684 + 0.9997501 + 0.9996351) - \frac{1}{12} \cdot (0.0020850 \cdot 0.9998684 + 0.0021650 \cdot 0.9997501)}{\frac{1}{12} \cdot 0.9996351}\\
+= 0.19920\%
+\end{multline*}
+\end{frame}
+
+\begin{frame}{Newly Issued 1M USD IRS $>$ 1Y - Basic Equation}
+For maturities over 1Y, USD swap rates are quoted indirectly in form of 1M vs 3M CIMs. The idea behind CIM is that, when added to a 1M tenor forward rate, such adjusted floating leg NPV equals to a floating leg NPV of IRS with 3M re-pricing tenor.
+\begin{multline*}
+\sum_{n = 1}^N \left(IR^{fwd_{1m}}(T_{n-1}, n) + cim^{1m3m}(T_N) \right) \cdot \delta_{n - 1, n}^{1m} \cdot DF(0, T_n)\\
+= \sum_{m = 1}^M IR^{fwd_{3m}}(T_{m-1}, T_m) \cdot \delta_{m - 1, m}^{3m} \cdot DF(0, T_m)
+\end{multline*}
+The equation suggests that 1M vs 3M CIM could be understood as a liquidity premium - simple arbitrage argument does not hold any more as we have
+\begin{equation*}
+\sum_{n = 1}^N IR^{fwd_{1m}}(T_{n-1}, n) \cdot \delta_{n - 1, n}^{1m} \cdot DF(0, T_n) < \sum_{m = 1}^M IR^{fwd_{3m}}(T_{m-1}, T_m) \cdot \delta_{m - 1, m}^{3m} \cdot DF(0, T_m)
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Newly Issued 1M USD IRS $>$ 1Y - Basic Equation}
+The above equations assume monthly pay-off on the left side and quartely pay-off on the right side - for three summands on left there is only one summand on the right. As a result of different frequency pay-off our equations are "underdetermined". To be able to solve for $IR^{fwd_{1m}}(T_{n-1}, n)$ we have to add constrains
+\begin{equation*}
+IR^{swp_{1m}}(12M, 13M) = IR^{swp_{1m}}(13M, 14M) = IR^{swp_{1m}}(14M, 15M)
+\end{equation*}
+\begin{equation*}
+IR^{swp_{1m}}(15M, 16M) = IR^{swp_{1m}}(16M, 17M) = IR^{swp_{1m}}(17M, 18M)
+\end{equation*}
+and so on. When boostrapping forward rates we move forward 3M in each step solving three forward rates at a time. Similar to 3M tenor, this leads to stairs-like curve of forward rates.
+\end{frame}
+
+\begin{frame}{Newly Issued 1M USD IRS $>$ 1Y - Bootstrapping}
+Boostrapping the above equation under the additional set of constrains we get
+\begin{multline*}
+IR^{fwd_{1m}}(T_{N-1}, T_N) = IR^{fwd_{1m}}(T_{N - 2}, T_{N - 1}) = IR^{fwd_{1m}}(T_{N - 3}, T_{N - 2}) =\\
+\frac{\sum_{m = 1}^M IR^{fwd_{3m}}(T_{m - 1}, T_m) \cdot \delta_{m - 1, m}^{3m} \cdot DF(0, T_m)}{\sum_{n = N - 2}^N \delta_{n - 1, n}^{1m} \cdot DF(0, T_n)}\\
+- \frac{\sum_{n = 1}^{N - 3} IR^{fwd_{1m}}(T_{n - 1}, T_n) \cdot \delta_{n - 1, n}^{1m} \cdot DF(0, T_n)}{\sum_{n = N - 2}^N \delta_{n - 1, n}^{1m} \cdot DF(0, T_n)}\\
+- \frac{cim^{1m3m}(T_N) \sum_{n = 1}^{N} \delta_{n - 1, n} \cdot DF(0, T_n)}{\sum_{n = N - 2}^N \delta_{n - 1, n}^{1m} \cdot DF(0, T_n)}
+\end{multline*}
+Note: The equation looks over-complex but it is not - do not get fooled!
+\end{frame}
+
+\begin{frame}{Newly Issued 1M USD IRS $>$ 1Y - Example}
+Let us boostrap forward rate $IR^{fwd_{1m}}(12M, 13M)$ assuming 3M floating leg NPV $\frac{1}{4} \sum_{n = 1}^5 IR^{fwd_{3m}}(n - 1, n) \cdot DF(0, T_n)$ = 0.00425, 1M floating leg for already boostrapped forward rates $\frac{1}{12} \sum_{n = 1}^{12}IR^{swp_{1m}}(T_{n - 1, n}) \cdot DF(0, T_n)$ = 0.00235, NPV of CIM payments $\frac{1}{12} \cdot cim^{1m3m}(15M)\sum_{n = 1}^{15} DF(0, T_n)$ = 0.0014, $DF(0, 13M)$ = 99.84648\%, $DF(0, 14M)$ = 99.83245\% and $DF(0, 15M)$ = 99.81811\%.
+\end{frame}
+
+\begin{frame}{Newly Issued 1M USD IRS $>$ 1Y - Example}
+\begin{equation*}
+IR^{fwd_{1m}}(12M, 13M) = \frac{0.00425 - 0.00235 - 0.0014}{\frac{1}{12} \cdot (0.9984648 + 0.998345 + 0.9981811)} = 0.30489\%
+\end{equation*}
+Because of addional constraints we know
+\begin{equation*}
+IR^{fwd_{1m}}(14M, 15M) = IR^{fwd_{1m}}(13M, 14M) = IR^{fwd_{1m}}(12M, 13M) = 0.30489\%
+\end{equation*}
+\end{frame}
+
+\subsubsection{6M USD IRS}
+
+\begin{frame}{Newly Issued 6M USD IRS - Basic Equation}
+Assumptions underlying newly issued USD IRS with 6M re-pricing tenor are very similar to those of USD IRS with 1M re-pricing tenor. The only difference is that CIM is added to 3M forward rates rather than to 6M forward rates.
+\begin{multline*}
+\sum_{n = 1}^N \left(IR^{fwd_{3m}}(T_{n - 1}, T_n) + cim^{3m6m}(T_N) \right) \cdot \delta_{n - 1, n}^{3m} \cdot DF(0, T_n)\\
+= \sum_{m = 1}^M IR^{fwd_{6m}}(T_{m - 1}, T_m) \cdot \delta_{m - 1, m}^{6m} \cdot DF(0, T_m)
+\end{multline*}
+Note: Even though there is a pay-off frequency mismatch, we do not have to specify any additional constrains. The reason is that number of summands on 6M leg (containing $IR^{fwd_{6m}}(T_{m - 1}, T_m)$ which we solve for) is smaller than number of summands on 3M leg. Were it be the other way around, our equations would be "underdetermined".
+\end{frame}
+
+\begin{frame}{Newly Issued 6M USD IRS - Bootstrapping}
+Using the above formula, forward rates could be easily bootstrapped.
+\begin{multline*}
+IR^{fwd_{6m}}(T_{N-1}, T_N) =\\
+\frac{\sum_{n = 1}^N \left(IR^{fwd_{3m}} + cim^{3m6m}(T_N) \right) \cdot \delta_{n - 1, n}^{3m} \cdot DF(0, T_n)}{\delta_{M - 1, M}^{6m} \cdot DF(0, T_M)}\\
+- \frac{\sum_{m = 1}^{M -1} IR^{fwd_{6m}} \cdot \delta_{m - 1, m}^{6m} \cdot DF(0, T_m)}{\delta_{M - 1, M}^{6m} \cdot DF(0, T_M)}
+\end{multline*}
+As usual an intial rate $IR^{fwd_{6m}}(0, 6M)$ is needed to start the boostrapping procedure. Actual 1M LIBOR plays the role.
+\end{frame}
+
+\begin{frame}{Newly Issued 6M USD IRS - Example}
+Let us bootstrap 6M forward rate $IR^{fwd_{6M}}(6M, 1Y)$ assuming 6M LIBOR rate = 0.52625\%, 3M floating leg NPV $\frac{1}{4}\sum_{n = 1}^4 IR^{fwd_{3m}}(n - 1, n) \cdot DF(0, T_n)$ = 0.00328, NPV of CIM spread payments $\frac{1}{4} \cdot cim^{3m6m}(1Y) \sum_{n = 1}^4 DF(0, T_n)$ = 0.00191, $DF(0, 6M)$ = 99.93055\% and $DF(0, 1Y)$ = 99.86020\%.
+\end{frame}
+
+\begin{frame}{Newly Issued 6M USD IRS - Example}
+\begin{equation*}
+IR^{fwd_{6M}}(6M, 1Y) = \frac{0.00328 + 0.00191 - 0.0052625 \cdot 0.50 \cdot 0.9993055}{0.50 \cdot 0.9986020} = 0.51236\%
+\end{equation*}
+\end{frame}
+
+\subsubsection{12M USD IRS}
+
+\begin{frame}{12M USD IRS}
+The way in which 12M tenor forward rate are boostrapped is very much the same as that for 6M tenor. Namely assuming that NPV of 3M tenor floating leg adjusted for CIM equals NPV of 12M floating leg.
+\begin{multline*}
+\sum_{n = 1}^N \left(IR^{fwd_{3m}}(T_{n - 1}, T_n) + cim^{3m12m}(T_N) \right) \cdot \delta_{n - 1, n}^{3m} \cdot DF(0, T_n)\\
+= \sum_{m = 1}^M IR^{fwd_{12m}}(T_{m - 1}, T_m) \cdot \delta_{m - 1, m}^{12m} \cdot DF(0, T_m)
+\end{multline*}
+\end{frame}
+
+\begin{frame}{12M USD IRS}
+Applying simple algebra on the previous equation, we can boostrap 12M tenor forward rate.
+\begin{multline*}
+IR^{fwd_{12m}}(T_{N-1}, N) =\\
+\frac{\sum_{n = 1}^N \left(IR^{fwd_{3m}} + cim^{3m12m}(T_N) \right) \cdot \delta_{n - 1, n}^{3m} \cdot DF(0, T_n)}{\delta_{M - 1, M}^{6m} \cdot DF(0, T_M)}\\
+- \frac{\sum_{m = 1}^{M -1} IR^{fwd_{12m}} \cdot \delta_{m - 1, m}^{12m} \cdot DF(0, T_m)}{\delta_{M - 1, M}^{12m} \cdot DF(0, T_M)}
+\end{multline*}
+\end{frame}
+
+\subsection{EUR Denominated Curves}
+
+\begin{frame}{EUR Denominated Curves}
+EUR OIS curve is constructed in very much the same way as USD OIS curve.
+\\~\\
+Boostrapping of EUR forward rates is done in a very similar way to USD forward rate. The only major difference is that most often EUR IRS exhanges 6M EURIBOR for 1Y fixed interest payments. Thefore all CIMs are linked to 6M tenor, which is a base tenor. All above equations need to be adjusted accordingly.
+\end{frame}
+
+\section{Sources \& Further Reading}
+
+\begin{frame}{Sources \& Further Reading}
+\setbeamertemplate{itemize items}[ball]
+\begin{itemize}
+\item Curve Building and Swap Princing in the Presence of Collateral and Basis Spreads - Simon Gunnarsson, 2013
+\item Constructing the OIS curve - Justin Clarke, Edu-Risk International
+\item Swap Discounting \& Pricing Using the OIS Curve - Justin Clarke, Edu-Risk International
+\item Everything You Always Wanted to Know About Multiple Interest Rate Curve Boostrapping But Were Afraid To Ask - F.M. Amertrano \& M. Bianchetti, 2nd April 2013
+\item IR Curve Calibration for BO Revaluation Curves: Model Documentation - Erick Boeckx, KBC, 24th December 2013
+\item LIBOR vs. OIS: The Derivatives Discounting Dilemma - John Hull and Alan White, April 2013
+\item www.wikipedia.org
+\item OIS Discounting and Dual-Curve Stripping Methodology at Bloomberg
+\item OIS versus Cross Currency Basis Implied Discount Curves - Bloomberg, October 2011
+\end{itemize}
+\end{frame}
+
+\end{document}

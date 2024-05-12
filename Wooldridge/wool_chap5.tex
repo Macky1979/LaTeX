@@ -1,0 +1,221 @@
+\chapter[Vícerozměrný regresní model \\ Asymptotické vlastnosti OLS odhadů]{Vícerozměrný regresní model - asymptotické vlastnosti OLS odhadů}
+
+Asymptotické vlastnosti OLS odhadů představují jejich charakteristiky platné pro výběry velkého rozsahu. V předchozím textu jsme např. zmínili, že 
+při splnění předpokladů MLR.1 až MLR.6 sleduje $t$ statistika Studentovo rozdělení. S rostoucí velikostí náhodného výběru se však 
+pravděpodobnostní rozdělení $t$ statistiky asymptoticky blíží Studentovu rozdělení i v případech, kdy není splněn předpoklad normality MLR.6.
+
+\section{Konzistentnost odhadu}
+
+Nechť $\hat{\beta}_j$ představuje OLS odhad regresního parametru $\beta_j$. Pro každý náhodný výběr velikosti $n$ sleduje $\hat{\beta}_j$ určité pravděpodobnostní rozdělení. Protože při splnění 
+předpokladů MLR.1 až MLR.4 je $\hat{\beta}_j$ nezkresleným odhadem $\beta_j$, má toto pravděpodobnostní rozdělení střední hodnotu 
+$\beta_j$. Jestliže je odhad $\hat{\beta}_j$ konzistentní, pak se jeho rozptyl s rostoucím $n$ zmenšuje. S tím, 
+jak se $n$ blíží nekonečnu, ``kolabuje'' pravděpodobnostní rozdělení $\hat{\beta}_j$ do bodu $\beta_j$. Konzistentnost tedy představuje 
+minimální požadavek na odhad - pokud se s využitím stále většího náhodného výběru neblíží $\hat{\beta}_j$ skutečné hodnotě 
+$\beta_j$, pak používáme nevhodnou metodu odhadu.
+
+\begin{theorem}[Konzistentnost OLS odhadu]
+Při splnění předpokladů MLR.1 až MLR.4 je $\hat{\beta}_j$ konzistentním odhadem $\beta_j$ pro všechna $j = 0, 1, ..., k$.
+
+\raggedleft{$\clubsuit$}
+\end{theorem}
+
+\begin{proof}
+Platnost
+ výše uvedené věty demonstrujme na příkladu $\beta_1$. Odhad $\hat{\beta}_1$ lze vyjádřit ve tvaru
+\begin{equation}
+\hat{\beta}_1 = \frac{\sum_{i=1}^n(x_{i1} - \overline{x}_1)y_i}{\sum_{i = 1}^n (x_{i1} - \overline{x}_1)^2} = \beta_1 + \frac{\frac{\sum_{i=1}^n(x_{i1} 
+- \overline{x}_1)u_i}{n}}{\frac{\sum_{i = 1}^n (x_{i1} - \overline{x}_1)^2}{n}}.
+\end{equation}
+S využitím vztahů $var[x_1] \ne 0$, což vyžaduje MLR.3, a $cov[x_1, u] = 0$, což vyplývá z MLR.4, získáme
+\begin{equation}
+plim ~ \hat{\beta}_j = \beta_1 + \frac{cov[x_1, u]}{var[x_1]} = \beta_1.
+\end{equation} 
+
+\raggedleft{$\clubsuit$}
+\end{proof}
+
+\begin{assumption}[MLR.4' - nulová střední hodnota a korelace]
+$E[u] = 0$ a $cov[x_j, u] = 0$ pro všechna $j = 0, 1, ..., k$.
+
+\raggedleft{$\clubsuit$}
+\end{assumption}
+
+Předpoklad MLR.4' je slabší než předpoklad MLR.4, protože platnost MLR.4 implikuje platnost MLR.4'. Jedním ze způsobů, jak charakterizovat 
+$E[u|x_1, ..., x_k] = 0$ je, že libovolná funkce vysvětlujících veličin je nekorelovaná s $u$. Předpoklad MLR.4' však pouze vyžaduje, aby 
+každé jednotlivé $x_j$ bylo nekorelované s $u$. Na druhou stranu předpoklad MLR.4' je v porovnání s MLR.4 ``přirozenější'', 
+protože nás vede přímo k OLS odhadům. Navíc, pokud v praxi mluvíme o porušení předpokladu MLR.4 máme většinou na mysli nesplnění $cov[x_j, 
+u] = 0$. Předpoklad $E[u] = 0$ zajišťuje, že správně modelujeme populační regresní funkci. To znamená, že při splnění MLR.4 můžeme psát
+\begin{equation}
+E[y|x_1, ..., x_k] = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k.
+\end{equation}
+Pokud bychom však namísto MLR.4 předpokládali pouze MLR.4', pak $\beta_0 + \beta_1 x_1 + ... + \beta_k x_k$ nemusí představovat populační 
+regresní funkci, protože může existovat nelineární funkce $x_j$, např. $x_j^2$, která je korelovaná s $u$. To by znamenalo, že jsme z modelu 
+vypustili nelinearity, které nám mohly pomoci lépe vysvětlit $y$. Pokud bychom si těchto nelinearit byli vědomi, pak bychom je do regresního 
+modelu zařadili.
+
+\subsection{Odvození nekonzistentnosti OLS odhadů}
+
+Jestliže je chyba $u$ korelována s libovolnou vysvětlující veličinou, pak jsou OLS dohady zkreslené a nekonzistentní. Nekonzistentnost 
+bohužel znamená, že tyto odhady zůstávají zkreslené i při rostoucí velikosti náhodného výběru. Nekonzistentnost odhadu $\hat{\beta}_j$ je
+\begin{equation}
+plim ~ \hat{\beta}_j - \beta_j = \frac{cov[x_j, u]}{var[x_j]}.
+\end{equation}
+Pokud je korelace mezi $x_j$ a $u$ zanedbatelná, může být zanedbatelná i míra nekonzistentnosti. V praxi bohužel zpravidla tuto korelaci 
+neznáme, protože neznáme $u$.
+
+(5.4) lze použít pro odvození vztahu pro zkreslení z titulu opomenutí relevantní vysvětlující proměnné, kterou jsme diskutovali v 
+kapitole 3. Předpokládejme, že skutečný regresní model má tvar
+\begin{equation}
+y = \beta_0 + \beta_1 + \beta_2 + v,
+\end{equation}
+kde $v$ má nulovou střední hodnotu, konstantní rozptyl a je nekorelované s $x_1$ a $x_2$. Pokud však z nějakého důvodu budeme uvažovat model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + u,
+\end{equation}
+pak $u = \beta_2 x_2 + v$. Jestliže odhad sklonu v jednoduchém regresním modelu označíme jako $\tilde{\beta}_1$, pak
+\begin{equation}
+plim ~ \tilde{\beta}_1 = \beta_1 + \beta_2 \delta_1,
+\end{equation}
+kde $\delta_1 = \frac{cov[x_1, x_2]}{var[x_1]}$. To znamená, že s tím, jak poroste velikost náhodného výběru, se OLS odhad bude stále více 
+blížit $\beta_1 + \beta_2 \delta_1$. Z tohoto pohledu tedy lze nekonzistentnost chápat obdobně jako zkreslení.
+
+V případě obecného vícerozměrného regresního modelu je odhad směru a velikosti nekonzistentnosti mnohem složitější, stejně jako je 
+mnohem složitější odvodit směr a velikost zkreslení odhadu. Je třeba mít na paměti, že pokud je např. $x_1$ korelováno s $u$, zatímco 
+ostatní vysvětlující proměnné nikoliv, jsou nekonzistentní odhady všech parametrů regresního modelu, nikoliv pouze odhad $\hat{\beta}_1$.
+
+\subsection{Asymptotická normalita OLS odhadů a výběr velkého rozsahu}
+
+Věta (4.1) tvrdí, že pokud jsou splněny předpoklady MLR.1 až MLR.6, sleduje odhad $\hat{\beta}_j$ normální rozdělení. Tento závěr je 
+základem pro odvození $t$ a $F$ statistik, které jsou velmi často používány v ekonometrii. Platnost věty je zásadním způsobem závislá na 
+předpokladu normality, tj. předpokladu, že chyba $u$ sleduje normální rozdělení. Pokud jsou chyby $u_1, u_2, ..., u_n$ náhodnými výběry z 
+jiného pravděpodobnostního rozdělení, pak $\hat{\beta}_j$ normální rozdělení nesleduje. To znamená, že $t$ statistika nesleduje Studentovo 
+rozdělení a $F$ statistika nesleduje $F$ rozdělení.
+
+Předpoklad MLR.6 ve své podstatě říká, že $y$ pro dané $x_1, x_2, ..., x_n$ sleduje normální rozdělení. Protože $y$ na rozdíl od $u$ 
+známe, je mnohem jednodušší se zabývat pravděpodobnostním rozdělení $y$ než $u$. Mnohdy však $y$ normální 
+rozdělení nesleduje. Jako příklad můžeme uvažovat regresní model, ve kterém se budeme snažit vysvětlit počet roků strávených v 
+nápravných zařízeních pomocí dosaženého vzdělání, roční výše příjmů a rodinné příslušnosti. Protože pro drtivou většinu 
+populace platí $y = 0$, a protože z logiky věci vyplývá $y \ge 0$, nemůže $y$ sledovat normální rozdělení. V řadě případů však lze s 
+ohledem na centrální limitní větu předpokládat, že ačkoliv $y$ nesleduje normální rozdělení, OLS odhady se pro výběry velkého rozsahu 
+asymptoticky blíží normálnímu rozdělení.
+
+Nicméně normalita nemá vliv ani na nezkreslenost OLS odhadů a ani na skutečnost, že OLS je při splnění Gauss-Markovových předpokladů 
+BLUE. Nicméně přesné testování hypotéz založené na $t$ a $F$ statistice vyžaduje platnost MLR.6.
+
+\begin{theorem}[Asymptotická normalita OLS odhadů]
+Při splnění předpokladů MLR.1 až MLR.5 platí následující.
+\begin{itemize}
+\item $\sqrt{n} (\hat{\beta}_j - \beta_j) \sim^a N(0, \frac{\sigma^2}{a_j^2})$, kde $\frac{\sigma^2}{a_j^2} > 0$ je asymptotický 
+rozptyl $\sqrt{n}(\hat{\beta}_j - \beta_j)$. Pro odhady sklonu platí $a_j^2 = plim ~ \left(\frac{1}{n} \sum_{i = 1}^n \hat{r}_{ij}^2 \right)$, kde 
+$\hat{r}_{ij}$ jsou rezidua z regrese $x_j$ na ostatní vysvětlující proměnné. O $\hat{\beta}_j$ říkáme, že je asymptoticky normálně rozdělené.
+\item $\hat{\sigma}^2$ je konzistentním odhadem $\sigma^2 = var[u]$.
+\item Pro každé $j$ platí
+\begin{equation}
+\frac{\hat{\beta}_j - \beta_j}{se(\hat{\beta}_j)} \sim^a N(0, 1),
+\end{equation}
+kde $se(\hat{\beta}_j)$ je běžná směrodatná odchylka OLS odhadu.
+\end{itemize}
+
+\raggedleft{$\clubsuit$}
+\end{theorem}
+
+Věta (5.2) je velmi důležitá, protože nám umožňuje odhlédnout od předpokladu MLR.6. Jedinou podmínkou pro pravděpodobnostní rozdělení 
+$u$ je tak konečný rozptyl, nulová podmíněná střední hodnota a homoskedasticita.
+
+Připomeňme, že $t$ statistiku jsme původně definovali jako
+\begin{equation}
+\frac{\hat{\beta}_j - \beta_j}{se(\hat{\beta}_j)} \sim t_{n - k - 1},
+\end{equation}
+kdežto výše uvedená věta tvrdí
+\begin{equation}
+\frac{\hat{\beta}_j - \beta_j}{se(\hat{\beta}_j)} \sim^a N(0, 1).
+\end{equation}
+V obou případech se však jedná pouze o aproximaci. Pokud je splněno MLR.6, pak $t$ statistika sleduje Studentovo rozdělení pro libovolnou velikost vzorku. Pro $n - k - 
+1 \ge 20$ však z praktického hlediska není mezi normálním a Studentovým rozdělením zásadnější rozdíl, a proto lze (5.9) a (5.10) 
+používat zaměnitelně. Pokud však $u$ nesleduje normální rozdělení, pak pro výběry malého rozsahu může být Studentovo rozdělení špatnou 
+aproximací. V praxi však bohužel neexistuje přesné vodítko pro určení velikosti vzorku, pro který lze považovat aproximaci (5.9) a (5.10) 
+za přijatelnou. Pokud však $var[y| x_1, x_2, ..., x_k]$ není konstantní, pak je obvyklá $t$ statistika neplatná bez ohledu na velikost vzorku, 
+protože v podmínkách heteroskedasticity nelze centrální limitní větu aplikovat.
+
+Rozptyl odhadu $\hat{\beta}_j$ je definován jako
+\begin{equation}
+se(\hat{\beta}_j)^2 = \frac{\hat{\sigma}^2}{SST_j(1 - R_j^2)}.
+\end{equation}
+S tím, jak roste velikost náhodného výběru se $\hat{\sigma}^2$ blíží konstantě $\sigma^2$, zatímco $1 - R_j^2$ konverguje k určitému 
+číslu mezi nulou a jedničkou. $SST_j$ roste přibližně stejně rychle jako 
+velikost výběru, tj. $SST_j \approx n \sigma_j^2$, kde $\sigma_j^2$ je populační rozptyl vysvětlující veličiny $x_j$. 
+$se(\hat{\beta}_j)^2$ se tak blíží nule rychlostí $1/n$ s tím, jak roste velikost náhodného výběru. Proto jsou výběry velkého rozsahu pro odhad OLS 
+parametrů vždy vhodnější.
+
+Pokud $u$ nesleduje normální rozdělení, pak se $se(\hat{\beta}_j)$ z (5.11) někdy nazývá asymptotická směrodatná odchylka a odpovídající 
+$t$ statistika asymptotickou $t$ statistikou.
+
+S ohledem na výše uvedené lze napsat
+\begin{equation}
+se(\hat{\beta}_j) \approx \frac{c_j}{\sqrt{n}},
+\end{equation}
+kde $c_j$ je kladná konstanta nezávislá na velikosti náhodného výběru. Jinými slovy, velikost $se(\hat{\beta}_j)$ se zmenšuje s inverzí druhé 
+odmocniny velikosti náhodného výběru.
+
+Asymptotická normalita OLS odhadů také implikuje, že $F$ statistika pro náhodné výběry velkého rozsahu přibližně sleduje $F$ rozdělení.
+
+\subsection{Statistika Lagrangova multiplikátoru}
+
+Uvažujme regresní model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k + u,
+\end{equation}
+pro který testujeme nulovou hypotézu
+\begin{equation}
+H_0: \beta_{k - q + 1} = 0, ..., \beta_k = 0.
+\end{equation}
+Na rozdíl od $F$ testu se v případě testu založeném na statistice Lagrangova multiplikátoru zaobíráme pouze odhadem omezeného modelu
+\begin{equation}
+y = \tilde{\beta}_0 + \tilde{\beta}_1 x_1 + ... + \tilde{\beta}_{k - q} x_{k - q} + \tilde{u}.
+\end{equation}
+Pokud mají vysvětlující veličiny $x_{k  - q - 1}$ až $x_k$ skutečně nulový sklon, je $\tilde{u}$ (alespoň přibližně) nekorelované z 
+každou z těchto veličin. Proto použijeme pomocný regresní model
+\begin{equation}
+\tilde{u} = \alpha_0 + \alpha_1 x_1 + ... + \alpha_k x_k + v,
+\end{equation}
+kde očekáváme, že $R^2$ odhadnutého modelu (5.16) je blízké nule. Při platnosti nulové hypotézy $H_0: R^2 = 0$ sleduje $nR^2$ rozdělení $\chi^2$ 
+s $q$ stupni volnosti, tj. nulovou hypotézu zamítneme, pokud $nR^2 > \chi_{1 - \alpha}^2$, kde $\alpha$ je námi zvolená hladina významnosti.
+
+Na rozdíl od $F$ testu nehraje v případě statistiky Langrangova multiplikátoru počet stupňů volnosti zásadnější roli. Důvodem je 
+asymptotické chování této statistiky.
+
+Závěry učiněné na základě $F$ statistiky a statistiky Lagrangových multiplikátorů se mohou pro výběry malého rozsahu lišit. V 
+případě výběru velkého rozsahu jsou rozdíly velice výjimečné.
+
+\subsection{Asymptotická efektivita OLS odhadů}
+
+Při splnění Gauss-Markovových předpokladů jsou OLS odhady nejen asymptoticky normální ale také asymptoticky efektivní.
+
+Uvažujme jednoduchý regresní model
+\begin{equation}
+y = \beta_0 + \beta_1 x + u,
+\end{equation}
+kde $u$ splňuje MLR.4, tj. $E[u|x] = 0$. Nechť $g(x)$ je libovolná funkce $x$, např. $g(x) = x^2$. Pak je $u$ nekorelované s $g(x)$. Definujme 
+$z_i = g(x_i)$. Pak
+\begin{equation}
+\tilde{\beta}_1 = \frac{\sum_{i = 1}^n(z_i - \overline{z})y_i}{\sum_{i = 1}^n (z_i - \overline{z})x_i}
+\end{equation}
+je konzistentní odhad $\beta_1$ za předpokladu, že $g(x)$ a $x$ jsou korelované\footnote{$g(x)$ a $x$ mohou být nekorelované, protože korelace 
+je mírou lineární nikoliv obecné závislosti.}. Jestliže $cov[z, x] \ne 0$, tj. $z$ a $x$ jsou korelované, získáme
+\begin{equation}
+plim ~ \tilde{\beta}_1 = \beta_1 + \frac{cov[z, u]}{cov[z, x]} = \beta_1,
+\end{equation}
+protože $cov[z, u] = 0$ pro MLR.4. Lze ukázat, že $\sqrt{n}(\tilde{\beta}_1 - \beta_1)$ je asymptoticky normální s nulovou střední hodnotou a 
+asymptotickým rozptylem $\sigma^2 \frac{var[z]}{(cov[z, x])^2}$. Asymptotický rozptyl OLS odhadů získáme pro $z = x$, který je v tomto 
+případě roven $cov[z,x] = cov[x,x] = var[x]$. Asymptotický rozptyl $\sqrt{n}(\hat{\beta}_1 - \beta_1)$ je pak $\sigma^2 \frac{var[x]}{var[x]^2} = 
+\frac{\sigma^2}{var[x]}$. Cauchy-Schwartzova nerovnost implikuje $(cov[z, x])^2 \le var[z]var[x]$, což znamená, že asymptotický rozptyl 
+$\sqrt{n}(\hat{\beta}_1 - \beta_1)$ není větší než rozptyl $\sqrt{n}(\tilde{\beta}_1 - \beta_1)$. Jinými slovy OLS odhad má menší 
+asymptotický rozptyl než libovolný odhad ve tvaru (5.18). Pokud však není splněn předpoklad homoskedasticity, pak mohou existovat odhady 
+(5.17), které mají menší asymptotický rozptyl než odpovídající OLS odhad.
+
+\begin{theorem}[Asymptotická efektivnost OLS odhadů]
+Jestliže jsou splněny Gauss-Markovovy předpoklady, pak pro obecný odhad $\tilde{\beta}_j$ a odpovídající OLS odhad $\hat{\beta}_j$ platí, 
+že $\hat{\beta}_j$ má asymptotický rozptyl menší nebo roven asymptotickému rozptylu $\tilde{\beta}_j$, tj. $avar[\sqrt{n}(\hat{\beta}_j - \beta_j)] \le avar[\sqrt{n}(\tilde{\beta}_j - \beta_j)]$
+
+\raggedleft{$\clubsuit$}
+\end{theorem}

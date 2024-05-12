@@ -1,0 +1,8 @@
+\babel@toc {czech}{}\relax 
+\contentsline {chapter}{\numberline {1}Úvod}{5}{}%
+\contentsline {section}{\numberline {1.1}Příklady časových řad}{5}{}%
+\contentsline {section}{\numberline {1.2}Pojmosloví}{5}{}%
+\contentsline {section}{\numberline {1.3}Cíle analýzy časových řad}{5}{}%
+\contentsline {subsection}{\numberline {1.3.1}Popis časové řady}{5}{}%
+\contentsline {subsection}{\numberline {1.3.2}Analýza časové řady}{6}{}%
+\contentsline {subsection}{\numberline {1.3.3}Predikce}{6}{}%

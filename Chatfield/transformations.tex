@@ -1,0 +1,73 @@
+\chapter{Fourierova, Laplaceova a Z transformace}
+
+\section{Fourierova transformace}
+
+Fourierova transformace funkce $h(t)$ pro reálné číslo $t$ je obvykle definována jako
+\begin{equation}
+H(\omega) = \int_{-\infty}^{\infty} h(t) e^{-i \omega t} dt
+\end{equation}
+za předpokladu, že výše uvedený integrál existuje pro libovolné reálné $\omega$. Dostačující podmínka pro existenci $H(\omega)$ je, že
+\begin{equation}
+\int_{-\infty}^{\infty} |h(t)| dt < \infty.
+\end{equation}
+K (A.1) existuje jednoduchá inverzní rovnice ve tvaru
+\begin{equation}
+h(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} H(\omega) e^{- \omega} d \omega.
+\end{equation}
+$h(t)$ nazýváme inverzí Fourierovy transformace $H(\omega)$. $h(t)$ a $H(\omega)$ pak označujeme jako Fourierův inverzní pár.
+
+V analýze časových řad se často setkáváme s diskrétní formou Fourierovy transformace, kde $h(t)$ je definováno pouze pro celá $t$. Pak
+\begin{equation}
+H(\omega) = \sum_{t = \infty}^{\infty} h(t) e^{-i \omega t} \quad - \pi \le \omega \le \pi.
+\end{equation}
+je diskrétní Fourierovou transformací $h(t)$. Připomínáme, že $H(\omega)$ je definované pouze na intervalu $[-\pi, \pi]$. Inverzní transformace má pak tvar
+\begin{equation}
+h(t) = \frac{1}{2 \pi} \int_{-\pi}^\pi H(\omega) e^{i \omega t} d \omega.
+\end{equation}
+Speciální typ Fourierovy transformace nastává, pokud je $h(t)$ reálná sudá funkce, kdy $h(t) = h(-t)$, což je případ autokorelační funkce stacionární časové řady. Pak s využitím (A.1) a konstanty $1/\pi$ vně integrálu získáme
+\begin{align}
+H(\omega) & = \frac{1}{\pi}\int_{-\infty}^{\infty} h(t) e^{- \omega t} dt\\ \nonumber
+ & = \frac{2}{\pi}\int_0^{\infty} h(t) \cos \omega t dt.
+\end{align}
+Inverzní rovnice má pak tvar
+\begin{align}
+h(t) & = \frac{1}{2} \int_{-\infty}^{\infty} H(\omega) e^{- \omega t} dt\\ \nonumber
+ & = \int_0^{\infty} H(\omega) \cos \omega t d \omega.
+\end{align}
+(A.6) a (A.7) jsou podobné Fourierově transformačnímu páru a jsou aplikovatelné pouze pro definici $H(\omega)$ za předpokladu $\omega > 0$.
+
+Pokud je $h(t)$ definované pouze pro celá $t$, přejdou (A.6) a (A.7) do podoby
+\begin{equation}
+H(\omega) = \frac{1}{\pi}\Big(h(0) + 2 \sum_{t = 1}^{\infty} h(t) \cos \omega t \Big)
+\end{equation}
+a
+\begin{equation}
+h(t) = \int_0^{\pi} H(\omega) \cos \omega t d \omega,
+\end{equation}
+kde $H(\omega)$ je nyní definované pouze na intervalu $[0, \pi]$.
+
+\section{Laplaceova transformace}
+
+Laplaceova transformace funkce $h(t)$, která je definována pro $t > 0$, je dána rovnicí
+\begin{equation}
+H(s) = \int_0^{\infty} h(t)e^{-st}dt,
+\end{equation}
+kde $s$ je komplexní proměnná. Výše uvedený integrál konverguje, pokud reálná část $s$ překročí určité číslo, tzv. abscisu konvergence (abscissa of convergence).
+
+Vztah mezi Fourierovou a Laplacevou transformací je předmětem zájmu, zejména pak v případě teorie kontroly, kdy je Laplaceova transformace upřednostňována při zkoumání vlastností lineárních systémů. Jestliže je funkce $f(t)$ taková, že
+\begin{equation}
+h(t) = 0 \quad t < 0
+\end{equation}
+a reálná část $s$ je nulová, pak jsou Laplaceova a Fourierova transformace $h(t)$ totožné. Na Fourierovu transformaci pak lze nahlížet jako na speciální případ Laplaceovy transformace.
+
+\section{Z transformace}
+
+Z transformace funkce $h(t)$ je pro nezáporná celá $t$ definována jako
+\begin{equation}
+H(z) = \sum_{t = 0}^{\infty} h(t) z^{-t}.
+\end{equation}
+Pro diskrétní čas $t$ s funkcí splňující (A.11) preferují někteří autoři Z transformaci před diskrétní formou Fourierovy transformace nebo před diskrétní formou Laplaceovy transformace
+\begin{equation}
+H(s) = \sum_{t = 0} ^{\infty} h(t) e^{-s t}.
+\end{equation}
+Porovnáním (A.12) a (A.13) zjistíme, že $z = e^s$. Jestliže je $\{h(t)\}$ pravděpodobnostní funkcí, kde $h(t)$ je pravděpodobnost pozorování hodnoty $t$ pro $t = 0, 1, ...$, pak má (A.12) vazbu na pravděpodobností vytvořující funkci (probability generating function) dané distribuce, zatímco (A.4) a (A.13) mají vazbu na momentovou vytvořující funkci (moment generating function).

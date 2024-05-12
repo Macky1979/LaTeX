@@ -1,0 +1,97 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{FX delta}
+
+FX delta vyjadřuje sensitivitu FX instrumentů na změnu měnového kurzu a lze ji mimojiné použít k vyjádření FX pozice pro tyto instrumenty. Příkladem FX instrumentů jsou FX forwardy a FX opce.
+
+\section{FX forward}
+
+Uvažujme FX forward s nominální hodnotou $N$ USD, v rámci kterého budeme v čase $t_0 + \delta t$ směňovat USD za EUR v kurzu $E^{fwd}$ s kotací USD/EUR. Abychom na konci $t_0 + \delta t$ měli požadovaných $N$ USD, museli bychom v $t_0$ držet dolarovou hotovost
+\begin{equation*}
+N e^{-i_{usd} \delta t}
+\end{equation*}
+Tuto částku bychom pak v $t_0 + \delta t$ v době splatnosti FX forwardu směnili za eurovou částku
+\begin{equation*}
+\frac{N}{E^{fwd}}
+\end{equation*}
+Současná hodnota této částky vyjádřené v EUR je
+\begin{equation*}
+\frac{N}{E^{fwd}} e^{-i_{eur} \delta t}
+\end{equation*}
+Kdybychom nebyli vázáni FX forwardem, mohli bychom dolarovou částku
+\begin{equation*}
+N e^{-i_{usd} \delta t}
+\end{equation*}
+spotově směnit za EUR při kurzu $E_0$ v kotaci USD/EUR. Touto operací bychom získali eurovou hotovost
+\begin{equation*}
+\frac{N e^{-i_{usd} \delta t}}{E_0}
+\end{equation*}
+Současná hodnota uzavřeného forwardového kontraktu vyjádřená v EUR je tedy rovna
+\begin{equation*}
+\frac{1}{E^{fwd}} N e^{-i_{eur} \delta t} - \frac{N e^{-i_{usd} \delta t}}{E_0}
+\end{equation*}
+což odpovídá dolarové částce
+\begin{equation*}
+\frac{E_0}{E^{fwd}} N e^{-i_{eur} \delta t} - N e^{-i_{usd} \delta t}
+\end{equation*}
+Jestliže bychom chtěli zjistit FX deltu výše popsaného FX forwardu, museli bychom rovnici (1.1) derivovat podle $E_0$. Výsledná delta vyjadřuje dolarovou změnu hodnoty FX forwardu při zvýšení měnového kurzu $E_0$ o 1 USD.
+\begin{equation*}
+\Delta_{usd} = \frac{1}{E^{fwd}} N e^{-i_{eur} \delta t}
+\end{equation*}
+Kdybychom drželi v hotovosti částku rovnou $\Delta_{usd}$ EUR, byli bychom v daný okamžik vystaveni stejnému FX riziku jako v případě FX forwardu. Vzhledem k tomu, že delta pro FX forward je lineární funkcí, platí tento vztah pro libovolné změny kurzu $E_0$.
+
+Existuje však také intuitivnější způsob, jak určit FX pozici generovanou FX forwardem. V době splatnosti kontraktu dojde k výměně $N$ USD za $N/E^{fwd}$ EUR. Dojde tedy k navýšení EUR pozice a snížení USD pozice. Současná hodnota vygenerované EUR resp. USD pozice vyjádřené v příslušné měně je tedy
+\begin{equation}
+\frac{1}{E^{fwd}} N e^{-i_{eur} \delta t}
+\end{equation}
+resp.
+\begin{equation}
+- N e^{-i_{usd} \delta t}
+\end{equation}
+Vztah (1.1) odpovídá parametru $\Delta_{usd}$ a je tedy konzistentní určováním FX pozice pomocí delty. Forwardová měnová sazba $E^{fwd}$ je dána vztahem
+\begin{equation*}
+E^{fwd} = E_0 e^{(i_{usd} - i_{eur}) \delta t}
+\end{equation*}
+S využitím výše uvedeného vztahu tak lze elementárními úpravami dokázat, že dopady na EUR resp. USD FX pozici kvantifikované prostřednictvím (1.1) resp. (1.2) jsou po vyjádření ve shodné měně totožné, pouze se liší ve znaménku.
+\end{document}
+
+
+
+kde $E^{fwd}$ je dohodnutou forwardovou měnovou sazbou v kotaci USD/EUR, $N$ pokladovým nominálem forwardového obchodu v EUR a $E_0$ představuje spotový měnový kurz v kotaci USD/EUR. Citlivost ceny forwardového obchodu na změnu měnového kurzu vyjadřuje parametr $\Delta$. $\Delta$ je definována jako derivace ceny FX forwardu podle měnového kurzu a pro výše uvažovaný kontrakt je rovna
+\begin{equation*}
+\Delta = - M \frac{E^{fwd}}{E^2_0} e^{-i_{usd} \delta t},
+\end{equation*}
+Parametr $\Delta$ nám říká, o kolik USD se změní hodnota FX forwardu za předpokladu, že měnový kurz vzroste o 1 USD. Jestliže bychom namísto FX forwardu drželi hotovost opovídající $\Delta$ EUR, byli bychom vystaveni stejnému FX riziku. FX pozice generovaná výše uvažovaným FX forwardem je tedy z tohoto pohledu rovna $\Delta$ EUR.
+
+\section{FX opce}
+
+Vzhledem k symetrii FX opcí je dopad pro jednu z měn kladný a odpovídá $\Delta$; dopad pro druhou z měn je záporný a roven $-\Delta$. Delta pro obě měny je přepočítána na EUR a zahrnována do celkové FX pozice \footnote{Výjimku představuje situace, kdy je jednou z měn měnového páru CZK. Delta vyplývající z CZK se do FX pozice nezahrnuje, protože CZK je z pohledu KB domácí měnou.}. Vzhledem k tomu, že FX opce mají být uzavírány tzv. back-to-back s SG, měla by být celková delta nulová. Někdy však dochází k tomu, že některé obchody týkající se FX opcí nebyly zadány včas do aplikace Kondor+. Výsledná delta je v tomto případě různá od nuly. Ideální by bylo dané obchody dodatečně zahrnout do interfacových souborů popř. přímo vložit do aplikace TRAAB. To však ve většině případů není možné, a proto se ručně upravuje tabulka RM01.dbo.LIM\_CFX, kde se pomocí aktualizačního dotazu\\
+\begin{center}
+UPDATE LIM\_CFX SET delta = NULL WHERE delta IS NOT NULL
+\end{center}
+přemažou hodnoty ve sloupci \textit{delta}. Tento dotaz se spouští až před generováním reportů pomocí aplikace \textit{Klimits.xls}.
+
+\section{Delta FX opce}
+
+Uvažujme FX opci s domácí měnou A a zahraniční měnou B. Definujme $E$ jako měnový kurz s kotací A/B a $V(E)$ jako cenu opce. Tato opce umožnuje svému majiteli nakoupit resp. prodat jednu jednotku měny B za $K$ jednotek měny A. Delta FX opce je rovna
+\begin{equation*}
+\Delta = \frac{\partial V(E)}{\partial E}
+\end{equation*}
+a představuje citlivost ceny opce na změnu měnového kurzu vyjádřené v měně A. Pro cenu opce tedy za předpokladu malých změn měnového kurzu platí
+\begin{equation*}
+\delta V(E) = \Delta \delta E
+\end{equation*}
+Změna ceny opce vyjádřená v měně A je tedy pro malé změny měnového kurzu $E$ definována jsou součin $\Delta$ a změny měnového kurzu.
+
+
+
+
+

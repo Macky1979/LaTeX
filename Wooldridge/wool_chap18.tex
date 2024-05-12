@@ -1,0 +1,599 @@
+\chapter{Časové řady pro pokročilé}
+
+\section{Nekonečně rozdělená zpoždění (IDL - infinite distributed lag)}
+
+Model nekonečně rozdělených zpoždění je definován jako
+\begin{equation}
+y_t = \alpha + \delta_0 z_t + \delta_1 z_{t-1} + \delta_2 z_{t-2} + ... + u_t.
+\end{equation}
+Aby model (18.1) dával smysl, musí koeficient zpoždění $\delta_j$ konvergovat k nule s tím, jak $j 
+\rightarrow \infty$. To znamená, že dočasné zvýšení veličiny 
+$z$ o jednu jednotku nemá z dlouhodobého 
+hlediska dopad na očekávanou hodnotu $y$. Nechť $z_i = 0$ s vyjímkou 
+$t = 0$, kdy $z_0 = 1$. S tím, jak postupuje čas a $z_0$ 
+se stává $z_1$, $z_2$ až $z_h$, se očekávaná hodnota $y_0$, 
+$y_1$, $y_2$ až $y_h$ mění 
+podle schématu
+\begin{equation}
+E[y_0] = \alpha + \delta_0,
+\end{equation}
+\begin{equation}
+E[y_1] = \alpha + \delta_1,
+\end{equation}
+\begin{equation}
+E[y_2] = \alpha + \delta_2,
+\end{equation}
+až
+\begin{equation}
+E[y_h] = \alpha + \delta_h.
+\end{equation}
+Parametr $\delta_h$ tak měří změnu v očekávané hodnotě $y$ po $h$ časových 
+krocích. Protože pro $h \rightarrow \infty$ předpokládáme $\delta_h 
+\rightarrow 0$, je dlouhodobá střední hodnota $y$ rovna $\alpha$. Dlouhodobá propenzita (LRP - long-term propensity) modelu (18.1) je tak
+\begin{equation}
+LRP = \delta_0 + \delta_1 + \delta_2 + \delta_3 + ...
+\end{equation}
+V praxi je $LPR$ často aproximováno konečným součtem ve tvaru $\delta_0 + 
+\delta_1 + ... + \delta_p$ pro dostatečně vysoké $p$. Tímto způsobem lze např. kvatifikovat dopad zvýšení 
+měnového agregátu na růst HDP.
+
+V modelu (18.1) také předpokládáme, že očekávaná hodnota $u_i$ 
+je nezávislá $z$, tj. předpokládáme tzv. striktní exogenitu
+\begin{equation}
+E[u_t|...,z_{t-2}, z_{t-1}, z_t, z_{t+1}, z_{t+2}, ...] = 0.
+\end{equation}
+Je důležité si uvědomit, že (18.7) nedovoluje zpětnou vazbu mezi $y_t$ a budoucími hodnotami $z$, protože $z_{t+h}$ musí být nekorelované s 
+$u_t$ pro $h > 0$. Slabší verze (18.7) má pak tvar
+\begin{equation}
+E[u_t | z_t, z_{t-1}, ...] = 0,
+\end{equation}
+kde $u_t$ je nekorelované se současnou a minulými hodnotami $z$, avšak může být korelováné s 
+budoucími hodnotami $z$. Nicméně (18.6) ani (18.7) nám neříkají nic o sériové korelaci $\{u_i\}$.
+
+\subsection{Geometricky rozdělená zpoždění (GDL - geometric distributed lag) aka Koyckův model}
+
+V případě geometricky rozdělených zpoždění je parametr $\delta_j$ definován jako
+\begin{equation}
+\delta_j = \gamma \rho^j, ~~~ |\rho| < 1, ~~~ j = 0, 1, 2, ...
+\end{equation}
+Tento vztah garantuje $\delta_j \rightarrow 0$ pro $j \rightarrow \infty$. Dlouhodobá propenzita modelu je
+\begin{equation}
+LRP = \frac{\gamma}{1 - \rho},
+\end{equation}
+a protože $|\rho| < 1$, je jeho směr zcela determinován znaménkem parametru $\gamma$.
+
+Uvažume IDL model a čase $t$
+\begin{equation}
+y_t = \alpha + \gamma z_t + \gamma \rho z_{t-1} + \gamma \rho^2 z_{t-2} + ... + u_t
+\end{equation}
+a IDL model v čase $t$ vynásobený parametrem $\rho$
+\begin{equation}
+\rho y_{t-1} = \alpha + \gamma \rho z_{t-1} + \gamma \rho^2 z_{t-2} + \gamma \rho^3 z_{t-3} + ... + \rho u_{t-1}.
+\end{equation}
+Pokud od sebe odečteme (18.11) a (18.12), získáme
+\begin{equation}
+y_t - \rho y_{t - 1} = (1 - \rho)\alpha + \gamma z_t + u_t - \rho u_{t - 1},
+\end{equation}
+což lze dále upravit na
+\begin{equation}
+y_t = \alpha_0 + \gamma z_t + \rho y_{t-1} + u_t - \rho u_{t - 1},
+\end{equation}
+kde $\alpha_0 = (1 - \rho) \alpha$. (18.14) na první pohled vypadá 
+jako standardní regresní model, pro který lze parametry 
+$\alpha$, $\gamma$ a $\rho$ snadno odhadnout. Zdánlivá trivialita (18.14) je však zavádějící, protože chyba $\upsilon_t = u_t - \rho u_{t - 1}$ a $y_{t-1}$ jsou 
+korelované. To má za následek zkrelené odhady parametrů $\gamma$ a $\rho$.
+
+Jedním z případů, kdy $\upsilon_t$ musí být korelováno s $y_{t-1}$, je situace, kdy $u_t$ je nezávislé na $z_t$ a 
+všech přechozích hodnotách $z$ a $y$. Pak je model (18.10) 
+dynamicky kompletní a $u_t$ je tak nekorelované s 
+$y_{t-1}$. Při splnění těchto předpokladů lze odvodit, že 
+kovariance mezi $\upsilon_t$ a $y_{t-1}$ je $-\rho var[u_{t-1}] = -\rho 
+\sigma_{u}^2$, což je rovno nule pouze pro $\rho = 0$. Lze si tak 
+snadno všimnout, že $y_t$ musí být sériově korelované - vzhledem k tomu, že $\{u_i\}$ je 
+sériově nekorelované, platí
+\begin{multline}
+E[\upsilon_t, \upsilon_{t-1}] =\\
+E[u_t u_{t-1}] - \rho E[u_{t-1}^2] - \rho E[u_t u_{t-2}] + \rho^2 E[u_t, u_{t-2}] =\\
+-\rho \sigma_u^2.
+\end{multline}
+Pro $j > 1$ je $E[\upsilon_t \upsilon_{t-j}] = 0$. Proto $\{y_t\}$ 
+sleduje proces klouzavého průměru prvního řádu. Tento závěr 
+a (18.14) vede k modelu, který byl odvozen z původního modelu, a 
+který je charakteristický zpožděnou závislou 
+veličinou $y_{t-1}$ a specifickým typem sériové korelace.
+
+Jestliže předpokládáme, že $\{u_t\}$ sleduje AR(1) model, tj.
+\begin{equation}
+u_t = \rho u_{t - 1} + e_t,
+\end{equation}
+\begin{equation}
+E[e_t|z_t, y_{t-1}, z_{t-1}, ...] = 0,
+\end{equation}
+lze parametry modelu (18.14) relativně snadno odhadnout. Pokud jsou totiž splněny podmínky (18.16) a (18.17), lze (18.14) přepsat do tvaru
+\begin{equation}
+y_t = \alpha_0 + \gamma z_t + \rho y_{t-1} + e_t,
+\end{equation}
+což je dynamicky kompletní model, pro který lze získat konzistentní a asymptoticky normální odhady 
+parametrů pomocí OLS. Pokud $e_t$ navíc splňuje předpoklad homoskedasticity, jsou tyto odhady také efektivní. Po té, 
+co odhadneme $\gamma$ a $\rho$, lze výpočíst dlouhodobou propenzitu modelu jako
+\begin{equation}
+\hat{LRP} = \frac{\hat{\gamma}}{1 - \hat{\rho}}.
+\end{equation}
+
+\subsection{Racionálně rozdělená zpoždění (RDL - rational distributed lag)}
+
+Model s racioálně rozdělenými zpožděními má tvar
+\begin{equation}
+y_t = \alpha_0 + \gamma_0 z_t + \rho y_{t-1} + \gamma_1 z_{t-1} + \upsilon_t,
+\end{equation}
+kde $\upsilon_t = u_t - \rho u_{t-1}$. Lze dokázat, že (18.20) je ekvivalentní modelu s nekonečným časovým 
+posunem, protože
+\begin{multline}
+y_t = \alpha + \gamma_0(z_t + \rho z_{t-1} + \rho^2 z_{t-2} + ...)\\
++ \gamma_1(z_{t - 1} + \rho z_{t-2} + \rho^2 z_{t-3} + ....) + u_t\\
+= \alpha + \gamma_0 z_t + (\rho \gamma_0 + \gamma_1)z_{t-1} + \rho(\rho \gamma_0 + \gamma_1) z_{t-2}\\
++ \rho^2(\rho \gamma_0 + \gamma_1)z_{t-3} + ... + u_t,
+\end{multline}
+kde opět předpokládáme $|\rho| < 1$. Pro $h \ge 1$ je koeficient vysvětlující proměnné $z_{t-h}$ roven 
+$\rho^{h-1}(\rho \gamma_0 + \gamma_1)$. Dlouhodobá propenzita modelu je rovna
+\begin{equation}
+LRP = \frac{\gamma_0 + \gamma_1}{1 - \rho}
+\end{equation}
+a lze ji odvodit dosazením $y_i = y^*$ a $z_i = z^*$ do (18.20).
+
+\section{Testování jednotkového kořene}
+
+\subsection{Dickey-Fullerův test}
+
+Uvažujme AR(1) model
+
+\begin{equation}
+y_t = \alpha + \rho y_{t-1} + e_t,  ~~~ t = 1, 2, ...
+\end{equation}
+a předpokládejme
+\begin{equation}
+E[e_t|y_{t-1}, y_{t-2}, ...] = 0.
+\end{equation}
+Jestliže $\{y_t\}$ sleduje (18.23), pak má $\{y_t\}$ jednotkový 
+kořen právě tehdy a jen tehdy, jestliže $\rho = 1$. Nulová 
+hypotéza je tedy definována jako
+\begin{equation}
+H_0: \rho = 1
+\end{equation}
+a alternativní hypotéza je zpravidla definována jako
+\begin{equation}
+H_1: \rho < 1,
+\end{equation}
+kde v praxi implicitně předpokládáme $0 < \rho < 1$, protože $\rho < 0$ je v časových řadách, které 
+podezíráme z jednotkového kořene, velmi vyjímečné.
+
+Jesliže $|\rho| <1$, je $\{y_i\}$ stabilní AR(1) proces, což znamená, že $\{u_i\}$ je slabě závislé nebo 
+asymptoticky nekorelované.
+
+V kapitole 11 jsme dokázali, že $cor[y_t, y_{t+h}] = \rho^h \rightarrow 0$ pro 
+$|\rho| < 1$. Proto je testování nulové hypotézy proti 
+alternativní hypotéze ve skutečnosti testem, zda-li $\{y_t\}$ 
+je $I(1)$ proces proti testu, že $\{y_t\}$ je $I(0)$ proces.
+
+Jednoduchý test na jednotkový kořen spočívá v odečtení $y_{t-1}$ od obou stran rovnice (18.23) a definování 
+$\theta$ jako $\theta = \rho - 1$. Výsledkem je model
+\begin{equation}
+\Delta y_t = \alpha + \theta y_{t-1} + e_t.
+\end{equation}
+
+Při splnění předpokladu (18.24) je (18.27) dynamicky kompletní, a proto by se mohlo zdát, že stačí pouze otestovat $H_0: 
+\theta = 0$ proti $H_1: \theta < 0$. V případě platnosti hypotézi $H_0$ je 
+však $y_{t-1}$ I(1) procesem a centrální limitní theorém nutný pro asymptoticky normální 
+rozdělení $t$ statistiky odhadovaného parametru $\theta$ tak neplatí ani pro výběr velkého rozsahu. Asymptotické 
+rozdělení $t$ statistiky při platné hypotéze $H_0$ je známé jako Dickey-Fullerovo rozdělení a 
+odpovídající test je tak známý jako Dickey-Fullerův (DF) test. V 
+rámci testu porovnáváme standardní $t$ statistiku parametru $\theta$ 
+v modelu (18.27) s kritickými hodnotami uvedenými v tabulce (18.1). 
+Pokud je $t$ statistika menší než odpovídající kritická hodnota, 
+nulovou hypotézu o existenci nulového kořene na dané hladině významnosti zamítneme.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{| l | c | c | c | c |}
+\hline
+\bf{hladina významnosti} & 1.0\% & 2.5\% & 5.0\% & 10.0\%\\
+\hline
+\bf{kritická hodnota} & -3.43 & -3.12 & -2.86 & -2.57\\
+\hline
+\end{tabular}
+\caption{Kritické hodnoty Dickey-Fullerova testu (bez lineárního trendu)}
+\end{center}
+\end{table}
+
+\subsection{Rozšířený Dickey-Fullerův test}
+
+Test jednotkového kořene je možné provádět také pro modely s komplikovanější dynamikou. $\{\Delta y_i\}$ 
+v modelu (18.27) můžeme rozšířit přidáním členů $\Delta y_{t - h}$ na
+\begin{equation}
+\Delta y_t = \alpha + \theta y_{t-1} + \gamma_1 \Delta y_{t-1} + ... + \gamma_p \Delta y_{t - p} + e_t,
+\end{equation}
+kde $|\gamma_h| < 1$. To má za následek, že pro $H_0: \theta = 0$ sleduje $\{\Delta y_t\}$ stabilní AR(p) model a 
+pro $H_1: \theta < 0$ sleduje $\{y_t\}$ stabilní AR(p + 1) model. 
+Protože jsme do původního modelu připadli členy $\Delta y_{t - h}$ 
+nazýváme tento test rozšířeným Dickey-Fullerovým testem. Logika 
+tohoto testu je shodná s logikou původního Dickey-Fullerového 
+testu. Jediným rozdílem jsou kritické hodnoty, které jsou dány 
+tabulkou (18.2).
+
+Přidání časově posunutých veličin do (18.29) je motivované snahou zbavit se sériové korelace v $\Delta y$. 
+Čím více veličin přídáme, tím více ztratíme počátečních pozorování. Jestliže zahrneme příliš mnoho 
+veličin, má výsledný malý vzorek za následek sníženou sílu testu. Pokud však přidáme příliš málo veličin, 
+může být výsledek testu zavádějící, protože kritické hodnoty rozšířeného Dickey-Fullerova testu 
+předpokládají dynamicky kompletní model. Počet časově posunutých veličin zahrnutých do modelu je často, 
+kromě velikosti náhodného výběru, ovlivněn také frekvencí dat. Pro roční data jsou obvykle dostatečné jedna 
+až dvě veličiny; v případě měsíčních dat zahrnujeme zpravidla dvanáct veličin.
+
+\subsection{Lineární časový trend}
+
+Stacionární proces s lineárním trendem\footnote{Jedná se o proces, jehož střední hodnota 
+sleduje lineární trend, a který se po odstranění tohoto trendu 
+stává I(0) procesem.} může být zaměněn za proces s jednotkovým 
+kořenem, pokud tento trend nezahrneme do 
+Dickey-Fullerova regresního modelu. Základní rovnici tak musíme upravit do tvaru
+\begin{equation}
+\Delta y_t = \alpha + \delta t + \theta y_{t - 1} + e_t,
+\end{equation}
+kde opět $H_0: \theta = 0$ a $H_1: \theta < 0$. Pokud zahrneme trend 
+do regresního modelu, kritické hodnoty 
+Dickey-Fullerova testu se změní, protože odstranění trendu udělá z procesu s jednotkovým kořenem proces, 
+který více připomíná I(0) proces. Proto potřebujeme vyšší hodnoty $t$ statistiky k zamítnutí $H_0$.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{| l | c | c | c | c |}
+\hline
+\bf{hladina významnosti} & 1.0\% & 2.5\% & 5.0\% & 10.0\%\\
+\hline
+\bf{kritická hodnota} & -3.96 & -3.66 & -3.41 & -3.12\\
+\hline
+\end{tabular}
+\caption{Kritické hodnoty Dickey-Fullerova testu (zahrnutý lineární trend)}
+\end{center}
+\end{table}
+
+Mohlo by se zdát, že pro rozhodnutí o zahrnutí či nezahrnutí lineárního trendu do Dickey-Fullerova modelu 
+stačí porovnat $t$ statistiku trendu s kritickou hodnotou standardního normálního $t$ rozdělení. Bohužel tato 
+$t$ statistika nesleduje asymptoticky normální rozdělení s 
+vyjímkou situace, kdy $|\rho| < 1$. Ačkoliv je asymptotické rozdělení této 
+$t$ statistiky známé, je praxi používáno pouze vyjímečně. Při rozhodování, zda-li zařadit trend do 
+Dickey-Fullerova regresního modelu či nikoliv, se nejčastěji spoléhá na intuici doplněnou o grafy časových řad.
+
+\section{Zdánlivá regrese (spurious regression)}
+
+Pojem zdánlivá korelace se používá pro popis situace, kdy jsou dvě náhodné veličiny společně korelované 
+skrze třetí náhodnou veličinou. Pokud tuto třetí veličinu zafixujeme, je korelace mezi 
+zkoumanými veličinami nulová. K tomu samému může dojít také v případě časových řad v souvislosti s I(0) veličinami.
+
+Zdánlivou korelaci je možné nalézt i mezi časovými řadami, které mají rostoucí nebo klesající trend. 
+Tento problém lze pak vyřešit zahrnutím časového trendu do regresního modelu.
+
+Uvažujme dvě I(1) časové řady, které nesledují trend. Jednoduchý regresní model aplikovaný na tyto dvě řady 
+pak často vede k významné $t$ statistice. Konkrétně uvažujme časové řady
+\begin{equation}
+x_t = x_{t - 1} + a_t
+\end{equation}
+a
+\begin{equation}
+y_t = y_{t - 1} + e_t,
+\end{equation}
+kde $t = 1, 2, ...$ a $\{a_t\}$ a $\{e_t\}$ jsou nezávislé chybové složky, které sledují shodné 
+pravděpodobnostní rozdělení s nulovou střední hodnotou a rozptylem $\sigma_a^2$ a $\sigma_e^2$. Výše uvedené 
+předpoklady implikují, že $\{a_t\}$ a $\{e_t\}$ jsou taktéž vzájemně nezávislé. Granger a Newbold (1974) 
+ukázali, že ačkoliv jsou $y_t$ a $x_t$ nezávislé, regresní model mezi $y_t$ a $x_t$ indikuje statistiky 
+významnou závislost.
+
+Uvažujme jednoduchý regresní model
+\begin{equation}
+y_t + \beta_0 + \beta_1 x_t + u_t.
+\end{equation}
+Aby $t$ statistika odhadu $\hat{\beta}_t$ měla za předpokladu dostatečně velkého výběru přibližně 
+normální rozdělení, mít mít chyba $\{u_t\}$ nulovou střední hodnotu a nesmí být sériově korelovaná. Nicméně 
+protože za předpokladu $H_0: \beta_1 = 0$ máme $y_t = \beta_0 + u_t$, a protože $\{y_t\}$ je náhodná procházka s $y_0 = 0$, 
+je rovnice (18.32) za předpokladu $H_0$ splněna pouze tehdy, jestliže $\beta_0 = 0$ a $u_i = y_i = \sum_{j = 1}^i 
+e_j$.
+
+Zahrnutí časového trendu do (18.32) vede ke stejným závěrům. Jestliže $y_t$ a $x_t$ jsou náhodné procházky s driftem a 
+tento časový trend není zohledněn, má problém zdánlivé regrese zásadnější charakter. Stejné kvalitativní 
+závěry také platí, jsou-li $\{a_t\}$ a $\{e_t\}$ obecné I(0) procesy spíše než i.i.d. posloupnosti.
+
+Kromě toho, že obvyklá $t$ statistika limitně nesleduje standardní normální rozdělení\footnote{Ve skutečnosti 
+$t$ statistika roste k nekone4nu s tím, jak se velikost náhodného vzorku $n$ blíží k nekonečnu.}, je také 
+chování $R^2$ nestandardní. Namísto toho, aby $R^2$ mělo řádně definované $plim$, konverguje k náhodné 
+veličině; $R^2$ je s vysokou pravděpodobností vysoké, i když jsou $\{y_t\}$ a $\{x_t\}$ nezávislé časové řady.
+
+Identické závěry lze vznést také v případě vícero vysvětlujících veličin. Jestliže $\{y_t\}$ je I(1) a 
+alespoň některé z vysvětlujích veličin jsou I(1), může se jednat o zdánlivou regresi.
+
+\section{Kointegrace a modely korekce chyb (error correction models)}
+
+\subsection{Kointegrace}
+
+Jestliže $\{y_t: t = 0, 1, ...\}$ a $\{x_t: t = 0, 1, ...\}$ jsou dva I(1) procesy, pak obecně $y_t - \beta x_t$ je 
+I(1) proces. Nicméně je možné, že pro určité $\beta \ne 0$ je $y_t - \beta x_t$ proces I(0), tj. proces s 
+konstatní střední hodnotou, konstatním rozptylem a autokorelací, která závisí pouze na "časovém" posunu
+mezi dvěma veličinami, a je asymptoticky nekorelovaný. Pokud takové $\beta$ existuje, říkáme, že $x$ a $y$ jsou 
+kointegrované a $\beta$ nazýváme kointegračním parametrem.
+
+Pro ilustraci uvažujme $\beta = 1$, $y_0 = x_0 = 0$ a $y_t = y_{t - 1} + r_t$ a $x_t = x_{t - 1} + v_t$, kde $\{r_t\}$ 
+a $\{v_t\}$ jsou dva I(0) procesy s nulovou střední hodnotou. $y_t$ a $x_t$ mají tendenci se "potulovat" bez toho, 
+aniž by se pravidelně vracely ke své počáteční nulové hodnotě. Naproti tomu $y_t - x_t$ je I(0) proces, který 
+má nulovou střední hodnotu a k počáteční nulové hodnotě se vrací s jistou pravidelností\footnote{Pro ilustraci
+ekonomického významu kointegrace uvažujme 3M EURIBOR a výnos pětiletého státního dluhopisu. V průběhu let se 
+úroveň úrokových sazeb může značně lišit, nicméně rozdíl mezi oběma sazbami by měl vykazovat určitou stabilitu.}.
+
+Pokud bychom měli k dispozici hodnotu parametru $\beta$, pak by testování kointegrace bylo relativně snadné - 
+definovali bychom novou veličinu $s_t = y_t - \beta x_t$, na níž bychom aplikovali rozšířený Dickey-Fullerův 
+test. Kointegrační parametr $\beta$ je však neznámý, a proto ho musíme nejprve odhadnout. Lze dokázat, že OLS 
+odhad $\hat{\beta}$ z regrese
+\begin{equation}
+y_t = \hat{\alpha} + \hat{\beta} x_t
+\end{equation}
+je konzistentním odhadem kointegračního parametru $\beta$. Hlavním problémem však je, že při platné nulové hypotéze 
+nejsou $y_t$ a $x_t$ kointegrované, což znamená, že se pro $H_0$ dopouštíme zdánlivé regrese. Naštěstí je 
+možné tabelovat kritické hodnoty rozšířeného Dickey-Fullera testu pro parametr $\beta$ aplikovaného na rezidua 
+z (18.33), tj. $\hat{u}_i = y_i - \hat{\alpha} - \hat{\beta} x_t$. Tento test nazýváme Engle-Grangerovým testem.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{| l | c | c | c | c |}
+\hline
+\bf{hladina významnosti} & 1.0\% & 2.5\% & 5.0\% & 10.0\%\\
+\hline
+\bf{kritická hodnota} & -3.90 & -3.59 & -3.34 & -3.04\\
+\hline
+\end{tabular}
+\caption{Kritické hodnoty pro kointegrační test (bez lineárního trendu)}
+\end{center}
+\end{table}
+
+V základním pojetí testu provádíme regresi $\Delta \hat{u}_t$ na $\hat{u}_{t - 1}$ a porovnáme $t$ statistiku pro 
+$\hat{u}_{t - 1}$ s kritickými hodnotami v tabulce (18.3). Jestliže se $t$ statistika nachází pod tabelovanými 
+kritickými hodnotami, máme důkaz, že pro určité $\beta$ je $y_t - \beta x_t$ proces I(0), tj. že $y_t$ a $x_t$ 
+jsou kointegravané. Stejně jako v případě Dickey-Fullerova testu, můžeme také Engle-Grangerův test rozšířit 
+o zpožděné veličiny $\Delta \hat{u}_t$, abychom tak zohlednili případnou sériovou korelaci. Jestliže $y_t$ a 
+$x_t$ nejsou kointegrované, je regrese $y_t$ na $x_t$ zdánlivá a nemá žádný interpretovatelný význam.
+
+Striktní definice kointegrace vyžaduje, aby $y_t - \beta x_t$ byl proces I(0) bez trendu. Abychom ilustrovali, co to 
+znamená, uvažujme $y_t = \delta t + g_i$ a $x_t = \lambda t + h_t$, kde $\{g_t\}$ a $\{h_t\}$ jsou I(1) procesy. 
+Jestliže jsou $y_t$ a $x_t$ kointegrované, pak musí existovat $\beta$ takové, že $g_t - \beta h_t$ je proces I(0). 
+Pak ale
+\begin{equation}
+y_t - \beta x_t = (\delta - \beta \lambda)t + (g_t - \beta_t),
+\end{equation}
+což je obecně stacionární proces s 
+trendem. Striktní forma kointegrace však existenci trendu nepřipouští, což implikuje $\delta = \beta \lambda$. 
+Pro proces I(1) je tak možné, že stochastické části, tj. $g_t$ a $h_t$, jsou kointegrované, avšak parameter 
+$\beta$, který zajišťuje, že $g_t - \beta h_t$ je I(0) proces, neeliminuje lineární časový trend. Tento 
+problém lze vyřešit tím, že rozšířený Dickey-Fuller test aplikujeme na rezidua $\hat{u}_t$ regrese
+\begin{equation}
+\hat{y}_i = \hat{\alpha} + \hat{\eta} t + \hat{\beta} x_t.
+\end{equation}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{| l | c | c | c | c |}
+\hline
+\bf{hladina významnosti} & 1.0\% & 2.5\% & 5.0\% & 10.0\%\\
+\hline
+\bf{kritická hodnota} & -4.32 & -4.03 & -3.78 & -3.50\\
+\hline
+\end{tabular}
+\caption{Kritické hodnoty pro kointegrační test (zahrnutý lineární trend)}
+\end{center}
+\end{table}
+
+Jestliže $y_t$ a $x_t$ jsou kointegrované I(1) procesy, pak platí
+
+\begin{equation}
+y_t = \alpha + \beta x_t + u_t,
+\end{equation}
+
+kde $u_t$ je I(0) proces s nulovou střední hodnotou. Obecně platí, že $\{u_i\}$ je sériově korelované, což 
+však nemá vliv na konzistentnost odhadů. Nicméně protože $x_t$ je I(1) proces, obvyklé postupy pro testování 
+parametrů nemusí být aplikovatelné.
+
+Kointegrace mezi $y_t$ a $x_t$ nám neříká nic o vztahu mezi $\{x_t\}$ a $\{u_t\}$ - ty mohou být libovolně 
+korelované. Dále, kromě požadavku, že $\{u_i\}$ je I(0) proces, kointegrace mezi $y_t$ a $x_t$ nevylučuje 
+sériovou závislost $\{u_i\}$.
+
+Hlavní nedostatek (18.36), který komplikuje testování parametrů nejvíce, tj. neexistenci striktní exogenity 
+$\{x_i\}$, lze snadno odstranit. Protože $x_t$ je I(1) proces, sktriktní exogenita znamená, že $u_t$ je 
+nekorelovan0 s $\Delta x_s$ pro libovolné $s$ a $t$. To lze, alespoň přibližně, zajistit s pomocí nových 
+chybových veličin, kdy $u_t$ vyjádříme jako funkci $\Delta x_s$ pro všechna $s$ blízká $t$. Pro ilustraci uvažujme
+
+\begin{equation}
+u_t = \eta + \phi_0 \Delta x_t + \phi_1 \Delta x_{t - 1} + \phi_2 \Delta x_{t - 2} + \gamma_1 \Delta x_{t + 1} + \gamma_2 \Delta x_{t + 2} + e_t,
+\end{equation}
+
+kde $e_t$ je nekorelované s každým $\Delta x_s$ ve výše uvedené rovnici. Implicitně také předpokládáme, že $e_t$ je nekorelované s 
+dalšími posuny $\Delta x_s$. Protože $e_t$ a $\Delta x_s$ jsou I(0) procesy, blíží se korelace mezi $e_i$ a 
+$\Delta x_s$ nule s tím, jak narůstá $|s - t|$. Jestliže dosadíme (18.37) do (18.36), získáme
+\begin{equation}
+y_t = \alpha_0 + \beta x_t + \phi_0 \Delta x_t + \phi_1 \Delta x_{t - 1} + \phi_2 \Delta x_{t - 2} + \gamma_1 \Delta 
+x_{t + 1} + \gamma_2 \Delta x_{t + 2} + e_t.
+\end{equation}
+Z konstrukce (18.38) vyplývá, že $x_t$ je v rámci této rovnice striktně exogenní. To je nezbytná podmínka pro 
+získání přibližně normální $t$ statistiky pro $\hat{\beta}$. Pokud je $u_t$ nekorelované se všemi $\Delta 
+x_s, s \ne t$, pak můžeme rovnici dále zredukovat na
+
+\begin{equation}
+y_t = \alpha_0 + \beta x_t + \phi_0 \Delta x_t + e_t,
+\end{equation}
+
+kde $\Delta x_t$ řeší jakokoliv současnou endogenitu mezi $x_t$ a $u_t$. Zda-li a kolik posunutých veličin 
+vyloučit ze (18.37) je čistě empirická záležitost.
+
+Jediným problémem (18.37) tak zůstává případná sériová korelace $\{e_t\}$, což lze např. vyřešit použitím 
+robustní směrodatné odchylky.
+
+Pojem kointegrace lze také rozšířit na více než dva procesy. Nicméně interpretace a případné odhady parametrů se
+stávají mnohem složitějšími.
+
+\section{Modely korekce chyb (error correction models)}
+
+Jestliže $y_t$ a $x_t$ jsou I(1) procesy a nejsou kointegrované, můžeme se pokusit odhadnout dynamický model 
+jejich prvních deferencí. Jako příklad uvažujme rovnici
+
+\begin{equation}
+\Delta y_t = \alpha_0 + \alpha_1 \Delta y_{t - 1} + \gamma_0 \Delta x_t + \gamma_1 \Delta x_{t - 1} + u_t,
+\end{equation}
+
+kde $u_i$ má nulovou střední hodnotu pro dané $\Delta x_t$, $\Delta y_{t - 1}$, $\Delta x_{t - 1}$ a jejich další 
+posuny.
+
+Pokud jsou $y_t$ a $x_t$ kointegrované parametrem $\beta$, můžeme definovat I(0) proces $s_t = y_t - \beta 
+x_t$; pro zjednodušení předpokládejme, že $s_t$ má nulovou střední hodnotu. Proces $s_t$ přidáme do výše 
+uvedené rovnice, čímž získáme
+
+\begin{multline}
+\Delta y_t = \alpha_0 + \alpha_1 \Delta y_{t - 1} + \gamma_0 \Delta x_t + \gamma_1 \Delta x_{t - 1} + \delta s_{t - 1} 
++ u_t\\
+= \alpha_0 + \alpha_1 \Delta y_{t - 1} + \gamma_0 \Delta x_t + \gamma_1 \Delta x_{t - 1} + \delta(y_{t - 1} - \beta 
+x_{t - 1}) + u_t.
+\end{multline}
+
+Člen $\delta(y_{t - 1} - \beta x_{x - 1})$ se nazývá korekce chyby (error correction term) a (18.41) se nazývá 
+modelem korekce chyby.
+
+Pro zjednodušení uvažujme model korekce chyby ve tvaru
+
+\begin{equation}
+\Delta y_t = \alpha_0 + \gamma_0 \Delta x_t + \delta(y_{t - 1} - \beta x_{t - 1}) + u_t,
+\end{equation}
+
+kde $\delta < 0$. Jestliže $y_{t - 1} > \beta x_{t - 1}$, pak hladina $y$ v předchozí periodě překročila 
+rovnovážnou úroveň. Protože $\delta <0$, stahuje v následujících krocích model $y$ zpět k rovnovážné 
+úrovni. Mechanismus pochopitelně funguje také obráceně.
+
+V praxi musíme kontegrační faktor odhadnout. V tomto případě $s_{t - 1}$ nahradíme $\hat{s}_{t - 1} = y_{t - 1} 
+- \hat{\beta} x_{t - 1}$, kde $\hat{\beta}$ je odhadem kointegračního faktoru $\beta$. Postup, ve kterém 
+nahrazujeme kointegrační faktor $\beta$ jeho odhadem $\hat{\beta}$, se nazývá Engle-Grangerovou dvoustupňovou 
+procedurou.
+
+\section{Predikce}
+
+Označme informaci, kterou jsme schopni pozorovat v čase $t$, jako $I_t$. Tato informace zahrnuje nejen $y_t$, ale 
+také všechny předchozí hodnoty $y$ stejně jako hodnoty všech ostatních velčin v čase $t$ a před ním.
+
+Označme predikci hodnoty $y_{t + 1}$ v čase $t$ jako $f_t$. Chybu predikce $f_t$ definujme jako $e_{t + 1} = y_{t + 
+1} - f_t$. Pro posouzení kvality predikce je třeba definovat tzv. ztrátovou funkci. V případě predikce 
+následující periody se nejčastěji používá druhá mocnina $e_{t + 1}$, kdy se snažíme minimalizovat
+
+\begin{equation}
+E[e^2_{t + 1} | I_t] = E[(y_{t + 1} - f_t) ^ 2 | I_t].
+\end{equation}
+
+Nejjednodušší prediktivní metodou je tzv. martingale. Proces $\{y_t\}$ je martingale, jestliže $E[y_{t + 1} | y_t, 
+y_{t - 1}, ..., y_0] = y_t$ pro všechna $t \ge 0$.
+
+O něco složitější příklad prediktivní metody je
+
+\begin{equation}
+E[y_{t + 1} | I_t] = \alpha y_t + \alpha (1 - \alpha) y_{t - 1} + ... + \alpha (1 - \alpha)^t y_0,
+\end{equation}
+kde $0 < \alpha < 1$. Tato metoda se nazývá metodou exponenciálního vyhlazování. Jestliže $f_0 = y_0$, pak pro 
+$t \ge 1$ platí
+\begin{equation}
+f_t = \alpha y_t + (1 - \alpha) f_{t - 1}.
+\end{equation}
+Predikce hodnoty $y_{t + 1}$ je tedy váženým průměrem $y_t$ a minulé predikce $f_{t - 1}$ učiněné v čase $t - 1$.
+
+V případě predikce přes několik period používáme notaci $f_{t,h}$, která označuje odhad hodnoty $y_{t + 
+h}$ učiněný v čase $t$.
+
+\subsection{Typy prediktivních modelů}
+
+Uvažume jednoduchý model
+\begin{equation}
+y_t = \beta_0 + \beta_1 z_t + u_t
+\end{equation}
+a předpokládejme, že parametry $\beta_0$ a $\beta_1$ jsou známy. Pak platí
+\begin{equation}
+E[y_{t + 1}|I_t] = \beta_0 + \beta_1 z_{t + 1},
+\end{equation}
+kde $I_t$ obsahuje $z_{t + 1}, y_t, z_t, ..., y_1, z_1$. Jedná se tedy o tzv. podmíněnou predikci, protože je 
+podmíněná znalostí hodnoty $z$ v čase $t + 1$. Nicméně znalost $z_{t + 1}$ v čase $t$ není obvyklá. Další 
+problém s (18.46) jako modelem predikce je, že $E[u_{t + 1}|I_t] = 0$ vyžaduje nulovou sériovou korelaci $\{u_t\}$, 
+což v praxi mnohdy není splněno. (18.46) tak musíme upravit do tvaru
+\begin{equation}
+E[y_{t + 1}|I_t] = \beta_0 + \beta_1 E[z_{t + 1}|I_t],
+\end{equation}
+tj. musíme nejprve odhadnout hodnotu $z$ v čase $t + 1$. Z tohoto důvodu hovoříme o tzv. nepodmíněné predikci.
+
+Z výše uvedeného je zřejmé, že větší relevanci má model, který je založený na zpožděný veličinách, tj. například
+\begin{equation}
+y_t = \delta_0 + \alpha_1 y_{t - 1} + \gamma_1 z_{t - 1} + u_t,
+\end{equation}
+kde $E[u_t | I_{t - 1}] = 0$.
+
+\subsection{Jednoperiodová predikce}
+
+Uvažujme predikci hodnoty $y_{n+1}$ ve tvaru
+\begin{equation}
+\hat{f}_n = \hat{\delta}_0 + \hat{\alpha}_1 y_n + \hat{\gamma}_1 z_n
+\end{equation}
+a její chybu
+\begin{equation}
+\hat{e}_{n + 1} = y_{n + 1} - \hat{f}_n.
+\end{equation}
+Predikci $\hat{f}_n$ obvykle nazýváme bodovou predikcí. Vedle toho je možné zkonstruovat také intervalovou 
+predikci, což je interval odhadu, kterým jsme se zabývali v kapitole 6.4. I když model nesplňuje 
+klasické předpoklady lineárního modelu\footnote{Například pokud zahrnuje zpožděné veličiny, jako je tomu v případě 
+(18.50).}, je intervalová predikce stále přibližně platná za předpokladu, že $u_i$ je pro dané $I_{t - 1}$ 
+normálně rozdělené s nulovou střední hodnotou a konstantním rozptylem. Nechť $se(\hat{f}_n)$ je standardní 
+směrodatná odchylka predikce a $\hat{\sigma}$ je směrodatná odchylka regrese\footnote{V kapitole 6.4 jsme 
+$\hat{f}_n$ a $se(\hat{f}_n)$ získali jako průsečík a jeho směrodatnou odchylku v regresi $y_t$ na $y_{t - 1} - 
+y_n$ a $z_{t - 1} - z_n$, kde $t = 1, 2, ..., n$.}. Pak
+\begin{equation}
+se(\hat{e}_{n + 1}) = \sqrt{[se(\hat{f})]^2 + \hat{\sigma}^2}
+\end{equation}
+a 95\% inteval predikce je
+\begin{equation}
+\hat{f}_n \pm 1.96 ~ se(\hat{e}_{n + 1}).
+\end{equation}
+
+Položme si otázku, zda-li po fixaci minulých hodnot $y$ v (18.49) vysvětlují minulé hodnoty $z$ 
+vývoj $y$. V takovéto situaci říkáme, že existuje Grangera kauzalita mezi $z$ a $y$, jestliže
+\begin{equation}
+E[y_t|I_{t - 1}] \ne E[y_t|J_{t - 1}],
+\end{equation}
+kde $I_{t - 1}$ obsahuje informace o minulých hodnotách $y$ a $z$, kdežto $J_{t - 1}$ obsahuje informace pouze o 
+minulých hodnotách $y$. Po specifikaci modelu a rozhodnutí, kolik zpožděných veličin $y$ má být zahrnuto v 
+$E[y_t | y_{t - 1}, y_{t - 2}, ...]$, můžeme relativně snadno testovat nulovou hypotézu, neexistuje 
+Grangerova kauzalita mezi $z$ a $y$. Pro ilustraci uvažujme, že $E[y_t | y_{t - 1}, y_{t - 2}, ...]$ závisí pouze na třech 
+zpožděných veličinách, tj.
+\begin{equation}
+y_t = \delta_0 + \alpha_1 y_{t - 1} + \alpha_2 y_{t - 2} + \alpha_3 y_{t - 3} + u_t,
+\end{equation}
+kde $E[u_t | y_{t - 1}, y_{t - 2}, ...] = 0$. Pokud je nulová hypotéza platná, pak by jakákoliv zpožděná 
+veličina $z$ přidaná do modelu měla být statisticky nevýznamná.
+
+Jak ale v praxi určíme, kolik zpožděných veličin $y$ a $z$ má být zahrnuto do modelu? Nejprve začneme s 
+odhadem autoregresivního modelu pro $y$ a pomocí $f$ a $F$ testů rozhodneme o počtu zpožděných vysvětlujících 
+veličin. Po té, co je specifikován autoregresní model, testujeme přidání zpožděných veličin $z$. Volba 
+počtu zpoždění veličiny $z$ je méně důležitá - jestliže neexistuje Grangerova kauzalita mezi $z$ a $y$, pak je 
+libovolný soubor zpožděných veličin $z$ přidaný do modelu statisticky nevýznamný.
+
+Uvažujme třetí časovou řadu $\{w_i\}$. říkáme, že mezi $z$ a $y$ existuje Grangera kauzalita podmíněně $w$, jestliže je 
+splněno (18.54) s tím rozdílem, že $I_{t - 1}$ obsahuje informace o minulých hodnotách $y, z$ a $w$, kdežto 
+$J_{t - 1}$ obsahuje informace pouze o minulých hodnotách $y$ a $w$. Je možné, že mezi $z$ a $y$ existuje Grangerova 
+kauzalita, avšak mezi $z$ a $y$ neexistuje Grangerova kauzalita podmíněně $w$. Nulovou hypotézu, že 
+mezi $z$ a $y$ neexistuje podmíněná Grangerova kauzalita, lze testovat pomocí statistické významnosti 
+zpožděných veličin $z$ v modelu pro $y$, který kromě zpožděných veličin $z$ obsahuje také zpožděné veličiny $w$.
+
+\subsection{Porovnání jednoperiodových predikcí}
+
+Při porovnávání prediktivních metod se často používá ukazatel RMSE (root mean squared error)
+\begin{equation}
+RMSE = \sqrt{\frac{1}{m}\sum_{h = 0}^{m - 1} \hat{e}_{n + h + 1}^2},
+\end{equation}
+což je v podstatě výběrová směrodatná odchylka chyb predikce bez opravy na počet stupňů volnosti. Druhým 
+relativně rozšířeným ukazatelem je MAE (mean absolute error)
+\begin{equation}
+MAE = \frac{1}{m}\sum_{h = 0}^{m - 1} |\hat{e}_{n + h + 1}|.
+\end{equation}

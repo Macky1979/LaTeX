@@ -1,0 +1,1 @@
+D:\MiTex\miktex\bin\latex.exe FX_Delta.tex

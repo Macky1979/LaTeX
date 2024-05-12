@@ -1,0 +1,130 @@
+\chapter{Simulace Monte-Carlo}
+
+Postup při simulaci kreditních ztrát metodou Monte-Carlo je následující.
+\begin{enumerate}
+\item Prvním krokem je odhad pravděpodobností defaultu $PD$, expozice v okamžiku defaultu $AE$ a podmíněné ztráty $LGD$ pro uvažované portfolio.
+\item Následně odhadneme korelace aktiv mezi jednotlivými dlužníky.
+\item Vygenerujeme set nezávislých náhodných čísel ze standardizovaného normálního rozdělení. Tyto náhodné veličiny zkorelujeme pomocí korelační matice odhadnuté v předchozím kroku (např. pomocí Cholesky dekompozice).
+\item Pro každého dlužníka vypočteme bod defaultu na základě jeho pravděpodobnosti defaultu.
+\item Porovnáme bod defaultu s nasimulovanými náhodnými veličinami a rozhodneme, zda-li došlo k defaultu.
+\item Jestliže došlo k defaultu, simulujeme podmíněnou ztrátu jako náhodnou veličinu $lgd$. K tomu je zapotřebí znalost nejen střední hodnoty podmíněné ztráty $LGD$ ale také jejího rozptylu $\sigma_{LGD}$.
+\item Následně u dlužníků v defaultu vypočteme  ztrátu jako $AE \times lgd$.
+\item Posledním krokem je výpočet celkové ztráty, která je součtem dílčích ztrát přes všechny dlužníky. Opakováním kroků 3 až 7 získáme požadovaný počet simulací.
+\end{enumerate}
+Typický výsledek simulace zachycuje následující obrázek.
+
+OBRÁZEK
+
+\section{Matematika za simulací Monte-Carlo}
+
+V následujícím textu se zaměříme na body 3 až 7.
+
+\subsection{Generování náhodných veličin}
+
+Pro každého z $N$ dlužníků v rámci potrfolia vygenerujeme náhodné číslo ze standardizovaného normálního rozdělení.
+\begin{equation}
+\epsilon =
+\begin{bmatrix}
+\epsilon_1\\
+\epsilon_2\\
+\hdots
+\epsilon_N
+\end{bmatrix}
+\end{equation}
+kde $\epsilon_i ~ N(0, 1)$ pro všechna $i$. Abychom získali vektor vzájemně korelovaných náhodných veličin, je třeba provést transformaci
+\begin{equation*}
+\epsilon'_u = \sum_{p = 1}^N m_{up}\epsilon_p
+\end{equation*}
+což lze maticově vyjádřit jako
+\begin{equation}
+\epsilon' = M \epsilon
+\end{equation}
+Úkolem je tedy nalézt vhodnou transformační matici $M$, s jejíž pomocí jsme schopni převést vektor $\epsilon$ na vektor $\epsilon'$, který bude náhodným výběrem z vícerozměrného normálního rozdělení s požadovanou kovarianční strukturou. Hledaná transformační matice $M$ musí splňovat podmínku
+\begin{equation}
+\Sigma = M^T M
+\end{equation}
+kde $\Sigma$ je korelační matice. Tuto podmínku lze odvodit následovně.
+\begin{multline}
+\Sigma = D[\epsilon'] = E[(M\epsilon)^2] - E[M\epsilon]^2\\
+= E[M^T \epsilon \epsilon^T M] - E[M \epsilon]^2\\
+= M^TE[\epsilon \epsilon^T] M - M^T E[\epsilon]^2 M\\
+= M^T I M = M^TM
+\end{multline}
+
+\subsubsection{Cholesky dekompozice}
+
+Cholesky dekompozice rozloží positivně definitní matici $\Sigma$ na
+\begin{equation}
+\Sigma = A^T A
+\end{equation}
+kde $A$ je horní trojúhelníková matice
+\begin{equation*}
+A =
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13} & \dots & a_{1n}\\
+0 & a_{22} & a_{23} & \dots & a_{2n}\\
+0 & 0 & a_{33} & \dots & a_{3n}\\
+\dots & \dots & \dots & \dots & \dots\\
+0 & 0 & 0 & \dots & a_{nn}
+\end{bmatrix}
+\end{equation*}
+Lze dokázat, že
+\begin{equation*}
+a_{ii} = \left(s_{ii} - \sum_{k = 1}^{i - 1}a_{ik}\right) ^ {\frac{1}{2}}
+\end{equation*}
+a
+\begin{equation*}
+a_{ij} = \frac{1}{a_{ii}}\left(s_{ij} - \sum_{k = 1}^{i - 1} a_{ik} a_{jk}\right) ^ {\frac{1}{2}}
+\end{equation*}
+kde $s_{ij}$ je prvkem korelační matice $\Sigma$.
+
+Hlavní nevýhodou Cholesky dekompozice je skutečnost, že neumí rozložit korelační matici, pokud je signulární nebo není positivně definitní.
+
+\subsubsection{Eigenvalue dekompozice}
+
+Eigenvalue rovnice je
+\begin{equation*}
+\Sigma U = U \Lambda
+\end{equation*}
+kde $\Sigma$ je daná matice, $\Lambda$ je diagonální matice, jejíž prvky tvoří eigenvalues matice $\Sigma$. Matici $U$ je třeba určit. Úpravou výše uvedené rovnice získáme
+\begin{equation*}
+\Sigma = U \Sigma U ^ {-1} = U \Lambda^{\frac{1}{2}} \Lambda^{\frac{1}{2}} U^{-1} = Q^{T}Q
+\end{equation*}
+Tento přístup vyžaduje ortogonální matici $U$, tj. $U^T = U^{-1}$. Korelované náhodné veličiny $epsilon'$ vypočteme pomocí
+\begin{equation*}
+\epsilon' = Q \epsilon = \Lambda^{\frac{1}{2}} U^{-1} \epsilon
+\end{equation*}
+
+\subsubsection{SVD dekompozice}
+
+Pro korelační matice, které jsou singulární, lze použít SVD dekompozici. Jádrem dekompozice je rovnice
+\begin{equation*}
+\Sigma = V D V^T
+\end{equation*}
+kde $V$ je ortogonální matice, tj. $V^T = V^{-1}$ a $D$ je diagonální matice se signulárními hodnotami matice $\Sigma$ na diagonále. Korelované náhodné veličiny je tak možné získat pomocí vztahu
+\begin{equation*}
+\epsilon' = D^{\frac{1}{2}}V^{-1}\epsilon
+\end{equation*}
+
+\subsection{Výpočet bodu defaultu}
+
+Předpokládejme, že pro každého dlužníka máme k dispozici $EDF$. Bod defaultu vypočteme jako $DP \equiv N^{-1}(EDF)$. Dalším krokem je porovnání korelovaných náhodných veličin $\epsilon'$ s bodem defaultu pro $i$-tého dlužníka.
+\begin{align*}
+\epsilon' < DP_i ~~~ \textit{default dlužníka}\\
+\epsilon' \ge DP_i ~~~ \textit{dlužník není v defaultu}
+\end{align*}
+
+\subsection{Podmíněná ztráta}
+
+Jestliže je daný dlužník v defaultu, je třeba určit podmíněnou ztrátu. Ačkoliv bychom správně na podmíněnou ztrátu měli pohlížet jako na náhodnou veličinu, v praxi se často používá deterministická hodnota odpovídající střední hodnotě $LGD$. Pokud bychom chtěli na podmíněnou ztrátu pohlížet jako na náhodnou veličinu, pak se nejčastěji používá beta rozdělení. Pro simulaci z beta rozdělení je za potřebí nejen znalost střední hodnoty $LGD$ ale také směrodatné odchylky $\sigma_{LGD}$.
+
+\subsection{Výpočet ztráty}
+
+Celkovou ztrátu v rámci jedné simulace lze snadno vypočíst jako
+\begin{equation*}
+L = \sum_{\textit{dlužníci v defaultu}} AE_i \times lgd_i
+\end{equation*}
+
+\subsection{Simulované pravděpodobnostní rozdělení ztráty}
+
+Simulované pravděpodobnostní rozdělení ztráty je možné získat opakováním výše uvedených kroků. Počet simulací zavisí na velikosti portfolia a požadovaném kvantilu, nicméně obecně se uvádí, že je třeba 10~000 až 1~000~000 simulací, abychom dosáhli přijatelné stability řešení.

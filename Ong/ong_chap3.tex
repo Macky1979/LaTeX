@@ -1,0 +1,76 @@
+\chapter{Neočekávaná ztráta}
+
+V předchozí kapitole jsme očekávanou ztrátu definovali jako
+\begin{equation}
+EL = AE \times LGD \times EDF
+\end{equation}
+Z logiky věci je pak zřejmé, že banka by měla držet rezervy ve výši očekávané ztráty. Jak jsme však zmínili v přechozím textu, existuje vedle očekávané ztráty také ztráta neočekávaná. Skutečná ztráta se totiž může od té očekávané lišit a to jak v kladném tak záporném slova smyslu. Banka musí být kapitálově vybavena i pro případ těchto nečekaných výkyvů. Základní rozdíl mezi očekávanou a neočekávanou ztrátou je tedy ten, že očekávané ztráty jsou kryty rezervami, kdežto neočekávané ztráty kapitálem banky.
+
+Neočekávaná ztráta má charakter náhodné veličiny, a proto má také pravděpodobnostní rozdělení. Pro praktické účely však definujeme neočekávanou ztrátu pomocí směrodatné odchylky aktiva v čase $t_H$.
+\begin{equation}
+UL_H \equiv \sqrt{D[V_H]} = E[V_H^2] - E[V_H]^2
+\end{equation}
+V následujícím textu index $H$ vynecháme, i když se budeme implicitně odkazovat na hodnoty v čase $t_H$.
+
+V příloze A je dokázáno, že neočekávaná ztráta rizikového aktiva je dána vztahem
+\begin{equation}
+UL = V_1 \times \sqrt{EDF \times \sigma_{LGD}^2 + LGD \times \sigma_{EDF}^2}
+\end{equation}
+neboli
+\begin{equation}
+UL = AE \times \sqrt{EDF \times \sigma_{LGD}^2 + LGD \times \sigma_{EDF}^2}
+\end{equation}
+kde za předpokladu dvoustavového modelu (tj. default / přežití) je $\sigma_{EDF}^2$ definováno jako
+\begin{equation}
+\sigma_{EDF}^2 = EDF \times (1 - EDF)
+\end{equation}
+Z výše uvedené rovnice je patrné, že kdyby neexistovala nejistota ohledně očekávané míry defaultu, tj. $\sigma_{EDF}^2 = 0$, a ztráty v případě defaultu, tj. $\sigma_{LGD}^2 = 0$, pak by neočekávaná ztráta byla rovna nule.
+
+\begin{example}
+Vraťme se k předešlému příkladu, kde AE = 8~250~000 USD, LGD = 50\% a EDF = 0.15\%. Dále předpokládejme, že $\sigma_{LGD}$ = 25\%. Prvním krokem je výpočet $\sigma_{EDF}^2$, které je ve dvoustavovém modelu rovno
+\begin{equation}
+\sigma_{EDF}^2 = EDF \times (1 - EDF) = 0.0015 \times (1 - 0.0015) = 0.0015
+\end{equation}
+Neočekávaná ztráta je pak rovna
+\begin{multline}
+UL = AE \times \sqrt{EDF \times \sigma_{LGD}^2 + LGD^2 \times \sigma_{EDF}^2}\\
+= 8~250~000 \times \sqrt{0.0015 \times 0.25 + 0.50^2 \times 0.0015} = 178~511
+\end{multline}
+Neočekávaná ztráta je tedy 178~511 USD. Pro porovnání připomeňme, že očekávaná ztráta byla pouhých 6~188 USD.
+\end{example}
+
+\section{Příloha A - Odvození neočekávané ztráty}
+
+Předpokládejme, že náhodná veličina $\tilde{L}$ sleduje pravděpodobnostní rozdělení $f(\tilde{L})$. Je zřejmé, že platí následující.
+\begin{gather}
+\int f(\tilde{L})d\tilde{L} = 1\\
+E[\tilde{L}] \equiv \int \tilde{L}f(\tilde{L})d{\tilde{L}} = LGD\\
+E[\tilde{L}^2] \equiv \int \tilde{L}^2 f(\tilde{L})d \tilde{L} = \sigma_{\tilde{L}}^2 + LGD^2
+\end{gather}
+S využitím těchto vztahů a předpokladu o nezávislosti defaultního procesu a ztrátové veličiny $\tilde{L}$ lze odvodit
+\begin{multline}
+E[V_H] = (1 - EDF) V_0 + EDF \int f(\tilde{L})[V_0 - V_1 \times \tilde{L}]d\tilde{L}\\
+= (1 - EDF)V_0 + EDF[V_0 - V_1 \times LGD]\\
+= V_0 - EDF \times V_1 \times LGD
+\end{multline}
+Analogicky platí
+\begin{multline}
+E[V_H^2] = (1 - EDF)V_0^2 + EDF \int f(\tilde{L})[V_0 - V_1 \times \tilde{L}]^2 d \tilde{L}\\
+= (1 - EDF)V_0^2 + EDF \int f(\tilde{L})[V_0^2 - 2V_0V_1\tilde{L} + V_1^2 \tilde{L}^2]d\tilde{L}\\
+= (1 - EDF)V_0^2 + EDF\left[V_0^2 - 2 V_0 V_1LGD + V_1^2(\sigma_{\tilde{L}}^2 + LGD^2)\right]\\
+= V_0^2 - 2\times EDF \times V_0 \times V_1 \times LGD + EDF \times V_1^2\left(\sigma_{\tilde{L}}^2 + LGD^2 \right)
+\end{multline}
+Rozptyl konečné hodnoty aktiva $V_H$ je tedy roven
+\begin{multline}
+D[V_H] = E[V_H^2] - E[V_H]^2\\
+= V_1^2 \left[EDF \times \sigma_{\tilde{L}}^2 + LGD^2(EDF - EDF^2)\right]\\
+\equiv V_1^2 \left[EDF \times \sigma_{\tilde{L}}^2 + LGD^2 \times \sigma_{EDF}^2\right]
+\end{multline}
+kde jsme využili skutečnosti, že pro dvoustavový defaultní model platí
+\begin{equation}
+\sigma_{EDF}^2 = EDF(1 - EDF)
+\end{equation}
+Směrodatná odchylka konečné hodnoty úvěrového aktiva je tedy
+\begin{equation}
+\sigma_{V_H} = V_1 \times \sqrt{EDF \times \sigma_{\tilde{L}}^2 + LGD^2 \tilde \sigma_{EDF}^2}
+\end{equation}

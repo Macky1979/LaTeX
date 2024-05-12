@@ -1,0 +1,150 @@
+\chapter{Slovník}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{l l} 
+\bf{anglicky} & \bf{česky}\\
+\hline
+time series & časová řada\\
+cross-sectional data & průřezová data\\
+pooled cross section data & sdružená průřezová data\\
+panel data & panelová data\\
+regression model & regresní model\\
+explanatory variable & vysvětlující veličina\\
+independent variable & nezávislá veličina\\
+dependent variable & závislá veličina\\
+error term / disturbance & chybová složka / chyba\\
+slope parameter & parametr sklonu\\
+intercept parameter & parametr průsečíku\\
+population regression function (PRF) & populační regresní funkce\\
+ordinary least square (OLS) estimates & odhad nejmenších čtverců\\
+OLS regression line & OLS regresní přímka\\
+sample regression function (SRF) & výběrová regresní funkce\\
+residual & reziduum\\
+sum of squared residuals & součet čtverců reziduí\\
+total sum of squares (SST) & celkový součet čtverců\\
+explained sum of squares (SSE) & vysvětlený součet čtverců\\
+residual sum of squares (SSR) & reziduální součet čtverců\\
+goodnes of fit & míra shody\\
+unbiasedness of OLS & nestrannost OLS odhadů\\
+standard error of regression (SER) & standardní směrodatná odchylka regrese\\
+omitted variable bias & zkreslení z titulu opomenutí\\
+ & relevantní vysvětlující proměnné\\
+variance inflation factor (VIF) & inflační faktor rozptylu\\
+degrees of freedom & stupně volnosti\\
+standard deviation & směrodatná odchylka\\
+standard error & směrodatná chyba\\
+best linear unbiased estimator (BLUE) & nejlepší nezkreslený lineární odhad\\
+sampling distribution & výběrové rozdělení\\
+classical liner model (CLM) assumptions & předpoklady klasického lineárního modelu\\
+one-sided test & jednostranný test\\
+two-sided test & dvoustranný test\\
+significance level & hladina významnosti\\
+p-value & p-hodnota\\
+confidence interval & interval spolehlivosti\\
+multiple (joint) hypothesis & vícenásobná (sdružená) hypotéza\\
+unrestricted model & neomezený model\\
+restricted model & omezený model\\
+adjusted $R^2$ & korigované $R^2$\\
+resampling method & metoda opakovaného výběru\\
+binary (dummy) variable & binární veličina\\
+dummy variable trap & past binární veličiny\\
+linear probability model (LPM) & lineární pravděpodobnostní model\\
+generalized least squares (GLS) estimators & obecné odhady metodou nejmenších čtverců\\
+weighted least squares (WLS) estimators & odhady metodou vážených nejmenších čtverců\\
+\end{tabular}
+\caption{Anglicko-český slovník vybraných statistických pojmů}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{l l} 
+\bf{anglicky} & \bf{česky}\\
+\hline
+finite distributed lag (FDL) model & model s konečným rozdělením zpoždění\\
+impact propensity & propensitní účinek\\
+long-run propensity & dlouhodobá propensita\\
+comtemporaneous exogenous & souběžně exogenní\\
+serial correlation aka autocorrelation & sériová korelace aka autokorelace\\
+spurious correlation & zdánlivá korelace\\
+stationary time series & stacionární časové řada\\
+weakly dependent time series & slabě závislá časová řada\\
+covariance stationary proces & kovariančně stacionární proces\\
+independent identically distributed (iid) & nezávislé stejnoměrně rozdělené\\
+ & (náhodné veličiny)\\
+moving average process of order one [MA(1)] & proces klouzavého průměru řádu jedna\\
+autoregressive process of order one [AR(1)] & autoregresivní proces řádu jedna\\
+trend-stacionary process & trendově stacionární proces\\
+law of iterated expectations & zákon iterované střední hodnoty\\
+unit root process & proces s jednotkovým kořenem\\
+integrated process of order zero & integrovaný proces řádu nula\\
+sequentially exogenous variables & sekvenčně exogenní veličiny\\
+strict exogenity & striktní exogenita\\
+contemporaneous exogenity & souběžná exogenita\\
+quasi-differenced data & quasi diferencovaná data\\
+feasible GLS (FGLS) estimators & dosažitelné GLS funkce odhadu\\
+autogressive conditional heteroskedasticity (ARCH) model & model autoregresivní\\
+ & podmíněné heteroskedasticity\\
+maximum likelihood method & metoda maximální věrohodnosti\\
+regression specification error test (RESET) & test chybné specifikace chybového\\
+ & členu regresního modelu\\
+nonested models & nevnořenené modely\\
+random coefficient / random slope model & model s náhodným sklonem\\
+average partial effect (APE) & průměrný parciální efekt\\
+exogenous sample selection & exogenní výběr vzorku\\
+endogenous sample selection & endogenní výběr vzorku\\
+stratified sampling & stratifikovaný výběr\\
+studentized residuals & studentizovaná rezidua\\
+least absolute deviation (LAD) estimation & odhad metodou nejmenší\\
+ & absolutní směrodatné odchylky\\ 
+limited dependent variable (LDV) & omezená závislá veličina\\
+corner solution response & hraniční řešení\\
+maximum likelihood method & metoda maximální věrohodnosti\\
+maximum likelihood estimation (MLE) & odhad na základě maximální věrohodnosti\\
+log-likelihood function & logaritmická funkce věrohodnost\\
+log-likelihood & logaritmická věrohodnost\\
+likelihood ratio (LR) & věrohodnostní poměr\\
+percent correctly predicted measure & míra správně predikovaného procenta\\
+partial effect at the average (PEA) & parciální efekt na průměr\\
+average partial effect (APE) & průměrný parciální efekt\\
+quasi-maximum likelihood estimation (QMLE) & odhad metodou kvazimaximální věrohodnosti\\
+censored regression model & cenzurovaný regresní model\\
+truncated regression model & zkrácený regresní model\\
+random draw & náhodné pozorování\\
+truncated sample & omezený výběr\\
+instrumental variable & pomocná veličina\\
+key identification assumption & klíčový předpoklad identifikace\\
+two stage OLS method & dvoufázová OLS metoda\\
+two stage least squares (2SLS) estimator & odhad dvoufázovou metodou nejmenších čtverců\\
+clasical errors-in-variables (CEV) assumptions & klasické předpoklady chyby měření\\
+sampling error & chyba výběru / výběrová chyba\\
+overidentification restrictions & omezení nadbytečné identifikace\\
+simulatenous equations model (SEM) & model simultánních rovnic\\
+observable variable & pozorovatelná veličina\\
+unobservable variable & nepozorovatelná veličina\\
+reduced form equation & rovnice redukované formy\\
+reduced form parameter & parametr redukované formy\\
+reduced form error & chybový člen redukované formy\\
+identified equation & identifikovaná rovnice\\
+overidentified equation & přeidentifikovaná rovnice\\
+just idetified equation & právě identifikovaná rovnice\\
+undefined equation & identifikovaná rovnice\\
+predetermined variable & předvybraná veličina\\
+observed / unobserved shifter & pozorovaná / nepozorovaná veličina posunu\\
+likelihood & věrohodnost\\
+posterior distribution & posteriorní pravděpodobnost / rozdělení\\
+prior distribution & apriorní pravděpodobnost / rozdělení\\
+scatter plot & korelační diagram\\
+mixture model & směsného modelu\\
+conjugacy & konjugace\\
+proper / improper distribution & vlastní / nevlastní distribuce\\
+pivotal quantity & klíčová hodnota\\
+location parameter & lokační parametr\\
+scale parametr & škálovací parametr\\
+nuisance parameter & nadbytečný parametr\\
+random variable precision & přesnost náhodné veličiny (převrácená hodnota jejího rozptylu)\\
+\end{tabular}
+\caption{Anglicko-český slovník vybraných statistických pojmů}
+\end{center}
+\end{table}

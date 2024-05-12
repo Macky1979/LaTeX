@@ -1,0 +1,64 @@
+\select@language {czech}
+\contentsline {chapter}{\numberline {1}Modelov\IeC {\'a}n\IeC {\'\i } kreditn\IeC {\'\i }ho rizika}{5}
+\contentsline {section}{\numberline {1.1}Dekompozice kreditn\IeC {\'\i }ho rizika}{5}
+\contentsline {section}{\numberline {1.2}Riziko defaultu}{5}
+\contentsline {subsection}{\numberline {1.2.1}M\IeC {\v e}\IeC {\v r}en\IeC {\'\i } pravd\IeC {\v e}podobnosti defaultu - empirick\IeC {\'a} metoda}{6}
+\contentsline {subsection}{\numberline {1.2.2}M\IeC {\v e}\IeC {\v r}en\IeC {\'\i } pravd\IeC {\v e}podobnosti defaultu - op\IeC {\v c}n\IeC {\'\i } teorie}{6}
+\contentsline {subsection}{\numberline {1.2.3}Empirick\IeC {\'y} vs teoretick\IeC {\'y} p\IeC {\v r}\IeC {\'\i }stup}{7}
+\contentsline {section}{\numberline {1.3}Modely kreditn\IeC {\'\i }ho rizika}{7}
+\contentsline {subsection}{\numberline {1.3.1}Modely zalo\IeC {\v z}en\IeC {\'e} na hodnot\IeC {\v e} spole\IeC {\v c}nosti}{7}
+\contentsline {subsection}{\numberline {1.3.2}Modely zalo\IeC {\v z}en\IeC {\'e} na m\IeC {\'\i }\IeC {\v r}e n\IeC {\'a}hrady}{7}
+\contentsline {subsection}{\numberline {1.3.3}Modely zalo\IeC {\v z}en\IeC {\'e} na okam\IeC {\v z}it\IeC {\'e}m riziku defaultu}{8}
+\contentsline {section}{\numberline {1.4}Hodnota rizikov\IeC {\'e}ho dluhu}{8}
+\contentsline {section}{\numberline {1.5}Kreditn\IeC {\'\i } migrace}{8}
+\contentsline {subsection}{\numberline {1.5.1}O\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} ztr\IeC {\'a}ta}{9}
+\contentsline {subsection}{\numberline {1.5.2}Podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'a} ztr\IeC {\'a}ta}{9}
+\contentsline {subsection}{\numberline {1.5.3}Dekompozice rizikov\IeC {\'e} \IeC {\v c}\IeC {\'a}sti z\IeC {\'a}vazku}{10}
+\contentsline {section}{\numberline {1.6}P\IeC {\v r}\IeC {\'\i }loha A - Merton\IeC {\r u}v model}{10}
+\contentsline {section}{\numberline {1.7}P\IeC {\v r}\IeC {\'\i }loha B - Pravd\IeC {\v e}podobnost defaultu}{11}
+\contentsline {subsection}{\numberline {1.7.1}Pravd\IeC {\v e}podobnost defaultu}{12}
+\contentsline {section}{\numberline {1.8}P\IeC {\v r}\IeC {\'\i }loha C - Matematick\IeC {\'y} \IeC {\'u}vod}{13}
+\contentsline {subsection}{\numberline {1.8.1}Formality}{13}
+\contentsline {subsection}{\numberline {1.8.2}M\IeC {\'\i }ra n\IeC {\'a}hrady}{14}
+\contentsline {subsection}{\numberline {1.8.3}Dekompozice rizikov\IeC {\'e}ho z\IeC {\'a}vazku}{14}
+\contentsline {section}{\numberline {1.9}P\IeC {\v r}\IeC {\'\i }loha D - V\IeC {\'\i }cestavov\IeC {\'y} defaultn\IeC {\'\i } proces}{14}
+\contentsline {chapter}{\numberline {2}Portfolio a o\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} ztr\IeC {\'a}ta}{17}
+\contentsline {section}{\numberline {2.1}O\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} ztr\IeC {\'a}ta}{17}
+\contentsline {section}{\numberline {2.2}Expozice v\IeC {\r u}\IeC {\v c}i dlu\IeC {\v z}n\IeC {\'\i }kovi}{17}
+\contentsline {section}{\numberline {2.3}Upraven\IeC {\'a} expozice}{17}
+\contentsline {section}{\numberline {2.4}Ztr\IeC {\'a}ta v p\IeC {\v r}\IeC {\'\i }pad\IeC {\v e} defaultu a rizikov\IeC {\'a} \IeC {\v c}\IeC {\'a}st $V_1$}{18}
+\contentsline {section}{\numberline {2.5}Matematick\IeC {\'e} odvozen\IeC {\'\i } o\IeC {\v c}ek\IeC {\'a}van\IeC {\'e} ztr\IeC {\'a}ty}{18}
+\contentsline {chapter}{\numberline {3}Neo\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} ztr\IeC {\'a}ta}{19}
+\contentsline {section}{\numberline {3.1}P\IeC {\v r}\IeC {\'\i }loha A - Odvozen\IeC {\'\i } neo\IeC {\v c}ek\IeC {\'a}van\IeC {\'e} ztr\IeC {\'a}ty}{20}
+\contentsline {chapter}{\numberline {4}Kreditn\IeC {\'\i } ztr\IeC {\'a}ta v potrfoliu}{21}
+\contentsline {section}{\numberline {4.1}O\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} vs neo\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} ztr\IeC {\'a}ta}{21}
+\contentsline {subsection}{\numberline {4.1.1}O\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} ztr\IeC {\'a}ta portfolia}{21}
+\contentsline {subsection}{\numberline {4.1.2}Neo\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} ztr\IeC {\'a}ta portfolia}{22}
+\contentsline {subsection}{\numberline {4.1.3}Rizikov\IeC {\'a} kontribuce}{22}
+\contentsline {subsection}{\numberline {4.1.4}Nediversifikovateln\IeC {\'e} riziko}{22}
+\contentsline {section}{\numberline {4.2}P\IeC {\v r}\IeC {\'\i }loha A - Odvozen\IeC {\'\i } rizikov\IeC {\'e} kontribuce}{23}
+\contentsline {chapter}{\numberline {5}Korelace defaultu}{25}
+\contentsline {section}{\numberline {5.1}Vlastnosti korelac\IeC {\'\i } defaultu}{26}
+\contentsline {section}{\numberline {5.2}Odhad korelace aktiv}{26}
+\contentsline {section}{\numberline {5.3}Modelov\IeC {\'a}n\IeC {\'\i } korelac\IeC {\'\i } aktiv pomoc\IeC {\'\i } faktorov\IeC {\'e}ho modelu}{27}
+\contentsline {section}{\numberline {5.4}P\IeC {\v r}\IeC {\'\i }loha A - Odvozen\IeC {\'\i } korelace defaultu}{28}
+\contentsline {section}{\numberline {5.5}P\IeC {\v r}\IeC {\'\i }loha B - Korelace sdru\IeC {\v z}en\IeC {\'y}ch kreditn\IeC {\'\i }ch migrac\IeC {\'\i }}{28}
+\contentsline {chapter}{\numberline {6}Pravd\IeC {\v e}podobnostn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } rizika defaultu}{31}
+\contentsline {section}{\numberline {6.1}Beta rozd\IeC {\v e}len\IeC {\'\i }}{31}
+\contentsline {section}{\numberline {6.2}Inverzn\IeC {\'\i } norm\IeC {\'a}ln\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i }}{32}
+\contentsline {chapter}{\numberline {7}Simulace Monte-Carlo}{33}
+\contentsline {section}{\numberline {7.1}Matematika za simulac\IeC {\'\i } Monte-Carlo}{33}
+\contentsline {subsection}{\numberline {7.1.1}Generov\IeC {\'a}n\IeC {\'\i } n\IeC {\'a}hodn\IeC {\'y}ch veli\IeC {\v c}in}{34}
+\contentsline {subsubsection}{Cholesky dekompozice}{34}
+\contentsline {subsubsection}{Eigenvalue dekompozice}{35}
+\contentsline {subsubsection}{SVD dekompozice}{35}
+\contentsline {subsection}{\numberline {7.1.2}V\IeC {\'y}po\IeC {\v c}et bodu defaultu}{35}
+\contentsline {subsection}{\numberline {7.1.3}Podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'a} ztr\IeC {\'a}ta}{35}
+\contentsline {subsection}{\numberline {7.1.4}V\IeC {\'y}po\IeC {\v c}et ztr\IeC {\'a}ty}{36}
+\contentsline {subsection}{\numberline {7.1.5}Simulovan\IeC {\'e} pravd\IeC {\v e}podobnostn\IeC {\'\i } rozd\IeC {\v e}len\IeC {\'\i } ztr\IeC {\'a}ty}{36}
+\contentsline {chapter}{\numberline {8}Teorie extr\IeC {\'e}mn\IeC {\'\i } hodnoty}{37}
+\contentsline {subsection}{\numberline {8.0.6}Z\IeC {\'a}klady teorie extr\IeC {\'e}mn\IeC {\'\i } hodnoty}{37}
+\contentsline {subsection}{\numberline {8.0.7}Obecn\IeC {\'e} Pareto rozd\IeC {\v e}len\IeC {\'\i }}{38}
+\contentsline {subsection}{\numberline {8.0.8}Krit\IeC {\'e}ria konvergence}{38}
+\contentsline {subsection}{\numberline {8.0.9}Prahov\IeC {\'e} hodnoty}{39}
+\contentsline {subsection}{\numberline {8.0.10}Funkce st\IeC {\v r}edn\IeC {\'\i } hodnoty p\IeC {\v r}esahu}{40}

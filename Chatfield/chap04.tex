@@ -1,0 +1,361 @@
+\chapter{Odhad v časové doméně}
+
+V této kapitole budeme diskutovat problematiku kalibrace vhodného modelu na pozorovanou diskrétní časovou řadu. Hlavním ``diagnostickým'' nástrojem bude výběrová autokorelační funkce.
+
+\section{Odhad autokovarianční a autokorelační funkce}
+
+Výběrový autokovarianční koeficient se zpožděním $k$ je definován jako
+\begin{equation}
+c_k = \frac{\sum_{t = 1}^{N-K} (x_t - \overline{x})(x_{t+k} - \overline{x})}{N}
+\end{equation}
+a lze jej použít pro odhad teoretického autokovariančního koeficientu $\gamma(k)$. Lze dokázat, že zkreslení $c_k$ je řádu $1/N$. Nicméně platí
+\begin{equation}
+\lim_{N \rightarrow \infty} E(c_k) = \gamma(k),
+\end{equation}
+a proto je tento odhad asymptoticky nezkreslený. Dále lze dokázat
+\begin{equation}
+Cov(c_k, c_m) \approx \frac{\sum_{r= -\infty}^{-\infty}\gamma(r)\gamma(r+m-k) + \gamma(r+m)\gamma(r-k)}{N}.
+\end{equation}
+Pokud $m = k$, představuje výše uvedená rovnice rozptyl $c_k$. Rovnice také ilustruje, že po sobě jdoucí hodnoty $c_k$ mohou být silně korelovány, což komplikuje interpretaci korelogramu.
+
+Jako alternativní odhad $\gamma(k)$ lze také použít
+\begin{equation}
+c'(k) = \frac{\sum_{t = 1}^{N-K} (x_t - \overline{x})(x_{t+k} - \overline{x})}{N - k},
+\end{equation}
+který je některými autory preferován, protože v porovnání s (4.1) vykazuje nižší míru zkreslení. Je však třeba zmínit, že jeho rozptyl je v vyšší než v případě $c_k$, a proto je jeho použití diskutabilní.
+
+Další metodou odhadu autokovariančního koeficientu je tzv. Quenouilleova metoda. V rámci této metody je časová řada rozdělena na poloviny a jsou vypočteny odhady autokovariančního koeficientu pro obě poloviny i celou časovou řadu. Výsledný odhad je pak definován jako
+\begin{equation}
+\tilde{c}_k = 2 c_k - \frac{1}{2}(c_{k1} + c_{k2}).
+\end{equation}
+Lze dokázat, že v porovnání s (4.1) došlo k redukci míry zkreslení z $1/N$ na $1/N^2$. Tento odhad je však poměrně citlivý na nestacionaritu ve střední hodnotě, a proto by dílčí odhady $c_{k1}$ a $c_{k2}$ měly být nejprve porovnány nejen s celkovým odhadem $c_k$, ale také mezi sebou.
+
+Pokud máme k dispozici odhad autokovariančních koeficientů, lze snadno odhadnout autokorelační koeficient $\rho(k)$ pomocí
+\begin{equation}
+r_k = \frac{c_k}{c_0}.
+\end{equation}
+Odvození vlastností $r_k$ je nepoměrně komplikovanější než v případě $c_k$, protože $r_k$ je definován jako podíl dvou náhodných veličin. Lze však dokázat, že $r_k$ je zkresleným odhadem $\rho(k)$. To zkreslení lze částečně eliminovat pomocí Quenouilleovy metody, kdy je odhad autokorelačního koeficientu definován jako
+\begin{equation}
+\tilde{r}_k = 2 r_k - \frac{1}{2}(r_{k1} + r_{k2}).
+\end{equation}
+
+V následujícím textu budeme uvažovat vlastnosti $r_k$ vypočteného na základě realizace čistě náhodného procesu, kdy jsou všechny teoretické autokorelační koeficienty rovny nule s výjimkou $r_0$, které je rovno jedné.
+
+Uvažujme $x_1, ..., x_N$, které představují nezávislé náhodné veličiny sledující identické náhodné rozdělení s libovolnou střední hodnotou. Lze dokázat, že
+\begin{equation}
+E(r_k) \approx -\frac{1}{N}
+\end{equation}
+a
+\begin{equation}
+Var(r_k) \approx \frac{1}{N}.
+\end{equation}
+Lze také dokázat, že při splnění určitých předpokladů $r_k$ asymptoticky sleduje normální rozdělení. Pro lze v korelogramu vytyčit přibližný 95\% konfidenční interval $-1/N \pm 2/\sqrt{N}$, který je často aproximován jako $\pm 2 / \sqrt{N}$. Hodnoty $r_k$ mimo tento interval pak lze považovat za signifikantně odlišné od nuly na 5\% hladině významnosti. Pokud se však některé z hodnot nachází mimo tento interval, nemusí to automaticky znamenat, že je podkladová časová řada nenáhodná. I v případě čistě náhodné podkladové časové řady se v průměru bude jedna z dvaceti hodnota $r_k$ nacházet mimo konfidenční interval.
+
+\subsection{Interpretace korelogramu}
+
+Korelogram často představuje vodítko při výběru vhodné formy ARIMA modelu. Obecně však platí, že interpretace korelogramu je jednou z nejobtížnějších částí analýzy časových řad a vyžaduje značné praktické zkušenosti.
+
+Např. v korelogramu na obrázku (2.3) neklesají hodnoty $r_k$ dostatečně rychle k nule, což indikuje nestacionaritu časové řady. Abych tuto časovou řadu převedli na stacionární, je vhodné na ni aplikovat diferenci. V případě stacionárních časových řad je jejich korelogram porovnán s korelogramy nejrůznějších ARMA procesů s cílem zvolit nejvhodnější specifikaci modelu. Např. MA(q) proces je snadno rozpoznatelný díky meznímu bodu (cut-off point) ve zpoždění $q$. Naproti tomu korelogram AR(p) procesu je ``kombinací'' exponenciál a sinusoid a k nule klesá pouze pozvolna. Korelogram ARMA procesu, který je kombinací MA a AR procesů, je obvykle charakteristický pozvolným poklesem spíše než mezním bodem.
+
+Pro ilustraci uvažujme situaci, kdy $r_1$ je významně odlišné od nuly nicméně ostatní $r_k$ jsou blízké nule. V tomto případě budeme časovou řadu kalibrovat na MA(1) model. Pokud je však z korelogramu patrné, že $r_1, r_2, r_3, ...$ klesá exponenciálně, použijeme AR(1) model.
+
+\subsection{Ergodické teorémy}
+
+Skutečnost, že lze z jedné realizace stacionárního procesu odvodit jeho vlastnosti, není na první pohled zcela zřejmá. Nicméně tzv. ergodické teorémy dokazují, že pro většinu stacionárních procesů, se kterými je možné se setkat v praxi, konvergují jejich výběrové momenty k populačním momentům s tím, jak roste délka pozorované časové řady. Jinými slovy, výběrový průměr realizovaného stacionárního procesu konverguje ke svému populačnímu protějšku. Bližší studium ergodických teorémů však přesahuje záběr této knihy.
+
+\section{Kalibrace autoregresního modelu}
+
+\subsection{Odhad parametrů}
+
+Uvažujme autoregresní proces řádu $p$ se střední hodnotou $\mu$ definovaný jako
+\begin{equation}
+X_t - \mu = \alpha_1 (X_t - \mu) + ... + \alpha_p (X_{t-p} - \mu) + Z_t.
+\end{equation}
+Pro $N$ pozorování $x_1, ..., x_N$ lze parametry $\mu, \alpha_1, ..., \alpha_p$ odhadnout pomocí metody nejmenších čtverců minimalizací
+\begin{equation}
+S = \sum_{r = p + 1}^N [(x_t - \mu) - \alpha_1(x_{t - 1} - \mu) - ... - \alpha_p (x_{t - p} - \mu)]^2
+\end{equation}
+vzhledem k $\mu, \alpha_1, ..., \alpha_p$. Pokud je $Z_t$ normálním procesem, pak tyto odhady odpovídají odhadům, které bychom získali metodou maximální věrohodnosti.
+
+\subsubsection{AR(1)}
+
+V případě $p = 1$ lze dokázat, že
+\begin{equation}
+\hat{\mu} = \frac{\overline{x}_{(2)} - \hat{\alpha}_1 \overline{x}_{(1)}}{1 - \hat{\alpha}_1}
+\end{equation}
+a
+\begin{equation}
+\hat{\alpha}_1 = \frac{\sum_{t = 1}^{N - 1}(x_t - \hat{\mu})(x_{t+1} - \hat{\mu})}{\sum_{t=1}^{N-1}(x_t - \hat{\mu})^2},
+\end{equation}
+kde $\overline{x}_{(1)}$ a $\overline{x}_{(2)}$ představují střední hodnotu vypočtenou z prvních a posledních $(N - 1)$ pozorování. Protože
+\begin{equation}
+\overline{x}_{(1)} \approx \overline{x}_{(2)} \approx \overline{x},
+\end{equation}
+platí
+\begin{equation}
+\hat{\mu} = \overline{x}.
+\end{equation}
+Substitucí do (4.13) pak získáváme
+\begin{equation}
+\hat{\alpha}_1 = \frac{\sum_{t=1}^{N-1}(x_t - \overline{x})(x_{t+1} - \overline{x})}{\sum_{t = 1}^{N-1}(x_t-\overline{x})^2}.
+\end{equation}
+Pro zajímavost uveďme, že zcela stejný odhad bychom získali, pokud bychom s autoregresní rovnicí
+\begin{equation}
+X_t - \overline{x} = \alpha_1(x_{t-1} - \overline{x}) + Z_t
+\end{equation}
+``naložili'' stejně jako s obyčejným regresním modelem s $(x_{t-1} - \overline{x})$ jako nezávislou proměnnou.
+
+Další často používaná aproximace je založená na skutečnosti, že jmenovatel v (4.13) lze aproximovat pomocí
+\begin{equation}
+\sum_{t = 1}^N (x_t - \overline{x})^2,
+\end{equation}
+což vede k
+\begin{equation}
+\hat{\alpha}_1 \approx \frac{c_1}{c_0} = r_1.
+\end{equation}
+Tato aproximace je intuitivní, pokud si uvědomíme, že $r_1$ je odhadem $\rho(1)$ a současně pro AR(1) platí $\rho(1) = \alpha_1$. Konfidenční interval pro $\alpha_1$ je možné odvodit s využitím skutečnosti, že asymptotická směrodatná odchylka $\hat{\alpha}_1$ je $\sqrt{(1 - \alpha_1^2)/N}$. Nicméně je třeba zmínit, že konfidenční interval není symetrický pro $\hat{\alpha}_1$ různé od nuly. Jestliže $\alpha_1 = 0$, je směrodatná odchylka $\hat{\alpha}_1$ rovna $1/ \sqrt{N}$, a proto je výsledek testu hypotézy $\alpha_1 = 0$ dán tím, zda-li se $\hat{\alpha}_1 = r_1$ nachází v intervalu $\pm 2 / \sqrt{N}$ či nikoliv.
+
+\subsubsection{AR(2)}
+
+V případě autoregresního procesu řádu $p = 2$ lze s pomocí analogických aproximací získat
+\begin{equation}
+\hat{\mu} \approx \hat{x},
+\end{equation}
+\begin{equation}
+\hat{\alpha}_1 \approx \frac{r_1 (1 - r_2)}{1 - r_1^2},
+\end{equation}
+a
+\begin{equation}
+\hat{\alpha}_2 \approx \frac{r_2 - r_1^2}{1 - r_1^2}.
+\end{equation}
+Vedle bodových odhadů pro $\alpha_1$ a $\alpha_2$ je také možné nalézt konfidenční region v $(\alpha_1, \alpha_2)$ rovině. Odvození tohoto konfidenčního regionu však přesahuje záběr naší knihy.
+
+\subsubsection{AR(p)}
+
+V případě autoregresních procesů vyššího řádu lze také aplikovat metodu nejmenších čtverců. Vedle toho však existují také dva často používané alternativní postupy.
+
+První metoda kalibruje model
+\begin{equation}
+X_t - \overline{x} = \alpha_1(x_{t-1} - \overline{x}) + ... + \alpha_p(x_{t-p} - \overline{x}) + Z_t
+\end{equation}
+na pozorovaných datech pomocí obyčejné lineární regrese.
+
+Druhá metoda je založená na substituci výběrových autokorelačních koeficientů do prvních $p$ Yule-Walkerových rovnic a jejich řešení pro $(\hat{\alpha}_1, ..., \hat{\alpha}_p)$. V maticovém vyjádření mají tyto rovnice podobu
+\begin{equation}
+R \pmb{\hat{\alpha}} = \pmb{r},
+\end{equation}
+kde
+\begin{equation}
+R =
+\begin{bmatrix}
+1 & r_1 & r_2 & ... & r_{p-1}\\
+r_1 & 1 & r_1 & ... & r_{p-2}\\
+r_2 & r_1 & 1 & ... & r_{p-3}\\
+... & ... & ... & ... & ...\\
+r_{p-1} & r_{p-2} & ... & ... & 1\\
+\end{bmatrix},
+\end{equation}
+\begin{equation}
+\pmb{\hat{\alpha}}^T = (\hat{\alpha}_1, ..., \hat{\alpha}_p)
+\end{equation}
+a
+\begin{equation}
+\pmb{r}^T = (r_1, ..., r_p).
+\end{equation}
+
+Pokud je $N$ dostatečně velké, produkují obě metody odhady blízké odhadům získaných metodou nejmenších čtverců, pro kterou je $\hat{\mu}$ blízké (nicméně ne nezbytně rovné) $\overline{x}$.
+
+Spojitost mezi (4.24) a metodou nejmeších čtverců je zřejmá, pokud si uvědomíme, že součet čtverců reziduí má podobu
+\begin{equation}
+\sum_{t = p + 1}^N \Big((X_t - \mu) - \alpha_1 (X_{t-1} - \mu) - \alpha_2 (X_{t-2} - \mu) - ... - \alpha_p (X_{t - p} - \mu) \Big)^2.
+\end{equation}
+Tento výraz lze vyjádřit pomocí kartézského součinu ve formě tabulky, která obsahuje jeho jednotlivé sčítance a která je analogií matice $R$.
+\begin{center}
+\tiny
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+\cellcolor{gray} & \cellcolor{gray}$X_t - \mu$ & \cellcolor{gray}$-\hat{\alpha}_1 (X_{t-1} - \mu)$ & \cellcolor{gray}$-\hat{\alpha}_2 (X_{t-2} - \mu)$ & \cellcolor{gray}... & \cellcolor{gray}$-\hat{\alpha}_p (X_{t-p} - \mu)$ \\ \hline
+$\cellcolor{gray}X_t - \mu$ & $\gamma(0)$ & $-\hat{\alpha}_1 \gamma(1)$ & $-\hat{\alpha}_2 \gamma(2)$ & ... & $-\hat{\alpha}_p \gamma(p)$ \\ \hline
+$\cellcolor{gray}-\hat{\alpha}_1 (X_{t-1} - \mu)$ & $-\hat{\alpha}_1 \gamma(1)$ & $\hat{\alpha}_1^2 \gamma(0)$ & $\hat{\alpha}_1 \hat{\alpha}_2 \gamma(1)$ & ... & $\hat{\alpha}_1 \hat{\alpha}_p \gamma(p - 1)$ \\ \hline
+$\cellcolor{gray}-\hat{\alpha}_2 (X_{t-2} - \mu)$ & $-\hat{\alpha}_2 \gamma(2)$ & $\hat{\alpha}_1 \hat{\alpha}_2 \gamma(1)$ & $\hat{\alpha}_2^2 \gamma(0)$ & ... & $\hat{\alpha}_2 \hat{\alpha}_p \gamma(p - 2)$ \\ \hline
+\cellcolor{gray}... & ... & ... & ... & ... & ... \\ \hline
+$\cellcolor{gray}-\hat{\alpha}_p (X_{t-p} - \mu)$ & $-\hat{\alpha}_p \gamma(p)$ & $\hat{\alpha}_1 \hat{\alpha}_p \gamma(p-1)$ & $\hat{\alpha}_2 \hat{\alpha}_p \gamma(p-2)$ & ... & $\hat{\alpha}_p^2 \hat{\alpha}_p \gamma(0)$ \\ \hline
+\end{tabular}
+\end{center}
+Pro nalezení odhadu parametru $\alpha_i$ pak stačí zderivovat všechny členy, které se nacházejí na řádce $(i + 1)$ a v sloupci $(i+1)$ a jejich součet položit rovný nule.\footnote{Derivace ostatních členů vzhledem k $\alpha_i$ je rovna nule, a proto je můžeme ignorovat.} Pro ilustraci uvažujme odhad parametru $\alpha_2$. V tomto případě je relevantní třetí řádek a třetí sloupec tabulky, jejichž členy jako jediné obsahují $\alpha_2$. Pokud tyto sčítance zderivujeme, sečteme a součet položíme roven nule, získáme
+\begin{equation}
+-\gamma(2) + \hat{\alpha}_1 \gamma(1) + \hat{\alpha}_2 \gamma(0) + ... + \hat{\alpha}_p \gamma(p-2) = 0.
+\end{equation}
+Převedením $\gamma(2)$ na levou stranu, vydělením $\gamma(0)$ a následným přeuspořádaným členů získáme
+\begin{equation}
+\hat{\alpha}_1 r_1 + \hat{\alpha}_2 + ... + \hat{\alpha}_p r_{p-2} = r_2,
+\end{equation}
+což odpovídá druhé rovnici soustavy (4.24). Analogicky lze odvodit také rovnice pro další parametry $\alpha_i$. Jediný rozdíl mezi oběma metodami je ten, že v případě metody nejmenších čtverců je (a) předmětem odhadu také parametr $\mu$ a (b) $y(k)$ je vypočteno z $(N - p)$ namísto $(N - k)$ sčítanců.
+
+\subsection{Určení řádu autoregresního modelu}
+
+Určení řádu autoregresního modelu, který budeme kalibrovat na pozorované časové řadě, je poměrně obtížné. Základní pomůckou je korelogram. V případě AR(1) klesá korelogram exponenciálně k nule. Pro $p > 1$ je však korelogram zpravidla kombinací exponenciálních a sinusových funkcí a odhad řádu $p$ je tak komplikovanější. Jedním z řešení je kalibrace série AR(p) modelů s postupně se zvyšujícím $p$. Pro jednotlivé AR(p) modely vypočteme jejich součet čtverců reziduí a zaneseme je do grafu. Jako optimální řád autoregresního procesu pak zvolíme takovou hodnotu $p$, pro kterou součet čtverců reziduí dosáhl minima a s rostoucím $p$ již významně neklesá.
+
+Další pomůckou při rozhodování o řádu kalibrovaného autoregresního modelu je tzv. parciální autokorelační funkce. Při kalibraci AR(p) modelu označme poslední koeficient $\alpha_p$ jako $\pi_p$. Tento koeficient měří zbytkovou korelaci pro zpoždění $p$, která není podchycena AR(p-1) modelem. $\pi_p$ nazýváme $p$-tým parciálním autokorelačním koeficientem a jeho graf proti $p$ pak parciální autokorelační funkcí.
+
+První parciální autokorelační koeficient $\pi_1$ je roven $\rho(1)$, což je pro AR(1) rovno $\alpha_1$. Lze dokázat, že druhý parciální korelační koeficient je roven $\frac{\rho(2) - \rho(1)^2}{1 - \rho(1)^2}$, což je pro AR(1) proces rovno nule, protože $\rho(2) = \rho(1)^2$.
+
+Výběrová parciální autokorelační funkce je odhadována tak, že kalibrujeme sérii AR(p) modelů na pozorovanou časovou řadu pro rostoucí hodnoty $p$. Hodnoty $\hat{\pi}_p$, které jsou mimo interval $\pm 2 / \sqrt{N}$, jsou považovány za signifikantní na 5\% hladině významnosti. Lze dokázat, že parciální autokorelační funkce AR(p) procesu má mezní bod ve zpoždění $p$, tj. výběrové hodnoty $\{\pi_i\}$ pro $i > p$ nejsou signifikantně odlišné od nuly. Naproti tomu parciální autokorelační funkce MA procesu se postupně ``utlumuje'', což kontrastuje v porovnání s jeho autokorelační funkcí.
+
+\section{Kalibrace modelu klouzavého průměru}
+
+\subsection{Odhad parametrů}
+
+Kalibrace MA modelu je složitější než v případě AR modelu, protože neexistují explicitní funkce odhadů pro jeho parametry. Tyto parametry tak musí být odhadnuty iterativně.
+
+\subsubsection{MA(1)}
+
+Uvažujme MA(1) proces
+\begin{equation}
+X_t = \mu + Z_t + \beta_1 Z_{t-1},
+\end{equation}
+kde $\mu$, $\beta_1$ jsou konstanty a $Z_t$ představuje čistě náhodný proces.
+
+V ideálním případě bychom součet čtverců reziduí $\sum Z_t^2$ vyjádřili jako funkci pozorovaných $X_t$ a parametrů $\mu$ a $\beta_1$, které bychom pak odhadli pomocí metody nejmenších čtverců. Bohužel součet čtverců reziduí není kvadratickou funkcí těchto parametrů a tak tuto metodu nelze aplikovat. Stejně tak nelze jednoduše dát do rovnosti výběrové a teoretické autokorelační koeficienty pomocí vztahu
+\begin{equation}
+r_1 = \frac{\hat{\beta_1}}{1 + \hat{\beta}_1^2}
+\end{equation}
+a zvolit $\hat{\beta}_1$ tak, aby $|\hat{\beta}_1| < 1$, protože takto získaný odhad by byl neefektivní.
+
+Odhad parametrů je však možné provést následujícím způsobem. Nejprve vybereme počáteční hodnoty pro $\mu$ a $\beta_1$, např. $\mu = \overline{x}$ a $\beta_1$ jako řešení (4.32). Následně lze rekurzivně vypočíst odpovídající součet čtverců reziduí s pomocí vztahu
+\begin{equation}
+Z_t = X_t - \mu - \beta_1 Z_{t-1}.
+\end{equation}
+Pro $z_0 = 0$ tak získáváme
+\begin{equation}
+\begin{aligned}
+z_1 = x_1 - \mu,\\
+z_2 = x_2 - \mu - \beta_1 z_1,\\
+...,\\
+z_N = x_N - \mu - \beta_1 z_{N-1}.
+\end{aligned}
+\end{equation}
+Po té lze určit součet čtverců reziduí jako $\sum_{t=1}^N z_t^2$.
+
+Tento postup lze opakovat také pro jiné hodnoty $\mu$ a $\beta_1$. Optimální odhady parametrů pak lze určit podle minima součtu čtverců reziduí. Samotné hledání parametrů lze provádět v mřížce nebo iterativně pomocí optimalizační metody. Takto získané odhady odpovídají také odhadům, které bychom získali pomocí metody maximální věrohodnosti za předpokladu $z_0 = 0$ a normálního rozdělení $Z_t$.
+
+Další alternativou je na časovou řadu nakalibrovat AR model vyššího řádu a následně použít duality mezi AR a MA procesem. Tento postup je méně výpočetně náročný, nicméně při dnešním stavu výpočetní techniky se stal zastaralým.
+
+\subsubsection{MA(2)}
+
+Postup v případě MA(2) procesu je velmi podobný jako v případě MA(1) procesu. Nejprve odhadneme počáteční hodnoty parametrů $\mu$, $\alpha_1$ a $\alpha_2$ a následně rekurzivně vypočteme rezidua s využitím
+\begin{equation}
+z_t = x_t - \mu - \beta_1 z_{t - 1} - \beta_2 z_{t - 2}
+\end{equation}
+a nakonec pak součet čtverců reziduí $\sum z_t^2$. Následuje hledání optimálních hodnot parametrů, které jsou definovány minimem součtu čtverců reziduí, a to pomocí mřížky nebo pomocí optimalizačních metod.
+
+V případě nové a neznámé časové řady je vhodné použít mřížku, protože jako užitečný vedlejší produkt lze získat křivku součtu čtverců reziduí. Její graf nám může poskytnout užitečné informace o vlastnostech zkoumané časové řady.
+
+Kromě bodového odhadu parametrů je možné zkonstruovat také jejich konfidenční intervaly, k čemuž je však zapotřebí splnění předpokladu normality $Z_t$. Nicméně existují pochybnosti o tom, zda-li je asymptotická normalita odhadů založených na metodě maximální věrohodnosti splněna byť pro velké výběry, kde $N \ge 200$.
+
+\subsection{Určení řádu modelu klouzavého průměru}
+
+Pokud je MA model vhodný pro popis pozorované časové řady, je jeho řád obvykle patrný z výběrové autokorelační funkce. Teoretická autokorelační funkce MA(q) procesu je totiž typická mezním bodem ve zpoždění $p$. Při analýze časové řady se tak stačí zaměřit na hodnotu $p$, za kterou jsou hodnoty $r_k$ statisticky nevýznamné. Jak již bylo zmíněno výše, parciální autokorelační funkce ve většině případů neposkytuje užitečnou informaci o řádu zkoumaného MA procesu.
+
+\section{Odhad parametrů ARMA modelu}
+
+Odhad parametrů ARMA modelu je podobný odhadu parametrů MA modelu v tom, že je třeba použít iterativní metodu. Opět je hledána kombinace parametrů v mřížce nebo pomocí optimalizační metody, pro kterou je součet čtverců reziduí minimální.
+
+Např. pro ARMA(1,1) proces klesá autokorelační funkce exponenciálně po zpoždění 1. Proto tento model můžeme použít, pokud bude výběrová autokorelační funkce vykazovat stejnou charakteristiku. Model ARMA(1,1) je dán
+\begin{equation}
+X_t - \mu = \alpha_1 (X_{t-1} - \mu) + Z_t + \beta_1 Z_{t-1}.
+\end{equation}
+Předpokládejme, že máme k dispozici pozorování $x_1, ..., x_N$. S pomocí $z_0 = 0$, $x_0 = \mu$ a počátečními odhady pro $\mu, \alpha_1, \beta_1$ lze vypočíst rekurzivně rezidua pomocí
+\begin{equation}
+\begin{aligned}
+z_1 = x_1 - \mu,\\
+z_2 = x_2 - \mu - \alpha_1(x_1 - \mu) - \beta_1 z_1,\\
+...,\\
+z_N = x_N - \mu - \alpha_1(X_{N-1} - \mu) - \beta_1 z_{N-1}.
+\end{aligned}
+\end{equation}
+Z těchto reziduí je pak možné vypočíst součet jejich čtverců, tj. $\sum_{t = 1}^N z_t^2$. Výše uvedený postup je možné opakovat také pro jiné hodnoty $\mu, \alpha_1, \beta_1$, dokud není dosaženo minima součtu čtverců reziduí.
+
+Dnes jsou preferované přesné odhady pomocí metody maximální věrohodnosti a to navzdory jejich vyšší výpočetní náročnosti. Postup založený na součtu čtverců reziduí, který jsme uvedli výše, je jednodušší na pochopení a často slouží jako počáteční odhad parametrů pro účely metody maximální věrohodnosti. Přesný popis postupů odhadů parametrů založených na metodě maximální věrohodnosti však přesahuje záběr této knihy.
+
+\section{Odhad parametrů ARIMA modelu}
+
+V praxi je většina časových řad nestacionární, a proto na ně výše popsané modely nelze přímo aplikovat. Na tyto časové řady však lze (i opakovaně) aplikovat diferenci, dokud se nestanou stacionárními. Po té na ně lze kalibrovat AR, MA nebo ARMA model.
+
+\section{SARIMA model}
+
+V praxi obsahuje mnoho časových řad sezónní periodickou komponentu, která se pravidelně opakuje. Např. v případě měsíčních pozorování, kde $s = 12$, typicky očekáváme, že $X_t$ je závislé na $X_{t - 12}$ a popř. také na $X_{t - 24}$ stejně jako na $X_{t-1}, X_{t-2}, ...$. Box a Jenkins (1970) zobecnili ARIMA model zahrnutím sezónnosti, čímž vznikl tzv. SARIMA model definovaný jako
+\begin{equation}
+\phi_p(B)\Phi_P(B^s)W_t = \theta_q(B)\Theta_Q(B^s)Z_t,
+\end{equation}
+kde $B$ představuje operátor zpoždění, $\phi_p, \Phi_p, \theta_q, \Theta_Q$ jsou polynomy řádu $p, P, q, Q$ a $Z_t$ označuje čistě náhodný proces a
+\begin{equation}
+W_t = \nabla^d \nabla^D_s X_t.
+\end{equation}
+Pokud např. $P=1$, pak člen $\Phi_P(B^s)$ je $1 - konstanta \cdot B^s$, což znamená, že $W_t$ závisí na $W_{t-s}$, protože $B^s W_t = W_{t - s}$. Proměnné $\{W_t\}$ nejsou od původní řady $\{X_t\}$ odvozeny pouhou aplikací diference prvního řádu (s cílem odstranit trend), ale také diferencí $\nabla_s$ (s cílem odstranit sezónnost). Např. pro $d = D = 1$ a $s=12$ získáváme
+\begin{equation}
+W_t = \nabla \nabla_{12} X_t = \nabla_{12}X_t - \nabla_{12}X_{t-1} = (X_t - X_{t-12}) - (X_{t - 1} - X_{t - 13}).
+\end{equation}
+Model (4.38) a (4.39) nazýváme SARIMA modelem řádu $(p, d, q) \times (P, D, Q)_s$. Parametry $d$ a $D$ zpravidla nepřesahují hodnotu jedna. Pro ilustraci uvažujme SARIMA model řádu $(1, 0, 0) \times (0, 1, 1)_{12}$. Rovnice (4.38) pak má podobu
+\begin{equation}
+(1 - \alpha B)W_t = (1 + \theta B^12)Z_t,
+\end{equation}
+kde $W_t = \nabla_{12} X_t$. Následnými úpravami lze dokázat, že tato rovnice je ekvivalentní
+\begin{equation}
+X_t = X_{t - 12} + \alpha (X_{t - 1} - X_{t - 13}) + Z_t + \theta Z_{t - 12}.
+\end{equation}
+Jinými slovy $X_t$ závisí na $X_{t - 1}, X_{t - 12}$ a $X_{t - 13}$ stejně jako na $Z_{t - 12}$.
+
+Při kalibraci modelu na pozorovanou časovou řadu se jako první odhadují hodnoty parametrů $d$ a $D$, které z časové řady odstraní nestacionaritu a větší část sezónnosti. Hodnoty $p, P, q$ a $Q$ jsou následně odhadnuty z autokorelační a parciální autokorelační funkce. Hodnoty parametrů SARIMA modelu však mohou být odhadnuty také iterativně.
+
+\section{Analýza reziduí}
+
+Po té, co jsme nakalibrovali model na pozorovanou časovou řadu, je vhodné zkontrolovat, zda-li model tuto časovou řadu adekvátním způsobem popisuje. Toho lze dosáhnout analýzou reziduí. Připomeňme si, že rezidua jsou definována jako
+\begin{center}
+\textit{reziduum = pozorovaná hodnota - nakalibrovaná hodnota}.
+\end{center}
+V případě jednorozměrného modelu časové řady je nakalibrovaná hodnota předpovědí pro následující časový krok, tj. reziduum lze chápat jako chybu předpovědi. Např. pro AR(1) má reziduum podobu
+\begin{equation}
+\hat{z}_t = x_t  - \hat{\alpha} x_{t - 1},
+\end{equation}
+kde $\hat{\alpha}$ představuje odhad metodou nejmenších čtverců.
+
+Pokud jsme pro popis časové řady zvolili ``vhodný'' model, měla by být rezidua náhodná a ``blízká'' nule. Validace modelu pak má zpravidla podobu analýzy grafu reziduí. Tato analýza se skládá ze dvou kroků - (a) nejprve zkonstruujeme graf vývoje reziduí v čase a (b) následně ještě jejich korelogram. První graf odhalí případná odlehlá pozorování, autokorelaci a cykličnost. Korelogram nám pak umožňuje detailnější analýzu autokorelace reziduí.
+
+Nechť $r_k$ představuje autokorelační koeficient se zpožděním $k$ řady reziduí $\{\hat{z}_t\}$. Pokud jsme nakalibrovali správný model, pak chybové odchylku představují čistě náhodný proces.  Jejich autokorelační koeficienty tak pro dostatečně vysoké hodnoty $N$ sledují normální rozdělení s nulovou střední hodnotou a rozptylem $1/N$. Nicméně samotný korelogram reziduí má poněkud odlišné vlastnosti. Např. pro AR(1) s $\alpha = 0.7$ jsou 95\% konfidenční intervaly $\pm 1.3 / \sqrt{N}$ pro $r_1$, $\pm 1.7/ \sqrt{N}$ pro $r_2$ a $\pm 2/ \sqrt{N}$ pro ostatní $r_k$. Pro zpoždění větší než 2 jsou tak konfidenční intervaly reziduí stejné jako v případě chybových odchylek.
+
+V případě ARMA procesu lze dokázat, že $1 / \sqrt{N}$ představuje horní hranici pro standardní směrodatnou odchylku $r_k$. Hodnoty, které se nachází mimo interval $\pm 2 / \sqrt{N}$ jsou tak na 5\% hladině významnosti odlišné od nuly a představují tak ``důkaz'', že byl nakalibrován špatný model. Namísto vizuální analýzy $r_k$ lze použít tzv. test nedostatečné shody (portmanteau lack-of-fit test), který souhrnně analyzuje prvních $M$ hodnot korelogramu. Testovací statistika je definována jako
+\begin{equation}
+Q = N \sum_{k = 1}^M r_k^2,
+\end{equation}
+kde $N$ představuje délku časové řady a $M$ je obvykle voleno z rozsahu 15 až 30. Pokud je kalibrovaný model vhodný, sleduje $Q$ přibližně $\chi^2$ rozdělení s $(M - p - q)$ stupni volnosti, kde $p$ resp. $q$ představují parametry AR resp. MA procesu, ze kterých se ARMA proces skládá. Bohužel $\chi^2$ aproximace může být velmi ``slabá'', pokud $N < 100$. V praxi se tak jako nejlepší jeví analýza autokorelačních koeficientů $r_1$, $r_2$ a $r_k$ pro první sezónní zpoždění (pokud časová řada zahrnuje sezónnost) a pomocí ``hrubého'' intervalu $\pm 2 / \sqrt{N}$ zjistit, zda-li jsou signifikantně odlišné od nuly. Pokud je některý ze zkoumaných autokorelačních koeficientů odlišný od nuly, je třeba model odpovídajícím způsobem modifikovat a tento test zopakovat. Pokud jsou jeden nebo dva autokorelační koeficienty $r_k$ signifikantní pro zpoždění, která nemají žádnou přirozenou interpretaci (např. $k = 5$), pak je možné ponechat model beze změn.
+
+Další známou statistikou, která se používá pro testování reziduí, je tzv. Durbin-Watsonova statistika. Tato statistika je definována jako
+\begin{equation}
+d = \frac{\sum_{t = 2}^N (\hat{z}_t - \hat{z}_{t - 1})^2}{\sum_{t = 1}^N \hat{z}_t^2}.
+\end{equation}
+Protože
+\begin{equation}
+\sum_{t=2}^N (\hat{z}_t - \hat{z}_{t - 1})^2 \approx 2\sum_{t = 1}^N \hat{z}_t^2 - 2 \sum_{t = 2}^N \hat{z}_t \hat{z}_{t - 1},
+\end{equation}
+platí $d \approx 2(1 - r_1)$, kde $r_1 = \frac{\sum \hat{z}_t^2 - 1}{\sum \hat{z}_t^2}$ je první autokorelační koeficient vypočtený z reziduí (protože střední hodnota reziduí by měla být z definice blízká nule). Durbin-Watsonova statistika je tak pouze autokorelační koeficient $r_1$ v přestrojení. Pokud byl nakalibrován správný model, očekáváme $r_1 \approx 0$ a $d \approx 2$. Test na $d$ je asymptoticky ekvivalentní testu na $r_1$.
+
+Durbin-Watsonova statistika byla původně navrhnuta pro vícerozměrné regresní modely aplikované na časové řady. Předpokládejme, že máme k dispozici $N$ pozorování pro závislou veličinu $y$ a $k$ nezávislých veličin $x_1, ..., x_k$, a že kalibrujeme model
+\begin{equation}
+Y_t = \beta_1 x_{1t} + ... + \beta_k x_{kt} + Z_t \quad t = 1, ..., N.
+\end{equation}
+Rezidua modelu jsou pak dána rovnicí
+\begin{equation}
+\hat{z}_t = y_t - \hat{\beta}_1 x_{1t} - ... - \hat{\beta}_k x_{kt} \quad t = 1, ..., N.
+\end{equation}
+S pomocí $\hat{z}_t$ lze vypočíst statistiku $d$ a analyzovat rozdělení $d$ pro nulovou hypotézu nezávislosti reziduí $z_t$. Kritické hodnoty $d$ jsou tabelované a závisí počtu nezávislých veličin. Protože $d$ odpovídá $r_1$, Durbin-Watsonův test implicitně předpokládá pro $z_t$ AR(1) proces jako jedinou alternativu k čistě náhodnému procesu.
+
+\section{Obecné poznámky}
+
+Ekonometrické knihy se velmi často soustředí na odhad modelu spíše než na jeho formulaci. Nicméně v dnešní době existuje mnoho aplikací, které jsou schopny automaticky kalibrovat řadu modelů na pozorované časové řady. Hlavním problémem tak zůstává volba vhodného modelu. Jak již bylo řečeno v předešlé kapitole, vhodnost zvoleného modelu lze posoudit pomocí analýzy reziduí. Často se jedná o iterativní proces, kdy na základě analýzy reziduí definici modelu upravíme, model nakalibrujeme a následně opět zhodnotíme skrze rezidua.
+
+Při formulaci modelu by měl analytik konzultoval problém s ``experty'' na danou problematiku. Tímto způsobem by mělo být zajištěno, že navrhovaný model je konzistentní s empirickými a teoretickými znalostmi, a že je v souladu se zamýšleným účelem studie.
+
+V řadě oborů, jako je oceánografie, máme k dispozici velmi dlouhé stacionární časové řady. Naproti tomu v ekonomii a marketingu se často setkáváme s nestacionárními časovými řadami, které mívají méně než 50 pozorování. Pokud je k dispozici alespoň 50 pozorování, je vhodné zkusit na dané časové řadě nakalibrovat ARIMA model. Pokud však máme k dispozici pouze krátkou časovou řadu, která je charakteristická silným trendem anebo sezónností (jejichž odstraněním bychom časovou řadu ještě dále zkrátili), je vhodné zvážit použití jednoduchých modelů, které jsme představili v kapitole 2.
+
+ 

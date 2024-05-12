@@ -1,0 +1,2458 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.1.21)  12 MAY 2018 23:09
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**mood.tex
+(./mood.tex
+LaTeX2e <2017/01/01> patch level 3
+Babel <3.9r> and hyphenation patterns for 5 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2016/04/23 3.9r The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-czech/czech.ldf
+Language: czech 2008/07/06 v3.1a Czech support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2016/04/23 3.9r Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+Package babel Info: Making " an active character on input line 172.
+\cs@wordlen=\count89
+Package babel Info: Making - an active character on input line 226.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/02/22 v2.0g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/cslatex/base/il2enc.def
+File: il2enc.def 1997/08/20 CSLaTeX
+)
+LaTeX Font Info:    Try loading font information for IL2+cmr on input line 105.
+
+
+(/usr/share/texlive/texmf-dist/tex/cslatex/base/il2cmr.fd
+File: il2cmr.fd 1997/02/06 CSLaTeX font definitions
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0100 (decimal 256)
+   defining Unicode char U+0101 (decimal 257)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+0108 (decimal 264)
+   defining Unicode char U+0109 (decimal 265)
+   defining Unicode char U+010A (decimal 266)
+   defining Unicode char U+010B (decimal 267)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0112 (decimal 274)
+   defining Unicode char U+0113 (decimal 275)
+   defining Unicode char U+0114 (decimal 276)
+   defining Unicode char U+0115 (decimal 277)
+   defining Unicode char U+0116 (decimal 278)
+   defining Unicode char U+0117 (decimal 279)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011C (decimal 284)
+   defining Unicode char U+011D (decimal 285)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0120 (decimal 288)
+   defining Unicode char U+0121 (decimal 289)
+   defining Unicode char U+0122 (decimal 290)
+   defining Unicode char U+0123 (decimal 291)
+   defining Unicode char U+0124 (decimal 292)
+   defining Unicode char U+0125 (decimal 293)
+   defining Unicode char U+0128 (decimal 296)
+   defining Unicode char U+0129 (decimal 297)
+   defining Unicode char U+012A (decimal 298)
+   defining Unicode char U+012B (decimal 299)
+   defining Unicode char U+012C (decimal 300)
+   defining Unicode char U+012D (decimal 301)
+   defining Unicode char U+012E (decimal 302)
+   defining Unicode char U+012F (decimal 303)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0134 (decimal 308)
+   defining Unicode char U+0135 (decimal 309)
+   defining Unicode char U+0136 (decimal 310)
+   defining Unicode char U+0137 (decimal 311)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013B (decimal 315)
+   defining Unicode char U+013C (decimal 316)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0145 (decimal 325)
+   defining Unicode char U+0146 (decimal 326)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+014C (decimal 332)
+   defining Unicode char U+014D (decimal 333)
+   defining Unicode char U+014E (decimal 334)
+   defining Unicode char U+014F (decimal 335)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0156 (decimal 342)
+   defining Unicode char U+0157 (decimal 343)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015C (decimal 348)
+   defining Unicode char U+015D (decimal 349)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+0168 (decimal 360)
+   defining Unicode char U+0169 (decimal 361)
+   defining Unicode char U+016A (decimal 362)
+   defining Unicode char U+016B (decimal 363)
+   defining Unicode char U+016C (decimal 364)
+   defining Unicode char U+016D (decimal 365)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0172 (decimal 370)
+   defining Unicode char U+0173 (decimal 371)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+01CD (decimal 461)
+   defining Unicode char U+01CE (decimal 462)
+   defining Unicode char U+01CF (decimal 463)
+   defining Unicode char U+01D0 (decimal 464)
+   defining Unicode char U+01D1 (decimal 465)
+   defining Unicode char U+01D2 (decimal 466)
+   defining Unicode char U+01D3 (decimal 467)
+   defining Unicode char U+01D4 (decimal 468)
+   defining Unicode char U+01E2 (decimal 482)
+   defining Unicode char U+01E3 (decimal 483)
+   defining Unicode char U+01E6 (decimal 486)
+   defining Unicode char U+01E7 (decimal 487)
+   defining Unicode char U+01E8 (decimal 488)
+   defining Unicode char U+01E9 (decimal 489)
+   defining Unicode char U+01EA (decimal 490)
+   defining Unicode char U+01EB (decimal 491)
+   defining Unicode char U+01F0 (decimal 496)
+   defining Unicode char U+01F4 (decimal 500)
+   defining Unicode char U+01F5 (decimal 501)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+0232 (decimal 562)
+   defining Unicode char U+0233 (decimal 563)
+   defining Unicode char U+1E02 (decimal 7682)
+   defining Unicode char U+1E03 (decimal 7683)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2010 (decimal 8208)
+   defining Unicode char U+2011 (decimal 8209)
+   defining Unicode char U+2012 (decimal 8210)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2015 (decimal 8213)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+Now handling font encoding IL2 ...
+... no UTF-8 mapping file for font encoding IL2
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/pstricks/pstricks.sty
+Package: pstricks 2015/11/14 v0.62 LaTeX wrapper for `PSTricks' (RN,HV)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2016/07/10 v3.1a Driver-dependent file (DPC,SPQR)
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pstricks.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks16
+\XKV@tempa@toks=\toks17
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count90
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pst-fp.tex
+`pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count91
+\pstFP@xia=\count92
+\pstFP@xib=\count93
+\pstFP@xfa=\count94
+\pstFP@xfb=\count95
+\pstFP@rega=\count96
+\pstFP@regb=\count97
+\pstFP@regs=\count98
+\pstFP@times=\count99
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks18
+\pgfutil@tempdima=\dimen104
+\pgfutil@tempdimb=\dimen105
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks19
+\pgfkeys@temptoks=\toks20
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks21
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+\pgf@x=\dimen106
+\pgf@xa=\dimen107
+\pgf@xb=\dimen108
+\pgf@xc=\dimen109
+\pgf@y=\dimen110
+\pgf@ya=\dimen111
+\pgf@yb=\dimen112
+\pgf@yc=\dimen113
+\c@pgf@counta=\count100
+\c@pgf@countb=\count101
+\c@pgf@countc=\count102
+\c@pgf@countd=\count103
+\pgfutil@tempcnta=\count104
+\pgfutil@tempcntb=\count105
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen114
+\pgfmath@count=\count106
+\pgfmath@box=\box26
+\pgfmath@toks=\toks22
+\pgfmath@stack@operand=\toks23
+\pgfmath@stack@operation=\toks24
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count107
+))
+\pgffor@iter=\dimen115
+\pgffor@skip=\dimen116
+\pgffor@stack=\toks25
+\pgffor@toks=\toks26
+)
+\psLoopIndex=\count108
+
+`PSTricks' v2.71  <2016/12/23> (tvz)
+\pst@dima=\dimen117
+\pst@dimb=\dimen118
+\pst@dimc=\dimen119
+\pst@dimd=\dimen120
+\pst@dimg=\dimen121
+\pst@dimh=\dimen122
+\pst@dimm=\dimen123
+\pst@dimn=\dimen124
+\pst@dimo=\dimen125
+\pst@dimp=\dimen126
+\pst@hbox=\box27
+\pst@ibox=\box28
+\pst@boxg=\box29
+\pst@cnta=\count109
+\pst@cntb=\count110
+\pst@cntc=\count111
+\pst@cntd=\count112
+\pst@cntg=\count113
+\pst@cnth=\count114
+\pst@cntm=\count115
+\pst@cntn=\count116
+\pst@cnto=\count117
+\pst@cntp=\count118
+\@zero=\count119
+\pst@toks=\toks27
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen127
+\psxunit=\dimen128
+\psyunit=\dimen129
+\pst@C@@rType=\count120
+\pslinewidth=\dimen130
+\psk@startLW=\dimen131
+\psk@endLW=\dimen132
+\pst@customdefs=\toks28
+\pslinearc=\dimen133
+\pst@symbolStep=\dimen134
+\pst@symbolWidth=\dimen135
+\pst@symbolLinewidth=\dimen136
+\everypsbox=\toks29
+\psframesep=\dimen137
+\pslabelsep=\dimen138
+\sh@wgridXunit=\dimen139
+\sh@wgridYunit=\dimen140
+\pst@shift=\dimen141
+)
+File: pstricks.tex 2016/12/23 v2.71 `PSTricks' (tvz,hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pst-fp.tex)
+File: pst-fp.tex 2016/12/23 v2.71 `PST-fp' (hv)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/11/05 v2.16a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks30
+\ex@=\dimen142
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen143
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count121
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count122
+\leftroot@=\count123
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count124
+\DOTSCASE@=\count125
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box30
+\strutbox@=\box31
+\big@size=\dimen144
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count126
+\c@MaxMatrixCols=\count127
+\dotsspace@=\muskip10
+\c@parentequation=\count128
+\dspbrk@lvl=\count129
+\tag@help=\toks31
+\row@=\count130
+\column@=\count131
+\maxfields@=\count132
+\andhelp@=\toks32
+\eqnshift@=\dimen145
+\alignsep@=\dimen146
+\tagshift@=\dimen147
+\tagwidth@=\dimen148
+\totwidth@=\dimen149
+\lineht@=\dimen150
+\@envbody=\toks33
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks34
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 99.
+)
+\Gin@req@height=\dimen151
+\Gin@req@width=\dimen152
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2017/01/14 v0.5h Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count133
+\calc@Bcount=\count134
+\calc@Adimen=\dimen153
+\calc@Bdimen=\dimen154
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count135
+\calc@Cskip=\skip48
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)))
+\AM@pagewidth=\dimen155
+\AM@pageheight=\dimen156
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2017/01/14 v0.5h Pdfpages driver for pdfTeX (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/ppnull.def
+File: ppnull.def 2017/01/14 v0.5h Pdfpages dummy driver (AM)
+
+
+Package pdfpages Warning: I will use a dummy \includepdf command which
+(pdfpages)                will insert empty pages instead of the actual PDF,
+(pdfpages)                because we are running in DVI mode or with
+(pdfpages)                dvips driver.
+
+))
+\AM@pagebox=\box32
+\AM@global@opts=\toks35
+\AM@toc@title=\toks36
+\c@AM@survey=\count136
+\AM@templatesizebox=\box33
+) (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+) (./mood.aux (./mood_chap1.aux) (./mood_chap2.aux) (./mood_chap3.aux) (./mood_
+chap4.aux)
+(./mood_chap5.aux) (./mood_chap6.aux) (./mood_chap7.aux) (./mood_chap8.aux
+
+LaTeX Warning: Label `conf-interval-mu-sigma_a' multiply defined.
+
+) (./mood_chap9.aux
+
+LaTeX Warning: Label `power-function' multiply defined.
+
+) (./mood_chap10.aux) (./mood_chap11.aux) (./mood_appA.aux))
+\openout1 = `mood.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+\AtBeginShipoutBox=\box34
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+Package pdflscape Info: Auto-detected driver: dvips (dvips) on input line 125.
+)
+\c@definition=\count137
+\c@theorem=\count138
+\c@proof=\count139
+\c@example=\count140
+\c@corollary=\count141
+LaTeX Font Info:    Try loading font information for U+msa on input line 30.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 30.
+
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+) [1
+
+
+] [2
+
+] (./mood.toc [3] [4] [5] [6])
+\tf@toc=\write3
+\openout3 = `mood.toc'.
+
+ [7]
+\openout2 = `mood_chap1.aux'.
+
+ (./mood_chap1.tex [8
+
+
+]
+Kapitola 1.
+[9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 33.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
+ [10] [11]
+File: pictures/set_operations.eps Graphic file (type eps)
+
+<pictures/set_operations.eps> [12] [13] [14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
+[]\IL2/cmr/m/it/10 Pravdìpodobnostní funkce
+ []
+
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
+[]\IL2/cmr/m/it/10 Pravdìpodobnostní pro-stor
+ []
+
+
+Overfull \hbox (24.37859pt too wide) in paragraph at lines 401--402
+[]
+ []
+
+[18] [19]
+Overfull \hbox (71.58693pt too wide) detected at line 453
+\OML/cmm/m/it/10 P[] \OMS/cmsy/m/n/10 [[] \OML/cmm/m/it/10 A[]\OMS/cmsy/m/n/10 
+j\OML/cmm/m/it/10 B[] \OT1/cmr/m/n/10 = [] = [] = [] = [] \OML/cmm/m/it/10 P\OT
+1/cmr/m/n/10 [\OML/cmm/m/it/10 A[]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 B\OT1/cmr/
+m/n/10 ]
+ []
+
+
+Underfull \hbox (badness 4001) in paragraph at lines 478--479
+[]\IL2/cmr/m/it/10 Jestli¾e pro daný prav-dì-po-dob-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
+[]\IL2/cmr/m/it/10 Uva¾ujme prav-dì-po-dob-nostní pro-stor
+ []
+
+
+Underfull \hbox (badness 2856) in paragraph at lines 491--492
+\OT1/cmr/m/n/10 (
+\OML/cmm/m/it/10 ; \U/rsfs/m/n/10 A\OML/cmm/m/it/10 ; P\OT1/cmr/m/n/10 [\OMS/cm
+sy/m/n/10 ^^A\OT1/cmr/m/n/10 ])$ \IL2/cmr/m/it/10 a sou-bor vzá-jemnì ne-slu-èi
+-tel-ných jevù $\OML/cmm/m/it/10 B[]; B[]; :::; B[]$ \IL2/cmr/m/it/10 v $\U/rsf
+s/m/n/10 A$\IL2/cmr/m/it/10 .
+ []
+
+[20]
+Underfull \hbox (badness 2875) in paragraph at lines 509--510
+[]\IL2/cmr/m/it/10 Pro daný prav-dì-po-dob-nostní pro-stor
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
+[]\IL2/cmr/m/it/10 Pro daný prav-dì-po-dob-nostní pro-stor
+ []
+
+
+Underfull \hbox (badness 5147) in paragraph at lines 540--541
+\IL2/cmr/m/it/10 pro-stor $\OT1/cmr/m/n/10 (
+\OML/cmm/m/it/10 ; \U/rsfs/m/n/10 A\OML/cmm/m/it/10 ; P\OT1/cmr/m/n/10 [\OMS/cm
+sy/m/n/10 ^^A\OT1/cmr/m/n/10 ])$ \IL2/cmr/m/it/10 uva-¾ujme ná-hodné jevy $\OML
+/cmm/m/it/10 A[]; A[]; :::; A[]$ \IL2/cmr/m/it/10 v $\U/rsfs/m/n/10 A$\IL2/cmr/
+m/it/10 . Jevy
+ []
+
+[21]) [22]
+\openout2 = `mood_chap2.aux'.
+
+ (./mood_chap2.tex
+Kapitola 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+[]\IL2/cmr/m/it/10 Pro daný prav-dì-po-dob-nostní pro-stor
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
+[23
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+[]\IL2/cmr/m/it/10 Kumulativní dis-tri-bu-èní
+ []
+
+
+Overfull \hbox (37.22513pt too wide) has occurred while \output is active
+\IL2/cmr/m/n/10 24 \IL2/cmr/m/sl/10 KAPITOLA 2.  NÁHODNÉ VELIÈINY, DISTRIBUÈNÍ 
+A MOMENTOVÁ FUNKCE
+ []
+
+[24]
+Overfull \hbox (3.22318pt too wide) in paragraph at lines 68--69
+[]
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+[]\IL2/cmr/m/it/10 Libovolná funkce
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 155--156
+\IL2/cmr/m/it/10 (popø. dis-krétní) prav-dì-po-dob-nostní funkcí, jest-li¾e pro
+ urèi-tou spoèet-nou
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+[]
+ []
+
+
+Underfull \hbox (badness 1983) in paragraph at lines 171--172
+\IL2/cmr/m/it/10 Jestli¾e je $\OML/cmm/m/it/10 X$ \IL2/cmr/m/it/10 spo-jitá ná-
+hodná ve-lièina, pak je funkce $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OMS/cmsy/
+m/n/10 ^^A\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 ze vztahu
+ []
+
+
+Overfull \hbox (37.22513pt too wide) has occurred while \output is active
+\IL2/cmr/m/n/10 26 \IL2/cmr/m/sl/10 KAPITOLA 2.  NÁHODNÉ VELIÈINY, DISTRIBUÈNÍ 
+A MOMENTOVÁ FUNKCE
+ []
+
+[26]
+Underfull \hbox (badness 1082) in paragraph at lines 195--196
+[]\IL2/cmr/m/it/10 Nech» ná-hodná ve-lièina $\OML/cmm/m/it/10 X$ \IL2/cmr/m/it/
+10 pøed-sta-vuje délku te-le-fon-ního ho-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+[]\IL2/cmr/m/it/10 Libovolná funkce
+ []
+
+File: pictures/partially_continuous_and_discrete.eps Graphic file (type eps)
+<pictures/partially_continuous_and_discrete.eps> [27]
+Overfull \hbox (37.22513pt too wide) has occurred while \output is active
+\IL2/cmr/m/n/10 28 \IL2/cmr/m/sl/10 KAPITOLA 2.  NÁHODNÉ VELIÈINY, DISTRIBUÈNÍ 
+A MOMENTOVÁ FUNKCE
+ []
+
+[28] [29]
+Overfull \hbox (5.9333pt too wide) detected at line 332
+\OML/cmm/m/it/10 D\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ] = [][] 2
+\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 F\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 F\OT1/cmr/
+m/n/10 (\OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )]\OML/cmm/m/it/1
+0 dx \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X
+\OT1/cmr/m/n/10 ][] = [][] 2\OML/cmm/m/it/10 xpe[]dx \OMS/cmsy/m/n/10 ^^@ [][][
+][] \OT1/cmr/m/n/10 = []
+ []
+
+
+Underfull \hbox (badness 1817) in paragraph at lines 338--339
+[]\IL2/cmr/m/it/10 Nech» je $\OML/cmm/m/it/10 X$
+ []
+
+
+Overfull \hbox (22.4581pt too wide) detected at line 373
+\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^@ \OML
+/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ][]] = \OML/cm
+m/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/
+m/n/10 2\OML/cmm/m/it/10 XE\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ]
+ + \OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ][]] = 
+\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 ] \OMS/c
+msy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/i
+t/10 X[]\OT1/cmr/m/n/10 ] + \OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10
+ X[]\OT1/cmr/m/n/10 ] = \OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]
+\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/
+cmm/m/it/10 X\OT1/cmr/m/n/10 ][]
+ []
+
+
+Overfull \hbox (37.22513pt too wide) has occurred while \output is active
+\IL2/cmr/m/n/10 30 \IL2/cmr/m/sl/10 KAPITOLA 2.  NÁHODNÉ VELIÈINY, DISTRIBUÈNÍ 
+A MOMENTOVÁ FUNKCE
+ []
+
+[30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
+[]\IL2/cmr/m/it/10 Platí,
+ []
+
+
+Overfull \hbox (37.22513pt too wide) has occurred while \output is active
+\IL2/cmr/m/n/10 32 \IL2/cmr/m/sl/10 KAPITOLA 2.  NÁHODNÉ VELIÈINY, DISTRIBUÈNÍ 
+A MOMENTOVÁ FUNKCE
+ []
+
+[32]
+File: pictures/two_distributions.eps Graphic file (type eps)
+ <pictures/two_distributions.eps>
+Overfull \hbox (53.33841pt too wide) in paragraph at lines 512--513
+ [][] 
+ []
+
+[33]
+File: pictures/first_four_moments.eps Graphic file (type eps)
+ <pictures/first_four_moments.eps>
+Overfull \hbox (37.22513pt too wide) has occurred while \output is active
+\IL2/cmr/m/n/10 34 \IL2/cmr/m/sl/10 KAPITOLA 2.  NÁHODNÉ VELIÈINY, DISTRIBUÈNÍ 
+A MOMENTOVÁ FUNKCE
+ []
+
+[34]
+Underfull \hbox (badness 2600) in paragraph at lines 571--572
+[]\IL2/cmr/m/it/10 Nech» je $\OML/cmm/m/it/10 X$ \IL2/cmr/m/it/10 ná-hodná ve-l
+ièina s prav-dì-po-dob-nostní funkcí
+ []
+
+[35])
+Overfull \hbox (37.22513pt too wide) has occurred while \output is active
+\IL2/cmr/m/n/10 36 \IL2/cmr/m/sl/10 KAPITOLA 2.  NÁHODNÉ VELIÈINY, DISTRIBUÈNÍ 
+A MOMENTOVÁ FUNKCE
+ []
+
+[36]
+\openout2 = `mood_chap3.aux'.
+
+ (./mood_chap3.tex
+Kapitola 3.
+
+Underfull \hbox (badness 2057) in paragraph at lines 10--11
+[]\IL2/cmr/m/it/10 Jestli¾e má ná-hodná ve-
+ []
+
+File: pictures/discrete_uniform_distribution.eps Graphic file (type eps)
+<pictures/discrete_uniform_distribution.eps>
+Overfull \hbox (21.36874pt too wide) in paragraph at lines 24--25
+ [][] 
+ []
+
+[37
+
+
+
+]
+File: pictures/bernoulli_distribution.eps Graphic file (type eps)
+ <pictures/bernoulli_distribution.eps> [38]
+File: pictures/binomial_distribution.eps Graphic file (type eps)
+
+<pictures/binomial_distribution.eps>
+Overfull \hbox (28.89687pt too wide) in paragraph at lines 115--116
+ [][] 
+ []
+
+
+Overfull \hbox (6.42683pt too wide) in paragraph at lines 139--139
+[] 
+ []
+
+[39] [40]
+File: pictures/hypergeometric_distribution.eps Graphic file (type eps)
+ <pictures/hypergeometric_distribution.eps>
+Overfull \hbox (87.61624pt too wide) in paragraph at lines 190--191
+ [][] 
+ []
+
+
+Overfull \hbox (4.85187pt too wide) in paragraph at lines 212--212
+[] 
+ []
+
+[41]
+File: pictures/poisson_distribution.eps Graphic file (type eps)
+ <pictures/poisson_distribution.eps> [42] [43] [44]
+Underfull \hbox (badness 3838) in paragraph at lines 358--359
+[]\IL2/cmr/m/it/10 Pøedpokládejme, ¾e prùmìrný poèet te-le-fon-ních ho-vorù na
+ []
+
+[45]
+File: pictures/geometric_distribution.eps Graphic file (type eps)
+ <pictures/geometric_distribution.eps> [46]
+Underfull \hbox (badness 1337) in paragraph at lines 442--443
+[]\IL2/cmr/m/it/10 Jestli¾e ná-hodná ve-lièina
+ []
+
+[47] [48]
+File: pictures/continuous_uniform_distribution.eps Graphic file (type eps)
+ <pictures/continuous_uniform_distribution.eps>
+Overfull \hbox (15.84811pt too wide) in paragraph at lines 571--572
+ [][] 
+ []
+
+[49] [50]
+File: pictures/normal_distribution.eps Graphic file (type eps)
+ <pictures/normal_distribution.eps>
+File: pictures/normal_cumulative_distribution.eps Graphic file (type eps)
+
+<pictures/normal_cumulative_distribution.eps> [51] [52] [53]
+File: pictures/gamma_distribution.eps Graphic file (type eps)
+
+<pictures/gamma_distribution.eps> [54]
+File: pictures/beta_distribution.eps Graphic file (type eps)
+ <pictures/beta_distribution.eps>
+[55] [56] [57] [58]
+Overfull \hbox (12.0771pt too wide) detected at line 1028
+\OML/cmm/m/it/10 P[]a \OMS/cmsy/m/n/10 ^^T [] ^^T \OML/cmm/m/it/10 b[] \OT1/cmr
+/m/n/10 = \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 np \OT1/cmr/m/n/1
+0 + \OML/cmm/m/it/10 a[] \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 X \OMS/cmsy/m/n/
+10 ^^T \OML/cmm/m/it/10 np \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 b[]\OT1/cmr/m/n/1
+0 ] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 ^^H\OML/cmm/m/it/10 b \OMS/cmsy/m/n/10 ^
+^@ \OT1/cmr/m/n/10 ^^H(\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 )   [] \OML/cmm/m/it/1
+0 n \OMS/cmsy/m/n/10 ! 1
+ []
+
+[59]
+Underfull \hbox (badness 1642) in paragraph at lines 1067--1068
+\IL2/cmr/m/it/10 s po-mocí prav-dì-po-dob-nost-ních funkcí $\OML/cmm/m/it/10 f[
+]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^^\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V[]; ^^[[]\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 x
+\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 a $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OM
+L/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
+ []
+
+[60]
+Overfull \hbox (6.47563pt too wide) in paragraph at lines 1089--1089
+[] 
+ []
+
+[61]) [62]
+\openout2 = `mood_chap4.aux'.
+
+ (./mood_chap4.tex
+Kapitola 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\IL2/cmr/m/it/10 Nech» jsou
+ []
+
+
+Underfull \hbox (badness 2547) in paragraph at lines 8--9
+\OT1/cmr/m/n/10 (
+\OML/cmm/m/it/10 ; \U/rsfs/m/n/10 A\OML/cmm/m/it/10 ; P\OT1/cmr/m/n/10 [\OMS/cm
+sy/m/n/10 ^^A\OT1/cmr/m/n/10 ])$\IL2/cmr/m/it/10 . Sdru-¾ená ku-mu-la-tivní dis
+-tri-bu-èní funkce $\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\O
+ML/cmm/m/it/10 ; :::; \OMS/cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 j
+e
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+[]\IL2/cmr/m/it/10 Jestli¾e je
+ []
+
+[63
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+[]\IL2/cmr/m/it/10 Náhodná ve-lièina
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
+[]\IL2/cmr/m/it/10 Jestli¾e
+ []
+
+[64]
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
+[]
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 105--106
+\IL2/cmr/m/it/10 Ne-ch» $\OML/cmm/m/it/10 X[]; :::; X[]$ \IL2/cmr/m/it/10 pøed-
+sta-vují li-bo-vol-nou podm-no¾inu sdru-¾e-ných ne-spo-ji-
+ []
+
+[65]
+Underfull \hbox (badness 1478) in paragraph at lines 144--144
+[]\IL2/cmr/bx/n/12 Sdru¾ená prav-dì-po-dob-nostní funkce spo-jité ná-
+ []
+
+
+Overfull \hbox (69.41716pt too wide) in paragraph at lines 147--148
+[]
+ []
+
+[66]
+Underfull \hbox (badness 4024) in paragraph at lines 190--191
+[]\IL2/cmr/m/it/10 Tuto de-fi-nici lze zo-bec-nit. Ne-ch» $\OML/cmm/m/it/10 X[]
+; :::; X[]$ \IL2/cmr/m/it/10 pøed-sta-vuje li-bo-vol-nou
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
+\IL2/cmr/m/it/10 podm-no¾inu sdru-¾e-ných ná-hod-ných ve-lièin $\OML/cmm/m/it/1
+0 X[]; :::; X[]$\IL2/cmr/m/it/10 . Pak je funkce
+ []
+
+
+Underfull \hbox (badness 3601) in paragraph at lines 190--191
+\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n
+/10 )$ \IL2/cmr/m/it/10 je na-zý-vána mar-gi-nální prav-dì-po-dob-nostní funkcí
+
+ []
+
+
+Overfull \hbox (38.88757pt too wide) in paragraph at lines 221--221
+[] 
+ []
+
+[67]
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
+[]
+ []
+
+[68]
+Overfull \hbox (1.94536pt too wide) in paragraph at lines 260--261
+[]
+ []
+
+
+Underfull \hbox (badness 2393) in paragraph at lines 260--261
+\IL2/cmr/m/it/10 Jestli¾e jsou $\OML/cmm/m/it/10 X$ \IL2/cmr/m/it/10 a $\OML/cm
+m/m/it/10 Y$ \IL2/cmr/m/it/10 sdru-¾ené ne-spo-jité ná-hodné ve-lièiny, pak pod
+-mí-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
+[]
+ []
+
+[69]
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
+[]
+ []
+
+
+Overfull \hbox (26.34174pt too wide) detected at line 334
+\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OMS/cmsy/m/n/10 j\OML/c
+mm/m/it/10 x\OT1/cmr/m/n/10 ) = [][] \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/
+cmm/m/it/10 z\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it
+/10 dz \OT1/cmr/m/n/10 = [][] []\OML/cmm/m/it/10 dz[]  \OT1/cmr/m/n/10 = [] [][
+](\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 z\OT1/cmr/m/n/10 )\OML/
+cmm/m/it/10 dz \OT1/cmr/m/n/10 = [](\OML/cmm/m/it/10 xy \OT1/cmr/m/n/10 + [])
+ []
+
+[70] [71]
+Underfull \hbox (badness 1072) in paragraph at lines 400--401
+[]\IL2/cmr/m/it/10 Nech» $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]; X[]; :::; X[]\
+OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 je $\OML/cmm/m/it/10 k$\IL2/cmr/m/it/10 -roz
+mìrná ne-spo-
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 408--409
+\IL2/cmr/m/it/10 ná-hodná ve-lièina se sdru-¾e-nou prav-dì-po-dob-nostní funkcí
+ $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OML/cmm/m/it/10 ; :
+::; \OMS/cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )$\IL2/cmr/m/it/10 .
+ []
+
+[72] [73] [74]
+Underfull \hbox (badness 2809) in paragraph at lines 563--564
+[]\IL2/cmr/m/it/10 Nech» $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr/m/n/10
+ )$ \IL2/cmr/m/it/10 je dvou-roz-
+ []
+
+
+Overfull \hbox (25.17528pt too wide) in paragraph at lines 578--578
+[] 
+ []
+
+[75]
+Overfull \hbox (10.3065pt too wide) in paragraph at lines 631--631
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 659--660
+[]\IL2/cmr/m/it/10 Sdru¾ená mo-men-tová
+ []
+
+[76] [77]
+Underfull \hbox (badness 2941) in paragraph at lines 754--755
+[]\IL2/cmr/m/it/10 Nech» má dvou-roz-
+ []
+
+File: pictures/bivariate_normal.eps Graphic file (type eps)
+<pictures/bivariate_normal.eps> [78] [79]
+Overfull \hbox (30.83948pt too wide) detected at line 812
+\OML/cmm/m/it/10 m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 ) =
+ \OML/cmm/m/it/10 e[] [][] [][] e[][]e[]dvdu
+ []
+
+
+Underfull \hbox (badness 1852) in paragraph at lines 845--846
+[]\IL2/cmr/m/it/10 Sdru¾ený mo-ment $\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cm
+m/m/it/10 X[]Y[]\OT1/cmr/m/n/10 ]$ \IL2/cmr/m/it/10 lze zís-kat z mo-men-tové f
+unkce
+ []
+
+
+Overfull \hbox (45.98529pt too wide) in paragraph at lines 849--849
+[] 
+ []
+
+[80]
+Underfull \hbox (badness 1014) in paragraph at lines 857--858
+[]\IL2/cmr/m/it/10 Náhodné ve-lièiny jsou ne-ko-re-lo-vané tehdy a jen tehdy, j
+e-li
+ []
+
+
+Underfull \hbox (badness 1983) in paragraph at lines 860--860
+[]\IL2/cmr/bx/n/14.4 Marginální a podm-ní-nìná prav-dì-po-dob-
+ []
+
+
+Overfull \hbox (2.57233pt too wide) has occurred while \output is active
+\IL2/cmr/m/sl/10 4.6.  MARGINÁLNÍ A PODMNÍNÌNÁ PRAVDÌPODOBNOSTNÍ FUNKCE \IL2/cm
+r/m/n/10 81
+ []
+
+[81]
+File: pictures/bivariate_normal_regression.eps Graphic file (type eps)
+ <pictures/bivariate_normal_regression.eps>) [82]
+\openout2 = `mood_chap5.aux'.
+
+ (./mood_chap5.tex
+Kapitola 5.
+
+Overfull \hbox (12.4249pt too wide) detected at line 14
+\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 ] = \OML/c
+mm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 X[]; :::; X[]\OT1/cmr/m/n/10 )] = [][] [] [][] \OML/cmm/m/it/10 g\OT1/cmr/m/n
+/10 (\OML/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 f[]\OT1/cm
+r/m/n/10 (\OML/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 dx[] 
+[] dx[]
+ []
+
+[83
+
+
+
+]) [84]
+\openout2 = `mood_chap6.aux'.
+
+ (./mood_chap6.tex
+Kapitola 6.
+
+Underfull \hbox (badness 2837) in paragraph at lines 20--21
+[]\IL2/cmr/m/it/10 Nech» mají ná-hodné ve-lièiny $\OML/cmm/m/it/10 X[]; :::; X[
+]$
+ []
+
+[85
+
+
+
+] [86] [87]
+Overfull \hbox (22.83911pt too wide) in paragraph at lines 177--177
+[] 
+ []
+
+[88] [89]
+Underfull \hbox (badness 6978) in paragraph at lines 251--252
+[]\IL2/cmr/m/it/10 Nech» $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^
+^A\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 pøed-sta-vuje prav-dì-po-dob-
+ []
+
+[90]
+File: pictures/asymptotic_normal.eps Graphic file (type eps)
+ <pictures/asymptotic_normal.eps>
+Overfull \hbox (22.87437pt too wide) in paragraph at lines 295--296
+ [][] 
+ []
+
+[91] [92] [93]
+Underfull \hbox (badness 1400) in paragraph at lines 387--388
+[]\IL2/cmr/m/it/10 Jestli¾e je $\OML/cmm/m/it/10 X$ \IL2/cmr/m/it/10 ná-hodná v
+e-lièina s
+ []
+
+[94]
+Overfull \hbox (25.49619pt too wide) detected at line 457
+\OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ) = \O
+ML/cmm/m/it/10 E [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 E\OT1/cmr/m/n/10 [\OML/c
+mm/m/it/10 e[]e[]\OT1/cmr/m/n/10 ] = \OML/cmm/m/it/10 E [] E [] \OT1/cmr/m/n/10
+ = \OML/cmm/m/it/10 e[]e[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 e[]
+ []
+
+
+Overfull \hbox (33.53227pt too wide) in paragraph at lines 466--466
+[] 
+ []
+
+[95] [96] [97] [98] [99] [100]
+Overfull \hbox (62.31866pt too wide) detected at line 715
+\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = [
+][\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )][][\OM
+L/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m
+/n/10 ^^@ \OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 
+)][][1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
+ y\OT1/cmr/m/n/10 )][]\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1
+/cmr/m/n/10 )\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/
+10 )
+ []
+
+[101]
+Overfull \hbox (26.14542pt too wide) in paragraph at lines 722--722
+[] 
+ []
+
+
+Overfull \hbox (18.38574pt too wide) in paragraph at lines 731--731
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 739--740
+[]
+ []
+
+[102]
+Overfull \hbox (24.82585pt too wide) in paragraph at lines 799--799
+[] 
+ []
+
+[103]
+Underfull \vbox (badness 1173) has occurred while \output is active []
+
+ [104]
+[105]
+Underfull \hbox (badness 10000) in paragraph at lines 919--920
+[]\IL2/cmr/m/it/10 Nech»
+ []
+
+
+Overfull \hbox (39.4177pt too wide) detected at line 922
+\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = [] \
+OMS/cmsy/m/n/10 ^^B \OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 X[] [] y\OT1/cmr/m/n/1
+0 ) = [] \OMS/cmsy/m/n/10 ^^B \OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 Y[] [] x\OT1
+/cmr/m/n/10 )
+ []
+
+[106]) [107]
+\openout2 = `mood_chap7.aux'.
+
+ (./mood_chap7.tex [108
+
+
+
+]
+Kapitola 7.
+LaTeX Font Info:    Try loading font information for U+euf on input line 11.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [109]
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+[]\IL2/cmr/m/n/10 Pokud bychom na-místo $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R[
+]; :::; ^^R[]\OT1/cmr/m/n/10 )$ \IL2/cmr/m/n/10 po-tøe-bo-vali od-had-nout
+ []
+
+
+Underfull \hbox (badness 3375) in paragraph at lines 58--59
+\OML/cmm/m/it/10 ^^\[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R[]; :::; ^^R[]\OT1/c
+mr/m/n/10 )\OML/cmm/m/it/10 ; :::; ^^\[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R[]
+; :::; ^^R[]\OT1/cmr/m/n/10 )$\IL2/cmr/m/n/10 , mù¾eme po-stu-po-vat nì-ko-lika
+ zpù-soby. Prv-
+ []
+
+[110] [111]
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+[]\IL2/cmr/m/it/10 Nech» $\OML/cmm/m/it/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^
+^R\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 1796) in paragraph at lines 125--126
+\IL2/cmr/m/it/10 a $[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^P\OT1/cmr/m/n/10 (\
+OML/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 je hod-nota $\
+OML/cmm/m/it/10 ^^R$ \IL2/cmr/m/it/10 z $[]$, která ma-xi-ma-li-zuje $\OML/cmm/
+m/it/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )$\IL2/cmr/m/it/1
+0 . Pak
+ []
+
+[112] [113]
+File: pictures/uniform_illustration.eps Graphic file (type eps)
+ <pictures/uniform_illustration.eps>
+Overfull \hbox (10.81888pt too wide) in paragraph at lines 228--229
+[]
+ []
+
+[114]
+Underfull \hbox (badness 1924) in paragraph at lines 245--246
+[]\IL2/cmr/m/it/10 Uva¾ujme prav-dì-po-dob-nostní funkci $\OML/cmm/m/it/10 f\OT
+1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OML/cmm/m/it/10 ; ^^R[]; :::; ^^R[]\OT1/cmr/
+m/n/10 )$\IL2/cmr/m/it/10 . Ne-ch» $[] \OT1/cmr/m/n/10 =
+ []
+
+[115]
+File: pictures/min_distance_function.eps Graphic file (type eps)
+ <pictures/min_distance_function.eps> [116] [117]
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+[]\IL2/cmr/m/it/10 Uva¾ujme dvì funkce
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
+[]
+ []
+
+[118]
+Underfull \hbox (badness 10000) in paragraph at lines 379--380
+[]\IL2/cmr/m/it/10 O funkci od-hadu $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 =
+ []
+
+[119]
+Overfull \hbox (49.84164pt too wide) in paragraph at lines 428--428
+[] 
+ []
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 436--437
+[]\IL2/cmr/m/it/10 Nech» $\OML/cmm/m/it/10 T[]; :::; T[]$ \IL2/cmr/m/it/10 pøed
+-sta-
+ []
+
+[120]
+Underfull \hbox (badness 1383) in paragraph at lines 460--461
+[]\IL2/cmr/m/it/10 Uva¾ujme po-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
+[]
+ []
+
+[121] [122]
+Underfull \hbox (badness 1210) in paragraph at lines 528--529
+[]\IL2/cmr/m/it/10 Pro da-nou ztrá-to-vou funkci $\U/euf/m/n/10 l\OT1/cmr/m/n/1
+0 (\OML/cmm/m/it/10 t; ^^R\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ))
+$ \IL2/cmr/m/it/10 a
+ []
+
+[123]
+Underfull \hbox (badness 10000) in paragraph at lines 586--587
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
+X[]; X[]; X[]\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 z Ber-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 586--587
+\IL2/cmr/m/it/10 noul-liho roz-dìlení. Pro-stor $\U/euf/m/n/10 X$ \IL2/cmr/m/it
+/10 se skládá z osmi bodù, a to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 586--587
+\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/c
+mr/m/n/10 0)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/
+n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (
+0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)\OML/
+cmm/m/it/10 ; \OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/
+it/10 ; \OT1/cmr/m/n/10 0)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10
+ ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)\OML/cmm/m/it/10 ; \OT
+1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/
+m/n/10 0)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/1
+0 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)$ \IL2/cmr/m/it/10 a $\OT1/cmr/m/n/10 (
+1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)$\IL2
+/cmr/m/it/10 . De-
+ []
+
+
+Underfull \hbox (badness 4779) in paragraph at lines 586--587
+\IL2/cmr/m/it/10 fi-nujme sta-tis-tiku $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 = \O
+ML/cmm/m/it/10 X[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 X[] \OT1/cmr/m/n/10 + \OM
+L/cmm/m/it/10 X[]$\IL2/cmr/m/it/10 . Tato sta-tis-tika mù¾e na-
+ []
+
+
+Underfull \hbox (badness 6141) in paragraph at lines 586--587
+\IL2/cmr/m/it/10 bý-vat ètyø hod-not, a proto roz-dìluje pro-stor $\U/euf/m/n/1
+0 X$ \IL2/cmr/m/it/10 na ètyøi seg-menty,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 586--587
+\IL2/cmr/m/it/10 a to $\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \
+OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)\OMS/cmsy/m/n/10 g\OML/cmm
+/m/it/10 ; \OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/
+10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (0\
+OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)\OML/cm
+m/m/it/10 ; \OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it
+/10 ; \OT1/cmr/m/n/10 0)\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f
+\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/c
+mr/m/n/10 1)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/
+n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (
+1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)\OMS/
+cmsy/m/n/10 g$ \IL2/cmr/m/it/10 a
+ []
+
+[124] [125]
+Underfull \hbox (badness 10000) in paragraph at lines 658--659
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 659--660
+
+ []
+
+[126] [127]
+Underfull \hbox (badness 10000) in paragraph at lines 719--720
+[]\IL2/cmr/m/it/10 Uva¾ujme
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 728--729
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 728--729
+\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \IL2
+/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 
+^^A\OML/cmm/m/it/10 ; ^^R\OT1/cmr/m/n/10 )$\IL2/cmr/m/it/10 . Sta-tis-tiky
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 746--748
+\IL2/cmr/m/it/10 Jestli¾e do-sa-díme $\OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\U/euf
+/m/n/10 s\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10 )) = \O
+ML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^
+R\OT1/cmr/m/n/10 )[]$\IL2/cmr/m/it/10 , $\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OM
+L/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10 ) =
+ []
+
+[128]
+Underfull \hbox (badness 2435) in paragraph at lines 756--758
+\IL2/cmr/m/it/10 Jestli¾e do-sa-díme $\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OML/c
+mm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10 ) = []\OML/cmm/m/it/10 e[]$\IL2/cmr/m/i
+t/10 , $\OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\U/euf/m/n/10 s\OT1/cmr/m/n/10 (\OML
+/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; ^^R\OT1/cmr/m/n/1
+0 ) =
+ []
+
+[129]
+Underfull \hbox (badness 7759) in paragraph at lines 809--810
+[]\IL2/cmr/m/it/10 Soubor sdru-¾enì do-sta-teè-
+ []
+
+
+Overfull \hbox (15.24812pt too wide) in paragraph at lines 817--818
+[]
+ []
+
+[130]
+Overfull \hbox (7.5815pt too wide) in paragraph at lines 843--844
+[]
+ []
+
+[131]
+Overfull \hbox (39.95209pt too wide) in paragraph at lines 894--895
+[]
+ []
+
+
+Underfull \hbox (badness 3118) in paragraph at lines 894--895
+\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \IL2
+/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 
+^^A\OML/cmm/m/it/10 ; ^^R\OT1/cmr/m/n/10 )$\IL2/cmr/m/it/10 . Funkce od-hadu
+ []
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 894--895
+\OML/cmm/m/it/10 T[] \OT1/cmr/m/n/10 = \U/euf/m/n/10 t[]\OT1/cmr/m/n/10 (\OML/c
+mm/m/it/10 X[]; :::; X[]\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 pro $\OML/cmm/m/it/
+10 ^^\\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 
+je UM-VUE (uni-for-mly minimum-variance
+ []
+
+
+Underfull \hbox (badness 1867) in paragraph at lines 897--898
+[]$\OML/cmm/m/it/10 D[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 T[]\OT1/cmr/m/n/10 ] \
+OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 D[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 T\OT1
+/cmr/m/n/10 ]$ \IL2/cmr/m/it/10 pro li-bo-vol-nou al-ter-na-tivní funkci od-had
+u $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 =
+ []
+
+[132]
+Overfull \hbox (84.72354pt too wide) detected at line 917
+[] [] [] [] \U/euf/m/n/10 t\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; :::; x[]\OT1/
+cmr/m/n/10 ) [] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; ^^R\OT
+1/cmr/m/n/10 )\OML/cmm/m/it/10 dx[] [] dx[] \OT1/cmr/m/n/10 = [] [] [] \U/euf/m
+/n/10 t\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10 )[] [] \O
+ML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; ^^R\OT1/cmr/m/n/10 )\OML
+/cmm/m/it/10 dx[] [] dx[]
+ []
+
+
+Overfull \hbox (56.62025pt too wide) in paragraph at lines 944--944
+[] 
+ []
+
+
+Underfull \vbox (badness 7238) has occurred while \output is active []
+
+ [133]
+Overfull \hbox (16.08656pt too wide) in paragraph at lines 962--962
+[] 
+ []
+
+
+Underfull \hbox (badness 1077) in paragraph at lines 964--965
+\IL2/cmr/m/it/10 li¾e je jedna funkce ná-sob-kem druhé. To v na-¹em pøí-padì zn
+a-mená, ¾e
+ []
+
+[134]
+Underfull \hbox (badness 1655) in paragraph at lines 979--980
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 1655) in paragraph at lines 1006--1007
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+[135] [136] [137]
+Overfull \hbox (3.17336pt too wide) in paragraph at lines 1098--1098
+[] 
+ []
+
+
+Overfull \hbox (17.90735pt too wide) in paragraph at lines 1118--1118
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1129--1130
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr
+ []
+
+[138] [139]
+Overfull \hbox (23.5542pt too wide) in paragraph at lines 1207--1207
+[] 
+ []
+
+[140]
+Underfull \hbox (badness 1655) in paragraph at lines 1220--1221
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+[141]
+Overfull \hbox (22.9404pt too wide) in paragraph at lines 1247--1247
+[] 
+ []
+
+
+Overfull \hbox (2.97287pt too wide) in paragraph at lines 1252--1252
+[] 
+ []
+
+[142]
+Overfull \hbox (7.04459pt too wide) in paragraph at lines 1270--1270
+[] 
+ []
+
+[143]
+Underfull \hbox (badness 10000) in paragraph at lines 1312--1313
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr
+ []
+
+[144]
+Underfull \hbox (badness 1122) in paragraph at lines 1353--1354
+\IL2/cmr/m/it/10 je ¹ká-lovì in-va-ri-antní právì tehdy a jen tehdy, jest-li¾e 
+$\U/euf/m/n/10 t\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 cx[]; :::; cx[]\OT1/cmr/m/n/1
+0 ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1357--1358
+[]\IL2/cmr/m/it/10 Mezi ¹ká-lovì in-va-ri-antní funkce od-hadu patøí napø.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1379--1380
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr
+ []
+
+[145]
+Underfull \hbox (badness 1655) in paragraph at lines 1387--1388
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 1521) in paragraph at lines 1396--1397
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^U\OT1/cmr/m/n/10 ) =
+ []
+
+[146]
+Underfull \hbox (badness 10000) in paragraph at lines 1415--1416
+[]\IL2/cmr/m/it/10 Pravdìpodobnostní
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1415--1416
+\IL2/cmr/m/it/10 ozna-èo-va-nou jako $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML
+/cmm/m/it/10 ^^R\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10
+ )$ \IL2/cmr/m/it/10 na-zý-váme po-ste-ri-or-ním
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1431--1432
+[]\IL2/cmr/m/it/10 Nech»
+ []
+
+[147] [148]
+Underfull \hbox (badness 10000) in paragraph at lines 1502--1503
+[]\IL2/cmr/m/it/10 Bayesovská funkce od-hadu
+ []
+
+[149]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [150]
+[151]
+Underfull \hbox (badness 1939) in paragraph at lines 1589--1590
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+[152] [153] [154]
+Underfull \hbox (badness 1436) in paragraph at lines 1667--1668
+[]\IL2/cmr/m/it/10 Funkce od-hadu $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]; :::; 
+T[]\OT1/cmr/m/n/10 )$\IL2/cmr/m/it/10 ,
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 1667--1668
+\IL2/cmr/m/it/10 kde $\OML/cmm/m/it/10 T[] \OT1/cmr/m/n/10 = \U/euf/m/n/10 t[]\
+OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]; :::; X[]\OT1/cmr/m/n/10 )$\IL2/cmr/m/it/1
+0 , je na-zý-vána ne-zkres-le-nou funkcí od-hadu pro
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1677--1678
+[]\IL2/cmr/m/it/10 Nech» je $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]; :::; T[]\OT
+1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 ne-zkres-le-nou funkcí od-hadu pro
+ []
+
+
+Underfull \hbox (badness 1394) in paragraph at lines 1681--1682
+[]\IL2/cmr/m/it/10 Uva¾ujme ne-zkres-le-nou funkci od-
+ []
+
+File: pictures/ellipsoid_of_concentration.eps Graphic file (type eps)
+<pictures/ellipsoid_of_concentration.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 1700--1701
+[]\IL2/cmr/m/it/10 Uva¾ujme ne-zkres-le-nou
+ []
+
+
+Underfull \hbox (badness 1152) in paragraph at lines 1700--1701
+\IL2/cmr/m/it/10 funkce od-hadu $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]; :::; T[
+]\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 je de-fi-no-ván jako de-ter-mi-nant její k
+o-va-ri-a-nèní
+ []
+
+
+Underfull \hbox (badness 1072) in paragraph at lines 1705--1706
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R[]; :::; ^^R[]\OT1/cmr/m/n/10 )$\IL2/c
+mr/m/it/10 .
+ []
+
+[155]
+Underfull \hbox (badness 10000) in paragraph at lines 1722--1723
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr
+ []
+
+
+Underfull \hbox (badness 2626) in paragraph at lines 1722--1723
+\OML/cmm/m/it/10 X[]; :::; X[]$ \IL2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10
+ f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R[]; 
+:::; ^^R[]\OT1/cmr/m/n/10 )$\IL2/cmr/m/it/10 . Ne-ch» $\OT1/cmr/m/n/10 (\OML/cm
+m/m/it/10 T[]; :::; T[]\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 pøed-sta-vuje sou-
+ []
+
+
+Underfull \hbox (badness 2922) in paragraph at lines 1722--1723
+\IL2/cmr/m/it/10 bor sta-tis-tik. Sta-tis-tiky $\OML/cmm/m/it/10 T[]; :::; T[]$
+ \IL2/cmr/m/it/10 na-zý-váme sdru-¾enì kom-pletní, jest-li¾e
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1726--1727
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr z pou-lace $\OML/cmm/m/it/10 f\OT1/
+cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R[]; ^^R[]\O
+T1/cmr/m/n/10 ) =
+ []
+
+[156]
+Overfull \hbox (7.74924pt too wide) in paragraph at lines 1736--1736
+[] 
+ []
+
+[157]
+Underfull \hbox (badness 10000) in paragraph at lines 1787--1788
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr z po-pu-lace $\OML/cmm/m/it/10 f\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R[]; ^^R[]
+\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 1787--1788
+[]\OML/cmm/m/it/10 I[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$\IL2
+/cmr/m/it/10 . Po-kusme se ``sdru-¾enì'' od-had-nout $\OML/cmm/m/it/10 ^^\[]\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^R[] \O
+MS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^R[]$ \IL2/cmr/m/it/10 a
+ []
+
+[158] [159]
+Underfull \vbox (badness 1484) has occurred while \output is active []
+
+ [160])
+[161]
+\openout2 = `mood_chap8.aux'.
+
+ (./mood_chap8.tex [162
+
+
+
+]
+Kapitola 8.
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný
+ []
+
+[163]
+Underfull \hbox (badness 1082) in paragraph at lines 46--47
+[]\IL2/cmr/m/n/10 Základním po¾a-dav-kem na cen-t-rální ve-lièinu je, ¾e ne-rov
+-nost $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 q[] <
+ []
+
+[164] [165] [166]
+File: pictures/conf_interval_mu_sigma_a.eps Graphic file (type eps)
+ <pictures/conf_interval_mu_sigma_a.eps> [167]
+File: pictures/conf_interval_mu_sigma_b.eps Graphic file (type eps)
+
+<pictures/conf_interval_mu_sigma_b.eps> [168] [169]
+
+LaTeX Warning: Reference `pivot-quantity-existence' on page 170 undefined on in
+put line 218.
+
+File: pictures/pivot_quantity_existence.eps Graphic file (type eps)
+<pictures/pivot_quantity_existence.eps>
+Underfull \hbox (badness 2781) in paragraph at lines 229--230
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 229--230
+\OML/cmm/m/it/10 ^^Rx[]I[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$
+\IL2/cmr/m/it/10 . Od-po-ví-da-jící ku-mu-la-tivní dis-tri-bu-èní funkce má ted
+y tvar
+ []
+
+
+Overfull \hbox (18.83307pt too wide) in paragraph at lines 234--234
+[] 
+ []
+
+[170]
+File: pictures/h(1)_h(2).eps Graphic file (type eps)
+ <pictures/h(1)_h(2).eps> [171]
+File: pictures/h(1)_h(2)_example.eps Graphic file (type eps)
+ <pictures/h(1)_h(2)_example.eps> [172]
+Underfull \hbox (badness 1762) in paragraph at lines 300--301
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z Ber-noul-liho roz-dìlení
+ []
+
+[173]
+Underfull \hbox (badness 2781) in paragraph at lines 327--328
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \vbox (badness 1259) has occurred while \output is active []
+
+ [174]
+Overfull \hbox (13.95268pt too wide) detected at line 348
+\OML/cmm/m/it/10 P [] \OMS/cmsy/m/n/10 ^^Y \OML/cmm/m/it/10 ^^M
+ []
+
+[175]
+Underfull \hbox (badness 1264) in paragraph at lines 389--391
+\IL2/cmr/m/it/10 spo-leh-li-vosti za-lo¾ený na me-todì ma-xi-mální vìro-hod-nos
+ti je dán in-ter-va-
+ []
+
+) [176]
+\openout2 = `mood_chap9.aux'.
+
+ (./mood_chap9.tex
+Kapitola 9.
+
+Underfull \hbox (badness 6559) in paragraph at lines 23--24
+[]\IL2/cmr/m/n/10 Stejnì jako v pøed-cho-zím textu bu-deme $\U/euf/m/n/10 X$ \I
+L2/cmr/m/n/10 pou-¾í-vat pro ozna-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+\IL2/cmr/m/n/10 èení vý-bìro-vého pro-storu po-zo-ro-vání, tj. $\U/euf/m/n/10 X
+ \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; :::
+; x[]\OT1/cmr/m/n/10 ) :
+ []
+
+
+Overfull \hbox (10.02942pt too wide) in paragraph at lines 23--24
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; :::; x[]\OT1/cmr/m/n/10 ) [] (\OML/cmm/m
+/it/10 X[]; :::; X[]\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g$\IL2/cmr/m/n/10 . 
+ []
+
+[177
+
+
+
+] [178] [179]
+File: pictures/power_function.eps Graphic file (type eps)
+ <pictures/power_function.eps> [180]
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+[]\IL2/cmr/m/it/10 Uva¾ujme
+ []
+
+[181]
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+[]\IL2/cmr/m/it/10 V ná-sle-du-jí-cím textu bu-deme pro li-bo-volné $\OML/cmm/m
+/it/10 R \OMS/cmsy/m/n/10 ^^Z \U/euf/m/n/10 X$ \IL2/cmr/m/it/10 na-místo
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 186--187
+[] [] [][] []$ \IL2/cmr/m/it/10 pou-¾í-vat zkrá-cený zá-pis $[][] \OML/cmm/m/it
+/10 L[]$\IL2/cmr/m/it/10 , kde $\OML/cmm/m/it/10 j \OT1/cmr/m/n/10 = 0\OML/cmm/
+m/it/10 ; \OT1/cmr/m/n/10 1$\IL2/cmr/m/it/10 .
+ []
+
+
+LaTeX Warning: Reference `most-power-test' on page 182 undefined on input line 
+188.
+
+File: pictures/most_powerful_test.eps Graphic file (type eps)
+<pictures/most_powerful_test.eps> [182]
+Underfull \hbox (badness 2781) in paragraph at lines 211--212
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+[183]
+Overfull \hbox (4.2068pt too wide) detected at line 240
+\OML/cmm/m/it/10  \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 P[]\OT1/cmr/m/n/10 [[] \U
+/rsfs/m/n/10 H[]\OT1/cmr/m/n/10 ] = \OML/cmm/m/it/10 P[] [] \OT1/cmr/m/n/10 = [
+] [] [][] [][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+[]\IL2/cmr/m/it/10 Pro úèely tes-to-vání $\U/rsfs/m/n/10 H[] \OT1/cmr/m/n/10 :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+\OML/cmm/m/it/10 ^^R \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^R[]$ \IL2/cmr/m/it/10
+ vs. $\U/rsfs/m/n/10 H[] \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 ^^R \OT1/cmr/m/n/10
+ = \OML/cmm/m/it/10 ^^R[]$ \IL2/cmr/m/it/10 de-fi-nujme $\U/euf/m/n/10 l\OT1/cm
+r/m/n/10 (\OML/cmm/m/it/10 d[]; ^^R[]\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 257--258
+[] \OML/cmm/m/it/10 d[] [] ^^R[]$\IL2/cmr/m/it/10 . Pøi-jm-nìme
+ []
+
+[184]
+Missing character: There is no r in font rsfs10!
+
+Overfull \hbox (0.99367pt too wide) detected at line 268
+\U/euf/m/n/10 r[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ) = [] []
+ [][] \U/euf/m/n/10 l\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 d[]; ^^R\OT1/cmr/m/n/10 
+) [] + [] [] [][] \U/euf/m/n/10 l\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 d[]; ^^R\OT1
+/cmr/m/n/10 ) []
+ []
+
+[185]
+Underfull \hbox (badness 2781) in paragraph at lines 324--325
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+[186]
+Underfull \hbox (badness 1655) in paragraph at lines 372--373
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+[187]
+Underfull \hbox (badness 10000) in paragraph at lines 389--390
+[]\IL2/cmr/m/it/10 Uva¾ujme funkci ma-xi-
+ []
+
+
+Underfull \hbox (badness 1655) in paragraph at lines 411--412
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+[188]
+File: pictures/example_9_11.eps Graphic file (type eps)
+ <pictures/example_9_11.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
+
+ []
+
+[189]
+Underfull \hbox (badness 1655) in paragraph at lines 470--471
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 1655) in paragraph at lines 497--498
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x; ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+[190]
+Underfull \hbox (badness 6978) in paragraph at lines 508--509
+[]\IL2/cmr/m/it/10 O ro-dinì prav-dì-po-
+ []
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 539--540
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )$\IL2/cmr/m/it/10 , k
+de $[]$
+ []
+
+
+Underfull \hbox (badness 1546) in paragraph at lines 539--540
+\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr
+/m/n/10 ; \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ) : \OML/cmm/m/it/10 ^^R \OMS/cms
+y/m/n/10 2 []g$ \IL2/cmr/m/it/10 má mo-no-tónní vìro-hod-nostní po-mìr pro sta-
+tis-tiku
+ []
+
+Missing character: There is no t in font rsfs10!
+
+Underfull \hbox (badness 1655) in paragraph at lines 547--548
+[]\IL2/cmr/m/it/10 Uva¾ujme ná-hodný vý-bìr $\OML/cmm/m/it/10 X[]; :::; X[]$ \I
+L2/cmr/m/it/10 z po-pu-lace $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ) =
+ []
+
+[191] [192] [193]
+File: pictures/example_9_18a.eps Graphic file (type eps)
+ <pictures/example_9_18a.eps>
+File: pictures/example_9_18b.eps Graphic file (type eps)
+ <pictures/example_9_18b.eps>
+[194] [195] [196] [197]
+Underfull \hbox (badness 1168) in paragraph at lines 738--739
+\IL2/cmr/m/n/10 øad-ni-cemi $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V; ^^[[]\OT1/c
+mr/m/n/10 )$\IL2/cmr/m/n/10 . Pro $[]$ jsou od-hady pro $\OML/cmm/m/it/10 ^^V[]
+; ^^V[]$ \IL2/cmr/m/n/10 a $\OML/cmm/m/it/10 ^^[[]$ \IL2/cmr/m/n/10 dány $[][]$
+, $[][]$ a
+ []
+
+[198]
+Overfull \hbox (39.0984pt too wide) detected at line 754
+[] \OML/cmm/m/it/10 L \OT1/cmr/m/n/10 = [][] \OML/cmm/m/it/10 e[]
+ []
+
+[199]
+Overfull \hbox (103.97209pt too wide) detected at line 810
+ []$[] \OT1/cmr/m/n/10 = [][] = [][]$ 
+ []
+
+[200] [201]
+Overfull \hbox (7.19713pt too wide) detected at line 848
+\OML/cmm/m/it/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V[]; :::; ^^V[]; ^^[[]; :
+::; ^^[[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 x[]; :::; x[]; :::; x[]; :::; x[]\O
+T1/cmr/m/n/10 ) = [] [] []\OML/cmm/m/it/10 e[]
+ []
+
+[202]
+Missing character: There is no 0 in font rsfs7!
+ [203] [204] [205] [206]
+Underfull \hbox (badness 4543) in paragraph at lines 1009--1010
+[]\IL2/cmr/m/n/10 Vý¹e uve-dená vìta ne-ob-sa-huje ¾ád-nou ex-pli-citní zmínku 
+o tes-to-
+ []
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 1009--1010
+\IL2/cmr/m/n/10 vání hy-po-téz. V ná-sle-du-jí-cím textu si uká¾eme, jak lze zá
+-vìry této
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 1009--1010
+\IL2/cmr/m/n/10 bu-jeme otes-to-vat, zda-li ná-hodný vý-bìr $\OML/cmm/m/it/10 X
+[]; :::; X[]$ \IL2/cmr/m/n/10 po-chází z po-pu-lace
+ []
+
+
+Underfull \hbox (badness 2521) in paragraph at lines 1009--1010
+\IL2/cmr/m/n/10 pis $\OML/cmm/m/it/10 f$ \IL2/cmr/m/n/10 známe. Nu-lová hy-po-t
+éza má cha-rak-ter slo¾ené hy-po-tézy $\U/rsfs/m/n/10 H[] \OT1/cmr/m/n/10 :
+ []
+
+[207] [208] [209] [210] [211] [212] [213]
+File: pictures/critical_region_R.eps Graphic file (type eps)
+ <pictures/critical_region_R.eps>
+[214] [215] [216] [217]
+Missing character: There is no 0 in font rsfs7!
+ [218]
+Overfull \hbox (8.79398pt too wide) in paragraph at lines 1375--1376
+[]
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 1375--1376
+\IL2/cmr/m/it/10 je uni-formnì nej-pøes-nìj¹í ro-di-nou mno¾in spo-leh-li-vosti
+ pro koe-fi-ci-ent $\OML/cmm/m/it/10 ^^M$\IL2/cmr/m/it/10 ,
+ []
+
+Missing character: There is no 0 in font rsfs7!
+
+Underfull \hbox (badness 1776) in paragraph at lines 1394--1395
+[]\IL2/cmr/m/it/10 Pøedpokládejme, ¾e doba ¾i-vot-nosti vý-robku ze zku-¹eb-níh
+o pro-vozu je
+ []
+
+[219] [220]
+
+LaTeX Warning: Command \' invalid in math mode on input line 1459.
+
+Missing character: There is no é in font cmr10!
+
+LaTeX Warning: Command \' invalid in math mode on input line 1463.
+
+Missing character: There is no é in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 1464--1466
+\IL2/cmr/m/n/10 kde, stejnì jako døíve, pøed-sta-vuje $[][] \OML/cmm/m/it/10 L[
+]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 )$ \IL2/cmr/m/n/10 zkrá-cen
+ý zá-pis pro
+ []
+
+Missing character: There is no 0 in font rsfs7!
+[221]
+Missing character: There is no 0 in font rsfs7!
+ [222]
+Underfull \hbox (badness 10000) in paragraph at lines 1540--1541
+[]\IL2/cmr/m/it/10 Uva¾ujme ne-zá-vislé ná-hodné ve-lièiny
+ []
+
+[223]) [224]
+\openout2 = `mood_chap10.aux'.
+
+ (./mood_chap10.tex
+Kapitola 10.
+[225
+
+
+
+]
+File: pictures/linear_model.eps Graphic file (type eps)
+ <pictures/linear_model.eps> [226] [227] [228] [229] [230]
+Overfull \hbox (63.20905pt too wide) detected at line 250
+\OML/cmm/m/it/10 P [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^M
+ []
+
+[231]
+Overfull \hbox (35.07947pt too wide) detected at line 287
+\OML/cmm/m/it/10 P [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^M
+ []
+
+[232] [233] [234] [235]
+Underfull \hbox (badness 1142) in paragraph at lines 442--443
+[]\IL2/cmr/m/it/10 Nech» $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y[]; x[]\OT1/cmr/m/
+n/10 )\OML/cmm/m/it/10 ; i \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; :::; n$
+ []
+
+[236] [237] [238]) [239]
+\openout2 = `mood_chap11.aux'.
+
+ (./mood_chap11.tex [240
+
+
+
+]
+Kapitola 11.
+
+Underfull \hbox (badness 7308) in paragraph at lines 26--28
+[]\IL2/cmr/m/n/10 Proto¾e je $\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cmm/m/i
+t/10 x\OT1/cmr/m/n/10 )$ \IL2/cmr/m/n/10 vý-bìro-vou støední hod-no-tou ná-hod-
+ných ve-lièin
+ []
+
+
+Underfull \hbox (badness 4181) in paragraph at lines 26--28
+\OML/cmm/m/it/10 I[]; :::; I[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n
+/10 )$\IL2/cmr/m/n/10 , sle-duje $\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cmm
+/m/it/10 x\OT1/cmr/m/n/10 )$ \IL2/cmr/m/n/10 dle cen-t-rál-ního li-mit-ního te-
+o-rému
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 26--28
+\IL2/cmr/m/n/10 asympto-ticky nor-mální roz-dìlení se støední hod-no-tou $\OML/
+cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ \IL2/cmr/m/n
+/10 a roz-pty-lem
+ []
+
+[241]
+Overfull \hbox (57.1337pt too wide) detected at line 53
+ []$[] \OT1/cmr/m/n/10 = [][] \OML/cmm/m/it/10 cov [] \OT1/cmr/m/n/10 = [][] []
+ [] \OML/cmm/m/it/10 cov\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 I[]\OT1/cmr/m/n/10 (\
+OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 (\OML/
+cmm/m/it/10 X[]\OT1/cmr/m/n/10 )]$ 
+ []
+
+
+Overfull \hbox (97.78554pt too wide) detected at line 53
+ []$[] \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 cov\OT1/cmr/m/n/10 [\OML/cmm/m/it/1
+0 I[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; I
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 )] = [] []$ 
+ []
+
+
+Overfull \hbox (59.74861pt too wide) detected at line 59
+\OML/cmm/m/it/10 D\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cm
+m/m/it/10 y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 F[]\OT1/cmr/
+m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )] = \OML/cmm/m/it/10 D\OT1/cmr/m/n/1
+0 [\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )] \O
+MS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 cov\OT1/cmr/m/n/10 [\OML/c
+mm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it
+/10 ; F[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )] + \OML/cmm/m/it/
+10 D\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT
+1/cmr/m/n/10 )] = [][\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/
+cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m
+/it/10 x\OT1/cmr/m/n/10 )][1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 F\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (
+\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )]
+ []
+
+[242]
+Underfull \hbox (badness 1117) in paragraph at lines 75--76
+[]\IL2/cmr/m/it/10 Uva¾ujme ne-zá-vislé ná-hodné ve-lièiny $\OML/cmm/m/it/10 X[
+]; :::; X[]$ \IL2/cmr/m/it/10 po-chá-ze-jící ze
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
+ []
+
+[243]
+Underfull \hbox (badness 10000) detected at line 130
+ []$[]  \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 [[]]  $ 
+ []
+
+) [244]
+\openout2 = `mood_appA.aux'.
+
+ (./mood_appA.tex
+Kapitola 12.
+[245
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]\IL2/cmr/m/it/10 Souèet ge-o-me-t-rické po-
+ []
+
+[246]
+Overfull \hbox (67.55424pt too wide) in paragraph at lines 98--98
+[] 
+ []
+
+[247]
+Underfull \hbox (badness 1082) in paragraph at lines 160--162
+\IL2/cmr/m/n/10 Vý¹e uve-dený vztah lze do-ká-zat po-mocí lo-ga-ritmu a ná-sled
+-nou apli-kací
+ []
+
+
+Underfull \hbox (badness 2772) in paragraph at lines 168--169
+\IL2/cmr/m/it/10 teèné pøi od-vo-zo-vání li-mit. Jest-li¾e $\OML/cmm/m/it/10 f\
+OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 a $\OML
+/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )$ \IL2/cmr/
+m/it/10 jsou funkce pro které
+ []
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 183--184
+[]\IL2/cmr/m/it/10 Nech» $\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t
+\OT1/cmr/m/n/10 ) = [][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\
+OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 dx$\IL2/cm
+r/m/it/10 , kde
+ []
+
+[248]
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+[]\IL2/cmr/m/it/10 Taylorùv
+ []
+
+
+Overfull \hbox (3.7109pt too wide) in paragraph at lines 222--222
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
+[]\IL2/cmr/m/it/10 Taylorovy
+ []
+
+[249] [250] (./mood.aux (./mood_chap1.aux) (./mood_chap2.aux) (./mood_chap3.aux
+) (./mood_chap4.aux) (./mood_chap5.aux) (./mood_chap6.aux) (./mood_chap7.aux)
+(./mood_chap8.aux) (./mood_chap9.aux) (./mood_chap10.aux) (./mood_chap11.aux)
+(./mood_appA.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) )
+(\end occurred when \iftrue on line 45 was incomplete)
+(\end occurred when \ifnum on line 45 was incomplete) 
+Here is how much of TeX's memory you used:
+ 10765 strings out of 494912
+ 179404 string characters out of 6179761
+ 252033 words of memory out of 5000000
+ 13732 multiletter control sequences out of 15000+600000
+ 30682 words of font info for 93 fonts, out of 8000000 for 9000
+ 26 hyphenation exceptions out of 8191
+ 36i,16n,40p,1434b,375s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on mood.dvi (250 pages, 1238304 bytes).

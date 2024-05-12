@@ -1,0 +1,121 @@
+\chapter{Vícerozměrný logistický regresní model}
+
+\section{Vícerozměrný logistický regresní model}
+
+Logit funkce vícerozměrného logistického regresního modelu má podobu
+\begin{equation}
+g(\pmb{x}) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p
+\end{equation}
+a samotný logistický regresní model pak podobu
+\begin{equation}
+\pi(\pmb{x}) = \frac{e^{g(\pmb{x})}}{1 + e^{g(\pmb{x})}}.
+\end{equation}
+
+Pokud je některá z nezávislých veličin diskrétní numerická veličina, jejíž hodnoty označují jednotlivé kategorie (např. rasu nebo pohlaví), nelze s nimi nakládat jako s klasickými numerickými veličinami. V následujícím textu budeme tyto veličiny označovat jako kategorické. V případě numerické veličiny představují její hodnoty rozdílné úrovně; v případě kategorických veličin představují jejich hodnoty jednotlivé kategorie, které nemají ordinální význam. Pokud nabývá kategorická veličina $k$ různých hodnot, je třeba ji nahradit $k-1$ pomocnými binárními proměnnými. Pokud např. nezávislá veličina $X_i$ představující rasu nabývá hodnot 0 pro bělocha, 1 pro černocha a 2 pro asiata, je třeba ji nahradit pomocnými nezávislými veličinami $D_{i1}$, která nabývá hodnoty 1 pro černocha a 0 pro ostatní rasy, a $D_{i2}$, která nabývá hodnoty 1 pro asiata a hodnoty nula pro ostatní rasy. Je třeba zdůraznit, že není možné do modelu zahrnout také pomocnou proměnnou $D_{i3}$, která by nabývala hodnoty 1 pro bělocha, protože bychom tímto vytvořili perfektní multikolinearitu. Vícerozměrná logit funkce s kategorickou veličinou $X_j$, která nabývá $k_j$ hodnot tak má podobu
+\begin{equation}
+g(\pmb{x}) = \beta_0 + \beta_1 x_1 + ... + \sum_{l = 1}^{k_j - 1} \beta_{jl}D_{jl} + \beta_p x_p.
+\end{equation}
+
+\section{Kalibrace vícerozměrného logistického regresního modelu}
+
+Stejně jako v případě jednorozměrného logistického regresního modelu také v případě vícerozměrného logistického regresního modelu se pro jeho kalibraci používá metody maximální věrohodnosti.
+
+Uvažujme model definovaný logit funkcí (2.1). Derivací logaritmu odpovídající věrohodnostní funkce podle $p + 1$ parametrů získáme jednu rovnici maximální věrohodnosti ve tvaru
+\begin{equation}
+\sum_{i = 1}^n [y_i - \pi(\pmb{x}_i)] = 0
+\end{equation}
+a $p$ rovnic maximální věrohodnosti ve tvaru
+\begin{equation}
+\sum_{i = 1}^n x_{ij} [y_i - \pi(\pmb{x}_i)] = 0.
+\end{equation}
+Tyto rovnice lze použít pro odhad hodnot parametrů jednotlivých veličin pomocí optimalizační metody.
+
+Kromě bodového odhadu parametrů je třeba také získat odhad jejich směrodatných odchylek. Příslušné odhady lze vypočíst ze soustavy rovnic druhých parciálních derivací logaritmu věrohodnostní funkce, které mají podobu
+\begin{equation}
+\frac{\partial^2 L(\pmb{\beta)}}{\partial \beta_j^2} = - \sum_{i = 1}^n x_{ij}^2 \pi_i(1 - \pi_i)
+\end{equation}
+a
+\begin{equation}
+\frac{\partial^2 L(\pmb{\beta})}{\partial \beta_j \partial \beta_l} = - \sum_{i = 1}^n x_{ij} x_{il} \pi_i (1 - \pi_i),
+\end{equation}
+pro $j, l = 0, 1, ..., p$, kde $\pi_i$ označuje $\pi(\pmb{x}_i)$. Matici $(p + 1) \times (p + 1)$ sestávající se ze záporných členů daných rovnicemi (2.6) a (2.7) označme jako $\pmb{I}(\pmb{\beta})$. Tato matice se nazývá pozorovaná informační matice (observed information matrix). Rozptyl a kovariance jednotlivých parametrů lze získat z inverze této matice, kterou budeme označovat jako $var(\pmb{\beta}) = \pmb{I}^{-1}(\pmb{\beta})$. Bohužel až na výjimečné případy není možné explicitně vyjádřit členy matice $var(\pmb{\beta})$. V následujícím textu budeme používat $var(\beta_j)$ k označení $j$-tého členu diagonály této matice, který představuje rozptyl odhadu $\hat{\beta}_j$, a $cov(\beta_j, \beta_l)$ k označení členů mimo diagonálu, které představují kovarianci mezi odhady $\hat{\beta}_j$ a $\hat{\beta}_l$. Jejich odhady jsou pak získány vyhodnocením matice $var(\pmb{\beta})$ pro $\hat{\pmb{\beta}}$.
+
+Odhad informační matice lze vyjádřit ve tvaru $\hat{\pmb{I}}(\hat{\pmb{\beta}}) = X'VX$, kde
+\begin{equation}
+X =
+\begin{bmatrix}
+1 & x_{11} & x_{12} & \cdots & x_{1p}\\
+1 & x_{21} & x_{22} & \cdots & x_{2p}\\
+\vdots & \vdots & \vdots & \cdots & \vdots\\
+1 & x_{n1} & x_{n2} & \cdots & x_{np}
+\end{bmatrix}
+\end{equation}
+a
+\begin{equation}
+V =
+\begin{bmatrix}
+\hat{\pi}_1 (1 - \hat{\pi}_1) & 0 & \cdots & 0\\
+0 & \hat{\pi}_2(1 - \hat{\pi}_2) & \cdots & 0\\
+\vdots & 0 & \ddots & \vdots\\
+0 & \cdots & 0 & \hat{\pi}_n (1 - \hat{\pi}_n) 
+\end{bmatrix}.
+\end{equation}
+
+\section{Testy významnosti odhadnutých parametrů}
+
+\subsection{Věrohodnostní poměrový test}
+
+Stejně jako v případě jednorozměrného logistického regresního modelu lze také v případě vícerozměrného logistického regresního modelu použít pro posouzení významnosti odhadnutých parametrů věrohodnostní poměrový test.
+
+Uvažujme vícerozměrný logistický model s $p$ nezávislými veličinami. Pro nulovou hypotézu předpokládáme, že hodnoty všech $p$ odhadnutých parametrů jsou rovny nule a že distribuce odpovídající $G$ statistiky sleduje chi-kvadrát rozdělení $p$ stupni volnosti. Pro úplnost připomeňme, že $G$ je podílem logaritmu věrohodnostní funkce modelu obsahujícího všech $p$ veličin a modelu obsahujícího pouze konstantní člen.
+
+Analogickou formu věrohodnostního poměrového testu lze použít také k testování menšího počet odhadnutých parametrů a to včetně testování významnosti jednoho parametru. Jediným rozdílem je, že se při výpočtu statistiky $G$ namísto modelu obsahujícího pouze konstantní člen použije příslušný redukovaný model a odpovídajícím způsobem se upraví počet stupňů volnosti.
+
+\subsection{Waldův test}
+
+\subsubsection{Jednorozměrný Waldův test}
+
+Při testování statistické významnosti jednoho odhadnutého parametru lze použít také Waldův test, jehož statistika má podobu
+\begin{equation}
+W_j = \frac{\hat{\beta}_j}{\widehat{se}(\hat{\beta}_j)},
+\end{equation}
+a která sleduje standardní normální rozdělení.
+
+Jak již bylo zmíněno výše, pokud nezávislá proměnná nabývá $k > 2$ kategorií, je třeba ji ``přeformulovat" pomocných $k - 1$ binárních veličin. Jestliže na tyto pomocné binární veličiny aplikujeme Waldův test, může jedna veličina vyjít jako statisticky významná, zatímco ostatní veličiny jako statisticky nevýznamné. V tomto případě je žádoucí v modelu buď ponechat všechny nebo naopak žádnou z těchto pomocných veličin. Toto pravidlo se vztahuje také na ostatní typy testů statistické významnosti.
+
+\subsubsection{Vícerozměrný Waldův test}
+
+Kromě výše popsaného Waldova testu významnosti existuje také jeho vícerozměrná varianta. Jeho statistika je pak vypočtena jako
+\begin{equation}
+W = \hat{\pmb{\beta}}' \left[\widehat{var}(\hat{\pmb{\beta}})\right]^{-1} \hat{\pmb{\beta}} = \hat{\pmb{\beta}}' (\pmb{X}' V \pmb{X}) \hat{\pmb{\beta}}
+\end{equation}
+a sleduje chi-kvadrát rozdělení s $p$ stupni volnosti při hypotéze, že $p$ odhadnutých parametrů je rovno nule. Testy pro méně než $p$ parametrů jsou definovány analogicky.
+
+Vyhodnocení vícerozměrného Waldova testu vyžaduje poměrně velkou výpočetní kapacitu, nenabízí tato metoda žádnou zásadnější výhodu oproti věrohodnostnímu poměrovému testu.
+
+\subsection{Skóre test}
+
+Vícerozměrná varianta skóre testu je založena na rozdělení $p$ derivací $L(\pmb{\beta})$ vzhledem k $\pmb{\beta}$. Nicméně podobně jako v případě Waldova testu i vícerozměrná varianta skóre testu je poměrně výpočetně náročná, a proto se upřednostňuje věrohodnostní poměrový test.
+
+\section{Intervaly spolehlivosti}
+
+Intervaly spolehlivosti jednotlivých parametrů jsou konstruovány stejným způsobem jako v případě jednorozměrného logistického regresního modelu, tj.
+\begin{equation}
+\hat{\beta}_i \pm z_{1 - \alpha / 2}\widehat{se}(\hat{\beta}_i).
+\end{equation}
+Podobně lze určit též interval spolehlivosti logit funkce jako
+\begin{equation}
+\hat{g}(\pmb{x}) \pm z_{1 - \alpha / 2}\widehat{se}(\hat{g}(\pmb{x})),
+\end{equation}
+kde
+\begin{equation}
+\hat{g}(\pmb{x}) = \hat{\beta}_0 + \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2 + ... + \hat{\beta}_p x_p
+\end{equation}
+a
+\begin{equation}
+\widehat{se}[\hat{g}(\pmb{x})] = \sqrt{\widehat{var}[\hat{g}(\pmb{x})]} = \sqrt{\sum_{j = 0}^p x^2_j \widehat{var}(\hat{\beta}_j) + \sum_{j = 0}^p \sum_{k = j + 1}^p 2 x_j x_k \widehat{cov}(\hat{\beta}_j, \hat{\beta}_k)}.
+\end{equation}
+Maticově lze $\widehat{var}[\hat{g}(\pmb{x})]$ vyjádřit také jako
+\begin{equation}
+\widehat{var}[\hat{g}(\pmb{x})] = \pmb{x}' \widehat{var}(\hat{\pmb{\beta}}) \pmb{x} = \pmb{x}' (\pmb{X'VX})^{-1} \pmb{x}.
+\end{equation}

@@ -1,0 +1,75 @@
+\chapter{Spektrální analýza}
+
+Spektrální analýza je obecný název pro metody odhadu spektrální funkce hustoty pro danou časovou řadu.
+
+\section{Fourierova analýza}
+
+Spektrální analýza je ve své podstatě Fourierova analýza modifikovaná tak, aby byla aplikovatelná na stochastické funkce času. Fourierova analýza spočívá v aproximaci funkce pomocí sinových a kosinových sčítanců, které nazýváme Fourierovou reprezentací.
+
+Uvažujme funkci $f(t)$ definovanou na intervalu $(-\pi, \pi]$, která splňuje tzv. Dirichletovy podmínky. Splnění těchto podmínek garantuje, že se funkce $f(t)$ chová ``korektně'', tj. že je nad intervalem $(-\pi, \pi]$ absolutně integrovatelná, má konečný počet nespojitostí a konečný počet minim a maxim. Pak lze $f(t)$ aproximovat pomocí Fourierovy řady jako
+\begin{equation}
+\frac{a_0}{2} + \sum_{r = 1}^k (a_r \cos rt + b_r \sin rt),
+\end{equation}
+kde
+\begin{align}
+a_0 &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(t)dt, \nonumber\\
+a_r &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \cos rt dt \quad r = 1, 2, ...\\
+b_r &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \sin rt dt \quad r = 1, 2, ... \nonumber\\
+\end{align}
+Lze dokázat, že Fourierova řada konverguje k $f(t)$ s tím, jak se $k$ blíží k nekonečnu. Výjimkou jsou bodu nespojitosti, pro které Fourierova řada konverguje do pouze k polovině ``skoku''. Jinými slovy konvergence v bodě nespojitosti má charakter průměru limity shora a limity zdola, což lze zapsat jako $\frac{1}{2}\Big[f(t - 0) + f(t + 0)\Big]$.
+
+Pro aplikaci Fourierovy analýzy na diskrétní časové řady stačí Fourierovu reprezentaci $f(t)$ definovat pouze pro $t = 1, 2, ..., N$.
+
+\section{Jednoduchý sinusovitý model}
+
+Předpokládejme, že časová řada, pro níž máme k dispozici pozorování pro $t = 1, 2, ..., N$, se skládá z deterministické sinusovité komponenty s frekvencí $\omega$ a z náhodného chybového členu. Uvažujeme tak model
+\begin{equation}
+X_t = \mu + \alpha \cos \omega t + \beta \sin \omega t + Z_t,
+\end{equation}
+kde $Z_t$ označuje náhodný proces a $\mu$, $\alpha$ a $\beta$ jsou parametry odhadnuté z pozorovaných dat.
+
+Jednotlivá pozorování značme jako $(x_1, x_2, ..., x_N)$. Následující výpočty se zjednoduší, pokud je $N$ sudé. Pokud je $N$ liché, lze jednoduše vypustit nejstarší pozorování. Výše uvedený model lze v maticovém zápisu vyjádřit jako
+\begin{equation}
+\pmb{E}(\pmb{X}) = A \pmb{\theta},
+\end{equation}
+kde
+\begin{align}
+\pmb{X}^T = (X_1, ..., X_n), \nonumber \\
+\pmb{\theta}^T = (\mu, \alpha, \beta),\\
+A =
+\begin{bmatrix}
+1 & \cos \omega & \sin \omega\\
+1 & \cos 2 \omega & \sin 2 \omega\\
+... & ... & ...\\
+1 & \cos N \omega & \sin N \omega\\
+\end{bmatrix}. \nonumber
+\end{align}
+Parametry $pmb{\theta}$ lze odhadnout pomocí metody nejmenších čtverců jako
+\begin{equation}
+\hat{\pmb{\theta}} = (A^T A)^{-1} A^T \pmb{x},
+\end{equation}
+kde
+\begin{equation}
+\pmb{x}^T = (x_1, ..., x_N).
+\end{equation}
+Nejvyšší frekvence, na kterou jsme schopni model nakalibrovat, je tzv. Nyquistova frekvence, která je dána $\omega = \pi$. Nejnižší frekvence pak opíše jeden celý cyklus pro celou délku časové řady. Pokud dáme do rovnosti $2\pi / omega$ a $N$, je tato nejnižší frekvence rovna $2\pi / N$. Odhad metodou nejmenších se pak značně zjednoduší, pokud $\omega$ omezíme na jednu z hodnot
+\begin{equation}
+\omega_p = \frac{2 \pi p}{N} \quad p = 1, ..., N/2,
+\end{equation}
+protože $A^T A$ se stane diagonální maticí, což je dáno goniometrickými vztahy
+\begin{align}
+\sum_{t = 1}^N \cos \omega_p t = \sum_{t = 1}^N \sin \omega t = 0, \nonumber \\
+\sum_{t = 1}^N \cos \omega_p t \cos \omega_q t =
+\begin{cases}
+0 \quad p \ne q\\
+N \quad p = q = N/2\\
+N/2 \quad p = q \ne N/2
+\end{cases}, \nonumber\\
+\sum_{t = 1}^N \sin \omega_p t \sin \omega_q t =
+\begin{cases}
+0 \quad p \ne q\\
+0 \quad p = q = N/2\\
+N/2 \quad p = q \ne N/2
+\end{cases}, \\
+\sum_{t = 1}^N \cos \omega_p t \sin \omega_q t = 0 \quad \textit{pro všechna p and q}. \nonumber
+\end{align}

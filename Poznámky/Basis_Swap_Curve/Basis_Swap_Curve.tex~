@@ -1,0 +1,60 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{Basis Swap Curve}
+
+\section{Použití}
+
+Basis-swap křivka je používána pro oceňování měnových úrokových swapů. Jedná se o swapovou křivku upravenou o tzv. basis swap spread. Důvodem je, že kdyby se použila standardní křivka, vycházela by tržní hodnota těchto swapů v době uzavření obchodu různá od nuly \footnote{Z definice swapových obchodů vyplývá, za předpokladu neexistence arbitráže, nulová tržní hodnota v okamžiku jejich sjednání.}. Toto vychýlení od nulové tržní hodnoty je pak odstraněno použitím spreadu. Ekonomickým zdůvodněním aplikace spreadů ze strany trhu je rozdílná likvidita měn a rozdílné kreditní riziko subjektů, které se "skrývají" za příslušnou měnou.
+
+\section{Technické pozadí}
+
+V případě KB je podkladovou křivkou pro basis swapovou křivku FRA křivka. Tato je upravena výše zmiňovaný basis swap spread. Tento spread je do systému Kondor+ natahován z excelového souboru \textit{Medians+.xls} prostřednictvím DTS. Middle office po zafixování křivek použije open report \textit{Basis Spread} a příslušné spready zadá do systému Kondor+ ručně. Po té dojde k přepočtu  basis swapové křivky. V současnosti jsou v systému nakonfigurovány basis swapové křivky pro CZK, SKK, USD, HUF, PLN a EUR. Poslední z křivek není používána pro oceňování žádného instrumentu a existuje pouze z historických důvodů. Ostatní křivky jsou vztaženy k EUR \footnote{Basis swap spready jsou standardně kotovány proti USD. V případě KB jsou však provedeny potřebné přepočty a basis swapové křivky jsou vztaženy proti EUR.}.
+
+\section{Teoretické pozadí}
+
+Uvažujme měnový úrokový swap, kdy vyměňujeme plovoucí EUR sazbu za pevnou CZK sazbu. Přepokládejme, že pokladovým kapitálem tohoto swapu je 1 EUR a že proběhne $n$ plateb a to vždy na konci roku\footnote{Tento předpoklad sice neodpovídá realitě, avšak do určité míry zpřehledňuje navazující výpočty.}. Z definice swapu vyplývá, že tržní hodnota jeho hodnota plovoucí nohy je v okamžiku jeho uzavření 1 EUR. Zbývá tedy dopočítat pevnou CZK sazbu\footnote{Pohyblivá sazba je dána referenční sazbou a mění se v průběhu životnosti kontraktu.}. Jestliže přijmeme předpoklad, že tržní hodnota swapu se v okamžiku jeho uzavření rovná nule, musí platit
+\begin{equation}
+1 = \sum^n_{i=1}IR_{frw}^i \cdot \Delta t_{i-1,i} \cdot DF_i + DF_n
+\end{equation}
+kde $IR^i_{frw}$ představuje forwardovou sazbu pro období $\Delta t_{i-1,i}$, $DF_i$ představuje odpovídající diskontní faktor a $\Delta t_{i-1,i}$ časové období definováné jako $t_{i}-t_{i-1}$.
+
+Jedinou neznámou ve výše uvedené rovnici jsou diskontní faktory. Kdybychom však pro jejich bootstrapping použili běžnou swapovou křivku, získali bychom pevnou úrokovou sazbu rozdílnou od sazby kotované na trhu\footnote{Tento závěr je ekvivalentní k tvrzení, že při použití běžné křivky pro účely ocenění tohoto měnového úrokového swapu bychom získali nenulovou tržní hodnotu v okamžiku jeho sjednání.}. Z tohoto důvodu je třeba příslušnou forwardovou sazbu upravit o tzv. basis swap spread. Rovnice (1.1) se tak mění na
+\begin{equation*}
+1 = \sum^n_{i=1}(IR_{frw}^i + M_n) \cdot \Delta t_{i-1,i} \cdot DF^M_i + DF^M_n
+\end{equation*}
+kde $M_n$ představuje kotovaný basis swap spread pro měnový úrokový swap s maturitou v $n$-tém roce a $DF^M_i$ odpovídající diskontní faktor.
+
+První diskontní faktor tak lze spočítat jako
+\begin{equation*}
+DF^{M_1}_1 = \frac{1}{1+(IR_{frw}^1 + M_1) \cdot \Delta t_{0,1}}
+\end{equation*}
+druhý diskotní faktor pak jako
+\begin{equation*}
+DF^{M_2}_2 = \frac{1-(IR_{frw}^1 + M_2)\cdot \Delta t_{0,1} \cdot DF^{M_1}_{1}}{1+(IR_{frw}^2 + M_2) \cdot \Delta t_{1,2}}
+\end{equation*}
+a tak dále. Protože pro výpočet konkrétního diskontního faktoru potřebujeme znát všechny předcházející diskontní faktory, nazýváme tento způsob výpočtu jako bootstrapping \footnote{Pojem "bootstrapping" vychází z anglického slova "bootstrap", což v předkladu znamená "jazyk boty". Za pojem "boostrapping" vděčíme baronu Prášilovi, který se v jedné ze svých historek chlubil, že jednou unikl před jistou smrtí v močálu tak, že se z něj vytáhl za jazyky svých bot.}.
+
+Obecný vzorec pro výpočet diskotního faktoru je
+\begin{equation*}
+DF^{M_n}_n = \frac{1-\sum^{n-1}_{i=1}(IR_{frw}^i + M_n) \cdot \Delta t_{i-1,i} \cdot DF^{M_i}_i}{1+(IR_{frw}^n + M_n) \cdot \Delta t_{i-1,i}}
+\end{equation*}
+Z diskontních faktorů je pak možné relativně snadno dopočítat odpovídající úrokové sazby. Například jednoroční sazba je dána vztahem
+\begin{equation*}
+IR_{bswp}^1 = \Bigg( \frac{1}{DF^{M_1}_1} - 1 \Bigg) \cdot \frac{1}{\Delta t_{0,1}}
+\end{equation*}
+Obecný vzorec pro výpočet úrokové sazby je
+\begin{equation*}
+IR_{bswp}^n = \frac{1-DF^{M_n}_n}{\sum^n_{i=1}\Delta t_{i-1,i}DF^{M_i}_i}
+\end{equation*}
+\end{document}
+
+
+

@@ -1,0 +1,500 @@
+\chapter{Heteroskedasticita}
+
+Připomeňme, že předpoklad homoskedasticity znamená, že rozptyl 
+chyby $u$ podmíněný pozorovanými hodnotami vysvětlujících veličin je 
+konstantní. Tento předpoklad je nezbytný pro platnost $t$ a $F$ 
+testů a pro stanovení intervalů spolehlivosti.
+
+\section{Důsledky heteroskedasticity pro OLS}
+
+Uvažujme regresní model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + u.
+\end{equation}
+Předpoklad homoskedasticity MLR.5 ve tvaru $var[u| x_1, ..., x_k] = 
+\sigma^2$ nehraje žádnou roli tom, zda-li je OLS nestranné a 
+konzistentní. Také $R^2$ není splněním či nesplněním tohoto 
+předpokladu nikterak ovlivněno\footnote{Připomeňme, že $R^2 = 1 - 
+\frac{\sigma^2_u}{\sigma^2_y}$. Protože $\sigma^2_u$ a 
+$\sigma^2_y$ jsou nepodmíněné rozptyly, není $R^2$ ovlivněno 
+splněním či nesplněním předpokladu homoskedasticity. Navíc 
+$SSR/n$ je konzistentním odhadem $\sigma^2_u$ a $SST/n$ je 
+konzistentním odhadem $\sigma^2_y$ bez ohledu na to, zda-li je $var[u 
+| x_1, ..., x_k]$ konstantní.}.
+
+Nicméně odhady rozptylu $var[\hat{\beta}_j]$ jsou při nesplnění 
+předpokladu homoskedasticity zkreslené. Proto jsou zkreslené také 
+$t$ statistiky a intervaly spolehlivosti na nich založené. Obvyklé 
+OLS $t$ statistiky totiž nesledují Studentovo rozdělení a na tom se 
+nic nemění ani s rostoucí velikostí náhodného výběru. Podobně 
+$F$ statistika nesleduje $F$ rozdělení LM statistika nesleduje 
+asymptotické chi-square rozdělení. Navíc pokud $var[u|x_1, ..., 
+x_k]$ není konstantní, pak OLS není BLUE.
+
+\section{Heteroskedasticitně robustní odhady}
+
+\subsection{Robustní $t$ a $F$ statistika}
+
+Jak bylo zmíněno výše, pokud není splněn předpoklad 
+homoskedasticity, má to negativní dopad na $t$ a $F$ statistiky a 
+intervaly spolehlivosti. Nicméně existuje způsob, jak modifikovat 
+standardní směrodatné odchylky, $t$, $F$ a LM statistiky tak, aby 
+byly validní i v podmínkách heteroskedasticity. Tyto postupy 
+nazýváme heteroskedasticitně robustními postupy.
+
+Uvažujme jednoduchý regresní model
+\begin{equation}
+y_i =\beta_0 + \beta_1 x_i + u_i,
+\end{equation}
+který nesplňuje předpoklad homoskedasticity, tj.
+\begin{equation}
+var[u_i|x_i] = \sigma^2_i.
+\end{equation}
+Napišme OLS odhad ve tvaru
+\begin{equation}
+\hat{\beta}_1 = \beta_1 + \frac{\sum_{i = 1}^n (x_i - 
+\overline{x})u_i}{\sum_{i = 1}^n (x_i - \overline{x}) ^ 2}.
+\end{equation}
+Pokud jsou splněny předpoklady MLR.1 až MLR.4 (tj. bez 
+předpokladu homoskedasticity MLR.5), pak
+\begin{equation}
+var[\hat{\beta}_1] = \frac{\sum_{i = 1}^n(x_i - \overline{x})^2 
+\sigma^2_i}{SST^2_x},
+\end{equation}
+kde $SST_x = \sum_{i = 1}^n (x_i - \overline{x})^2$. Pokud $\sigma^2_i 
+= \sigma^2$ pro všechna $i$, zredukuje se (8.5) na $\sigma^2/SST$. 
+Jedním z možných přístupů, jak obejít skutečnost, že neznáme 
+$\sigma^2_i$, je nahradit $\sigma_i$ hodnotami reziduí z odhadnutého 
+regresního modelu, tj. použít
+\begin{equation}
+var[\hat{\beta}_1] = \frac{\sum_{i = 1}^n(x_i - \overline{x})^2 
+\hat{u}^2_i}{SST^2_x}
+\end{equation}
+namísto (8.5). Lze dokázat, že rovnice (8.6) vynásobená velikostí 
+náhodného výběru $n$ konverguje v pravděpodobnosti k $\frac{E[(x_i 
+- \mu_x)^2 u_i^2]}{\left(\sigma_x^2\right)}$, což je 
+pravděpodobnostní limit (8.6) krát $n$. Zákon velkých čísel a 
+centrální limitní věta hrají v této konvergenci klíčovou roli.
+
+V případě obecného regresního modelu
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k + u
+\end{equation}
+při splnění předpokladů MLR.1 až MLR.4 platí
+\begin{equation}
+\hat{var}[\hat{\beta}_j] = \frac{\sum_{i = 1}^n 
+\hat{r}_{ij}^2 \hat{u}^2_i}{SSR_j^2},
+\end{equation}
+kde $\hat{r}_{ij}$ je $i$-té reziduum z regrese $x_j$ na zbývající 
+vysvětlující veličiny a $SSR_j$ je součet čtverců reziduí z 
+této regrese. Někdy je (8.8) ještě vynásobeno $\frac{n}{n - k - 
+1}$ z titulu korekce na počet stupňů volnosti\footnote{Důvodem 
+této opravy je skutečnost, že pokud by $\hat{u}_i$ bylo konstantní, 
+získali bychom klasickou OLS standardní odchylku.}. Druhou odmocninu z (8.8) 
+pak nazýváme robustní směrodatnou odchylkou. Robustní směrodatné odchylky bývají obvykle větší než klasické OLS 
+směrodatné odchylky, avšak není to pravidlo.
+
+Robustní $t$ statistiku 
+definujeme jako
+\begin{equation}
+t = \frac{\textit{odhad - hypotetická hodnota}}{\textit{robustní směrodatná 
+odchylka}}.
+\end{equation}
+Jestliže je splněn předpoklad homoskedasticity a chyby regresního modelu sledují normální 
+rozdělení, pak klasická $t$ statistika sleduje Studentovo rozdělení bez ohledu na velikost 
+náhodného výběru. Naproti tomu robustní směrodatná odchylka a robustní $t$ statistika jsou 
+ospravedlnitelné pouze pro náhodný výběr velkého rozsahu.
+
+Vedle robustní $t$ statistiky existuje také robustní $F$ statistika (nazývaná též robustní 
+Waldovou statistikou), která je její analogií.
+
+\subsection{Robustní LM test}
+
+LM test je možné použít namísto $F$ testu pro sdružené testování. Pro ilustraci uvažujme 
+regresní model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \beta_5 x_5 + u
+\end{equation}
+a uvažujme nulovou hypotézu ve tvaru $H_0: \beta_4 = 0, ~~~ \beta_5 = 0$, což implikuje 
+omezený model ve tvaru
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + u.
+\end{equation}
+
+Nejprve vypočteme rezidua $\tilde{u}$ z omezeného modelu. Následně provedeme regresi 
+vysvětlujících veličin $x_4$ a $x_5$ obsažených v nulové hypotéze na vysvětlující veličiny $x_1$, 
+$x_2$ a $x_3$ omezeného modelu, čímž získáme rezidua $\tilde{r}_1$ a $\tilde{r}_2$. Po té 
+odhadneme regresní model
+\begin{equation}
+1 = \alpha_1\tilde{r}_1 \tilde{u} + \alpha_2 \tilde{r}_2 \tilde{u} + v.
+\end{equation}
+Robustní LM statistika je rovna $n - SSR_1$, kde $n$ představuje velikost náhodného výběru a 
+$SSR_1$ je součet čtverců reziduí $\hat{v}$. Při platné nulového hypotéze sleduje tato 
+statistika přibližně pravděpodobnostní rozdělení $\chi^2_q$.
+
+Výše uvedený postup lze snadno zobecnit na libovolný vícerozměrný regresní model.
+
+\section{Testování heteroskedasticity}
+
+\subsection{Úvod}
+
+Připomeňme, že heteroskedasticita znamená, že OLS odhady nejsou BLUE. Proto je vhodné 
+regresní model testovat na existenci heteroskedasticity.
+
+Problém heteroskedasticity lze v praxi 
+mnohdy zmírnit tím, že na místo původní vysvětlované 
+veličiny $y$ použijeme její logaritmus $\ln(y)$.
+
+Jestliže regresní model není definován správně, tj. $E[y|x]$ je systematicky zkreslené, pak 
+test na heteroskedasticitu může zamítnout nulovou hypotézu, ačkoliv je $var[y|x]$ pro 
+správně definovaný model konstantní. To vedlo některé ekonomy k závěru, že testy 
+heteroskedasticity lze chápat jako obecné testu správnosti definice regresního modelu. 
+Nicméně pro tento účel je vhodnější aplikovat specializované testy, protože nesprávná 
+definice modelu představuje zásadnější problém než samotná heteroskedasticita. 
+
+\subsection{$F$ a LM statistika}
+
+Uvažujme regresní model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + u.
+\end{equation}
+Definujme nulovou hypotézu za předpokladu platnosti MLR.5, tj.
+\begin{equation}
+H_0 : var[u | x_1, x_2, ..., x_k] = \sigma^2.
+\end{equation}
+Zamítnutí nulové hypotézy se zpravidla interpretuje jako přítomnost hetereskedasticity v 
+regresním modelu.
+
+Protože předpokládáme, že $u$ má nulovou podmíněnou střední hodnotu, což znamená 
+$var[u|x] = E[u^2|x]$, je nulová hypotéza ekvivalentní
+\begin{equation}
+H_0: E[u^2|x_1, x_2, ..., x_k] = E[u^2] = \sigma^2.
+\end{equation}
+Jinými slovy chceme testovat, zda-li existuje vztah mezi $u^2$ (v jeho očekávané hodnotě) a 
+některou z vysvětlujících veličin. Proto definujme regresní model
+\begin{equation}
+u^2 = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + ... + \delta_k x_k + v
+\end{equation}
+a nulovou hypotézu
+\begin{equation}
+H_0: \delta_1 = \delta_2 = ... = \delta_k = 0.
+\end{equation}
+Nulovou hypotézu lze testovat pomocí sdružené $F$ nebo LM statistiky. Testování však 
+naráží na jeden praktické problém a to, že neznáme chybu $u$. Proto namísto ní použijeme 
+reziduum $\hat{u}$ a (8.16) se změní na
+\begin{equation}
+\hat{u}^2 = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + ... + \delta_k x_k + v.
+\end{equation}
+Lze dokázat, že použití rezidua $\hat{u}$ namísto chyby $u$ nemá vliv na pravděpodobnostní 
+rozdělení $F$ popř. LM statistiky za předpokladu dostatečně velkého výběru. Důkaz je 
+však poměrně komplikovaný.
+
+Připomeňme, že $F$ statistika je definována jako
+\begin{equation}
+F = \frac{\frac{R^2_{\hat{u}_2}}{k}}{\frac{1 - R^2_{\hat{u}_2}}{n - k - 1}},
+\end{equation}
+kde $R^2_{\hat{u}_2}$ představuje $R^2$ regresního modelu (8.18), $n$ velikost náhodného 
+výběru a $k$ počet vysvětlujících veličin. Při platnosti nulové hypotézy, tj. pro 
+splněný předpoklad homoskedasticity, sleduje $F$ statistika přibližně pravděpodobnostní rozdělení $F_{k, n - k - 1}$.
+
+LM statistika je definována jako
+\begin{equation}
+LM = n \cdot R^2_{\hat{u}^2}
+\end{equation}
+a při splnění předpokladu homoskedasticity asymptoticky sleduje pravděpodobnostní rozdělení 
+$\chi^2_k$. LM verze testu je zpravidla nazývána Breusch-Paganovým testem heteroskedasticity.
+
+Jestliže máme podezření, že heteroskedasticita je způsobena pouze některými 
+vysvětlujícími veličinami, lze $F$ popř. LM statistiku snadno modifikovat tak, že do (8.18) 
+zahrneme pouze tyto veličiny a parametr $k$ snížíme o vyloučené vysvětlující veličiny.
+
+\subsection{Whitův test heteroskedasticity}
+
+Původní předpoklad homoskedasticity, tj. $var[u|x_1, ..., x_k] = \sigma^2$, lze nahradit 
+slabším předpokladem, že druhá mocnina chyby $u$ je nekorelovaná se všemi nezávislými 
+veličinami $x_i$. Oproti původní verzi testu jsou do (8.18) přidány také druhé mocniny a vzájemné násobky 
+vysvětlujících veličin. Pro ilustraci uvažujme regresní model se třemi vysvětlujícími 
+proměnnými. Pak má ekvivalent (8.18) podobu
+\begin{multline}
+\hat{u}^2 = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \delta_3 x_3 + \delta_4 x_1^2 + \delta_5 x_2^2 
++ \delta_6 x_3^2 \\ + \delta_7 x_1 x_2 + \delta_8 x_1 x_3 + \delta_9 x_2 x_3 + v
+\end{multline}
+Testování nulové hypotézy
+\begin{equation}
+H_0: \delta_1 = \delta_2 = \delta_3 = \delta_4 = \delta_5 = \delta_6 = \delta_7 = 0
+\end{equation}
+pomocí $F$ popř. LM statistiky pak nazýváme Whitovým testem heteroskedasticity.
+
+Zjevnou nevýhodou této podoby Whitova testu je zcela zřejmě velký počet testovaných 
+parametrů. Při zachování původní myšlenky lze Whitův test upravit do podoby
+\begin{equation}
+\hat{u}^2 = \delta_0 + \delta_1 \hat{y} + \delta_2 \hat{y}^2 + v,
+\end{equation}
+kde $\hat{y}$ představuje odhadnuté hodnoty původního regresní modelu, tj.
+\begin{equation}
+\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \hat{\beta}_2 x_{i2} + ... + \hat{\beta}_k 
+x_{ik}.
+\end{equation}
+Odhad $\hat{y}$ používáme, protože je, na rozdíl od pozorovaných hodnot $y$, funkcí 
+nezávislých proměnných. Pokud bychom namísto $\hat{y}$ použili $y$, nebyl by test validní.
+
+Pro testování nulové hypotézy $H_0: \delta_1 = \delta_2 = 0$ v (8.23) lze použít jak $F$ tak 
+LM statistiku s parametrem $k = 2$ bez ohledu na počet vysvětlujících proměnných.
+
+\section{Odhad metodou nejmenších čtverců}
+
+\subsection{Heteroskedasticita jako funkce vysvětlujících veličin}
+
+Uvažujme
+\begin{equation}
+var[u|x] = \sigma^2 h(x),
+\end{equation}
+kde $h(x)$ je funkcí vysvětlujících veličin. Protože rozptyl musí být kladný, musí platit 
+$h(x) > 0$.
+
+Při náhodném výběru z populace můžeme psát $\sigma_i^2 = var[u_i |x_i] = \sigma^2 h(x_i) = 
+\sigma^2 h_i$. Pro ilustraci předpokládejme regresní model, který vysvětluje vztah mezi úrovní 
+úspor a výší příjmu.
+\begin{equation}
+sav_i = \beta_0 + \beta_1 inc_i + u_i
+\end{equation}
+\begin{equation}
+var[u_i | inc_i] = \sigma^2 inc_i
+\end{equation}
+Rozptyl chyby v tomto regresním modelu je proporcionální výši příjmu.
+
+Uvažujme obecný regresní model
+\begin{equation}
+y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + ... + \beta_k x_{ik} + u_i,
+\end{equation}
+který je zatížený heteroskedasticitou. Protože $h_i$ je pouze funkcí $x_i$, má 
+$\frac{u_i}{\sqrt{h_i}}$ nulovou podmíněnou střední hodnotu vzhledem $x_i$. Dále, protože 
+$var[u_i|x_i] = E[u_i^2 | x_i] = \sigma^2 h_i$, je podmíněný rozptyl $\frac{u_i}{\sqrt{h_i}}$ 
+vzhledem k $x_i$ roven $\sigma^2$.
+\begin{equation}
+E\left[\left(\frac{u_i}{\sqrt{h_i}}\right)^2\right] = \frac{E[u_i^2]}{h_i} = \frac{\sigma^2 
+h_i}{h_i} = \sigma^2
+\end{equation}
+Proto lze (8.28) podělit $\sqrt{h_i}$, čímž získáme
+\begin{equation}
+\frac{y_i}{\sqrt{h_i}} = \beta_0 \frac{1}{\sqrt{h_i}} + \beta_1 \frac{x_{i1}}{\sqrt{h_i}} + \beta_2 
+\frac{x_{i2}}{\sqrt{h_i}} + ... + \beta_k \frac{x_{ik}}{\sqrt{h_i}} + u_i \frac{1}{\sqrt{h_i}}
+\end{equation}
+neboli
+\begin{equation}
+y^*_i = \beta_0 x^*_{i0} + \beta_1 x^*_{i1} + ... + \beta_k x^*_{ik} + u^*_i
+\end{equation}
+a tím odstranit z modelu heteroskedasticitu.
+
+Odhady parametrů na základě (8.31) jsou příklady tzv. obecných odhadů 
+metodou nejmenších čtverců (generalized least squares estimators - GLS estimators). GLS odhady 
+pro korekci heteroskedasticity jsou též nazývány odhady metodou vážených nejmenších 
+čtverců (weighted least squares estimators - WLS estimators)\footnote{OLS lze chápat jako 
+zvláštní příklad WLS odhadů, které dává stejnou váhu všem pozorováním.}. Protože 
+jsme z modelu (8.31) odstranili heteroskedasticitu, jsou tyto odhady, na rozdíl od odhadů na 
+základě modelu (8.28), nejlepšími nezkreslenými lineárními odhady.
+
+Problém výše uvedeného přístupu je ten, že skutečné váhy neznáme a jejich volba je do 
+značné míry arbitrární.
+
+\subsection{Dosažitelné GLS odhady}
+
+V řadě případů můžeme zkonstruovat model funkce $h$ a použít data k odhadu jeho 
+parametrů, tj. pro každé $h_i$ získat jeho odhad $\hat{h}_i$ - hovoříme o tzv. 
+dosažitelných GLS odhadech.
+
+Jako příklad takovéhoto modelu uvažujme model\footnote{Připomeňme, že uvažovaná funkce modelu musí být vždy kladná.}
+\begin{equation}
+var[u|x] = \sigma^2 e^{\delta_0 + \delta_1 x_1 + \delta_2 x_2 + ... + \delta_k x_k}.
+\end{equation}
+Za předpokladu (8.32) můžeme psát
+\begin{equation}
+u^2 = \sigma^2 e^{(\delta_0 + \delta_1 x_1 + \delta_2 x_2 + ... + \delta_k x_k)v},
+\end{equation}
+kde $v$ má podmíněný průměr vzhledem k $x = (x_1, x_2, ..., x_k)$ roven jedné. Jestliže 
+předpokládáme, že $v$ je nezávislé na $x$, pak můžeme výše uvedený model upravit do tvaru
+\begin{equation}
+\ln(u^2) = \alpha_0 + \delta_1 x_1 + \delta_2 x_2 + ... + \delta_k x_k + e,
+\end{equation}
+kde $e$ má nulovou střední hodnotu a je nezávislé na $x$. Průsečík $\alpha_0$ je různý od 
+původního průsečíku $\delta_0$, ale to není pro implementaci WLS důležité. Protože (8.33) 
+splňuje Gauss-Markovovy předpoklady, můžeme získat nezkreslené odhady $\delta_i$ pomocí OLS. 
+Protože v praxi neznáme chybu $u$, nahradíme ji opět reziduem $\hat{u}$. Náš regresní model 
+bude tedy mít podobu
+\begin{equation}
+\ln(\hat{u}^2) = \alpha_0 + \delta_1 x_1 + \delta_2 x_2 + ... + \delta_k x_k + e.
+\end{equation}
+Z této regrese potřebujeme predikované hodnoty $E[\ln(\hat{u_i}^2) | x_i] = \hat{g_i}$. 
+Odhad funkce $h_i$ je pak definován jako
+\begin{equation}
+\hat{h}_i = e^{\hat{g_i}}.
+\end{equation}
+
+Pokud bychom mohli namísto $\hat{h}_i$ použít $h_i$, byly by naše odhady nezkreslené. 
+Protože však odhadujeme $h_i$ pomocí stejných dat, jaká následně použijeme pro odhad 
+parametrů původního regresního modelu, jsou naše dosažitelné GLS odhady zkreslené. Tyto 
+odhady jsou však konzistentní a asymptoticky efektivnější než prosté OLS odhady. Důkaz 
+tohoto tvrzení je však komplikovaný.
+
+Další užitečnou alternativou pro odhad $h_i$ je nahrazení nezávislých proměnných v (8.35) 
+hodnotami predikovanými pomocí klasické OLS, tj.
+\begin{equation}
+\ln(\hat{u}^2) = \alpha_0 + \delta_1 \hat{y} + \delta_2 \hat{y}^2.
+\end{equation}
+Získání odhadu $\hat{h}_i$ je stejné jako v předchozím případě.
+
+Při aplikaci $F$ testu musíme použít stejné váhy pro omezený a neomezený model. Nejprve 
+tedy odhadneme neomezený model s pomocí OLS. Jakmile máme k dispozici váhy, můžeme je 
+použít k odhadu omezeného modelu. $F$ statistiku pak vypočteme obvyklým způsobem.
+
+OLS a WLS odhady se mohou různit. Pokud OLS a WLS vedou k statisticky významným odhadům, 
+které se liší znaménkem nebo je rozdíl v odhadech příliš velký, je to zpravidla důsledkem 
+porušení některého z dalších Gauss-Markovových předpokladů zejména pak předpokladu 
+nulové podmíněné střední hodnoty chyby regresního modelu (MLR.4). Jestliže totiž $E[y|x]  
+\ne \beta_0 + \beta_1 x_1 + ... + \beta_k x_k$, pak mají OLS a WLS odhady rozdílné očekávané hodnoty 
+a pravděpodobnostní rozdělení. Aby WLS bylo konzistentní v $\beta_j$ nestačí, aby $u$ bylo 
+nekorelované s každým jednotlivým $x_j$ - je zapotřebí splnění silnějšího předpokladu 
+MLR.4 v lineárním modelu MLR.1. Významný rozdíl mezi OLS a WLS odhady tak indikuje problémy s 
+funkční specifikací $E[y|x]$.
+
+\subsection{Chybná funkce $h(x)$}
+
+Jaké jsou vlastnosti WLS, jestliže je funkce $h(x)$ chybně specifikována, tj. pokud $var[y|x] 
+\ne \sigma^2 h(x)$?
+
+Jestliže $E[u|x] = 0$, pak libovolná funkce $h(x)$ je nekorelovaná s $u$, a proto je také 
+$\frac{u}{\sqrt{h(x)}}$ nekorelované s vysvětlujícími veličinami $\frac{x_j}{\sqrt{h(x)}}$ pro 
+libovolné $h(x) > 0$. Z tohoto důvodu můžeme velké rozdíly mezi OLS a WLS 
+odhady chápat jako indikaci chybné specifikace regresního modelu. Pokud odhadneme parametry $\hat{\delta}$ 
+ve funkci $h(x, \hat{\delta})$, nemůžeme již tvrdit, že WLS odhady jsou nezkreslené. Tyto 
+odhady však budou konzistentní a to bez ohledu na to, zda byla funkce $h(x)$ specifikována 
+správně či nikoliv.
+
+V případě chybně specifikované funkce $h(x)$ však nejsou směrodatné odchylky a $t$ popř. 
+$F$ statistiky WLS odhadů platné a to ani v případě výběrů velkého rozsahu. Naštěstí, 
+stejně jako v případě robustních OLS odhadů, lze také pro WLS odhady, které připouštějí 
+chybnou specifikaci funkce $h(x)$. Jestliže má transformovaný regresní model tvar
+\begin{equation}
+\frac{y_i}{\sqrt{h_i}} = \beta_0 \frac{1}{\sqrt{h_i}} + \beta_1 \frac{x_{i1}}{\sqrt{h_i}} + ... + 
+\beta_k \frac{x_{ik}}{\sqrt{h_i}} + \frac{u_i}{\sqrt{h_i}},
+\end{equation}
+přičemž $var[u_j | x_j] \ne \sigma^2 h_j$. Vážená chyba $\frac{u_i}{\sqrt{h_i}}$ je tedy 
+heteroskedastická. Nicméně po odhadu parametrů (8.38) pomocí OLS lze pro výpočet jejich intervalů 
+spolehlivosti a testování hypotéz použít robustní směrodatné odchylky stejně jako v případě OLS.
+
+I když použijeme obecné formy typu (8.32) pro odhad funkce $h(x)$, nemáme jistotu správné 
+specifikace. Proto je vždy vhodné vždy používat robustní směrodatné odchylky.
+
+Moderní kritika WLS spočívá v argumentu, že pokud není funkce $h(x)$ správně 
+specifikována, nemáme jistotu, že WLS odhady budou efektivnější než klasické OLS odhady. 
+Nicméně v případě silné heteroskedasticity je zpravidla lepší použít špatně 
+specifikovanou funkci $h(x)$, než tento problém zcela ignorovat.
+
+\subsection{Predikce a heteroskedasticita}
+
+Intervaly spolehlivosti pro predikované hodnoty závisí přímo na povaze $var[y|x]$. 
+Předpokládejme, že jsou splněny všechny CLM předpoklady s výjimkou předpokladu 
+homoskedasticity (MLR.5), který je nahrazen (8.25).
+
+Směrodatnou odchylku $se(\hat{y}^0)$ lze získat stejným způsobem jako v kapitole 6.4 pouze s 
+tím rozdílem, že namísto OLS použijeme WLS. Dále potřebujeme odhadnout směrodatnou odchylku 
+pro $u^0$, které představuje tu část $y^0$, která není podchycena vysvětlujícími 
+veličinami. Protože však předpokládáme $var[u^0|x = x^0] = \sigma^2 h(x^0)$, pak $se(u^0) = 
+\hat{\sigma} \sqrt{h(x^0)}$, kde $\hat{\sigma}$ je směrodatná odchylka regrese z WLS odhadu. 95\% 
+interval spolehlivosti je tak
+\begin{equation}
+\hat{y}^0 \pm t_{0.025} se(\hat{e}^0),
+\end{equation}
+kde $se(\hat{e}^0) = \sqrt{\left(se(\hat{y}^0)\right)^2 + \left(se(\hat{x}^0)\right)^2}$. Tento 
+interval spolehlivosti je přesný pouze v případě, že nemusíme odhadnout funkci $h(x)$. 
+Jestliže musíme odhadnout parametry jako ve funkční specifikaci (8.32), pak nelze získat 
+přesný interval spolehlivosti. Zohlednění případné chyby v odhadu $\hat{\beta}_j$ a $\hat{\delta}_j$ je 
+však velmi složité. Proto v praxi v (8.39) jednoduše nahradíme $h(x^0)$ jejím odhadem 
+$\hat{h}(x^0)$. Pokud se rozhodneme ignorovat chybu odhadu parametru, můžeme jednoduše vypustit 
+$se(\hat{y}^0)$ z $se(\hat{e}^0)$\footnote{Připomeňme, že $se(\hat{y}^0)$ konverguje k nule 
+rychlostí $\frac{1}{\sqrt{n}}$, zatímco $se(\hat{u}^0)$ zůstává přibližně konstantní.}.
+
+\subsubsection{Ilustrativní příklad}
+
+Pro ilustraci uvažujme regresní model
+\begin{equation}
+\ln(y) = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k + u,
+\end{equation}
+kde $u$ je heteroskedastické. Předpokládejme, že známe formu heteroskedasticity a že 
+je splněna podmínka normality, tj.
+\begin{equation}
+u | x_1, x_2, ..., x_k \sim N(0, e^{\delta_0 + \delta_1 x_1 + ... + \delta_k x_k}).
+\end{equation}
+
+Protože $\ln(y)$ pro dané $x = (x_1, X_2, ..., x_k)$ sleduje normální rozdělení se střední 
+hodnotou $\beta_0 + x \beta$ a rozptyl $e^{\delta_0 + x \delta}$, platí
+\begin{equation}
+E[y|x] = e^{\beta_0 + x \beta + \sigma^2 e^{(\delta_0 + x \delta})/2}.
+\end{equation}
+
+Nejprve odhadneme $\beta_j$ a $\delta_j$ s pomocí WLS z (8.40). Po 
+získání reziduí pomocí OLS provedeme regresi (8.35) s cílem získat predikované hodnoty
+\begin{equation}
+\hat{g}_i = \hat{\alpha}_0 + \hat{\delta}_1 x_{i1} + ... + \hat{\delta}_k x_{ik},
+\end{equation}
+které použijeme pro odhad $\hat{h}_i$ pomocí (8.36). S pomocí $\hat{h}_i$ pak získáme WLS 
+odhady $\hat{\beta_j}$ a $\hat{\sigma}^2$.
+
+Dále získáme predikované hodnoty
+\begin{equation}
+\hat{y}_i = e^{\widehat{\ln(y_i)} + \hat{\sigma}^2 \hat{h}_i / 2}.
+\end{equation}
+Tyto predikované hodnoty můžeme použít pro získání $R^2$ tak, jak je popsáno v kapitole 
+6.4, tj. použít druhou mocninu korelačního koeficientu mezi $y_i$ a $\hat{y}_i$.
+
+Pro libovolné 
+hodnoty vysvětlujících veličin $x^0$ pak lze získat predikci pomocí
+\begin{equation}
+\hat{E}[y | x = x^0] = e^{\hat{\beta}_0 + \hat{\beta} x^0 + \hat{\sigma}^2 e^{(\hat{\alpha}_0 + 
+\hat{\delta}x^0) / 2}},
+\end{equation}
+kde $\hat{\beta}_j$ představuje WLS odhad a $\hat{\alpha}_0$ a $\hat{\delta}_j$ jsou odhady 
+parametrů v (8.43).
+
+Získání správné směrodatné odchylky pro predikci z (8.44) analyticky je
+poměrně komplikované, nicméně ji lze poměrně snadno získat metodou opakovaného výběru, 
+která je popsána v kapitole 6.A.
+
+Přibližný 95\% interval spolehlivosti pro výběry velkého rozsahu je definován rozmezím 
+$e^{-1.96 \hat{\sigma} \sqrt{\hat{h} x^0}} e^{\hat{\beta}_0 + \hat{\beta}x^0}$ až $e^{1.96 
+\hat{\sigma} \sqrt{\hat{h} x^0}} e^{\hat{\beta}_0 + \hat{\beta}x^0}$, kde $\hat{h}(x^0)$ je odhad 
+funkce $h(x)$ v bodě $x^0$, tj. $\hat{h}(x^0) = e^{\hat{\alpha}_0 + \hat{\beta}_1 x^0_1 + ... + 
+\hat{\delta}_k x^0_k}$.
+
+\section{Lineární pravděpodobnostní model}
+
+V případě, že má vysvětlovaná veličina charakter binární veličiny, musí model obsahovat 
+heteroskedasticitu, pokud nejsou všechny parametry sklonu rovny nule.
+
+Nejjednodušším způsobem, jak se vypořádat s heteroskedasticitou v lineární 
+pravděpodobnostním modelu (linear probability model - LPM) je použít OLS odhady a 
+robustní směrodatnou odchylku při testování hypotéz a konstrukci konfidenčních intervalů. 
+Tento přístup však ignoruje skutečnost, že známe formu heteroskedasticity pro LPM. Odhad LPM 
+pomocí OLS je však poměrně snadný a v praxi velmi často vede k uspokojivým výsledkům. To 
+nám však nebrání nastínit postup, jakým lze heteroskedasticitu z modelu odstranit.
+
+Obecně platí, že OLS odhady jsou v případě LPM neefektivní. Připomeňme, že podmíněný 
+rozptyl vysvětlované veličiny $y$ je pro LPM definován jako
+\begin{equation}
+var[y | x] = p(x)[1 - p(x)],
+\end{equation}
+kde
+\begin{equation}
+p(x) = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k.
+\end{equation}
+Pravděpodobnost $p(x)$ tak zcela zřejmě závisí na parametrech $\beta_j$, které jsme schopni 
+odhadnout pomocí OLS. Pro každé $i$-té pozorování je tak $var[y_i | x_i]$ odhadnut pomocí
+\begin{equation}
+\hat{h}_i = \hat{y}_i (1 - \hat{y}_i),
+\end{equation}
+kde predikované hodnoty $\hat{y}_i$ nemusí vždy spadat do jednotkového intervalu. Pokud však 
+$\hat{y}_i < 0$ nebo $\hat{y}_i > 1$, pak $\hat{h}_i$ v (8.48) bude nulové nebo záporné. 
+Protože v rámci WLS používáme váhy $\frac{1}{\sqrt{\hat{h}_i}}$, musí být $\hat{h}_i$ 
+kladné. Triviální řešením tohoto problému je např. nastavit $\hat{y}_i = 0.01$ pokud 
+$\hat{y}_i < 0$ a $\hat{y}_i = 0.99$ pokud $\hat{y}_i > 1$. Pokud je však příliš mnoho hodnot 
+mimo jednotkový interval, je pravděpodobně vhodnější použít klasické OLS.

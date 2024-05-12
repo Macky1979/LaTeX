@@ -1,0 +1,24 @@
+\chapter{Pravděpodobnostní rozdělení rizika defaultu}
+
+Pro řízení kreditního rizika je klíčový odhad extrémním ztrát. Vyjádřit pravděpodobnost a výši těchto ztrát analyticky je však téměř nemožné. Proto se pro modelování těchto extrémních ztrát používá metoda Monte-Carlo. Tím se však dostáváme k dalšímu problému. Protože nás obecně zajímají kvantily přesahující 99\%, je zapotřebí velkého množství simulací, abychom dosáhli stability odhadu. V praxi se proto často nejprve provede simulace Monte-Carlo s omezeným počtem simulací a následně se do takto získaných požadovaných kvantilů ``fituje'' vybrané pravděpodobnostní rozdělení. Výběr tohoto pravděpodobnostního rozdělení je však značné subjektivní. Obecně však panuje silná shoda na tom, že toto pravděpodobnostní rozdělení nemá být normální. Je třeba si uvědomit, že při výběru konkrétního pravděpodobnostního rozdělení není důležitá shoda mezi v okolí jeho střední hodnoty ale v jeho chvostě.
+
+\section{Beta rozdělení}
+
+Poměrně oblíbeným pravděpodobnostním rozdělením pro odhad extrémních ztrát je tzv. beta rozdělení, jehož pravděpodobnostní funkce má tvar
+\begin{equation}
+f(x, \alpha, \beta) =
+\begin{cases}
+\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha - 1}(1 - x)^{\beta - 1}, ~~~ 0 < x < 1\\
+0 ~~~ \textit{v ostatních případech}
+\end{cases}
+\end{equation}
+kde střední hodnota resp. rozptyl jsou definovány jako
+\begin{equation}
+\mu = \frac{\alpha}{\alpha + \beta}
+\end{equation}
+resp.
+\begin{equation}
+\sigma^2 = \frac{\alpha \beta}{(\alpha + \beta)^2(\alpha + \beta + 1)}
+\end{equation}
+
+V předchozím textu jsme odvodili očekávanou ztrátu (střední hodnota) a neočekávanou ztrátu (směrodatnou odchylku). Vzhledem k tomu, že beta rozdělení je dvouparametrické, mohli bychom odhadnout jeho dva parametry pomocí výše uvedených rovnic. Jak však již bylo zmíněno, naším cílem je dosáhnout maximální shody pro extrémní ztráty. Proto parametry beta rozdělení odhadujeme na vysokých kvantilech získaných simulací Monte-Carlo\footnote{Samotný odhad je možné provést např. pomocí metody maximální věrohodnosti nebo minimalizací statistiky $\chi^2 \equiv sum_i \left[\frac{y_i - \beta(x_i)}{y_i}\right]^2$.}. Je zřejmé, že takto získané parametry nebudou odpovídat očekávané a neočekávané ztrátě.

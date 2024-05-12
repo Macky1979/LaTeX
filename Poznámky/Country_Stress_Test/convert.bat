@@ -1,0 +1,1 @@
+D:\MiTex\miktex\bin\latex.exe Country_Stress_Test.tex

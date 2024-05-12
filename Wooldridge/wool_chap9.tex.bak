@@ -1,0 +1,289 @@
+\chapter{Specifikace modelu a datové problémy}
+
+\section{Chybná specifikace modelu}
+
+Nejčastější formou chybné specifikace regresního modelu je opomenutí relevantní nezávislé veličiny. Nicméně se nejedná o jedinou možnou formu chybné specifikace modelu. Další možností je začlenění nezávislé veličiny v nesprávné podobě, kdy např. namísto $log(x_{tj})$ do modelu přidáme $x_{tj}$.
+
+Chybná specifikace modelu může mít závažné důsledky - typickým problémem je zkreslenost a nekonzistence odhadnutých parametrů regresního modelu.
+
+Pro detekci chybné specifikace modelu lze použít $F$ test pro sdružené testování hypotéz, který jsme představili již dříve. V praxi se např. poměrně často do regresního modelu přidává kvadratický člen pro nejvýznamnější nezávislé proměnné a model se pak následně testuje na sdruženou významnost vysvětlujících veličin.
+
+V praxi je mnohdy velmi obtížné zjistit příčinu chybné specifikace modelu, nicméně v řadě případů tento problém vyřeší aplikace logaritmu na vysvětlující veličiny a zavedení kvadratických členů. To však v řadě případů může snížit interpretovatelnost daného regresního modelu.
+
+\subsection{RESET a obecný test chybné specifikace modelu}
+
+Ramsey (1969) navrhl tzv. test chybné specifikace chybového členu [regression specification error test (RESET)]. Pro ilustraci uvažujme model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k + u,
+\end{equation}
+který splňuje MLR.4. To implikuje, že žádná z nelineárních funkcí nezávislých veličin by neměla být po přidání do modelu (9.1) shledána jako statisticky signifikantní. RESET test přidává do modelu polynomy nezávislých veličin $\hat{y}$ odhadnutých z původního modelu. Neexistuje žádné exaktní pravidlo pro řád polynomů, které by měly být zahrnuty, nicméně v praxi se nejčastěji přidávají polynomy druhého a třetího řádu. Model (9.1) se tak změní na
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k + \delta_1 \hat{y}^2 + \delta_2 \hat{y}^3.
+\end{equation}
+Je důležité si uvědomit, že $\hat{y}^2$ a $\hat{y}^3$ hrají ve výše uvedeném modelu roli nelineárních funkcí nezávislých proměnných $x_j$.
+
+Nulová hypotéza RESET testu je, že model (9.1) je správně specifikován, tj. pomocí $F$ statistiky testujeme $H_0: \delta_1 = 0, \delta_2 = 0$. Statisticky signifikantní $F$ statistika pak indikuje problémy se specifikací modelu. Pravděpodobnostní rozdělení $F$ statistiky pro náhodné výběry velkého rozsahu při splnění nulové hypotézy (a Gauss-Markovových předpokladů) přibližně sleduje $F_{2, n - k -3}$, kde $n - k - 3$ představuje počet stupňů volnosti modelu (9.2). Tento test lze taktéž učinit heteroskedasticitně robustním tak, jak jsme diskutovali v kapitole 8.
+
+Hlavní nevýhodou RESET testu je, že nám neřekne, jak model modifikovat, pokud je nulová hypotéza zamítnuta.
+
+\subsection{Nevnořené modely}
+
+Předpokládejme, že chceme testovat model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + u
+\end{equation}
+proti modelu
+\begin{equation}
+y = \beta_0 + \beta_1 \log(x_1) + \beta_2 \log(x_2) + u.
+\end{equation}
+Bohužel se jedná o tzv. nevnořené modely (nonnested models), a proto nelze jednoduše použít $F$ test. Namísto původních dvou modelů uvažujme model
+\begin{equation}
+y = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \delta_3 \log(x_1) + \delta_4 \log(x_2) + u.
+\end{equation}
+Můžeme testovat $H_0: \delta_3 = 0, \delta_4 = 0$ jako test modelu (9.3) popř. $H_0: \delta_1 = 0, \delta_2 = 0$ jako test modelu (9.4).
+
+Existuje však ještě jedna možnost. Jestliže je model (9.3) pravdivý, pak by $\hat{y}$ odhadnuté na základě modelu (9.4) měly být v modelu (9.3) statisticky nevýznamné. Tento test se nazývá Davidson-MacKinnonovým testem a je založen na $t$ statistice $\hat{y}$ modelu
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 \theta_1 \hat{y} + error,
+\end{equation}
+kde $\hat{y}$ je odhadnuto z modelu (9.4). Statisticky signifikantní $t$ statistika je důkazem proti modelu (9.3). Test lze snadno modifikovat tak, abychom pomocí $\hat{y}$ z modelu (9.3) testovali validitu modelu (9.4). Davidson-MacKinnonův test může zamítnout oba nebo také žádný z modelů; v tomto případě nemá test jasného vítěze. Je důležité si také uvědomit, že pokud test zamítne platnost modelu (9.3), neznamená to automatickou platnost modelu (9.4). David-MacKinnonův test lze použít pouze v případě, kdy uvažované modely mají shodnout závislou veličinu\footnote{To znamená, že test nelze aplikovat např. v situaci, kdy závislá veličina v jednom z modelů má tvar $y$ a v druhém $\log(y)$.} a jsou vystavěny na totožných nezávislých veličinách. Existují i zobecněné testy, které splnění těchto podmínek nevyžadují, ty však přesahují záběr naší knihy.
+
+\section{Proxy veličiny}
+
+Jedním z nejčastějších případů chybné specifikace modelu je vynechání relevantní vysvětlující veličiny z důvodu obtížné nebo dokonce nemožného sběru dat. Jako příklad uvažujme regresní model, který vysvětluje vývoj mezd a který zahrnuje schopnost daného jedince \textit{abil} jako jednu z vysvětlujících veličin.
+\begin{equation}
+log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 abil + u
+\end{equation}
+Je zřejmé, že vysvětlující veličina \textit{abil} se velice obtížně kvantifikuje. Pokud bychom ji však z modelu vypustili, bude odhad parametru $\beta_1$ zkreslen a to z titulu korelace mezi \textit{educ} a \textit{abil}. Podobnou argumentaci lze aplikovat také v případě parametru $\beta_2$. Řešením tohoto problému je namísto \textit{abil} použít proxy nezávislou veličinu jako např. IQ daného jedince.
+
+Hlavní myšlenky konceptu proxy nezávislé veličiny lze ilustrovat pomocí modelu
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3^* + u,
+\end{equation}
+kde $x_3$ nelze kvantifikovat, a proto namísto ní použijeme proxy $x_3^*$. Předpokládejme, že vztah mezi $x_3$ a $x_3^*$ lze popsat pomocí 
+\begin{equation}
+x_3^* = \delta_0 + \delta_3 x_3 + v_3.
+\end{equation}
+Protože $x_3$ a $x_3^*$ nejsou identická, lze použít poučku pro zkreslení z titulu vynechání relevantní veličiny. Abychom substitucí $x_3^*$ za $x_3$ získali konzistentní odhady $\beta_1$ a $\beta_2$, musí být splněny následující předpoklady.
+\begin{enumerate}
+\item Chyba $u$ z modelu (9.8) není korelována s $x_1$, $x_2$ ani $x_3^*$. Toto jsou standardní předpoklady regresního modelu. Navíc však $u$ nesmí být korelováno ani s původní nezávislou veličinou $x_3$. Tento předpoklad nám říká, že pokud jsou do modelu začleněny $x_1$, $x_2$ a $x_3^*$, je $x_3$ z pohledu modelu irelevantní.
+\item Chyba $v_3$ je nekorelovaná s $x_1$, $x_2$ a $x_3$. Tento předpoklad vyžaduje, aby $x_3^*$ byla ``dobrou'' proxy veličinou pro $x_3$, což je zřejmé z podmíněné hodnoty $x_3^*$.
+\begin{equation}
+E[x_3^* | x_1, x_2, x_3] = E[x_3^* | x_3] = \delta_0 + \delta_3 x_3
+\end{equation}
+Tato rovnice nám říká, že jakmile je zafixováno $x_3$, je střední hodnota $x_3^*$ nezávislá na $x_1$ a $x_2$.
+\end{enumerate}
+Jestliže dosadíme (9.9) do (9.8), získáme
+\begin{equation}
+y = (\beta_0 + \beta_3 \delta_0) + \beta_1 x_1 + \beta_2 x_2 + \beta_3 \delta_3 x_3 + u + \beta_3 v_3,
+\end{equation}
+což lze dále upravit na
+\begin{equation}
+y = \alpha_0 + \beta_1 x_1 + \beta_2 x_2 + \alpha_3 x_3 + e.
+\end{equation}
+Aplikací OLS na (9.12) sice nezískáme nezkreslené odhady parametrů $\beta_0$ a $\beta_3$, ale získáme nezkreslené (nebo alespoň konzistentní) odhady $\alpha_0$, $\beta_1$, $\beta_2$ a $\alpha_3$. Klíčovou výhodou tohoto postupu jsou nezkreslené odhady $\beta_1$ a $\beta_2$. Co se odhadu $\beta_3$ týče, ten je pro nás v praxi zpravidla méně zajímavý než odhad parametru $\alpha_3$.
+
+Pokud proxy veličina nesplňuje výše uvažované předpoklady, jsou odhady regresního modelu zkreslené. Pro ilustraci uvažujme
+\begin{equation}
+x_3^* = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \delta_3 x_3 + v_3
+\end{equation}
+namísto (9.9). Substituce (9.12) do (9.8) vede k modelu
+\begin{equation}
+y = (\beta_0 + \beta_3 \delta_0) + (\beta_1 + \beta_3 \delta_1) x_1 + (\beta_2 + \beta_3 \delta_3) x_2 + \beta_3 \delta_3 x_3 + u + \beta_3 v_3,
+\end{equation}
+ze kterého plyne $plim(\hat{\beta}_1) = \beta_1 + \beta_3 \delta_1$ a $plim(\hat{\beta}_2) + \beta_2 + \beta_3 \delta_2$.\footnote{To vyplývá z toho, že chyba $u + \beta_3 v_3$ v modelu (9.14) má nulovou střední hodnotu a je nekorelovaná s $x_1$, $x_2$ a $x_3$.} Pokud $x_3^*$ není ``dobrá'' proxy veličina, jsou odhady ostatních parametrů stále zkreslené. Lze však očekávat, že toto zkreslení bude menší, než kdybychom proxy veličinu do regresního modelu nezahrnuli.
+
+\subsection{Zpožděné proxy veličiny}
+
+V řadě případů mohou být některé z nezávislých veličin zahrnutých do modelu korelované s vynechanou veličinou, pro kterou může být složité nalézt vhodnou proxy veličinu. Problém lze často vyřešit zahrnutím zpožděných závislých veličin. Tento koncept je vhodný např. při formulování měnové či fiskální politiky, kde zpožděné nezávislé veličiny vnášejí do modelu historickou informaci spojenou s faktorem, který je velmi obtížné konkretizovat. Jako příklad uvažujme model
+\begin{equation}
+hdp_t = \beta_0 + \beta_1 hdp_{t - 1} + \beta_2 unpl_t + \beta_3 unpl_{t - 1} + \beta_4 infl_t + \beta_5 infl_{t - 1}.
+\end{equation}
+
+\subsection{Odlišný pohled na vícerozměrnou regresi}
+
+V předchozím textu jsme použili namísto vágního pojmu schopnost (\textit{abil}) proxy veličinu IQ. K této problematice však lze zaujmout také odlišný postoj. Konkrétně naším zájmem může být snaha o co nejlepší odhad mzdy daného jedince, pokud známe jeho IQ a ostatní vysvětlující veličiny. Zásadní rozdíl je ten, že se nesnažíme dobrat se modelu (9.7). Vzhledem k omezením, kterým čelíme v praxi (neznalost správného regresního modelu, neschopnost korektně kvantifikovat nezávislé veličiny), jsme se smířili s omezenou množinou vysvětlujících veličin, které máme k dispozici a s jejich pomocí se snažíme získat co nejlepší odhad mzdy.
+
+\section{Modely s náhodným sklonem}
+
+Uvažujme model, ve kterém se parciální efekt určité nezávislé veličiny, kterou nejsme schopni kvantifikovat, mění s jednotlivými populačními členy. Jestliže máme pouze jednu nezávislou veličinu $x$, můžeme obecnou rovnici pro náhodně vybrané pozorování definovat jako
+\begin{equation}
+y_i = a_i + b_i x_i,
+\end{equation}
+kde $a_i$ je průsečík a $b_i$ je sklon pro $i$-té pozorování. V kontextu jednoduchého regresního modelu, který jsme představili v kapitole 2, platí $b_i = \beta$ a $a_i = u_i$. Model (9.16) je někdy nazýván modelem s náhodným sklonem (random slope model), protože na parametr $b_i$ lze pohlížet jako na náhodný výběr z populace společně s daty $(x_i, y_i)$ a průsečíku $a_i$. Pokud bychom se vrátili k našemu modelu mzdy, pak by $b_i$ (ale také $a_i$) v sobě zahrnovala efekt schopnosti konkrétního jedince.
+
+S tím, jak z populace získáme $n$ náhodných pozorování, získáme také $n$ parametrů $b_i$ a $a_i$. Je zřejmé, že nejsme schopni odhadnout každé jednotlivé $b_i$ a $a_i$, nicméně můžeme odhadnout průměrný sklon a průsečík napříč celou populací. Proto definujeme $\alpha = E[a_i]$ a $\beta = E[b_i]$. $\beta$ tak nazýváme průměrným parciálním efektem [average partial effect (APE)].
+
+Jestliže definujeme $a_i = \alpha + c_i$ a $b_i = \beta + d_i$, pak lze na $c_i$ a $d_i$ pohlížet jako na specifickou odchylku daného jedince od populačního průměru. Dle definice platí $E[c_i] = 0$ a $E[d_i] = 0$. Dosazením do (9.16) pak získáme
+\begin{equation}
+y_i = \alpha + \beta_i x_i + c_i + d_i x_i \equiv \alpha + \beta x_i + u_i,
+\end{equation}
+kde $u_i = c_i + d_i x_i$. Jinými slovy, náhodný člen $u_i$ zahrnuje interakci mezi veličinou $d_i$, kterou nejsme schopni kvantifikovat, a vysvětlující veličinou $x_i$.
+
+Pokud je splněn předpoklad $E[u_i | x_i] = 0$, pak jsou OLS odhady nezkreslené. Jestliže $u_i = c_i + d_i x_i$, je dostatečné $E[c_i|x_i] E[c_i] = 0$ a $E[d_i|x_i] = E[d_i] = 0$. Pak totiž platí
+\begin{equation}
+E[a_i|x_i] = E[a_i] ~~~ E[b_i|x_i] = E[b_i].
+\end{equation}
+Jestliže tedy připustíme myšlenku ``individuálního'' sklonu pro jednotlivé členy populace, pak OLS konzistentně odhaduje populační průměr tohoto sklonu.
+
+Jestliže $var[c_i|x_i] = \sigma_c^2$, $var[d_i|x_i] \sigma_d^2$ a $cov[c_i, d_i, | x_i] = 0$, pak
+\begin{equation}
+var[u_i | x_i] = \sigma_c^2 + \sigma_d^2 x_i^2,
+\end{equation}
+a proto chybový člen v (9.17) musí vykazovat známky heteroskedasticity s výjimkou, kdy $\sigma_d^2 = 0$, což implikuje $b_i = \beta$ pro všechna $i$. Někteří autoři tak vnímají heteroskedasticitu jako důsledek náhodného sklonu. Nicméně v praxi nejsme schopni rozlišit mezi regresním modelem s náhodným sklonem a modelem s konstantním sklonem a heteroskedasticitou v $a_i$.
+
+V případě vícerozměrného regresního modelu je postup analogický. Uvažujme model
+\begin{equation}
+y_i = a_i + b_{i1} x_{i1} + b_{i2} x_{i2} + ... + b_{ik}x_{ik}.
+\end{equation}
+Pokud $a_i = \alpha + c_i$ a $b_{ij} = \beta_j + d_{ij}$, pak lze tento model zapsat jako
+\begin{equation}
+y_i = \alpha + \beta_1 \beta_1 x_{i1} + ... + \beta_k x_{ik} + u_i,
+\end{equation}
+kde $u_i = c_i + d_i x_{i1} + ... + d_{ik}x_{ik}$. Pokud předpokládáme $E[a_i|x_i] = E[a_i]$ a $E[b_i|x_i] = E[x_i]$ pro $j = 1, ..., k$, pak
+\begin{equation}
+E[y_i|x_i] = \alpha + \beta_1 x_{i1} + ... + \beta_i x_{jk}
+\end{equation}
+a OLS pak pro náhodný výběr generuje nezkreslené odhady parametrů $\alpha$ a $\beta$. Stejně jako v případě jednoduchého regresního modelu i zde vykazuje $var[u_i | x_i]$ téměř jistě známky heteroskedasticity.
+
+\section{OLS a chyba měření}
+
+V případě, že do regresního modelu zahrneme veličinu, kterou nejsme schopni přesně změřit, říkáme, že je tento model zatížen chybou měření. Problém chybného měření je koncepčně podobný výše popisovanému problému s proxy veličinami.
+
+\subsection{Závislá veličina a chyba měření}
+
+Uvažujme model
+\begin{equation}
+y^* = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k + u.
+\end{equation}
+Nechť $y$ představuje pozorovatelné měření $y^*$, kde
+\begin{equation}
+e_0 = y - y^*
+\end{equation}
+představuje chybu měření. Abychom získali model, který lze odhadnout, provedeme substituci (9.24) do (9.25), čímž získáme
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k + u + e_0,
+\end{equation}
+kde $u + e_0$ představuje chybový člen. Tímto vlastně ignoruje skutečnost, že $y$ je výsledkem nepřesného měření $y^*$.
+
+Obvyklým předpokladem je, že chyba měření obsažená v $y$ je statisticky nezávislá na vysvětlujících veličinách. Pokud je tento předpoklad splněn, pak je jsou OLS odhady modelu (9.25) nezkreslené a konzistentní a $t$, $F$ a LM statistiky jsou platné.
+
+Pokud jsou $e_0$ a $u$ nekorelované, což obvykle předpokládáme, pak $var[u + e_0] = \sigma_u^2 + \sigma_0^2 > \sigma_u^2$. Jinými slovy chyba měření v závislé veličině má za následek vetší rozptyl chybového členu a OLS odhadů.
+
+Pokud závislá veličina vystupuje v logaritmické formě, tj. jako $log(y^*)$, pak má rovnice chyby měření tvar
+\begin{equation}
+e_0 = log(y^*) - log(y)
+\end{equation}
+a chyba měření má tak multiplikativní formu $y = y^* * a_0$, kde $a_0 > 0$ a $e_0 = log(a_0)$.
+
+Závěr této kapitoly zní, že pokud je chyba měření nekorelovaná s nezávislými veličinami, mají OLS odhady žádoucí vlastnosti. V opačném případě jsou OLS odhady zkreslené.
+
+\subsection{Nezávislé veličiny a chyba měření}
+
+Uvažujme jednoduchý regresní model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1^* + u,
+\end{equation}
+který splňuje první čtyři Gauss-Markovovy předpoklady. To znamená, že aplikací OLS na tento model bychom získali nezkreslené a konzistentní odhady $\beta_0$ a $\beta_1$. Nezávislou veličinu $x_1^*$ nejsme schopni přímo pozorovat, a proto ji nahradíme jejím měřením $x_1$. Chyba měření je pak definována jako
+\begin{equation}
+e_1 = x_1 - x_1^*,
+\end{equation}
+kde předpokládáme $E[e_1] = 0$. Dalším standardním předpokladem je, že $u$ není korelované s $x_1^*$ a $x_1$, což implikuje $E[y|x_1^*, x_1] = E[y|x_1^*]$.
+
+\subsubsection{$e_1$ je nekorelované s $x_1$}
+
+Vlastnosti OLS odhadů, kdy $x_1^*$ nahradíme $x_1$, závisí zásadním způsobem na vlastnostech chyby měření (9.28). Jestliže $cov[x_1, e_1] = 0$, pak musí být $e_1$ korelováno s $x_1^*$. Dosazením (9.28) do (9.27) získáme
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + (u - \beta_1 e_1).
+\end{equation}
+Protože jsme předpokládali, že $u$ a $e_1$ mají nulovou střední hodnotu a nejsou korelované s $x_1$, má $u - \beta_1 e_1$ nulovou střední hodnotu a je nekorelované s $x_1$. Proto jsou OLS odhady pro $\beta_0$ a $\beta_1$ založené na $x_1$ konzistentní. Jelikož $u$ je nekorelované s $e_1$, je rozptyl chybového členu v (9.29) definován jako $var[u - \beta_1 e_1] = \sigma_u^2 + \beta_1^2 \sigma_{e_1}^2$. Proto, s výjimkou $\beta_1 = 0$, chyba měření zvyšuje rozptyl chybového členu. To však nemá vliv na vlastnosti OLS odhadů.\footnote{Pouze rozptyl $\hat{\beta}_j$ je větší, než kdybychom byli schopni přímo pozorovat $x_1^*$.}
+
+\subsubsection{$e_1$ je nekorelované s $x_1^*$}
+
+Předpoklad, že $e_1$ není korelované s $x_1$ je analogií k předpokladu proxy veličiny, který jsme přijali v předchozí kapitole. Analogicky však můžeme předpokládat, že $e_1$ je nekorelované s $x_1^*$, neboli
+\begin{equation}
+cov[x_1^*, e_1] = 0,
+\end{equation}
+což implikuje korelaci mezi $e_1$ a $x_1$, protože
+\begin{equation}
+cov[x_1, e_1] = E[x_1 e_1] = E[x_1^* e_1] + E[e_1^2] = 0 + \sigma_{e_1}^2 = \sigma_{e_1}^2,
+\end{equation}
+kde jsme využili vztahu $x_1 = x_1^* + e_1$. Jinými slovy, kovariance mezi $x_1$ a $e_1$ je rovna rozptylu chyby měření. Protože předpokládáme, že $u$ a $x_1$ jsou nezávislé, je kovariance mezi $x_1$ a chybovým členem $u - \beta_1 e_1$ rovna
+\begin{equation}
+cov[x, u - \beta_1 e_1] = -\beta_1 cov[x_1, e_1] = -\beta_1 \sigma_{e_1}^2.
+\end{equation}
+OLS odhady jsou tak zkreslené a nekonzistentní. Míru zkreslení pak lze kvantifikovat pomocí aparátu, který jsme představili v kapitole 5. Pravděpodobnostní limit $\hat{\beta}_1$ je $\beta_1$ navýšené o poměr kovariance mezi $x_1$ a $u - \beta_1 e_1$ a rozptylu $x_1$, tj.
+\begin{multline}
+plim(\hat{\beta}_1) = \beta_1 + \frac{cov[x_1, u - \beta_1 e_1]}{var[x_1]}\\
+= \beta_1 - \frac{\beta_1 \sigma_{e_1}^2}{\sigma_{x_1^*}^2 + \sigma_{e_1}^2} = \beta_1 \Big(1 - \frac{\beta_1 \sigma_{e_1}^2}{\sigma_{x_1^*}^2 + \sigma_{e_1}^2} \Big)\\
+= \beta_1 \Big(\frac{\sigma_{x_1^*}^2}{\sigma_{x_1^2}^2 + \sigma_{e_1}^2}\Big),
+\end{multline}
+kde jsme použili vztah $var[x_1] = var[x_1^*] + var[e_1]$. Protože $\frac{\beta_1 \sigma_{e_1}^2}{\sigma_{x_1^*}^2 + \sigma_{e_1}^2} = \frac{var[x_1^*]}{var[x_1]} < 1$, což je důsledek předpokladu $cov[x_1^*, e_1] = 0$, je $plim(\hat{\beta}_1)$ vždy blíže nule než $\beta_1$.
+
+\subsubsection{Vícerozměrný regresní model}
+
+Problematika chyby měření se zkomplikuje, pokud přidáme vícero proměnných. Pro ilustraci uvažujme model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1^* + \beta_2 x_2 + \beta_3 x_3 + u,
+\end{equation}
+kde je první z nezávislých veličin zatížená chybou měření. Předpokládejme, že $u$ není korelované s $x_1^*$, $x_2$, $x_3$ ani $x_1$. Dále předpokládejme, že chyba měření $e_1$ je nekorelována s $x_1$. Pak jsou OLS odhady $\beta_1$, $\beta_2$ a $\beta_3$ konzistentní, protože (9.34) lze zapsat ve tvaru
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + u - \beta_1 e_1,
+\end{equation}
+kde $u$ a $e_1$ jsou nekorelované se všemi nezávislými veličinami. Za předpokladu (9.30) jsou všechny OLS odhady nekonzistentní (nejenom odhad $\beta_1$), protože $e_1$ je korelované s $x_1$ v (9.35). Lze dokázat
+\begin{equation}
+plim(\hat{\beta}_1) = \beta_1 \Big(\frac{\sigma^2_{r_1^*}}{\sigma_{r_1^*}^2 + \sigma_{e_1}^2}\Big),
+\end{equation}
+kde $r_1^*$ je chyba v regresním modelu $x_1^* = \alpha_0 + \alpha_1 x_2 + \alpha_2 x_3 + r_1^*$.
+
+Pokud by bylo $x_1^*$ nekorelované se $x_2$ a $x_3$, pak byly $\hat{\beta}_2$ a $\hat{\beta}_3$ konzistentní. Tato situace však v praxi zpravidla nenastává. Obecně tak platí, že chyba měření v jedné nezávislé veličině má za následek zkreslení všech OLS odhadů.
+
+\section{Chybějící data, nenáhodné výběry a odlehlá pozorování}
+
+\subsection{Chybějící data}
+
+Pokud chybí data pro některá z pozorování, pak tato pozorování nelze použít jako vstup pro standardní vícerozměrnou regresní analýzu. Nejjednodušším řešením je tato pozorování ignorovat. Pokud však data nejsou k dipozici z určité systematické příčiny\footnote{Pro ilustraci uvažujme situaci, kdy jako nezávislou proměnnou chceme použít bohatství domácnosti. V tomto případě lze racionálně očekávat, že vysoko příjmové domácnosti tento údaj uvádět nebudou popř. ho budou mít tendenci podhodnocovat.}, kalibrujeme regresní model na nenáhodném výběru.
+
+\subsection{Nenáhodné výběry}
+
+Jak již bylo zmíněno výše, chybějící data představují problém, pokud mají za následek nenáhodný výběr. V takovém případě je porušen předpoklad MLR.2, což však nemusí mít nezbytně za následek zkreslené a nekonzistentní OLS odhady.
+
+Pro ilustraci uvažujme model úspor domácnosti
+\begin{equation}
+saving = \beta_0 + \beta_1 income + \beta_2 age + u
+\end{equation}
+založené na dotazování lidí starších 35 let, což má za následek nenáhodný výběr z populace všech dospělých lidí. Tímto způsobem jsem definovali tzv. subpopulaci a hovoříme o tzv. exogenním výběru vzorku (exogenous sample selection). Odhadem výše uvedeného regresního modelu tak můžeme získat nezkreslené odhady parametrů pro tuto subpopulaci, tj. pro lidi starší 35 let. Pokud závislá veličina i nezávislé veličiny vykazují v rámci subpopulace dostatečnou variaci, nepředstavuje výběr na základě některé z nezávislých veličin z pohledu zkreslení či nekonzistence OLS odhadů problém.
+
+Situace se však mění, pokud je výběr vzorku založen na závislé veličině. V takovém případě hovoříme o endogenním výběru vzorku (endogenous sample selection). Pro ilustraci uvažujme model, který vysvětluje bohatství populace všech dospělých jedinců
+\begin{equation}
+wealth = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 age + u.
+\end{equation}
+Předpokládejme, že pouze lidé s majetkem pod 250,000 USD jsou zařazeni do výběru. Tento nenáhodný výběr bude mít za následek zkreslené OLS odhadů uvažovaného modelu.
+
+Další situací, která může vést k nenáhodnému výběru je tzv. stratifikovaný výběr (stratified sampling), v rámci kterého je populace rozdělena do nepřekrývajících se skupin. Náhodný výběr z některých skupin pak může být častější nebo méně častý, než by odpovídalo jejich zastoupení v populaci. To má pochopitelně za následek nenáhodný výběr, což vede ke zkresleným a nekonzistentním OLS odhadům.
+
+\subsection{Odlehlá pozorování}
+
+Zejména v případě výběrů malého rozsahu jsou OLS odhady citlivé na přidání jednoho nebo několika málo pozorování. Pozorování považujeme za odlehlé, pokud jeho přidání do náhodného výběru má ``zásadní'' vliv na OLS odhady uvažovaného regresního modelu. Připomeňme, že OLS metoda je založena na minimalizace součtu čtverců reziduí a i jedno odlehlé pozorování tak můžeme významně ovlivnit odhad parametrů.
+
+To, zda-li odlehlá pozorování v náhodném výběru ponechat, závisí na tom, jestli se domníváme, že jsou chybná (např. záměna kilogramů za tuny) či nikoliv. V prvním případě je vhodné pozorování vyřadit, v druhém případě můžeme pozorování ve výběru ponechat. Další možností je vykazovat dvě sady OLS odhadů.
+
+Ve většině případů se odlehlá pozorování ``identifikují'' vizuálně. Někdy jsou odlehlá pozorování definovaná velikostí jejich reziduí v OLS regresi. To však není vhodný přístup, protože OLS odhady jsou zvoleny tak, aby byl minimalizován součet čtverců všech reziduí.
+
+Studentizovaná rezidua (studentized residuals) lze získat z původních reziduí vydělením odhadem jejich směrodatné odchylky. Studentizované rezidum lze pro konkrétní pozorování určit relativně snadno. Nejprve definujeme binární veličinu rovnu jedné pro to které konkrétní pozorování. Tuto binární veličinu následně zahrneme společně s ostatními nezávislými veličinami do regresního modelu. Koeficient binární veličiny má užitečnou interpretaci - jedná se o reziduum uvažovaného pozorování vypočtené pro regresní přímku pro zbývající pozorování. Tento koeficient nám tedy říká, jak daleko je pozorování od regresní přímky, pokud bychom toto pozorování vyřadili z náhodného výběru. Navíc je $t$ statistika binární veličiny rovna studentizovanému reziduu našeho pozorování. Tato $t$ statistika sleduje $t_{n-k-1}$ rozdělení. Vysoká absolutní hodnota $t$ statistiky indikuje reziduum, které je relativně vysoké k odhadované směrodatné odchylce. Tímto způsobem je možné (alespoň teoreticky) identifikovat odlehlá pozorování. Bohužel velikost studentizovaného rezidua nemusí odpovídat jeho vlivu na OLS odhady. Může tak nastat situace, kdy určité pozorování má vysoké studentizované reziduum, avšak jeho vyloučení z modelu má pouze zanedbatelný dopad na OLS odhady.
+
+Závěrem je vhodné zmínit, že určité funkcionální formy mohou zmírnit dopad odlehlých pozorování na OLS odhady. Klasickým příkladem je logaritmická funkce, která významně zúží obor hodnot, čímž ``přitáhne'' odlehlé pozorování blíže jádru ostatních pozorování. Vliv odlehlého pozorování na OLS odhady se tak sníží.
+
+\section{Odhad metodou nejmenší absolutní odchylky}
+
+Alternativou ke snaze identifikovat odlehlá pozorování je použít metodu odhadu, která je na extrémní hodnoty pozorování méně citlivá. Jednou z takových metod je odhad metodou nejmenší absolutní odchylky [least absolute deviation (LAD)], která minimalizuje
+\begin{equation}
+\min\limits_{b_0, b_1, ..., b_k} \sum_{i = 1}^n |y_i - b_0 - b_1 x_{i1} - ... - b_k x_{ik}|.
+\end{equation}
+Na rozdíl od OLS odhadů neexistuje analytická forma LAD odhadů, tj. nemůžeme je vyjádřit formou rovnice a musíme je řešit numericky.
+
+Metoda odhadu LAD na rozdíl od OLS nepřikládá vyšší váhu extrémním reziduím a je tak mnohem méně citlivá na odlehlá pozorování. LAD odhaduje jednotlivé parametry regresního modelu s ohledem na podmíněný medián $y$. Naproti tomu OLS se opírá o podmíněnou střední hodnotu $y$. Protože medián není dotčen extrémními hodnotami, jsou také LAD ``odolné'' vůči odlehlým pozorováním.
+
+Bohužel zásadní nevýhodou LAD metody je, že testování parametrů a konstrukce intervalů spolehlivosti jsou platné pouze pro náhodné výběry velkého rozsahu. Odpovídající matematické formule jsou navíc poměrně komplikované. Další nevýhodou LAD je, že ne vždy konzistentně odhaduje parametry v podmíněné očekávané hodnoty $E[y|x_1, ..., x_k]$; jak již bylo zmíněno dříve, LAD metoda je určena pro odhad dopadů na podmíněný medián nikoliv střední hodnotu.\footnote{Pokud jsou metody LAD a OLS aplikované v případech s asymetrickým pravděpodobnostním rozdělením, pak dopad změna nezávislé veličiny $x_i$ na odhad závislé veličiny $y$ se může pro LAD a OLS metodu zásadně lišit.}
+
+Pokud je populační chyba $u$ nezávislá na $(x_1, ..., x_k)$, pak by se OLS a LAD odhady sklonů měly lišit pouze z titulu výběrové chyby bez ohledu na to, zda-li je $u$ symetrické či nikoliv. Nicméně odhady průsečíků se budou lišit, protože pokud je střední hodnota $u$ nulová, pak medián $u$ je různý od nuly, pokud je $u$ asymetrické. Naneštěstí je v případ LAD metody předpoklad nezávislosti mezi $u$ a $(x_1, ..., x_k)$ často nerealisticky silný. Nezávislost pak vylučuje heteroskedasticitu, což je problém, který často vyvstává v případě asymetrických rozdělení.

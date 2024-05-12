@@ -1,0 +1,29 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{PX index}
+
+\section{Výpočet}
+
+PX index je hlavním idexem Pražské burzy. Výpočet indexu je dán vzorcem
+\begin{equation*}
+PX = K(t)\frac{M(t)}{M(0)} \cdot 1000
+\end{equation*}
+kde $K(t)$ je tzv. chaining faktor\footnote{Chaining faktor slouží k přepočtu báze PX indexu, aby nedocházelo k cenovým skokům v důsledku její pouhé změny. Pomocí chaining faktoru je tedy zajištěna "cenová kontinuita" indexu. Tento faktor se průběžně mění a je k dispozici na stránkách www.pse.cz.}, $M(t)$ představuje aktuální tržní kapitalizaci indexu, $M(0)$ je tržní kapitalizací indexu v roce 1994\footnote{Hodnota parametru $M(0)$ je tudíž neměnná a rovna 379,786,853,620 CZK}.
+
+Bloomberg používá namísto chaing faktoru tzv. divisor. Vztah mezi chaining faktorem $K(t)$ a divisorem $D(t)$ je dán rovnicí
+\begin{equation*}
+D(t) = \frac{M(0)}{K(t) \cdot 10^9}
+\end{equation*}
+
+\section{Databáze}
+Hodnoty potřebné pro výpočet PX indexu jsou k dispozici v tabulce RM01..LIM\_IndexWeight. Do této tabulky jsou případné změny dohrány automaticky spouštěným skriptem\footnote{Konkrétně se jedná o skript PXIndexWeights.vbs.} z počítače WA1000079\footnote{Jedná se o počítač s Bloombergem.}. Velice často se stává, že Bloomberg zapomene provést aktualizaci údajů po té, co byla změněna báze. V tomto případě je třeba poslat požadavek na Bloomberg Help, kde tento problém obratem ruky vyřeší.
+
+\end{document}

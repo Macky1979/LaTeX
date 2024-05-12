@@ -1,0 +1,2571 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\title{Matematika finanœô ­ních derivátœô¡¯}
+\author{John Wilmott, Sam Howison, Jeff Dewynne}
+\date{1995}
+\maketitle
+
+\tableofcontents
+
+\part{Základy teorie opcí}
+
+\chapter{Úvod}
+
+\section{Evropská kupní a prodejní opce}
+
+Evropská kupní opce je kontrakt, jehoœô¡¾ vlastník mœô¡¯œô¡¾e v pœô ùedem dohodnutém budoucím œô ­ase (tzv. maturitœô » nebo splatnosti opce) koupit dohodnutné moœô¡¾noství podkladového aktiva (napœô ù. akcii, komoditu nebo dluhopis) za tzv. realizaœô ­ní cenu, která je taktéœô¡¾ pœô ùedem dohodnuta. Druhá strana kontraktu, tzv. vypisovatel opce, musí, je-li k tomu vlastníkem opce vyzván, podkladové aktivum za dohodnutou cenu prodat. Právo rozhodnout, zda-li bude opce uplatnœô »na, je tedy na stranœô » jejího vlastníka. Vypisovatel opce je tak proti majiteli v nevıhodœô », za coœô¡¾ mu náleœô¡¾í finanœô ­ní kompenzace - tzv. prémium. Prémium tak pœô ùedstavuje ocenœô »ní práva majitele opce rozhodnout o jejím pœô ùípadném uplatnœô »ní. Prémium je vypláceno v okamœô¡¾iku uzavœô ùení opce.
+
+Evropská prodejní opce je identická s evropskou kupní opcí s tím rozdílem, œô¡¾e její majitel má právo podkladové aktivum prodat nikoliv nakoupit.
+
+\section{Pákovı efekt}
+
+S opcemi je spojen tzv. pákovı efekt. Ten umoœô¡¾œô èuje investorovi dosáhnout vœô »tœô¡¡í rizikové expozice portfolia, neœô¡¾ kdyby investoval pœô ùímo do podkladového aktiva.
+
+Mœô »jme akcii, jejíœô¡¾ souœô ­asná hodnota je 110 USD a kterou investor koupil pœô ùed rokem za 100 USD. Investor tak dosáhl vınosu 10 USD. Uvaœô¡¾ujme kupní opce na tuto akcii s realizaœô ­ní cenou 100 USD. Jestliœô¡¾e by se tato opce prodávala pœô ùed rokem za prémium 5 USD, mohl investor namísto akcie nakoupit 20 opcí. Dnes by tak realizoval œô ­istı zisk 100 USD. Jestliœô¡¾e by vœô¡¡ak souœô ­asná cena akcie klesla na 90 USD, byla by ztráta v prvním pœô ùípadœô » pouze 10 USD zatímco v druhém pœô ùípadœô » celıch 100 USD.
+
+\section{Spekulativní a zajiœô¡¡œô¡¥ovací obchody}
+
+Díky pákovému efektu jsou opce optimálním nástrojem pro spekulativní obchody - umoœô¡¾œô èují vœô »tœô¡¡í rizikovou expozici neœô¡¾ by bylo moœô¡¾né pœô ùi investování do podkladového aktiva. V pœô ùípadœô », œô¡¾e spekulant správnœô » odhadne budoucí vıvoj na trhu, mœô¡¯œô¡¾e dosáhnout nœô »kolikanásobného zisku v porovnání s vınosem podkladového aktiva.
+
+Jestliœô¡¾e chce investor spekulovat na pokles ceny opce mœô¡¯œô¡¾e si koupit prodejní opci popœô ù. vypsat kupní opci. V prvním pœô ùípadœô » nebude potenciální zisk shora omezen a maximální ztráta bude dána zaplacenım prémiem. V druhém pœô ùípadœô » naopak není omezena potenciální ztráta, avœô¡¡ak potenciální zisk shora omezen obdrœô¡¾enım prémiem. Dalœô¡¡í rozdíl je ten, œô¡¾e nákup opce vyœô¡¾aduje prvnostní investici v podobnœô » uhrazené prémie, kdeœô¡¾to prodej opce naopak pœô ùedstavuje cash-in-flow.
+
+V pœô ùípadœô » spekulace na rœô¡¯st ceny akcie by investor kupoval kupní opci nebo vypisoval prodejní opci.\\
+
+Opce jsou také zajiœô¡¡œô¡¥ovacím nástrojem, tzv. slouœô¡¾í naopak ke sníœô¡¾ení rizikové expozice portfolia. Jestliœô¡¾e napœô ù. investor má nakoupenou akcii, mœô¡¯œô¡¾e potenciální ztrátu z této pozice eliminovat koupí prodejní opce.
+
+\section{Ostatní typy opcí}
+
+Vıœô¡¡e uvaœô¡¾ované opce byly evropské. Takováto opce mœô¡¯œô¡¾e bıt uplatnœô »na pouze v okamœô¡¾iku své splatnosti. Vedle evropské opce existuje také opce americká, která mœô¡¯œô¡¾e bıt uplatnœô »na kdykoliv bœô »hem své œô¡¾ivotnosti. Tato zdánlivœô » drobná odliœô¡¡nost má zásadní vıznam pro ocenœô »ní opce.
+
+Dalœô¡¡í rovinou rozliœô¡¡ení je dœô »lení opcí podle zpœô¡¯sobu stanovení vıplaty. Vedle klasickıch opcí, kdy je vıplata dána rozdílem realizaœô ­ní a aktuální ceny podkladového aktiva, existují tzv. exotické opce. V pœô ùípadœô » exotickıch opcí mœô¡¯œô¡¾e vıplata záviset na vıvoji ceny podkladového aktiva v prœô¡¯bœô »hu œô¡¾ivotnosti opce (napœô ù. asijská opce) nebo mœô¡¯œô¡¾e bıt dána konkrétní œô ­ástkou v závislosti na tom, zda-li cena podkladového aktiva protne urœô ­itou hranici (napœô ù. binární opce).
+
+\section{Forwardové kontrakty a futures}
+
+O opcích se œô ­asto hovoœô ùí jako o derivátech. Derivátem je obecnœô » finanœô ­ní instrument, jehoœô¡¾ cena je odvozena o jiného tzv. podkladového aktiva. Mezi deriváty spadají také tzv. forwardové kontrakty a futures. V obou pœô ùípadech se jedná o obchody, kdy má jedna zúœô ­astnœô »ná strana povinnost prodat a druhá koupit v pœô ùedem smluvenı budoucí œô ­asovı okamœô¡¾ik pœô ùedem dohodnutı objem podkladového aktiva za pœô ùedem dohodnutou cenu.
+
+Forwardové kontrakty jsou tzv. over-the-counter (OTC) obchody. To znamená, œô¡¾e jsou uzavírány pœô ùímo mezi zúœô ­astnœô »nımi subjekty bez úœô ­asti tœô ùetí osoby (klasicky banka a její klient). Vıhodou forwardovıch kontraktœô¡¯ je flexibilita podmínek pœô ùi sjednávání obchodu. Naproti tomu futures jsou standardizované obchody, které jsou provádœô »ny pœô ùes prostœô ùedníka, kterım je burza. Pœô ùedmœô »tem standardizace je podkladové aktivum (obchody je moœô¡¾né sjednávat pouze na vybraná aktiva), minimální objem obchodu a datum splatnosti. Vedle toho musí zúœô ­astnœô »né subjekty u burzy udrœô¡¾ovat hotovost na tzv. marœô¡¾ovıch úœô ­tech. Marœô¡¾e má za cíl pokrıt pœô ùípadné ztráty zúœô ­astnœô »nıch subjektœô¡¯ z titulu nepœô ùíznivého vıvoje cen podkladového aktiva a sniœô¡¾uje tak kreditní riziko protistrany.
+
+Vzhledem k tomu, œô¡¾e obœô » protistrany mají narozdíl od opce rovnocenné postavení, není ani jedna ze zœô¡¯œô ­astnœô »nıch stran pœô ùíjemcem prémia. Vstup do forwardového kontraktu popœô ù. futures by tedy nemœô »l obnáœô¡¡et œô¡¾ádné náklady\footnote{V pœô ùípadœô » forwardovıch kontraktœô¡¯ vœô¡¡ak banka úœô ­tuje klientovi provizi. Ta mœô¡¯œô¡¾e mít podobu pœô ùímé platby nebo, coœô¡¾ je bœô »œô¡¾nœô »jœô¡¡í, formu ménœô » vıhodné forwardové ceny, za kterou je na konci splatnosti podkladové aktivum prodáváno popœô ù. nakupováno.}.
+
+\section{Úrokové sazby a souœô ­asná hodnota}
+
+Poloœô¡¾me si otázku, kolik bych musel nyní vloœô¡¾it na úœô ­et u banky, aby v œô ­ase $T$ byla vıœô¡¡e depozita rovna œô ­ástce $E$. Jestliœô¡¾e budeme uvaœô¡¾ovat kontinuální úroœô ­ení a konstatní úrokovou sazbu $r$, je rœô¡¯st depozita dán diferenciální rovnicí
+\begin{equation*}
+\frac{dM(t)}{M(t)}=r~dt
+\end{equation*}
+Tuto diferenciální rovnici lze vyœô ùeœô¡¡it pomocí standardní metody separace promœô »nnıch.
+\begin{equation*}
+\frac{1}{M(t)}\frac{dM(t)}{dt} = r
+\end{equation*}
+\begin{equation*}
+\int \frac{1}{M(t)}\frac{dM(t)}{dt} dt = \int r dt
+\end{equation*}
+\begin{equation*}
+\int \frac{1}{M(t)}dM(t) = \int r dt
+\end{equation*}
+\begin{equation*}
+\ln(M(t)) = rt + c
+\end{equation*}
+\begin{equation*}
+M(t) = e^c e^{rt}
+\end{equation*}
+\begin{equation*}
+M(t) = C e^{rt}
+\end{equation*}
+Protoœô¡¾e v œô ­ase $t = 0$ musí platit $M(0) = C$, je vıslednı tvar œô ùeœô¡¡ení
+\begin{equation*}
+M(t)=M(0)e^{rt}
+\end{equation*}
+kde $M(0)$ je poœô ­áteœô ­ní vıœô¡¡e depozita. Vzhledem k tomu, œô¡¾e $M(T) = E$ a hledanou veliœô ­inou je $M(0)$, platí
+\begin{equation*}
+M(0)=Ee^{-rT}
+\end{equation*}
+Jestliœô¡¾e bychom tedy dnes uloœô¡¾ili do banky œô ­ástku $Ee^{-rT}$, disponovali bychom v œô ­ase $T$ depozitem ve vıœô¡¡i $E$. Souœô ­asná hodnota œô ­ástky $E$, kterou obdrœô¡¾íme v œô ­ase $T$, je tak rovna  $Ee^{-rT}$.
+
+Kdyby úroková míra $r(t)$ byla funkcí œô ­asu, bylo by moœô¡¾né vıœô¡¡e uvedenou rovnici vyjádœô ùit ve tvaru
+\begin{equation*}
+M(0)=Ee^{-\int_0^Tr(s)ds}
+\end{equation*}
+
+\chapter{Náhodná procházka}
+
+\section{Úvod}
+
+Základním kamenem oceœô èování opcí je pœô ùedpoklad, œô¡¾e cena podkladového aktiva sleduje tzv. náhodnou procházku (random walk). V souladu s touto teorií je na cenu podkladového aktiva nahlíœô¡¾eno jako na náhodnou veliœô ­inu. U té sice nejsme schopni urœô ­it její hodnotu k urœô ­itému okamœô¡¾iku v budoucnu, nicménœô » na základœô » historickıch pozorování jsme schopni zkonstruovat její pravdœô »podobnostní rozdœô »lení. Pomocí tohoto rozdœô »lení je pak moœô¡¾né napœô ù. urœô ­it, s jakou pravdœô »podobností cena pœô ùekroœô ­í urœô ­itou úroveœô è.
+
+Teorie náhodné procházky vychází z teorie efektivních trhœô¡¯. Podle této teorie je cena podkladového aktiva formována novımi informacemi, kdy jsou vœô¡¡echny veœô ùejnœô » dostupné informace okamœô¡¾itœô » promítnuty v cenœô » podkladového aktiva. Souœô ­asná cena ani její vıvoj v minulosti tak jiœô¡¾ neobsahují œô¡¾ádnou ``cenotvornou'' informaci a nelze ji tak pouœô¡¾ít pro predikci budoucí ceny. Jak jiœô¡¾ bylo zmínœô »no, neznamená to, œô¡¾e by historická cena podkladového aktiva nemœô »la vœô¡¯bec œô¡¾ádnou vypovídací hodnotu. Historickı vıvoj totiœô¡¾ slouœô¡¾í jako základ pro odhad pravdœô »podobnostního rozdœô »lení ceny podkladového aktiva.
+
+\section{Modelování ceny podkladového aktiva}
+
+Pœô ùedpokládejme, œô¡¾e spotová cena podkladového aktiva je $S$. Uvaœô¡¾ujme œô ­asovı interval $dt$\footnote{V následujícím textu budeme pouœô¡¾ívat oznaœô ­ení $d \cdot$ pro nekoneœô ­nœô » malé zmœô »ny veliœô ­iny $\cdot$.}, bœô »hem kterého se tato cena zmœô »ní z $S$ na $S + dS$.
+\begin{center}
+	\begin{pspicture}(0,0)(9,6)
+		\rput(4.5,0){Diskrétní verze náhodné procházky}
+
+		\psline[arrows=->](1.0,1.0)(8.5,1.0)
+		\psline[arrows=->](1.0,1.0)(1.0,5.5)
+		\psline[linewidth=0.5mm](1.0,2.5)(2.5,3.0)(4.0,4.0)(5.5,3.5)(7.0,5.5)(8.5,5.7)
+
+                \psline[linestyle=dotted](2.5,0.8)(2.5,3.0)
+                \psline[linestyle=dotted](4.0,0.8)(4.0,4.0)
+
+                \psline[linestyle=dotted](0.8,3.0)(2.5,3.0)
+                \psline[linestyle=dotted](0.8,4.0)(4.0,4.0)
+
+                \rput(8.5,0.8){\small{t}}
+                \rput(0.6,5.5){\small{S(t)}}
+
+                \rput(3.25,0.8){\tiny{dt}}
+                \rput(0.70,3.5){\tiny{dS}}
+	\end{pspicture}
+\end{center}
+Nejbœô »œô¡¾nœô »jœô¡¡ím pœô ùístupem k modelování $dS$ je její rozloœô¡¾ení na dvœô » sloœô¡¾ky.
+
+První sloœô¡¾ka je deterministická a její pœô ùíspœô »vek k $dS/S$ je roven
+\begin{equation*}
+\mu dt
+\end{equation*}
+kde $\mu$ pœô ùedstavuje prœô¡¯mœô »rnou míru rœô¡¯stu uvaœô¡¾ovaného podkladového aktiva. V jednoduœô¡¡œô¡¡ích modelech je $\mu$ konstantní, ve sloœô¡¾itœô »jœô¡¡ích je pak pak funkcí $S$ a $t$.
+
+Druhá sloœô¡¾ka je stochastická a pœô ùedstavuje zmœô »nu ceny aktiva v závislosti na externích faktorech (napœô ù. pœô ùísun novıch informací). Její pœô ùíspœô »vek k $dS/S$ je dán náhodnım vıbœô »rem z normálního rozdœô »lení s nulovou stœô ùední hodnotou.
+\begin{equation*}
+\sigma dX
+\end{equation*}
+Parametr $dX$ pœô ùedstavuje náhodnı vıbœô »r z normálního rozdœô »lení a $\sigma$ smœô »rodatnou odchylku vınosové míry uvaœô¡¾ovaného podkladového aktiva (k tomuto parametru se vrátíme pozdœô »ji).
+
+Jestliœô¡¾e obœô » sloœô¡¾ky spojíme, získáváme stochastickou diferenciální rovnici
+\begin{equation}
+\frac{dS}{S}=\mu dt + \sigma dX
+\end{equation}
+
+V pœô ùípadœô », œô¡¾e by $\sigma$ bylo rovno nule, získali bychom standardní diferenciální rovnici
+\begin{equation*}
+\frac{dS}{S}=\mu dt
+\end{equation*}
+jejímœô¡¾ œô ùeœô¡¡ením je
+\begin{equation*}
+S(t)=S(0)e^{\mu t}
+\end{equation*}
+kde $S(0)$ je poœô ­áteœô ­ní cena podkladového aktiva. Jestliœô¡¾e je tedy $\sigma$ rovno nule, je cena podkladového aktiva deterministická a jsme schopni urœô ­it její hodnotu v libovolném œô ­asovém okamœô¡¾iku.
+
+\section{Wienerœô¡¯v proces}
+
+Parametr $dX$, kterı pœô ùedstavuje náhodnost ve vıvoji budoucí ceny podkladového aktiva, je tzv. Wienerœô¡¯v proces. Tento proces má následující vlastnosti:
+\begin{itemize}
+\item $dX$ je náhodnım vıbœô »rem z normálního rozdœô »lení
+\item stœô ùední hodnota $dX$ je nulová
+\item rozptyl $dX$ je $dt$
+\end{itemize}
+Parametr $dX$ je tak moœô¡¾né rozepsat ve tvaru
+\begin{equation*}
+dX = \phi \sqrt{dt}
+\end{equation*}
+kde $\phi$ je náhodnım vıbœô »rem z normovaného normálního rozdœô »lení. Rovnice (2.1) tak pœô ùejde do tvaru
+\begin{equation}
+\frac{dS}{S}=\mu dt + \sigma \phi \sqrt{dt}
+\end{equation}
+Hustota pravdœô »podobnosti náhodné veliœô ­iny $\phi$ je
+\begin{equation*}
+\frac{1}{\sqrt{2 \pi}}e^{-\frac{1}{2}\phi^2}
+\end{equation*}
+Nechœô¡¥ $F$ je libovolná spojitá funkce. Definujme oœô ­ekávanou hodnotu funkce $F$ jako
+\begin{equation*}
+\varepsilon[F(\cdot)]=\frac{1}{\sqrt{2 \pi}}\int_{-\infty}^{\infty}F(\phi)e^{-\frac{1}{2}\phi^2}d\phi
+\end{equation*}
+Pro $F(\phi) = \phi$ platí 
+\begin{equation*}
+\varepsilon[\phi]=0
+\end{equation*}
+\begin{equation*}
+\varepsilon[\phi^2]=1
+\end{equation*}
+
+Parametr $dX$ je násobkem $\sqrt{dt}$, protoœô¡¾e volba jiného œô ùádu neœô¡¾ $\sqrt{dt}$ by vedla k problémœô¡¯m pro $dt \rightarrow 0$. V tomto pœô ùípadœô », kterı bude klíœô ­ovı pro dalœô¡¡í analızy, by totiœô¡¾ œô ùeœô¡¡ení bylo buœô ¯to nesmyslné nebo triviální.
+
+Rovnice (2.1) má tu vıhodu, œô¡¾e dobœô ùe odpovídá reálnım datœô¡¯m pro akcie a akciové indexy\footnote{V pœô ùípadœô » mœô »novıch párœô¡¯ je vœô¡¡ak tato shoda ponœô »kud horœô¡¡í a to zejména v dlouhodobém horizontu.}. Její aplikace je tedy obhajitelná nejen na teoretickém ale také praktickém základœô ».
+
+Jestliœô¡¾e je cena podkladového aktiva dána rovnicí (2.1), má cena $S$ charakter náhodné veliœô ­iny, kterou lze popsat lognormálním rozdœô »lením. Jestliœô¡¾e je relativní zmœô »na ceny podkladového aktiva vyjádœô ùena pomocí logaritmu jako
+\begin{equation*}
+\ln \frac{S(t_{i+1})}{S(t_i)}
+\end{equation*}
+sleduje tato zmœô »na normální rozdœô »lení. To lze dokázat následujícím zpœô¡¯sobem. Jestliœô¡¾e náhodná veliœô ­ina $x$ sleduje lognormální rozdœô »lení, vyplıvá z definice tohoto rozdœô »lení, œô¡¾e náhodná veliœô ­ina $\ln x$ sleduje normální rozdœô »lení. Vzhledem k tomu, œô¡¾e
+\begin{equation*}
+\ln \frac{S(t_{i+1})}{S(t_i)} = \ln S(t_{i+1}) - \ln S(t_{i})
+\end{equation*}
+a skuteœô ­nosti, œô¡¾e lineární kombinací dvou náhodnıch veliœô ­in sledujících normální rozdœô »lení získáme náhodnou veliœô ­inu, která opœô »t sleduje normální rozdœô »lení, je vıœô¡¡e uvedené tvrzení pravdivé.
+
+\section{Modelování ceny podkladového aktiva}
+
+Pomocí rovnice (2.1) resp. (2.2) je také moœô¡¾né modelovat vıvoj ceny podkladového aktiva. Z historickıch dat se nejprve vypoœô ­tou odhady parametrœô¡¯ $\mu$ a $\sigma^2$.
+\begin{equation*}
+\hat{m} = \frac{1}{n dt}\sum^{n-1}_{i=0}\frac{S_{i+1}-S_i}{S_i}
+\end{equation*}
+\begin{equation*}
+\hat{\sigma}^2 = \frac{1}{(n-1) dt}\sum^{n-1}_{i=0}\Big(\frac{S_{i+1}-S_i}{S_i-\hat{m}}\Big)^2
+\end{equation*}
+V druhém kroce získáme pomocí náhodného vıbœô »ru z normovaného normálního rozdœô »lení hodnotu parametru $\phi$. V tœô ùetím kroce dosazením do (2.2) vypoœô ­teme relativní zmœô »nu podkladového aktiva v œô ­asovém intervalu $dt$. Opakovaním druhého a tœô ùetího kroku je moœô¡¾né modelovat vıvoj ceny podkladového aktiva v œô ­ase.
+
+\section{Markovova vlastnost}
+
+Uvaœô¡¾ujme na vlastnostmi rovnice (2.1). Tato rovnice se neodvolává na historické ceny. Cena podkladového aktiva $S + dS$ v œô ­ase $t + dt$ je vıhradnœô » závislá na spotové cenœô » $S$. Tuto nezávislost na minulém vıvoji nazıváme Markovovou vlastností (Markov property). Dále uvaœô¡¾ujme prœô¡¯mœô »r náhodné veliœô ­iny $dS$. Platí
+\begin{equation*}
+\varepsilon[dS]=\varepsilon[\mu S dt + \sigma S dX]=\mu S dt
+\end{equation*}
+protoœô¡¾e $\varepsilon[dX]=0$. V prœô¡¯mœô »ru je tak kaœô¡¾dá následující hodnota vyœô¡¡œô¡¡í neœô¡¾ ta pœô ùedeœô¡¡lá o $\mu S dt$. Rozptyl náhodné veliœô ­iny $dS$ je pak roven
+\begin{equation*}
+D[dS]=\varepsilon[dS^2]-\varepsilon[dS]^2=\varepsilon[\sigma^2S^2dX^2]=\sigma^2S^2dt
+\end{equation*}
+Druhá odmocnina rozptylu je smœô »rodatná odchylka, která je tak proporcionální k $\sigma$.
+
+\section{It\^o lemma}
+
+Odvození It\^o lemmy se opírá o mezivısledek
+\begin{equation}
+ dX^2 = dt
+\end{equation}
+kterı je platnı pro $dt \rightarrow 0$. Pœô ùipomeœô ème, œô¡¾e $dX$ lze vyjádœô ùit jako
+\begin{equation*}
+dX = \phi \sqrt{dt}
+\end{equation*} 
+Pro $dt \rightarrow 0$ je stœô ùední hodnota náhodné veliœô ­iny $dX^2$ rovna
+\begin{equation*}
+E[dX^2] = E[\phi^2 dt]
+\end{equation*}
+\begin{equation*}
+E[dX^2] = dt E[\phi^2]
+\end{equation*}
+\begin{equation*}
+E[dX^2] = dt
+\end{equation*}
+a její rozptyl roven
+\begin{equation*}
+D[dX^2] = E[(\phi^2 dt)^2] - E[\phi^2 dt]^2
+\end{equation*}
+\begin{equation*}
+D[dX^2] = dt^2E[\phi^4] - dt^2E[\phi^2]
+\end{equation*}
+Vzhledem k tomu, œô¡¾e pro $dt \rightarrow 0$ je $dt^2 \approx 0$, platí 
+\begin{equation*}
+D[dX^2] = 0
+\end{equation*}
+Pro $dt \rightarrow 0$ tedy mœô¡¯œô¡¾eme náhodnou veliœô ­inu $dX^2$ povaœô¡¾ovat za deterministickou a rovnu $dt$.
+
+Nyní uvaœô¡¾ujme hladkou funkci $f(S)$ a na okamœô¡¾ik zapomeœô ème, œô¡¾e $S$ je náhodná veliœô ­ina. Je zœô ùejmé, œô¡¾e zmœô »ní-li se $S$ o $dS$, zmœô »ní se také $f(S)$. Tuto zmœô »nu je moœô¡¾né vyjádœô ùit pomocí Taylorova rozvoje jako
+\begin{equation*}
+f(S + dS) - f(S) = \frac{\partial f(S)}{\partial S}dS + \frac{1}{2}\frac{\partial^2f(S)}{\partial S^2}dS^2 + ...
+\end{equation*}
+\begin{equation}
+df(S) = \frac{\partial f(S)}{\partial S}dS + \frac{1}{2}\frac{\partial^2f(S)}{\partial S^2}dS^2 + ...
+\end{equation}
+Nyní se vraœô¡¥me zpœô »t k rovnici (2.1). Dle této rovnice platí
+\begin{equation*}
+dS^2 = (\mu Sdt + \sigma S dX)^2
+\end{equation*}
+\begin{equation*}
+dS^2 = \mu^2S^2dt^2 + 2\mu \sigma S^2dtdX + \sigma^2 S^2 dX^2
+\end{equation*}
+Jestliœô¡¾e pouœô¡¾ijeme mezivısledek (2.3) a zanedbáme vœô¡¡echny œô ­leny œô ùádu $dt^2$, pœô ùejde pro $dt \rightarrow 0$ vıœô¡¡e uvedená rovnice do tvaru
+\begin{equation*}
+dS^2 = \sigma^2 S^2 dt
+\end{equation*}
+Dosazením do (2.4) a opœô »tovnım zanedbáním vœô¡¡ech œô ­lenœô¡¯ vyœô¡¡œô¡¡ího œô ùádu neœô¡¾ $dt$ získáváme
+\begin{equation*}
+df(S) = \frac{\partial f(S)}{\partial S}(\mu S dt + \sigma S dX) + \frac{1}{2}\frac{\partial^2f(S)}{\partial S^2}\sigma^2 S^2 dt
+\end{equation*}
+\begin{equation}
+df(S) = \Big( \mu S\frac{\partial f(S)}{\partial S} + \frac{1}{2}\frac{\partial^2f(S)}{\partial S^2}\sigma^2 S^2 \Big)dt + \sigma S\frac{\partial f(S)}{\partial S}dX
+\end{equation}
+Rovnice (2.5) je základní podobnou It\^o lemmy, která se zabıvá zmœô »nou funkce náhodné veliœô ­iny v dœô¡¯sledku infinityzimální zmœô »ny náhodné veliœô ­iny samotné. To, œô¡¾e náhodná veliœô ­ina $dX$ je œô ùádu $dt$ je dœô¡¯leœô¡¾ité pro analızy, které budou následovat. Lze dokázat, œô¡¾e volba jiného œô ùádu by vedla k nerealistickım vlastnostem modelu vıvoje ceny podkladového aktiva pro $dt \rightarrow 0$. Jestliœô¡¾e by $dX \gg \sqrt{dt}$, byla by hodnota náhodné veliœô ­iny $dS$ rovna nule nebo nekoneœô ­nu. Je-li naopak $dX \ll \sqrt{dt}$, stane se z ceny podkladového aktiva deterministická veliœô ­ina namísto stochastické.
+
+Rovnice (2.5) se skládá ze stochatické sloœô¡¾ky, která je násobkem $dX$, a deterministické sloœô¡¾ky, která je násobkem $dt$. Z tohoto pohledu pœô ùipomíná rovnice (2.5) rovnici (2.1). It\^o lemma také umoœô¡¾œô èuje zkoumání chování funkce $f(S)$, která, stejnœô » jako cena podkladového aktiva, sleduje náhodnou procházku.
+
+Rovnici (2.5) je moœô¡¾né dále zobecnit za pœô ùedpokladu, œô¡¾e $f$ je nejen funkcí $S$, ale také funkcí $t$. S pomocí Taylorova rozvoje lze funkci $f(S,t)$ vyjádœô ùit jako
+\begin{equation*}
+f(S + dS, t + dt) - f(S,t) = \frac{\partial f(S,t)}{\partial S}dS +  \frac{\partial f(S,t)}{\partial t}dt + 
+\end{equation*}
+\begin{equation*}
++ \frac{1}{2}\frac{\partial^2 f(S,t)}{\partial S^2}dS^2 + \frac{1}{2}\frac{\partial^2 f(S,t)}{\partial S^2}dt^2 + \frac{\partial^2 f(S,t)}{\partial S \partial t}dSdt + ...
+\end{equation*}
+Jestliœô¡¾e zanedbáme vœô¡¡echny œô ­leny, které mají vyœô¡¡œô¡¡í œô ùád neœô¡¾ $dt$, lze s vyuœô¡¾itím (2.1) a (2.3) pœô ùepsat vıœô¡¡e uvedenou rovnici do tvaru
+\begin{equation}
+df(S,t) = \Big(\mu S \frac{\partial f(S,t)}{\partial S} + \frac{1}{2}\sigma^2S^2\frac{\partial^2 f(S,t)}{\partial S^2} + \frac{\partial f(S,t)}{\partial t} \Big)dt +
+\end{equation}
+\begin{equation*}
++ \sigma S \frac{\partial f(S,t)}{\partial S}dX
+\end{equation*}
+
+Pro ilustraci It\^o lemmy uvaœô¡¾ujme funkci
+\begin{equation*}
+f(S) = \ln S
+\end{equation*}
+Platí
+\begin{equation*}
+\frac{\partial f(S)}{\partial S} = \frac{1}{S}
+\end{equation*}
+a
+\begin{equation*}
+\frac{\partial^2 f(S)}{\partial S^2} = -\frac{1}{S^2}
+\end{equation*}
+Dosazením do (2.5) získáváme
+\begin{equation*}
+df(S)=(\mu - \frac{1}{2}\sigma^2)dt + \sigma dX
+\end{equation*}
+
+Rovnice $df(S)$ je stochastickou diferenciální rovnicí s konstatními koeficienty, coœô¡¾ znamená, œô¡¾e $df(S)$ má normální rozdœô »lení. Nyní se zamœô »œô ùmœô » na samotnou funkci $f(S)$. Tu lze chápat jako souœô ­et dílœô ­ích zmœô »n $df(S)$\footnote{V limitœô » se tento souœô ­et stane integrálem.}. Vzhledem k tomu, œô¡¾e souœô ­tem náhodnıch promœô »nnıch, které se œô ùídí normálním rozdœô »lením, je opœô »t náhodná promœô »nná s normálním rozdœô »lením, má $f(S(t))-f(S(0))$ normální rozdœô »lení se stœô ùední hodnotou $(\mu - \frac{1}{2}\sigma^2)$ a rozptylem $\sigma^2t$. Hustota pravdœô »podobnosti funkce $f(S)$ je tak rovna
+\begin{equation}
+\frac{1}{\sigma \sqrt{2 \pi t}}e^{-\frac{(f(S(t))-f(S(0))-(\mu - \frac{1}{2}\sigma^2)t)^2}{2 \sigma^2 t}}
+\end{equation}
+Jestliœô¡¾e $f(S) = \ln S$, lze snadno dokázat, œô¡¾e náhodnou veliœô ­inu $S$ lze popsat pomocí lognormálního rozdœô »lení s hustotou pravdœô »podobnosti
+\begin{equation*}
+\frac{1}{\sigma S\sqrt{2 \pi t}}e^{-\frac{(\ln (f(S(t))/f(S(0)))-(\mu - \frac{1}{2}\sigma^2)t)^2}{2 \sigma^2 t}}
+\end{equation*}
+
+\section{Odstranœô »ní náhodnosti}
+
+Náhodné sloœô¡¾ky obsaœô¡¾ené v $S$ (rovnice (2.1)) a $f(S,t)$ (rovnice (2.5)) jsou odvozeny od náhodné veliœô ­iny $dX$. Toho je moœô¡¾né vyuœô¡¾ít pro konstrukci veliœô ­iny $g(S,t)$, která bude v infinityzimálním œô ­asové periodœô » $dt$ deterministická. Této vlastnosti bude pozdœô »ji vyuœô¡¾ito pœô ùi oceœô èování opcí. Nechœô¡¥ $\Delta$ je reálné œô ­íslo. Definujme funkci $g(S,t)$ jako
+\begin{equation*}
+g(S,t) = f(S,t)-\Delta S
+\end{equation*}
+Platí
+\begin{equation*}
+dg(S,t) = df(S,t)-\Delta dS
+\end{equation*}
+\begin{equation*}
+dg(S,t) = \Bigg( \mu S \frac{\partial f(S,t)}{\partial S} + \frac{1}{2}\sigma^2S^2 \frac{\partial f(S,t)}{\partial t}\Bigg)dt + \sigma S \frac{\partial f(S,t)}{\partial S}dX -
+\end{equation*}
+\begin{equation*}
+- \Delta(\sigma S dX + \mu S dt)
+\end{equation*}
+\begin{equation*}
+dg(S,t) = \Bigg( \mu S \Big( \frac{\partial f(S,t)}{\partial S} - \Delta \Big) + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 f(S,t)}{\partial S^2} + \frac{\partial f(S,t)}{\partial t} \Bigg)dt +
+\end{equation*}
+\begin{equation*}
++ \sigma S \Bigg( \frac{\partial f(S,t)}{\partial S}- \Delta \Bigg)dX
+\end{equation*}
+Jestliœô¡¾e zvolíme $\Delta$ rovno
+\begin{equation*}
+\Delta = \frac{\partial f(S)}{\partial S}
+\end{equation*}
+zjednoduœô¡¡í se nám vıœô¡¡e uvedená rovnice do tvaru
+\begin{equation*}
+dg(S,t) = \Bigg( \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 f(S,t)}{\partial S^2} + \frac{\partial f(S,t)}{\partial t} \Bigg)dt
+\end{equation*}
+œô ¬len s náhodnou veliœô ­inou $dX$ vypadl a $dg(S,t)$ se tak ze stochastické stala deterministickou veliœô ­inou. Pouze pœô ùipomeœô ème, œô¡¾e vıœô¡¡e uvedené odvození platí pouze v pro nekoneœô ­nœô » malı œô ­asovı interval délky $dt$.
+
+\chapter{Black-Scholes model}
+
+\section{Vnitœô ùní a œô ­asová hodnota opce}
+
+Pœô ùed tím, neœô¡¾ se budeme zabıvat oceœô èováním opcí, uveœô ¯me zkratky, které budeme pouœô¡¾ívat v celém následujícím textu.
+\begin{itemize}
+\item Hodnotu opce oznaœô ­ujeme jako $V(S,t)$. V pœô ùípadœô », œô¡¾e je tœô ùeba rozliœô¡¡ovat kupní a prodejní opci, budeme pouœô¡¾ívat $C(S,t)$ pro kupní a $P(S,t)$ pro prodejní opci. Hodnota opce je funkcí souœô ­asné ceny podkladového aktiva $S$ a œô ­asu $t$, závisí vœô¡¡ak i na následujících faktorech:
+\item $\sigma$ - smœô »rodatná odchylka ceny podkladového aktiva
+\item $E$ - realizaœô ­ní cena
+\item $T$ - œô ­as do splatnosti
+\item $r$ - bezriziková úroková sazba
+\end{itemize}
+Nejprve uvaœô¡¾ujme situaci v dobœô » splatnosti evropské kupní opce, tj. v œô ­ase kdy $t = T$. Jesliœô¡¾e $S > E$, je logické opci uplatnit - podkladové aktivum nakoupíme za cenu $E$ a obratem jej prodáme za cenu $S$. Majitel opce tak realizuje zisk ve vıœô¡¡i $S-E$. Jestliœô¡¾e je naopak $S < E$, racionální investor tuto opci neuplatní. Hodnota evropské kupní opce v okamœô¡¾iku její splatnosti je tak rovna
+\begin{equation}
+C(S,T) = \max(S-E,0)
+\end{equation}
+S tím, jak se blíœô¡¾íme datu splatnosti opce, lze oœô ­ekávat, œô¡¾e se její hodnota bude blíœô¡¾it (3.1). Hodnotu kupní opce dle (3.1) nazıváme vnitœô ùní hodnotou opce. Jedná se tedy o œô ­ástku, kterou bychom získali uplatnœô »ním opce v dobœô » její splatnosti. Rozdíl mezi skuteœô ­nou a vnitœô ùní hodnotou opce pak nazıváme œô ­asovou hodnotou opce.
+\begin{center}
+	\begin{pspicture}(0,0)(8.0,6.5)
+		\rput(4.0,0.5){Vnitœô ùní a œô ­asová hodnota evropské kupní opce}
+                \rput(4.0,0.0){pœô ùed splatností jako funkce $S$}
+
+		\psline[arrows=->](0.5,1.5)(7.5,1.5)
+		\psline[arrows=->](0.5,1.5)(0.5,6.0)
+
+                \psline[linewidth=0.5mm](0.5,1.5)(3.0,1.5)(7.5,6.0)
+                \pscurve(0.5,1.5)(2.5,1.6)(3.0,1.8)(4.0,2.7)(5.5,4.1)(7.4,6.0)
+
+                \rput(0.5,1.2){\small{0}}
+                \rput(3.0,1.2){\small{E}}
+                \rput(7.5,1.2){\small{S}}
+                \rput(0.2,6.0){\small{C}}
+	\end{pspicture}
+\end{center}
+
+Analogicky k evropské kupní opce je vnitœô ùní hodnota evropské prodejní opce dána rovnicí
+\begin{equation*}
+P(S,T) = \max(E-S,0)
+\end{equation*}
+\begin{center}
+	\begin{pspicture}(0,0)(8.0,6.5)
+		\rput(4.0,0.5){Vnitœô ùní a œô ­asová hodnota evropské prodejní opce}
+                \rput(4.0,0.0){pœô ùed splatností jako funkce $S$}
+
+		\psline[arrows=->](0.5,1.5)(7.5,1.5)
+		\psline[arrows=->](0.5,1.5)(0.5,6.0)
+
+                \psline[linewidth=0.5mm](0.5,5.5)(4.5,1.5)(7.5,1.5)
+                \pscurve(0.5,5.2)(4.0,1.9)(4.5,1.7)(5.5,1.5)(7.5,1.5)
+
+                \rput(0.5,1.2){\small{0}}
+                \rput(4.5,1.2){\small{E}}
+                \rput(7.5,1.2){\small{S}}
+                \rput(0.2,6.0){\small{C}}
+	\end{pspicture}
+\end{center}
+Zajímavostí prodejní opce oproti kupní opci je ta, œô¡¾e œô ­asová hodnota opce je pro dostateœô ­nœô » malá $S$ záporná. Hodnota opce je tak niœô¡¾œô¡¡í neœô¡¾ její vnitœô ùní hodnota.
+
+\section{Put-call parita}
+Aœô ­koliv je prodejní opce na první pohled zcela odliœô¡¡ná od kupní opce, existuje mezi tœô »mito typy opcí vztah, kterı se nazıvá put-call paritou.
+
+Uvaœô¡¾ujme evropskou kupní a prodejní opci, které mají shodné podkladové aktivum, realizaœô ­ní cenu a zbytkovou splatnost. Dále uvaœô¡¾ujme portfolio, které se skládá z podkladového aktiva, dlouhé pozice v prodejní a krátké pozici v kupní opci. Nechœô¡¥ $\Pi$ je hodnota tohoto portfolia.
+\begin{equation*}
+\Pi(t) = S + P(S,t) - C(S,t)
+\end{equation*}
+Vıplata z portfolia v dobœô » splatnosti $T$ obou opcí je
+\begin{equation*}
+S + \max(E-S,0) - \max(S-E,0)
+\end{equation*}
+a je rovna $E$ bez ohledu na koneœô ­nou hodnotu podkladového aktiva. Toto portfolio je tedy bezrizikové\footnote{Portfolio je prosté trœô¡¾ních rizik. Investor vœô¡¡ak mœô¡¯œô¡¾e utrpœô »t ztrátu v dœô¡¯sledku realizace kreditního rizika. To vœô¡¡ak momentálnœô » není pœô ùedmœô »tem naœô¡¡eho zájmu.}. Vınos z tohoto portfolia by tak mœô »l bıt roven bezrizikové úrokové sazbœô » $r$. Hodnota portfolia v œô ­ase $t < T$ je rovna
+\begin{equation}
+S + P(S,t) - C(S,t) = Ee^{-r(T-t)}
+\end{equation}
+Rovnice (3.2) pœô ùedstavuje put-call paritu.
+
+\section{Analıza Black-Scholes modelu}
+
+Pœô ùed tím, neœô¡¾ zaœô ­neme se samotnım popisem Black-Scholes modelu, uveœô ¯me pœô ùedpoklady, na nichœô¡¾ je tento model zaloœô¡¾en.
+\begin{itemize}
+\item Cena podkladového aktiva sleduje lognormální rozdœô »lení.
+\item Bezriziková úroková sazba $r$ a volatilita podkladového aktiva $\sigma$ jsou známé funkce œô ­asu po dobu œô¡¾ivotnosti opce.
+\item Neexistují transakœô ­ní náklady spojené se zajiœô¡¡tœô »ním portfolia.
+\item Podkladové aktivum negeneruje po dobu œô¡¾ivotnosti opce œô¡¾ádné cash-flow (napœô ù. dividendy nebo úrokové platby). Od tohoto mœô¡¯œô¡¾eme upustit za pœô ùedpokladu, œô¡¾e vıœô¡¡e cash-flow je dopœô ùedu známa a œô¡¾e je vypláceno k urœô ­itému œô ­asovému okamœô¡¾iku nebo nebo spojitœô » po celou dobu œô¡¾ivotnosti opce.
+\item Neexistuje moœô¡¾nost arbitráœô¡¾e. To znamená, œô¡¾e vœô¡¡echna bezriziková portfolia musí generovat vınos odpovídající bezrizikové sazbœô ».
+\item S podkladovım aktivem je moœô¡¾né obchodovat nepœô ùetrœô¡¾itœô » v libovolnı œô ­asovı okamœô¡¾ik.
+\item Prodej nakrátko je povolen a pokladové aktivum je dokonale dœô »litelné. To znamená, œô¡¾e je moœô¡¾né prodat aktivum, které nevlastníme a œô¡¾e ho mœô¡¯œô¡¾eme nakoupit popœô ù. prodat libovolné mnoœô¡¾ství (napœô ù $\sqrt{2}$ kusœô¡¯ akcií).
+\end{itemize}
+
+Uvaœô¡¾ujme opci, jejíœô¡¾ hodnota $V(S,t)$ je závislá pouze na $S$ a $t$. S vyuœô¡¾itím It\^o lemmy lze $V(S,t)$ rozepsat jako
+\begin{equation*}
+dV = \sigma S \frac{\partial V}{\partial S}dX + \Bigg( \mu S \frac{\partial V}{\partial S} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2V}{\partial S^2} + \frac{\partial V}{\partial t} \Bigg)dt
+\end{equation*}
+
+Nyní uvaœô¡¾ujme portfolio, které se skládá z jedné opce a $-\Delta$ jednotek podkladového aktiva. Hodnota portfolia $\Pi$ je rovna
+\begin{equation}
+\Pi = V -\Delta S
+\end{equation}
+a zmœô »na hodnoty portfolia $d \Pi$ v rámci jednoho œô ­asového kroku $dt$ je rovna
+\begin{equation*}
+d \Pi = dV -\Delta dS
+\end{equation*}
+S pouœô¡¾itím (2.1) a (2.6) lze vıœô¡¡e uvedenou rovnici pœô ùetransformovat do podoby
+\begin{equation*}
+d\Pi = \sigma S \Bigg( \frac{\partial V}{\partial S} - \Delta \Bigg)dX + \Bigg( \mu S \frac{\partial V}{\partial S} + \frac{1}{2}\sigma^2S^2\frac{\partial^2 V}{\partial S^2} + \frac{\partial V}{\partial t} - \mu \Delta S \Bigg)dt
+\end{equation*}
+Jak jsme jiœô¡¾ ukázali dœô ùíve, náhodnost je moœô¡¾né eliminovat tak, œô¡¾e zvolíme
+\begin{equation}
+\Delta = \frac{\partial V}{\partial S}
+\end{equation}
+Poznamenejme, œô¡¾e $\partial V/ \partial S$ je hodnotou $\Pi$ pro zaœô ­átek œô ­asového kroku $dt$. V tomto pœô ùípadœô » se hodnota portfolia stane pro infinitymezální œô ­asovı krok $dt$ deterministická.
+\begin{equation*}
+d \Pi = \Bigg( \frac{\partial V}{\partial t}  + \frac{1}{2}\sigma^2S^2\frac{\partial^2V}{\partial S^2}\Bigg)dt
+\end{equation*}
+Vzhledem k tomu, œô¡¾e vıœô¡¡e uvedené portfolio je bezrizikové, musí generovat vınos odpovídající bezrizikové úrokové sazbœô ». Platí tedy
+\begin{equation*}
+r \Pi dt  = \Bigg( \frac{\partial V}{\partial t}  + \frac{1}{2}\sigma^2S^2\frac{\partial^2V}{\partial S^2}\Bigg)dt
+\end{equation*}
+Substitucí (3.3) a (3.4) do vıœô¡¡e uvedené rovnice získáváme diferenciální rovnici
+\begin{equation}
+\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + rS \frac{\partial V}{\partial S} - rV = 0
+\end{equation}
+Tato diferenciální rovnice tvoœô ùí jádro Black-Scholes modelu. Pœô ùi splnœô »ní vıœô¡¡e uvedenıch pœô ùedpokladœô¡¯ musí libovolnı finanœô ­ní derivát, jehoœô¡¾ hodnota je závislá pouze na $S$ a $t$, splœô èovat diferenciální rovnici (3.5). Na této rovnici je také zajímavé, œô¡¾e její hodnota není funkcí $\mu$. Jedinım parametrem z vıchozí rovnice (2.1), kterı má vliv na hodnotu opce $V$, je tak volatilita ceny podkladového aktiva $\sigma$.
+
+\section{Black-Scholes rovnice}
+
+Nejœô ­astœô »jœô¡¡ím typem parciální diferenciální rovnice ve finanœô ­ní matematice je tzv. parabolická rovnice. Parabolická rovnice pro funkci $V(S,t)$ definuje vztah mezi mezi $V$ a jeho parciálními derivacemi vzhledem k nezávislım promœô »nnım $S$ a $t$. V nejjednoduœô¡¡œô¡¡ím pœô ùípadœô » je nejvyœô¡¡œô¡¡í parciální derivace vzhledem k $S$ druhého œô ùádu a nejvyœô¡¡œô¡¡í derivace vzhledem k $t$ je prvního œô ùádu. Rovnice (3.5) tedy splœô èuje tuto definici. Jestliœô¡¾e je rovnice navíc lineární a znaménka jednotlivıch derivací jsou po pœô ùevedení na jednu stranu shodná, jedná se o zpœô »tnou parabolickou diferenciální rovnici. V opaœô ­ném pœô ùípadœô » se jedná o dopœô ùednou parabolickou rovnici. Rovnice (3.5) je tedy zpœô »tnou parabolickou diferenciální rovnicí.
+
+K jednoznaœô ­nému urœô ­ení hodnoty opce nestaœô ­í pouze rovnice (3.5), protoœô¡¾e ta sama o sobœô » jednoznaœô ­né œô ùeœô¡¡ení nemá. Proto je tœô ùeba definovat podmínky, které daná opce musí splœô èovat. Tyto podmínky charakterizující hodnotu opce pro vybranou podmnoœô¡¾inu jejího definiœô ­ního oboru. Spolu s diferenciální rovnicí (3.5) jednoznaœô ­nœô » urœô ­ují hodnotu uvaœô¡¾ované opce. Standardnœô » se definují dvœô » tzv. hraniœô ­ní podmínky pro parametr $S$ a jedna tzv. koneœô ­ná podmínka pro parametr $t$. Obecnı zápis podmínek pro $S$ je
+\begin{equation*} 
+V(S,t)=V_a(t), ~~~ S = a
+\end{equation*}
+a
+\begin{equation*} 
+V(S,t)=V_b(t), ~~~ S = b
+\end{equation*}
+kde $V_a$ a $V_b$ jsou funkcemi promœô »nné $t$. Protoœô¡¾e (3.5) je zpœô »tná parabolická diferenciální rovnice, musíme specifikovat podmínku pro $t = T$. Tato podmínka má tvar
+\begin{equation*}
+V(S,t)= V_T(S)
+\end{equation*}
+Rovnici (3.5) tak œô ùeœô¡¡íme ``pozpátku'' smœô »rem k œô ­asu $t = 0$. Jestliœô¡¾e by se jednalo o dopœô ùednou parabolickou diferenciální rovnici, stanovovali bychom tzv. poœô ­áteœô ­ní podmínku pro $t = 0$. Dopœô ùednou parabolickou diferenciální rovnici lze snadno zmœô »nit na zpœô »tnou pouhou zmœô »nou promœô »nnıch $t' = -t$ a naopak. Oba typy jsou tedy z matematického pohledu identické a je bœô »œô¡¾né, œô¡¾e se zpœô »tná parabolická diferenciální rovnice pœô ùed tím, neœô¡¾ se zapoœô ­ne s její analızou, pœô ùetransformuje na dopœô ùednou.
+
+\section{Podmínky pro evropské opce}
+
+\subsection{Evropská kupní opce}
+
+Jak bylo œô ùeœô ­eno v pœô ùedchozí kapitole, aby rovnice (3.5) mœô »la jedineœô ­né œô ùeœô¡¡ení, je tœô ùeba ji doplnit sadou tœô ùí podmínek - jednou pro parametr $t$ a dvœô »mi pro parametr $S$.
+
+Uvaœô¡¾ujme evropskou kupní opci, jejíœô¡¾ hodnotu budeme znaœô ­it $C(S,t)$, realizaœô ­ní hodnotu $E$ a splatnost $T$. Podmínka pro $t$ je dána hodnotou opce v dobœô » její splatnosti $T$.
+\begin{equation}
+C(S,T) = \max(S-E,0)
+\end{equation}
+Podmínky pro $S$ definujeme pro krajní hodnoty této promœô »nné, tj. pro $S=0$ a $S \rightarrow \infty$. Je-li $S = 0$, stává se proces popsanı rovnicí (2.1) deterministickım a $S$ je nulové pro libovolnı budoucí œô ­asovı okamœô¡¾ik. Evropská kupní opce je tedy bezcenná.
+\begin{equation}
+C(0,t) = 0
+\end{equation}
+Jeslitliœô¡¾e se naopak $S$ blíœô¡¾í nekoneœô ­nu, je prakticky jisté, œô¡¾e opce bude uplatnœô »na. Realizaœô ­ní cena $E$ je navíc v porovnání s $S$ zanedbatelná. Proto platí
+\begin{equation}
+C(S \rightarrow \infty,t) \sim S
+\end{equation}
+
+\subsection{Evropská prodejní opce}
+
+V pœô ùípadœô » evropské prodejní opce jsou podmínky analogické. Podmínka vzhledem k œô ­asu $t$ je opœô »t stanovena k datu splatnosti opce $T$ a má tvar
+\begin{equation}
+P(S,T) = \max(E-S, 0)
+\end{equation}
+Stejnœô » jako v pœô ùípadœô » evropské kupní opce jsou podmínky pro $S$ stanoveny pro krajní hodnoty $S=0$ a $S \rightarrow 0$. Vzhledem k charakteru vıplatního profilu opce mají tyto podmínky podobu
+\begin{equation}
+P(0,t)=Ee^{-r(T-t)}
+\end{equation}
+a
+\begin{equation}
+P(S \rightarrow \infty,t) \rightarrow 0
+\end{equation}
+
+\section{Rovnice Black-Scholes modelu}
+
+Jestliœô¡¾e jsou $\sigma$ a $r$ konstatní, má œô ùeœô¡¡ení diferenciální rovnice (3.5) za podmínek (3.6), (3.7) a (3.8) pro evropskou kupní opci tvar
+\begin{equation*}
+C(S,t) = S N(d_1) - Ee^{-r(T-t)}N(d_2)
+\end{equation*}
+kde $N(\cdot)$ pœô ùedstavuje kumulativní distribuœô ­ní funkci normovaného normálního rozdœô »lení. Parametry $d_1$ a $d_2$ této funkce jsou definovány jako
+\begin{equation*}
+d_1 = \frac{\ln \frac{S}{E}+(r+\frac{1}{2}\sigma^2)(T-t)}{\sigma \sqrt{T-t}}
+\end{equation*}
+\begin{equation*}
+d_2 = \frac{\ln \frac{S}{E}+(r-\frac{1}{2}\sigma^2)(T-t)}{\sigma \sqrt{T-t}}
+\end{equation*}
+Pro evropskou prodejní opci a jí odpovídající hraniœô ­ní podmínky (3.9), (3.10) a (3.11) má œô ùeœô¡¡ení rovnice (3.5) tvar
+\begin{equation*}
+P(S,t)=Ee^{-r(T-t)}N(-d_2) - SN(-d_1)
+\end{equation*}
+kde $d_1$ a $d_2$ jsou definovány stejnœô » jako v pœô ùedchozím pœô ùípadœô ».
+
+Následující obrázky ukazují, jak se vyvíjí hodnota evropské opce s tím, jak se $t$ blíœô¡¾í $T$.
+\begin{center}
+	\begin{pspicture}(0,0)(8.0,6.5)
+		\rput(4.0,0.5){Hodnota evropské kupní opce jako funkce}
+                \rput(4.0,0.0){parametru $S$ pro rœô¡¯zná $t$}
+
+		\psline[arrows=->](0.5,1.5)(7.5,1.5)
+		\psline[arrows=->](0.5,1.5)(0.5,6.0)
+
+                \psline[linewidth=0.5mm](0.5,1.5)(3.0,1.5)(7.5,6.0)
+                \pscurve(1.5,1.5)(2.5,1.60)(5.0,3.65)(7.3,5.95)
+                \pscurve(1.2,1.5)(2.5,1.75)(5.0,3.80)(7.3,6.15)
+                \pscurve(1.0,1.5)(2.5,1.90)(5.0,3.95)(7.3,6.30)
+
+
+                \rput(0.5,1.2){\small{0}}
+                \rput(3.0,1.2){\small{E}}
+                \rput(7.5,1.2){\small{S}}
+                \rput(0.2,6.0){\small{C}}
+
+                \psline[arrows=->](6.2,5.7)(7.2,5.7)
+                \psline[arrows=->](6.2,5.9)(7.2,5.9)
+                \psline[arrows=->](6.2,6.1)(7.2,6.1)
+                \psline[arrows=->](6.2,6.3)(7.2,6.3)
+
+                \rput(5.3,5.7){\tiny{$T-t = 0.0$}}
+                \rput(5.3,5.9){\tiny{$T-t = 0.5$}}
+                \rput(5.3,6.1){\tiny{$T-t = 1.0$}}
+                \rput(5.3,6.3){\tiny{$T-t = 1.5$}}
+
+	\end{pspicture}
+\end{center}
+\begin{center}
+	\begin{pspicture}(0,0)(8.0,6.5)
+		\rput(4.0,0.5){Hodnota evropské prodejní opce jako funkce}
+                \rput(4.0,0.0){parametru $S$ pro rœô¡¯zná $t$}
+
+		\psline[arrows=->](0.5,1.5)(7.5,1.5)
+		\psline[arrows=->](0.5,1.5)(0.5,6.0)
+
+                \psline[linewidth=0.5mm](0.5,5.5)(4.5,1.5)(7.5,1.5)
+                \pscurve(0.5,5.30)(2.5,3.30)(3.80,2.07)(4.40,1.70)(7.0,1.5)
+                \pscurve(0.5,5.15)(2.5,3.10)(3.80,1.95)(4.40,1.70)(7.0,1.5)
+                \pscurve(0.5,4.95)(2.5,2.90)(3.80,1.85)(4.40,1.70)(7.0,1.5)
+
+                \rput(0.5,1.2){\small{0}}
+                \rput(4.5,1.2){\small{E}}
+                \rput(7.5,1.2){\small{S}}
+                \rput(0.2,6.0){\small{C}}
+
+                \psline[arrows=->](2.0,4.7)(0.75,4.7)
+                \psline[arrows=->](2.0,4.9)(0.70,4.9)
+                \psline[arrows=->](2.0,5.1)(0.70,5.1)
+                \psline[arrows=->](2.0,5.3)(0.75,5.3)
+
+                \rput(2.8,4.7){\tiny{$T-t = 1.5$}}
+                \rput(2.8,4.9){\tiny{$T-t = 1.0$}}
+                \rput(2.8,5.1){\tiny{$T-t = 0.5$}}
+                \rput(2.8,5.3){\tiny{$T-t = 0.0$}}
+
+	\end{pspicture}
+\end{center}
+Z vıœô¡¡e uvedenıch obrázkœô¡¯ je zœô ùejmé, œô¡¾e s tím, jak se $t \rightarrow T$, blíœô¡¾í se hodnota opce vnitœô ùní hodnotœô » opce, tj. œô ­asová hodnota opce se blíœô¡¾í nule.
+
+\subsection{Delta opce}
+
+œô øecké písmeno delta vyjadœô ùuje citlivost ceny opce na zmœô »nu ceny podkladového aktiva v œô ­asovém intervalu $dt \rightarrow 0$. Delta evropské kupní opce je definováno jako
+\begin{equation*}
+\Delta = \frac{\partial C}{\partial S} = N(d_1)
+\end{equation*}
+a evropské prodejní opce jako
+\begin{equation*}
+\Delta = \frac{\partial P}{\partial S} = N(d_1)-1
+\end{equation*}
+Stejnœô » jako pro opce samotné platí také pro jejich delty put-call parita.
+\begin{equation*}
+S = P(S,t) - C(S,t)
+\end{equation*}
+\begin{equation*}
+\frac{\partial S}{\partial S} = \frac{\partial P(S,t)}{\partial S} - \frac{\partial C(S,t)}{\partial S}
+\end{equation*}
+\begin{equation*}
+1 = 1 - N(d_1) - N(d_1)
+\end{equation*}
+\begin{equation*}
+0 = 0
+\end{equation*}
+\begin{center}
+	\begin{pspicture}(0,0)(7.0,7.0)
+		\rput(3.5,0.5){Delta evropské kupní opce jako funkce}
+                \rput(3.5,0.0){parametru $S$ pro rœô¡¯zná $t$}
+
+		\psline[arrows=->](0.5,1.5)(6.5,1.5)
+		\psline[arrows=->](0.5,1.5)(0.5,6.0)
+
+                \psline[linewidth=0.5mm](0.5,1.5)(4.0,1.5)(4.0,5.0)(6.0,5.0)
+                \pscurve(2.0,1.5)(2.9,2.00)(4.5,4.5)(5.20,4.85)(6.0,5.0)
+                \pscurve(2.5,1.5)(3.1,1.90)(4.5,4.4)(5.20,4.90)(6.0,5.0)
+                \pscurve(3.0,1.5)(3.3,1.80)(4.5,4.3)(5.20,4.95)(6.0,5.0)
+
+                \rput(0.5,1.2){\small{0}}
+                \rput(4.0,1.2){\small{E}}
+                \rput(6.5,1.2){\small{S}}
+                \rput(0.2,6.0){\small{C}}
+
+                \psline[arrows=->](3.0,3.0)(4.05,3.0)
+                \psline[arrows=->](3.0,3.2)(4.00,3.2)
+                \psline[arrows=->](3.0,3.4)(3.95,3.4)
+                \psline[arrows=->](3.0,3.6)(3.90,3.6)
+
+                \rput(2.2,3.0){\tiny{$T-t = 0.0$}}
+                \rput(2.2,3.2){\tiny{$T-t = 0.5$}}
+                \rput(2.2,3.4){\tiny{$T-t = 1.0$}}
+                \rput(2.2,3.6){\tiny{$T-t = 1.5$}}
+                
+	\end{pspicture}
+\end{center}
+Vıœô¡¡e uvedenı obrázek zachycuje hodnotu delty evropské kupní opce jako funkce parametru $S$ pro rœô¡¯zné hodnoty parametru $t$. Delta vœô¡¾dy nabıvá hodnot z intervalu nula aœô¡¾ jedna. S tím, jak se $t \rightarrow T$, stává se její hodnota stále více citlivá na zmœô »nu $S$. Jesltiœô¡¾e si uvœô »domíme, œô¡¾e delta vyjadœô ùuje zmœô »nu hodnoty opci v závislosti na zmœô »nœô » $S$, není toto zjiœô¡¡tœô »ní pœô ùekvapivé. S tím, jak se zbytková splatnost opce blíœô¡¾í nule, klesá pravdœô »podobnost, œô¡¾e se cena podkladového aktiva v dobœô » splanosti opce bude vıznamnœô »ji odliœô¡¡ovat od spotové ceny.
+
+\subsection{Delta zajiœô¡¡tœô »ní}
+
+Uvaœô¡¾ujme vypisovatele evropské kupní opce, kterı, bude-li k tomu vyzván, musí v dobœô » splatnosti opce dodat podkladové aktivum. Pœô ùedpokládejme, œô¡¾e tento investor vyuœô¡¾ívá tzv. delta zajiœô¡¡tœô »ní. Invetor tedy drœô¡¾í delta jednotek podkladového aktiva, protoœô¡¾e v infinitimezálním œô ­asovém okamœô¡¾iku platí
+\begin{equation*}
+ C - \Delta S = 0
+\end{equation*}
+V dobœô » splatnosti bude investor drœô¡¾et správné mnoœô¡¾ství podkladového aktiva. V pœô ùípadœô », œô¡¾e bude opce uplatnœô »na, bude její delta rovna jedné a investor tak bude drœô¡¾et jednu jednotku podkladového aktiva. V opaœô ­ném pœô ùípadœô » bude delta opce rovna nule a investor tak nebude drœô¡¾et œô¡¾ádné podkladové aktivum. V ideálním pœô ùípadœô » by investor pœô ùi vypsání opce nakoupil podkladové aktivum v objemu odpovídající poœô ­áteœô ­ní deltœô » opce a následnœô » tuto pozici postupnœô » navyœô¡¡oval resp. redukoval aœô¡¾ do splatnosti opce s tím, jak se mœô »nila delta opce. Problematická vœô¡¡ak mœô¡¯œô¡¾e bıt napœô ù. situace, kdy by cena podkladového aktiva vzrostla, klesla a opœô »t vzrostla. V tomto pœô ùípadœô » by investor pozici v podkladovém aktivu nejprve navıœô¡¡il, po té zredukovat a následnœô » opœô »t navıœô¡¡il. Navíc pro $t \rightarrow T$ v situaci, kdy by se spotová cena podkladového aktiva $S$ nacházela v  blízkosti realizaœô ­ní ceny $E$, se mœô¡¯œô¡¾e delta opce zmœô »nit z œô ­ísla blízkého nule na œô ­íslo blízké jedné popœô ù. naopak a to i nœô »kolikrát po sobœô ». S ohledem na moœô¡¾né transakœô ­ní náklady se tedy delta zajiœô¡¡tœô »ní pro praxi pœô ùíliœô¡¡ nehodí.
+
+\section{Zajiœô¡¡tœô »ní v praxi}
+
+Zajiœô¡¡tœô »ní spoœô ­ívá ve sníœô¡¾ení senzitivity portfolia na pohyb ceny podkladového aktiva a to tak, œô¡¾e investor zaujme opaœô ­nou pozici v jiném finanœô ­ním instrumentu. Dva extrémní pœô ùíklady jsme si jiœô¡¾ ukázali - v obou byla senzitivita zredukována na nulu. V prvním pœô ùípadœô » jsme vycházeli z put-call parity a v druhém pœô ùípadœô » se jednalo o delta zajiœô¡¡tœô »ní. Existují vœô¡¡ak i jiné zpœô¡¯soby zajiœô¡¡tœô »ní, které kromœô » delty zahrnují také jiná tzv. œô ùecká písmena.
+
+Pouze pœô ùipomeœô ème, œô¡¾e delta portfolia je dána vztahem
+\begin{equation*}
+\Delta = \frac{\partial \Pi}{\partial S}
+\end{equation*}
+Portfolio, které se skládá z opce a delta jednotek podkladového aktiva, nazıváme delta neutrální. Senzitivita tohoto portfolia na zmœô »nu ceny podkladového aktiva je v nekoneœô ­nœô » krátkém œô ­asovém okamœô¡¾iku nulová.
+
+Pomocí delta zajiœô¡¡tœô »ní jsme z vœô »tœô¡¡í œô ­ásti eliminovali citlivost hodnoty portfolia na zmœô »nu ceny podkladového aktiva. Nicnémœô » i po delta zajiœô¡¡tœô »ní zœô¡¯stává portfolio marginálnœô » citlivé na zmœô »nu ceny podkladového aktiva. Dœô¡¯vodem je nelinearita delty. K odstranœô »ní této zbytkové citlivosti se pouœô¡¾ívá tzv. gamma zajiœô¡¡tœô »ní.
+\begin{equation*}
+\Gamma = \frac{\partial^2 \Pi}{\partial S^2}
+\end{equation*}
+Zmœô »na hodnoty portfolia v œô ­ase je vyjádœô ùena œô ùeckım písmenem $\Theta$.
+\begin{equation*}
+\Theta = \frac{\partial \Pi}{\partial t}
+\end{equation*}
+Senzitivita portfolia na volatilitu ceny podkladového aktiva je dána œô ùeckım písmenem vega
+\begin{equation*}
+\nu = \frac{\partial \Pi}{\partial \sigma}
+\end{equation*}
+a koneœô ­nœô » pro mœô »œô ùení citlivosti hodnoty portfolia na zmœô »nu bezrizikové úrokové míry se vyuœô¡¾ívá œô ùecké písmeno $\rho$.
+\begin{equation*}
+\rho = \frac{\partial \Pi}{\partial r}
+\end{equation*}
+ 
+\subsection{Imunizace portfolia}
+
+Aby portfolio nebylo citlivé na zmœô »ny vybranıch veliœô ­in\footnote{Mezi takovéto veliœô ­inu mœô¡¯œô¡¾e patœô ùit napœô ù. zmœô »na ceny podkladového aktiva $dS$, œô ­asovı posun $dt$, zmœô »na volatility podkladového aktiva $d \sigma$ nebo zmœô »na bezrizikové úrokové sazby $dr$.}, musí kromœô » podkladového aktiva zahrnovat také finanœô ­ní deriváty odvozené od uvaœô¡¾ovaného podkladového aktiva. Takovéto portfolio oznaœô ­ujeme jako imunizované. Abychom sestavili portfolio imunizované vœô¡¯œô ­i $n$ veliœô ­inám, musí toto portfolio kromœô » podkladového aktiva obsahovat také nejménœô » $n$ finanœô ­ních derivátœô¡¯. Matematickım vyjádœô ùením tohoto problému je pak $n$ rovnic o $n$ neznámıch. Následující pœô ùíklad ilustruje imunizaci portfolia vœô¡¯œô ­i $dS$ a $dt$.
+
+Uvaœô¡¾ujme portfolio, které se skládá ze tœô ùí finanœô ­ních instrumentœô¡¯ - podkladového aktiva a dvou opcí $V_1$ a $V_2$. Oznaœô ­me deltu první resp. druhé opce jako $\Delta_1$ resp. $\Delta_2$, thetu první resp. druhé opce jako $\Theta_1$ resp. $\Theta_2$ a gammu první resp. druhé opce jako $\Gamma_1$ resp. $\Gamma_2$. Hodnotu portfolia definujme jako
+\begin{equation*}
+\Pi = S + a_1V_1 + a_2V_2
+\end{equation*}
+Je-li finanœô ­ní derivát funkcí $S$ a $t$, platí pro nœô »j dle It\^o lemmy následující vztah
+\begin{equation*}
+dV = \Bigg( \mu S \frac{\partial V}{\partial S} + \frac{1}{2}\sigma^2S^2\frac{\partial^2 V}{\partial S^2}+\frac{\partial S}{\partial t} \Bigg) dt + \sigma S \frac{\partial V}{\partial S}dX
+\end{equation*}
+S vyuœô¡¾itím œô ùeckıch písmen lze tento vztah pœô ùepsat do tvaru
+\begin{equation*}
+dV = \Bigg( \mu S \Delta + \frac{1}{2}\sigma^2S^2 \Gamma + \Theta \Bigg) dt + \sigma S \Delta dX
+\end{equation*}
+Zmœô »na ceny podkladového aktiva je dána rovnicí (2.1).
+\begin{equation*}
+dS = \mu S dt + \sigma S dX
+\end{equation*}
+Aby bylo portfolio inumizované, musí platit
+\begin{equation*}
+dS  + a_1 dV_1 + a_2 dV_2 = 0
+\end{equation*}
+S vyuœô¡¾itím vıœô¡¡e uvedenıch rovnic lze tento vztah dále upravit do tvaru
+\begin{equation*}
+\mu dt + \sigma dX + a_1 \Bigg( \bigg(\mu \Delta_1 + \frac{1}{2}\sigma^2 S \Gamma_1 + \Theta_1 \bigg)dt + \sigma \Delta_1 dX \Bigg) + a_2 \Bigg( \bigg(\mu \Delta_2 + \frac{1}{2}\sigma^2 S \Gamma_2 + \Theta_2 \bigg)dt + \sigma \Delta_2 dX \Bigg) = 0
+\end{equation*}
+Abychom eliminovali náhodnou sloœô¡¾ku, musí platit
+\begin{equation*}
+\sigma dX + a_1 \sigma \Delta_1 dX + a_2 \sigma \Delta_2 = 0 
+\end{equation*}
+\begin{equation*}
+1 + a_1 \Delta_1 + a_2 \Delta_2 
+\end{equation*}
+\begin{equation}
+a_2 = - \frac{1 + a_1 \Delta_1}{\Delta_2}
+\end{equation}
+Abychom imunizovali portfolio proti ztrátœô » jeho hodnoty v dœô¡¯sledku prostého plynutí œô ­asu, musí platit
+\begin{equation*}
+\mu dt + a_1 \bigg( \Delta_1 + \frac{1}{2}\sigma^2S \Gamma_1 + \Theta_1 \bigg) dt + a_2 \bigg( \Delta_2 + \frac{1}{2}\sigma^2S \Gamma_2 + \Theta_2 \bigg) dt = 0
+\end{equation*}
+\begin{equation}
+\mu - 1 + \frac{1}{2}\sigma^2(a_1 \Gamma_1 + a_2 \Gamma_2) + (a_1 \Theta_1 + a_2 \Theta_2) = 0
+\end{equation}
+Dosazením (3.12) do (3.13) a pœô ùevedením $a_1$ na jednu stranu rovnice získáváme
+\begin{equation*}
+a_1 = \frac{1 - \mu + \frac{1}{\Delta_2}\bigg( \frac{1}{2} \sigma^2 S + \Theta_2 \bigg)}{\frac{1}{2} \sigma^2 S (\Gamma_1 - \frac{\Delta_1}{\Delta_2}\Gamma_2) + \bigg( \Theta_1 - \frac{\Delta_1}{\Delta_2} \Theta_2 \bigg)}
+\end{equation*}
+Parametru $a_2$ je pak dána rovnicí (3.12).
+
+Aby byla hodnota portfolia $\Pi$ imunní vœô¡¯œô ­i zmœô »nám $dS$ a $dt$, musí se skládat z jedné jednotky podkladového aktiva, $a_1$ jednotek opce $V_1$ a $a_2$ jednotek opce $V_2$.
+
+\section{Volatilita ceny podkladového aktiva}
+
+Aœô¡¾ dosud jsme pœô ùedpokládáli, œô¡¾e na základœô » historickıch dat odhadneme hodnoty vstupních parametrœô¡¯, které dosadíme do Black-Scholes modelu a následnœô » vypoœô ­teme hodnotu opce.
+
+Nezbytnım vstupním parametrem Black-Scholes modelu je bezriziková úroková sazba. Tato sazba je kotována trhem pro rœô¡¯zné splatnosti. Pro vıbœô »r konkrétní úrokové sazby je rozhodující zbytková splatnost opce. Tento parametr nepœô ùestavuje z praktického hlediska problém.
+
+Problematickım parametrem je vœô¡¡ak volatilita ceny podkladového aktiva. Pœô ùedpoklad, œô¡¾e volatilita je konstatní v œô ­ase, je zavádœô »jící. Volatilita vypoœô ­tená na základœô » historickıch dat je totiœô¡¾ znaœô ­nœô » ovlivnœô »na vıbœô »rem œô ­asové œô ùady, a proto ji nelze pouœô¡¾ít jako odhad souœô ­asné nebo dokonce budoucí volatility. Pœô ùímı vıpoœô ­et volatility v praxi je tak velmi problematickı. Volatilita pro evropské opce je vœô¡¡ak kotována trhem. Trh tuto volatilitu tedy ``zná''. Volatility jsou kotovány pro rozdílnou splatnost a realizaœô ­ní cenu popœô ù. deltu opce\footnote{Realizaœô ­ní cenu lze z delty pœô ùísluœô¡¡né opce pœô ùi znalosti ostatních vstupních parametrœô¡¯ snadno dopoœô ­ítat. Z tohoto pohledu je tedy lhostejno, zda-li je volatilita kotována ve vztahu k realizaœô ­ní cenœô » nebo deltœô » opce.} v rozdœô »lení na kupní a prodejní opce. Pœô ùíklad takovéto kotace je uveden na obrázku \ref{intel_volatility}.
+
+\begin{figure}
+  \includegraphics[bb=0 0 350 250]{intel.bmp}
+  \caption{Kotace implikované volatility (sloupec IVM) pro akcie spoleœô ­nosti Intel v závisloti na realizaœô ­ní cenœô » resp. deltœô » opce (sloupec DM) a dobœô » do splatnosti opce (zdroj: Bloomberg)}
+  \label{intel_volatility}
+\end{figure}
+
+Zamœô »œô ùme se na kotovanou volatilitu pro evropskou kupní opci se splatností 22.listopadu 2008. Kotovaná volatilita klesá z 363.36\% pro realizaœô ­ní cenu 9 USD aœô¡¾ na 129.09\% pro 13 USD a pak opœô »t roste na 462.81\% pro realizaœô ­ní cenu 23 USD. Jestliœô¡¾e bychom tedy vynesli tuto volatitu do grafu proti realizaœô ­ní cenœô », získali bychom graf ve tvaru písmene ``U''. Pro tento graf se pouœô¡¾ívá pojem ``volatility smile'', kterı má vyjadœô ùovat typickı vztah mezi realizaœô ­ní cenou a kotovanou volatilitou.
+
+S pomocí kotované volatility a úrokové sazby je moœô¡¾né vypoœô ­íst hodnotu opce. Cena opce tak není kotována pœô ùímo, ale nepœô ùímo skrze kotaci pœô ùísluœô¡¡né volatility. Jestliœô¡¾e bychom namísto volatility mœô »li kotovanou pœô ùímo cenu opce (napœô ù. u OTC obchodœô¡¯), je moœô¡¾né volatilitu zpœô »tnœô » dopoœô ­ítat. Takto vypoœô ­tenou volatilitu pak oznaœô ­ujeme jako implikovanou volatilitu.
+
+Odliœô¡¡né kotace volatilit pro jednotlivé realizaœô ­ní ceny odráœô¡¾í skuteœô ­nost, œô¡¾e cena podkladového aktiva ve skuteœô ­nosti nesleduje lognormální rozdœô »lení. Lognormální rozdœô »lení je pouhou aproximací pravdœô »podobnostního rozdœô »lení, které oœô ­ekává trh.
+
+Vzhledem k tomu, œô¡¾e volatilita je kotována také pro rœô¡¯zné splatnosti, mœô »ní se pravdœô »podobnostní rozdœô »lení oœô ­ekávané trhem také v œô ­ase. V pœô ùípadœô » kotací volatilit v závislosti na realizaœô ­ní cenœô » resp. deltœô » a zbytkové splatnosti hovoœô ùíme o tzv. ``volatility surface''.
+
+\chapter{Parciální diferenciální rovnice}
+
+\section{Difúzní rovnice}
+
+Teplotní nebo také difúzní rovnice
+\begin{equation}
+\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2}
+\end{equation}
+popisuje œô¡¡íœô ùení tepla ve jednorozmœô »rném spojitém médiu, kde $u(u, \tau)$ pœô ùedstavuje teplotu v tyœô ­i z homegenního materiálu jejíœô¡¾ konce jsou dokonale izolovány. Teplota této tyœô ­e je tak pouze funkcí vzdálenosti $x$ od zdroje tepla a œô ­asu $\tau$. Vıœô¡¡e popsaná difúzní rovnice splœô èuje následující podmínky
+\begin{itemize}
+\item Difúzní rovnice je lineární rovnicí. To znamená, œô¡¾e jsou-li $u_1$ a $u_2$ œô ùeœô¡¡ením, je œô ùeœô¡¡ením také jejich libovolná lineární kombinace $c_1 u_1 + c_2 u_2$.
+\item Vzhledem k tomu, œô¡¾e nejvyœô¡¡œô¡¡í derivací je œô ­len $\partial^2 u / \partial x^2$, jedná se diferenciální rovnici druhého œô ùádu.
+\item Jedná se o parabolickou rovnici a její charakteristiky jsou dány $\tau = k$, kde $k$ je libovolná konstanta\footnote{Pojem charakteristika bude vysvœô »tlen dále.}.  Informace se tak œô¡¡íœô ùí podél charakteristiky v prostoru $u(x, \tau)$ a kaœô¡¾dá zmœô »na $u$ v urœô ­itém bodœô » se okamœô¡¾itœô » projeví ve vœô¡¡ech ostatních bodech.
+\item œô øeœô¡¡ením této rovnice jsou analytické funkce promœô »nné $x$. Pro libovolnou hodnotu $\tau$ vœô »tœô¡¡í neœô¡¾ poœô ­áteœô ­ní œô ­as $t$ existuje pro kaœô¡¾dou funkci $u(x, \tau)$ promœô »nné $x$ konvergentní polynomická œô ùada ve tvaru
+\begin{equation}
+a_0 + a_1(x - x_0) + a_2(x - x_0)^2 + ...
+\end{equation}
+Z praktického hlediska tedy mœô¡¯œô¡¾eme pro $\tau > 0$ povaœô¡¾ovat œô ùeœô¡¡ení difúzní rovnice za tak hladkou funkci, jak jen funkce mœô¡¯œô¡¾e bıt\footnote{Jak jiœô¡¾ bylo œô ùeœô ­eno vıœô¡¡e, œô ùeœô¡¡ení této rovnice lze aproximovat analytickou funkcí, která je ``dokonale'' hladkou funkcí.}. Mœô¡¯œô¡¾e vœô¡¡ak existovat nespojitost v œô ­ase jako dœô¡¯sledek existence hraniœô ­ních podmínek. To je dœô¡¯sledek toho, œô¡¾e se informace œô¡¡íœô ùí nekoneœô ­nœô » rychle podél charakteristiky $\tau = k$, kde $k$ je libovolná konstanta.
+\end{itemize}
+
+Z fyzikální pohledu je tepelná difúze ``vyhlazovací'' proces - teplo se œô¡¡íœô ùí z horké do chladné œô ­ásti a dochází tak k vyrovnávání teplot v námi uvaœô¡¾ované modelové tyœô ­i. Difúzní rovnice je matematickım modelem tohoto procesu. Lze dokázat, œô¡¾e aœô ­koliv pœô¡¯vodní hodnoty mohou bıt skokové, je pro libovolné $\tau > 0$ œô ùeœô¡¡ení difúzní rovnice (4.1) na oboru hodnot $-\infty < x < \infty$ pro poœô ­áteœô ­ní data $u(x, 0) = u_0(x)$ a $u(x \rightarrow \pm \infty , \tau) \rightarrow 0$ analytické pro vœô¡¡echna $\tau > 0$.
+
+Jako ilustrace vœô¡¡ech tœô »chto vlastností mœô¡¯œô¡¾e poslouœô¡¾it napœô ù. œô ùeœô¡¡ení
+\begin{equation}
+u(x, \tau) = \frac{1}{2 \sqrt{\pi \tau}}e^{\frac{-x^2}{4 \tau}}
+\end{equation}
+pro
+$-\infty < x < \infty$ a $\tau > 0$. Pro $\tau > 0$ se jedná o hladkou Gausovu kœô ùivku, avœô¡¡ak pro $r = 0$ je (4.2) pœô ùejde v tzv. delta funkci
+\begin{equation*}
+u_{\delta}(x,0) = \delta(x) 
+\end{equation*}
+Delta funkce $u_{\delta}(x,0)$ je charakteristická tím, œô¡¾e její hodnota je pro $x \neq 0$ nulová a pro $x = 0$ se blíœô¡¾í nekoneœô ­nu, avœô¡¡ak integrál této funkce je vœô¡¾dy roven jedné. Následující obrázek pœô ùedstavuje $u(x, \tau)$ pro rœô¡¯zné hodnoty $\tau$.
+\begin{center}
+	\begin{pspicture}(0,0)(10.0,7.0)
+		\rput(5.0,0.5){Fundamentální œô ùeœô¡¡ení difúzní rovnice}
+
+		\psline(0.5,1.0)(9.5,1.0)
+		\psline(5.0,1.0)(5.0,6.5)
+
+                \pscurve(1.0,1.0)(3.0,1.2)(5.0,2.2)(7.0,1.2)(9.0,1.0)
+                \pscurve[curvature=0.7 0.1 0](2.5,1.0)(4.0,1.2)(5.0,4.0)(6.0,1.2)(7.5,1.0)
+                \pscurve(3.2,1.0)(3.5,1.0)(4.6,1.1)(4.8,1.5)
+                \pscurve(5.2,1.5)(5.4,1.1)(6.5,1.0)(6.8,1.0)
+                \pscurve[curvature=0.1 0.1 0](4.8,1.5)(5.0,6.0)(5.2,1.5)
+
+                \rput(4.8,6.5){\small{$u_{\delta}$}}
+                
+                \psline[arrows=->](4.3,5.0)(4.8,5.0)
+                \psline[arrows=->](4.05,3.5)(4.55,3.5)
+                \psline[arrows=->](3.0,1.5)(3.5,1.5)
+
+                \rput(3.8,5.0){\tiny{$\tau = 0.2$}}
+                \rput(3.5,3.5){\tiny{$\tau = 1.0$}}
+                \rput(2.5,1.5){\tiny{$\tau = 5.0$}}
+
+	\end{pspicture}
+\end{center}
+Poœô ­áteœô ­ní hodnota delta funkce $u_{\delta}(x, 0)$ œô ùíká, œô¡¾e veœô¡¡keré teplo je pro $\tau = 0$ koncentrováno v bodœô » $x = 0$. Delta funkce modeluje pro $\tau > 0$ œô¡¡íœô ùení tepla materiálem a je fundamentálním œô ùeœô¡¡ením difúzní rovnice (4.1). Delta funkce také ilustruje nekoneœô ­nœô » rychlé œô¡¡íœô ùení tepla zmiœô èované vıœô¡¡e. Pro $\tau = 0$ je œô ùeœô¡¡ení (4.2) nulové pro vœô¡¡echna $x \neq 0$, avœô¡¡ak pro libovolné $\tau > 0$ jakkoliv malé a libovolné $x$ jakkoliv velké je $u_{\delta}(x, \tau) > 0$. Teplo, které bylo pœô¡¯vodnœô » koncentrováno do jednoho bodu se tak okamœô¡¾itœô » rozœô¡¡íœô ùilo podél celé délky tyœô ­e.
+
+\subsection{Technická poznámka: Charakteristiky lineární parciální diferenciální rovnice druhého œô ùádu}
+
+Charakteristiky lineární parciální diferenciální rovnice druhého œô ùádu je moœô¡¾né chápat jako kœô ùivky, podél kterıch se mœô¡¯œô¡¾e œô¡¡íœô ùit informace definovaná funkcí $u$, nebo také jako kœô ùivky napœô ùíœô ­ kterımi se mœô¡¯œô¡¾e vyskytovat nespojitost druhé derivace funkce $u$. Pœô ùedpokládejme, œô¡¾e $u(x, \tau)$ splœô èuje obecnou lineární diferenciální rovnici druhého œô ùádu.
+\begin{equation*}
+a(x, \tau)\frac{\partial^2 u}{\partial x^2} + b(x, \tau)\frac{\partial^2 u}{\partial x \partial \tau} + c(x,\tau)\frac{\partial^2 u}{\partial \tau^2} + d(x, \tau)\frac{\partial u}{\partial x} + 
+\end{equation*}
+\begin{equation*}
++ e(x, \tau)\frac{\partial u}{\partial \tau} + f(a, \tau)u + g(x, \tau) = 0
+\end{equation*}
+V pœô ùípadœô », œô¡¾e existuje charakteristika definovaná ve tvaru $x = x(\epsilon)$ a $\tau = \tau(\epsilon)$, je moœô¡¾né vıœô¡¡e uvedenou diferenciální rovnici za pœô ùedpokladu splnœô »ní podmínky
+\begin{equation*}
+a(x, \tau) \bigg( \frac{d \tau}{d \epsilon} \bigg)^2 - b(x, \tau)\frac{d \tau}{d \epsilon} \frac{d x}{d \epsilon} + c(x, \tau) \bigg( \frac{dx}{d \epsilon} \bigg)^2 = 0
+\end{equation*}
+ vyjádœô ùit pomocí smœô »rovıch derivací.
+
+Nyní vyvstává otázka, zda-li tato kvadratická rovnice má (a) dva reálné koœô ùeny, (b) jeden reálnı koœô ùen nebo (c) œô¡¾ádnı koœô ùen z mnoœô¡¾iny reálnıch œô ­ísel. Tœô »mto œô ùeœô¡¡ením odpovídají situace, kdy je diskriminant $b^2 - 4ac$ kvadratické rovnice (a) vœô »tœô¡¡í neœô¡¾ nula, (b) roven nule nebo (c) menœô¡¡í neœô¡¾ nula. V prvním pœô ùípadœô » existují dvœô » charakteristiky, které nazıváme hyperbolické - typickım pœô ùíkladem je napœô ù. œô¡¡íœô ùení kapaliny; ve financích se tento typ diferenciální rovnice prakticky nevyskytuje. Je-li diskriminant roven nule, oznaœô ­ujeme charakteristiku jako parabolickou. Tento typ diferenciální rovnice je ve financích nejbœô »œô¡¾nœô »jœô¡¡í a také vœô¡¡echny diferenciální rovnice v této knize jsou parabolické. V posledním tœô ùetím pœô ùípadœô », kdy koœô ùeny nejsou z mnoœô¡¾iny reálnıch œô ­ísel, hovoœô ùíme o eliptické charakteristice. Ve finanœô ­ní matematice je moœô¡¾né se s tímto typem rovnice setkat napœô ù. u doœô¡¾ivotních opcí ve vícefaktorovıch modelech. Tuto oblast vœô¡¡ak naœô¡¡e kniha nepokrıvá.
+
+Vzhledem k tomu, œô¡¾e jsou parametry $a$, $b$ a $c$ funkcí $x$ a $\tau$, mœô¡¯œô¡¾e se typ diferenciální rovnice mœô »nit. Diferenciální rovnice (3.5) Black-Scholes modelu, kterou jsme odvodili v pœô ùedchozí kapitole, je parabolická pro $S > 0$. Tato skuteœô ­nost má zásadní dœô¡¯sledek - $S = 0$ pœô ùedstavuje hranici, kterou nemœô¡¯œô¡¾e informace protnout.
+
+\subsection{Technická poznámka: Delta funkce a stranová funkce}
+
+Delta funkci $\delta(x)$ je vhodné spíœô¡¡e neœô¡¾ jako klasickou funkci chápat jako ``obecnou'' funkci. Delta funkce je formálnœô » definovaná jako lineární mapa, nicménœô » její existence je dána zejména potœô ùebou matematického popisu limity funkce, která, aœô ­koliv je omezována na poœô ùád menœô¡¡í interval, zœô¡¯stává koneœô ­ná.
+
+Pœô ùedpokládejme, œô¡¾e investice generuje v œô ­asovém intervalu $dt$ penœô »œô¡¾ní prostœô ùedky ve vıœô¡¡i $f(t)dt$, kde funkce $f(t)$ je definována následovnœô »
+\begin{equation*}
+f(t)= \frac{1}{2 \epsilon},~|t| \le \epsilon
+\end{equation*} 
+\begin{equation*}
+f(t)= 0,~|t| > \epsilon
+\end{equation*}
+Následující graf zobrazuje funkci pro rœô¡¯zné hodnoty $\epsilon$. 
+\begin{center}
+	\begin{pspicture}(0,0)(10.0,7.0)
+		\rput(5.0,0.0){Tœô ùi œô ­leny limitní œô ùady delta funkce}
+
+		\psline(0.5,1.0)(9.5,1.0)
+		\psline(5.0,1.0)(5.0,6.5)
+
+                \psline(1.0,1.0)(3.7,1.0)(3.7,2.5)(6.3,2.5)(6.3,1.0)(9.0,1.0)
+                \psline(1.0,1.0)(4.2,1.0)(4.2,4.0)(5.8,4.0)(5.8,1.0)(9.0,1.0)
+                \psline[linewidth=0.5mm](1.0,1.0)(4.7,1.0)(4.7,6.0)(5.3,6.0)(5.3,1.0)(9.0,1.0)
+
+                \psline[arrows=<->](4.7,0.7)(5.3,0.7)
+                \psline[arrows=<->](3.2,1.0)(3.2,6.0)
+
+                \rput(5.0,0.5){\tiny{$2\epsilon$}}
+                \rput(2.9,3.5){\tiny{$\frac{1}{2 \epsilon}$}}
+
+                \rput(9.5,0.7){\small{t}}
+
+	\end{pspicture}
+\end{center}
+S tím, jak klesá $\epsilon$, se funkce stává vyœô¡¡œô¡¡í a uœô¡¾œô¡¡í. Je zœô ùejmé, œô¡¾e celková vıplata generovaná uvaœô¡¾ovanou investicí je
+\begin{equation*}
+\int^{\infty}_{-\infty}f(t)dt
+\end{equation*}
+Tento integrál je roven jedné bez ohledu na hodnotu $\epsilon$, avœô¡¡ak pro vœô¡¡echna $t \neq 0$ se $f(t)$ blíœô¡¾í hodnotœô » nula s tím jak $\epsilon \rightarrow 0$. Tímto zpœô¡¯sobem lze neformálnœô » definovat delta funkce $\delta(t)$ - pro $\epsilon \rightarrow 0$ se jedná o ``limitu'' libovolné jednoparametrové ``rodiny'' funkcí $\delta_{\epsilon}(t)$ s následujícími vlastnostmi
+\begin{itemize}
+\item $\delta_{\epsilon}(t)$ je po œô ­ástech hladká pro libovolné $\epsilon$
+\item $\int^{\infty}_{-\infty} \delta_{\epsilon}(t)dt = 1$
+\item $\underset{\epsilon \rightarrow 0} {\lim} \delta_{\epsilon}(t) = 0$ pro vœô¡¡echna $t \neq 0$
+\end{itemize}
+Takováto œô ùada funkcí se nazıvá delta œô ùada. Vıœô¡¡e popsaná funkce $f(t)$ je jednou z nich. Dalœô¡¡í je napœô ù. funkce
+\begin{equation*}
+\delta_{\epsilon}(x) = \frac{1}{2 \sqrt{\pi \epsilon}}e^{-\frac{x^2}{4 \epsilon}}
+\end{equation*}
+která namísto nezávislé veliœô ­iny $t$ pouœô¡¾ívá veliœô ­inu $x$. Jesliœô¡¾e nahradíme $\epsilon$ veliœô ­inou $\tau$, dostáváme rovnici (4.2). Lze dokázat, œô¡¾e tato rovnice má integrál roven jedné a œô¡¾e, podobnœô » jako $f(t)$, je rovna nule pro $x \neq 0$ a $\epsilon \rightarrow 0$. Pro $x = 0$ a $\epsilon \rightarrow 0$ roste její hodnota k nekoneœô ­nu.
+
+Je-li $\phi(x)$ hladkou funkcí, platí
+\begin{equation*}
+\int^{\infty}_{-\infty}\delta(x)\phi(x)dx = \underset{\epsilon \rightarrow 0}\lim \int^{\infty}_{-\infty} \delta_{\epsilon}(x)\phi(x)dx = \phi(0)
+\end{equation*}
+Vıœô¡¡e uvedenı vztah definuje delta funkci jako spojitou lineární mapu z hladké funkce $\phi(x)$ do mnoœô¡¾iny reálnıch œô ­ísel, konkrétnœô » do hodnoty $\phi(0)$. Je zœô ùejmé, œô¡¾e pro libovolné $a,b > 0$ platí
+\begin{equation*}
+\int^b_{-a} \delta{x}\phi{x}dx = \phi(0)
+\end{equation*}
+a pro livolné $x_0$ platí
+\begin{equation*}
+\int^{\infty}_{-\infty}\delta(x - x_0)\phi(x)dx = \phi(x_0)
+\end{equation*}
+Násobením $\phi$ œô ­lenem $\delta(x - x_0)$ a následnım integrováním, tak ``vybereme'' hodnotu funkce $\phi$ v bodœô » $x_0$. Dále platí
+\begin{equation*}
+\int^x_{-\infty}\delta(s)ds = H(x)
+\end{equation*}
+kde $H(x)$ je tzv. stranová funkce definovaná jako
+\begin{equation*}
+H(x) = 0,~x < 0
+\end{equation*}
+\begin{equation*}
+H(x) = 1,~x \ge 0
+\end{equation*}
+Inverznœô » lze delta funkci definovat ze stranové funkce.
+\begin{equation*}
+H'(x) = \delta(x)
+\end{equation*}
+Vıœô¡¡e uvedenı vztah také ilustruje, œô¡¾e derivace funkce, která je v urœô ­itém bodœô » z dœô¡¯vodu ``skoku'' nespojitá, je v tomto dobœô » rovna souœô ­inu delty funkce a pœô ùísluœô¡¡ného ``skoku''.
+
+\section{Poœô ­áteœô ­ní podmínky}
+
+\subsection{Poœô ­áteœô ­ní podmínky a koneœô ­nı interval}
+
+Pœô ùepokládejme, œô¡¾e chceme vyœô ùeœô¡¡it diferenciální rovnici
+\begin{equation*}
+\frac{\partial u}{\partial r} = \frac{\partial^2 u}{\partial x^2}
+\end{equation*}
+pœô ùedstavující œô¡¡íœô ùení tepla v tyœô ­i o délce $2L$ pro koneœô ­nı interval $-L < x < L$ a $\tau > 0$.
+
+Je zœô ùejmé, œô¡¾e nejprve musíme specifikovat poœô ­áteœô ­ní teplotu $u(x, 0) = u_0(x)$ pro $-L < x < L$. Dále se zdá rozumné pœô ùepodkládat, œô¡¾e pro stanovení hodnoty $u(x, \tau)$ staœô ­í, budeme-li znát (a) teplotu na obou koncích tyœô ­e nebo (b) tepelné toky na tœô »chto koncích. Tomu odpovídá matematickı zápis
+\begin{equation*}
+u(-L, \tau) = g_-(\tau),~u(L, \tau)=g_+(\tau)
+\end{equation*}
+resp.
+\begin{equation*}
+-\frac{\partial u}{\partial x}(-L, \tau) = h_-(\tau),~\frac{\partial u}{\partial x}(L, \tau) = h_+(\tau)
+\end{equation*}
+V prvním pœô ùípadœô » to tak jsou teploty a v druhém pœô ùípadœô » teplné toky, které jsou definované pro $x = -L$ a $x = L$.
+
+\subsection{Poœô ­áteœô ­ní podmínky a nekoneœô ­nı interval}
+
+Nyní uvaœô¡¾ujme, œô¡¾e se teplo œô¡¡íœô ùí v imaginární nekoneœô ­nœô » dlouhé tyœô ­i. Také v tomto pœô ùípadœô » je dœô¡¯leœô¡¾ité definovat, jak se $u$ chová na ``konci'' tyœô ­e, tj. pro $L \rightarrow \pm \infty$. S nekoneœô ­nœô » dlouhou tyœô ­í jsou spojené jisté technické problémy, nicménœô » zjednoduœô¡¡enœô » œô ùeœô ­eno platí, œô¡¾e neroste-li $u$ pœô ùíliœô¡¡ rychle, existuje jednoznaœô ­né œô ùeœô¡¡ení závislé na poœô ­áteœô ­ní hodnotœô » $u_0(x)$. Diferenciální rovnice
+\begin{equation}
+\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2} ~~~ -\infty < x < \infty, ~ \tau > 0
+\end{equation}
+ je tak pro
+\begin{equation*}
+u(x,0) = u_0(x)
+\end{equation*}
+a za podmínek
+\begin{center}
+$u(x, 0)$ je funkce s koneœô ­nım poœô ­tem skokovıch nespojitostí
+\end{center}
+\begin{equation}
+\underset{|x| \rightarrow \infty} \lim u_0(x)e^{-ax^2} = 0 ~~~ a > 0
+\end{equation}
+\begin{equation}
+\underset{|x| \rightarrow \infty} \lim u(x, \tau)e^{-ax^2} = 0 ~~~ a > 0, \tau > 0
+\end{equation}
+z matematického pohledu správnœô » formulovanım problémem.
+
+\subsection{Poœô ­áteœô ­ní podmínky a semi-koneœô ­nı interval}
+
+V nœô »kterıch pœô ùípadech je interval pro $x$ z jedné strany ohraniœô ­en reálnım œô ­íslem a z druhé strany nekoneœô ­nem, coœô¡¾ vyœô¡¾aduje kombinaci obou vıœô¡¡e popsanıch postupœô¡¯. Tato situace je typická pro bariérové opce. Jestliœô¡¾e chceme napœô ù. vyœô ùeœô¡¡it diferenciální rovnici (4.3) pro $0 < x < \infty$ a $\tau > 0$, je tœô ùeba definovat dostateœô ­nœô » hladkou funkci $u_0(x)$ pro $0 < x < -\infty$, dostateœô ­nœô » hladkou hladkou hraniœô ­ní podmínku $u(0, \tau) = g_0(\tau)$ pro $x = 0$ a ``rœô¡¯stové'' podmínky (4.4) a (4.5) pro $x \rightarrow \infty$. To zaruœô ­uje, œô¡¾e (4.3) je z matematického hlediska správnœô » definovanım problémem.
+
+\ section{Zpœô »tná a dopœô ùedná diferenciální rovnice}
+
+Aœô¡¾ dosud jsme se zabıvali dopœô ùednou diferenciální rovnicí
+\begin{equation*}
+\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2}
+\end{equation*}
+doplnœô »nou o podmínku pro $\tau = 0$. Uvaœô¡¾ujme zpœô »tnou diferenciální rovnici
+\begin{equation}
+\frac{\partial u}{\partial \tau} = -\frac{\partial^2 u}{\partial x^2}
+\end{equation}
+odvozenou od dopœô ùedné diferenciální rovnice pomocí substituce $\tau_0 - \tau$, kde $\tau_0$ pœô ùedstavuje konstantu. Jestliœô¡¾e bychom chtœô »li œô ùeœô¡¡it tuto rovnici na mnoœô¡¾inœô » stejnıch podmínek jako v pœô ùípadœô » dopœô ùedné diferenciální rovnice, zjistili bychom, œô¡¾e není z matematického pohledu správnœô » definovanım problémem. Ve vœô »tœô¡¡inœô » pœô ùípadœô¡¯ by totiœô¡¾ tento problém nemœô »l œô ùeœô¡¡ení a pokud by existovala taková funkce $u$, konvergovala by její hodnota v koneœô ­ném œô ­ase k nekoneœô ­nu. Dobrım pœô ùíkladem je fundamentální œô ùeœô¡¡ení difúzní rovnice (4.2). V œô ­ase $\tau_0$ má œô ùeœô¡¡ení tvar
+\begin{equation*}
+\frac{1}{2\sqrt{\pi \tau_0}}e^{-\frac{x^2}{4 \tau_0}}
+\end{equation*}
+Jestliœô¡¾e tuto rovnici pouœô¡¾ijeme jako poœô ­áteœô ­ní podmínku $u_0(x)$ pro rovnici (4.6), má œô ùeœô¡¡ení tvar
+\begin{equation*}
+\frac{1}{2\sqrt{\pi (\tau_0 - \tau)}}e^{-\frac{x^2}{4 (\tau_0 - \tau)}}
+\end{equation*}
+Vıœô¡¡e uvedená rovnice se stává singulární pro $\tau = \tau_0$, kdy je rovna delta funkci $\delta(x)$. Navíc tato funkce pœô ùestává bıt reálnou pro $\tau > \tau_0$.
+
+Z fyzikálního pohledu má vıœô¡¡e popsané logicky snadno uchopitelnou interpretaci. Dopœô ùedná difúzní rovnice modeluje œô¡¡íœô ùení tepla z poœô ­áteœô ­ních hodnot. Zpœô »tná difúzní rovnice je naopak o urœô ­ení poœô ­áteœô ­ních hodnot, ze kterıch se vyvinulo koneœô ­né rozdœô »lení tepla a jedná se tedy v porovnání s dopœô ùednou difúzní funkcí o reverzní proces. Dopœô ùedná difúzní rovnice ``vyhlazuje'' pœô¡¯vodní nerovnomœô »rné rozdœô »lení tepla. Naopak zpœô »tná difúzní rovnice odvozuje z pœô¡¯vodnœô » hladkého rozdœô »lení vıchozí nerovnomœô »rné rozdœô »lení tepla v imaginární tyœô ­i. Alternativním pœô ùístupem je chápat dopœô ùednou difúzní rovnici jako proces, v rámci kterého proudí teplo z œô ­ástí s vyœô¡¡œô¡¡í teplotou do œô ­ástí s niœô¡¾œô¡¡í teplotou. Zpœô »tná difúzní rovnice popisuje modelovou situaci, kdy teplo proudí z chladnœô »jœô¡¡ích œô ­ástí imaginární tyœô ­e do teplejœô¡¡ích œô ­ástí tyœô ­e. Studené œô ­ásti imaginární tyœô ­e se tak stávají jeœô¡¡tœô » studenœô »jœô¡¡ími zatímco teplota teplejœô¡¡ích œô ­ástí mœô¡¯œô¡¾e v rámci modelu rœô¡¯st aœô¡¾ k nekoneœô ­nu.
+
+Navzdory vıœô¡¡e œô ùeœô ­enému je moœô¡¾né, aby byl problém (4.6) z matematického hlediska správnœô » definován. Je tak moœô¡¾né œô ùeœô¡¡it (4.6) pro $0 < \tau < \tau_0$ a dané $u(\tau_0)$. Dœô¡¯kaz lze provést pœô ùevedením (4.6) na dopœô ùednou difúzní rovnici pomocí substituce $\tau_0 - \tau$ za $\tau$. 
+
+\chapter{Rovnice Black-Scholes modelu}
+
+\section{Podobnostní œô ùeœô¡¡ení}
+
+œô øeœô¡¡ení $u(x, \tau)$ parciální diferenœô ­ní rovnice mœô¡¯œô¡¾e spoleœô ­nœô » s poœô ­áteœô ­ními a hraniœô ­ními podmínkami záviset na urœô ­ité kombinaci nezávislıch promœô »nnıch $x$ a $\tau$. V tomto pœô ùípadœô » je moœô¡¾né problém vyjádœô ùit jako klasickou diferenciální rovnici, kde jedinou nezávislou promœô »nnou je uvaœô¡¾ovaná kombinace. œô øeœô¡¡ení této klasické diferenciální rovnice pak nazıváme podobnostním œô ùeœô¡¡ením ve vztahu k pœô¡¯vodní parciální diferenœô ­ní rovnici. Matematická argumentace obhajující existenci takovéhoto œô ùeœô¡¡ení pœô ùekraœô ­uje rámec této knihy. Problematika je œô ­ásteœô ­nœô » osvœô »tlena v technické poznámce této kapitoly.\\
+
+\noindent \textbf{Pœô ùíklad:} Pœô ùedpokládejme, œô¡¾e $u(x, \tau)$ splœô èuje pariciální diferenœô ­ní rovnici pro $x > 0$
+\begin{equation}
+\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2}, ~~ x > 0, \tau > 0
+\end{equation}
+pœô ùi poœô ­áteœô ­ní podmínce
+\begin{equation}
+u(x, 0) = 0
+\end{equation}
+a hraniœô ­ních podmínkách
+\begin{equation}
+u(0, \tau) = 1, ~~ x = 0
+\end{equation}
+\begin{equation}
+u(x, \tau) \rightarrow 0, ~~ x \rightarrow 0
+\end{equation}
+Rovnice (5.1) modeluje œô¡¡íœô ùení tepla v dlouhé tyœô ­i. Poœô ­áteœô ­ní teplota je nulová, pœô ùiœô ­emœô¡¾ následnœô » je teplota na jednom konci tyœô ­e náhle zvıœô¡¡ena na jedna a udrœô¡¾ována na této hodnotœô ». Dle argumentœô¡¯ uvedenıch v technické poznámce hledáme œô ùeœô¡¡ení, pro které je $u(x, \tau)$ závislé na $x$ a $\tau$ skrze kombinaci $\xi = x / \sqrt{\tau}$ a tudíœô¡¾ $u(x, \tau) = U(\xi)$. Derivováním lze dokázat, œô¡¾e platí
+\begin{equation*}
+\frac{\partial u}{\partial \tau} = \frac{\partial U}{\partial \xi}\frac{\partial \xi}{\partial \tau}
+\end{equation*}
+\begin{equation*}
+\frac{\partial u}{\partial \tau} = -\frac{1}{2 \tau} \xi \frac{\partial U}{\partial \xi}
+\end{equation*}
+a
+\begin{equation*}
+\frac{\partial^2 u}{\partial x^2} = \frac{\partial \frac{\partial u}{\partial x}}{\partial x}
+\end{equation*}
+\begin{equation*}
+\frac{\partial^2 u}{\partial x^2} = \frac{\partial \frac{\partial U}{\partial \xi}\frac{\partial \xi}{\partial x}}{\partial \xi}\frac{\partial \xi}{\partial x}
+\end{equation*}
+\begin{equation*}
+\frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 U}{\partial \xi^2}\bigg( \frac{\partial \xi}{\partial x}\bigg)^2
+\end{equation*}
+\begin{equation*}
+\frac{\partial^2 u}{\partial x^2} = \frac{1}{\tau}\frac{\partial^2 U}{\partial \xi^2}
+\end{equation*}
+Dosazením do pœô¡¯vodní diferenciální rovnice (5.1), tak získáváme
+\begin{equation*}
+\frac{\partial^2 U}{\partial \xi^2} - \frac{1}{2} \xi \frac{\partial U}{\partial \xi} = 0
+\end{equation*}
+Podmínky (5.2), (5.3) a (5.4) se pœô ùetransformují do podoby
+\begin{equation}
+U(0) = 1, ~~ U(\infty) = 0
+\end{equation}
+pœô ùiœô ­emœô¡¾ druhá z rovnic zahrnuje podmínku (5.2) a (5.4). Pomocí separace promœô »nnıch je moœô¡¾né získat œô ùeœô¡¡ení pro $U'(\xi)$.
+\begin{equation*}
+U''(\xi) = -\frac{1}{2}\xi U'(\xi)
+\end{equation*}
+\begin{equation*}
+\frac{1}{U'(\xi)} U''(\xi)= -\frac{1}{2}\xi
+\end{equation*}
+\begin{equation*}
+\int \frac{1}{U'(s)} U''(s) ds = -\frac{1}{4}\xi^2 + c
+\end{equation*}
+\begin{equation*}
+\int \frac{1}{U'(s)} d U'(s) = -\frac{1}{4}\xi^2 + c
+\end{equation*}
+\begin{equation*}
+\ln U'(\xi) = -\frac{1}{4}\xi^2 + c
+\end{equation*}
+\begin{equation*}
+U'(\xi) = Ce^{-\frac{1}{4}\xi^2}
+\end{equation*}
+Následnım integrováním vırazu
+\begin{equation*}
+U(\xi) = C \int^{\xi}_0 e^{-\frac{s^2}{4}}ds + D
+\end{equation*}
+s vyuœô¡¾itím vztahu $\int^{\xi}_0 = \int^{\infty}_0 - \int^{\infty}_{\xi}$ a standardní rovnice
+\begin{equation*}
+\int^{\infty}_0 e^{-\frac{s^2}{4}}ds = \sqrt{\pi}
+\end{equation*}
+získáme
+\begin{equation*}
+U(\xi) = C \bigg(\sqrt{\pi}  - \int^{\infty}_{\xi} e^{-\frac{s^2}{4}}ds \bigg) + D
+\end{equation*}
+S pomocí hraniœô ­ních podmínek (5.5) lze urœô ­it hodnotu konstanty $D$
+\begin{equation*}
+U(0) = C(\sqrt{\pi} - \sqrt{\pi}) + D = 1
+\end{equation*}
+\begin{equation*}
+D = -1
+\end{equation*}
+a $C$
+\begin{equation*}
+U(0) = C(\sqrt{\pi} - 0) - 1 = 0
+\end{equation*}
+\begin{equation*}
+C = \frac{1}{\sqrt{\pi}}
+\end{equation*}
+Vıslednı tvar $U(\xi)$ je tedy
+\begin{equation*}
+U(\xi) = \frac{1}{\sqrt{\pi}} \int^{\infty}_{\xi} e^{-\frac{s^2}{4}}ds
+\end{equation*}
+a tvar $u(x,\tau)$ pak
+\begin{equation*}
+U(\xi) = \frac{1}{\sqrt{\pi}} \int^{\infty}_{x /\sqrt{\tau}} e^{-\frac{s^2}{4}}ds
+\end{equation*}
+Lze snadno ovœô »œô ùit, œô¡¾e tato rovnice splœô èuje definici problému (5.1) aœô¡¾ (5.4) a œô¡¾e tím pádem œô ùeœô¡¡ení závisí pouze na $\frac{x}{\sqrt{\tau}}$.\\
+
+\noindent \textbf{Pœô ùíklad:} V tomto pœô ùíkladœô » odvodíme fundamentální œô ùeœô¡¡ení pro $u_{\delta}(x, \tau)$. Nechœô¡¥
+\begin{equation*}
+u_{\delta}(x, \tau) = \tau^{-\frac{1}{2}}U(\xi)
+\end{equation*}
+kde opœô »t
+\begin{equation*}
+\xi = \frac{x}{\sqrt{\tau}}
+\end{equation*}
+œô ¬len $\tau^{-\frac{1}{2}}$ má zajistit, œô¡¾e $\int^{\infty}_{-\infty}u_{\delta}(x,\tau)dx$ je konstatní pro vœô¡¡echna $\tau$, coœô¡¾ lze dokázat pœô ùímım vıpoœô ­tem. Postupnımi úpravami získáme
+\begin{equation*}
+\frac{\partial u_{\delta}}{\partial \tau} = \frac{\partial \tau^{\frac{1}{2}U_{\delta}}}{\partial \tau}
+\end{equation*}
+\begin{equation*}
+\frac{\partial u_{\delta}}{\partial \tau} = -\frac{1}{2}\tau^{-\frac{3}{2}}U_{\delta} - \frac{1}{2}\tau^{-\frac{1}{2}} \xi \frac{\partial U_{\delta}}{\partial \xi}\frac{\partial \xi}{\partial \tau}
+\end{equation*}
+\begin{equation*}
+\frac{\partial u_{\delta}}{\partial \tau} = -\frac{1}{2}\tau^{-\frac{3}{2}}U_{\delta} - \frac{1}{2}\tau^{-\frac{3}{2}} \xi \frac{\partial U_{\delta}}{\partial \xi}
+\end{equation*}
+\begin{equation*}
+\frac{\partial u_{\delta}}{\partial \tau} = -\frac{1}{2}\tau^{-\frac{3}{2}} \bigg( U_{\delta} + \xi \frac{\partial U_{\delta}}{\partial \xi} \bigg)
+\end{equation*}
+\begin{equation*}
+\frac{\partial u_{\delta}}{\partial \tau} = -\frac{1}{2}\tau^{-\frac{3}{2}} \frac{\partial \xi U_{\delta}}{\partial \xi}
+\end{equation*}
+resp.
+\begin{equation*}
+\frac{\partial^2 u_{\delta}}{\partial x^2} = \tau^{-\frac{1}{2}}\frac{\frac{\partial U_{\delta}}{\partial \xi} \frac{\partial \xi}{\partial x}}{\partial \xi} \frac{\partial \xi}{\partial x}
+\end{equation*}
+\begin{equation*}
+\frac{\partial^2 u_{\delta}}{\partial x^2} = \tau^{-\frac{1}{2}}\frac{\partial^2 U_{\delta}}{\partial \xi^2} \bigg( \frac{\partial \xi}{\partial x} \bigg)^2
+\end{equation*}
+\begin{equation*}
+\frac{\partial^2 u_{\delta}}{\partial x^2} = \tau^{-\frac{3}{2}}\frac{\partial^2 U_{\delta}}{\partial \xi^2}
+\end{equation*}
+Protoœô¡¾e vıchozí difúzní rovnice má stejnœô » jako v pœô ùedchozím pœô ùíkladœô » tvar
+\begin{equation*}
+\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2}, ~~ x > 0, \tau > 0
+\end{equation*}
+budeme hledat œô ùeœô¡¡ení diferenciální rovnice
+\begin{equation}
+\frac{\partial^2 U_{\delta}}{\partial \xi^2} + \frac{1}{2}\frac{\partial \xi U_{\delta}}{\partial \xi} = 0
+\end{equation}
+Integrováním této rovnice pœô ùes $\xi$ sníœô¡¾íme její œô ùád o jeden stupeœô è.
+\begin{equation*}
+\frac{\partial U_{\delta}}{\partial \xi} + \frac{1}{2} \xi U_{\delta} + d = 0
+\end{equation*}
+Diferenciální rovnice
+\begin{equation*}
+\frac{\partial U_{\delta}}{\partial \xi} + \frac{1}{2} \xi U_{\delta} = 0
+\end{equation*}
+má stejnœô » jako v prvním pœô ùíkladœô » œô ùeœô¡¡ení
+\begin{equation*}
+U_{\delta} = Ce^{-\frac{1}{4}\xi^2}
+\end{equation*}
+Vıslednı tvar œô ùeœô¡¡ení rovnice (5.6) má tedy podobu
+\begin{equation*}
+U_{\delta}(\xi) = Ce^{-\frac{1}{4}\xi^2} + D
+\end{equation*}
+Zvolíme-li $D=0$ a znormujeme-li œô ùeœô¡¡ení pomocí $C = \frac{1}{2\sqrt{\pi}}$, tak aby platilo
+\begin{equation*}
+\int^{\infty}_{-\infty}u_{\delta} dx = 1
+\end{equation*}
+získáme fundamentální œô ùeœô¡¡ení
+\begin{equation*}
+u_{\delta}(x, \tau) = \frac{1}{2\sqrt{\pi \tau}}e^{-\frac{x^2}{4 \tau}}
+\end{equation*}
+coœô¡¾ odpovídá rovnici (4.2).
+
+\section{Technická poznámka: Invariance a podobnostní œô ùeœô¡¡ení}
+
+Klíœô ­em k podobnostnímu œô ùeœô¡¡ení je, œô¡¾e jak diferenciální rovnice tak poœô ­áteœô ­ní a hraniœô ­ní podmínky jsou invariantní pro $x \mapsto \lambda x$ a $\tau \mapsto \lambda^2 \tau$, kde $\lambda$ je libovolné reálné œô ­íslo. Tato transformace se nazıvá jednoparametrovou grupovou transformací a její invarianci je moœô¡¾né ovœô »œô ùit pomocí novıch promœô »nnıch $X = \lambda x$ a $T = \lambda^2 \tau$, kde funkce $u$ splœô èuje podmínku
+\begin{equation*}
+\frac{\partial u}{\partial T} = \frac{\partial^2 u}{\partial X^2}
+\end{equation*}
+V prvním z pœô ùíkladœô¡¯ uvádœô »nıch v pœô ùedchozí kapitole se podmínky pœô ùestransformují do podoby $u(X,0)=0$ a $u(0,T)=1$ pro libovolné $\lambda$. Navíc $\frac{x}{\sqrt{\tau}} = \frac{X}{\sqrt{T}}$ je jedinou kombinací $X$ a $T$, která není funkcí $\lambda$ a œô ùeœô¡¡ení je tak závislé pouze na $\frac{x}{\sqrt{\tau}}$. Pro pouœô¡¾itelnost metody podobnostního œô ùeœô¡¡ení je nezbytné, aby diferenciální rovnice a poœô ­áteœô ­ní a hraniœô ­ní podmínky byly invariantní pro vıœô¡¡e uvaœô¡¾ovanou transformaci. V druhém z pœô ùíkladœô¡¯ pœô ùedchozí kapitoly funkce promœô »nné $\tau$, v tomto konkrétním pœô ùípadœô » se jednalo o funkci $\tau^{-\frac{1}{2}}$, násobí funkci $U_{\delta}(\xi)$, protoœô¡¾e difúzní rovnice je vzhledem ke své linearitœô » také invariantní pro jednoparametrovou grupu $u \mapsto \mu u$. Dobrım praktickım testem pro nalezení podobnostního œô ùeœô¡¡ení je vyzkouœô¡¡et $u = \tau^{\alpha} f(x/ \tau^{\beta})$ v nadœô »ji, œô¡¾e $x$ a $\tau$ zœô¡¯stanou v rovnicích pouze pro kombinaci $\xi = x/ \tau^{\beta}$. V prvním z pœô ùíkladœô¡¯ pœô ùedchozí kapitoly je vısledkem uplatnœô »ní tohoto postupu $\alpha = 0$ získané z hraniœô ­ní podmínky v $x = 0$ a $\beta = \frac{1}{2}$ získané z difúzní rovnice. V druhém pœô ùíkladœô » vychází $\alpha = -\frac{1}{2}$, protoœô¡¾e chceme, aby byl intergrál funkce $u(x, \tau)$ pœô ùes $x$ nezávislı na $\tau$, a $\beta$ je opœô »t rovno $\frac{1}{2}$.
+
+\section{Problém poœô ­áteœô ­ní podmínky a difúzní rovnice}
+
+Fundamentální œô ùeœô¡¡ení difúzní rovnice je moœô¡¾né pouœô¡¾ít pro odvození explicitního œô ùeœô¡¡ení problému definovaného rovnicemi (4.3) - (4.5). V rámci tohoto problému œô ùeœô¡¡íme difúzní rovnici pro $-\infty < x < \infty$ a $\tau > 0$ za podmínky $u(x, 0) = u_0(x)$ a za podmínky "pœô ùijatelného" rœô¡¯stu pro $x = \pm \infty$. Klíœô ­em k œô ùeœô¡¡ení je skuteœô ­nost, œô¡¾e poœô ­áteœô ­ní data je moœô¡¾né vyjádœô ùit ve tvaru
+\begin{equation*}
+u_0(x) = \int^{\infty}_{-\infty}u_0(\xi)\delta(\xi - x)d\xi
+\end{equation*}
+kde $\delta(\cdot)$ je delta funkcí. Pœô ùipomeœô ème, œô¡¾e fundamentální œô ùeœô¡¡ení difúzní rovnice
+\begin{equation*}
+u_{\delta}(s, \tau) = \frac{1}{2 \sqrt{\pi \tau}}e^{-\frac{s^2}{4 \tau}}
+\end{equation*}
+má poœô ­áteœô ­ní hodnotu $u_{\delta}(s,0) = \delta(s)$. Protoœô¡¾e $u_{\delta}(s-x,\tau) = u_{\delta}(x-s, \tau)$ je pœô ùi pouœô¡¾ití $x$ popœô ù. $s$ jako nezávislé veliœô ­iny funkce
+\begin{equation*}
+u_{\delta}(s-x, \tau) = \frac{1}{2 \sqrt{\pi \tau}}e^{-\frac{(s-x)^2}{4 \tau}}
+\end{equation*}
+œô ùeœô¡¡ením difúzní rovnice s poœô ­áteœô ­ní hodnotou $u_{\delta}(s-x,0) = \delta(s-x)$. Pro libovolnou konstantu $s$ tedy funkce
+\begin{equation*}
+u_0(s)u_{\delta}(s-x, \tau)
+\end{equation*}
+promœô »nnıch $x$ a $\tau$ splœô èuje difúzní rovnici $\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2}$ a má poœô ­áteœô ­ní hodnotu $u_0(s)\delta(s-x)$. Vzhledem k tomu, œô¡¾e je difúzní rovnice lineární, je moœô¡¾né jednotlivá œô ùeœô¡¡ení skládat pomocí superpozice. Pokud tak uœô ­iníme integrováním pœô ùes $s$ pro $-\infty < s < \infty$, získáme œô ùeœô¡¡ení difúzní rovnice
+\begin{equation}
+u(x, \tau) = \frac{1}{2 \sqrt{\pi \tau}} \int^{\infty}_{-\infty} u_0(s)e^{-\frac{(x-\tau)^2}{4 \tau}}
+\end{equation}
+s poœô ­áteœô ­ní hodnotou
+\begin{equation*}
+u(x,0) = \int^{\infty}_{-\infty}u_0(s)\delta(s-x)ds = u_0(x).
+\end{equation*}
+Vıœô¡¡e uvedená rovnice je tedy hledanım explicitním œô ùeœô¡¡ením problému definovaného rovnicemi (4.3) - (4.5). Lze dokázat, œô¡¾e toto œô ùeœô¡¡ení je jedineœô ­né. Vıœô¡¡e uvedenı postup není jedinı, jak lze odvodit toto œô ùeœô¡¡ení - alternativu pœô ùedstavuje Fourierova transformace.
+
+Rovnice (5.7) má následující fyzikální interpretaci. Pœô ùipomeœô ème, œô¡¾e fundamentální œô ùeœô¡¡ení difúzní rovnice popisuje œô¡¡íœô ùení tepla z vıchozího tepelného bodu, kdy v œô ­ase $\tau = 0$ je vœô¡¡echno teplo koncentrováno v poœô ­átku. Matematicky je tento bod vyjádœô ùen pomocí delta funkce. Nyní uvaœô¡¾ujme poœô ­áteœô ­ní tepelné rozdœô »lení $u_0(x)$, které skládá z œô ùady teplenıch bodœô¡¯, pœô ùiœô ­emœô¡¾ tepelnı bod v $x = s$ má hodnotu $u_0(s)ds$. Z kaœô¡¾dého bodu se œô¡¡íœô ùí teplo - vısledné tepelné rozdœô »lení tak odpovídá fundamentálnímu œô ùeœô¡¡ení vynásobenému $u_0(s)$ s $x$ nahrazenım $x-s$. Protoœô¡¾e je difúzní rovnice lineární, lze vısledné tepelné rozdœô »lení získat superpozicí jednotlivıch bodœô¡¯. V limitœô » je pak tento souœô ­et nahrazen integrálem (5.7).
+
+\section{œô øeœô¡¡ení diferenciální rovnice Black-Scholes modelu}
+
+Diferenciální rovnice Black-Scholes modelu a podmínky pro evropskou kupní opci s hodnotou $C(S,t)$, jsou
+\begin{equation}
+\frac{\partial C}{\partial t} + \frac{1}{2}\sigma^2S^2\frac{\partial^2 C}{\partial S^2} + rS \frac{\partial C}{\partial S} - rC = 0
+\end{equation}
+\begin{equation*}
+C(0,t) = 0, ~~ C(S \rightarrow \infty,t) \sim S
+\end{equation*}
+\begin{equation*}
+C(S,T) = \max(S-E,0)
+\end{equation*}
+Rovnice (5.8) na první pohled nepœô ùipomíná difúzní rovnici a navíc se jedná zpœô »tnou diferenciální rovnici s ``koneœô ­nou'' podmínkou stanovenou pro $t = T$. Definujme
+\begin{equation*}
+S = Ee^x, ~~ t = T - \frac{\tau}{\frac{1}{2}\sigma^2}, ~~ C = Ev(x, \tau)
+\end{equation*}
+Postupnımi úpravami jednotlivıch œô ­lenœô¡¯ rovnice (5.8) získáme
+\begin{equation*}
+\frac{\partial C(S,t)}{\partial t} = \frac{Ev(x, \tau)}{\partial \tau}\frac{\partial \tau}{\partial t} = E \frac{\partial v(x,\tau)}{\partial \tau} \frac{1}{\frac{\partial t}{\partial \tau}} = -\frac{1}{2}\sigma^2 E \frac{\partial v(x, \tau)}{\partial \tau}
+\end{equation*}
+\begin{equation*}
+\frac{1}{2}\sigma^2 S^2 \frac{\partial^2 C(S,t)}{\partial S^2} = \frac{1}{2}\sigma^2 E^2 ( e^x)^2 \frac{\frac{E v(x, \tau)}{\partial x} \frac{1}{\frac{\partial S}{\partial x}}}{\partial x} \frac{1}{\frac{\partial S}{\partial x}} = \frac{1}{2}\sigma^2E \bigg( \frac{\partial^2 v}{\partial x^2} - \frac{\partial v}{\partial x} \bigg)
+\end{equation*}
+\begin{equation*}
+rS\frac{\partial C(S,t)}{\partial S} = r E e^x \frac{\partial E v(x,\tau)}{\partial x} \frac{1}{\frac{\partial S}{\partial x}} = r E \frac{\partial v(x, \tau)}{\partial x}
+\end{equation*}
+\begin{equation*}
+rC(S,t) = rEv(x, \tau)
+\end{equation*}
+Vısledná rovnice má tedy po vıœô¡¡e uvedenıch úpravách tvar
+\begin{equation}
+\frac{\partial v}{\partial \tau} = \frac{\partial^2 v}{\partial x^2} + (k - 1)\frac{\partial v}{\partial x} - kv
+\end{equation}
+kde $k = \frac{r}{\frac{1}{2}\sigma^2}$. Vzhledem k tomu, œô¡¾e $\tau = 0$ pro $t = T$, pœô ùetransformuje se ``koneœô ­ná'' podmínka do podoby poœô ­áteœô ­ní podmínky
+\begin{equation*}
+v(x,0) = \max(e^x - 1,0)
+\end{equation*}
+
+Rovnice (5.9) obsahuje na první pohled pouze jeden bezrozmœô »rnı parametr $k = \frac{r}{\frac{1}{2}\sigma^2}$, aœô ­koliv v pœô¡¯vodní rovnici figurovaly œô ­tyœô ùi rozmœô »rové veliœô ­iny, tj. $E$, $T$, $\sigma^2$ a $r$. Ve skuteœô ­nosti v (5.9) figuruje jeœô¡¡tœô » bezrozmœô »rnı parametr $\frac{1}{2}\sigma^2T$, kterı pœô ùedstavuje bezrozmœô »rnı œô ­as do splatnosti. Tyto dva bezrozmœô »rné parametry jsou jediné nezávislé parametry problému (4.3) - (4.5). Ostatní parametry byly "zavleœô ­eny" v prœô¡¯bœô »hu transformace pœô¡¯vodního problému, tj. œô ùadou souslednıch aritmetickıch operací.
+
+Rovnice (5.9) nyní mnohem více pœô ùipomíná difúzní rovnici, na kterou je jí pœô ùevést pouhou zmœô »nou veliœô ­iny. Pouœô¡¾ijeme-li substituci
+\begin{equation*}
+v = e^{\alpha x + \beta \tau}u(x, \tau)
+\end{equation*}
+získáme derivováním (5.9) vztah
+\begin{equation*}
+\beta u + \frac{\partial u}{\partial \tau} = \alpha^2 u + 2 \alpha \frac{\partial u}{\partial x} + \frac{\partial^2 u}{\partial x^2} + (k - 1)\bigg( au + \frac{\partial u}{\partial x} \bigg) - ku
+\end{equation*}
+Funkci $u$ je moœô¡¾né eliminovat, jestliœô¡¾e zvolíme $\beta = \alpha^2 + (k - 1)\alpha - k$. Podobnœô » je moœô¡¾né se zbavit $\frac{\partial u}{\partial x}$, platí-li $2\alpha + (k - 1) = 0$. œô øeœô¡¡ením tœô »chto dvou rovnic získáváme
+\begin{equation*}
+\alpha = -\frac{1}{2}(k - 1), ~~ \beta = -\frac{1}{4}(k + 1)^2
+\end{equation*}
+Platí tedy
+\begin{equation*}
+v = e^{-\frac{1}{2}(k - 1)x - \frac{1}{4}(k + 1)^2 \tau}u(x, \tau)
+\end{equation*}
+kde
+\begin{equation*}
+\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2},~~ -\infty < x < \infty,~ \tau > 0
+\end{equation*}
+s podmínkou
+\begin{equation}
+u(x, 0) = u_0(x) = \max \bigg( e^{\frac{1}{2}(k-1)x} - e^{\frac{1}{2}(k+1)x}, 0 \bigg)
+\end{equation}
+Tímto ponœô »kud zdlouhavım zpœô¡¯sobem jsme se dobrali rovnice pro vıplatu evropské kupní opce. œô øeœô¡¡ením difúzní rovnice je (5.7)
+\begin{equation}
+u(x, \tau) = \frac{1}{2\sqrt{\pi \tau}} \int^{\infty}_{-\infty} u_0(s)e^{-\frac{(x-\tau)^2}{4 \tau}} ds
+\end{equation}
+kde $u_0(x)$ je dáno rovnicí (5.10).
+
+Nyní pouze zbıvá upravit intergrál (5.11). Nejprve provedeme substituci
+\begin{equation}
+x' = \frac{s-x}{\sqrt{2 \tau}}
+\end{equation}
+která nám vıchozí rovnici (5.11) upraví do podoby
+\begin{equation}
+u(x, \tau) = \frac{1}{\sqrt{2 \pi}}\int^{\infty}_{-\infty}u_0(x'\sqrt{2 \tau} + x)e^{-\frac{1}{2}{x'}^2} dx'
+\end{equation}
+Protoœô¡¾e $k \ge 0$\footnote{Pœô ùipomeœô èmœô », œô¡¾e $k = \frac{r}{\frac{1}{2}\sigma^2}$. Parametr $k$ by tak mohl bıt zápornı pouze v pœô ùípadœô » záporné bezrizikové úrokové sazby.}, platí s ohledem na (5.10)
+\begin{equation*}
+u_0(x) = e^{\frac{1}{2}(k + 1)x} - e^{\frac{1}{2}(k - 1)x}, ~~ x \ge 0
+\end{equation*}
+\begin{equation*}
+u_0(x) = 0, ~~ x < 0
+\end{equation*}
+Rovnici (5.13) lze tedy dále upravit do tvaru
+\begin{equation*}
+u(x, \tau) = \frac{1}{\sqrt{2 \pi}}\int^{\infty}_{-x/\sqrt{2 \tau}}e^{\frac{1}{2}(k + 1)(x + x'\sqrt{2 \tau})}e^{-\frac{1}{2}{x'}^2}dx' - \frac{1}{\sqrt{2 \pi}}\int^{\infty}_{-x/\sqrt{2 \tau}}e^{\frac{1}{2}(k - 1)(x + x'\sqrt{2 \tau})}e^{-\frac{1}{2}{x'}^2}dx'
+\end{equation*}
+\begin{equation*}
+u(x, \tau) = I_1 - I_2
+\end{equation*}
+V dalœô¡¡ím kroce upravme œô ­len $I_1$.
+\begin{equation*}
+I_1 = \frac{1}{\sqrt{2 \pi}} \int^{\infty}_{-x/\sqrt{2 \tau}}e^{\frac{1}{2}(k+1)(x + x'\sqrt{2 \tau})-\frac{1}{2}x'^2 dx'}
+\end{equation*}
+\begin{equation*}
+I_1 = \frac{e^{\frac{1}{2}(k+1)x}}{\sqrt{2 \pi}} \int^{\infty}_{-x/\sqrt{2 \tau}}e^{\frac{1}{2}(k + 1)\tau}e^{-\frac{1}{2}(x' - \frac{1}{2}(k + 1)\sqrt{2 \tau})^2}dx'
+\end{equation*}
+Nyní provedeme substituci $\rho = x' - \frac{1}{2}(k + 1)\sqrt{2 \tau}$ a pokraœô ­ujeme v úpravách.
+\begin{equation*}
+I_1 = \frac{e^{\frac{1}{2}(k + 1)x + \frac{1}{2}(k + 1)^2 \tau}}{\sqrt{2 \pi}} \int^{\infty}_{-x/\sqrt{2 \tau} - \frac{1}{2}(k+1)\sqrt{2 \tau}}e^{-\frac{1}{2}\rho^2}d \rho
+\end{equation*}
+Protoœô¡¾e je $e^{-\frac{1}{2}x^2}$ sudou funkcí, platí
+\begin{equation*}
+\int^{\infty}_{-x/\sqrt{2 \tau} - \frac{1}{2}(k+1)\sqrt{2 \tau}}e^{-\frac{1}{2}\rho^2}d \rho = \int^{x/\sqrt{2 \tau}}_{-\infty} e^{-\frac{1}{2}(k+1)\sqrt{2 \tau}}e^{-\frac{1}{2}\rho^2}d \rho
+\end{equation*}
+a $I_1$ je tak moœô¡¾né vyjádœô ùit ve formœô »
+\begin{equation*}
+I_1 = e^{\frac{1}{2}(k+1)x + \frac{1}{4}(k + 1)^2 \tau}N(d_1)
+\end{equation*}
+kde
+\begin{equation*}
+d_1 = \frac{x}{\sqrt{2 \tau}} + \frac{1}{2}(k + 1)\sqrt{2 \tau}
+\end{equation*}
+a
+\begin{equation*}
+N(d_1) = \frac{1}{\sqrt{2 \tau}}\int^{d_1}_{-\infty}e^{-\frac{1}{2}s^2 ds}
+\end{equation*}
+pœô ùedstavuje kumulativní distribuœô ­ní funkci normálního rozdœô »lení. Úprava $I_2$ je identická s vıjimkou toho, œô¡¾e $(k + 1)$ je nahrazeno $(k - 1)$.
+\begin{equation*}
+I_1 = e^{\frac{1}{2}(k - 1)x + \frac{1}{4}(k - 1)^2 \tau}N(d_2)
+\end{equation*}
+\begin{equation*}
+d_2 = \frac{x}{\sqrt{2 \tau}} + \frac{1}{2}(k - 1)\sqrt{2 \tau}
+\end{equation*}
+Pœô ùipomeœô ème si vıœô¡¡e odvozenou rovnici
+\begin{equation*}
+v(x, \tau) = e^{-\frac{1}{2}(k - 1)x - \frac{1}{4}(k + 1)^2 \tau}u(x, \tau)
+\end{equation*}
+a substituce $x = \ln \frac{S}{E}$, $\tau = \frac{1}{2}\sigma^2(T - t)$ a $C = Ev(x,\tau)$. S jejich pomocí lze elemetárními aritmetickımi operacemi odvodit vıslednou rovnici pro hodnotu evropské kupní opce jako
+\begin{equation*}
+C(S,t) = SN(d_1) - Ee^{-r(T - t)}N(d_2)
+\end{equation*}
+kde
+\begin{equation*}
+d_1 = \frac{\ln\frac{S}{E} + (r + \frac{1}{2}\sigma^2)(T - t)}{\sigma \sqrt{T - t}}
+\end{equation*}
+\begin{equation*}
+d_2 = \frac{\ln\frac{S}{E} + (r - \frac{1}{2}\sigma^2)(T - t)}{\sigma \sqrt{T - t}}
+\end{equation*}
+Odpovídající rovnici pro evropskou prodejní opci lze snadno odvodit pomocí put-call parity
+\begin{equation*}
+C - P = S - Ee^{-r(T - t)}
+\end{equation*}
+a vztahu $N(-d) = 1 - N(d)$. Postupnımi elementárními úpravami získáme
+\begin{equation*}
+P(S,t) = Ee^{-r(T - t)}N(-d_2) - SN(-d_1)
+\end{equation*}
+Deltu kupní a prodejní opce lze vypoœô ­íst pomocí derivace. V pœô ùípadœô » evropské kupní opce má delta tvar
+\begin{equation*}
+\Delta = \frac{\partial C}{\partial S}
+\end{equation*}
+\begin{equation*}
+\Delta = N(d_1) + S \frac{\partial N(d_1)}{\partial S} - Ee^{-r(T-t)}\frac{\partial N(d_1)}{\partial S}
+\end{equation*}
+\begin{equation*}
+\Delta = N(d_1) + S \frac{\partial N(d_1)}{\partial d_1}\frac{\partial d_1}{\partial S} - Ee^{-r(T-t)}\frac{\partial N(d_2)}{\partial d_2}\frac{\partial d_2}{\partial S}
+\end{equation*}
+\begin{equation*}
+\Delta = N(d_1) + \frac{S \frac{\partial N(d_1)}{\partial d_1} - Ee^{-r(T-t)}\frac{\partial N(d_2)}{\partial d_2} \frac{\partial d_2}{\partial S}}{S \sigma \sqrt{T - t}}
+\end{equation*}
+\begin{equation*}
+\Delta = N(d_1)
+\end{equation*}
+Poslední z vıœô¡¡e uvedenıch úprav vychází ze vztahu
+\begin{equation*}
+S \frac{\partial N(d_1)}{\partial d_1} = Ee^{-r(T-t)}\frac{\partial N(d_2)}{\partial d_2}
+\end{equation*}
+Prokázání této rovnosti je vœô¡¡ak pomœô »rnœô » sloœô¡¾ité. Deltu prodejní opce lze odvodit pomocí put-call parity jako
+\begin{equation*}
+\Delta = N(d_1) - 1
+\end{equation*}
+
+\section{Technická poznámka: Bezrozmœô »rné veliœô ­iny}
+
+Diferenciální rovnice modelující fyzikální a finanœô ­ní procesy œô ­asto obsahují mnoho parametrœô¡¯ jako jsou pœô ùímœô »si materiálu a jeho teplotní vodivost nebo konstanty podkladového stochastického modelu (napœô ù. vınosová míra a volatilita). První krokem pœô ùi œô ùeœô¡¡ení tœô »chto rovnic je indexace jejich parametrœô¡¯ pomocí tzv. ``typickıch hodnot'' s cílem sesbírat parametry co nejvíce dohromady. V pœô ùedeœô¡¡lé kapitole jsme parametry $S$ a $V$ indexovali pomocí $E$, coœô¡¾ byla jediná a priori ``typická veliœô ­ina''. Aœô ­koliv je moœô¡¾né $S$ mœô »œô ùit v CZK, EUR œô ­i USD, indexovaná veliœô ­ina $x$ nemœô »la œô¡¾ádné mœô »œô ùítko. To je dœô¡¯leœô¡¾ité vzhledem k tomu, œô¡¾e rozvoj $e^S = 1 + S + \frac{1}{2}S^2 + ...$ postrádá smysl, je-li $S$ rozmœô »rnou veliœô ­inou\footnote{Uvœô »domte si, œô¡¾e aœô ­koliv absolutní zmœô »na $dS$ ceny podkladového aktiva je rozmœô »rnou veliœô ­inou, její relativní zmœô »na $\frac{dS}{S}$ je bezrozmœô »rnou veliœô ­inou.}. Podobnœô » jako $x$ také indexovaná veliœô ­ina $v$ byla bezrozmœô »rná.
+
+Po tomto kroku je moœô¡¾né sesbírat zbıvající parametry do tzv. bezrozmœô »rnıch grup, pro které se pouœô¡¾ívá také oznaœô ­ení bezrozmœô »rné parametry. Tímto zjistíme skuteœô ­nı poœô ­et nezávislıch konstant v hledaném œô ùeœô¡¡ení. Jestliœô¡¾e je hodnota jednoho z vıslednıch bezrozmœô »rnıch parametrœô¡¯ pœô ùíliœô¡¡ velká nebo naopak pœô ùíliœô¡¡ malá, je moœô¡¾né tohoto vyuœô¡¾ít pro pœô ùibliœô¡¾né œô ùeœô¡¡ení. Tuto aproximaci nazıváme asymptotickou expanzí a pœô ùísluœô¡¡nou teorii, která se snaœô¡¾í nalézt techniky pro odvození pœô ùibliœô¡¾nıch œô ùeœô¡¡ení, pak asymptotickou analızou.
+
+V Black-Scholes rovnici jsou parametry $r$ a $\sigma^2$ vztaœô¡¾eny k veliœô ­inœô » \textit{œô ­as}$^{-1}$. Parametry $k = \frac{r}{\frac{1}{2}\sigma^2}$ a $\frac{1}{2}\sigma^2 T$ jsou tak bezrozmœô »rné a jedná se o jediné bezrozmœô »rné parametry základního problému evropské kupní a prodejní opce.
+
+\section{Binární opce}
+
+Aœô ­koliv jsme se aœô¡¾ dosud zabıvali pouze plain-vanilla evropskou kupní a prodejní opcí, vıplatní profil opce byl dœô¡¯leœô¡¾itı aœô¡¾ posledních krocích úpravy. Funkce $u_0(s)$ v rovnici (5.11) mœô¡¯œô¡¾e bıt kombinací libovolnıch opcí. Linearita Black-Scholes rovnice totiœô¡¾ umoœô¡¾œô èuje oceœô èovat portfolia opcí pomocí superpozice. Díky tomu je moœô¡¾né oceœô èovat jednotlivé opœô ­ní strategie jako je napœô ù. straddle nebo stangle. Navíc vısledná vıplata nemusí bıt pouze kombinací evropskıch kupních œô ­i prodejních opcí, ale mœô¡¯œô¡¾eme uvaœô¡¾ovat libovolnou funkci $S$.
+
+Uvaœô¡¾ujme vıplatní funkci $\Lambda(S)$ v œô ­ase $T$ a hodnotu opce $V(S,t)$ v œô ­ase $t$. Platí $V(S,T) = \Lambda(S)$. Nejprve odvodíme funkci $u_0(x)$ odpovídající $\Lambda(S)$ po transformaci, kterou jsme pouœô¡¾ili vıœô¡¡e. To znamená, œô¡¾e poloœô¡¾íme $S = Ee^x$ a $V(S,t) = Ee^{\alpha x + \beta \tau}u(x, \tau)$. Z vıplaty vyplıvá $V(S,T) = \Lambda(S) = Ee^{\alpha x}u_0{x}$. S pomocí rovnice (5.11) je $V(S,t)$ moœô¡¾né vyjádœô ùit jako
+\begin{equation}
+V(S,t) = \frac{e^{-r(T-t)}}{\sigma \sqrt{2 \pi (T - t)}} \int^{\infty}_{0} \Lambda(S')e^{-\frac{1}{2}\big( \frac{\ln(S'/S)-(r - 1/2 \sigma^2)(T-t)}{\sigma \sqrt{T-t}} \big)^2}\frac{dS'}{S'}
+\end{equation}
+Rovnice (5.14) zahrnuje mimojiné také evropské plain-vanilla kupní a prodejní opce. Deltu lze odvodit derivací (5.14) dle $S$. Pœô ùi odvozování (5.14) jsme pœô ùedpokládali, œô¡¾e $\sigma$ a $r$ jsou konstanty a œô¡¾e podkladové aktivum negeneruje œô¡¾ádné cash-flow.
+
+Uvaœô¡¾ujme kupní binární opci typu cash-or-nothing. V pœô ùípadœô », œô¡¾e je spotová cena v dobœô » maturity vyœô¡¡œô¡¡í neœô¡¾ realizaœô ­ní cena, vyplácí opce œô ­ástku $H$. V opaœô ­ném pœô ùípadœô » je vıplata nulová. Je-li $\Lambda(S)$ vıplatní funkcí v dobœô » splatnosti opce, platí
+\begin{equation*}
+\Lambda(S) = B H(S - E)
+\end{equation*}
+S vyuœô¡¾ítím rovnice (5.14) a vlastností stranové funkce $H(x)$ lze odvodit cenu této opce následujícím zpœô¡¯sobem.
+\begin{equation*}
+V(S,t) = \frac{e^{-r(T-t)}}{\sigma \sqrt{2 \pi (T - t)}} \int^{\infty}_{0} B H(S' - E)e^{-\frac{1}{2}\big( \frac{\ln(S'/S)-(r - 1/2 \sigma^2)(T-t)}{\sigma \sqrt{T-t}} \big)^2}\frac{dS'}{S'}
+\end{equation*}
+\begin{equation*}
+V(S,t) = \frac{B e^{-r(T-t)}}{\sqrt{2 \pi}} \int^{\infty}_{E} \frac{1}{S' \sigma \sqrt{T - t}}e^{-\frac{1}{2}\big( \frac{\ln(S'/S)-(r - 1/2 \sigma^2)(T-t)}{\sigma \sqrt{T-t}} \big)^2} dS'
+\end{equation*}
+Aplikujme substituci $\rho = \frac{\ln(S'/S)-(r - 1/2 \sigma^2)(T-t)}{\sigma \sqrt{T-t}}$. Je-li $S' = E$, pak $\rho = \frac{\ln(E/S)-(r - 1/2 \sigma^2)(T-t)}{\sigma \sqrt{T-t}}$. Pro derivaci platí $d \rho = \frac{1}{S' \sigma \sqrt{T - t}} d S'$. Vıœô¡¡e uvednou rovnice lze tedy dále upravit do tvaru
+\begin{equation*}
+V(S,t) = \frac{B e^{-r(T-t)}}{\sqrt{2 \pi}} \int^{\infty}_{\frac{\ln(E/S)-(r - 1/2 \sigma^2)(T-t)}{\sigma \sqrt{T-t}}}e^{-\frac{1}{2}\rho^2} d\rho
+\end{equation*}
+Protoœô¡¾e je funkce $e^{-\frac{1}{2}\rho^2}$ sudá, platí
+\begin{equation*}
+V(S,t) = \frac{B e^{-r(T-t)}}{\sqrt{2 \pi}} \int^{\frac{\ln(S/E)+(r - 1/2 \sigma^2)(T-t)}{\sigma \sqrt{T-t}}}_{-\infty} e^{-\frac{1}{2}\rho^2} d\rho
+\end{equation*}
+\begin{equation*}
+V(S,t) = B e^{-r(T-t)}N(d_2)
+\end{equation*}
+kde
+\begin{equation*}
+d_2 = \frac{\ln(S/E)+(r - \frac{1}{2} \sigma^2)(T-t)}{\sigma \sqrt{T-t}}
+\end{equation*}
+
+Aœô ­koliv je ocenœô »ní binární opce relativnœô » snadné, je pomœô »rnœô » sloœô¡¾ité tuto opci zajistit tœô »snœô » pœô ùed jejich splatností. To je zpœô¡¯sobeno nespojitostí vıplatní funkce. Diferencováním funkce $H(S-E)$ vzhledem k $S$ zjistíme, œô¡¾e s $t \rightarrow T$ se delta této opce blíœô¡¾í $B \delta(S -E)$. Mimo bod $S = E$ je tato funkce rovna nule. Jesliœô¡¾e se tedy $S$ nachází v okolí $E$, je vysoká pravdœô »podobnost, œô¡¾e cena v prœô¡¯bœô »hu zbytkové splatnosti protne realizaœô ­ní cenu a to i nœô »kolikrát. Delta opce se tedy mœô¡¯œô¡¾e v relativnœô » krátké dobœô » zmœô »nit z hodnot blízkıch nule hodnotu blízkou $B$ a naopak. Odvození Black-Scholes modelu pœô ùedpokládá, œô¡¾e opce je kontinuálnœô » zajiœô¡¡tœô »na podkladovım aktivem jehoœô¡¾ mnoœô¡¾ství odpovídá její deltœô ». V pœô ùípadœô » binárních opcí je vœô¡¡ak tento postup znaœô ­nœô » nepraktickı. To vede k otázce, zda-li je pouœô¡¾ití Black-Scholes modelu pro oceœô èování binárních opcí adekvátní.
+
+\section{Rizikovœô » neutrální svœô »t}
+
+Ponœô »kud odliœô¡¡nım pohledem na oceœô èování opcí je aplikace rizikovœô » neutrálního pœô ùístupu. Pœô ùipomeœô ème, œô¡¾e míra rœô¡¯stu $\mu$ se ve vısledné rovnici (3.5) Black-Scholes modelu nevyskytuje. Aœô ­koliv tedy se cena opce odvíjí od volatility ceny podkladového aktiva, je míra jejího rœô¡¯stu irelevantní. Rœô¡¯zní investoœô ùi tak mohou mít diametrálnœô » rozliœô¡¡nou pœô ùedstavu o míœô ùe rœô¡¯stu $\mu$ a pœô ùesto se shodnou na cenœô » opce. Navíc také sklon k riziku jednotlivıch investorœô¡¯ nehraje pœô ùi oceœô èování opcí roli. Dœô¡¯vod je ten, œô¡¾e riziko obsaœô¡¾ené v opci mœô¡¯œô¡¾e bıt (alespoœô è teoreticky) odstranœô »no prostœô ùednictvím zajiœô¡¡tœô »ní. Vınosová míra pœô ùesahující bezrizikovou úrokou míru tedy není opodstatnœô »ná. Základní myœô¡¡lenkou Black-Scholes modelu je, œô¡¾e je moœô¡¾né vytvoœô ùit bezrizikové portfolio skládající se z podkladového aktiva a derivátu, v naœô¡¡em konkrétním pœô ùípadœô » opce. V tomto pœô ùípadœô » je moœô¡¾né derivát oceœô èovat, jako by vœô¡¡echny náhodné procesy byly rizikovœô » neutrální. To znamená, œô¡¾e parametr $\mu$ v rovnici (2.1) mœô¡¯œô¡¾e bıt nahrazen bezrizikovou mírou $r$. Opce je pak oceœô èována souœô ­asnou hodnotou oœô ­ekávané vıplaty v dobœô » splatnosti s vyuœô¡¾itím vıœô¡¡e popsané modifikace náhodné procházky. Schéma postupu je následující.
+
+Nejprve pœô ùipomeœô ème, œô¡¾e souœô ­asná hodnota œô ­ástky $A$ v œô ­ase $T$ je rovna $Ae^{-r(T-t)}$. Pœô ùesuœô ème se do rizikovœô » neutrálního svœô »ta a v rovnici náhodné procházky, která modeluje cenu podkladového aktiva $S$, nahraœô ¯me parametr $\mu$ parametrem $r$. Na základœô » takto modifikované náhodné procházky vypoœô ­teme hustotu pravdœô »podobnosti budoucích hodnot $S$. Ta je dána rovnicí (2.7)\footnote{Je dœô¡¯leœô¡¾ité si uvœô »domit, œô¡¾e tato modifikovaná hustota pravdœô »podobnosti není skuteœô ­nou hustotou pravdœô »podobnosti ceny podkladového aktiva $S$.}. V dalœô¡¡ím kroce vypoœô ­tœô »me s vyuœô¡¾itím modifikované hustoty pravdœô »podobnosti oœô ­ekávané hodnoty vıplatní funkce $\Lambda(S)$ - jednotlivé hodnoty $\Lambda(S)$ vynásobíme rizikovœô » neutrální hustotou pravdœô »podobnosti a tento souœô ­in integrujeme pœô ùes vœô¡¡echny hodnoty, kterıch mœô¡¯œô¡¾e $S$ v œô ­ase $T$ nabıvat, tj. od nuly do nekoneœô ­na. Vıslednı integrál, kterı pœô ùedstavuje oœô ­ekávanou vıplatu opce v œô ­ase $T$, je tœô ùeba diskontovat, abychom získali souœô ­asnou hodnotu v œô ­ase $t$. Vıslednım vzorcem je rovnice (5.14). Derivací je moœô¡¾né dokázat, œô¡¾e tato rovnice splœô èuje (3.5). V pœô ùípadœô », œô¡¾e vıplatní funkce není komplikovaná, je moœô¡¾né z (5.14) odvodit rovnici pro vıpoœô ­et ceny pœô ùísluœô¡¡ného typu opce, tak jak jsme to demonstrovali napœô ù. na binární opci.
+
+Aœô ­koliv je myœô¡¡lenka nahrazení parametru $\mu$ parametrem $r$ velice elegantní, má nœô »koliv vıznamnıch negativ. V první œô ùadœô » vyœô¡¾aduje znalost hustoty pravdœô »podobnosti budoucích hodnot podkladového aktiva (v pœô ùípadœô » rizikovœô » neturálního svœô »ta). Pro náhodnou procházku s konstatními parametry není toto pœô ùíliœô¡¡ komplikované. V pœô ùípadœô » sloœô¡¾itœô »jœô¡¡ích modelœô¡¯ je tœô ùeba nejprve tuto funkci odvodit a teprve po té je moœô¡¾né pœô ùistoupit k integrování s cílem odvodit oœô ­ekávanı vınos. Dalœô¡¡í nevıhodou je to, œô¡¾e riziková neutralita œô ­asto vede k mılkám typu
+\begin{itemize}
+\item Lze dokázat, œô¡¾e $\mu = r$.
+\item Delta opce vyjadœô ùuje pravdœô »podobnost, œô¡¾e tato opce vyexpiruje jako at-the-money.
+\end{itemize}
+Jestliœô¡¾e by první vœô »ta byla pravdivá, pak by vœô¡¡echna aktiva generovala vınos odpovídající bezrizikové úrokové míœô ùe. Pœô ùi vyœô¡¡œô¡¡í volatilitœô » by pak neexistoval dœô¡¯vod, proœô ­ by investoœô ùi mœô »li preferovat akcie pœô ùed státními dluhopisy. Jestliœô¡¾e by platilo $\mu = r$, byla by druhá vœô »ta pravdivá. Pravdœô »podobnost, œô¡¾e $S > E$ v œô ­ase $t = T$, mœô¡¯œô¡¾e bıt odvozena pomocí vıpoœô ­tu oœô ­ekávané hodnoty vırazu $H(S -E)$. Pro tento vıpoœô ­et je nezbytná znalost parametru $\mu$.
+
+Koncept rizikové neutrality není pœô ùíliœô¡¡ intiutivní, coœô¡¾ je zdrojem vıœô¡¡e uvedenıch mılek. Nicménœô » klíœô ­ové kroky pœô ùi dovození Black-Scholes rovnice, totiœô¡¾ neexistence arbitráœô¡¾e a pœô ùedpoklad, œô¡¾e bezrizikové portfolio generuje vınos odpovídající bezrizikové úrokové míœô ùe, intuitivní jsou. 
+
+\chapter{Modifikace Black-Scholes modelu}
+
+\section{Opce na akcie generující dividendovı vınos}
+
+œô øada aktiv generuje vınos v podobœô » vıplaty dividendy nebo úroku. Pœô ùíkladem takovıchto aktiv je dluhopis nebo akcie. V této kapitole se budeme zabıvat z toho plynoucími modifikacemi Black-Scholes modelu. Modifikace budeme ilustrovat na akcii jako podkladovém aktivu pro evropskou kupní opci.
+
+Je tœô ùeba si uvœô »domit, œô¡¾e vıplata dividend ovlivœô èuje cenu podkladové akcie a tím pádem také hodnotu odpovídající opce. Pœô ùi stanovení dopadu dividendy na hodnotu opce jsou rozhodující dva faktory
+\begin{itemize}
+\item frekvence vıplaty dividendy
+\item vıœô¡¡e dividendy
+\end{itemize}
+Co se frekvence vıplaty tıœô ­e, zamœô »œô ùíme se dva základní modely a to
+\begin{itemize}
+\item spojitou vıplatu dividend (jedná se o analogii k spojitému úroœô ­ení)
+\item diskrétní vıplatu dividend, kdy jsou dividendy vypláceny vœô¡¾dy k urœô ­itému pœô ùedem známému œô ­asovému okamœô¡¾iku
+\end{itemize}
+Vıœô¡¡i dividendy je moœô¡¾né chápat jako stochastickou nebo jako deterministickou veliœô ­inu. V následujícím textu se zamœô »œô ùíme pouze na druhou z moœô¡¾ností. Budeme tedy pœô ùedpokládat, œô¡¾e vıœô¡¡e dividendy je vœô¡¾dy dopœô ùedu známa. Vzhledem k tomu, œô¡¾e œô ùada akciovıch spoleœô ­ností udrœô¡¾uje konstatní dividendovou vıplatní politiku, je tento pœô ùedpoklad pœô ùijetelnı také z praktického hlediska.
+
+\subsection{Spojitá vıplata dividend}
+
+Pœô ùedpokládejme, œô¡¾e v œô ­ase $dt$ generuje podkladová akcie dividendu $D_0Sdt$, kde $D_0$ pœô ùedstavuje konstantu. Opomineme-li vazbu skrze $S$, je tato vıplata nezávislá na œô ­ase $t$. Dividendovı vınos je definovanı jako œô ­ást ceny podkladové akcie vyplácené za jednotku œô ­asu. Tento model je vhodnı nejen pro opce na akciové indexy ale také pro krátkodobé mœô »nové opce\footnote{Je znaœô ­nœô » diskutabilní, zda-li (2.1) pœô ùedstavuje pœô ùijatelnı model pro vıvoj mœô »nového kurzu v dlouhém œô ­asovém období.}, kde $D_0 = r_f$ pœô ùedstavuje spojitou úrokovou mírou pro ``zahraniœô ­ní'' mœô »nu po dobu œô¡¾ivotnosti uvaœô¡¾ované opce.
+
+Nejprve uvaœô¡¾ujme efekt vıplaty dividendy na cenu podkladové akcie. Jestliœô¡¾e má bıt vylouœô ­ena moœô¡¾nost arbitráœô¡¾e, musí pœô ùi kaœô¡¾dém œô ­asovém kroku délky $dt$ tato cena klesnout o vıœô¡¡i vyplacené dividendy. Náhodná procházka (2.1) se tak modifikuje do podoby
+\begin{equation}
+dS = \sigma S dX + (\mu - D_0)S dt
+\end{equation}
+Aœô ­koliv pœô¡¯vodní Black-Scholes rovnice (3.5) nezahrnuje koeficient parametru $dt$ rovnice (2.1), bude mít $D_0$ vliv na její podobu. Pœô ùipomeœô ème, œô¡¾e rovnice (3.5) vychází z myœô¡¡lenky zajiœô¡¡tœô »ného portfolia. V rámci tohoto bezrizikového portfolia drœô¡¾íme $-\Delta$ jednotek podkladové akcie, z nichœô¡¾ kaœô¡¾dá vyplácí dividendu ve vıœô¡¡i $D_0 S dt$. Hodnota uvaœô¡¾ovaného portfolia se proto zmœô »ní o $-D_0 S \Delta dt$. Celková zmœô »na hodnoty portfolia je tak dána rovnicí
+\begin{equation*}
+d\Pi = dV - \Delta dS - D_0 S \Delta dt
+\end{equation*}
+a rovnice (3.5) pœô ùejde do tvaru
+\begin{equation}
+\frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + (r - D_0)S \frac{\partial V}{\partial S} - rV = 0
+\end{equation}
+V pœô ùípadœô » evropské kupní opce má koneœô ­ná podmínka stále podobu
+\begin{equation*}
+C(S,T) = \max(S - E, 0)
+\end{equation*}
+stejnœô » jako hraniœô ­ní podmínka pro $S = 0$, která má tvar
+\begin{equation*}
+C(0,t) = 0
+\end{equation*}
+Jedinou zmœô »nou je hraniœô ­ní podmínka pro $S \rightarrow \infty$, která má novœô » tvar
+\begin{equation*}
+C(S,t) \sim Se^{-D_0(T - t)}
+\end{equation*}
+Tato zmœô »na vyjadœô ùuje skuteœô ­nost, œô¡¾e pro $S \rightarrow \infty$ hodnota opce odpovídá hodnotœô » podkladového aktiva bez dividendového vınosu.
+
+Hodnotu kupní opce mœô¡¯œô¡¾eme urœô ­it stejnœô » jako pœô ùedchozí kapitole - tj. zredukovat rovnici (6.2) do podoby difúzní rovnice a tu následnœô » s pomocí poœô ­áteœô ­ní a hraniœô ­ních podmínek œô ùeœô¡¡it. Nicménœô » existuje rychlejœô¡¡í œô ùeœô¡¡ení. Staœô ­í si uvœô »domit, œô¡¾e pomocí substituce
+\begin{equation}
+C(S,t) = e^{-D_0(T-t)}C_1(S,t)
+\end{equation}
+lze rovnici
+\begin{equation*}
+\frac{\partial C}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 C}{\partial S^2} + (r - D_0)S \frac{\partial C}{\partial S} - rC = 0
+\end{equation*}
+upravit do podoby
+\begin{equation*}
+D_0e^{-D_0(T-t)}C_1 + e^{-D_0(T-t)}\frac{\partial C_1}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 C_1}{\partial S^2} + (r - D_0)e^{-D_0(T-t)}S\frac{\partial C_1}{\partial S} - r e^{-D_0(T-t)}C_1 = 0
+\end{equation*}
+\begin{equation*}
+\frac{\partial C_1}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 C_1}{\partial S^2} + (r - D_0)S\frac{\partial C_1}{\partial S} - (r - D_0)C_1 = 0
+\end{equation*}
+Pouœô¡¾ijeme-li $r - D_0$ namísto $r$, splœô èuje derivát $C_1(S,t)$ pœô¡¯vodní Black-Scholes rovnici (3.5), pœô ùiœô ­emœô¡¾ poœô ­áteœô ­ní a hraniœô ­ní podmínky zœô¡¯stanou substitucí (6.3) nedotœô ­eny. Také hodnota derivátu $C_1(S,t)$ v œô ­ase splatnosti $T$ je rovna hodnotœô » pœô¡¯vodní kupní opce $C(S,t)$. Hodnota evropské kupní opce je tak dána rovnicí
+\begin{equation*}
+C(S,t) = e^{-D_0(T-t)}SN(d_{10})-Ee^{-r(T-t)}N(d_{20})
+\end{equation*}
+kde
+\begin{equation*}
+d_{10} = \frac{\ln{\frac{S}{E}}+(r - D_0 + \frac{1}{2}\sigma^2)(T-t)}{\sigma \sqrt{T - t}}
+\end{equation*}
+\begin{equation*}
+d_{20} = d_{10} - \sigma \sqrt{T - t}
+\end{equation*}
+\begin{center}
+	\begin{pspicture}(0,0)(8.0,6.5)
+		\rput(4.0,0.5){Hodnota evropské kupní opce s nulovım (horní kœô ùivka) a}
+        \rput(4.0,0.0){nenulovım (dolní kœô ùivka) dividendovım vınosem}
+
+		\psline[arrows=->](0.5,1.5)(7.5,1.5)
+		\psline[arrows=->](0.5,1.5)(0.5,6.0)
+
+        \psline(0.5,1.5)(3.0,1.5)(7.5,6.0)
+        \pscurve(1.0,1.5)(2.5,1.80)(5.0,3.70)(7.3,5.85)
+        \pscurve(1.0,1.5)(2.5,1.95)(5.0,3.82)(7.3,5.95)
+
+        \rput(0.5,1.2){\small{0}}
+        \rput(3.0,1.2){\small{E}}
+        \rput(7.5,1.2){\small{S}}
+        \rput(0.2,6.0){\small{C}}
+
+	\end{pspicture}
+\end{center}
+
+\subsection{Diskrétní vıplata dividend}
+
+Pœô ùedpokládejme, œô¡¾e podkladová akcie generuje po dobu œô¡¾ivotnosti opce pouze jednu dividendu. Dále pœô ùedpokládejme, œô¡¾e tato dividenda bude vyplacena v œô ­ase $t_d$ a vıœô¡¡e dividendového vınosu bude $d_y$. Majitel akcie tak v œô ­ase $t_d$ obdrœô¡¾í dividendu ve vıœô¡¡i $d_y S$, kde $S$ pœô ùedstavuje cenu akcie tœô »snœô » pœô ùed její vıplatou.
+
+Nejprve opœô »t uvaœô¡¾ujme dopad vıplaty dividendy na cenu akcie. Její cena v œô ­ase $t_d^-$ tœô »snœô » pœô ùed vıplatou dividendy se nemœô¡¯œô¡¾e rovnat její cenœô » v œô ­ase $t_d^+$ tœô »snœô » po vıplatœô » dividendy. Kdyby tomu tak bylo, mohl by investor nakoupit podkladovou akcii tœô »snœô » pœô ùed vıplatou dividendy, vyinkasovat dividendu a následnœô » akcii prodat. Pomineme-li dalœô¡¡í faktory jako napœô ù. danœô », je zœô ùejmé, œô¡¾e cena akcie musí klesnout o œô ­ástku odpovídající vyplácené dividendœô ». Proto platí
+\begin{equation}
+S(t_d^+) = S(t_d^-) - d_yS(t_d^-) = S(t_d^-)(1-d_y)
+\end{equation}
+
+\subsubsection{Skoková podmínka}
+
+Prokázali jsme, œô¡¾e diskrétní vıplata dividend vede k cenovému skoku podkladové akcie v okamœô¡¾iku vıplaty dividendy. Dalœô¡¡ím krokem bude zjistit, jakı vliv má tento skok na hodnotu opce. Tato otázka nás pœô ùivádí k tzv. skokové podmínce.
+
+O skokové podmínce hovoœô ùíme v souvislosti s nespojitou zmœô »nou v nœô »které z nezávislıch veliœô ­in, které ovlivœô èují hodnotu uvaœô¡¾ovaného finanœô ­ního derivátu. Mimo den, kdy je vyplácena dividenda, se hodnota opce mœô »ní v dœô¡¯sledku náhodnıch zmœô »n ceny podkladového aktiva, které jsou spojité v œô ­ase. V den vıplaty dividendy se vœô¡¡ak tato cena zmœô »ní skokovœô » dle (6.4). Abychom zabránili arbitráœô¡¾i, musí bıt hodnota opce narozdíl od podkladového aktiva spojitou funkcí œô ­asu i pœô ùes datum vıplaty dividendy. Protoœô¡¾e vlastník opce není pœô ùíjemcem dividendy, musí bıt hodnota opce tœô »snœô » pœô ùed a tœô »snœô » po vıplatœô » dividendy stejná. Tato jednoduchá úvaha vede ke skokové podmínce
+\begin{equation}
+V(S(t_d^-), t_d^-) = V(S(t_d^+), t_d^+)
+\end{equation}
+Hodnota opce tak musí bıt spojitá v œô ­ase pro libovolnı model vıvoje ceny podkladového aktiva.
+
+V rámci této knihy uvaœô¡¾ujeme model hodnoty opce zaloœô¡¾enı na diferenciální rovnici s $S$ a $t$ jako nezávislımi veliœô ­inami. Protoœô¡¾e potœô ùebujeme brát v potaz vœô¡¡echny moœô¡¾né modely pro vıvoj $S$, nechápeme cenu podkladového aktiva jako funkci $t$ tak, jak je popsaná rovnicí (6.4). Uvaœô¡¾ujme o hodnotœô » opce $V$ jako o funkci veliœô ­iny $S$. Poloœô¡¾me si otázku, jak se zmœô »ní cena opce $S$ pœô ùes den vıplaty dividendy. Odpovœô »dí je, œô¡¾e se hodnota opce s ohledem na $V$ zmœô »ní nespojitœô » dle (6.4) s veliœô ­inami $S(t_d^+)$ a $S(t_d^-)$ ``svázanımi'' podmínkou (6.5). Vısledkem tœô »chto úvah je rovnice
+\begin{equation}
+V(S,t_d^-) = V(S(1-d_y),t_d^+)
+\end{equation}
+která vyjadœô ùuje fakt, œô¡¾e hodnota opce tœô »snœô » pœô ùed vyplatou dividendy pro cenu podkladového aktiva $S$ se rovná hodnotœô » opce tœô »snœô » po vıplatœô » dividendy pro cenu podkladového aktiva $S(1 - d_y)$. Kdyby bylo $S$ konstatní, zmœô »nila by se hodnota opce pœô ùes den vıplaty dividendy nespojitœô ». Nicménœô » (6.6) odpovídá pœô ùedpokladu, œô¡¾e hodnota opce je spojitá v œô ­ase pro libovolnı model náhodné procházky podkladového aktiva. Spojitost hodnoty opce v œô ­ase neznamená, œô¡¾e není ovlivnœô »na vıplatou dividendy. Vliv skokové podmínky (6.6) je vœô¡¡ak rozloœô¡¾en do celé œô¡¾ivotnosti opce.
+
+Aœô ­koliv se pœô ùes den vıplaty dividendy nezmœô »ní hodnota opce, zmœô »ní se její delta. V pœô ùípadœô » zajiœô¡¡tœô »ní je tœô ùeba provést provést úpravu struktury portfolia.
+
+\subsection{Kupní opce s jednou dividendovou platbou}
+
+Zkusme ocenit evropskou kupní opci, kde podkladová akcie generuje po dobu œô¡¾ivotnosti opce jednu dividendovou platbu. Protoœô¡¾e je Black-Scholes rovnice zpœô »tnœô » parabolická, postupujeme od okamœô¡¾iku splatnosti opce smœô »rem k œô ­asovému okamœô¡¾iku, ke kterému chceme opci ocenit. V pœô ùípadœô », œô¡¾e je vyplácena dividenda, je postup následující
+\begin{itemize}
+\item œô ùeœô¡¡íme Black-Scholes rovnici od okamœô¡¾iku splatnosti opce do œô ­asového okamœô¡¾iku tœô »snœô » pœô ùed vıplatou dividendy, tj. do œô ­asu $t_d^+$
+\item aplikujeme skokovou podmínku (6.6) pœô ùes œô ­asovı okamœô¡¾ik $t_d$, abychom naœô¡¡li hodnotu opce v $t_d^-$
+\item œô ùeœô¡¡íme Black-Scholes rovnici od $t_d^-$ smœô »rem k œô ­asovému okamœô¡¾iku ocenœô »ní opce s vyuœô¡¾itím vıœô¡¡e odvozené hodnoty opce jako vıchozích dat
+\end{itemize}
+V souladu s tímto postupem tak œô ùeœô¡¡íme Black-Scholes rovnici dvakrát a to pro œô ­asovı interval $T > t > t_d$ a následnœô » pro œô ­asovı interval $t_d > t > 0$, kde 0 pœô ùedstavuje okamœô¡¾ik ocenœô »ní opce, tj. ve vœô »tœô¡¡inœô » pœô ùípadœô¡¯ dneœô¡¡ek. Hodnoty opce v $t_d^{\pm}$ jsou provázány skrze (6.6). Velmi podobnı pœô ùístup je volen pœô ùi oceœô èování nœô »kterıch exotickıch opcí.
+
+Oznaœô ­me námi uvaœô¡¾ovanou kupní opci jako $C_d(S,t)$. Dále pouœô¡¾ijme oznaœô ­ení $C(S, t, E)$ pro hodnotu plain-vanilla evropské kupní opcen s realizaœô ­ní cenou $E$. Po vıplatœô » dividendy je opce $C_d(S,t)$ shodná s opcí $C(S,t,E)$.
+\begin{equation*}
+C_d(S,t) = C(S,t,E)~~~t_d^+ \le t \le T
+\end{equation*}
+Nyní pouœô¡¾ijeme vztah (6.6) a získáme
+\begin{equation*}
+C_d(S, t_d^-) = C_d(S(1-d_y),t_d^+) = C(S(1-d_y),t_d^+,E)
+\end{equation*}
+V této fázi mœô¡¯œô¡¾eme pouœô¡¾ít standardní rovnici pro vıpoœô ­et hodnoty evropské kupní opce. Zamœô »œô ùme se nyní na $C(S(1 - d_y),t,E)$. V dobœô » splatnosti má tento derivát hodnotu
+\begin{equation*}
+C(S(1-d_y),T,E) = \max(S(1 - d_y) - E, 0) = (1 - d_y)\max(S - E(1 - d_y)^{-1},0)
+\end{equation*}
+Proto je moœô¡¾né $C_d(S,t)$ vyjádœô ùit jako
+\begin{equation*}
+C_d(S,t) = (1 - d_y)C(S, t, E(1 - d_y)^{-1})
+\end{equation*}
+Vıplata dividendy tak sniœô¡¾uje hodnotu opce. Logická interpretace je taková, œô¡¾e majitel opce dividendu nezíská, avœô¡¡ak hodnota podkladového aktiva se v dœô¡¯sledku její vıplaty sníœô¡¾í.
+
+\subsection{Technická poznámka: Sjednocení spojité a diskrétní vıplaty dividend}
+
+Pœô ùedpokládejme, œô¡¾e vıplata dividendy je obecnou funkcí $S$ a $t$ ve tvaru $D(S,t)$. V pœô ùípadœô » spojité vıplaty dividendy má tato funkce tvar $D(S,t) = D_0S$ zatímco v pœô ùípadœô » diskrétní vıplaty tvar $D(S,t) = D_{\delta}S \delta(t - t_d)$, kde $D_{\delta}$ pœô ùedstavuje konstantu jejíœô¡¾ vazbu na $d_y$ objasníme níœô¡¾e. Náhodná procházka modelující vıvoj ceny podkladového aktiva má tvar
+\begin{equation*}
+dS = (\mu S - D(S,t))dt + \sigma S dX
+\end{equation*}
+Je-li vıplata dividend diskrétní, pœô ùejde tato rovnice do tvaru
+\begin{equation*}
+dS = (\mu S - D_{\delta}S \delta(t - t_d))dt + \sigma S dX
+\end{equation*}
+Intergrováním pœô ùes œô ­asovı okamœô¡¾ik vıplaty dividendy získáváme
+\begin{equation*}
+\int_{S(t_d^-)}^{S(t_d^+)} \frac{dS}{S} = \int_{t_d^-}^{t_d^+}\mu dt - D_{\delta}\int_{t_d^-}^{t_d^+} + \int_{t_d^-}^{t_d^+}\sigma dX
+\end{equation*}
+Protoœô¡¾e $t_d^-$ a $t_d^+$ se liœô¡¡í pouze infinitezimálnœô », je jedinım nenulovım œô ­lenem vıœô¡¡e uvedeného integrálu œô ­len obsahující delta funkci. Integrál tak pœô ùejde to tvaru
+\begin{equation*}
+\int_{S(t_d^-)}^{S(t_d^+)} \frac{dS}{S} = -D_{\delta} \int_{t_d^-}^{t_d^+}\delta(t - t_d)dt
+\end{equation*}
+\begin{equation}
+\ln \frac{S(t_d^+)}{S(t_d^-)} = -D_{\delta}
+\end{equation}
+Proto je v pœô ùípadœô » vıplaty dividendy definované jako $D_{\delta}S \delta (t - t_d)$ cena podkladového aktiva diskontována œô ­lenem $e^{D_{\delta}H(t - t_d)}$ pœô ùiœô ­emœô¡¾ $D_{\delta} = -\ln(d_y)$.
+
+Pro libovolnı model vıvoje ceny podkladového aktiva je hodnota opce spojitá, a proto musí bıt opœô »t splnœô »na skoková podmínka
+\begin{equation*}
+V(S(t_d^+), t_d^+) = V(S(t_d^-), t_d^-)
+\end{equation*}
+ kde $S(t_d^+)$ a $S(t_d^-)$ jsou propojeny skrze (6.7).
+
+\section{Forwardové a futures kontrakty}
+
+Oceœô èování forwardovıch a futures kontraktœô¡¯ je v porovnání s opcemi mnohem jednoduœô¡¡œô¡¡í. Veœô¡¡keré riziko je totiœô¡¾ moœô¡¾né zajistit jedinou operací na zaœô ­átku kontraktu\footnote{V pœô ùípadœô » opcí je nutné zajiœô¡¡tœô »ní neustále ``korigovat'', coœô¡¾ v pœô ùípadœô » forwardovıch a futures kontraktœô¡¯ není zapotœô ùebí.}. Pro samotné ocenœô »ní pak není rozhodující vıvoj ceny pokladového aktiva - jedinım nutnım pœô ùedpokladem je znalost budoucího vıvoje úrokovıch sazeb. Protoœô¡¾e jsou vœô¡¡ak forwardové a futures kontrakty stejnœô » jako opce finanœô ­ními deriváty, je moœô¡¾né také pro jejich ocenœô »ní pouœô¡¾ít Black-Scholes model. V této kapitole se budeme zabıvat ocenœô »ním forwardovıch kontraktœô¡¯\footnote{Pœô ùimeœô ème, œô¡¾e z hlediska ocenœô »ní není mezi forwardovım a futures kontraktem zásadnœô »jœô¡¡í rozdíl.}.
+
+Uvaœô¡¾ujme forwardovı kontrakt, kterı je uzavœô ùen v œô ­ase $t$ pœô ùi spotové cenœô » podkladového aktiva $S(t)$ a forwardové cenœô » $F$. Naœô¡¡ím úkolem tak bude nalézt vztah mezi $S(t)$ a takovou forwardovou cenou $F$, pro kterou bude hodnota kontraktu v œô ­ase $t$ nulová. V rámci naœô¡¡í analızy budeme pœô ùedpokládat konstantní úrokové sazby po dobu œô¡¾ivotnosti forwardového kontraktu.
+
+Existuje nœô »kolik zpœô¡¯sobœô¡¯, jak ocenit forwardovı kontrakt. Základním pœô ùístupem je ocenœô »ní pomocí pœô ùedpokladu neexistence arbitráœô¡¾e. Uvaœô¡¾ujme investora, kterı je krátkı ve forwardovém kontraktu. Tento investor tedy bude muset v dobœô » splatnosti, tj. v œô ­ase $T$, dodat podkladové aktivum za cenu $F$. Moœô¡¾ností, jak se zajistit proti riziku tohoto typu kontraktu, je nakoupit v œô ­ase $t$ podkladové aktivum za cenu $S(t)$ a toto aktivum drœô¡¾et aœô¡¾ do œô ­asového okamœô¡¾iku $T$. V œô ­ase $T$ získá investor za toto aktivum $F$ penœô »œô¡¾ních jednotek. Souœô ­asná hodnota této œô ­ástky je $Fe^{-r(T-t)}$. ``Spravedlivá'' forwardová cena je tak
+\begin{equation*}
+F = S(t)e^{r(T-t)}
+\end{equation*}
+
+Dalœô¡¡ím zpœô¡¯sobem ocenœô »ní forwardového kontraktu je jeho ``rozloœô¡¾ení'' na dlouhou pozici v evropské kupní opci a krátkou pozici v evropské prodejní opci, kde obœô » opce musí mít shodnou realizaœô ­ní cenu a œô ­as do splatnosti jako pœô¡¯vodní forwardovı kontrakt\footnote{Tato dekompozice forwardového kontraktu na dvojici opcí je reformulací put-call parity.}. Vzhledem k tomu, œô¡¾e hodnota forwardového kontraktu je v okamœô¡¾iku jeho uzavœô ùení nulová, musí pro realizaœô ­ní cenu opcí $E$ platit
+\begin{equation*}
+S(t) - Ee^{-r(T-t)} = 0
+\end{equation*}
+Vzhledem k tomu, œô¡¾e $E = F$, získáváme
+\begin{equation*}
+F = S(t)e^{r(T-t)}
+\end{equation*}
+
+Poslední zpœô¡¯sobem ocenœô »ní forwardového kontraktu je pomocí Black-Scholes modelu. Vzhledem k tomu, œô¡¾e forwardovı kontrakt je finanœô ­ním derivátem, musí splœô èovat rovnici (3.5). Vıplata tohoto derivátu v œô ­ase $T$ je rovna $S-F$. Klíœô ­em k ocenœô »ní forwardového kontraktu je pak rovnice (5.14).
+\begin{equation}
+V(S,t) = \frac{e^{-r(T - t)}}{\sigma \sqrt{2 \pi (T - t)}} \int^{\infty}_0 (S' - F)e^{-\frac{1}{2} \big( \frac{\ln (S'/S) - (r - \frac{1}{2}\sigma^2)(T - t)}{\sigma \sqrt{T - t}} \big)^2} \frac{1}{S'}dS'
+\end{equation}
+Nyní si pœô ùipomeœô ème, œô¡¾e hustota pravdœô »podobnosti ceny podkladového aktiva $S'$ v œô ­ase $T$ je
+\begin{equation*}
+\frac{1}{\sigma \sqrt{2 \pi (T - t)}} e^{-\frac{1}{2} \big( \frac{\ln (S'/S) - (\mu - \frac{1}{2}\sigma^2)(T - t)}{\sigma \sqrt{T - t}} \big)^2}
+\end{equation*}
+a œô¡¾e se pohybujeme v rizikovœô » neutrálním svœô »tœô », kterı umoœô¡¾œô èuje úplnou eliminaci rizika. Proto mœô¡¯œô¡¾eme v náhodné procházce podkladového aktiva $S$ nahradit $\mu$ bezrizikovou úrokovou sazbou $r$. Hustota pravdœô »podobnosti se tak modifikuje do podoby
+\begin{equation*}
+\frac{1}{\sigma \sqrt{2 \pi (T - t)}} e^{-\frac{1}{2} \big( \frac{\ln (S'/S) - (r - \frac{1}{2}\sigma^2)(T - t)}{\sigma \sqrt{T - t}} \big)^2}
+\end{equation*}
+Pouze pœô ùipomeœô ème, œô¡¾e se jedná o hustotu pravdœô »podobnosti náhodné veliœô ­iny $S'$ v rizikovœô » neutrálním nikoliv reálném svœô »tœô ». Oœô ­ekávanou hodnotu náhodné veliœô ­iny $S'$ v rizikovœô » neutrálním svœô »tœô » v œô ­ase $T$ je tak dána rovnicí
+\begin{equation*}
+E[S'] = \frac{1}{\sigma \sqrt{2 \pi (T - t)}}\int^{\infty}_0 e^{-\frac{1}{2} \big( \frac{\ln (S'/S) - (r - \frac{1}{2}\sigma^2)(T - t)}{\sigma \sqrt{T - t}} \big)^2}dS'
+\end{equation*}
+V rizikovœô » neutrálním svœô »tœô » musí platit
+\begin{equation*}
+E[S'] = S(t)e^{r(T-t)}
+\end{equation*}
+Rovnici (6.8) tak lze upravit do tvaru
+\begin{equation*}
+V(S,t) = S(t) - F e^{-r(T - t)}\frac{1}{S ' \sigma \sqrt{(T - t)}}\frac{1}{\sqrt{2 \pi}} \int^{\infty}_0 e^{-\frac{1}{2} \big( \frac{\ln (S'/S) - (r - \frac{1}{2}\sigma^2)(T - t)}{\sigma \sqrt{T - t}} \big)^2} dS'
+\end{equation*}
+\begin{equation*}
+V(S,t) = S(t) - e^{-r(T - t)} F \frac{1}{\sqrt{2 \pi}} \int^{\infty}_{-\infty}e^{-\rho^2}d\rho
+\end{equation*}
+\begin{equation*}
+V(S,t) = S(t) - e^{-r(T - t)} F N(\infty)
+\end{equation*}
+\begin{equation*}
+V(S,t) = S(t) - e^{-r(T - t)} F
+\end{equation*}
+Protoœô¡¾e pro forwardovı kontrakt platí, œô¡¾e jeho hodnota je v okamœô¡¾iku uzavœô ùení $t$ nulová, získáváme
+\begin{equation*}
+F = e^{r(T - t)} S(t)
+\end{equation*}
+Aœô¡¾ dosud jsme pœô ùedpokládali, œô¡¾e podkladové aktivum nevyplácí dividendy. Jestliœô¡¾e podkladové aktivum generuje konstatní dividendovı vınos $D_0$, modifikuje se vıœô¡¡e uvedená rovnice do tvaru
+\begin{equation*}
+F = e^{(r - D_0)(T - t)} S(t)
+\end{equation*}
+Parametr $D_0$ mœô¡¯œô¡¾e bıt i zápornı - napœô ù. zlato vyœô¡¾aduje úhradu pojiœô¡¡tœô »ní a nákladœô¡¯ spojenıch s uskladnœô »ním.
+
+\section{Opce na futures}
+
+œô øada opcí má jako podkladové aktivum futures kontrakty. Dœô¡¯vod je ten, œô¡¾e v œô ùadœô » pœô ùípadœô¡¯ jsou futures kontrakty v porovnání s podkladovım aktivem likvidnœô »jœô¡¡í a jsou s nimi spojeny niœô¡¾œô¡¡í transakœô ­ní náklady\footnote{Typickım pœô ùíkladem jsou futures kontrakty na ropu.}. Hodnota opcí na futures kontrakty je funkcí $F$ a $t$, tj. má tvar $V(F,t)$. Protoœô¡¾e
+\begin{equation*}
+F = Se^{r(T - t)}
+\end{equation*}
+je moœô¡¾né odvodit parciální diferenciální rovnici pro $V(F,t)$ na základœô » standardní Black-Scholes rovnice a to tak, œô¡¾e $S$ nahradíme $Fe^{-r(T - t)}$. V rovnici (3.5) nahradíme œô ­len
+\begin{equation*}
+\frac{\partial V}{\partial S}
+\end{equation*}
+vırazem
+\begin{equation*}
+\frac{\partial V}{\partial F}\frac{\partial F}{\partial S} = e^r(T - t)\frac{\partial V}{\partial F}
+\end{equation*}
+œô ­len
+\begin{equation*}
+\frac{\partial^2 V}{\partial S^2}
+\end{equation*}
+vırazem
+\begin{equation*}
+\frac{\frac{\partial V}{\partial S}}{\partial S} = \frac{\frac{\partial V}{\partial F}\frac{\partial F}{\partial S}}{\partial F}\frac{\partial F}{\partial S} = (e^{r(T - t)})^2 \frac{\partial^2 V}{\partial F^2}
+\end{equation*}
+a koneœô ­nœô » œô ­len
+\begin{equation*}
+\frac{\partial V}{\partial t}
+\end{equation*}
+vırazem
+\begin{equation*}
+\frac{\partial V}{\partial t} + \frac{\partial V}{\partial F}\frac{\partial F}{\partial t} = \frac{\partial V}{\partial t} - rF\frac{\partial V}{\partial F}
+\end{equation*}
+Rovnice (3.5) se tak zmodifikuje do podoby
+\begin{equation}
+\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2\frac{\partial^2 V}{\partial F^2} - rV = 0
+\end{equation}
+
+Rovnici (6.9) je moœô¡¾né odvodit také pœô ùímo pomocí It\^o lemmy (2.5). Nejprve uvaœô¡¾ujme nádhodnou procházku pro $F$. Vzhledem k tomu, œô¡¾e $F = Se^{r(T - t)}$, platí
+\begin{equation*}
+dF = e^{r(T-t)}dS - e^{r(T - t)}rSdt
+\end{equation*}
+\begin{equation*}
+dF = (\sigma S dX + \mu S dt)e^{r(T - t)} - r Fdt
+\end{equation*}
+\begin{equation}
+dF = (\mu - r)F dt + \sigma F dX
+\end{equation}
+Podle It\^o lemmy platí pro $dV$
+\begin{equation}
+dV = \sigma F \frac{\partial V}{\partial F}dX + \bigg( (\mu - r) F \frac{\partial V}{\partial F} + \frac{1}{2}\sigma^2 F^2\frac{\partial^2 V}{\partial F^2} + \frac{\partial V}{\partial t} \bigg)dt
+\end{equation}
+Dále uvaœô¡¾ujme bezrizkové portfolio $\Pi = V - F$. Zmœô »na hodnoty portfolia $d \Pi$ je tak s ohledem na (6.10) a (6.11) rovna
+\begin{equation*}
+d \Pi = dV - \Delta dF
+\end{equation*}
+\begin{equation*}
+d \Pi = \sigma F \frac{\partial V}{\partial F}dX + \bigg( (\mu - r) F \frac{\partial V}{\partial F} + \frac{1}{2}\sigma^2 F^2\frac{\partial^2 V}{\partial F^2} + \frac{\partial V}{\partial t} \bigg)dt - \Delta(\sigma F dX + (\mu -r)Fdt)
+\end{equation*}
+Jestliœô¡¾e zvolíme $\Delta = \frac{\partial V}{\partial F}$, zbavíme se náhodné sloœô¡¾ky $dX$. Vıslednı tvar pro $d\Pi$ je tak
+\begin{equation*}
+d \Pi = \bigg( \frac{1}{2}\sigma^2 F^2\frac{\partial^2 V}{\partial F^2} + \frac{\partial V}{\partial t} \bigg)dt
+\end{equation*}
+K sestavení portfolia $\Pi$ v œô ­ase $t$ je zapotœô ùebí œô ­ástka $V$. Vzhledem k tomu, œô¡¾e je portfolio $\Pi$ bezrizikové, musí platit
+\begin{equation*}
+d \Pi = r V dt
+\end{equation*}
+\begin{equation*}
+\bigg( \frac{1}{2}\sigma^2 F^2\frac{\partial^2 V}{\partial F^2} + \frac{\partial V}{\partial t} \bigg)dt - r V dt = 0
+\end{equation*}
+\begin{equation*}
+\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 F^2\frac{\partial^2 V}{\partial F^2} - r V = 0
+\end{equation*}
+Tímto zpœô¡¯sobem jsme odvodili rovnici (6.9).
+
+Protoœô¡¾e (6.9) odpovídá Black-Scholes rovnici pro podkladové aktivum generující vınosovou míru $r$, mœô¡¯œô¡¾e vıœô¡¡e odvozenı vısledek vyuœô¡¾ít pro ocenœô »ní opce na futures kontrakt. V pœô ùípadœô » evropské kupní opce je její hodnota dána rovnicí
+\begin{equation*}
+C(F,t) = e^{-r(T - t)}(FN(d_1) - EN(d_2))
+\end{equation*}
+
+\section{Parametry Black-Scholes modelu jako funkce œô ­asu}
+
+Aœô¡¾ dosud jsme pœô ùedpokládali, œô¡¾e bezriziková sazba $r$ a volatilita ceny podkladového aktiva $\sigma^2$ jsou konstanty. V následujícím textu budeme pœô ùedpokládat, œô¡¾e se jedná o funkce œô ­asu, jejichœô¡¾ prœô¡¯bœô »h je znám\footnote{Bezriziková sazba $r$ a volatilita ceny podkladového aktiva $\sigma^2$ jako stochatické veliœô ­iny by vedly z analytického hlediska k pœô ùíliœô¡¡ komplikovanım modelœô¡¯m.}.
+
+Jestliœô¡¾e nahradíme konstanty $r$ a $\sigma^2$ funkcemi $r(t)$ a $\sigma(t)^2$, zœô¡¯stane základní rovnice (3.5) Black-Scholes modelu nezmœô »nœô »na stejnœô » jako ``koneœô ­né'' a hraniœô ­ní podmínky. Vyjímkou je hraniœô ­ní podmínka pro evropskou prodejní opci, která se z
+\begin{equation*}
+P(0,t) = Ee^{-r(T - t)}
+\end{equation*}
+zmœô »ní na
+\begin{equation*}
+P(0,t) = Ee^{-\int_t^T r(\tau) d \tau}
+\end{equation*}
+Modifikovaná rovnice (3.5) má podobu
+\begin{equation}
+\frac{\partial V}{\partial t} + \frac{1}{2}\sigma(t)^2 S^2\frac{\partial^2 V}{\partial S^2} + r(t)S \frac{\partial V}{\partial S} - r(t)V = 0
+\end{equation}
+Proveœô ¯me následující substituce
+\begin{equation*}
+\bar{S} = Se^{\alpha(t)}
+\end{equation*}
+\begin{equation*}
+\bar{V} = Ve^{\beta(t)}
+\end{equation*}
+\begin{equation*}
+\bar{t} = \gamma (t)
+\end{equation*}
+kde $\alpha$, $\beta$ a $\gamma$ vybereme tak, abychom v rovnici (6.12) eliminovali vœô¡¡echny koeficienty, které jsou funkcí œô ­asu. S pœô ùihlédnutím k vıœô¡¡e uvedenım substitucím se (6.12) pœô ùetransformuje do tvaru
+\begin{equation}
+\dot{\gamma}(t)\frac{\partial \bar{V}}{\partial \bar{t}} + \frac{1}{2}\sigma(t)^2 \bar{S}^2 \frac{\partial^2 \bar{V}}{\partial \bar{S}^2} + (r(t) + \dot{\alpha}(t))\bar{S} \frac{\partial \bar{V}}{\partial \bar{S}} - (r(t) + \dot{\beta}(t))\bar{V}
+\end{equation}
+kde $\cdot = d /dt$. Jak jiœô¡¾ bylo zmínœô »no vıœô¡¡e, lze v rovnici (6.13) eliminovat œô ­leny obsahující $\bar{V}$, $\partial \bar{V} / \partial \bar{S}$ a $\partial^2 \bar{V} / \partial \bar{S}^2$ pomocí vhodné volby parametrœô¡¯ $\alpha$, $\beta$ a $\gamma$. Pouœô¡¾ijeme-li substituce
+\begin{equation*}
+\alpha(t) = \int_t^Tr(\tau) d \tau
+\end{equation*}
+\begin{equation*}
+\beta(t) = \int_t^Tr(\tau) d \tau
+\end{equation*}
+\begin{equation*}
+\gamma(t) = \int_t^T \sigma(\tau)^2 d \tau
+\end{equation*}
+zjednoduœô¡¡œô¡¡í se (6.13) na
+\begin{equation}
+\frac{\partial \bar{V}}{\partial \bar{t}} = \frac{1}{2} \bar{S}^2 \frac{\partial^2 \bar{V}}{\partial \bar{S}^2}
+\end{equation}
+Tato rovnice neobsahuje œô¡¾ádné œô ­leny, které by byly funkcí œô ­asu a postrádá jakıkoliv odkaz na $r$ a $\sigma^2$. Jestliœô¡¾e je $\bar{V}(\bar{S}, \bar{t})$ je œô ùeœô¡¡ením (6.14), pak dopovídající œô ùeœô¡¡ení pœô¡¯vodní rovnice (6.12) má tvar
+\begin{equation}
+V = e^{-\beta(t)} \bar{V}(Se^{\alpha(t)}, \gamma{t})
+\end{equation}
+Oznaœô ­me libovolné œô ùeœô¡¡ení Black-Scholes diferenciální rovnice jako $V_{BS}$ pro konstantní $r$ a $\sigma^2$ a nulovı dividendovı vınos. S ohledem na vıœô¡¡e odvozené je zœô ùejmé, œô¡¾e toto œô ùeœô¡¡ení lze vyjádœô ùit jako
+\begin{equation}
+V_{BS} = e^{-r(T - t)}\bar{V}_{BS}(Se^{r(T - t)},\sigma^2(T-t))
+\end{equation}
+Je uœô¡¾iteœô ­né si uvœô »domit, œô¡¾e rovnici (6.15) lze z rovnice (6.16) získat pomocí substitucí
+\begin{equation*}
+r = \frac{1}{T - t} \int^T_t r(\tau) d \tau
+\end{equation*}
+\begin{equation*}
+\sigma^2 = \frac{1}{T - t} \int^T_t \sigma(\tau)^2 d \tau
+\end{equation*}
+Z tœô »chto substitucí je vyplıvá, œô¡¾e v klasickém Black-Scholes modelu s konstantní bezrizikovou úrokovou sazbou a volatilitou mají tyto parametry charakter prœô¡¯mœô »rnıch hodnot po dobu zbytkové œô¡¾ivotnosti pœô ùísluœô¡¡né opce.
+
+\chapter{Americké opce}
+
+\section{Úvod}
+
+Pœô ùipomeœô ème, œô¡¾e americké opce se od evropskıch liœô¡¡í tím, œô¡¾e mohou bıt uplatnœô »ny kdykoliv v prœô¡¯bœô »hu své œô¡¾ivotnosti. Protoœô¡¾e má její majitel v porovnání s evropskou opcí vœô »tœô¡¡í práva, mœô »la by bıt hodnota americké opce vyœô¡¡œô¡¡í.
+\begin{center}
+	\begin{pspicture}(0,0)(8.0,6.5)
+		\rput(4.0,0.5){Vnitœô ùní a œô ­asová hodnota evropské prodejní opce}
+        \rput(4.0,0.0){pœô ùed splatností jako funkce $S$}
+
+		\psline[arrows=->](0.5,1.5)(7.5,1.5)
+		\psline[arrows=->](0.5,1.5)(0.5,6.0)
+
+        \psline(0.5,5.5)(4.5,1.5)
+        \pscurve[linewidth=0.5mm](0.5,5.2)(4.0,1.9)(4.5,1.7)(5.5,1.6)(6.5,1.55)
+
+        \rput(0.5,1.2){\small{0}}
+        \rput(4.5,1.2){\small{E}}
+        \rput(7.5,1.2){\small{S}}
+        \rput(0.2,6.0){\small{P}}
+	\end{pspicture}
+\end{center}
+Následující argument vycházející z neexistence arbitráœô¡¾e dokazuje, œô¡¾e hodnota americké prodejní opce musí bıt vyœô¡¡œô¡¡í neœô¡¾ hodnota odpovídající evropské opce. Jak je patrné z vıœô¡¡e uvedeného obrázku, pro dostateœô ­nœô » malá $S$ platí, œô¡¾e hodnota evropské opce je niœô¡¾œô¡¡í neœô¡¾ její vnitœô ùní hodnota. Pœô ùedpokládejme, œô¡¾e $S$ splœô èuje tuto podmínku, tj.
+\begin{equation*}
+P(S,t) < \max(E - S, 0)
+\end{equation*}
+a uvaœô¡¾ujme, co by stalo v pœô ùípadœô » pœô ùedœô ­asného uplatnœô »ní opce. Protoœô¡¾e $S < E$, lze vıœô¡¡e uvedenou nerovnost zjednoduœô¡¡it do podoby $P(S,t) < E - S$. Investor by mohl na trhu koupit prodejní opci za cenu $P$, podkladové aktivum za cenu $S$ a následnœô » opci uplatnit a podkladové aktivum prodat za cenu $E$. Jeho bezrizikovı vınos by tak byl roven $E - S - P$. Vzhledem k tomu, œô¡¾e tato situace mœô¡¯œô¡¾e existovat pouze po nekoneœô ­nœô » krátkı œô ­asovı okamœô¡¾ik, musí pro americkou prodejní opci platit nerovnost
+\begin{equation*}
+P(S,t) \ge \max(E - S, 0)
+\end{equation*}
+Americká a evropská prodejní opce tak musí bıt odliœô¡¡nou hodnotu.
+
+Dalœô¡¡í agrument se zabıvá hodnotou americké kupní opce na podkladové aktivum, které generuje nenulovı dividendovı vınos $D_0$. Pœô ùipomeœô ème, œô¡¾e pro dostateœô ­nœô » velká $S$ hodnota evropské kupní opce pœô ùibliœô¡¾nœô » splœô èuje podmínku
+\begin{equation*}
+C(S,t) \sim Se^{-D_0(T - t)}
+\end{equation*}
+Pro dostateœô ­nœô » velká $S$ a nenulové $D_0$ tak platí
+\begin{equation*}
+C(S,t) < \max(S - E,0)
+\end{equation*}
+Protoœô¡¾e $S > E$, lze tuto nerovnost dále zjednoduœô¡¡it na tvar $C(S,t) < S - E$. Jestliœô¡¾e by mœô »l investor moœô¡¾nost pœô ùedœô ­asného uplatnœô »ní opce, mohl by nakoupit opci za cenu $C$, tuto opci uplatnit a za cenu $E$ koupit podkladové aktivum a následnœô » toto aktivum prodat za $S$. Bezrizikovı vınos, kterı tak investor získá je $S - E - C$. Vzhledem k tomu, œô¡¾e tato arbitráœô¡¾ nemœô¡¯œô¡¾e trvat po delœô¡¡í dobu, musí pro americkou kupní opci platit
+\begin{equation*}
+C(S,t) \ge \max(S - E, 0)
+\end{equation*}
+
+V obou vıœô¡¡e uvedenıch pœô ùíkladech musí existovat hodnoty $S$, pro které je z pohledu majitele optimální opci pœô ùedœô ­asnœô » uplatnit. V opaœô ­ném pœô ùípadœô » by nebyla americká opce nikdy pœô ùedœô ­asnœô » uplatnœô »na a její hodnota by byla shodná s evropskou opcí. Ocenœô »ní americké opce je tak v porovnání s evropskou opcí komplikovanœô »jœô¡¡í, protoœô¡¾e v kaœô¡¾dém œô ­asovém okamœô¡¾iku musíme nejen urœô ­it hodnotu opce, ale také rozhodnout, zda-li je optimální tuto opci pœô ùedœô ­asnœô » uplatit. V souvislosti s touto problematikou pak hovoœô ùíme o tzv. problému volné hraniœô ­ní podmínky. Pro kaœô¡¾dı œô ­asovı okamœô¡¾ik $t$ existuje urœô ­itá hodnota $S$, která pœô ùedstavuje hranici mezi dvœô »ma regiony - (a) pro ceny podkladového aktiva menœô¡¡í neœô¡¾ tato hraniœô ­ní cena je optimální opci pœô ùedœô ­asnœô » uplatnit a (b) pro ceny vœô »tœô¡¡í neœô¡¾ tato hraniœô ­ní cena je naopak racionální opci nadále drœô¡¾et\footnote{V praxi mœô¡¯œô¡¾e existovat vícero takovıchto hraniœô ­ních cen $S$. Prozatím vœô¡¡ak budeme pœô ùedpokládat, œô¡¾e existuje pouze jedna takováto cena.}. Tuto hraniœô ­ní cenu znaœô ­íme jako $S_f(t)$. Tuto cenu pœô ùedem neznáme, a proto v porovnání s evropskımi opcemi postrádáme jednu z informací.
+
+Analızu problému volné hraniœô ­ní podmínky, kterı je klíœô ­em k oceœô èování americkıch opcí, zaœô ­neme pœô ùedstavením tzv. problému pœô ùekáœô¡¾ky. Dœô¡¯vodem je, œô¡¾e americké opce a problém pœô ùekáœô¡¾ky pojí œô ùada podobnıch vlastností.
+
+\section{Problém pœô ùekáœô¡¾ky}
+
+Ve své nejjednoduœô¡¡œô¡¡í verzi je problém pœô ùekáœô¡¾ky definován následovnœô ». Uvaœô¡¾ujme pruœô¡¾nou strunu nataœô¡¾enou mezi body $A$ a $B$ a spojitı objekt\footnote{Spojitost v tomto pœô ùípadœô » chápeme v matematickém slova smyslu.}, kterı pod danou strunou prochází a napíná ji tak.
+ \begin{figure}
+  \begin{center}
+	\begin{pspicture}(0,0)(9.0,4.5)
+
+		\psline(0.5,0.5)(8.5,0.5)
+
+        \pscurve[linewidth=0.5mm](2.0,0.5)(3.5,3.5)(4.5,4.0)(5.5,3.5)(6.5,0.5)
+        \psline(1.0,0.5)(3.5,3.5)
+        \psline(5.5,3.5)(8.0,0.5)
+
+        \rput(1.0,0.0){\small{$A$}}
+        \rput(8.0,0.0){\small{$B$}}
+        \rput(3.2,3.8){\small{$P$}}
+        \rput(5.6,3.8){\small{$Q$}}
+	\end{pspicture}
+ \end{center}
+ \begin{center}
+  \caption{\label{obstacle} Ilustrace klasického problému pœô ùekáœô¡¾ky}
+ \end{center}
+\end{figure}
+Vymezení œô ­ásti povrchu pœô ùekáœô¡¾ky, na které dochází ke kontaktu se strunou, pœô ùedem neznáme. Víme vœô¡¡ak, œô¡¾e struna se buœô ¯to dotıká pœô ùekáœô¡¾ky, œô ­ímœô¡¾ je její pozice dána, nebo pœô ùedstavuje teœô ­nu k pœô ùekáœô¡¾ce vedené z bodu $A$ popœô ù. $B$ a musí splœô èovat rovnici pohybu. Struna musí dále splœô èovat dvœô » podmínky. První podmínka œô ùíká, œô¡¾e struna leœô¡¾í na pœô ùekáœô¡¾ce\footnote{V tomto pœô ùípadœô » se tedy jedná o bod z oblasti dotyku mezi strunou a pœô ùekáœô¡¾kou.} nebo nad ní\footnote{V tomto pœô ùípadœô » se zase jedná o body, kdy struna plní funkci teœô ­ny k pœô ùekáœô¡¾ce.}. Z této podmínky v kombinaci s pohybovou rovnicí vyplıvá, œô¡¾e kœô ùivost struny musí bıt záporná nebo nulová. Druhou podmínkou je, œô¡¾e smœô »rnice struny musí bıt spojitá. To je zœô ùejmé s vyjímkou bodœô¡¯, kde struna prvnœô » ztrácí kontakt s pœô ùekáœô¡¾kou. Vzhledem k tomu, œô¡¾e pœô ùekáœô¡¾ka je spojitá, musí bıt spojitá také smœô »rnice struny. Struna tedy musí splœô èovat následující œô ­tveœô ùici podmínek
+\begin{itemize}
+\item struna musí bıt na nebo nad pœô ùekáœô¡¾kou
+\item struna musí mít zápornou nebo nulovou kœô ùivost
+\item struna musí bıt spojitá
+\item smœô »rnice struny musí bıt spojitá
+\end{itemize}
+Jsou-li vıœô¡¡e uvedené podmínky splnœô »ny, lze dokázat, œô¡¾e problém pœô ùekáœô¡¾ky má právœô » jedno œô ùeœô¡¡ení. Aœô ­koliv je struna a její smœô »rnice spojitá, mœô¡¯œô¡¾e její kœô ùivost (a tím pádem také její druhá derivace) vykazovat nespojitosti.
+
+\section{Americká opce jako problém obecné hraniœô ­ní podmínky}
+
+Lze dokázat, œô¡¾e problém ocenœô »ní americké opce lze jednoznaœô ­nœô » formulovat sérií podmínek podobnıch tœô »m, které jsme uvádœô »li v pœô ùípadœô » problému pœô ùekáœô¡¾ky. Jedná se o následující podmínky
+\begin{itemize}
+\item hodnota opce musí bıt vœô »tœô¡¡í nebo rovna vnitœô ùní hodnotœô » opce
+\item Black-Scholes rovnice je nahrazena nerovností (viz. dále)
+\item hodnota opce musí bıt spojitou funkcí ceny podkladového aktiva $S$
+\item delta opce, tj. její smœô »rnice, musí bıt spojitá
+\end{itemize}
+První z tœô »chto podmínek vyluœô ­uje moœô¡¾nost arbitráœô¡¾e. Bezrizikovı vınos z pœô ùípadného pœô ùedœô ­asného uplatnœô »ní opce musí bıt nulovı nebo zápornı\footnote{To ovœô¡¡em neznamená, œô¡¾e by americká opce nemœô »la bıt nikdy pœô ùedœô ­asnœô » uplatnœô »na.}. Jestliœô¡¾e je tedy hodnota opce rovna její vnitœô ùní hodnotœô », je optimální opci uplatnit; v pœô ùípadœô », œô¡¾e je hodnota opce vyœô¡¡œô¡¡í, splœô èuje Black-Scholes rovnici a je naopak optimální ji drœô¡¾et. První dvœô » podmínky tak lze spojit do jedné nerovnosti. Jedná se o Black-Scholes nerovnost a tato druhá podmínka tak v sobœô » zahrnuje také první z podmínek.
+
+Tœô ùetí podmínka poœô¡¾adující spojitost hodnoty opce jako funkce $S$, opœô »t vychází z podmínky neexistence arbitráœô¡¾e. Jestliœô¡¾e by hodnota opce byla nespojitou funkcí $S$, pak by bylo moœô¡¾né sestavit takové portfolio, které by generovalo bezrizikovı vınos v bodœô » nespojitosti.
+
+Stejnœô » jako v pœô ùípadœô » problému pœô ùekáœô¡¾ky ani v pœô ùípadœô » americké opce neznáme dopœô ùedu hodnotu $S_f$. Abychom mohli jednoznaœô ­nœô » urœô ­it hodnotu opce, je tak nutné pro $S_f$ stanovit dvœô » dodateœô ­né podmínky. První podmínkou je poœô¡¾adavek spojitosti hodnoty americké opce jako funkce $S$. Druhou podmínkou vıœô¡¡e definovaná œô ­tvrtá podmínka poœô¡¾adující, aby delta pœô ùísluœô¡¡né opce byla také spojitou funkcí $S$. Odvození této podmínky je vœô¡¡ak relativnœô » obtíœô¡¾né a pœô ùesnı postup pœô ùesahuje rozsah této knihy.
+
+\subsection{Americká prodejní opce}
+
+Uvaœô¡¾ujme americkou prodejní opci s hodnotou $P(S,t)$, vnitœô ùní hodnotu této opce definovanou jako $\max(E - S, 0)$ a hraniœô ­ní cenu $S_f$. Je-li cena podkladového aktiva niœô¡¾œô¡¡í neœô¡¾ $S_f$, je racionální opci uplatnit; v opaœô ­ném pœô ùípadœô » je naopak racionální opci drœô¡¾et. Vzhledem k nerovnosti $P(S,t) \ge \max(E - S, 0)$ je tedy bod $S_f$ bodem, kde se funkce $P(S,t)$ dokıká funkce $\max(E - S, 0)$. Protoœô¡¾e $S_f > E$, je smœô »rnice funkce $\max(E - S, 0)$ v tomto bodœô » rovna -1. Smœô »rnice hodnoty opce\footnote{Pœô ùipomeœô ème, œô¡¾e smœô »rnice hodnoty opce je její deltou.} definovaná jako $\partial P / \partial S$ mœô¡¯œô¡¾e mít v tomto bodœô » hodnotu\footnote{Od moœô¡¾nosti, œô¡¾e smœô »rnice hodnoty opce v tomto bodœô » není definovaná, prozatím odhlédnœô »me.}
+\begin{itemize}
+\item menœô¡¡í neœô¡¾ -1
+\item vœô »tœô¡¡í neœô¡¾ -1
+\item rovnu -1
+\end{itemize}
+Lze dokázat, œô¡¾e první dvœô » moœô¡¾nosti nejsou sluœô ­itelné s teorií oceœô èování americké opce.
+
+Nejprve uvaœô¡¾ujme situaci $\partial P / \partial S < -1$, kterou ilustruje kœô ùivka (a) níœô¡¾e uvedeného obrázku. Hodnota opce $P(S,t)$ protíná vnitœô ùní hodnotu opce $\max(E - S, 0)$ v bodœô » $S = S_f^{(a)}$. Jestliœô¡¾e se $S$ infinitizimálnœô » zvıœô¡¡í, hodnota opce $P(S,t)$ klesne pod vnitœô ùní hodnotu opce, protoœô¡¾e smœô »rnice hodnoty opce je menœô¡¡í neœô¡¾ -1, kdeœô¡¾to smœô »rnice vnitœô ùní hodnoty opce je rovna -1. To vœô¡¡ak popírá podmínku $P(S,t) \ge \max(E - S, 0)$, a proto mœô¡¯œô¡¾eme tuto moœô¡¾nost vylouœô ­it.
+
+Dále uvaœô¡¾ujme druhou variantu $\partial P / \partial S > -1$, kterou ilustruje kœô ùivka (b). V tomto pœô ùípadœô » lze dokázat, œô¡¾e hodnota opce není z pohledu jejího vlastníka optimální. Nepœô ùedstavuje totiœô¡¾ nejvyœô¡¡œô¡¡í moœô¡¾nou hodnotu, která je konzistentní s Black-Scholes koncepcí bezrizikového zajiœô¡¡tœô »ní a podmínkou $P(S,t) \ge \max(E - S, 0)$. Uvaœô¡¾ujme stratetii uplatnœô »nou majitelem opce. V rámci této strategie existují dva aspekty, které je tœô ùeba brát v potaz. Prvním je zajiœô¡¡tœô »ní portfolia provádœô »né na denní bázi vedoucí k Black-Scholes rovnici. Tento aspekt je obsahuje také evropská opce. Druhım aspektem je moœô¡¾nost pœô ùedœô ­asného uplatnœô »ní opce. Majitel opce se musí stanovit cenu podkladového aktiva, od které je optimální opci uplatnit. Hodnotícím kritériem je pœô ùitom maximalizace hodnoty opce z pohledu majitele. Protoœô¡¾e hodnota opce splœô èuje parciální diferenciální rovnici s hraniœô ­ní podmínkou $P(S_f(t),t) = E - S_f(t)$, ovlivní volba $S_f$ hodnotu opce $P(S,t)$ pro vœô¡¡echna $S > S_f$. Je zœô ùejmé, œô¡¾e kœô ùivka (a) pœô ùedstavuje pœô ùíliœô¡¡ malou hodnotu $S_f$, kdy bezrizikového vınosu je moœô¡¾né dosáhnout pro hodnoty $S$ je nepatrnœô » vœô »tœô¡¡í neœô¡¾ $S_f$. Naproti tomu kœô ùivka (b) ilustruje problém pœô ùíliœô¡¡ vysoké hodnoty $S_f$. Pro $\partial P / \partial S > -1$ mœô¡¯œô¡¾e bıt oproti bodu $S = S_f^{(b)}$ hodnota opce zvıœô¡¡ena pouhım sníœô¡¾ením hodnoty $S_f$. Zvıœô¡¡ení hodnoty opce se prostœô ùednictvím particiální diferenciální rovnice promítne do vœô¡¡ech hodnot $S$ vœô »tœô¡¡ích neœô¡¾ $S_f$. Funkce hodnoty americké opce tak mœô »ní tvar pœô ùi kaœô¡¾dé zmœô »nœô » $S_f$. Postupnım sniœô¡¾ováním $S_f$ bychom zkonvergovali k bodu $S_f$ mezi $S_f^{(a)}$ a $S_f^{(b)}$, pro kterı by platilo $\partial P / \partial S = -1$. Tento bod souœô ­asnœô » maximalizuje hodnotu opce z pohledu majitele a zároveœô è nevytváœô ùí prostor pro pœô ùípadnou arbitráœô¡¾. 
+
+\begin{center}
+	\begin{pspicture}(0,0)(9.0,6.5)
+        \rput(4.5,0.2){Hraniœô ­ní cena (a) pœô ùíliœô¡¡ nízká (b) pœô ùíliœô¡¡ vysoká}
+
+		\psline(0.5,1.0)(8.5,1.0)
+        \psline(0.5,1.0)(0.5,6.0)
+
+        \psline[linewidth=0.5mm](0.5,5.5)(5.0,1.0)(8.0,1.0)
+        \pscurve(0.8,5.5)(2.2,2.5)(7.0,1.3)
+        \psline[linestyle=dotted](0.9,5.1)(0.9,1.0)
+        \pscurve(2.2,3.5)(4.0,2.8)(7.0,2.5)
+        \psline[linestyle=dotted](2.75,3.2)(2.75,1.0)
+        
+        \rput(5.0,0.8){\small{$E$}}
+        \rput(0.9,0.7){\small{$S_f^{(a)}$}}
+        \rput(2.8,0.7){\small{$S_f^{(b)}$}}
+        \rput(5.0,0.8){\small{$E$}}
+        \rput(8.5,0.8){\small{$S$}}
+        \rput(2.0,2.2){\small{$(a)$}}
+        \rput(5.0,3.0){\small{$(b)$}}
+        \rput(2.5,4.8){\small{$\max(E - S,0)$}}
+	\end{pspicture}
+\end{center}
+
+Je tœô ùeba zdœô¡¯raznit, œô¡¾e vıœô¡¡e uvedenı argument není rigorózním odvozením druhé volné hraniœô ­ní podmínky. Pro úœô ­ely této knihy vœô¡¡ak bude staœô ­it pœô ùedpoklad, œô¡¾e racionální majitel americké opce sleduje strategii, která povede k tomu, œô¡¾e se hodnota opce, jako hladká funkce promœô »nné $S$, dotkne funkce vnitœô ùní hodnoty opce za pœô ùedpokladu, œô¡¾e tato je také hladká.
+
+Nyní se opœô »t vraœô¡¥me ke druhému omezení zmiœô èovaném pœô ùi oceœô èování americké opce, totiœô¡¾ Black-Scholes nerovnici. Pœô ùipomeœô ème, œô¡¾e Black-Scholes rovnice je zaloœô¡¾ena na pœô ùedpokladu neexistence arbitráœô¡¾e, kdy je riziko portfolia skládajícího z opce a odpovídajícího podkladového aktiva zcela eliminováno kontinuálním zajiœô¡¡œô¡¥ováním. Pœô ùedpoklad neexistence arbitráœô¡¾e platí v pœô ùípadœô » Black-Scholes nerovnice pouze œô ­ásteœô ­nœô », aœô ­koliv tœô »sná vazba mezi pœô ùedpokladem neexistence arbitráœô¡¾e a touto nerovnicí stále existuje.
+
+Stejnœô » jako v pœô ùípadœô » odvození Black-Scholes rovnice pro evropskou opci uvaœô¡¾ujme delta neutrální portfolio
+\begin{equation*}
+\Pi = V - \Delta S
+\end{equation*}
+V pœô ùípadœô » americké opce nemusí bıt vœô¡¾dy moœô¡¾né souœô ­asnœô » drœô¡¾et dlouhou a krátkou pozici v dané opci. V nœô »kterıch situacích je totiœô¡¾ optimální opci pœô ùedœô ­asnœô » uplatnit. Vypisovatel opce tak mœô¡¯œô¡¾e bıt vyzván k plnœô »ní z opce pœô ùed její splatností. Jednoduchı argument o neexistenci arbitráœô¡¾e pouœô¡¾itı pro evropskou opci tak nevede k jednoznaœô ­né hodnotœô » vınosu portfolia. Jediné, co jsme schopni œô ùíci, je, œô¡¾e tento vınos nemœô¡¯œô¡¾e bıt vœô »tœô¡¡í neœô¡¾ bezriziková vınosová míra. Pro americkou prodejní opci tak platí
+\begin{equation*}
+\frac{\partial P}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 P}{\partial S^2} + rS \frac{\partial P}{\partial S} - rP \le 0
+\end{equation*}
+Hodnotu americké prodejní opce lze popsat pomocí problému volné hraniœô ­ní podmínky. Pro kaœô¡¾dé $t$ musíme rozdœô »lit hodnoty $S$ na dvœô » disjunktní mnoœô¡¾iny. První mnoœô¡¾ina je definovaná jako $0 \le S \le S_f(t)$ a je pro ní optimální opci pœô ùedœô ­asnœô » uplatnit. Pro americkou projední opci na této mnoœô¡¾inœô » platí
+\begin{equation*}
+P = E - S,~~~\frac{\partial P}{\partial t}+\frac{1}{2}\sigma^2S^2\frac{\partial^2 P}{\partial S^2} + rS\frac{\partial P}{\partial S} - rP < 0
+\end{equation*}
+V rámci druhé mnoœô¡¾iny $S_f(t) < S < \infty$ není pœô ùedœô ­asné uplatnœô »ní opce optimální a
+\begin{equation*}
+P > E - S,~~~\frac{\partial P}{\partial t}+\frac{1}{2}\sigma^2S^2\frac{\partial^2 P}{\partial S^2} + rS\frac{\partial P}{\partial S} - rP = 0
+\end{equation*}
+Hraniœô ­ní podmínka v bodœô » $S = S_f(t)$ œô ùíká, œô¡¾e hodnota opce $P$ a její delta jsou spojité.
+\begin{equation*}
+P(S_f(t),t) = \max(E - S_f(t),0),~~~ \frac{\partial P}{\partial S}(S_f(t),t) = -1
+\end{equation*}
+Tyto podmínky lze povaœô¡¾ovat za jednu hraniœô ­ní podmínku, pœô ùiœô ­emœô¡¾ druhá podmínka urœô ­uje umístœô »ní volné hranice. Je dœô¡¯leœô¡¾ité si uvœô »domit, œô¡¾e podmínka
+\begin{equation*}
+\frac{\partial P}{\partial S}(S_f(t),t) = -1
+\end{equation*}
+není implikovaná skuteœô ­ností $P(S_f(t),t) = E - S_f(t)$. Protoœô¡¾e dopœô ùedu neznáme umístœô »ní bodu $S_f(t)$, potœô ùebujeme dalœô¡¡í podmínku, která by specifikovala jeho umístœô »ní. Touto podmínkou je právœô » poœô¡¾adavek spojité delty pœô ùísluœô¡¡né opce.
+
+V následujícím obrázku porovnáváme hodnoty evropské a americké prodejní opce se zbytkovou splatností $T = 0.5$, smœô »rodatnou odchylkou $\sigma = 0.4$ a bezrizikovou úrokovou mírou $r = 0.1$.
+\begin{center}
+  \begin{pspicture}(0,0)(8.0,6.5)
+		\rput(4.0,0.5){Porovnání hodnoty evropské (dolní kœô ùivka) a americké opce}
+        \rput(4.0,0.0){(horní kœô ùivka) jako funkce $S$: $T$ = 0.5, $\sigma$ = 0.4, $r$ = 0.1}
+
+		\psline[arrows=->](0.5,1.5)(7.5,1.5)
+		\psline[arrows=->](0.5,1.5)(0.5,6.0)
+
+        \psline(0.5,5.5)(4.5,1.5)
+        \pscurve[linewidth=0.5mm](0.5,5.2)(4.0,1.9)(4.5,1.7)(5.5,1.6)(6.5,1.55)
+        \psline[linewidth=0.5mm](0.5,5.5)(3.8,2.2)
+        \pscurve[linewidth=0.5mm](3.8,2.2)(4.5,1.7)(5.5,1.6)(6.5,1.55)
+
+        \rput(0.5,1.2){\small{0}}
+        \rput(4.5,1.2){\small{E}}
+        \rput(7.5,1.2){\small{S}}
+        \rput(0.2,6.0){\small{P}}
+	\end{pspicture}
+\end{center}
+
+\section{Technická poznámka: Volná hraniœô ­ní podmínka}
+
+Je tœô ùeba zdœô¡¯raznit, œô¡¾e obœô » hraniœô ­ní podmínky nutné pro stanovení hodnoty americké prodejní opce jsou zaloœô¡¾eny na neexistenci arbitráœô¡¾e. Existuje vœô¡¡ak nespoœô ­et dalœô¡¡ích kandidátœô¡¯ na volné hraniœô ­ní podmínky, které je moœô¡¾né z œô ­istœô » matematického pohledu pouœô¡¾ít. Aœô ­koliv nevedou k œô ùeœô¡¡ení hodnoty americké opce, pœô ùedstavují z matematického hlediska správnœô » definovanı problém. Jako pœô ùíklady uveœô ¯me
+\begin{equation*}
+\frac{\partial P}{\partial S}(S_f(t),t) = 0
+\end{equation*}
+je-li
+\begin{equation*}
+P(S_f(t),t) = E - S_f(t)
+\end{equation*}
+popœô ù. podmínku
+\begin{equation*}
+\frac{\partial P}{\partial S}(S_f(t),t) = - \frac{d S_f}{d t}
+\end{equation*}
+Druhá z uvedenıch podmínek pœô ùedstavuje hraniœô ­ní podmínku Stefanova modelu pro tání ledu. Z pohledu americké opce je vœô¡¡ak tato podmínka zavádœô »jící.
+
+\section{Ostatní americké opce}
+
+Argumenty, které jsem pouœô¡¾ili pro americkou prodejní opci, lze s pœô ùíluœô¡¡nımi úpravami pouœô¡¾ít také pro ostatní typy plain-vanilla opcí (vœô ­etnœô » jejich lineárních kombinací) s vıplatnou definovanou jako $\Lambda(S)$ nebo dokonce $\Lambda(S,t)$. Hodnota opce musí splœô èovat Black-Scholes nerovnost
+\begin{equation*}
+\frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + (r - D_0) S \frac{\partial V}{\partial S} - rV \le 0
+\end{equation*}
+Je-li pœô ùedœô ­asné uplatnœô »ní opce optimální, platí $V(S,t) = \Lambda(S)$ a nerovnost se stane ostrou.
+\begin{equation*}
+\frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + (r - D_0) S \frac{\partial V}{\partial S} - rV < 0
+\end{equation*}
+Není-li pœô ùedœô ­asné uplatnœô »ní opce optimální, platí $V(S,t) > \Lambda(S)$ a nerovnost se zmœô »ní v rovnost.
+\begin{equation*}
+\frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + (r - D_0) S \frac{\partial V}{\partial S} - rV = 0
+\end{equation*}
+ V bodœô » hraniœô ­ní podmínky (popœô ù. podmínek, je-li vıplatní profil opce dostateœô ­nœô » sloœô¡¾itı) musí bıt funkce $V$ a $\partial V / \partial S$ spojité. Specifikace problému je zkompletována stanovením koneœô ­né podmínky
+\begin{equation*}
+V(S,T) = \Lambda(S)
+\end{equation*}
+a stanovením vhodnıch podmínek v nekoneœô ­nu. Pœô ùíklady tœô »chto diferenciálních nerovnic uvedeme v následujících kapitolách zabıvajících se exotickımi opcemi.
+
+\section{Technická poznámka: Opce s nespojitou vıplatní funkcí}
+
+Vnitœô ùní hodnota opce mœô¡¯œô¡¾e bıt teœô ­nou k funkci hodnoty opce pouze, je-li v bodœô » dotyku definována. Jako pœô ùíklad uvaœô¡¾ujme americkou cash-or-nothing kupní opci s vıplatou definovanou jako
+\begin{equation*}
+V(S,T) = 0,~~~S < E
+\end{equation*}
+\begin{equation*}
+V(S,T) = B,~~~S \ge E
+\end{equation*}
+Vnitœô ùní hodnota tedy není spojitou funkcí. Hodnota opce je vœô¡¡ak s vyjímkou splatnosti spojitá a její delta je nespojitá v bodœô » $S = E$. Je zœô ùejmé, œô¡¾e hraniœô ­ní cena, od které je opci vœô¡¾dy optimální pœô ùedœô ­asnœô » uplatnit, je $S_f = E$. Majitel opce totiœô¡¾ nezíská œô¡¾ádnı dodateœô ­nı prospœô »ch z drœô¡¾ení opce po té, co cena podkladového aktiva dosáhne realizaœô ­ní ceny. Naopak ztrácí pœô ùípadnı úrok získanı z pœô ùedœô ­asné vıplaty ve vıœô¡¡i $B$. Není tedy dœô¡¯vod zajiœô¡¡œô¡¥ovat se proti situaci $S > E$. Je zœô ùejmé, œô¡¾e $\Delta = 0$ pro $S > E$ a $\Delta > 0$ pro $S < E$. 
+
+Z analızy tohoto typu americké opce vyplıvá existence vıplatní podmínky $V(S,T) = 0$ pro $0 \le S \le E$ a dvou hraniœô ­ních podmínek $V(0,t) = 0$ a $V(E,t) = B$. Situací $S > E$ se není tœô ùeba zaobírat, protoœô¡¾e opce je pœô ùedœô ­asnœô » uplatnœô »na. Narozdíl od obvyklıch americkıch opcí, kde jsou hraniœô ­ní podmínky aplikované na neznámou hodnotu $S$, coœô¡¾ vede k nutnosti dodateœô ­né podmínky, jsou v pœô ùípadœô » americké cash-or-nothing opce hraniœô ­ní podmínky specifikovány pro známou hodnotu $S$. Tyto tœô ùi podmínky tak vedou k jednoznaœô ­nému œô ùeœô¡¡ení Black-Scholes rovnice.
+
+Americká cash-or-nothing opce dobœô ùe ilustruje myœô¡¡lenku, œô¡¾e realizaœô ­ní strategie by mœô »la maximalizovat její hodnotu pro majitele opce. Je zœô ùejmé, œô¡¾e volba $S_f(t) = E$ dává nejvœô »tœô¡¡í hodnoty pro $V(S,t)$ pro $S < E$, jak ilustruje následující obrázek.
+\begin{center}
+  \begin{pspicture}(0,0)(8.0,7.0)
+		\rput(4.0,1.0){Porovnání hodnoty evropské (dolní kœô ùivka) a americké}
+        \rput(4.0,0.5){(horní kœô ùivka) cash-or-nothing opce jako funkce $S$}
+        \rput(4.0,0.0){$T$ = 1.0, $\sigma$ = 0.4, $r$ = 0.1, $E$ = 10, $B$ = 5, $D$ = 0.02}
+
+		\psline[arrows=->](0.5,2.0)(7.5,2.0)
+		\psline[arrows=->](0.5,2.0)(0.5,6.7)
+
+        \pscurve[linewidth=0.5mm](0.5,2.0)(1.5,2.2)(3.9,5.7)(7.0,6.1)
+
+        \pscurve[curvature=2 0.1 0, linewidth=0.5mm](0.5,2.0)(1.18,2.17)(1.5,2.52)
+        \psline[linewidth=0.5mm](1.5,2.52)(3.25,6.5)(7.0,6.5)
+
+        \psline[linestyle=dotted](3.25,1.9)(3.25,6.5)
+
+        \rput(0.5,1.7){\small{0}}
+        \rput(3.3,1.7){\small{E}}
+        \rput(7.5,1.7){\small{S}}
+        \rput(0.2,6.5){\small{P}}
+	\end{pspicture}
+\end{center}
+
+\section{Lineární komplementarita}
+
+Z vıœô¡¡e œô ùeœô ­eného je patrné, œô¡¾e matematická analıza americké opce je komplikovanœô »jœô¡¡í neœô¡¾ analıza evropské opce. Aœô¡¾ na vyjímky je pomœô »rnœô » sloœô¡¾ité najít explicitní œô ùeœô¡¡ení problému volné hraniœô ­ní podmínky. Primární snahou je tak nalézt efektivní a robustní numerické metody pro stanovení tœô »chto œô ùeœô¡¡ení. To s sebou pœô ùináœô¡¡í potœô ùebu teoretického rámce, kterı umoœô¡¾ní analyzovat problematiku volné hraniœô ­ní podmínky v obecné rovinœô ».
+
+Prvním krokem bude snaha o pœô ùeformulování problému s cílem zbavit se explicitní závislosti na volnıch hranicích. Volná hranice tak pœô ùímo nevstupuje do procesu hledání œô ùeœô¡¡ení a mœô¡¯œô¡¾e z nœô »j bıt po jeho nalezení zpœô »tnœô » získána. V naœô¡¡ich úvahách zaœô ­neme zabıvat vıœô¡¡e diskutovanım problémem pœô ùekáœô¡¾ky s jednoduchım pœô ùípadem takovéto reformulace, tzv. lineární komplementaritou. Následnœô » pouœô¡¾ijeme takto získané poznatky pœô ùi oceœô èování americkıch opcí.
+
+\subsection{Problém pœô ùekáœô¡¾ky - lineární komplementarita}
+
+Vraœô¡¥me se k problému pœô ùekáœô¡¾ky diskutovanému v pœô ùedchozí kapitole. Pœô ùedpokládejme, œô¡¾e konce struny se nachází v bodech $x = \pm 1$. Nechœô¡¥ funkce $u(x)$ popisuje pozici struny a funce $f(x)$ vıœô¡¡ku pœô ùekáœô¡¾ky, obœô » na definiœô ­ním oboru $x = \pm 1$.
+Pœô ùedpokládejme, œô¡¾e $f(\pm1) < 0$ a œô¡¾e existuje alespoœô è jedno $-1 \le x \le 1$, pro které platí $f(x) > 0$. To znamená, œô¡¾e existuje neprázdná mnoœô¡¾ina bodœô¡¯, ve kterıch se struna dotıká pœô ùekáœô¡¾ky. Dále pœô ùedpokládejme, œô¡¾e $f'' < 0$, kde $' = d/dx$, coœô¡¾ implikuje existenci pouze jedné takovéto mnoœô¡¾iny. Volná hranice je pak mnoœô¡¾inou bodœô¡¯ oznaœô ­ovanıch jako $P(x = x_p)$ a $Q(x = x_q)$ v obrázku (7.1). Jedná se o body, ve kterıch se struna prvnœô » dotıká pœô ùekáœô¡¾ky. Body $P$ a $Q$ tak vymezují oblast dotyku. Pozice tœô »chto bodœô¡¯ není dopœô ùedu známá a její urœô ­ení je pœô ùedmœô »tem œô ùeœô¡¡ení.
+
+V oblasti dotyku platí $u(x) = f(x)$. Pro vœô¡¡echna $x$, ve kterıch se struna pœô ùekáœô¡¾ky nedotıká, platí $u'' = 0$. Tato podmínka znamená, œô¡¾e struna je pro tyto hodnoty $x$ napnutá. Standardnœô » jsou pro urœô ­ení napnuté œô ­ásti struny zapotœô ùebí pouze dvœô » hraniœô ­ní podmínky a hodnoty $u(x)$ na jejích obou koncích. Tyto podmínky jsou souœô ­ástí vychozích pœô ùedpokladœô¡¯, kde $u(-1) = 0$, $u(x_P) = f(x_p)$ a $u(1) = 0$, $u(x_Q) = f(x_Q)$. Nicménœô » protoœô¡¾e body $P$ a $Q$ nejsou známy, je zapotœô ùebí dalœô¡¡ích dvou podmínek. Agrumentace zaloœô¡¾ená na fyzikální rovnováze sil definuje tyto podmínky jako nutnost spojitosti funkcí $u(x)$ a $u'(x)$ v bodech $P$ a $Q$. Problém pœô ùekáœô¡¾ky tak lze zformulovat jako problém nalezení funkce $u(x)$ a bodœô¡¯ $P$ a $Q$ pœô ùi splnœô »ní následujících podmínek
+\begin{equation}
+u(-1) = 0
+\end{equation}
+\begin{equation}
+u''(x) = 0,~~~ -1 < x < x_P
+\end{equation}
+\begin{equation}
+u(x_P) = f(x_P),~~~u'(x_P) = f'(x_P)
+\end{equation}
+\begin{equation}
+u(x) = f(x),~~~x_P < x < x_Q
+\end{equation}
+\begin{equation}
+u(x_Q) = f(x_Q),~~~u'(x_Q) = f'(x_Q)
+\end{equation}
+\begin{equation}
+u''(x) = 0,~~~ x_Q < x < 1
+\end{equation}
+\begin{equation}
+u(1) = 0
+\end{equation}
+Jestliœô¡¾e máme funkci $f(x)$, která má stejnı obecnı tvar jako na obrázku (7.1), lze dokázat, œô¡¾e $u(x)$, $P$ a $Q$ jsou jednoznaœô ­nœô » urœô ­ené vıœô¡¡e uvedenımi podmínkami a nalézt je. Nicménœô » œô ùeœô¡¡ení je pomœô »rnœô » pracné a body $P$ a $Q$ musí bıt, aœô¡¾ na pœô ùípady triviální funkce $f(x)$, vypoœô ­teny numericky jako œô ùeœô¡¡ení algeraické popœô ù. transcedentální rovnice. œô øeœô¡¡ení se jeœô¡¡tœô » více zkomplikuje v pœô ùípadœô », kdy $f''(x)$ není vœô¡¾dy menœô¡¡í nebo rovno nule a to z dœô¡¯vodu moœô¡¾né existence víreca oblastí kontaktu. Nicménœô » v i tœô »chto pœô ùípadech je principiálnœô » moœô¡¾né œô ùeœô¡¡ení nalézt.
+
+Alternativním pœô ùístupem je uvœô »domit si, œô¡¾e struna se nachází buœô ¯to nad pœô ùekáœô¡¾kou ($u(x) > f(x)$) a v tomto pœô ùípadœô » je napnutá ($u''(x) = 0$) nebo se pœô ùekáœô¡¾ky dotıká ($u(x) = f(x)$) a v tomto pœô ùípadœô » pœô ùekáœô¡¾ku kopíruje ($u''(x) = f''(x) < 0$). To znamená, œô¡¾e jsem schopni tento problém pœô ùeformulovat do podoby problému lineární komplementarity\footnote{Obecnı problém
+\begin{equation*}
+\mathcal{AB} = 0,~~~\mathcal{A} \ge 0, \mathcal{B} \ge 0 
+\end{equation*}
+nazıváme komplementárním problémem a v naœô¡¡em konkrétním pœô ùípadœô » platí $\mathcal{A} = u''$ a $\mathcal{B} = u - f$, pœô ùiœô ­emœô¡¾ jak $\mathcal{A}$ tak $\mathcal{B}$ jsou lineární v $u$ a $f$.
+}
+\begin{equation*}
+u'' (u - f) = 0,~~~-u'' \ge 0,~(u - f) \ge 0
+\end{equation*}
+za pœô ùedpokladu $u(\pm 1) = 0$ a spojitosti funkcí $u$ a $u'$.
+
+Takto pœô ùeformulovanı problém má v porovnání s pœô¡¯vodním problémem definovanım sérií podmínek (7.1) - (7.7) jednu znaœô ­nou vıhodu - explicitnœô » neobsahuje volné body $P$ a $Q$. Volné body jsou v definici problému stále pœô ùítomné, avœô¡¡ak pouze implicitnœô » skrze podmínku $u \ge f$. Jestliœô¡¾e budeme schopni vyvinout algoritmus, kterı by umoœô¡¾nil œô ùeœô¡¡ení problému lineární komplementarity, staœô ­í následnœô » pouze analyzovat hodnoty $u - f$. Volné hraniœô ­ní body jsou tam, kde se hodnota této funkce mœô »ní z nulové na nenulovou. Jedním z takovıchto alogoritmœô¡¯ je napœô ù. SOR algoritmus, kterı je popsán v kapitole 9. V rámci této metody se nejprve stanoví poœô ­áteœô ­ní odhad funkce $u$ takovı, œô¡¾e zcela jistœô » platí $u > f$, a postupnœô » se iteruje ke správnému œô ùeœô¡¡ení. Omezení je implementováno tak, œô¡¾e pœô ùi vygenerování hodnoty $u$ vœô »tœô¡¡í neœô¡¾ $f$ je hodnota $u$ nastavena na hodnotu $f$.
+
+Dœô¡¯kaz, œô¡¾e lineární komplementarita je ekvivalentní problému volné hraniœô ­ní podmínky, pœô ùesahuje rámec této knihy. Pœô ùípadnı dœô¡¯kaz by vycházel z technik funkcionální analızy a œô ­ásteœô ­nœô » také z teorie variaœô ­ních nerovností. Nicménœô » nosnou myœô¡¡lenkou dœô¡¯kazu je minimalizace vhodného energetického funkcionálu nad konvexní mnoœô¡¾inou vœô¡¡ech pœô ùijetelnœô » hladkıch funkcí $v(x)$, které splœô èují podmínku $v \ge f$.
+
+\subsection{Americká prodejní opce - lineární komplementarita}
+
+V této kapitole se budeme zabıvat americkou prodejní opcí, kterou pœô ùeformulujeme do podoby problému lineární komplementarity. V zásadœô » jedinım vıraznœô »jœô¡¡ím rozdílem mezi problémem pœô ùekáœô¡¾ky a americkou prodejní opcí je skuteœô ­nost, œô¡¾e americká opce má navíc œô ­asovı rozmœô »r\footnote{Pojmem ``œô ­asovı rozmœô »r'' máme na mysli, œô¡¾e se poloha hraniœô ­ních bodœô¡¯ mœô »ní v œô ­ase.}. Problém americké opce tak lze rozdœô »lit na dvœô » œô ­ásti - na prostorovou a œô ­asovou, kde se prostorová œô ­ást zabıvá hraniœô ­ními body v urœô ­itı fixní œô ­asovı okamœô¡¾ik, kdeœô¡¾to œô ­asová œô ­ást se zabıvá jejich vıvojem v œô ­ase. To se pochopitelnœô » musí promítnou také do postupu œô ùeœô¡¡ení. Prostorovou œô ­ást œô ùeœô¡¡íme stejnœô » jako u klasického problému pœô ùekáœô¡¾ky pomocí SOR algoritmu; œô ­asová œô ­ást slouœô¡¾í k nalezení œô ùeœô¡¡ení v dílœô ­ích œô ­asovıch okamœô¡¾icích.
+
+Nejprve stejnœô » jako v pœô ùípadœô » evropské opce pœô ùevedeme problém americké prodejní opce z pœô¡¯vodních promœô »nnıch $(S,t)$ na promœô »nné $(x, \tau)$. Jedinım rozdílem je, œô¡¾e v pœô ùípadœô » americké opce figuruje navíc tzv. hranice optimální realizace. Ta byla v pœô¡¯vodním vyjádœô ùení tvoœô ùena body $S = S_f(t)$. Po transformaci promœô »nnıch budeme tuto hranici znaœô ­it jako $x = x_f(\tau)$. Vzhledem k $S_f(x) < E$ a transformaci $S_f(t) = E e^{x_f(\tau)}$, platí $x_f(\tau) < 0$. Funkce vnitœô ùní hodnoty opce $\max(E - S, 0)$ pœô ùejde do tvaru
+\begin{equation*}
+g(x, \tau) = e^{\frac{1}{2}(k + 1)^2 \tau}\max(e^{\frac{1}{2}(k - 1)x} - e^{\frac{1}{2}(k + 1)x}, 0)
+\end{equation*}
+Získáváme tak
+\begin{equation}
+\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2},~~~x > x_f(\tau)
+\end{equation}
+\begin{equation}
+u(x, \tau) = g(x, \tau),~~~x \le x_f(\tau)
+\end{equation}
+poœô ­áteœô ­ní podmínku
+\begin{equation}
+u(x, 0) = g(x, 0) = \max(e^{\frac{1}{2}(k + 1)x} - e^{\frac{1}{2}(k + 1)x},0)
+\end{equation}
+a hraniœô ­ní podmínku\footnote{Pro $x \rightarrow -\infty$ se nacházíme v oblasti cen podkladového aktiva, kde je optimální opci pœô ùedœô ­asnœô » uplatnit. Hraniœô ­ní podmínku proto nepotœô ùebujeme.}
+\begin{equation}
+\underset{x \rightarrow 0}{\lim} u(x, \tau) = 0
+\end{equation}
+Dále existuje omezení
+\begin{equation}
+u(x, \tau) \ge e^{\frac{1}{2}(k + 1)^2 \tau} \max(e^{\frac{1}{2}(k - 1)x} - e^{\frac{1}{2}(k + 1)x}, 0)
+\end{equation}
+a poœô¡¾adavek na spojitost funkcí $u$ a $\partial u / \partial x$ v bodœô » $x = x_f(t)$, kterı vychází z odpovídajících podmínek pœô¡¯vodní formulace problému.
+
+Abychom se vyhnuli technickım komplikacím, omezme problém na koneœô ­nı interval. Tento pœô ùedpoklad je pœô ùijatelnı, protoœô¡¾e kaœô¡¾dé numerické œô ùeœô¡¡ení omezíme na koneœô ­nou síœô¡¥. To znamená, œô¡¾e problém (7.8) - (7.12) budeme aplikovat pouze na interval $-x^{-} < x < x^{+}$. To implikuje hraniœô ­ní podmínky
+\begin{equation*}
+u(x^{+}, \tau) = 0,~~~u(-x^{-}, \tau) = g(-x^{-}, \tau)
+\end{equation*}
+Pœô ùepokládáme tedy, œô¡¾e je moœô¡¾né nahradit hraniœô ­ní podmínky aproximací, podle které pro malá $S$ platí $P = E - S$, zatímco pro velká $S$ je $P = 0$.
+
+Skuteœô ­nost, œô¡¾e jak problém pœô ùekáœô¡¾ky tak americká prodejní opce splœô èují obdobné omezující podmínky, naznaœô ­uje moœô¡¾nost pœô ùeformulovat americkou prodejní opci do podoby lineární komplementarity. Americké prodejní opce je velmi podobná problému pœô ùekáœô¡¾ky, s tím rozdílem, œô¡¾e se tvar pœô ùekáœô¡¾ky mœô »ní v prœô¡¯bœô »hu œô ­asu. Pœô ùipomeœô ème, œô¡¾e roli pœô ùekáœô¡¾ky zde plní vıplatní funkce $g(x, \tau)$. Problém (7.8) - (7.12) tak lze ve formœô » lineární komplementarity vyjádœô ùit jako
+\begin{equation}
+\Bigg( \frac{\partial u}{\partial r} - \frac{\partial^2 u}{\partial x^2}\Bigg) \cdot (u(x, \tau) - g(x, \tau)) = 0
+\end{equation}
+kde
+\begin{equation*}
+\Bigg( \frac{\partial u}{\partial r} - \frac{\partial^2 u}{\partial x^2}\Bigg) \ge 0,~~~(u(x, \tau) - g(x, \tau)) \ge 0
+\end{equation*}
+za pœô ùedpokladu splnœô »ní poœô ­áteœô ­ních hraniœô ­ních podmínek (7.10) a (7.13)
+\begin{equation*}
+u(x, 0) = g(x, \tau)
+\end{equation*}
+\begin{equation*}
+u(-x^{-}, \tau) = g(-x^{-}, \tau),~~~u(x^{+}, \tau) = g(x^{+}, \tau) = 0
+\end{equation*}
+a poœô¡¾adavku na spojitost funkcí $u(x, \tau)$ a $\frac{\partial u}{\partial x}(x, \tau)$.
+
+Dvœô » moœô¡¾ná œô ùeœô¡¡ení rovnice (7.13) odpovídají situaci, kdy je optimální opci uplatnit ($u = g$), a situaci, kdy naopak není optimální opci uplatnit ($u > g$). Na závœô »r pouze zopakujme, œô¡¾e velkou vıhodou reformulace problému je, œô¡¾e není zapotœô ùebí se explicitnœô » zabıvat volnou hraniœô ­ní podmínkou resp. podmínkami.
+
+Stejnœô » jako v pœô ùípadœô » problému pœô ùekáœô¡¾ky, i v pœô ùípadœô » americké prodejní opce je pomœô »rnœô » sloœô¡¾ité dokázat, œô¡¾e reformulace do podoby lineární komplementarity je konzistentní s pœô¡¯vodním zadáním problému a œô¡¾e existuje pouze jedno jedineœô ­né œô ùeœô¡¡ení, které je spoleœô ­né obœô »ma problémœô¡¯m. Pro pœô ùípadnı dœô¡¯kaz bychom opœô »t pouœô¡¾ili funkœô ­ní analızu a parabolické variaœô ­ní nerovnosti.
+
+\section{Americká kupní opce s dividendou}
+
+Uvaœô¡¾ujme americkou kupní opci s podkladovım aktivem, které vyplácí dividendu. Pœô ùipomeœô ème, œô¡¾e hodnota $C(S,t)$ kupní opce splœô èuje rovnici
+\begin{equation}
+\frac{\partial C}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 C}{\partial S^2} + (r - D_0)S\frac{\partial C}{\partial S} - rC = 0
+\end{equation}
+pokud není optimální opci pœô ùedœô ­asnœô » uplatnit. Vıplata generovaná opcí na konci œô¡¾ivotnosti je pak
+\begin{equation}
+C(S,T) = \max(S - E, 0)
+\end{equation}
+a protoœô¡¾e opce mœô¡¯œô¡¾e bıt uplatnœô »na kdykoliv bœô »hem své œô¡¾ivotnosti musí také platit
+\begin{equation}
+C(S,t) \ge \max(S - E, 0)
+\end{equation}
+Jestliœô¡¾e existuje hraniœô ­ní cena $S = S_f(t)$, v tomto bodœô » platí
+\begin{equation}
+C(S_f(t),t) = S_f(t) - E
+\end{equation}
+\begin{equation}
+\frac{\partial C}{\partial S}(S_f(t),t) = 1
+\end{equation}
+Navíc existuje-li hraniœô ­ní cena, pak je (7.14) platná pouze pro $C(S, t) > \max(S - E, 0)$. Pœô ùímım vıpoœô ­tem lze dokázat, œô¡¾e $\max(S - E, 0)$ není œô ùeœô¡¡ením Black-Scholes rovnice (7.14). Rovnici (7.14) lze stejnœô » jako v pœô ùípadœô » americké prodejní opce nahradit nerovností
+\begin{equation*}
+\frac{\partial C}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 C}{\partial S^2} + (r - D_0)S\frac{\partial C}{\partial S} - rC \le 0
+\end{equation*}
+kdy rovnost platí pouze pro $C(S,t) > \max(S - E, 0)$. Finanœô ­ním dœô¡¯vodem pœô ùedœô ­asného uplatnœô »ní opce je opœô »t maximalizace její hodnoty. Pokud by tak opce byla drœô¡¾ena do splatnosti, je její oœô ­ekávaná souœô ­asná hodnota niœô¡¾œô¡¡í neœô¡¾ v pœô ùípadœô » pœô ùedœô ­asného uplatnœô »ní a investování vıplaty z opce za bezrizikovou úrokovou míru po zbytkovou dobu splatnosti.
+
+\subsection{Obecné vısledky}
+
+V následujícím textu budeme pœô ùedpokládát, œô¡¾e bezriziková úroková míra $r$ a dividendovı vınos $D_0$ splœô èují podmínku $r > D_0 > 0$. Stejnœô » jako v pœô ùípadœô » evropské kupní opce je vhodné pœô ùetrasformovat (7.14) - (7.18) do bezrozmœô »rné podoby a zredukovat (7.14) na dopœô ùednou diferenciální rovnici s konstantními koeficienty. S ohledem na navazující úpravy je také vhodné o ceny opce $C(S,t)$ odeœô ­íst vıplatu $S - E$. Pœô ùi pouœô¡¾ití substitucí
+\begin{equation*}
+S = Ee^x,~~~t = T - \tau / \frac{1}{2}\sigma^2,~~~C(S,t) = S - E + Ec(x,\tau)
+\end{equation*}
+tak získáváme
+\begin{equation}
+\frac{\partial c}{\partial \tau} = \frac{\partial^2 c}{\partial x^2} + (k' - 1)\frac{\partial c}{\partial x} - kc + f(x)
+\end{equation}
+pro $- \infty < x < \infty$ a $\tau > 0$, kde
+\begin{equation*}
+c(x, 0) = \max(1 - e^x, 0)
+\end{equation*}
+\begin{equation}
+f(x) = (k' - k)e^x + k
+\end{equation}
+\begin{equation*}
+k = \frac{r}{\frac{1}{2}\sigma^2},~~~k' = \frac{r - D_0}{\frac{1}{2}\sigma^2}
+\end{equation*}
+Protoœô¡¾e $r > D_0 > 0$, je $k > k' > 0$.
+\begin{center}
+  \begin{pspicture}(0,0)(8.0,4.5)
+		\rput(4.0,0.0){Prœô¡¯bœô »h funkce $c(x,0)$}
+       
+		\psline(0.5,1.0)(7.5,1.0)
+
+        \pscurve[linewidth=0.5mm](0.5,3.5)(2.6,2.5)(4.0,1.0)
+        \psline[linewidth=0.5mm](4.0,1.0)(7.5,1.0)
+
+        \rput(7.5,1.2){\small{$x$}}
+        \rput(1.0,3.9){\small{$c(x,0)$}}
+        \rput(4.0,0.8){\small{0}}
+	\end{pspicture}
+\end{center}
+Pro tento okamœô¡¾ik pœô ùedpokládejme, œô¡¾e existuje volná hranice $x = x_f(\tau)$ ($S = S_f(t)$ dle pœô¡¯vodního znaœô ­ení). Vzhledem k $C(S,t) = S - E + Ec(x, \tau)$ pro tuto hranici platí
+\begin{equation*}
+c(x_f(t), \tau) = \frac{\partial c}{\partial x}(x_f(\tau), \tau) = 0
+\end{equation*}
+Vzhledem k této substituci dále pœô ùejde podmínka $C(S,t) \ge \max(S - E,0)$ do tvaru
+\begin{equation*}
+c \ge \max(1 - e^x, 0)
+\end{equation*}
+Tvar funkce $f(x)$ má klíœô ­ovı vliv na chování volné hranice. Je-li funkce $f(x)$ definovaná dle (7.20), pak existence tohoto œô ­lenu implikuje existenci volné hranice. Následující obrázek zachycuje prœô¡¯bœô »h této funkce.
+\begin{center}
+  \begin{pspicture}(0,0)(8.0,7.5)
+		\rput(4.0,0.0){Typickı prœô¡¯bœô »h funkce $f(x)$ definované dle (7.20)}
+       
+		\psline(0.5,4.0)(7.5,4.0)
+		\psline(4.0,1.0)(4.0,7.0)
+
+        \pscurve[linewidth=0.5mm](0.5,6.5)(4.0,5.0)(6.5,2.0)
+
+        \rput(7.5,4.2){\small{$x$}}
+        \rput(4.5,7.0){\small{$f(x)$}}
+        \rput(5.3,4.2){\small{$x_0$}}
+	\end{pspicture}
+\end{center}
+Je zœô ùejmé, œô¡¾e funkce $f(x)$ je kladná pro $x < x_0$ a záporná pro $x \ge x_0$ kde
+\begin{equation*}
+x_0 = \ln \Bigg(\frac{k}{k -k'} \Bigg) = \ln \Bigg( \frac{r}{D_0} \Bigg) > 0
+\end{equation*}
+Nyní se zamœô »œô ùme na to, co se stane, nexistují-li œô¡¾ádná omezení a tím pádem ani volná hranice. Uvaœô¡¾ujme poœô ­áteœô ­ní data $c(x, 0)$ pro kladná $x$. Dle definice $c(x, 0)$ je hodnota této funkce nulová. Pro $x > 0$ tak platí $c(x, 0) = \partial c(x, 0)/ \partial x = \partial^2 c(x, 0)/\partial x^2 = 0$. Z (7.19) vyplıvá, œô¡¾e dobœô » splatnosti\footnote{Pœô ùipomeœô ème, œô¡¾e pro $\tau = 0$ je $t = T$.} platí
+\begin{equation*}
+\frac{\partial c}{\partial \tau} = f(x)
+\end{equation*}
+Pro $0 < x < x_0$, $f(x) > 0$ a hodnota opce $c$ se po uplynutí infinityzimálního œô ­asového okamœô¡¾iku stane kladnou. Naopak pro $x > x_0$, $f(x) < 0$ se hodnota opce $c$ ihned stane zápornou. Druhı pœô ùípad vœô¡¡ak nesplœô èuje podmínku vyœô¡¾adující $c > 0$ pro vœô¡¡echna $x > 0$. Jestliœô¡¾e bychom opci drœô¡¾eli v bodœô » $x > x_0$, je tato podmínka poruœô¡¡ena a hodnota opce klesne pod její vnitœô ùní hodnotu. To v pœô ùípadœô » americké opce není moœô¡¾né, a proto musí existovat hraniœô ­ní cena.
+
+Z vıœô¡¡e uvedeného argumentu je také zœô ùejmé, od kterého bodu musí hraniœô ­ní cena $x_f(t)$ zaœô ­ínat. Tímto bodem je $x_f(0^{+}) = x_0$, protoœô¡¾e je to jedinı bod, kterı splœô èuje podmínku $c(x_f(0^{+}), 0^{+})$. Ve finanœô ­ním vyjádœô ùení odpovídá tento bod cenœô » podkladového aktiva
+\begin{equation*}
+S_f(T) = \frac{rE}{D_0}
+\end{equation*}
+a je nezávislı na $\sigma$. Proto tœô »snœô » pœô ùed splatností by mœô »la bıt americká kupní opce uplatnœô »na pro takové hodnoty pokladového aktiva, kdy $D_0 S > rE$. V dobœô » splatnosti bude opce pochopitelnœô » uplatnœô »na pro $S > E$. Hraniœô ­ní cena $S_f(T)$ je tak v bodœô » $t = T$ nespojitá. Je-li $D_0 = 0$, pak $x_f(0) = \infty$ (a $S_f(T) = \infty$) a proto neexistuje volná hranice. V pœô ùípadœô » neexistence dividendového vınosu je tak vœô¡¾dy optimální drœô¡¾et americkou kupní opci do splatnosti.
+
+Dále je tœô ùeba zdœô¡¯raznit, œô¡¾e $S = rE/D$ je hodnotou $S$, pro kterou platí
+\begin{equation*}
+\mathcal{L}_{BS}(\max(S - E,0)) = 0
+\end{equation*}
+
+\subsubsection{Technická poznámka: Fyzikální interpretace}
+
+Rovnice (7.19) obsahuje v porovnání s obyœô ­ejnou difúzní rovnicí dalœô¡¡í tœô ùi œô ­leny: $(k' - 1) \frac{\partial c}{\partial x}$, $-kc$ a $f(x)$. První z tœô »chto œô ­lenœô¡¯ mœô¡¯œô¡¾e bıt interpretován jako konvekœô ­ní, druhı jako reakœô ­ní a tœô ùetí, funkce $f(x)$, jako spotœô ùební parametr pro $f(x) < 0$ resp. jako doplœô èovací parametr pro $f(x) > 0$. Abychom ilustrovali dopad tœô »chto œô ­lenœô¡¯ na $c(x,t)$, uvaœô¡¾ujme jejich kombinace s ostatními œô ­leny rovnice (7.19).
+
+Nejprve uvaœô¡¾ujme œô ­len $(k' - 1) \frac{\partial c}{\partial x}$. Jak jiœô¡¾ bylo zmínœô »no, tento œô ­len pœô ùedstavuje konvekci, neboli tzv. drift ve finanœô ­ním pojmosloví. To je patrné, vypustíme-li pro okamœô¡¾ik z rovnice (7.19) zbıvající œô ­leny. Vısledkem je hyperbolická rovnice prvního œô ùádu
+\begin{equation*}
+\frac{\partial c}{\partial \tau} = (k' - 1)\frac{\partial c}{\partial x}
+\end{equation*}
+Na tuto rovnici lze aplikovat metodu charakteristik s œô ùeœô¡¡ením $c(x, /tau) = F(x + (k' - 1)\tau)$ a obecnou funkcí $F$. ProtFunkce $c(x, \tau)$ je konstantní podél charakteristik $x + (k' - 1)\tau = \mathcal{K}$, kde $\mathcal{K}$ pœô ùedstavuje konstantu, a pœô ùedstavuje tak ``vlnu'', která se pohybuje konstantní rychlostí $1 - k'$. Je zœô ùejmé, œô¡¾e se zmœô »nou reference na $\xi = x + (k' - 1)\tau$ lze œô ­len $(k' - 1) \frac{\partial c}{\partial x}$ vypustit. Rovnice (7.19) se tak zmœô »ní do podoby
+\begin{equation*}
+\frac{\partial c}{\partial \tau} = \frac{\partial^2 c}{\partial \xi^2} - kc -f(\xi - (k' - 1)\tau)
+\end{equation*}
+
+Druhı œô ­len rovnice (7.19) $-kc$ pœô ùedstavuje reakci (diskontování ve finanœô ­ní terminologii), která je proporcionální k $c(x, \tau)$. Jestliœô¡¾e opœô »t zredukujeme rovnici (7.19) na tvar
+\begin{equation*}
+\frac{\partial c}{\partial \tau} = -kc
+\end{equation*}
+lze œô ùeœô¡¡ení této rovnice získat pomocí metody separovanıch promœô »nnıch. œô øeœô¡¡ení má tvar $c = c_0 e^{-kt}$. Tento œô ­len lze tedy eliminovat, vyjádœô ùíme-li œô ùeœô¡¡ení ve tvaru $c(x, \tau) = e^{-kr}w(x, \tau)$, œô ­ímœô¡¾ zhodledœô èujeme exponenciální pokles v œô ­ase zpœô¡¯sobenı tímto œô ­lenem. Po této úpravœô » se rovnice dále zjednoduœô¡¡œô¡¡í na tvar
+\begin{equation*}
+\frac{\partial w}{\partial \tau} = \frac{\partial^2 w}{\partial \xi^2} - e^{kr}f(\xi - (k' - 1)\tau)
+\end{equation*}
+
+Koneœô ­nœô » poslední œô ­len $f(x)$, pœô ùedstavuje spotœô ùební parametr pro $f(x) < 0$ resp. doplœô èovací parametr pro $f(x) > 0$. O tom se lze opœô »t pœô ùesvœô »dœô ­it, pokud z rovnice (7.19) vypustíme vœô¡¡echny ostatní œô ­leny.
+\begin{equation*}
+\frac{\partial c}{\partial \tau} = f(x)
+\end{equation*}
+Jestliœô¡¾e $f(x) < 0$, pak $\frac{\partial c}{\partial \tau} < 0$ a $c$ je klesající funkcí $\tau$. Naopak, je-li $f(x) > 0$, je $c$ rostoucí funkcí $\tau$.
+
+\subsection{Lokální analıza volné hranice}
+
+Nyní se zamœô »œô ùme na to, jak se volná hranice $x = x_f(\tau)$ chová v okolí bodu $x_f(0) = x_0$. Nalezení explicitního œô ùeœô¡¡ení problému volné hranice není moœô¡¾né, je vœô¡¡ak moœô¡¾né nalézt asymptotické œô ùeœô¡¡ení, které je platné v blízkosti expirace opce, tj. pro $\tau \rightarrow 0$.
+
+Abychom mohli provést tuto analızu, která je lokální v œô ­ase i cenœô » podkladového aktiva, zamœô »œô ùme se rovnici (7.19) v okolí bodu $x = x_0$ a pro $\tau$ blíœô¡¾ící se nule. Funkci $f(x)$ aproximujeme Taylorovou œô ùadou v bodœô » $x_0$\footnote{Pœô ùipomeœô ème, œô¡¾e bod $x_0$ odpovídá koneœô ­né hraniœô ­ní cenœô ».}.
+\begin{equation*}
+f(x) = f(x_0) + f'(x_0)(x - x_0) + \mathcal{O}((x - x_0)^2) \sim (x - x_0)f'(x_0) = -k(x - x_0)
+\end{equation*}
+Na pravé stranœô » rovnice (7.19) pak kromœô » $f(x)$ staœô ­í ponechat pouze œô ­len $\frac{\partial^2 c}{\partial x^2}$. Tento œô ­len totiœô¡¾ v oblastech, kde se hodnota funkce $c$ rychle mœô »ní, dominuje nad $c$ a $\frac{\partial c}{\partial x}$, a je tak hlavní ``hybnou'' silou rovnice (7.19). Uvaœô¡¾ované zjednoduœô¡¡ení je lokálním problémem funkce $c$. œô øeœô¡¡ení $\hat{c}(x, \tau)$ tohoto problému splœô èuje rovnici
+\begin{equation*}
+\frac{\partial \hat{c}}{\partial \tau} = \frac{\partial^2 \hat{c}}{\partial x^2} - k(x - x_0)
+\end{equation*}
+a hraniœô ­ní podmínku
+\begin{equation*}
+\hat{c} = \frac{\partial \hat{c}}{\partial x} = 0
+\end{equation*}
+pro
+\begin{equation*}
+x = x_f(\tau),~x_f(0) = x_0
+\end{equation*}
+Pro takto zformulovanı problém lze pomocí metody podobnostního œô ùeœô¡¡ení nalézt explicitní œô ùeœô¡¡ení zaloœô¡¾eného na promœô »nné
+\begin{equation*}
+\xi = \frac{x - x_0}{\sqrt{\tau}}
+\end{equation*}
+Toto œô ùeœô¡¡ení má tvar
+\begin{equation*}
+\hat{c} = \tau^{\frac{3}{2}}c^*(\xi)
+\end{equation*}
+kde funkce $c^*$ splœô èuje momentálnœô » blíœô¡¾e nespecifikovanou diferenciální rovnici. Souœô ­asnœô » hledáme hraniœô ­ní cenu ve tvaru
+\begin{equation*}
+x_f(\tau) = x_0 + \xi_0 \sqrt{\tau}
+\end{equation*}
+Aœô ­koliv hraniœô ­ní cena stále není známa, je nyní tœô ùeba nalézt pouze konstatnu $\xi_0$. Tím se pœô¡¯vodní problém nalezení $x_f(\tau)$ jako obecné funkce promœô »nné $\tau$ znaœô ­nœô » zjednoduœô¡¡il. 
+
+Dosazením vırazu $\hat{c} = \tau^{\frac{3}{2}}c^*(\xi)$ do diferenciální rovnice pro $\hat{c}$ a následnımi úpravami získáváme
+\begin{equation*}
+\sqrt{\tau}\Bigg( \frac{3}{2}c^* - \frac{1}{2} \xi \frac{d c^*}{d \xi} \Bigg) = \sqrt{\tau} \frac{d^2 c^*}{d \xi^2} - k(x - x_0)
+\end{equation*}
+Jestliœô¡¾e obœô » strany rovnice vydœô »líme $\sqrt{\tau}$, dostáváme obyœô ­ejnou diferenciální rovnici
+\begin{equation}
+\frac{d^2 c^*}{d \xi^2} + \frac{1}{2}\xi\frac{d c^*}{d \xi} - \frac{3}{2}c^* = k \xi
+\end{equation}
+Hraniœô ­ní podmínka
+\begin{equation*}
+\hat{c} = \frac{\partial \hat{c}}{\partial x} = 0,~~~x = x_f(\tau)
+\end{equation*}
+se zredukuje do podoby
+\begin{equation*}
+c^*(\xi_0) = \frac{d c^*}{d \xi}(\xi_0) = 0
+\end{equation*}
+
+Dále je tœô ùeba urœô ­it, jak se funkce $\hat{c}(x, \tau)$ chová pro $\xi \rightarrow -\infty$. Z definice $\xi$ vyplıvá, œô¡¾e $\xi \rightarrow -\infty$ odpovídá $x \rightarrow -\infty$. Vzhledem k tomu, œô¡¾e $\frac{\partial^2 \hat{c}}{\partial x^2} \rightarrow 0$ pro $x \rightarrow -\infty$, pœô ùibliœô¡¾nœô » platí
+\begin{equation*}
+\frac{\partial \hat{c}}{\partial \tau} \sim -k(x - x_0)
+\end{equation*}
+\begin{equation*}
+\frac{\partial \hat{c}}{\partial \tau} \sim -kx
+\end{equation*}
+ a funkci $\hat{c}(x, \tau)$ tak lze aproximovat vırazem $-kx\tau$. Protoœô¡¾e
+\begin{equation*}
+\hat{c}(x, \tau) = \tau^{\frac{3}{2}}c^*(x, \tau)
+\end{equation*}
+také pœô ùibliœô¡¾nœô » platí
+\begin{equation*}
+c^*(\xi) \sim -k \xi,~\xi \rightarrow -\infty
+\end{equation*}
+coœô¡¾ mimojiné implikuje $\hat{c} = \tau^{\frac{3}{2}}c^* \sim \tau^{\frac{3}{2}} \frac{x - x_0}{\sqrt{\tau}} \sim x \tau + \mathcal{O}$, kde $\mathcal{O}$ pœô ùedstavuje ostatní zanedbatelné œô ­leny aproximace.
+
+Prvním krokem k vyœô ùeœô¡¡ení problému $c^*(\xi)$ je nalezení obecného œô ùeœô¡¡ení homogenní diferenciální rovnice
+\begin{equation*}
+\frac{d^2 c^*}{d \xi^2} + \frac{1}{2}\xi\frac{d c^*}{d \xi} - \frac{3}{2}c^* = 0
+\end{equation*}
+První koœô ùen této rovnice, funkci $c_1^*(\xi)$, lze snadno vypoœô ­íst pomocí metody polynomickıch œô ùeœô¡¡ení jako
+\begin{equation*}
+c_1^*(\xi) = \xi^3 + 6 \xi
+\end{equation*} 
+Druhı koœô ùen $c_2^*(\xi)$ je pak moœô¡¾né nalézt pomocí metody redukce œô ùádu a to tak, œô¡¾e nejprve definujeme $c_2^*(\xi)$ jako $c_2^*(\xi) = c_1^*(\xi)a(\xi)$ a následnœô » nalezneme diferenciální rovnici prvního œô ùádu pro $a(\xi)$. Vıpoœô ­et je pœô ùímoœô ­arı avœô¡¡ak pracnı s vısledkem
+\begin{equation*}
+c_2^*(\xi) = (\xi^2 + 4)e^{-\frac{1}{4}\xi^2} + \frac{1}{2}(\xi^2 + 6 \xi) \int_{-\infty}^{\xi}e^{-\frac{1}{4}s^2}ds
+\end{equation*}
+Obecné œô ùeœô¡¡ení uvaœô¡¾ované homogenní diferenciální rovnice je tedy
+\begin{equation*}
+c^*(\xi) = Ac_1^*(\xi) + Bc_2^*(\xi)
+\end{equation*}
+
+Druhım krokem v œô ùeœô¡¡ení problému (7.21) a navazujících podmínek je zjiœô¡¡tœô »ní, œô¡¾e $c_p^*(\xi) = - k \xi$ je explicitním œô ùeœô¡¡ením diferenciální rovnice (7.21). Obecné œô ùeœô¡¡ení je tak dáno souœô ­tem $c_p^*$ a obecného œô ùeœô¡¡ení homogenní diferenciální rovnice.
+\begin{equation*}
+c^*(\xi) = - k \xi + A c_1^*(\xi) + B c_2^*(\xi)
+\end{equation*}
+Pro $\xi$ limitnœô » se blíœô¡¾ící $-\infty$ platí $c_2^*(\xi) \rightarrow 0$ a $c_1^*(\xi) \rightarrow \infty$. Jednou z podmínek, které se váœô¡¾í k diferenciální rovnici (7.21), je také $c^*(\xi) \sim -k \xi$ pro $\xi \rightarrow -\infty$. Parametr $A$ je tedy roven nule.
+\begin{equation}
+c^*(\xi) = - k \xi + B c_2^*(\xi)
+\end{equation}
+Hraniœô ­ní podmínky $c^*(\xi_0) = 0$ a $\frac{d c^*}{d \xi}(\xi_0) = 0$ umoœô¡¾œô èují vıpoœô ­et zbıvajících parametrœô¡¯ $B$ a $\xi_0$. Jejich kombinací s (7.22) získáváme
+\begin{equation*}
+B c_2^*(\xi) = k \xi 
+\end{equation*}
+a
+\begin{equation*}
+B \frac{d c_2^*}{d \xi}(\xi_0) = k
+\end{equation*}
+Spojením tœô »chto dvou rovnic lze odvodit rovnici
+\begin{equation*}
+\xi_0 \frac{d c_2^*}{d \xi}(\xi_0) = c_2^*(\xi_0)
+\end{equation*}
+která po sérii úprav vede k transcedentální rovnici
+\begin{equation}
+\xi_0^3e^{\frac{1}{4}\xi_0^2} \int_{-\infty}^{\xi_0} e^{-\frac{s^2}{4}}ds = 2(2 - \xi_0^2)
+\end{equation}
+Konstanta $B$ je pak definována jako $B = \frac{\xi_0}{c_2^*(\xi_0)}$.
+
+Transcedentální rovnice ve tvaru (7.22) jsou charakteristické pro podobnostní œô ùeœô¡¡ení problému volné hraniœô ­ní ceny. Lze dokázat (napœô ù. pomocí grafické metody), œô¡¾e œô ùeœô¡¡ení této rovnice má pouze jeden koœô ùen, kterı mœô¡¯œô¡¾e bıt nalezen pomocí numerickıch metod. Tento koœô ùen je roven
+\begin{equation*}
+\xi_0 = 0.9034...
+\end{equation*}
+Tímto jsme tedy nalezli œô ùeœô¡¡ení $\hat{c}(x, \tau)$, které je aproximací problému americké kupní opce pro $\tau$ blíœô¡¾ící se nule a $x$ v okolí $x_0$. Jiœô¡¾ dœô ùíve jsme prokázali, œô¡¾e v dobœô » splatnosti je optimální hraniœô ­ní cena americké kupní opce na podkladové aktivum s dividendovım vınosem $D_0$, rovna $\frac{rE}{D_0}$. Dále z vıœô¡¡e provedené lokální analızy víme, œô¡¾e pro $t \rightarrow T$ platí
+\begin{equation*}
+S_f(t) \sim \frac{rE}{D_0}\Bigg( 1 + \xi_0 \sqrt{\frac{1}{2}\sigma^2(T - t)} + ... \Bigg)
+\end{equation*}
+kde $\xi_0$ je univerzální konstanta platná pro vœô¡¡echny americké kupní opce. Kromœô » tohoto zajímavého zjiœô¡¡tœô »ní je lokální analıza dœô¡¯leœô¡¾itá také pro ranná stádia numerickıch vıpoœô ­tœô¡¯ hodnoty americké opce, která jsou charakteristická rychlou zmœô »nou optimální realizaœô ­ní ceny $S_f(t)$. Efekt této zmœô »ny se pak promítne do celého oboru œô ùeœô¡¡ení a nikoliv pouze pro okolí bodu $S = S_f(T)$.
+\begin{center}
+  \begin{pspicture}(0,0)(8.0,5.5)
+		\rput(4.0,0.0){Funkce $c(x, \tau)$ pro œô ­tyœô ùi rozdílné hodnoty $\tau$ vœô ­etnœô » $\tau = 0$}
+
+		\psline(0.5,1.0)(7.5,1.0)
+		\psline(4.5,1.0)(4.5,5.0)
+
+        \pscurve(0.5,4.5)(3.0,3.70)(4.5,1.0)
+        \pscurve(0.5,4.5)(3.5,3.60)(6.2,1.10)(7.0,1.0)
+		\pscurve(0.5,4.5)(3.5,3.65)(6.2,1.27)(7.0,1.0)
+		\pscurve(0.5,4.5)(3.5,3.70)(6.2,1.45)(7.1,1.0)
+
+        \rput(4.5,0.8){\small{0}}
+        \rput(7.5,0.8){\small{$x$}}
+		\rput(5.2,4.8){\small{$c(x, \tau)$}}
+
+	\end{pspicture}
+\end{center}
+\begin{center}
+	\begin{pspicture}(0,0)(8.0,6.5)
+		\rput(4.0,0.5){Hodnota opce $C(S,t)$ pro shodné hodnoty $\tau$ jako}
+                \rput(4.0,0.0){v pœô ùedchozím obrázku}
+
+		\psline(0.5,1.5)(7.5,1.5)
+		\psline(0.5,1.5)(0.5,6.0)
+
+        \psline(3.0,1.5)(7.5,6.0)
+        \pscurve(1.5,1.5)(2.5,1.60)(5.0,3.60)(7.3,5.80)
+        \pscurve(1.2,1.5)(2.5,1.75)(5.0,3.70)(7.3,5.80)
+        \pscurve(1.0,1.5)(2.5,1.90)(5.0,3.80)(7.3,5.80)
+
+
+        \rput(0.5,1.2){\small{0}}
+        \rput(3.0,1.2){\small{$E$}}
+        \rput(7.5,1.2){\small{$S$}}
+        \rput(1.2,5.8){\small{$C(S,t)$}}
+
+	\end{pspicture}
+\end{center}
+
+\part{Numerické metody}
+
+\chapter{Diferenœô ­ní metoda}
+
+Diferenœô ­ní metoda umoœô¡¾œô èuje získat numerické œô ùeœô¡¡ení parciálních diferenœô ­ních rovnic a problému lineární komplementarity. Tato metoda pœô ùedstavuje úœô ­innou a flexibilní techniku, která je schopná generovat pœô ùesná œô ùeœô¡¡ení pro vœô¡¡echny modely odvozené v této knize.
+
+V páté kapitole jsme ukázali, œô¡¾e po zredukování Black-Scholes rovnice na difúzní rovnici je relativnœô » snadné nalézt pœô ùesné œô ùeœô¡¡ení. Difúzní rovnice je totiœô¡¾ v porovnání s pœô¡¯vodní Black-Scholes rovnicí mnohem jednoduœô¡¡œô¡¡í. Proto je také jednoduœô¡¡œô¡¡í nalézt numerické œô ùeœô¡¡ení pro difúzní rovnici a toto œô ùeœô¡¡ení následnœô » pœô ùevést na pœô¡¯vodní finanœô ­ní veliœô ­iny neœô¡¾ œô ùeœô¡¡it pœô ùímo Black-Scholes rovnici. V této kapitole se tak zamœô »œô ùíme na œô ùeœô¡¡ení difúzní rovnice pomocí diferenœô ­ní metody.
+
+Vıœô¡¡e œô ùeœô ­ené vœô¡¡ak neznamená, œô¡¾e by nebylo moœô¡¾né pomocí diferenœô ­ní metody pœô ùímo œô ùeœô¡¡it Black-Scholes rovnici. Existuje mnoho pœô ùíkladœô¡¯, kdy není moœô¡¾né zredukovat problém do tvaru difúzní rovnice s konstatními koeficienty. œô ¬tenáœô ù, kterı pochopí základní principy diferenœô ­ní metody by s její aplikací na Black-Scholes model nemœô »l mít problém.
+
+V páté kapitole jsme ukázali, œô¡¾e vhodnou transformací promœô »nnıch lze zredukovat Black-Scholes rovnici (3.5) pro evropskou opci na difúzní rovnici
+\begin{equation*}
+\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2}
+\end{equation*}
+Vıplatní funkce opce pœô ùedstavuje poœô ­áteœô ­ní podmínku pro $u(x, \tau)$ a hraniœô ­ní podmínky jsou dány podmínkami pro $u(x, \tau)$ v nekoneœô ­nu (tj. pro $x \rightarrow \pm \infty$). V pœô ùípadœô » evropské kupní opce se jedná o rovnice (3.6), (3.7) a (3.8), v pœô ùípadœô » evropské prodejní opce o rovnice (3.9), (3.10) a (3.11). Hodnotu opce $V(S,t)$ lze z bezrozmœô »rné veliœô ­iny $u(x, \tau)$ vyjádœô ùit jako
+\begin{equation*}
+V = E^{\frac{1}{2}(1 + k)}S^{\frac{1}{2}(1 - k)}e^{\frac{1}{2}(k + 1)^2 \sigma^2(T - t)}u \Big( \ln \frac{S}{E}, \frac{1}{2} \sigma^2 (T - t) \Big)
+\end{equation*}
+
+\section{Diferenœô ­ní aproximace}
+
+Nosnou myœô¡¡lenkou diferenœô ­ní metody je nahrazení parciální derivace aproximací zaloœô¡¾ené na Taylorovém rozvoji funkce v okolí bodu popœô ù. bodœô¡¯ aproximace. 
+
+Parciální derivaci $\frac{\partial u}{\partial \tau}$ lze definovat pomocí limitního rozdílu
+\begin{equation*}
+\frac{\partial u}{\partial \tau}(x, \tau) = \underset{\delta \tau \rightarrow 0}{\lim} \frac{u(x, \tau + \delta \tau) - u(x, \tau)}{\delta \tau}
+\end{equation*}
+Jestliœô¡¾e namísto $\delta \tau \rightarrow 0$ budeme uvaœô¡¾ovat $\delta \tau$ jako malé (nicménœô » nenulové), získáme aproximaci
+\begin{equation*}
+\frac{\partial u}{\partial \tau}(x, \tau) \approx \frac{u(x, \tau + \delta \tau) - u(x, \tau)}{\delta \tau} + \mathcal{O}(\delta \tau)
+\end{equation*}
+Tato aproximace je tzv. diferenœô ­ní aproximací $\frac{\partial u}{\partial \tau}$, protoœô¡¾e zahrnuje malé (ne vœô¡¡ak infinityzimální) diference závislé veliœô ­iny $u$. Vıœô¡¡e uvedenı pœô ùíklad je konkrétnœô » tzv. dopœô ùednou diferenœô ­ní aproximací, protoœô¡¾e posun veliœô ­iny $\tau$ je definován v dopœô ùedném smœô »ru a jsou tak pouœô¡¾ity hodnoty $u$ pro $\tau$ a $\tau + \delta \tau$. Jak naznaœô ­uje œô ­len $\mathcal{O}(\delta \tau)$, je aproximace tím pœô ùesnœô »jœô¡¡í, œô ­ím menœô¡¡í je $\delta \tau$.
+
+Pariciální derivaci $\frac{\partial u}{\partial \tau}$ lze vœô¡¡ak také definovat jako
+\begin{equation*}
+\frac{\partial u}{\partial \tau} = \underset{\delta \tau \rightarrow 0}{\lim}\frac{u(x, \tau) - u(x, \tau - \delta \tau)}{\delta \tau}
+\end{equation*}
+Tímto se dostáváme k tzv. zpœô »tné diferenœô ­ní aproximaci, která je definována jako 
+\begin{equation*}
+\frac{\partial u}{\partial \tau} \approx \frac{u(x, \tau) - u(x, \tau - \delta \tau)}{\delta \tau} + \mathcal{O}(\delta \tau)
+\end{equation*}
+
+Vedle dopœô ùedné a zpœô »tné diferenœô ­ní aproximace existuje také tzv. centrální diferenœô ­ní aproximace. Derivaci $\frac{\partial u}{\partial \tau}$ v tomto pœô ùípadœô » definujeme jako
+\begin{equation*}
+\frac{\partial u}{\partial \tau} = \underset{\delta \tau \rightarrow 0}{\lim}\frac{u(x, \tau + \delta \tau) - u(x, \tau - \delta \tau)}{2 \delta \tau}
+\end{equation*}
+Pœô ùísluœô¡¡ná aproximace má pak tvar
+\begin{equation*}
+\frac{\partial u}{\partial \tau} \approx \frac{u(x, \tau + \delta \tau) - u(x, \tau - \delta \tau)}{2 \delta \tau} + \mathcal{O}\Big( (\delta \tau)^2 \Big)
+\end{equation*}
+\begin{center}
+  \begin{pspicture}(0,0)(8.0,8.0)
+	\rput(4.0,0.5){Dopœô ùedná, zpœô »tná a centrální diferenœô ­ní aproximace - smœô »rnice}
+        \rput(4.0,0.0){úseœô ­ek pœô ùedstavují aproximaci tangenty v bodœô » ($x$, $\tau$)}
+
+	\psline[arrows=->](0.5,2.0)(7.5,2.0)
+	\psline[arrows=->](0.5,2.0)(0.5,7.5)
+
+        \pscurve[linewidth=0.5mm](0.5,4.0)(3.5,3.0)(7.0,7.0)
+        \psdots[dotstyle=*,dotscale=2](1.5,3.45)
+        \psdots[dotstyle=*,dotscale=2](4.0,3.22)
+        \psdots[dotstyle=*,dotscale=2](6.5,6.1)
+        
+        \psline(1.5,3.45)(4.0,3.22)(6.5,6.1)(1.5,3.45)
+
+        \psline[linestyle=dotted](1.5,3.45)(1.5,1.8)
+        \psline[linestyle=dotted]](4.0,3.22)(4.0,1.8)
+        \psline[linestyle=dotted](6.5,6.1)(6.5,1.8)
+
+        \rput(1.5,1.3){\tiny{}}
+
+	\end{pspicture}
+\end{center}
+
+
+\end{document}

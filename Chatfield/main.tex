@@ -1,0 +1,44 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{mathrsfs}
+\usepackage{colortbl}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+
+%\includeonly{chap1}
+
+\setlength{\unitlength}{1.0mm}
+\sloppy
+
+\begin{document}
+
+\newtheorem{definition}{Definice}[chapter]
+\newtheorem{theorem}{Věta}[chapter]
+\newtheorem{proof}{Důkaz}[chapter]
+\newtheorem{example}{Příklad}[chapter]
+\newtheorem{corollary}{Tvrzení}[chapter]
+\newtheorem{assumption}{Předpoklad}[chapter]
+
+\hyphenation{prav-dě-po-dob-nost prav-dě-po-dob-nost-ní} 
+
+\title{Analýza data pomocí Bazesiánské statistiky}
+\author{Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Duson, Aki Vehtari, and Donald B. Rubin}
+\date{třetí vydání}
+\maketitle
+
+\tableofcontents
+
+\include{chap01}
+
+\end{document}

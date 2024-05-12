@@ -1,0 +1,114 @@
+\chapter{Kreditní ztráta v portfoliu}
+
+Kreditní riziko nelze, narozdíl od tržního rizika zajistit. Jedniným nástrojem na redukci kreditního rizika tak zůstává diverzifikace.
+
+\section{Očekávaná vs neočekávaná ztráta}
+
+Připomeňme, že v případě jednoho úvěrového aktiva lze očekávanou ztrátu vyjádřit jako
+\begin{equation*}
+EL = AE \times LGD \times EDF
+\end{equation*}
+a neočekávanou ztrátu jako
+\begin{equation*}
+UL = AE \times \sqrt{EDF \times \sigma_{LGD}^2 + LGD^2 \times \sigma_{EDF}^2}
+\end{equation*}
+Kdybychom do stejného grafu vykreslili očekávanou a neočekávanou ztrátu, zjistili bychom, že s klesající kvalitou úvěru (tj. s rostoucím $EDF$)
+\begin{itemize}
+\item očekávaná ztráta roste lineárně a
+\item neočekávaná ztráta roste nelineárně a v porovnání s očekávanou ztrátou mnohem rychleji
+\end{itemize}
+
+OBRÁZEK
+
+\subsection{Očekávaná ztráta portfolia}
+
+Z pohledu očekávané ztráty portfolia je lhostejné, zda-li dvě úvěrová aktiva náleží stejnému či dvěma rozdílným dlužníkům. Očekávaná ztráta portfolia je prostým součetem dílčích očekávaných ztrát\footnote{V následujícím textu jsou $EL$ a $UL$ vztaženy k $AE$, tj. $EL^* = \frac{EL}{AE}$ a $UL^* = \frac{UL}{AE}$.}.
+\begin{equation*}
+EL_P = \sum_i EL_i = \sum_i \left(AE_i \times LGD_i \times EDF_i \right)
+\end{equation*}
+
+\subsection{Neočekávaná ztráta portfolia}
+
+V případě neočekávané ztráty je výpočet poněkud komplikovanější. Jestliže $\rho_{ij}$ je korelace defaultu mezi úvěrovými aktivy $i$ a $j$, pak lze tuto ztrátu vyjádřit jako
+\begin{equation}
+UL_P = \left[\rho_{ij} UL_i UL_j \right]^{\frac{1}{2}}
+\end{equation}
+kde
+\begin{equation*}
+UL_i = AE_i \times \sqrt{EDF_i \times \sigma_{LGD(i)}^2 + LGD_i^2 \times \sigma_{EDF(i)}^2}
+\end{equation*}
+Z důvodu diverzifikace pak platí
+\begin{equation*}
+UL_P << \sum_i UL_i
+\end{equation*}
+
+\subsection{Riziková kontribuce}
+
+Riziková kontribuce $i$-tého aktiva k neočekávané ztrátě v rámci portfolia je definována jako
+\begin{equation*}
+RC_i \equiv UL_i \frac{\partial UL_P}{\partial UL_i}
+\end{equation*}
+Jestliže aplikujeme derivaci na (4.1), získáme
+\begin{equation*}
+RC_i = \frac{UL_i \sum_j UL_j \rho_{ij}}{UL_p}
+\end{equation*}
+
+\subsection{Nediversifikovatelné riziko}
+
+Riziková kontribuce je mírou nediverzifikovatelného rizika úvěrového aktiva. Tato kontribuce totiž vyjadřuje výši kreditního rizika, kterého se nelze zbavit umístěním úvěrového aktiva do portfolia. Lze totiž dokázat, že
+\begin{equation*}
+UL_P = \sum_i RC_i
+\end{equation*}
+
+\begin{example}
+Uvažujme dvě úvěrová aktiva s následujícími charakteristikami. Nechť je první úvěrové aktivum definováno parametry $COM_1 = 10~000~000~USD, OS_1 = 5~000~000~USD, UGD_1 = 65\%, EDF_1 = 0.15\%, LGD_1 = 50\%, \sigma_{LGD_1} = 25\%$ a druhé úvěrové aktivum parametry $COM_2 = 2~000~000~USD, OS_2 = 1~500~000~USD, UGD_2 = 48\%, EDF_2 = 4.85\%, LGD_2 = 35\%, \sigma_{LGD_2} = 24\%$. Předpokládejme, že korelace defaultu mezi oběma úvěrovými aktivy je $\rho = 3\%$.
+
+Vypočtěme expozici v případě defaultu
+\begin{align*}
+AE_1 = OS_1 + (COM_1 - OS_1) \times UGD_1 = 8~250~000~USD\\
+AE_2 = OS_2 + (COM_2 - OS_2) \times UGD_2 = 1~740~000~USD
+\end{align*}
+směrodatnou odchylku defaultu
+\begin{align*}
+\sigma_{EDF_1} = \sqrt{EDF_1 \times (1 - EDF_1)} = 3.87\%\\
+\sigma_{EDF_2} = \sqrt{EDF_2 \times (1 - EDF_2)} = 21.48\%
+\end{align*}
+dílčí očekávanou ztrátu
+\begin{align*}
+EL_1 = AE_1 \times EDF_1 \times LGD_1 = 6~188~USD\\
+EL_2 = AE_2 \times EDF_2 \times LGD_2 = 29~537~USD
+\end{align*}
+a dílčí neočekávanou neočekávanou ztrátu
+\begin{align*}
+UL_1 = AE_1 \times \sqrt{EDF_1 \times \sigma_{LGD_1}^2 + LGD_1^2 \times \sigma_{EDF_1}^2} = 178~511~USD\\
+UL_2 = AE_2 \times \sqrt{EDF_2 \times \sigma_{LGD_2}^2 + LGD_2^2 \times \sigma_{EDF_2}^2} = 159~916~USD
+\end{align*}
+Očekávaná ztráta portfolia je tedy rovna
+\begin{equation*}
+EL_P = EL_1 + EL_2 = 35~724~USD
+\end{equation*}
+a neočekávaná ztráta pak
+\begin{equation*}
+UL_P = \sqrt{UL_1^2 + UL_2^2 + 2 \times \rho \times UL_1 \times UL_2} = 243~212~USD
+\end{equation*}
+což je méně než prostý součet 338~427~USD. Rizikové kontribuce jsou pak
+\begin{align*}
+RC_1 = \frac{UL_1 \times (UL_1 + UL_2 \times \rho)}{UL_P} = 134~543~USD\\
+RC_2 = \frac{UL_2 \times (UL_2 + UL_1 \times \rho)}{UL_P} = 108~669~USD
+\end{align*}
+\end{example}
+
+\section{Příloha A - Odvození rizikové kontribuce}
+
+Derivací (3.1) lze snadno dokázat
+\begin{multline*}
+RC_k = UL_k \frac{\partial UL_P}{\partial UL_k} = UL_k \times \frac{1}{2 UL_P}\left[2UL_k + 2\sum_{i \neq k}UL_i \rho_{ik}\right]\\
+= \frac{UL_k}{UL_p}\left[UL_k + \sum_i UL_i \rho_{ik} - UL_k \rho_{kk} \right] = \frac{UL_k}{UL_p}\left[UL_k(1 - \rho_{kk}) + \sum_i UL_i \rho_{ik} \right]\\
+= \frac{UL_k}{UL_P}\left[\sum_i UL_i \rho_{ik} \right]
+\end{multline*}
+
+V praxi může být počet párových korelací $\rho_{ik}$ neúnosný, a proto je vhodné jejich počet zredukovat přiřazením jednotlivých úvěrových aktiv odvětvím. Korelace pak budou definovány nikoliv na úrovni úvěrových aktiv ale na úrovni těchto odvětví. Uvažujme dvě odvětví $\alpha$ a $\beta$. Výše uvedená rovnice pak přejde do tvaru
+\begin{multline*}
+RC_k = \frac{UL_k}{UL_P}\left[UL_{k \in \alpha}(1 - \rho_{\alpha \alpha}) + \sum_{\beta} \sum_{j \in \beta}UL_j \rho_{\alpha \beta} \right]\\
+= \frac{UL_k}{UL_P}\left[\sum_{\beta} \sum_{j \in \beta} UL_j \rho_{\alpha \beta} \right]
+\end{multline*}

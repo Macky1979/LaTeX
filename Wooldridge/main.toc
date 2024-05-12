@@ -1,0 +1,263 @@
+\select@language {czech}
+\contentsline {chapter}{\numberline {1}Podstata ekonometrie a ekonomick\IeC {\'y}ch dat}{9}
+\contentsline {section}{\numberline {1.1}Empirick\IeC {\'a} anal\IeC {\'y}za}{9}
+\contentsline {section}{\numberline {1.2}Struktura ekonomick\IeC {\'y}ch data}{9}
+\contentsline {subsection}{\numberline {1.2.1}Pr\IeC {\r u}\IeC {\v r}ezov\IeC {\'a} data (cross-sectional data)}{9}
+\contentsline {subsection}{\numberline {1.2.2}\IeC {\v C}asov\IeC {\'e} \IeC {\v r}ady}{9}
+\contentsline {subsection}{\numberline {1.2.3}Sdru\IeC {\v z}en\IeC {\'a} pr\IeC {\r u}\IeC {\v r}ezov\IeC {\'a} data (pooled cross sections data)}{10}
+\contentsline {subsection}{\numberline {1.2.4}Panelov\IeC {\'a} data}{10}
+\contentsline {chapter}{\numberline {2}Jednoduch\IeC {\'y} regresn\IeC {\'\i } model}{11}
+\contentsline {section}{\numberline {2.1}Definice regresn\IeC {\'\i }ho modelu}{11}
+\contentsline {section}{\numberline {2.2}Metoda nejmen\IeC {\v s}\IeC {\'\i }ch \IeC {\v c}tverc\IeC {\r u}}{12}
+\contentsline {section}{\numberline {2.3}Vlastnosti OLS pro n\IeC {\'a}hodn\IeC {\'y} v\IeC {\'y}b\IeC {\v e}r}{13}
+\contentsline {subsection}{\numberline {2.3.1}Algebraick\IeC {\'e} vlastnosti OLS}{14}
+\contentsline {subsection}{\numberline {2.3.2}M\IeC {\'\i }ra shody (goodness-of-fit)}{15}
+\contentsline {section}{\numberline {2.4}M\IeC {\v e}rn\IeC {\'e} jednotky a nelinearity v regresn\IeC {\'\i }m modelu}{15}
+\contentsline {subsection}{\numberline {2.4.1}Efekt zm\IeC {\v e}ny m\IeC {\v e}rn\IeC {\'e} jednotky na OLS statistiky}{15}
+\contentsline {subsection}{\numberline {2.4.2}Zahrnut\IeC {\'\i } nelinearit do regresn\IeC {\'\i }ho modelu}{15}
+\contentsline {subsubsection}{Log-level regresn\IeC {\'\i } model}{15}
+\contentsline {subsubsection}{Log-log regresn\IeC {\'\i } model}{16}
+\contentsline {subsubsection}{Zm\IeC {\v e}na m\IeC {\v e}rn\IeC {\'e} jednotky}{16}
+\contentsline {subsection}{\numberline {2.4.3}V\IeC {\'y}znam pojmu line\IeC {\'a}rn\IeC {\'\i } regrese}{16}
+\contentsline {section}{\numberline {2.5}O\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} hodnota a rozptyl OLS odhad\IeC {\r u}}{17}
+\contentsline {subsection}{\numberline {2.5.1}Nestrannost OLS odhad\IeC {\r u} (unbiasedness of OLS)}{17}
+\contentsline {subsection}{\numberline {2.5.2}Rozptyl OLS odhad\IeC {\r u}}{18}
+\contentsline {subsection}{\numberline {2.5.3}Odhad rozptylu chybov\IeC {\'e}ho \IeC {\v c}lenu}{20}
+\contentsline {subsection}{\numberline {2.5.4}Regresn\IeC {\'\i } model bez pr\IeC {\r u}se\IeC {\v c}\IeC {\'\i }ku}{22}
+\contentsline {section}{\numberline {2.6}Dodatek 2A}{22}
+\contentsline {subsection}{\numberline {2.6.1}Metoda nejmen\IeC {\v s}\IeC {\'\i }ch \IeC {\v c}tverc\IeC {\r u}}{22}
+\contentsline {chapter}{\numberline {3}V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'a} regresn\IeC {\'\i } anal\IeC {\'y}za - odhad}{23}
+\contentsline {section}{\numberline {3.1}\IeC {\'U}vod}{23}
+\contentsline {subsection}{\numberline {3.1.1}Dvourozm\IeC {\v e}rn\IeC {\'y} regresn\IeC {\'\i } model}{23}
+\contentsline {subsection}{\numberline {3.1.2}V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'y} regresn\IeC {\'\i } model}{23}
+\contentsline {section}{\numberline {3.2}Metoda nejmen\IeC {\v s}\IeC {\'\i }ch \IeC {\v c}tverc\IeC {\r u}}{23}
+\contentsline {subsection}{\numberline {3.2.1}OLS odhady}{23}
+\contentsline {subsection}{\numberline {3.2.2}Interpretace OLS regresn\IeC {\'\i } rovnice}{24}
+\contentsline {subsection}{\numberline {3.2.3}Predikovan\IeC {\'e} hodnoty a rezidua}{24}
+\contentsline {subsection}{\numberline {3.2.4}Odhad sklonu ve v\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'e}m regresn\IeC {\'\i }m modelu}{24}
+\contentsline {subsection}{\numberline {3.2.5}Porovn\IeC {\'a}n\IeC {\'\i } odhad\IeC {\r u} jednoduch\IeC {\'e}ho a v\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'e}ho regresn\IeC {\'\i }ho modelu}{25}
+\contentsline {subsection}{\numberline {3.2.6}M\IeC {\'\i }ra shody}{25}
+\contentsline {subsection}{\numberline {3.2.7}Regresn\IeC {\'\i } model bez pr\IeC {\r u}se\IeC {\v c}\IeC {\'\i }ku}{26}
+\contentsline {section}{\numberline {3.3}O\IeC {\v c}ek\IeC {\'a}van\IeC {\'a} hodnota OLS odhad\IeC {\r u}}{26}
+\contentsline {subsection}{\numberline {3.3.1}Zahrnut\IeC {\'\i } irelevantn\IeC {\'\i }ch vysv\IeC {\v e}tluj\IeC {\'\i }c\IeC {\'\i }ch veli\IeC {\v c}in}{28}
+\contentsline {subsection}{\numberline {3.3.2}Opominut\IeC {\'\i } relevantn\IeC {\'\i } vysv\IeC {\v e}tluj\IeC {\'\i }c\IeC {\'\i } veli\IeC {\v c}iny - jednoduch\IeC {\'y} regresn\IeC {\'\i } model}{28}
+\contentsline {subsection}{\numberline {3.3.3}Opominut\IeC {\'\i } relevantn\IeC {\'\i } vysv\IeC {\v e}tluj\IeC {\'\i }c\IeC {\'\i } veli\IeC {\v c}iny - zobecn\IeC {\v e}n\IeC {\'\i }}{28}
+\contentsline {section}{\numberline {3.4}Rozptyl OLS odhad\IeC {\r u}}{29}
+\contentsline {subsection}{\numberline {3.4.1}Komponenty OLS rozptylu - multikolinearita}{29}
+\contentsline {subsection}{\numberline {3.4.2}Rozptyl v chybn\IeC {\v e} specifikovan\IeC {\'e}m regresn\IeC {\'\i }m modelu}{30}
+\contentsline {subsection}{\numberline {3.4.3}Odhad $\sigma ^2$}{31}
+\contentsline {section}{\numberline {3.5}Efektivita OLS odhadu - Gauss-Markovova v\IeC {\v e}ta}{31}
+\contentsline {chapter}{\numberline {4}V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'y} regresn\IeC {\'\i } model \\ Testov\IeC {\'a}n\IeC {\'\i } hypot\IeC {\'e}z}{33}
+\contentsline {section}{\numberline {4.1}V\IeC {\'y}b\IeC {\v e}rov\IeC {\'e} rozd\IeC {\v e}len\IeC {\'\i } OLS odhad\IeC {\r u}}{33}
+\contentsline {section}{\numberline {4.2}Testov\IeC {\'a}n\IeC {\'\i } hypot\IeC {\'e}zy jednoho parametru - $t$ test}{34}
+\contentsline {subsection}{\numberline {4.2.1}Jednostrann\IeC {\'y} test}{35}
+\contentsline {subsection}{\numberline {4.2.2}Dvoustrann\IeC {\'y} test}{35}
+\contentsline {subsection}{\numberline {4.2.3}p-hodnota (p-value)}{37}
+\contentsline {subsection}{\numberline {4.2.4}Interval spolehlivosti}{37}
+\contentsline {subsection}{\numberline {4.2.5}Testov\IeC {\'a}n\IeC {\'\i } hypot\IeC {\'e}z zahrnuj\IeC {\'\i }c\IeC {\'\i }ch line\IeC {\'a}rn\IeC {\'\i } kombinaci v\IeC {\'\i }cero parametr\IeC {\r u}}{38}
+\contentsline {section}{\numberline {4.3}Testov\IeC {\'a}n\IeC {\'\i } v\IeC {\'\i }cero line\IeC {\'a}rn\IeC {\'\i }ch omezen\IeC {\'\i } - $F$ test}{38}
+\contentsline {subsection}{\numberline {4.3.1}Testov\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}znamnosti v\IeC {\'\i }cero parametr\IeC {\r u}}{38}
+\contentsline {subsection}{\numberline {4.3.2}Vztah mezi $F$ a $t$ testem}{39}
+\contentsline {subsection}{\numberline {4.3.3}$R^2$ forma $F$ statistiky}{40}
+\contentsline {subsection}{\numberline {4.3.4}V\IeC {\'y}po\IeC {\v c}et p-hodnoty $F$ testu}{40}
+\contentsline {subsection}{\numberline {4.3.5}Test celkov\IeC {\'e} statistick\IeC {\'e} v\IeC {\'y}znamnosti regresn\IeC {\'\i }ho modelu}{40}
+\contentsline {subsection}{\numberline {4.3.6}Testov\IeC {\'a}n\IeC {\'\i } obecn\IeC {\'y}ch line\IeC {\'a}rn\IeC {\'\i }ch omezen\IeC {\'\i }}{40}
+\contentsline {chapter}{\numberline {5}V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'y} regresn\IeC {\'\i } model \\ Asymptotick\IeC {\'e} vlastnosti OLS odhad\IeC {\r u}}{41}
+\contentsline {section}{\numberline {5.1}Konzistentnost odhadu}{41}
+\contentsline {subsection}{\numberline {5.1.1}Odvozen\IeC {\'\i } nekonzistentnosti OLS odhad\IeC {\r u}}{42}
+\contentsline {subsection}{\numberline {5.1.2}Asymptotick\IeC {\'a} normalita OLS odhad\IeC {\r u} a v\IeC {\'y}b\IeC {\v e}r velk\IeC {\'e}ho rozsahu}{43}
+\contentsline {subsection}{\numberline {5.1.3}Statistika Lagrangova multiplik\IeC {\'a}toru}{45}
+\contentsline {subsection}{\numberline {5.1.4}Asymptotick\IeC {\'a} efektivita OLS odhad\IeC {\r u}}{45}
+\contentsline {chapter}{\numberline {6}V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'y} regresn\IeC {\'\i } model \\ Dal\IeC {\v s}\IeC {\'\i } t\IeC {\'e}mata}{47}
+\contentsline {section}{\numberline {6.1}Efekt zm\IeC {\v e}ny m\IeC {\v e}rn\IeC {\'e} veli\IeC {\v c}iny na OLS statistiky}{47}
+\contentsline {section}{\numberline {6.2}Ostatn\IeC {\'\i } formy regresn\IeC {\'\i }ho modelu}{48}
+\contentsline {subsection}{\numberline {6.2.1}Logaritmick\IeC {\'y} regresn\IeC {\'\i } model}{48}
+\contentsline {subsection}{\numberline {6.2.2}Kvadratick\IeC {\'y} regresn\IeC {\'\i } model}{49}
+\contentsline {subsection}{\numberline {6.2.3}Regresn\IeC {\'\i } modely s interakc\IeC {\'\i }}{49}
+\contentsline {section}{\numberline {6.3}M\IeC {\'\i }ra shody a v\IeC {\'y}b\IeC {\v e}r vysv\IeC {\v e}tluj\IeC {\'\i }c\IeC {\'\i }ch veli\IeC {\v c}in}{50}
+\contentsline {subsection}{\numberline {6.3.1}Korigovan\IeC {\'e} $R^2$ (adjusted $R^2$)}{50}
+\contentsline {section}{\numberline {6.4}Predikce}{51}
+\contentsline {subsection}{\numberline {6.4.1}Intervaly spolehlivosti}{51}
+\contentsline {subsection}{\numberline {6.4.2}Predikce $y$ pro vysv\IeC {\v e}tlovanou veli\IeC {\v c}inu $ln(y)$}{52}
+\contentsline {section}{\numberline {6.5}Dodatek 6A}{53}
+\contentsline {chapter}{\numberline {7}V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'y} regresn\IeC {\'\i } model \\ Bin\IeC {\'a}rn\IeC {\'\i } veli\IeC {\v c}iny}{55}
+\contentsline {section}{\numberline {7.1}Bin\IeC {\'a}rn\IeC {\'\i } veli\IeC {\v c}ina ve funkci pr\IeC {\r u}se\IeC {\v c}\IeC {\'\i }ku regresn\IeC {\'\i }ho modelu}{55}
+\contentsline {section}{\numberline {7.2}Regresn\IeC {\'\i } model zahrnuj\IeC {\'\i }c\IeC {\'\i } interakci bin\IeC {\'a}rn\IeC {\'\i }ch veli\IeC {\v c}in}{57}
+\contentsline {section}{\numberline {7.3}Bin\IeC {\'a}rn\IeC {\'\i } veli\IeC {\v c}ina ve funkci sklonu regresn\IeC {\'\i }ho modelu}{57}
+\contentsline {section}{\numberline {7.4}Line\IeC {\'a}rn\IeC {\'\i } pravd\IeC {\v e}podobnostn\IeC {\'\i } model}{59}
+\contentsline {chapter}{\numberline {8}Heteroskedasticita}{61}
+\contentsline {section}{\numberline {8.1}D\IeC {\r u}sledky heteroskedasticity pro OLS}{61}
+\contentsline {section}{\numberline {8.2}Heteroskedasticitn\IeC {\v e} robustn\IeC {\'\i } odhady}{61}
+\contentsline {subsection}{\numberline {8.2.1}Robustn\IeC {\'\i } $t$ a $F$ statistika}{61}
+\contentsline {subsection}{\numberline {8.2.2}Robustn\IeC {\'\i } LM test}{63}
+\contentsline {section}{\numberline {8.3}Testov\IeC {\'a}n\IeC {\'\i } heteroskedasticity}{63}
+\contentsline {subsection}{\numberline {8.3.1}\IeC {\'U}vod}{63}
+\contentsline {subsection}{\numberline {8.3.2}$F$ a LM statistika}{63}
+\contentsline {subsection}{\numberline {8.3.3}Whit\IeC {\r u}v test heteroskedasticity}{64}
+\contentsline {section}{\numberline {8.4}Odhad metodou nejmen\IeC {\v s}\IeC {\'\i }ch \IeC {\v c}tverc\IeC {\r u}}{65}
+\contentsline {subsection}{\numberline {8.4.1}Heteroskedasticita jako funkce vysv\IeC {\v e}tluj\IeC {\'\i }c\IeC {\'\i }ch veli\IeC {\v c}in}{65}
+\contentsline {subsection}{\numberline {8.4.2}Dosa\IeC {\v z}iteln\IeC {\'e} GLS odhady}{66}
+\contentsline {subsection}{\numberline {8.4.3}Chybn\IeC {\'a} funkce $h(x)$}{67}
+\contentsline {subsection}{\numberline {8.4.4}Predikce a heteroskedasticita}{68}
+\contentsline {subsubsection}{Ilustrativn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }klad}{68}
+\contentsline {section}{\numberline {8.5}Line\IeC {\'a}rn\IeC {\'\i } pravd\IeC {\v e}podobnostn\IeC {\'\i } model}{69}
+\contentsline {chapter}{\numberline {9}Specifikace modelu a datov\IeC {\'e} probl\IeC {\'e}my}{71}
+\contentsline {section}{\numberline {9.1}Chybn\IeC {\'a} specifikace modelu}{71}
+\contentsline {subsection}{\numberline {9.1.1}RESET a obecn\IeC {\'y} test chybn\IeC {\'e} specifikace modelu}{71}
+\contentsline {subsection}{\numberline {9.1.2}Nevno\IeC {\v r}en\IeC {\'e} modely}{72}
+\contentsline {section}{\numberline {9.2}Proxy veli\IeC {\v c}iny}{72}
+\contentsline {subsection}{\numberline {9.2.1}Zpo\IeC {\v z}d\IeC {\v e}n\IeC {\'e} proxy veli\IeC {\v c}iny}{74}
+\contentsline {subsection}{\numberline {9.2.2}Odli\IeC {\v s}n\IeC {\'y} pohled na v\IeC {\'\i }cerozm\IeC {\v e}rnou regresi}{74}
+\contentsline {section}{\numberline {9.3}Modely s n\IeC {\'a}hodn\IeC {\'y}m sklonem}{74}
+\contentsline {section}{\numberline {9.4}OLS a chyba m\IeC {\v e}\IeC {\v r}en\IeC {\'\i }}{75}
+\contentsline {subsection}{\numberline {9.4.1}Z\IeC {\'a}visl\IeC {\'a} veli\IeC {\v c}ina a chyba m\IeC {\v e}\IeC {\v r}en\IeC {\'\i }}{76}
+\contentsline {subsection}{\numberline {9.4.2}Nez\IeC {\'a}visl\IeC {\'e} veli\IeC {\v c}iny a chyba m\IeC {\v e}\IeC {\v r}en\IeC {\'\i }}{76}
+\contentsline {subsubsection}{$e_1$ je nekorelovan\IeC {\'e} s $x_1$}{77}
+\contentsline {subsubsection}{$e_1$ je nekorelovan\IeC {\'e} s $x_1^*$}{77}
+\contentsline {subsubsection}{V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'y} regresn\IeC {\'\i } model}{78}
+\contentsline {section}{\numberline {9.5}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } data, nen\IeC {\'a}hodn\IeC {\'e} v\IeC {\'y}b\IeC {\v e}ry a odlehl\IeC {\'a} pozorov\IeC {\'a}n\IeC {\'\i }}{78}
+\contentsline {subsection}{\numberline {9.5.1}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } data}{78}
+\contentsline {subsection}{\numberline {9.5.2}Nen\IeC {\'a}hodn\IeC {\'e} v\IeC {\'y}b\IeC {\v e}ry}{78}
+\contentsline {subsection}{\numberline {9.5.3}Odlehl\IeC {\'a} pozorov\IeC {\'a}n\IeC {\'\i }}{79}
+\contentsline {section}{\numberline {9.6}Odhad metodou nejmen\IeC {\v s}\IeC {\'\i } absolutn\IeC {\'\i } odchylky}{80}
+\contentsline {chapter}{\numberline {10}Anal\IeC {\'y}za \IeC {\v c}asov\IeC {\'y}ch \IeC {\v r}ad}{83}
+\contentsline {section}{\numberline {10.1}N\IeC {\'a}hodnost \IeC {\v c}asov\IeC {\'y}ch \IeC {\v r}ad}{83}
+\contentsline {section}{\numberline {10.2}P\IeC {\v r}\IeC {\'\i }klady regresn\IeC {\'\i }ch model\IeC {\r u} \IeC {\v c}asov\IeC {\'y}ch \IeC {\v r}ad}{83}
+\contentsline {subsection}{\numberline {10.2.1}Statick\IeC {\'y} model}{83}
+\contentsline {subsection}{\numberline {10.2.2}Model s kone\IeC {\v c}n\IeC {\'y}m rozd\IeC {\v e}len\IeC {\'\i }m zpo\IeC {\v z}d\IeC {\v e}n\IeC {\'\i }}{83}
+\contentsline {section}{\numberline {10.3}OLS vlastnosti kone\IeC {\v c}n\IeC {\'e}ho v\IeC {\'y}b\IeC {\v e}ru}{84}
+\contentsline {subsection}{\numberline {10.3.1}Nestrannost OLS}{84}
+\contentsline {subsubsection}{Rozptyl OLS dohad\IeC {\r u} a Gaus-Markovova v\IeC {\v e}ta}{86}
+\contentsline {subsubsection}{Testov\IeC {\'a}n\IeC {\'\i } hypot\IeC {\'e}z}{87}
+\contentsline {subsection}{\numberline {10.3.2}Funkcion\IeC {\'a}ln\IeC {\'\i } forma a bin\IeC {\'a}rn\IeC {\'\i } veli\IeC {\v c}iny}{87}
+\contentsline {subsubsection}{Funkcion\IeC {\'a}ln\IeC {\'\i } forma}{87}
+\contentsline {subsubsection}{Bin\IeC {\'a}rn\IeC {\'\i } veli\IeC {\v c}iny}{88}
+\contentsline {subsection}{\numberline {10.3.3}\IeC {\v C}asov\IeC {\'e} trendy a sez\IeC {\'o}nnost}{88}
+\contentsline {subsubsection}{\IeC {\v C}asov\IeC {\'e} trendy}{88}
+\contentsline {subsubsection}{\IeC {\v C}asov\IeC {\'e} trendy a zd\IeC {\'a}nliv\IeC {\'a} korelace}{89}
+\contentsline {subsubsection}{Interpretace sklonu regresn\IeC {\'\i }ho modelu a odstran\IeC {\v e}n\IeC {\'\i } trendu}{89}
+\contentsline {subsubsection}{V\IeC {\'y}po\IeC {\v c}et $R^2$ v p\IeC {\v r}\IeC {\'\i }pad\IeC {\v e}, \IeC {\v z}e z\IeC {\'a}visl\IeC {\'a} veli\IeC {\v c}ina sleduje trend}{90}
+\contentsline {subsubsection}{Sez\IeC {\'o}nnost}{91}
+\contentsline {chapter}{\numberline {11}Aplikace OLS na \IeC {\v c}asov\IeC {\'e} \IeC {\v r}ady}{93}
+\contentsline {section}{\numberline {11.1}Stacion\IeC {\'a}rn\IeC {\'\i } a slab\IeC {\v e} z\IeC {\'a}visl\IeC {\'a} \IeC {\v c}asov\IeC {\'a} \IeC {\v r}ada}{93}
+\contentsline {subsection}{\numberline {11.1.1}Stacion\IeC {\'a}rn\IeC {\'\i } a nestacion\IeC {\'a}rn\IeC {\'\i } \IeC {\v c}asov\IeC {\'a} \IeC {\v r}ada}{93}
+\contentsline {subsubsection}{Stacion\IeC {\'a}rn\IeC {\'\i } stochastick\IeC {\'y} proces}{93}
+\contentsline {subsubsection}{Kovarian\IeC {\v c}n\IeC {\v e} stacion\IeC {\'a}rn\IeC {\'\i } proces}{93}
+\contentsline {subsubsection}{V\IeC {\'y}znam stacionarity}{94}
+\contentsline {subsection}{\numberline {11.1.2}Slab\IeC {\v e} z\IeC {\'a}visl\IeC {\'a} \IeC {\v c}asov\IeC {\'a} \IeC {\v r}ada}{94}
+\contentsline {subsubsection}{Proces klouzav\IeC {\'e}ho pr\IeC {\r u}m\IeC {\v e}ru \IeC {\v r}\IeC {\'a}du jedna}{94}
+\contentsline {subsubsection}{Autoregresivn\IeC {\'\i } proces \IeC {\v r}\IeC {\'a}du jedna}{94}
+\contentsline {section}{\numberline {11.2}Asymptotick\IeC {\'e} vlastnosti OLS}{95}
+\contentsline {section}{\numberline {11.3}Persistentn\IeC {\'\i } \IeC {\v c}asov\IeC {\'e} \IeC {\v r}ady v regresn\IeC {\'\i } anal\IeC {\'y}ze}{97}
+\contentsline {subsection}{\numberline {11.3.1}Persistentn\IeC {\'\i } \IeC {\v c}asov\IeC {\'e} \IeC {\v r}ady}{98}
+\contentsline {subsubsection}{Transformace persistentn\IeC {\'\i }ch \IeC {\v c}asov\IeC {\'y}ch \IeC {\v r}ad}{100}
+\contentsline {subsubsection}{Testov\IeC {\'a}n\IeC {\'\i } $I(1)$ procesu}{100}
+\contentsline {subsection}{\numberline {11.3.2}Dynamicky kompletn\IeC {\'\i } modely a absence autokorelace}{101}
+\contentsline {subsection}{\numberline {11.3.3}P\IeC {\v r}edpoklad homoskedasticity}{102}
+\contentsline {chapter}{\numberline {12}Autokorelace a heteroskedasticita v \IeC {\v c}asov\IeC {\'y}ch \IeC {\v r}ad\IeC {\'a}ch}{105}
+\contentsline {section}{\numberline {12.1}Autokorelace a vlastnosti OLS odhad\IeC {\r u}}{105}
+\contentsline {subsection}{\numberline {12.1.1}Nezkreslenost a konzistentnost odhadu}{105}
+\contentsline {subsection}{\numberline {12.1.2}Efektivnost odhadu}{105}
+\contentsline {subsection}{\numberline {12.1.3}M\IeC {\'\i }ra shody}{106}
+\contentsline {subsection}{\numberline {12.1.4}Autokorelace a zpo\IeC {\v z}d\IeC {\v e}n\IeC {\'e} z\IeC {\'a}visl\IeC {\'e} veli\IeC {\v c}iny}{106}
+\contentsline {section}{\numberline {12.2}Testov\IeC {\'a}n\IeC {\'\i } autokorelace}{107}
+\contentsline {subsection}{\numberline {12.2.1}$t$ test pro AR(1) v podm\IeC {\'\i }nk\IeC {\'a}ch striktn\IeC {\'\i } exogenity}{107}
+\contentsline {subsubsection}{Testov\IeC {\'a}n\IeC {\'\i } AR(1) procesu na autokorelaci v podm\IeC {\'\i }nk\IeC {\'a}ch striktn\IeC {\'\i } exogenity}{108}
+\contentsline {subsection}{\numberline {12.2.2}Durbin-Watson\IeC {\r u}v test a klasick\IeC {\'e} p\IeC {\v r}edpoklady}{109}
+\contentsline {subsection}{\numberline {12.2.3}Testov\IeC {\'a}n\IeC {\'\i } AR(1) procesu na autokorelaci bez spln\IeC {\v e}n\IeC {\'\i } podm\IeC {\'\i }nky striktn\IeC {\'\i } exogenity}{109}
+\contentsline {subsubsection}{Testov\IeC {\'a}n\IeC {\'\i } autokorelace pro obecn\IeC {\'e} vysv\IeC {\v e}tluj\IeC {\'\i }c\IeC {\'\i } prom\IeC {\v e}nn\IeC {\'e}}{109}
+\contentsline {subsection}{\numberline {12.2.4}Testov\IeC {\'a}n\IeC {\'\i } autokorelace vy\IeC {\v s}\IeC {\v s}\IeC {\'\i }ho stupn\IeC {\v e}}{110}
+\contentsline {subsubsection}{Testov\IeC {\'a}n\IeC {\'\i } AR(q) procesu na autokorelaci}{110}
+\contentsline {section}{\numberline {12.3}Zohledn\IeC {\v e}n\IeC {\'\i } autokorelace v podm\IeC {\'\i }nk\IeC {\'a}ch striktn\IeC {\'\i } exogenity}{111}
+\contentsline {subsection}{\numberline {12.3.1}BLUE a AR(1)}{111}
+\contentsline {section}{\numberline {12.4}Dosa\IeC {\v z}iteln\IeC {\'e} GLS odhady a AR(1) proces}{112}
+\contentsline {subsection}{\numberline {12.4.1}Dosa\IeC {\v z}iteln\IeC {\'e} GLS odhady a AR(1) proces}{112}
+\contentsline {section}{\numberline {12.5}Porovn\IeC {\'a}n\IeC {\'\i } OLS a FGLS}{113}
+\contentsline {subsection}{\numberline {12.5.1}Zohledn\IeC {\v e}n\IeC {\'\i } autokorelace vy\IeC {\v s}\IeC {\v s}\IeC {\'\i }ho \IeC {\v r}\IeC {\'a}du}{114}
+\contentsline {section}{\numberline {12.6}Diference a autokorelace}{115}
+\contentsline {section}{\numberline {12.7}Autokorela\IeC {\v c}n\IeC {\v e} robustn\IeC {\'\i } OLS standardn\IeC {\'\i } sm\IeC {\v e}rodatn\IeC {\'a} odchylka}{115}
+\contentsline {subsection}{\numberline {12.7.1}Autokorela\IeC {\v c}n\IeC {\v e} robustn\IeC {\'\i } sm\IeC {\v e}rodatn\IeC {\'a} odchylka $se(\mathaccentV {hat}05E{\beta }_1)$}{117}
+\contentsline {section}{\numberline {12.8}Heteroskedasticita v \IeC {\v c}asov\IeC {\'y}ch \IeC {\v r}ad\IeC {\'a}ch}{117}
+\contentsline {subsection}{\numberline {12.8.1}Heteroskedasticitn\IeC {\v e} robustn\IeC {\'\i } statistiky}{117}
+\contentsline {subsection}{\numberline {12.8.2}Testov\IeC {\'a}n\IeC {\'\i } heteroskedasticity}{117}
+\contentsline {subsection}{\numberline {12.8.3}Autoregresivn\IeC {\'\i } podm\IeC {\'\i }n\IeC {\v e}n\IeC {\'a} heteroskedasticity}{118}
+\contentsline {subsection}{\numberline {12.8.4}Heteroskedasticita a autokorelace v regresn\IeC {\'\i }ch modelech}{118}
+\contentsline {subsubsection}{Dosa\IeC {\v z}iteln\IeC {\'e} GLS odhady s heteroskedasticitou a AR(1) autokorelac\IeC {\'\i }}{119}
+\contentsline {chapter}{\numberline {13}Sdru\IeC {\v z}en\IeC {\'a} pr\IeC {\r u}\IeC {\v r}ezov\IeC {\'a} anal\IeC {\'y}za dat v \IeC {\v c}ase - jednoduch\IeC {\'y} panelov\IeC {\'y} model}{121}
+\contentsline {chapter}{\numberline {14}Pokro\IeC {\v c}il\IeC {\'e} panelov\IeC {\'e} metody}{123}
+\contentsline {chapter}{\numberline {15}Pomocn\IeC {\'e} veli\IeC {\v c}iny a dvouf\IeC {\'a}zov\IeC {\'a} OLS}{125}
+\contentsline {section}{\numberline {15.1}Zkreslen\IeC {\'\i } jednoduch\IeC {\'e}ho regresn\IeC {\'\i }ho modelu z titulu opomenut\IeC {\'\i } nez\IeC {\'a}visl\IeC {\'e} veli\IeC {\v c}iny}{125}
+\contentsline {subsection}{\numberline {15.1.1}Konfiden\IeC {\v c}n\IeC {\'\i } intervaly a testov\IeC {\'a}n\IeC {\'\i } hypot\IeC {\'e}z}{127}
+\contentsline {subsection}{\numberline {15.1.2}Vlastnosti v p\IeC {\v r}\IeC {\'\i }pad\IeC {\v e} nevhodn\IeC {\'e} pomocn\IeC {\'e} veli\IeC {\v c}iny}{128}
+\contentsline {subsection}{\numberline {15.1.3}V\IeC {\'y}po\IeC {\v c}et $R^2$}{128}
+\contentsline {section}{\numberline {15.2}V\IeC {\'\i }cerozm\IeC {\v e}rn\IeC {\'y} regresn\IeC {\'\i } model}{128}
+\contentsline {section}{\numberline {15.3}Dvouf\IeC {\'a}zov\IeC {\'a} OLS}{130}
+\contentsline {subsection}{\numberline {15.3.1}Jedna endogenn\IeC {\'\i } nez\IeC {\'a}visl\IeC {\'a} veli\IeC {\v c}ina}{130}
+\contentsline {subsection}{\numberline {15.3.2}V\IeC {\'\i }cero nez\IeC {\'a}visl\IeC {\'y}ch exogenn\IeC {\'\i }ch veli\IeC {\v c}in}{131}
+\contentsline {subsection}{\numberline {15.3.3}Multikolinearita}{131}
+\contentsline {subsection}{\numberline {15.3.4}V\IeC {\'\i }cero endogenn\IeC {\'\i }ch z\IeC {\'a}visl\IeC {\'y}ch veli\IeC {\v c}in}{132}
+\contentsline {subsection}{\numberline {15.3.5}Testov\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}znamnosti v\IeC {\'\i }cero parametr\IeC {\r u}}{132}
+\contentsline {section}{\numberline {15.4}Chyba m\IeC {\v e}\IeC {\v r}en\IeC {\'\i } nez\IeC {\'a}visl\IeC {\'e} veli\IeC {\v c}iny}{132}
+\contentsline {section}{\numberline {15.5}Testov\IeC {\'a}n\IeC {\'\i } endogenity a nadbyte\IeC {\v c}n\IeC {\'a} identifikace}{134}
+\contentsline {subsection}{\numberline {15.5.1}Testov\IeC {\'a}n\IeC {\'\i } endogenity}{134}
+\contentsline {subsection}{\numberline {15.5.2}Nadbyte\IeC {\v c}n\IeC {\'a} identifikace}{135}
+\contentsline {subsubsection}{Testov\IeC {\'a}n\IeC {\'\i } nadbyte\IeC {\v c}n\IeC {\'e} identifikace}{135}
+\contentsline {section}{\numberline {15.6}Metoda 2SLS a heteroskedasticita}{136}
+\contentsline {section}{\numberline {15.7}Metoda 2SLS a \IeC {\v c}asov\IeC {\'e} \IeC {\v r}ady}{136}
+\contentsline {subsubsection}{Testov\IeC {\'a}n\IeC {\'\i } AR(1) autokorelace po aplikaci 2SLS}{137}
+\contentsline {subsubsection}{2SLS s AR(1) chybov\IeC {\'y}m \IeC {\v c}lenem}{138}
+\contentsline {section}{\numberline {15.8}Dodatek 15A}{138}
+\contentsline {chapter}{\numberline {16}Modely simult\IeC {\'a}nn\IeC {\'\i }ch rovnic}{141}
+\contentsline {section}{\numberline {16.1}Podstata model\IeC {\r u} simult\IeC {\'a}nn\IeC {\'\i }ch rovnic}{141}
+\contentsline {section}{\numberline {16.2}Zkreslen\IeC {\'\i } OLS}{142}
+\contentsline {section}{\numberline {16.3}Formulace a odhad struktur\IeC {\'a}ln\IeC {\'\i } rovnice}{143}
+\contentsline {subsection}{\numberline {16.3.1}Formulace struktur\IeC {\'a}ln\IeC {\'\i } rovnice}{143}
+\contentsline {subsubsection}{Podm\IeC {\'\i }nka identifikace}{145}
+\contentsline {subsection}{\numberline {16.3.2}Odhad pomoc\IeC {\'\i } 2SLS}{145}
+\contentsline {section}{\numberline {16.4}Simult\IeC {\'a}nn\IeC {\'\i } modely s v\IeC {\'\i }ce ne\IeC {\v z} dv\IeC {\v e}ma rovnicemi}{145}
+\contentsline {subsection}{\numberline {16.4.1}Model se t\IeC {\v r}emi rovnicemi}{145}
+\contentsline {subsection}{\numberline {16.4.2}Odhad}{146}
+\contentsline {section}{\numberline {16.5}Simult\IeC {\'a}nn\IeC {\'\i } model a \IeC {\v c}asov\IeC {\'e} \IeC {\v r}ady}{147}
+\contentsline {section}{\numberline {16.6}Panelov\IeC {\'a} data}{148}
+\contentsline {chapter}{\numberline {17}Omezen\IeC {\'e} z\IeC {\'a}visl\IeC {\'e} veli\IeC {\v c}iny a korekce n\IeC {\'a}hodn\IeC {\'e}ho v\IeC {\'y}b\IeC {\v e}ru}{151}
+\contentsline {section}{\numberline {17.1}Logit a probit model pro bin\IeC {\'a}rn\IeC {\'\i } z\IeC {\'a}vislou veli\IeC {\v c}inu}{151}
+\contentsline {subsection}{\numberline {17.1.1}Specifikace logit a probit modelu}{152}
+\contentsline {subsection}{\numberline {17.1.2}Metoda maxim\IeC {\'a}ln\IeC {\'\i } v\IeC {\v e}rohodnosti}{153}
+\contentsline {subsection}{\numberline {17.1.3}Testov\IeC {\'a}n\IeC {\'\i } v\IeC {\'\i }cero line\IeC {\'a}rn\IeC {\'\i }ch omezen\IeC {\'\i }}{154}
+\contentsline {subsection}{\numberline {17.1.4}Interpretace logit a probit modelu}{154}
+\contentsline {subsubsection}{M\IeC {\'\i }ra shody}{154}
+\contentsline {subsubsection}{Vliv nez\IeC {\'a}visl\IeC {\'y}ch veli\IeC {\v c}in}{155}
+\contentsline {subsubsection}{Probl\IeC {\'e}my logit a probit modelu}{156}
+\contentsline {section}{\numberline {17.2}Tobit model}{156}
+\contentsline {subsection}{\numberline {17.2.1}Interpretace Tobit modelu}{157}
+\contentsline {subsection}{\numberline {17.2.2}Probl\IeC {\'e}my Tobit modelu}{159}
+\contentsline {section}{\numberline {17.3}Poisson\IeC {\r u}v model}{160}
+\contentsline {section}{\numberline {17.4}Cenzurovan\IeC {\'e} a omezen\IeC {\'e} regresn\IeC {\'\i } modely}{162}
+\contentsline {subsection}{\numberline {17.4.1}Cenzurovan\IeC {\'y} regresn\IeC {\'\i } model}{162}
+\contentsline {subsection}{\numberline {17.4.2}Omezen\IeC {\'y} regresn\IeC {\'\i } model}{163}
+\contentsline {section}{\numberline {17.5}Ne\IeC {\'u}pln\IeC {\'y} n\IeC {\'a}hodn\IeC {\'y} v\IeC {\'y}b\IeC {\v e}r}{163}
+\contentsline {subsection}{\numberline {17.5.1}OLS a n\IeC {\'a}hodn\IeC {\'y} v\IeC {\'y}b\IeC {\v e}r}{163}
+\contentsline {subsection}{\numberline {17.5.2}N\IeC {\'a}hodn\IeC {\'e} omezen\IeC {\'\i } v\IeC {\'y}b\IeC {\v e}ru}{164}
+\contentsline {section}{\numberline {17.6}Dodatek 17A}{166}
+\contentsline {subsection}{\numberline {17.6.1}Metoda maxim\IeC {\'a}ln\IeC {\'\i } v\IeC {\v e}rohodnosti}{166}
+\contentsline {section}{\numberline {17.7}Dodatek 17B}{167}
+\contentsline {subsection}{\numberline {17.7.1}Omezen\IeC {\'a} z\IeC {\'a}visl\IeC {\'a} veli\IeC {\v c}ina a asymptotick\IeC {\'e} sm\IeC {\v e}rodatn\IeC {\'e} odchylky}{167}
+\contentsline {subsubsection}{Logit a probit model}{167}
+\contentsline {subsubsection}{Poisson\IeC {\r u}v model}{167}
+\contentsline {chapter}{\numberline {18}\IeC {\v C}asov\IeC {\'e} \IeC {\v r}ady pro pokro\IeC {\v c}il\IeC {\'e}}{169}
+\contentsline {section}{\numberline {18.1}Nekone\IeC {\v c}n\IeC {\v e} rozd\IeC {\v e}len\IeC {\'a} zpo\IeC {\v z}d\IeC {\v e}n\IeC {\'\i } (IDL - infinite distributed lag)}{169}
+\contentsline {subsection}{\numberline {18.1.1}Geometricky rozd\IeC {\v e}len\IeC {\'a} zpo\IeC {\v z}d\IeC {\v e}n\IeC {\'\i } (GDL - geometric distributed lag) aka Koyck\IeC {\r u}v model}{170}
+\contentsline {subsection}{\numberline {18.1.2}Racion\IeC {\'a}ln\IeC {\v e} rozd\IeC {\v e}len\IeC {\'a} zpo\IeC {\v z}d\IeC {\v e}n\IeC {\'\i } (RDL - rational distributed lag)}{171}
+\contentsline {section}{\numberline {18.2}Testov\IeC {\'a}n\IeC {\'\i } jednotkov\IeC {\'e}ho ko\IeC {\v r}ene}{171}
+\contentsline {subsection}{\numberline {18.2.1}Dickey-Fuller\IeC {\r u}v test}{171}
+\contentsline {subsection}{\numberline {18.2.2}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} Dickey-Fuller\IeC {\r u}v test}{172}
+\contentsline {subsection}{\numberline {18.2.3}Line\IeC {\'a}rn\IeC {\'\i } \IeC {\v c}asov\IeC {\'y} trend}{173}
+\contentsline {section}{\numberline {18.3}Zd\IeC {\'a}nliv\IeC {\'a} regrese (spurious regression)}{173}
+\contentsline {section}{\numberline {18.4}Kointegrace a modely korekce chyb (error correction models)}{174}
+\contentsline {subsection}{\numberline {18.4.1}Kointegrace}{174}
+\contentsline {section}{\numberline {18.5}Modely korekce chyb (error correction models)}{177}
+\contentsline {section}{\numberline {18.6}Predikce}{177}
+\contentsline {subsection}{\numberline {18.6.1}Typy prediktivn\IeC {\'\i }ch model\IeC {\r u}}{178}
+\contentsline {subsection}{\numberline {18.6.2}Jednoperiodov\IeC {\'a} predikce}{178}
+\contentsline {subsection}{\numberline {18.6.3}Porovn\IeC {\'a}n\IeC {\'\i } jednoperiodov\IeC {\'y}ch predikc\IeC {\'\i }}{179}
+\contentsline {chapter}{\numberline {19}Slovn\IeC {\'\i }k}{181}

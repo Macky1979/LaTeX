@@ -1,0 +1,362 @@
+\chapter{Modelování kreditního rizika}
+
+\section{Dekompozice kreditního rizika}
+
+Faktorů, které ovlivňují kreditní riziko je mnoho, nicméně jak v praxi tak v teorii se kreditní riziko nejčastěji člení na následující komponenty.
+\begin{itemize}
+\item pravděpodobnost defaultu - Pravděpodobnost, že dlužník nebude schopen včas a v plné výši uhradit své závazky.
+\item míra náhrady - Míra náhrady vyjadřuje procentní část nominální hodnoty pohledávky, kterou lze získat zpět od dlužníka v případě jeho defaultu.
+\item kreditní migrace - Pravděpodobnost, že se kreditní kvalita dlužního zhorší popř. zlepší.
+\end{itemize}
+
+V následujícím textu si přiblížíme jednotlivé komponenty kreditního rizika.
+
+\section{Riziko defaultu}
+
+Rizikem defaultu rozumíme riziko, že společnost nebude schopna dostát svým smluvním závazkům. Míru tohoto rizika pak nazýváme pravděpodobnostní defaultu. K defaultu však zpravidla nedochází náhle, nýbrž postupně, kdy se finanční zdraví společnosti v průběhu času zhoršuje. Tuto změnu kreditní kvality, ať už k horšímu či lepšímu, nazýváme kreditní migrací a odpovídající pravděpodobnosti pak migračními pravděpodobnostmi. Kreditní kvalita dlužníka je zpravidla vyjádřena tzv. ratingem. Migrační pravděpodobnosti (včetně pravděpodobnosti defaultu) pak definují tzv. migrační matici.
+
+Migrační pravděpodobnosti mohou být založeny na
+\begin{itemize}
+\item empirických datech, tj. vychází z defaultních událostí a změn ratingu, které byly pozorovány v minulosti,
+\item nebo na modelovém přístupu, který vychází z Mertonovy opční teorie.
+\end{itemize}
+
+\subsection{Měření pravděpodobnosti defaultu - empirická metoda}
+
+Standard \& Poor's je agentura, které zveřejňuje rating pro klíčové společnosti. Vzhledem k délce svého působení na trhu má k dispozici množství historických dat. Standard \& Poor's pak pravidelně zveřejňuje migrační matice založené na těchto historických datech. Např. ve své zprávě z roku 1997 zvolila jako výchozí rok 1981, tj. pokryla časový úsek 15 let. Postup konstrukce jí zveřejněné migrační matice je následující. Standard \& Poor's přiřadila rating každé ze společností ve výchozím vzorku z roku 1981. V roce 1982 pak každé společnosti zaktualizovala rating, vyřadila ty společnosti, které v daném roce zdefaultovaly, a případně zahrnula do vzorku společnosti nové. Pro každou ratingovou skupinu vypočetla pravděpodobnost defaultu. Tímto způsobem pokračovala z roku na rok až do roku 1997. Na závěr z takto získaných ročních migračních pravděpodobností vypočetla průměrné migrační pravděpodobnosti za celé 15ti leté období. Podobné studie zveřejňují také ostatní ratingové agentury jako jsou např. Moody's nebo Fitch.
+
+Slabé místo výše popsaného přístupu spočívá v jeho statičnosti. Je zřejmé, že se migrační pravděpodobnosti mění v čase v závislosti na hospodářském cyklu. Zprůměrování ročních pravděpodobností však tento faktor odstraní. Logickým řešením se zdá nevztahovat tyto pravděpodobnosti k víceletému období a namísto toho používat pouze pravděpodobnosti jednoleté. Nevýhodou jednoletých pravděpodobností je však jejich vysoká nestabilita a to zejména v případě vyšších ratingů, kdy je migrace popř. default velmi ojedinělým úkazem. Dalším problém spočívá v tom, že ratingové agentury pokrývají pouze nejvýznamnější společnosti. Jádro úvěrového portfolia bank však tvoří společnosti, které ratingovými agenturami monitorovány nejsou.
+
+\subsection{Měření pravděpodobnosti defaultu - opční teorie}
+
+Ratingové stupně používané ratingovými agenturami jsou relativně ``hrubé'', tj. pravděpodobnosti defaultu a migrace se mohou i rámci jednoho ratingu značně lišit\footnote{Typicky např. napříč geografickou lokací popř. odvětvím, ve kterém společnosti podnikají.}. Navíc, jak bylo zmíněno výše, je interval spolehlivosti empirických pravděpodobností poměrně široký. Tyto důvody vedly, navzdory intuitivnosti empirických pravděpodobností, k teoretickému modelu, který je založen na Mertonově opční teorii z roku 1974. Hlavní myšlenkou modelu je, že default je primárně dán
+\begin{itemize}
+\item tržní hodnotou aktiv společnosti,
+\item výší závazků společnosti a
+\item závislostí tržní hodnoty aktiv na tržních změnách.
+\end{itemize}
+Riziko defaultu společnosti se tak zvyšuje s tím, jak se tržní hodnota aktiv blíží účetní hodnotě závazků. V okamžiku, kdy hodnota tržních aktiv není dostatečná ve vztahu k závazkům, společnost vyhlásí default. Na hodnotu společnosti je tedy možno pohlížet skrze opční teorii.
+
+\subsection{Empirický vs teoretický přístup}
+
+Výstupem teoretického přístupu založeného na Mertonově opčním modelu je tzv. očekávaná frekvence defaultu (expected frequency default - EDF). V praxi je však poměrně složité namapovat očekávanou frekvenci defaultu na jednotlivé ratingové skupiny. Důvodem je významný rozdíl v migračních pravděpodobnostech založených modelovém a empirickém přístupu. Ačkoliv zatím nikdo nenabídl jednoznačné vysvětlení, existuje několiv možných důvodů.
+\begin{itemize}
+\item Ratingové agentury aktualizují ratingy společností se zpožděním.
+\item Hodnoty pravděpodobností defaultu přiřazených ratingovými agenturami jsou v rámci ratingové skupiny zpravidla koncentrovány okolo mediánu, který odpovídá EDF, přičemž variace dílčích EDF ve skupině je vysoká. Průměrná historická pravděpodobnost defaultu tak nadhodnocuje pravděpodobnost defaultu typické společnosti díky rozdílu mezi střední hodnotou a mediánem defaultních pravděpodobností.
+\item Jestliže jsou jak pravděpodobnost setrvání v ratingové skupině tak pravděpodobnost defaultu vysoké, pak jsou pravděpodobnosti přechodu do jiných ratingových skupin příliš malé. Proto se tyto pravděpodonosti na empirických datech nemusí dostatečně projevit.
+\end{itemize}
+
+\section{Modely kreditního rizika}
+
+Již jsme zmínili, že teoretický přístup je založen na Mertonově opčním modelu z roku 1974. V praxi pak existuje několik variant tohoto modelu.
+
+\subsection{Modely založené na hodnotě společnosti}
+
+Na závazky společnosti je možné pohlížet jako na podmíněný nárok, jehož podkladem jsou aktiva společnosti. Defaultní událost v této skupině modelů je pak dána vývojem aktiv v čase ve vztahu k závazkům společnosti. Za předpokladu splnění určitých zjednodušujích předpokladu pak lze pravděpodobnost defaultu relativně snadno vypočíst (viz. příloha A).
+
+Nejslabším místem těchto modelů je odhad aktiv, pro které neexistuje tržní cena. To má za následek to, že model je závislý na vstupech, které mohou být do značné míry subjektivní. Naopak výhodou je skutečnost, že nejsou zapotřebí informace o ratingu. Metodu lze tedy používat i v případě menších společností, pro které není k dispozici veřejně přístupný rating. To však má na druhou stranu za následek nekonsistenci mezi takto vypočtenými pravděpodobnostmi defaultu vypočtenými a pravděpodobnostmi defaultu založenými na rantingu.
+
+Představiteli těchto modelů jsou Merton (1974), Black a Cox (1976) a komerční model společnosti KMV.
+
+\subsection{Modely založené na míře náhrady}
+
+V rámci těchto modelů nastane default v případě, kdy hodnota aktiv společnosti prolomí určitou exogenně stanovenou hranici, přičemž se předpokládá, že uhrazena je pouze část závazků. Tato skupina modelů se od předchozí liší tím, že se cash-flow, které generují závazky společnosti, podmiňuje skutečností, zda-li v době výplaty cash-flow došlo k defaultu či nikoliv. Stejně jako předchozí, ani tato skupina modelů není závislá na veřejně dostupném ratingu.
+
+Představiteli těchto modelů jsou Hull a White (1995) a Longstaff a Schwartz (1992).
+
+\subsection{Modely založené na okamžitém riziku defaultu}
+
+Tato rodina modelů kombinuje dva předchozí přístupy - předpokládá částečnou úhradu závazků v případě defaultu, nicméně okamžik defaultu je modelován exogenně a defaultní proces je nezávislý na kapitálové struktuře firmy. Nosnou myšlenkou modelu je, že od okamžiku, kdy hodnota aktiv identické firmy financované pouze vlastním kapitálem prolomí určitou hranici, může default uvažované firmy nastat kdykoliv - odtud pojem ``okamžité riziko defaultu''.
+
+Představiteli těchto modelů jsou Litterman a Iben (1991), Jarrow a Turnbull (1995), Schonbucher (1996) a Jarrow, Lando a Turnbull (1997).
+
+\section{Hodnota rizikového dluhu}
+
+V příloze C je podrobně vysvětleno oceňování rizikového dluhu. Přístup je založen na modelu okamžitého rizika defaultu, který v roce 1997 představili Jarrow, Lando a Turnbull. Hodnota rizikového dluhu $v(t,T)$ vyjádřená pomocí bezrizikového dluhu $p(t,T)$ je
+\begin{equation}
+v(t,T) = p(t,T)[\delta + (1 - \delta)\tilde{Q}_t(\tau^* > T)]
+\end{equation}
+kde $t$ představuje okamžik ocenění, $T$ splatnost dluhu a náhodná veličina $\tau^*$ okamžik defaultu. $\tilde{Q}_t(\tau^* > T)$ je pravděpodobnost, že k defaultu společnosti dojde až v čase po $T$. V případě defaultu dojde k úhradě pouze části závazku - tato míra náhrady je reprezentována řeckým písmenem $0 < \delta < 1$.
+
+Předpokládejme, že defaultní proces $S$ může nabývat pouze dvou hodnot - $\overline{D}$, která značí přežití a $D$, která značí default společnosti. Pak lze rovnici (1.1) chápat jako současnou hodnotu očekávané výplaty ve výši
+\begin{equation}
+\delta + (1 - \delta)\tilde{Q}_t(\tau^* > T) = \tilde{E}_t\left[\delta 1_{\{\tau^* \le T\}} + 1_{\{\tau^* > T\}} \right]
+\end{equation}
+která se skládá z jisté části ve výši $\delta$ a nejisté části $(1 - \delta)\tilde{Q}_t(\tau^* > T)$.
+
+\section{Kreditní migrace}
+
+V předchozím textu jsme o defaultním procesu uvažovali jako o dvoustavovém - default vs. přežití společnosti. V praxi však defaultu zpravidla předchází zhoršení finančního zdraví společnosti. V souvislosti s tímto jevem pak hovoříme o tzv. vícestavovém defaultním procesu a kreditní migraci. Kreditní migrace pak zahrnuje tři situace.
+\begin{itemize}
+\item zhoršení finančního zdraví
+\item zachování finančního zdraví
+\item zlepšení finančního zdraví
+\end{itemize}
+Finanční zdraví společnosti zpravidla vyjadřujeme pomocí ratingu. Ten může být jak z externích zdrojů (např. od Standard \& Poor's) nebo jej může stanovit sama banka na základě svých metod. Pravděpodobnosti kreditní migrace pak shrnuje migrační matice. Migrační matice může být jednoletá, kdy jsou pravděpodobnosti migrace vztaženy k časovému intervalu jednoho roku, popř. víceletá, kdy pravděpodobnosti migrace pokrývají časový interval několika let. Migrační matice může být založena na empirických datech popř. na teoretickém modelu.
+
+OBRÁZEK - migrační matice
+
+V předchozím textu byla pravděpodobnostní míra $\tilde{Q}_t(\tau^* > T)$ interpretována jako dvoustavový proces. Tento koncept lze snadno rozšířit pro případ vícestavového procesu.
+
+\subsection{Očekávaná ztráta}
+
+Jaká je výše ztráty, kterou věřitel utrpí v případě defaultu? Odpověď na tuto otázku lze získat z rovnice (1.1).
+\begin{multline}
+v(t,T) = p(t,T)[\delta + (1 - \delta)\tilde{Q}_t(\tau^* > T)]\\
+= p(t,T)[\delta + (1 - \delta)(1 - \tilde{Q}_t(\tau^* \le T))]\\
+= p(t,T)[1 - (1 - \delta)\tilde{Q}_t(\tau^* \le T)]
+\end{multline}
+To je ekvivalentní s
+\begin{equation}
+p(t,T) - v(t,T) = p(t,T)(1 - \delta)\tilde{Q}_t(\tau^* \le T)
+\end{equation}
+Levá strana výše uvedené rovnice představuje ztrátu věřitele v případě defaultu. Pravou stranu této rovnice proto nazýváme očekávanou ztrátou (expected loss - EL).
+\begin{equation}
+EL = p(t,T)(1 - \delta)\tilde{Q}_t(\tau^* \le T)
+\end{equation}
+
+\subsection{Podmíněná ztráta}
+
+V případě defaultu je splacena pouze část závazků. V předchozím textu jsme tuto část vyjádřovali pomocí $\delta$. V praxi se však často ptáme kolik bychom v případě defaultu ztratili. Je zřejmé, že tuto ztrátu lze vyjádřit pomocí $1 - \delta$, čímž se dostáváme k pojmu podmíněná ztráta (loss given default - LGD).
+
+\begin{equation}
+LGD \equiv 1 - \delta
+\end{equation}
+
+Očekávanou ztrátu tak lze vyjádřit jako
+
+\begin{equation}
+EL = p(t, T) \times LGD \times \tilde{Q}_t(\tau^* \le T)
+\end{equation}
+
+V případě vícestavového defaultního procesu je definování očekávané ztráty poněkud problematické. Pravděpodobnost defaultu je třeba rozšířit o pravděpodobnosti migrace do ostatních ratingových skupin. Pravděpodobnost realizace cash-flow se pro jednotlivé ratingové skupiny liší. Ztráta popř. zisk z titulu změny kreditního ratingu je pak dána změnou této pravděpodobnosti. To činí výpočet očekávané ztráty komplikovanější.
+
+\subsection{Dekompozice rizikové části závazku}
+
+Očekávané cash-flow ze závazku je rovno $(1 - LGD) + LGD \times \tilde{Q}_t(\tau^* > T)$, což se shoduje s rovnicí (1.4). To znamená, že cash-flow podmíněného závazku, který generuje $1 - LGD$ v případě defaultu a $1$ v případě přežití, lze rozložit na dvě části
+\begin{itemize}
+\item bezrizikovou část ve výši $1 - LGD$ a
+\item rizikovou část ve výši $LGD$.
+\end{itemize}
+
+\section{Příloha A - Mertonův model}
+
+Merton je považován za jednoho z otců opční teorie. Všechny známější teoretické kreditní modely současnosti vycházejí z Mertonova modelu, který byl publikován v roce 1974. V následujícím textu nastíníme hlavní myšlenky tohoto modelu.
+
+Uvažujme zjednodušený model firmy, jejíž aktiva mají v současnosti tržní hodnotu $V_0$. Hodnota aktiv $V_t$ v čase $t$ má charakter náhodné veličiny. Předpokládejme, že infinitezimální výnosy aktiv sledují normální rozdělení s trendem $\mu$ a směrodatnou odchylkou $\sigma$, tj. dynamika hodnoty aktiv sleduje geometrický Brownův pohyb daný rovnicí
+\begin{equation}
+\frac{dV_t}{v_t} = \mu dt + \sigma dz
+\end{equation}
+To znamená, že hodnota aktiv společnosti v čase $t$ je lognormálně rozdělena a dána vztahem
+\begin{equation}
+V_t = V_o e^{(\mu - \frac{\sigma^2}{2})t + \sigma \sqrt{t} Z_t}
+\end{equation}
+Očekávaná hodnota aktiv je pak rovna $E[V_t] = V_0 e^{\mu t}$.
+
+Další nosným bodem modelu je Modigliani-Millerův teorém (1958), dle kterého je na trzích, kde neexistují daně, transakční náklady a informační asymetrie, hodnota společnosti nezávislá na její kapitálové struktuře. Hodnota společnosti je v těchto idealizovaných podmínkách dána prostým součtem hodnoty aktiv a závazků. To znamená, že pasiva společnosti lze modelovat pouze pomocí vlastního jmění $S_t$ a diskontního dluhopisu s nominální hodnotou $F$ a splatností v čase $T$.
+
+Jestliže je konečná hodnota aktiv $V_T$ v čase $T$ větší než nominální hodnota diskontního dluhopisu $F$, budou závazky společnosti plně splaceny. V opačném případě nastane default a věřitel obdrží veškerá aktiva společnosti. Hodnota společnosti v čase $T$ z pohledu akcionářů je tedy
+\begin{equation}
+S_T = max[V_T - F, 0]
+\end{equation}
+což je kupní opce na aktiva společnosti s realizační cenou rovnou účetní hodnotě závazků. Jestliže jsou aktiva společnosti obchodovalená popř. alespoň replikovatelná, lze  hodnotu aktiv $S_{\tau}$ v čase $\tau$ vyjádřit s pomocí známé Black-Scholes rovnice jako
+\begin{equation}
+S_T = V_0N(d_1)-Fe^{r\tau}N(d_2)
+\end{equation}
+kde
+\begin{equation*}
+d_1 = \frac{\ln\left(\frac{V_0}{F e^{-r \tau}}\right) + \frac{1}{2}\sigma^2 \tau}{\sigma \sqrt{\tau}}
+\end{equation*}
+a
+\begin{equation*}
+d_2 = d_1 - \sigma \sqrt{t}
+\end{equation*}
+Hodnota závazků je tedy rovna
+\begin{equation}
+D = V_0 - S_{\tau} = V_0N(-d_1) - Fe^{-r\tau}N(d_2)
+\end{equation}
+což implikuje výnosovou míru
+\begin{equation}
+r_D = -\frac{1}{\tau}\ln\left(\frac{D}{F}\right)
+\end{equation}
+a kreditní spread
+\begin{equation}
+s = r_D - r
+\end{equation}
+Mertonův model předpokládá, že hodnota vlastního jmění společnosti je dána trhem.
+
+\section[Příloha B - Pravděpodobnost defaultu]{Příloha B - Pravděpodobnost defaultu, bod defaultu a vzdálenost od defaultu}
+
+Následující obrázek je shrnutím přílohy A, ve které jsme představili Mertonův model.
+
+OBRÁZEK - Mertonův model
+
+Křivka představuje rozdělení hodnoty aktiv společnosti v čase $T$. Připomeňme, že nominální hodnota závazků je $F$. Jestliže je hodnota aktiv $V_T$ v čase $T$ vyšší než $F$, pak jsou závazky společnosti plně splaceny. V opačném případě získají věřitelé veškerá aktiva společnosti. Pravděpodobnost defaultu je tedy dána tmavým regionem pod hodnotou $F$. Matematicky lze pravděpodobnost defaultu vyjádřit jako
+\begin{equation}
+Q = P[V_T \le F]
+\end{equation}
+Společnost KMV, která vyvíjí a prodává model řízení kreditního rizika založeného na Mertonově modelu, však na základě historických pozorování zjistila, že pravděpodobnost defaultu společnosti vzroste v okamžiku, kdy hodnota jejich aktiv dosáhne určité kritické úrovně, která se nachází mezi hodnotou celkových a krátkodobých závazků. Jinými slovy ``proražení'' hranice dané hodnotou celkodobých závazků nemusí nutně končit defaultem společnosti. Tímto se dostáváme ke konceptu bodu defaultu (default point - DPT).
+
+Bod defaultu je metodologií společnosti KMV definován jako součet krátkodobých závazků (short-term debt - STD) a polovinou dlouhodobých závazků (long-term debt - LTD).
+\begin{equation}
+DPT = STD + 0.5 \times LDT
+\end{equation}
+Vzdálenost od defaultu (distance to default - DD) je pak definována jako rozdíl mezi střední hodnotou aktiv společnosti $E[V_H]$ v rozhodném čase $H$ a bodem defaultu normalizovaného pomocí směrodatné odchylky budoucích výnosů aktiv $\sigma$.
+\begin{equation}
+DD \equiv \frac{E[V_H] - DPT}{\sigma}
+\end{equation}
+Vzdálenost od defaultu tedy představuje počet směrodatných odchylek, které dělí $E[V_H]$ od $DPT$.
+
+\subsection{Pravděpodobnost defaultu}
+
+Kdybychom znali pravděpodobnostní rozdělení hodnoty aktiv v čase $H$, pak by pravděpodobnost defaultu odpovídala pravděpodobnosti, že hodnota $V_H$ v čase $H$ klesne pod $DPT_H$. Pravděpodobnost defaultu tak můžeme zapsat ve tvaru
+\begin{equation}
+Q = P[V_H \le DPT_H]
+\end{equation}
+V případě rizikově neutrální pravděpodobnostní míry je očekávaný výnos všech cenných papírů roven bezrizikové úrokové míře $r$, a proto je rizikově neutrální pravděpodobnost defaultu definovaná předešlou rovnicí rovna
+\begin{multline}
+Q = P[V_H \le DPT_H]\\
+= P\left[\ln V_0 + \left(\mu - \frac{1}{2}\sigma^2 \right)H + \sigma \sqrt{H}Z_H \le \ln DPT_H \right]\\
+= P \left[Z_H \le - \frac{\ln(V_0 / DPT_H) + \left(\mu - \frac{1}{2}\sigma^2\right)}{\sigma \sqrt{H}}\right]\\
+= N(-d_2^*)
+\end{multline}
+Při upravách jsme využili logaritmu (1.9) a skutečnosti, že $Z_H$ pochází z normovaného normálního rozdělení a kde
+\begin{equation}
+d_2^* = \frac{\ln(V_0 / DPT_H) + \left(\mu - \frac{1}{2}\sigma^2\right)}{\sigma \sqrt{H}}
+\end{equation}
+je vzdálenost od defaultu\footnote{Takto definovaná vzdálenost od defaultu se liší od prvotní definice dané rovnicí (1.17). Původní definice totiž nebrala v potaz skutečnost, že hodnota aktiv společnosti sleduje lognornální a nikoliv normální rozdělení.}. Všimněme si, že $d^*_2$ je podobné $d_2$ v rovnici (1.11) s tím rozdílem, že $F$ je nahrazeno $DPT_H$ a $r$ je nahrazeno $\mu$. Tato podobnost není náhodná, ale je dána vztahem mezi rizikově neutrální a skutečnou pravděpodobností. Skutečná pravděpodobnost používá očekávaný výnos aktiva $\mu$ pro modelování trendu, zatímco rizikově neutrální pravděpodobnost používá bezrizikové úrokové míry $r$. V Mertonově modelu (a  také v modelu společnosti KMV) se pravděpodobností defaultu rozumí skutečná pravděpodobnost - v přechozím textu jsme ji označovali pojmem očekávaná frekvence defaultu (expected default frequency - EDF). Proto platí
+\begin{equation}
+EDF \equiv N(-d_2^*)
+\end{equation}
+Crouhy a Mark (1998) dokázali vztah
+\begin{equation}
+-d_2 + \frac{(\mu - r)\sqrt{H}}{\sigma} = -d_2^*
+\end{equation}
+čímž získáváme
+\begin{multline}
+Q = N(-d_2^*) = N\left(-d_2 + \frac{(\mu - r)\sqrt{H}}{\sigma}\right)\\
+= N \left(N^{-1}(EDF) + \frac{(\mu - r)\sqrt{H}}{\sigma}\right)
+\end{multline}
+Protože $\mu \ge r$, platí $Q \ge EDF$, a proto je rizikově neutrální pravděpodobnost defaultu (po očištění o cenu rizika) vyšší než skutečná pravděpodobnost defaultu. Společnost KMV odhaduje rizikově neutrální EDF s využitím dat z dluhopisového trhu pomocí funkce
+\begin{equation}
+Q = N(N^{-1}(EDF) + \rho SH^{\theta})
+\end{equation}
+kde $\rho$ je korelace mezi výnosovou mírou aktiv a výnosovou mírou dluhopisového trhu a $S$ označuje Sharpův poměr a $\theta$ je časový parametr, který však v praxi není roven $\frac{1}{2}$. Aplikované pravděpodobnostní rozdělení také není normální.
+
+\begin{example}
+Pro zjednošení uvažujme skutečnou pravděpodobnostní míru. Dále uvažujme firmu, která je charakterizována následovně
+\begin{itemize}
+\item rozhodný časový okamžik $H$ je roven jednomu roku
+\item současná hodnota aktiv společnosti je $V_0 = 1~000~USD$
+\item očekávaná roční výnosová míra aktiv společnosti je $\mu = 0.20$
+\item roční směrodatná odchylka aktiv společnosti je $\sigma = 0.25$
+\item krátkodobé závazky společnosti jsou $STD = 400~USD$
+\item dlouhodobé závazky společnosti jsou $LTD = 400~USD$
+\end{itemize}
+Bod defaultu je tedy roven
+\begin{equation*}
+DPT_H = STD + \frac{1}{2}LTD = 600
+\end{equation*}
+a vzdálenost od defaultu je pak
+\begin{equation*}
+DD = \frac{\ln \left(\frac{V_0}{DPT_H}\right) + \left(\mu - \frac{1}{2}\sigma^2 \right)H}{\sigma \sqrt{H}} = 2.72
+\end{equation*}
+Očekávanou frekvenci defaultu lze tedy vypočíst jako
+\begin{equation}
+EDF = N(-DD) = 0.0033
+\end{equation}
+Uvažovaná společnost je tedy od defaultu vzdálena 2.72 směrodatné odchylky a skutečná pravděpodobnost defaultu je 0.3\%.
+\end{example}
+
+\section{Příloha C - Matematický úvod}
+
+\subsection{Formality}
+
+Uvažujme modelovou ekonomiku s konečným časovým horizontem $\tau$. Nechť je $p(t,T)$ cena jednotkového bezrizikového diskontního dluhopisu v čase $t$ se splatností v čase $T$, kde $0 \le t \le T \le \tau$. Bezrikovou úrokovou sazbu v čase $t$ označme jako $r(t)$. Předpokládejme, že existuje účet peněžního trhu, který zhodnocuje finanční prostředky bezrizikovou úrokovou sazbou a označme jej jako
+\begin{equation}
+B(t) = e^{\int_0^t r(s)ds}
+\end{equation}
+Za předpokladu kompletních trhů a neexistence arbitráže odpovídají ceny jednotkových bezrizikových diskontních dluhopisů očekávané současné hodnotě jistého dolaru v čase $T$, tj.
+\begin{equation}
+p(t,T) = \tilde{E}_t\left[\frac{B(t)}{B(T)}\right]
+\end{equation}
+kde střední hodnota odpovídá jedinečné ekvivalentní martingalové míře $\tilde{Q}$.
+
+\subsection{Míra náhrady}
+
+Nechť $v(t,T)$ vyjadřuje cenu v čase $t$ jednotkového rizikového diskontníhu dluhopisu splatného v čase $T$. Jestliže emitent zdefaultuje v čase $T$, získá majitel dluhopisu $\delta$ dolaru, kde $0 \le \delta \le 1$. O $\delta$ pak hovoříme jako o míře náhrady. Předpokládejme, že default nastane v náhodný okamžik $\tau^*$. Pak je hodnota jednotkového rizikového diskontního dluhopisu rovna
+\begin{equation}
+v(t,T) = \tilde{E}_t\left[\frac{B(t)}{B(T)}\left(\delta1_{\{\tau^* \le T\}} + 1_{\{\tau^* > T\}}\right)\right]
+\end{equation}
+kde
+\begin{equation}
+1_{\{\tau^* \le T\}} =
+\begin{cases}
+1, ~~~ \tau^* \le T\\
+0, ~~~ \tau^* > T
+\end{cases}
+\end{equation}
+Hodnotu rizikového diskontního dluhopisu tak lze interpretovat jako očekávání dle ekvivalentní míry $\tilde{Q}$ pro dva možné stavy $S$ defaultního procesu, kde
+\begin{equation}
+S =
+\begin{cases}
+\overline{D} - \textit{přežití}\\
+D - \textit{default}
+\end{cases}
+\end{equation}
+
+\subsection{Dekompozice rizikového závazku}
+
+Rizikový závazek $v(t,T)$ lze vyjádřit v závislosti na hodnotě náhodné veličiny $S = \{\overline{D}, D\}$.
+\begin{equation}
+v(t,T) = 
+\begin{cases}
+v(t, T, D) \rightarrow \frac{B(t)}{B(T)}\left(\delta1_{\{\tau^* \le T\}}\right)\\
+v(t, T, \overline{D}) \rightarrow \frac{B(t)}{B(T)}\left(1_{\{\tau^* > T\}}\right)
+\end{cases}
+\end{equation}
+Jestliže předpokládáme, že proces bezrizikové úrokové sazby $r(t)$ a defaultní proces reprezentovaný náhodnou veličinou $\tau^*$ jsou vzájemně statisticky nezávislé pro $\tilde{Q}$, pak platí
+\begin{multline}
+v(t,T) = \tilde{E}_t \left[\frac{B(t)}{B(T)}\right]\tilde{E}_t \left[\delta 1_{\{\tau^* \le T\}} + 1_{\{\tau^* > T\}} \right]\\
+= p(t,T)[\delta + (1 - \delta)\tilde{Q}_t(\tau^* > T)]
+\end{multline}
+kde $\tilde{Q}(\tau^* > T)$ je pravděpodobnost pro $\tilde{Q}$, že k defaultu dojde po čase $T$.
+
+\section{Příloha D - Vícestavový defaultní proces}
+
+Rozdělení času defaultu lze modelovat jako diskrétní časově homogenní Markovský řetězec v prostoru $\Omega =\{1, 2, 3, ..., K\}$, kde $1$ představuje rating AAA a $K$ default. Jarrow, Lando a Turnbull (1997) zkonstruovali pravděpodobnost, že k defaultu dojde po čase $T$, jako
+\begin{equation}
+\tilde{Q}_t^i (\tau^* > T) = \sum_{j \neq k} \tilde{q}_{ij}(t,T)=1 - \tilde{q}_{iK}(t,T)
+\end{equation}
+kde index $i$ značí aktuální rating společnosti. Martigalové transakční pravděpodobnosti $\tilde{q}_{ij}$ jsou definovány jako
+\begin{equation}
+\tilde{q}_{ij}(t, t+1) = \pi_i(t)q_{ij} ~~~ \forall i \neq j
+\end{equation}
+kde $q_{ij}$ jsou empirické transakční pravděpodobnosti udávané ratingovými společnostmi a $\pi_i(t)$ představuje rizikovou prémii definovanou deterministickou funkcí času takovou, že platí
+\begin{equation}
+\tilde{q}_{ij}(t, t+1) \ge 0  ~~~ \forall i \neq j
+\end{equation}
+a
+\begin{equation}
+\sum_{j=1, j \neq i}^K\tilde{q}_{ij}(t, t+1) \le 1 ~~~ pro~i = 1, 2, ..., K
+\end{equation}
+V maticovém vyjádření lze výše uvedené výrazy zkrátit na
+\begin{equation}
+\tilde{Q}_{t, t + 1} - I = \Pi(t)(Q - I)
+\end{equation}
+kde $I$ je $K \times K$ jednotková matice a riziková prémie je
+\begin{equation}
+\Pi(t) = diag\{\pi_j(t), ..., \pi_{K-1}(t)\}
+\end{equation}
+je $K \times K$ diagonální matice. $Q$ je již zmiňovaná empirická transiční matice.
+\begin{equation}
+Q = \left[
+\begin{array}{ccccc}
+q_{11} & q_{12} & \dots & \dots & q_{1K}\\
+q_{21} & q_{22} & \dots & \dots & q_{2K}\\
+\vdots & & & & \vdots\\
+q_{K-1,1} & q_{K-1, 2} & \dots & \dots & q_{K-1, K}\\
+0 & 0 & \dots & 0 & 1
+\end{array}
+\right]
+\end{equation}

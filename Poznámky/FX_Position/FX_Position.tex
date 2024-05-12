@@ -1,0 +1,30 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{FX pozice}
+
+Společně s interfacovými soubory pro aplikaci TRAAB, které obsahují obchody, je generován také soubor \textit{POS\_CHG.txt} s FX pozicí. Tato FX pozice zahrnuje deltu z FX opcí. Do aplikace TRAAB je však posílána FX pozice bez této delty\footnote{To mimojiné znamená, že FX pozice z titulu delty nevstupuje do výpočtu ukazatele VaR.} upravená o FX pozici generovanou komoditními obchody. Soubor s FX pozicí je tak počítán v rámci ranního kopírování interfacových souborů\footnote{Je tedy nezávislý na původní souboru. Ten je pro účely dalšího zpracování irelevantní.}.
+
+Původní soubor \textit{POS\_CHG.txt} vygenerovaný společně s interfacovými soubory je přejmenován na \textit{POS\_CHG.orig} a nově vypočtená FX pozice je uložená do souboru \textit{POS\_CHG.txt}.
+
+Vzhledem k tomu, že v absolutní většině případů je delta z FX opcí nulová, liší se oba soubory, původní i nově vypočtený, pouze o FX pozici generovanou komoditními obchody. Původní FX pozice uloženou v souboru \textit{POS\_CHG.orig} je generována procedurou\\
+
+\textit{EXEC RM01..REPp\_FXPosition 'mm/dd/yyyy', traab\_portfolio\_number, 'Y', 'CZK'}\\
+
+Nově vygenerovanou FX pozici uloženou v souboru \textit{POS\_CHG.txt}, která je nahrávána do aplikace TRAAB, je dána výstupem procedury\\
+
+
+\textit{EXEC RM01..REPp\_FXPosition 'mm/dd/yyyy', traab\_portfolio\_number, 'N', 'CZK'}\\
+
+a údaji uloženými v pohledu \textit{RM01..CAvStructuredDeals\_FxPos}.
+
+Pro účely reportu je použita FX pozice uložená v tabulce \textit{RM01..LIM\_CFX}. Sloupec \textit{curr} této tabulky je plněn údaji z printoutových souborů \textit{fxcd.xls}, \textit{fxeq.xls}, \textit{fxstir.xls}, \textit{fxfx.xls}, \textit{fxis.xls}, \textit{fxposkb.xls}, \textit{kbb\_fxpos.xls} a \textit{g\_fx.xls} vygenerovanými aplikací TRAAB. Sloupec \textit{delta} je pak dopočítán procedurou \textit{REPp\_FXPosition}. Nakonec se provádí marginální úprava FX pozice o údaje v tabulce \textit{RM01..LIM\_Enterprise}.
+
+\end{document}

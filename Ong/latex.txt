@@ -1,0 +1,370 @@
+imgtex - provides yet another math-on-the-web solution
+abntex - LaTeX class for writing documents in ABNT standard
+aft - "free form" document preparation system
+alqalam - Qur'an typesetting macros for TeX/LaTeX
+libjs-asciimathml - a library to render high quality mathematical formulas in a browser
+asymptote - script-based vector graphics language inspired by MetaPost
+auctex - integrated document editing environment for TeX etc.
+preview-latex-style - extraction of elements from LaTeX documents as graphics
+bhl - Emacs mode for converting annotated text to HTML and LaTeX
+biber - Much-augmented BibTeX replacement for BibLaTeX users
+biblatex - Bibliographies for LaTeX
+biblatex-dw - Biblatex styles for humanities
+bibtool - tool to manipulate BibTeX files
+bnfc - Compiler front-end generator based on Labelled BNF
+c++-annotations - Extensive tutorial and documentation about C++
+c++-annotations-latex - Extensive tutorial and documentation about C++ - LaTeX output
+caml2html - HTML and LaTeX colored syntax from OCaml source files
+libcaml2html-ocaml - HTML and LaTeX colored syntax from OCaml source files
+libcaml2html-ocaml-dev - HTML and LaTeX colored syntax from OCaml source files
+caspar - Makefile snippets for centralized configuration management and typesetting
+catdoc - MS-Word to TeX or plain text converter
+chaksem - LaTeX class for presentations
+python-cheetah - text-based template engine and Python code generator
+chemeq - Parser for chemical formula and equilibria
+chktex - Finds typographic errors in LaTeX
+cjk-latex - installs all LaTeX CJK packages
+latex-cjk-all - installs all LaTeX CJK packages
+latex-cjk-chinese - Chinese module of LaTeX CJK
+latex-cjk-common - LaTeX macro package for CJK (Chinese/Japanese/Korean)
+latex-cjk-japanese - Japanese module of LaTeX CJK
+latex-cjk-korean - Korean module of LaTeX CJK
+latex-cjk-thai - Thai module of LaTeX CJK
+clustalx - Multiple alignment of nucleic acid and protein sequences (graphical interface)
+cm-super - TeX font package (full version) with CM (EC) in Type1 in T1, T2*, TS1, X2 enc
+cm-super-minimal - TeX font package (minimal version) with CM/EC in Type1 in T1, T2*, TS1, X2 enc
+context - powerful TeX format
+context-modules - additional ConTeXt modules
+csv2latex - a CSV to LaTeX file converter
+cweb-latex - LaTeX support for CWEB (transitional package)
+cxref - Generates LaTeX and HTML documentation for C programs
+cxref-doc - Generates LaTeX and HTML documentation for C programs
+cxref-emacs - Generates LaTeX and HTML documentation for C programs
+dancer-xml - non-conformant docbook-xml to html/latex conversion
+dblatex - Produces DVI, PostScript, PDF documents from DocBook sources
+debiandoc-sgml - DebianDoc SGML DTD and formatting tools
+develock-el - additional font-lock keywords for the developers on Emacs
+diploma - Write scientific papers with Debian
+disc-cover - produces covers for audio CDs
+doconce - document once, include anywhere
+dot2tex - Graphviz to LaTeX converter
+doxygen - Documentation system for C, C++, Java, Python and other languages
+doxygen-doc - Documentation for doxygen
+doxygen-gui - GUI configuration tool for doxygen
+doxygen-latex - Documentation system for C, C++, Java, Python and other languages
+drgeo - interactive geometry software
+dvipost - Post processor for dvi files supporting change bars
+easychem - Draw high-quality molecules and 2D chemical formulas
+epix - Create mathematically accurate line figures, plots and movies
+etoolbox - Toolbox for LaTeX class and package authors
+fcitx-table-latex - Flexible Input Method Framework - LaTeX table
+feynmf - set of LaTeX macros for creating Feynman diagrams
+fig2ps - Converts xfig files into ps, eps or pdf files using LaTeX for processing text
+fonts-arphic-bkai00mp - "AR PL KaitiM Big5" Chinese TrueType font by Arphic Technology
+fonts-arphic-bsmi00lp - "AR PL Mingti2L Big5" Chinese TrueType font by Arphic Technology
+fonts-arphic-gbsn00lp - "AR PL SungtiL GB" Chinese TrueType font by Arphic Technology
+fonts-arphic-gkai00mp - "AR PL KaitiM GB" Chinese TrueType font by Arphic Technology
+latex-fonts-sipa-arundina - Thai DejaVu-compatible fonts for LaTeX
+latex-fonts-thai-tlwg - Thai fonts for LaTeX from TLWG
+fonts-unfonts-core - Un series Korean TrueType fonts
+fonts-unfonts-extra - Un series Korean TrueType fonts (extra)
+fragmaster - use of psfrag constructs with pdflatex
+fweb - literate-programming tool for C/C++/Fortran/Ratfor
+geany-plugin-latex - improved LaTeX support plugin for Geany
+geany-plugin-tableconvert - table convert plugin for Geany
+gedit-latex-plugin - gedit plugin for composing and compiling LaTeX documents
+gedit-plugins - set of plugins for gedit
+gitit - Wiki engine backed by a git or darcs filestore
+libghc-gitit-dev - Wiki engine backed by a git or darcs filestore - GHC libraries
+libghc-gitit-doc - Wiki engine backed by a git or darcs filestore - documentation
+libghc-gitit-prof - Wiki engine backed by a git or darcs filestore; profiling libraries
+libgl2ps-dev - Lib providing high quality vector output for OpenGL application
+libgl2ps0 - Lib providing high quality vector output for OpenGL application
+libgl2ps0-dbg - Lib providing high quality vector output for OpenGL application
+gle-graphics - Graphics Layout Engine
+glosstex - prepare glossaries and lists of acronyms
+gnuhtml2latex - Convert HTML files to LaTeX
+gnumeric - spreadsheet application for GNOME - main program
+gpp - A general-purpose preprocessor with customizable syntax
+gri - a language for scientific illustration
+grisbi - personal finance management program
+libgtksourceview2.0-common - common files for the GTK+ syntax highlighting widget
+libgtksourceview-3.0-common - common files for the GTK+ syntax highlighting widget
+gummi - GTK+ based LaTeX editor with live preview
+libghc-texmath-dev - Haskell library to convert LaTeX to MathML - GHC libraries
+libghc-texmath-doc - Haskell library to convert LaTeX to MathML - documentation
+libghc-texmath-prof - Haskell library to convert LaTeX to MathML - GHC profiling libraries
+hevea - translates from LaTeX to HTML, info, or text
+highlight - Universal source code to formatted text converter
+highlight-common - source code to formatted text converter (architecture independent files)
+libhighlight-perl - perl bindings for highlight source code to formatted text converter
+libghc-highlighting-kate-dev - syntax highlighting library based on Kate syntax descriptions
+libghc-highlighting-kate-doc - library documentation for highlighting-kate
+libghc-highlighting-kate-prof - highlighting-kate library with profiling enabled
+r-cran-hmisc - GNU R miscellaneous functions by Frank Harrell
+hscolour - Haskell program to colourise Haskell code
+libghc-hscolour-dev - GHC libraries for colourising Haskell code
+libghc-hscolour-doc - Documentation for libghc-hscolour-dev
+libghc-hscolour-prof - Profiling libraries for colourising Haskell code
+ibus-table-latex - ibus-table input method: LaTeX
+rmligs-german - remove incorrectly used ligatures from LaTeX documents
+ipe - drawing editor for creating figures in PDF or PS formats
+ispell - International Ispell (an interactive spelling corrector)
+jadetex - generator of printable output from SGML or XML using Jade
+jedit - Plugin-based editor for programmers
+jgraph - Jim Plank's program for producing PostScript graphs
+python-jinja2 - small but fast and easy to use stand-alone template engine
+python3-jinja2 - small but fast and easy to use stand-alone template engine
+jscribble - graphical notepad for use with a pen tablet
+jlatex209-base - basic NTT JLaTeX 2.09 macro files
+kile - KDE Integrated LaTeX Environment
+kile-doc - KDE Integrated LaTeX Environment (documentation)
+kile-l10n - KDE Integrated LaTeX Environment (localization)
+klatexformula - GUI to easily get an image from a LaTeX formula or equation
+libklatexformula3 - Runtime libraries for klatexformula
+libklatexformula3-dev - Runtime libraries for klatexformula, development files
+ko.tex - Korean TeX: Core macros
+ko.tex-bin - Korean TeX: Binaries and scripts
+ko.tex-extra-hlfont - Korean TeX: Extra HLaTeX fonts
+ko.tex-base - Korean TeX: Base fonts
+ko.tex-extra - Korean TeX: Extra fonts
+ktikz - editor for the TikZ drawing language - KDE version
+qtikz - editor for the TikZ drawing language - Qt version
+lacheck - Simple syntax checker for LaTeX
+latex-beamer - LaTeX class to produce presentations
+latex-cjk-chinese-arphic-bkai00mp - traditional Chinese KaiTi fonts for CJK
+latex-cjk-chinese-arphic-bsmi00lp - traditional Chinese KaiTi fonts for CJK
+latex-cjk-chinese-arphic-gbsn00lp - traditional Chinese KaiTi fonts for CJK
+latex-cjk-chinese-arphic-gkai00mp - traditional Chinese KaiTi fonts for CJK
+latex-cjk-japanese-wadalab - type1 and tfm DNP Japanese fonts for latex-cjk
+latex-make - easy compiling of complex (and simple) LaTeX documents
+latex-mk - tool for managing LaTeX projects
+latex-sanskrit - pre-processor and fonts to typeset Sanskrit in TeX
+latex-xcolor - Easy driver-independent TeX class for color
+latex209-base - macro files of LaTeX 2.09 25-mar-1992 version
+latex209-bin - latex209 command for LaTeX 2.09 25-mar-1992 version
+latex209-src - source files of macros of LaTeX 2.09 25-mar-1992 version
+latex2html - LaTeX to HTML translator
+latex2rtf - Converts documents from LaTeX to RTF format
+latex2rtf-doc - Converts documents from LaTeX to RTF - documentation
+latexdiff - utility to mark up significant differences between LaTeX files
+latexdraw - vector drawing program for LaTeX using PSTricks
+latexila - LaTeX editor designed for the GNOME desktop
+latexila-data - LaTeXila editor -- arch-independent files
+latexmk - Perl script for running LaTeX the correct number of times
+latexml - LaTeX to XML Converter
+lhs2tex - Generates LaTeX code from literate Haskell sources
+libjlatexmath-fop-java - Implementation of LaTeX math mode wrote in Java (fop plugin)
+libjlatexmath-java - Implementation of LaTeX math mode wrote in Java
+libjlatexmath-java-doc - Implementation of LaTeX math mode wrote in Java
+liblatex-decode-perl - Perl module to convert LaTeX input to Unicode
+liblatex-driver-perl - driver module that encapsulates the details of formatting a LaTeX document
+liblatex-encode-perl - Perl module to encode characters for LaTeX formatting
+liblatex-table-perl - Perl extension for the automatic generation of LaTeX tables
+liblatex-tom-perl - A module for parsing, analyzing and manipulating latex documents
+libtemplate-perl - the "Template Toolkit" template processing system in perl
+libtemplate-plugin-latex-perl - LaTeX support for the Template Toolkit
+libtex-encode-perl - Perl module to transform UTF-8 strings into TeX
+libtext-formattable-perl - Perl module to format text tables
+lilypond - program for typesetting sheet music
+lincredits - Generate nicely-formatted versions of the Linux CREDITS file
+linuxdoc-tools - convert LinuxDoc SGML source into other formats
+linuxdoc-tools-latex - LaTeX/PS/PDF output facility of LinuxDoc-Tools
+logreq - LaTeX compiling helper
+lout - Typesetting system, an alternative to (La)TeX
+luasseq - LuaLaTeX package for drawing spectral sequences.
+lyx - document processor
+libjs-mathjax - open-source JavaScript display engine for LaTeX and MathML
+mathpartir - LaTeX macros for typesetting inference rules
+mathtex - Generate image from LaTeX command
+mimetex - LaTeX math expressions to anti-aliased GIF images converter
+mu-cite - message citation utility for emacsen
+muse-el - Author and publish projects using Wiki-like markup
+musixtex - Typeset music scores with TeX
+noweb - A WEB-like literate-programming tool
+libmelt-ocaml-dev - LaTeX with OCaml (libraries)
+ocaml-melt - LaTeX with OCaml (tools)
+ocamlweb - Literate programming tool for Objective Caml
+octave-miscellaneous - miscellaneous tools for Octave
+omake - build system with automated dependency analysis
+omake-doc - documentation for OMake
+openoffice.org-writer2latex - Writer/Calc to LaTeX converter extension for LibreOffice
+org-mode - keep notes, maintain ToDo lists, and do project planning in emacs
+pal - command-line calendar program that can keep track of events
+libghc-pandoc-dev - general markup converter
+libghc-pandoc-doc - general markup converter
+libghc-pandoc-prof - general markup converter
+pandoc - general markup converter
+parsewiki - Documentation System Based on ASCII Text
+pgf - TeX Portable Graphic Format
+php-text-wiki - transforms Wiki and BBCode markup into XHTML, LaTeX or plain text markup
+phpmyadmin - MySQL web administration tool
+pidgin-latex - Pidgin plugin to display LaTeX formulas
+python-plastex - LaTeX document processing framework in Python
+python-plastex-doc - LaTeX document processing framework in Python - documentation files
+plywood - Playwriting typing and typesetting help
+po4a - tools for helping translation of documentation
+prerex - course prerequisite chart editor for LaTeX/TikZ
+vprerex - Qt interface to prerex, a course prerequisite chart editor
+libpresage-doc - intelligent predictive text entry platform (documentation)
+pretzel - Prettyprinter generator for noweb
+prosper - LaTeX class for writing transparencies
+ptex-base - basic ASCII pTeX library files
+ptex2tex - easy generation of (possibly complex) LaTeX environments
+purifyeps - creates EPS files usable in TeX and pdfTeX
+pybtex - BibTeX-compatible bibliography processor
+python-pygments - syntax highlighting package written in Python
+python3-pygments - syntax highlighting package written in Python 3
+python-milter-doc - Documentation for the Python Milter extension
+python-pyth - Python text markup and conversion
+docutils-common - text processing system for reStructuredText - common data
+docutils-doc - text processing system for reStructuredText - documentation
+python-docutils - text processing system for reStructuredText (implemented in Python 2)
+python3-docutils - text processing system for reStructuredText (implemented in Python 3)
+python-old-doctools - Python latex based documentation tools (rescued from python2.5)
+pyxplot - data plotting program producing publication-quality output
+pyxplot-doc - documentation for pyxplot data plotting program
+qtiplot - data analysis and scientific plotting
+r-base-core - GNU R core of statistical computation and graphics system
+r-cran-xtable - GNU R coerce data to LaTeX and HTML tables
+rcs-latex - LaTeX macro package for handling RCS keywords (transitional package)
+rst2pdf - ReportLab-based reStructuredText to PDF renderer
+rubber - automated system for building LaTeX documents
+ruby-kramdown - Fast, pure-Ruby Markdown-superset converter
+ruby-maruku - Markdown-superset interpreter written in Ruby.
+scim-tables-additional - miscellaneous input method data tables for SCIM platform
+sdf - Simple Document Parser
+sdf-doc - Documentation and examples for the Simple Document Parser
+sisu - documents - structuring, publishing in multiple formats and search
+sisu-pdf - dependencies to convert SiSU LaTeX output to pdf
+slang-xfig - produce plots and drawings through Xfig's fig2dev in S-Lang
+snacc-doc - ASN.1 to C or C++ or IDL compiler, documentation
+source-highlight - convert source code to syntax highlighted document
+python-sphinx - documentation generator for Python projects (implemented in Python 2)
+python3-sphinx - documentation generator for Python projects (implemented in Python 3)
+sql-ledger - Web based double-entry accounting program
+src2tex - A converter from source program files to TeX format files
+stx2any - Converter from structured plain text to other formats
+swath - Thai word segmentation program
+tachyon-doc - documentation for Tachyon ray tracer
+tea - text editor with syntax highlighting & UTF support
+tetex-brev - Norwegian A4 letter style for LaTeX
+tex-gyre - scalable PostScript and OpenType fonts based on URW Fonts
+tex4ht - LaTeX and TeX for Hypertext (HTML) - executables
+tex4ht-common - LaTeX and TeX for Hypertext (HTML) - support files
+texify - Beautify source code for use with LaTeX
+texlive-base - TeX Live: Essential programs and files
+texlive-fonts-recommended - TeX Live: Recommended fonts
+texlive-latex-base - TeX Live: Basic LaTeX packages
+texlive-latex-base-doc - TeX Live: Documentation files for texlive-latex-base
+texlive-latex-recommended - TeX Live: LaTeX recommended packages
+texlive-latex-recommended-doc - TeX Live: Documentation files for texlive-latex-recommended
+texlive-luatex - TeX Live: LuaTeX packages
+texlive-metapost - TeX Live: MetaPost (and Metafont) drawing packages
+texlive-omega - TeX Live: Omega packages
+texlive-pictures - TeX Live: Graphics packages and programs
+texlive-xetex - TeX Live: XeTeX packages
+texlive-binaries - Binaries for TeX Live
+texlive-doc-ar - TeX Live: Arabic documentation
+texlive-doc-bg - TeX Live: Bulgarian documentation
+texlive-doc-cs+sk - TeX Live: Czech/Slovak documentation
+texlive-doc-de - TeX Live: German documentation
+texlive-doc-en - TeX Live: English documentation
+texlive-doc-es - TeX Live: Spanish documentation
+texlive-doc-fi - TeX Live: Finnish documentation
+texlive-doc-fr - TeX Live: French documentation
+texlive-doc-it - TeX Live: Italian documentation
+texlive-doc-ja - TeX Live: Japanese documentation
+texlive-doc-ko - TeX Live: Korean documentation
+texlive-doc-mn - TeX Live: Mongolian documentation
+texlive-doc-nl - TeX Live: Dutch documentation
+texlive-doc-pl - TeX Live: Polish documentation
+texlive-doc-pt - TeX Live: Portuguese documentation
+texlive-doc-ru - TeX Live: Russian documentation
+texlive-doc-th - TeX Live: Thai documentation
+texlive-doc-tr - TeX Live: Turkish documentation
+texlive-doc-uk - TeX Live: Ukrainian documentation
+texlive-doc-vi - TeX Live: Vietnamese documentation
+texlive-doc-zh - TeX Live: Chinese documentation
+texlive-bibtex-extra - TeX Live: Extra BibTeX styles
+texlive-extra-utils - TeX Live: TeX auxiliary programs
+texlive-font-utils - TeX Live: Graphics and font utilities
+texlive-fonts-extra - TeX Live: Extra fonts
+texlive-formats-extra - TeX Live: Extra formats
+texlive-games - TeX Live: Games typesetting
+texlive-generic-extra - TeX Live: Extra generic packages
+texlive-humanities - TeX Live: Humanities packages
+texlive-latex-extra - TeX Live: LaTeX supplementary packages
+texlive-latex-extra-doc - TeX Live: Documentation files for texlive-latex-extra
+texlive-latex3 - TeX Live: transitional dummy package
+texlive-math-extra - TeX Live: Advanced math typesetting
+texlive-music - TeX Live: Music typesetting
+texlive-plain-extra - TeX Live: Plain TeX supplementary packages
+texlive-pstricks - TeX Live: PSTricks packages
+texlive-publishers - TeX Live: Support for publishers, theses, standards, conferences, etc.
+texlive-science - TeX Live: Typesetting for natural and computer sciences
+texpower - TeX Live: transitional dummy package
+texlive-lang-african - TeX Live: African scripts
+texlive-lang-arabic - TeX Live: Arabic
+texlive-lang-cjk - TeX Live: Chinese, Japanese, Korean
+texlive-lang-croatian - TeX Live: Croatian
+texlive-lang-cyrillic - TeX Live: Cyrillic
+texlive-lang-czechslovak - TeX Live: Czech/Slovak
+texlive-lang-german - TeX Live: German
+texlive-lang-greek - TeX Live: Greek
+texlive-lang-hebrew - TeX Live: Hebrew
+texlive-lang-indic - TeX Live: Indic scripts
+texlive-lang-mongolian - TeX Live: Mongolian
+texlive-lang-polish - TeX Live: Polish
+texlive-lang-tibetan - TeX Live: Tibetan
+texmacs-extra-fonts - extra fonts for the mathematical text editor TeXmacs
+texmaker - cross-platform LaTeX editor
+texmaker-data - Texmaker LaTeX editor -- arch-independent files
+texstudio - Latex Editor
+texstudio-dbg - Latex Editor (debug)
+texworks - Environment for authoring TeX (LaTeX, ConTeXt, etc) documents
+tgif - 2D vector graphic drawing tool using Xlib
+thailatex - Thai support for LaTeX
+tipa - system for processing phonetic symbols in LaTeX
+tipa-doc - documentation for the TIPA LaTeX font
+xfonts-tipa - X11 PostScript Type 1 font for the Phonetic Alphabet
+tk-brief - GUI for easily writing letters with LaTeX
+tomboy-latex - LaTeX plugin for Tomboy
+tralics - LaTeX to XML translator
+transfig - Utilities for converting XFig figure files
+tth - TeX/LaTeX to HTML converter
+tth-common - auxiliary softwares for TtH and TtM
+ttm - TeX/LaTeX to MathML converter
+python-twisted-lore - Documentation generator with HTML and LaTeX support
+txt2tags - conversion tool to generating several file formats
+udo - universal document - text processing utility
+udo-doc-de - universal document - German documentation
+udo-doc-en - universal document - English documentation
+uicilibris - convert mediawiki contents to a printable book
+unrtf - RTF to other formats converter
+untex - remove LaTeX commands from input
+vim-latexsuite - view, edit and compile LaTeX documents from within Vim
+whizzytex - a WYSIWYG emacs environment for LaTeX
+wiki2beamer - Tool to create LaTeX beamer presentations in wiki syntax
+wp2x - WordPerfect 5.x documents to whatever converter
+libreoffice-writer2latex - Writer/Calc to LaTeX converter extension for LibreOffice
+libreoffice-writer2xhtml - Writer/Calc to XHTML converter extension for LibreOffice
+libwriter2latex-java - OpenOffice.org Writer/Calc to LaTeX/XHTML converter -- library
+libwriter2latex-java-doc - OpenOffice.org Writer/Calc to LaTeX/XHTML converter -- javadoc
+writer2latex - OpenOffice.org Writer/Calc to LaTeX/XHTML converter
+writer2latex-manual - OpenOffice.org Writer/Calc to LaTeX/XHTML converter -- manual
+wv - Programs for accessing Microsoft Word documents
+xfig - Facility for Interactive Generation of figures under X11
+xfig-doc - XFig on-line documentation and examples
+xfig-libs - XFig image libraries and examples
+xindy - index generator for structured documents like LaTeX or SGML
+xmlto - XML-to-any converter
+yasnippet - A template system for Emacs
+yatex - Yet Another TeX mode for Emacs
+yodl - Your Own Document Language (Yodl) is a pre-document language
+yodl-doc - Documenation for Your Own Document Language (Yodl)
+foiltex - collection of LaTeX files for making foils and slides
+hevea-doc - HeVeA documentation
+lgrind - A pretty printer for various programming languages
+ptex-jtex - ASCII jTeX with pTeX
+sisu-markup-samples - document markup examples for sisu, publish and search framework

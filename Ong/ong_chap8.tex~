@@ -1,0 +1,83 @@
+\chapter{Teorie extrémní hodnoty}
+
+Pravděpodobnostní rozdělení ztráty kreditního porfolia je typicky značně sešikmené, což má za následek tzv. efekt ``tlustých'' chvostů. Pro odhad vysokých kvantilů tohoto pravděpodobnostního rozdělení je tak třeba zkombinovat simulaci Monte-Carlo s analytickým ``fitování'' chvostů. Tím se dostáváme k teorie extrémní hodnoty (extreme value theory - EVT). Ta se, jak napovídá její název, zaměřuje právě na extrémní ztráty a jejich pravděpodobnosti.
+
+Z pohledu teorie extrémní hodnoty lze rozlišovat tři typy ztrát a to
+\begin{itemize}
+\item očekávanou ztrátu,
+\item neočekávanou ztrátu a
+\item extrémní ztrátu.
+\end{itemize}
+Teorie extrémní hodnoty se pak snaží o nalezení hranic mezi těmito typy ztrát.
+
+\subsection{Základy teorie extrémní hodnoty}
+
+Uvažujme posloupnost nezávislých náhodných veličin $\{X_1, X_2, ..., X_n\}$ z identického pravděpodonostního rozdělení $F$, které však neznáme. Předpokládejme, že tyto náhodné veličiny představují ztráty. Pak lze extrémní ztráta definovat jako největší ztrátu v rámci pozorování
+\begin{equation}
+M_n = max[X_1, X_2, ..., X_n]
+\end{equation}
+popř. pomocí prahové hodnoty $u_{\alpha}$
+\begin{equation}
+P[X > u_{\alpha}] = 1 - F(u_\alpha) = \alpha
+\end{equation}
+kde $\alpha$ představuje požadovaný kvantil. Práh $u_{\alpha}$ tak představuje minimální úroveň ekonomického kapitálu, kterým musí banka disponovat, aby přežila extrémní ztrátu.
+
+V případě, že je stanoveno $u_{\alpha}$, pak nás zpravidla také zajímá podmíněná pravděpodobnost
+\begin{equation*}
+F_{u_{\alpha}} \equiv P[X - u_{\alpha} \le x | X > u_{\alpha}]
+\end{equation*}
+Tuto pravděpodobnost lze přeformulovat do tvaru
+\begin{multline}
+F_{u_{\alpha}}(x) \equiv P[X - u_{\alpha} \le x | X > u_{\alpha}]\\
+= \frac{P[X - u_{\alpha} \le x, X > u_{\alpha}]}{P[X > u_{\alpha}]}\\
+= \frac{F_{u_{\alpha}}(x + u_{\alpha}) - F_{u_{\alpha}}(u_{\alpha})}{1 - F_{u_{\alpha}}(u_{\alpha})}, x \ge 0
+\end{multline}
+V případě, že máme dostatečné množství dat, lze podmíněnou pravděpodobnost $F_{u_{\alpha}}$ vypočíst přímo. V opačném případě je třeba vhodným způsobem tuto pravděpodobnost aproximovat.
+
+\subsection{Obecné Pareto rozdělení}
+
+Obecné Pareto rozdělení je rodina pravděpodobnostních rozdělení s třemi stupni volnosti a pravděpodobností funkcí
+\begin{equation}
+G_{\xi, \mu, \psi}(x) = e^{-\left(1 + \xi \frac{x - \mu}{\psi}\right)_{+}^{-\frac{1}{\xi}}}, ~~~ \xi \ne 0, \psi > 0
+\end{equation}
+kde $\psi$ je škálovací parametr, $\mu$ je lokační parametr a $\xi$ je parametr, který ovlivňuje tvar rozdělení. Pro $\xi = 0$ přejde rozdělení do limitního tvaru
+\begin{equation}
+G_{0, \mu, \psi}(x) = e^{-e^{-\frac{x - \mu}{\psi}}}
+\end{equation}
+V praxi se pak často namísto (8.4) používá zjednodušený tvar
+\begin{equation}
+G_{\xi, \mu, \psi}(x) = 1 - \left(1 + \xi \frac{x - \mu}{\psi}\right)_{+}^{-\frac{1}{\xi}}, ~~~ \xi \ne 0
+\end{equation}
+Obě rovnice mají stejnou asymptotickou formu a pro praktické účely je tedy lhostejné, kterou z nich použijeme.
+
+Podle hodnoty parametru $\xi$ lze obecné Pareto rozdělení dále klasifikovat na
+\begin{itemize}
+\item $\xi = 0$ - Gumbel popř. dvojité exponenciální rozdělení (zahrnuje normální, exponenciální, gamma a lognormální rozdělení)
+\item $\xi > 0$ - Frechet rozdělení s tlustým chvostem na pravo (zahrnuje Pareto, Burr, log-gamma, Cauchy a studentovo rozdělení)
+\item $\xi < 0$ - Weibull rozdělení s tlustým chvostem na levo (zahrnuje beta a uniformní rozdělení)
+\end{itemize}
+
+OBRÁZEK
+
+\subsection{Kritéria konvergence}
+
+\begin{theorem}[Fisher-Tippett, 1928]
+Uvažujme i.i.d posloupnost náhodných veličin $\{X_1, X_2, ..., X_n\}$ z neznámé distribuční funkce $F$, pro kterou známe neúplnou empirickou pravděpodobnostní funkci $F^{emp}$. Předpokládejme, že existuje posloupnost reálných čísel $a_n$ a $b_n$ taková, že posloupnost normalizovaného maxima $(M_n - a_n) / b_n$ konverguje k pravdnedegerativnímu pravděpodobnostnímu rozdělení
+\begin{equation}
+P\left[\frac{M_n - a_n}{b_n} \le x \right] = F^{emp}(a_nx + b_n) \rightarrow G(x) ~~~ pro ~~~ n \rightarrow \infty
+\end{equation}
+V tomto případě patří rozdělení $G$ do rodiny obecného Pareto rozdělení $G_{\xi, \nu, \psi}(x)$. 
+\end{theorem}
+Jestliže je splněna podmínka (8.7), pak pravděpodobnostní rozdělení $F$ v maximální doméně aktrakce $G_{\xi, \mu, \psi}$, což zapisujeme jako
+\begin{equation}
+F \in MDA(G_{\xi, \mu, \psi})
+\end{equation}
+Jestliže jsme tedy schopni na přijatelně velkém vzorku pozorování prokázat limitní chování, pak limitní rozdělení musí být obecené Pareto rozdělení. Pro účely řízení rizik se pak nejčastěji používá Frechet rozdělení.
+\begin{theorem}[Gnedenko, 1943]
+Pro Frechet rozdělení platí
+\begin{equation}
+F \in MDA(G_{\xi, \mu, \psi}) \Leftrightarrow 1 - F(x) ~ x^{-1/\xi}L(x)
+\begin{equation}
+pro nějakou pomalu se měnící funkci $L(x)$.
+\end{theorem}
+Tato věta říká, že pokud chvost rozdělení $F(x)$ ``vymírá'' jako mocninná funkce, pak se nachází v doméně atrakce Frechet rozdělení.

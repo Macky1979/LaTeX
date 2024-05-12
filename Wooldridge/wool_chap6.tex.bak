@@ -1,0 +1,287 @@
+\chapter[Vícerozměrný regresní model \\ Další témata]{Vícerozměrný regresní model - další témata}
+
+\section{Efekt změny měrné veličiny na OLS statistiky}
+
+Pokud jsou veličiny přeškálovány, např. převodem z metrů na kilometry, změní se odhady regresních parametrů, jejich směrodatné 
+odchylky, intervaly spolehlivosti a $t$ a $F$ statistiky způsobem, který zachovává všechny efekty měření a výsledky testování. Také 
+hodnota $R^2$ je změnou měrné jednotky nedotčena, ačkoliv součet čtverců reziduí SSR a standardní směrodatná odchylka regrese SER se změní.
+
+Pokud je závislá proměnná vyjádřena v logaritmické formě, pak změna měrné jednotky nemá vliv na odhad sklonů. Dojde však ke změně z 
+$ln(y_i)$ na $ln(c_1 y_i) = ln(c_1) + ln(y_i)$, změní se průsečík z $\beta_0$ na $\beta_0 + ln(c_1)$.
+
+Někdy je vhodné zjistit, jak se změní vysvětlovaná veličina, pokud se některá z vysvětlujících veličin změní o určitý násobek své 
+směrodatné odchylky. Z tohoto důvodu někdy dochází k tzv. standardizaci vysvětlujících proměnných, od kterých je odečtena jejich 
+střední hodnota a které jsou následně vyděleny svou směrodatnou odchylkou. Postup standardizace je ilustrován následujícími rovnicemi. Výchozí rovnici
+\begin{equation}
+y_i = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \hat{\beta}_2 x_{i2} + ... + \hat{\beta}_k x_{ik} + \hat{u}_i
+\end{equation}
+zprůměrujeme, od každého členu odečteme jeho střední hodnotu (a to včetně průsečíku, který je tímto z rovnice odstraněn) a využijeme skutečnosti, že $E[\hat{u}_i] = 0$, čímž dostáváme
+\begin{equation}
+y_i - \overline{y} = \hat{\beta}_1(x_{i1} - \overline{x}_1) + \hat{\beta}_2(x_{i2} - \overline{x}_2) + ... + \hat{\beta}_k(x_{ik} - \overline{x}_k) + 
+\hat{u}_i.
+\end{equation}
+Dále každý člen vydělíme standardní směrodatnou odchylkou vysvětlované veličiny a členy na pravé straně rovnice dále upravíme s 
+využitím jejich směrodatné odchylky.
+\begin{equation}
+\frac{y_i - \overline{y}}{\hat{\sigma}_y} = \frac{\hat{\sigma}_1}{\hat{\sigma}_y}\hat{\beta}_1 \frac{x_{i1} - 
+\overline{x}_1}{\hat{\sigma}_1} + ... + \frac{\hat{\sigma}_k}{\hat{\sigma}_y}\hat{\beta}_k \frac{x_{ik} - 
+\overline{x}_k}{\hat{\sigma}_k} + \frac{\hat{u}_i}{\hat{\sigma}_y}
+\end{equation}
+Nové vysvětlující veličiny $\frac{x_{ij} - \overline{x}_j}{\hat{\sigma}_j}$ jsou standardizované a jim odpovídající odhady sklonu mají 
+tvar $\frac{\hat{\sigma}_j}{\hat{\sigma}_y}\hat{\beta}_j$. Pro zjednodušení notace vyjádřeme výše uvedenou rovnici ve tvaru
+\begin{equation}
+z_y = \hat{b}_1 z_1 + \hat{b}_2 z_2 + ... + \hat{b}_k z_k + e.
+\end{equation}
+Jestliže se $x_1$ zvýší o jednu směrodatnou odchylku, zvýší se odhad $\hat{y}$ o $\hat{b}_1$ směrodatných odchylek. Protože je měrná 
+jednotka vysvětlujících veličin irelevantní, ``nastavuje'' jim tato rovnice stejné výchozí podmínky\footnote{Ve standardní regresní 
+rovnici není možné z odhadu parametrů sklonu usuzovat na významnost jednotlivých vysvětlující proměnných.}. Pro odhad parametrů rovnice 
+(6.4) je možné veličiny nejprve standardizovat a následně použít OLS proceduru\footnote{Do odhadu není třeba zahrnovat průsečík, protože 
+ten z podstaty problému vždy vyjde nulový.}. Protože jsme neměnily podstatu regresního modelu, jsou $t$ statistiky a tedy i testy významnosti 
+parametrů  v (6.1) a (6.4) shodné.
+
+\section{Ostatní formy regresního modelu}
+
+\subsection{Logaritmický regresní model}
+
+Uvažujme regresní model ve tvaru
+\begin{equation}
+ln(y) = \beta_0 + \beta_1 ln(x_1) + \beta_2 x_2 + u.
+\end{equation}
+Sklon $\beta_1$ nazýváme parametrem elasticity, tj. pokud se $x_1$ zvýší o jedno procento, pak se $y$ zvýší o $\beta_1$ procent. Naproti 
+tomu, pokud se $x_2$ zvýší o jednu jednotku (nikoliv o jedno procento), pak se $y$ zvýší přibližně o $\beta_2$ procent\footnote{Aproximace 
+$\%\Delta y \approx \Delta ln(y)$ se zhoršuje s tím, jak roste $ln(y)$. Tuto aproximaci však lze snadno nahradit přesným vztahem $\% \Delta 
+\hat{y} = e^{\hat{\beta}_2} - 1$.}.
+
+Regresní modely, které obsahují $ln(y)$ jako vysvětlovanou veličinu, často v porovnání s klasickým modelem lépe splňují CLM předpoklady, 
+pokud má $y$ exponenciální průběh. V takovémto případě je podmíněná pravděpodobnost $y$ často sešikmená a vede k heteroskedasticitě. 
+Aplikace $ln(y)$ často (alespoň částečně) vyřeší jak problém sešikmení, tak problém heteroskedasticity. Přirozený logaritmus také 
+obvykle ``zúží'' interval, ve kterém se pohybují hodnoty veličin, což má za následek, že odhady jsou méně citlivé na odlehlá pozorování.
+
+Veličiny jako ceny, mzdy, velikost populace nebo počet zaměstnanců se často v regresních modelech vyskytují v logaritmické formě. Naproti 
+tomu veličiny měřené v letech jako např. věk, délka vzdělání či praxe vystupují v nezměněné podobě. Veličiny měřené v procentech 
+jako např. růst HDP, nezaměstnanost či inflace se mohou vyskytovat jak v logaritmické tak původní formě, ačkoliv se často z důvodů 
+jednodušší interpretace preferuje původní tvar.
+
+Zásadním omezením logaritmické formy je skutečnost, že ji není možné aplikovat na veličiny, které mohou nabývat záporných hodnot. V 
+takovémto případě se však někdy namísto $ln(y)$ používá $ln(c + y)$, kde $c$ je kladná konstanta zvolená tak, aby pro všechny možné 
+hodnoty pozorování platilo $c + y > 0$.
+
+Na závěr je třeba zdůraznit, že nelze porovnávat $R^2$ modelu založeného na $y$ s $R^2$ modelu založeného na $ln(y)$.
+
+\subsection{Kvadratický regresní model}
+
+Kvadratické regresní modely lze použít k podchycení rostoucího nebo klesajícího marginálního efektu vysvětlujících veličin. Jako 
+příklad uvažujme odhad kvadratického regresního modelu
+\begin{equation}
+\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x + \hat{\beta}_2 x^2.
+\end{equation}
+Dopad vysvětlující veličiny $x$ na $y$ lze vyjádřit jako
+\begin{equation}
+\Delta \hat{y} \approx (\hat{\beta}_1 + 2 \hat{\beta}_2 x) \Delta x,
+\end{equation}
+což lze dále upravit na
+\begin{equation}
+\frac{\Delta \hat{y}}{\Delta x} \approx \hat{\beta}_1 + 2 \hat{\beta}_2 x.
+\end{equation}
+Tzv. bod zlomu, tj. bod, ve kterém regresní funkce dosahuje maxima popř. minima, lze vyjádřit jako
+\begin{equation}
+x^* = \arrowvert \frac{\hat{\beta}_1}{2 \hat{\beta}_2} \arrowvert.
+\end{equation}
+Je však důležité si uvědomit, že pokud mají $\hat{\beta}_1$ a $\hat{\beta}_2$ stejné znaménko a $x$ je vždy kladné, pak bod zlomu neexistuje.
+
+Kromě druhé mocniny je možné do modelu přidat také mocniny vyšších řádů. Jako příklad uveďme model
+\begin{equation}
+y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + u.
+\end{equation}
+V praxi se však mocniny vyššího řádu příliš nepoužívají.
+
+\subsection{Regresní modely s interakcí}
+
+Uvažujme regresní model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 x_2 + u.
+\end{equation}
+Vliv $x_2$ na $y$ pak lze vyjádřit jako
+\begin{equation}
+\frac{\Delta y}{\Delta x_2} = \beta_2 + \beta_3 x_1.
+\end{equation}
+Model tedy implementuje interakci mezi $x_1$ a $x_2$, kdy změna $y$ v důsledku změny $x_2$ závisí na hodnotě $x_1$.
+
+Namísto výše uvedeného modelu lze také uvažovat jeho analogii
+\begin{equation}
+y = \alpha_0 + \delta_1 x_1 + \delta_2 x_2 + \beta_3(x_1 - \mu_1)(x_2 - \mu_2) + u,
+\end{equation}
+kde $\mu_1$ resp. $\mu_2$ představují střední hodnotu $x_1$ resp. $x_2$. Parametr $\delta_2$ vyjadřuje vliv $x_2$ na $y$ za předpokladu $x_2 = 
+\mu_2$, tj. $\delta_2 = \beta_2 + \beta_3 \mu_1$. Nic nám však nebrání ve výše uvedeném modelu nahradit $\mu_1$ a $\mu_2$ jinými hodnotami, které 
+mohou mít z našeho pohledu vyšší informativní hodnotu.
+
+\section{Míra shody a výběr vysvětlujících veličin}
+
+Nízké $R^2$ indikuje, že regresní model nezahrnuje všechny relevantní vysvětlující proměnné. V takovémto případě je rozptyl chyby $u$ v porovnání s rozptylem 
+$y$ vysoký a přesný odhad parametrů $\beta_j$ je problematický. Hodnota $R^2$ nám však nic neříká o korelaci mezi $u$ a vysvětlujícím 
+proměnnými zahrnutými do modelu. Připomeňme, že změna $R^2$ v důsledku přidání vysvětlující proměnné do modelu nám poskytuje 
+užitečnou informaci - $R^2$ forma $F$ testu sdružené významnosti parametrů porovnává $R^2$ neomezeného a omezeného regresního modelu, tj. 
+před a po vynechání těchto parametrů.
+
+\subsection{Korigované $R^2$ (adjusted $R^2$)}
+
+Připomeňme, že klasické $R^2$ modelu vypočtené na základě náhodného výběru je definované jako
+\begin{equation}
+R^2 = 1 - \frac{SSR/n}{SST/n}.
+\end{equation}
+Vedle toho lze definovat také tzv. populační $R^2$ jako
+\begin{equation}
+\rho^2 = 1 - \frac{\sigma_u^2}{\sigma_y^2}.
+\end{equation}
+Klasické $R^2$ používá $SSR/n$ jako odhad $\sigma_u^2$ a $SST/n$ jako odhad $\sigma_y^2$. Nicméně tyto odhady rozptylů jsou zkreslené, 
+protože správně bychom měli uvažovat $SSR/(n - k - 1)$ a $SSR/(n - 1)$. Tímto se dostáváme k tzv. korigovanému $R^2$, které označujeme 
+jako $\overline{R}^2$.
+\begin{equation}
+\overline{R}^2 = 1 - \frac{SSR/(n - k - 1)}{SST / (n - 1)} = 1 - \frac{\hat{\sigma}^2}{SST / (n - 1)}
+\end{equation}
+Navzdory svému názvu $\overline{R}^2$ není lepším mírou než $R^2$. Jeho zásadní výhodou však je, že zohledňuje počet vysvětlujích 
+veličin zahrnutých do modelu. Pokud do modelu přidáme novou vysvětlující veličinu, pak se $\overline{R}^2$ zvýší pouze v případě, že 
+je její $t$ statistika v absolutní hodnotě vyšší než jedna\footnote{Zobecněním tohoto tvrzení je, že pokud do modelu přidáme skupinu 
+vysvětlujících veličin, pak se $\overline{R}^2$ modelu zvýší pouze v případě, že jejich $F$ statistika je větší než nula.}. Vztah mezi 
+$R^2$ a $\overline{R}^2$ je popsán následující rovnicí.
+\begin{equation}
+\overline{R}^2 = 1 - \frac{(1 - R^2)(n - 1)}{n - k - 1}
+\end{equation}
+Tato rovnice nám říká, že $\overline{R}^2$ může být dokonce záporná.
+
+Korigované $\overline{R}^2$ je také možné použít při rozhodování se mezi dvěma modely. Uvažujme např. modely ve tvaru
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + u
+\end{equation}
+a
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_5 x_5 + u,
+\end{equation}
+ve kterých zvažujme zahrnutí dvou silně korelovaných vysvětlujících veličin $x_4$ resp. $x_5$. Protože 
+přidání jak $x_4$ tak $x_5$ je z důvodu vysoké korelace nežádoucí, je nutné rozhodnout se pro jeden z výše uvedených modelů. Rozhodnutí 
+je možné podepřít hodnotou $\overline{R}^2$, kdy se rozhodneme pro model s vyšší $\overline{R}^2$. Jak již bylo zmíněno, je třeba si 
+uvědomit, že tímto způsobem můžeme porovnávat pouze modely se stejnou formou, tj. nemůžeme např. na základě hodnoty 
+$\overline{R}^2$ porovnávat standardní model pro $y$ a logaritmický model pro $ln(y)$.
+
+\section{Predikce}
+
+\subsection{Intervaly spolehlivosti}
+
+Uvažujme regresní model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + u
+\end{equation}
+a jeho odhad
+\begin{equation}
+\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2 + ... + \hat{\beta}_k x_k.
+\end{equation}
+Definujme
+\begin{equation}
+\theta_0 = \beta_0 + \beta_1 c_1 + \beta_2 c_2 + ... + \beta_k c_k = E[y | x_1 = c_1, x_2 = c_2, ..., x_k = c_k].
+\end{equation}
+Odhad pro $\theta_0$ je pak
+\begin{equation}
+\hat{\theta}_0 = \hat{\beta}_0 + \hat{\beta}_1 c_1 + \hat{\beta}_2 c_2 + ... + \hat{\beta}_k c_k.
+\end{equation}
+Přirozenou snahou je pak získat interval spolehlivosti pro $\hat{\theta}_0$, k čemuž je zapotřebí znalost směrodatné odchylky 
+$\hat{\theta}_0$. K tomuto účelu použijeme vztah $\beta_0 = \theta_0 - \beta_1 c_1 - ... - \beta_k c_k$, který vložíme do rovnice (6.20). Tím 
+získáme regresní model
+\begin{equation}
+y = \theta_0 + \beta_1 (x_1 - c_1) + \beta_2 (x_2 - c_2) + ... + \beta_k(x_k - c_k) + u,
+\end{equation}
+který lze standardním postupem odhadnout a získat tak požadovanou směrodatnou odchylku. Protože směrodatná odchylka průsečíku je nejmenší pro vysvětlující veličiny s nulovou střední hodnotou, je směrodatná odchylka 
+$\hat{\theta}_0$ z modelu (6.24) nejmenší, pokud $c_j = \overline{x}_j$.
+
+Nechť jsou $x_1^0, x_2^0, ..., x_k^0$ hodnoty vysvětlujících veličin, pro které chceme odhadnout hodnotu $y$, tj.
+\begin{equation}
+y^0 = \beta_0 + \beta_1 x_1^0 + \beta_2 x_2^0 + ... + \beta_k x_k^0 + u^0.
+\end{equation}
+Chyba predikce je
+\begin{equation}
+\hat{e}^0 = y^0 - \hat{y}^0 = (\beta_0 + \beta_1 x_1^0 + ... + \beta_k x_k^0) + u^0 - \hat{y}^0.
+\end{equation}
+Protože $\hat{\beta}_j$ je nezkreslené, platí $E[\hat{y}^0] = \beta_0 + \beta_1 x_1^0 + ... + \beta_k x_k^0$, což implikuje $E[\hat{e}^0] = 0$. 
+Protože $u^0$ a $\hat{y}^0$ jsou nekorelované
+\begin{equation}
+var[\hat{e}^0] = var[\hat{y}^0] + var[u^0] = var[\hat{y}_0] + \sigma^2.
+\end{equation}
+Rozptyl $\hat{e}^0$ má tedy dvě složky. První je dána odhadem parametrů $\beta_j$ a druhá je rozptyl populační chyby. První složka je, 
+stejně jako rozptyl jednotlivých regresních parametrů, proporcionální k $\frac{1}{n}$, tj. klesá s rostoucí velikostí náhodného výběru. 
+Druhá složka je nezávislá na velikosti náhodného výběru.
+
+Při splnění klasických předpokladů lineárního modelu sledují $\hat{\beta}_j$ a $u^0$ normální rozdělení, a proto je $e^0$ taktéž 
+normálně rozděleno. Stejně jako v případě $\hat{\beta}_j$ sleduje $\frac{\hat{e}^0}{se(\hat{e}^0)}$ Studentovo rozdělení s $n - k - 1$ 
+stupni volnosti, což znamená
+\begin{equation}
+\hat{y}^0 \pm t_{\alpha / 2} se(\hat{e}^0),
+\end{equation}
+kde
+\begin{equation}
+se(\hat{e}^0) = \sqrt{[se(\hat{y}^0)]^2 + \hat{\sigma}^2}.
+\end{equation}
+
+\subsection{Predikce $y$ pro vysvětlovanou veličinu $ln(y)$}
+
+Uvažujme regresní model
+\begin{equation}
+ln(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + u
+\end{equation}
+a jeho odhad
+\begin{equation}
+\widehat{ln(y)} = \hat{\beta}_0 + \hat{\beta_1} x_1 + \hat{\beta}_2 x_2 + ... + \hat{\beta_k} x_k.
+\end{equation}
+Pokud bychom pro odhad $\hat{y}$ použili $e^{\widehat{ln(y)}}$, dopustili bychom se podhodnocení skutečné očekávané hodnoty $y$. Pokud jsou pro (6.30)
+splněny CML předpoklady, pak lze dokázat
+\begin{equation}
+E[y| x_1, ..., x_k] = e^{\sigma^2/2}e^{\beta_0 + \beta_1 x_1 \beta_2 x_2 + ... + \beta_k x_k},
+\end{equation}
+což vychází ze skutečnosti, že pokud $u \sim N(0, \sigma^2)$, pak očekávaná hodnota $e^u$ je $e^{\sigma^2/2}$. To znamená, že odhad $y$ je
+\begin{equation}
+\hat{y} = e^{\hat{\sigma}^2/2}e^{\widehat{ln(y)}},
+\end{equation}
+kde $\hat{\sigma}^2$ je nestranný odhad $\sigma^2$. Odhad (6.33) není nestranný, ale je konzistentní. Nestranný odhad $y$ neexistuje a ačkoliv je (6.33) 
+v řadě případů dostačující, je tento odhad postaven na předpokladu normality. Proto je vhodné mít také odhad, který na tomto 
+předpokladu není závislý.
+
+Předpokládejme, že $u$ je nezávislé na vysvětlujících veličinách. Pak platí
+\begin{equation}
+E[y|x_1, ..., x_k] = \alpha_0 e^{\beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k},
+\end{equation}
+což znamená
+\begin{equation}
+\hat{y} = \hat{\alpha}_0 e^{\widehat{ln(y)}}.
+\end{equation}
+Nejprve tedy odhadneme model (6.30) a vypočteme hodnotu reziduí $\hat{u}_i = ln(y_i) - \hat{\beta}_0 - \hat{\beta}_1 x_{i1} - ... - \hat{\beta}_k 
+x_{ik}$. Odhad $\alpha_0$ je pak
+\begin{equation}
+\hat{\alpha_0} = \frac{1}{n} \sum_{i = 1}^n e^{\hat{u}_i}.
+\end{equation}
+Tento odhad je sice konzistentní, avšak není nestranný, protože jsme $u_i$ nahradili $\hat{u}_i$ v rámci nelineární funkce.
+
+Alternativně lze definovat 
+$m_i = e^{\beta_0 + \beta_1x_{i1} + ... + \beta_kx_{ik}}$, což s ohledem na (6.34) znamená $E[y_i | m_i] = \alpha_0 m_i$ a $\hat{m}_i = 
+e^{\widehat{ln(y_1)}}$. Odhad sklonu jednoduchého regresního modelu $y_i$ na $\hat{m}_i$ bez průsečíku je
+\begin{equation}
+\check{\alpha}_0 = \frac{\sum_{i = 1}^n \hat{m}_i^2}{\sum_{i = 1}^n \hat{m}_i y_i}.
+\end{equation}
+Podobně jako $\hat{\alpha}_0$ je také $\check{\alpha}_0$ konzistentní ale není nestranné. Ačkoliv $\check{\alpha}_0$ je ve většině případů 
+větší než jedna, není toto garantováno. Pokud je $\check{\alpha}_0$ výrazně menší než jedna, pak to obvykle indikuje korelaci mezi $u$ a 
+$x_j$. V tomto případě lze namísto $\check{\alpha}_0$ použít $\hat{\alpha}_0$.
+
+\section{Dodatek 6A}
+V tomto dodatku si krátce představíme tzv. metodu opakovaného výběru (resampling method) někdy též označovanou jako metoda bootstrapingu. 
+Obecnou myšlenkou této metody je nakládání s původním náhodným výběrem jako s populací, ze které je možné získat další náhodné výběry.
+ 
+Uvažujme odhad $\hat{\theta}$ a předpokládejme, že chceme získat směrodatnou odchylku $\hat{\theta}$ pro výpočet $t$ statistiky nebo pro 
+konstrukci intervalů spolehlivosti. Označme pozorování v našem původním náhodném výběru pořadovými čísly od 1 do $n$ a losujme $n$ 
+náhodných čísel s opakováním, čímž vytvoříme nový náhodný výběr. Je zřejmé, že tento postup můžeme opakovat a pro každý takto 
+získaný náhodný výběr $b$ určit odhad $\hat{\theta}^b$ hledaného parametru $\theta$. Střední hodnotu a směrodatnou 
+odchylku $\hat{\theta}$ pak lze snadno vypočíst jako
+\begin{equation}
+\overline{\hat{\theta}} = \frac{1}{m}\sum_{b = 1}^m \hat{\theta}^b
+\end{equation}
+a
+\begin{equation}
+bse(\hat{\theta}) = \sqrt{\frac{1}{m - 1} \sum_{b = 1}^m (\hat{\theta}^b - \overline{\hat{\theta}})^2}.
+\end{equation}
+Pokud nám to výpočetní čas dovolí, typicky volíme $m$ rovno 1,000.

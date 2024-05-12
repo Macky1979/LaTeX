@@ -1,0 +1,34 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{Typy obchodů}
+
+\section{FX opce}
+
+KB nemůže mít v těchto typech obchodů pozici - obchody jsou uzavírány tzv. back-to-back se SoGe. Jestliže tedy např. KB prodá FX opci klientovi, musí ji obratem nakoupit od SoGe. Tímto jsou rizika vyplývající z měnové opce "vyvedeny" do SoGe a KB získává provizi za zprostředkování obchodu. Současně však je se SoGe uzavřen ekvivalentní FX forward. Tímto způsobem je převedeno nelineární riziko z měnové opce na lineární riziko z FX forwardu. V rámci aplikace Kondor+ je pak FX forward "rozbit" na spotový obchod, jeden obchod typu loan a jeden obchod typu deposit (konkrétně se jedná o IAM obchody, které jsou označeny jako Deltahedge).
+
+\section{Emisní povolenky}
+
+V rámci EU musí všichni velcí emitenti $CO_2$ monitorovat a na roční bázi hlásit svůj objem emisí. Emisní povolenky jsou poukázky EU na emisi 1 tuny $CO_2$ popř. odpovídajícího množství ekvivalentu. Každý emitent je povinnen na konci roku odevzdat takové množství povolenek, které odpovídá objemu jím vyprodukovaného $CO_2$. Tyto povolenky dostává každý zúčastněný subjekt přiděleny od vlády popř. je může nakoupit od jiných subjektů na trhu. Aby bylo docíleno snížení emisí, je vydáno menší množství povolenek než kolik by odpovídalo normálně vyprodukovanému $CO_2$. Tímto způsobem má být vytvářen tlak na zeefektivnění výrobních procesů a tím pádem také na snížení objemu emisí. Objem emisních povolenek pro jednotlivé země je stanoven v tzv. \textit{National Allocation Plan (NAP)}, který je schvalován Komisí EU.
+
+Monentálně se tento systém nachází před prahem druhé fáze, která pokrývá období 2008~-~2012. Povolenky jsou vždy emitovány subjektům průběhu března na roční bázi. Jestliže některému subjektu na konci roku poukázky zbydou, může je převést do následujícího roku.\\
+
+Pro emisní povolenky jsou k dispozici spotové a forwardové ceny. V případě spotových cen se jedná o povolenky, které již byly emitovány a může s nimi být tudíž obchodováno. V době psaní tohoto článku (tj. k 16.8.2007) se jednalo o povolenky z končící první fáze, která pokrývala období 2005~-~2007. Forwardové ceny jsou stanovovány vždy k 1.12. příslušného roku. Momentálně se tedy jedná o forwardové ceny k 1.12.2007 \footnote{Jedná se forwardovou cenu povolenek z období 2005~-~2007, které již byly všechny emitovány. Poslení emise těchto poukázek proběhla v březnu 2007.}, 1.12.2008, 1.12.2009, 1.12.2010, 1.12.2011 a 1.12.2012 \footnote{Forwardové ceny pro období 2008~-~2012 se týká poukázek z druhé fáze. První z těchto poukázek budou emitovány teprve v březnu 2008 a proto pro ně není k dispozici spotová cena.}.
+
+KB provádí s protistranami forwardové obchody s emisními povolenkami. Při obchodování musí být splněno pravidlo, že KB nejprve povolenky forwardově nakoupí po té je musí v periodě, která následuje po jejich fyzickém dodání, forwardově prodávat. Tato podmínka má dva důsledky:
+\begin{itemize}
+\item celková pozice KB je nulová (tj. KB musí forwardově prodat tolik povolenek, kolik jich forwardově nakoupila)
+\item pozice KB v povolenkách je v jakýkoliv okamžik dlouhá nebo nulová 
+\end{itemize}
+Tyto dvě pravidla jsou společně s limitem otevřené pozice monitorovány v rámci každodenního reportingu.
+\end{document}
+
+
+

@@ -1,0 +1,155 @@
+\chapter{Korelace defaultu}
+
+Neočekávanou ztrátu portfolia jsme v minulé kapitole vypočetli pomocí vzorce
+\begin{equation*}
+UL_P = \left[\sum_i \sum_j \rho_{ij} UL_i UL_j\right]
+\end{equation*}
+kde $\rho_{ij}$ byla tzv. korelace defaultu úvěrových aktiv\footnote{Poskytnutý úvěr je z pohledu banky aktivem, odtud pojem "úvěrové aktivum".}. Je třeba zdůraznit, že se nejedná o párovou korelaci aktiv společností $i$ a $j$ reprezentovaných např. cenou jejich akcií. Korelace defaultu je nejobtížněji kvatifikovatelný parametr v rámci řízení kreditních rizik - nelze ho měřit přímo, musí být vypočten.
+
+Uvažujme dvě úvěrová aktiva $i$ a $j$. Lze dokázat, že korelaci defaultu těchto dvou aktiv lze vypočíst na základě vztahu
+\begin{equation}
+\rho_{ij} = \frac{P(D_i \cdot D_j) - EDF_i \cdot EDF_j}{\sqrt{EDF_i(1 - EDF_i)}\sqrt{EDF_j(1 - EDF_j)}}
+\end{equation}
+kde $P(D_i \cdot D_j) = EDF_i + EDF_j - P(D_i + D_j)$ vyjadřuje pravděpodobnost, že alespoň jeden dlužník zdefaultuje. Vzhledem k tomu, že sdružená pravděpodobnost defaultu $P(D_i \cdot D_j)$ není známa, je konkrétní podoba této pravděpodobnostní funkce stanovena předpokladem. V praxi je nejčastěji používáno sdružené normální rozdělení.
+
+\begin{example}
+Uvažujme akcie s korelací $\rho = 0.19$ emitované dlužníky A a B. Předpokládejme, že $P(D_a \cdot D_b)$ těchto dvou dlužníků sleduje sdružené dvourozměrné normální rozdělení. Dále předpokládejme, že pravděpodobnosti defaultu jsou $EDF_a = 0.0062$ a $EDF_b = 0.0025$ a že volatility uvažovaných akcií jsou $S_a = 0.3$ a $S_b = 0.6$.
+
+Nejprve z pravděpodobnosti defaultu vypočtěme odpovídající kvantil normálního rozdělení.
+\begin{align*}
+D_a := \Phi(EDF_a, 0, S_a) = -0.75\\
+D_b := \Phi(EDF_b, 0, S_b) = -1.404
+\end{align*}
+Sdruženou pravděpodobnost defaultu lze vypočíst jako
+\begin{multline*}
+P(D_i \cdot D_j) := \int_{-10}^{D_b} \int_{-10}^{D_a} \frac{1}{2 \pi S_a S_b \sqrt{1 - \rho^2}} \times\\
+e^{-\frac{1}{2}\frac{1}{1 - \rho^2}\left[\left(\frac{x}{S_a}\right)^2 - 2\rho\frac{xy}{S_a S_b}\right] + \left(\frac{y}{S_b}\right)^2}dxdy = 6.504 \times 10^{-5}
+\end{multline*}
+Korelace defaultu je tak rovna
+\begin{equation*}
+\rho_{ab} = \frac{P(D_i \cdot D_j) - EDF_aEDF_b}{\sqrt{EDF_a(1 - EDF_a)}\sqrt{EDF_b(1 - EDF_b)}} = 0.013
+\end{equation*}
+Korelace defaultu je tedy o řád nižší než korelace aktiv.
+\end{example}
+
+Z výše uvedené rovnice je zřejmé, že $\rho_{ij}$ je invariantní pro $x / S_a$ a $y / S_b$. Proto lze od volatilit abstrahovat a integrál omezit na jednotkové dvourozměné rozdělení.
+
+\section{Vlastnosti korelací defaultu}
+
+Praxe i akademický výzkum naznačují následující vlastnosti korelace defaultu.
+\begin{itemize}
+\item Korelace defaultu jsou obecně nízké a mají tendenci růst s tím, jak se zvyšuje rating dlužníků.
+\item Korelace defaultu v čase zpočátku rostou a následně opět klesají.
+\item Korelace defaultu je zpravidla výrazně nižší než korelace mezi aktivy dlužníků. Tento bod potvrdil i náš příklad s korelací aktiv 0.19 a korelací defaultu 0.013.
+\item Často se sektáváme s mýtem, že korelace defaultu je v rozmezí 1\% až 5\%. Průměrná korelace defaultu je však nižší. Na druhou stranu korelace v rámci jedné odvětvové skupiny je zpravidla výrazně vyšší.
+\item Dalším mýtem je, že korelace defaultu v rámci jedné odvětvové skupiny je rovna 100\%. To by znamenalo, že pokud zdefaultu jeden dlužník, pak automaticky zdefaultují všichni dlužníci v rámci skupiny, což je pochopitelně nesmysl.
+\end{itemize}
+
+\section{Odhad korelace aktiv}
+
+Korelace aktiv se obvykle vyjadřuje pomocí korelace výnosů akcií emitovaných danými dlužníky. Problém nastává v situaci, kdy cena akcie není kotována na trhu. V tomto případě se zpravidla použije odvětvový index. Tím však lze podchytit pouze část volatility, tzv. systematické riziko. Zbývající část volatility, která je dána konkrétní situací dlužníka, označujeme jako specifické (nebo také idiosynkratické) riziko.
+
+Uvažujme dlužníky A resp. B, které lze indexovat pomocí odvětví $\alpha$ resp. $\beta$ s korelací $\rho_{\alpha \beta}$. Předpokládejme, že výnosnost aktiv dlužníka A, $r^A$, je váženým průměrem výnosu odvětví, $r_{\alpha}$, a specifického výnosu $\hat{r}_A$.
+\begin{equation*}
+r^A = \omega)1^A r_{\alpha} + \omega_2^A \hat{r}^A
+\end{equation*}
+Podobně výnosnost aktiv dlužníka B lze vyjádřit jako
+\begin{equation*}
+r^B = \omega)1^B r_{\alpha} + \omega_2^B \hat{r}^B
+\end{equation*}
+Přepokládejme, že specifické části výnosnosti aktiv jsou nezávislé, tj. $\rho_{\hat{r}^A, \hat{r}^B} = 0$. Korelace aktiv dlužníků A a B je pak
+\begin{equation*}
+\rho(A,B) = \omega_1^A \omega_1^B \rho_{\alpha \beta}
+\end{equation*}
+
+Specifické riziko se obecně považuje za funkci velikosti společnosti - čím větší společnost, tím nižší specifické riziko. JP Morgan CreditManager používá pro odhad váhy specifického rizika následující logistickou křivku
+\begin{equation*}
+\omega_2^{A/B} = \frac{1}{2(1 + Assets^{\gamma} e^{\lambda})}
+\end{equation*}
+kde $Assets$ představuje celkový objem aktiv společnosti vyjádřený v dolarech a parametry jsou odhadnuty na $\gamma = 0.4884$ a $\lambda = -12.4739$.
+
+\begin{example}
+Uvažujme společnosti A a B s aktivy ve výši 100 MUSD. Váha specifického rizika odhadnutá pomocí výše uvedené rovnice je 48.5\%. Váha systematického rizika je tak rovna 51.5\% a výsledná korelace aktiv je tak rovna
+\begin{equation*}
+\rho(A, B) = 51.5\% \times 51.5\% \times \rho_{\alpha \beta}
+\end{equation*}
+\end{example}
+
+\section{Modelování korelací aktiv pomocí faktorového modelu}
+
+Uvažujme společnosti Toyota a General Motors. Protože obě společnosti působí v automobilovém průmyslu, je zřejmé, že hodnota jejich aktiv bude vzájemně korelovaná. Logaritmickou změnu ceny aktiv je tak možné vyjádřit pomocí regrese
+\begin{equation}
+r = \beta \Theta + \varepsilon
+\end{equation}
+Proměnná $\Theta$ v je našem případě představována akciovým indexem automobilového průmyslu, ale může zahrnovat více faktorů. V takovém případě se jedná o syntetický index, který je dán vztahem
+\begin{equation}
+\Theta = \sum_{k = i}^K w_k \psi_k
+\end{equation}
+kde $w_k$ předavuje váhu $k$-tého dílčího indexu v rámci dlužníka a $\psi_k$ pak představují jednotlivé indexy. Typickým příkladem je situace, kdy aktivity společnosti zahrnují několik odvětví nebo když je společnost svázána s určitým regionem\footnote{Hospodářský vývoj v regionu pak zpravidla modelujeme pomocí reprezentativního akciového indexu daného regionu.}.
+
+Výše uvedená konstrukce nám umožňuje zásadním způsobem snížit počet párových korelací. Uvažujme portfolio obsahující 1~000 dlužníků. Výsledná korelační matice by obsahovala téměr půl miliónu párových korelací. Jestliže však každému dlužníkovi přiřadíme jedno z deseti odvětví a jeden z pěti regionů, zredukuje se počet párových korelací na pouhých 105.
+
+Riziko dlužníka pak lze definovat jako
+\begin{equation}
+D[r] = \beta ^ 2 D[\Theta] + D[\varepsilon]
+\end{equation}
+Část $\beta D[\Theta]$ se nazývá systematickým rizikem, část $D[\varepsilon]$ pak specifickým resp. idiosynkratickým rizikem. Systematické riziko je dáno externími faktory a je společné všem dlužníkům v rámci skupiny definované parametrem $\Theta$\footnote{Připomeňme, že se u jednotlivých dlužníků liší parametr expozice $\beta$, a proto se také liší výše systematického rizika. Korelace systematického rizika mezi jednotlivými dlužníky v rámci skupiny je rovna součinu jejich paramterů $\beta$.}. Systematické riziko představuje tu část rizika, které se nepodařilo vysvětlit pomocí $\Theta$, a které je vlastní tak konkrétnímu dlužníkovi.
+ 
+\section{Příloha A - Odvození korelace defaultu}
+
+Nechť $D_i$ a $D_j$ představují default dlužníků $i$ a $j$ před stanoveným časovým horizontem. Definujme
+\begin{align*}
+P(D_i) = EDF_i\\
+P(D_j) = EDF_j
+\end{align*}
+S pomocí kovariance a směrodatných dochylek lze korelaci vyjádřit jako
+\begin{equation*}
+\rho_{ij} = \frac{\sigma_{ij}}{\sigma_i \sigma_j}
+\end{equation*}
+Za předpokladu dvoustavového modelu jsou směrodatné odchylky definovány jako
+\begin{align*}
+\sigma_i = \sqrt{EDF_i(1 - EDF_i)}\\
+\sigma_j = \sqrt{EDF_j(1 - EDF_j)}
+\end{align*}
+Kovariance je pak rovna
+\begin{multline*}
+\sigma_{ij} = E[D_i \cdot D_j] - E[D_i]E[D_j] = P(D_i \cdot D_j) - P(D_i)P(D_j)\\
+= P(D_i \cdot D_j) - EDF_i EDF_j
+\end{multline*}
+čímž se dostáváme ke vztahu
+\begin{equation*}
+\rho_{ij} = \frac{P(D_i \cdot D_j) - EDF_i EDF_j}{\sqrt{EDF_i(1 - EDF_j)}\sqrt{EDF_j(1 - EDF_j)}}
+\end{equation*}
+
+\section{Příloha B - Korelace sdružených kreditních migrací}
+
+Mějme osm kreditních stavů AAA, AA, A, BBB, BB, B, CCC a D. Vraťme se zpět k Mertonově modelu. Předpokládejme, že každý z kreditních stavů je charakterizován určitým rozpětím hodnoty aktiv společnosti. Situaci ilustruje následující obrázek pro dlužníka, který se aktuálně nachází v kreditní skupině BB. Předpokládáme, že výnosnost aktiv sleduje normální rozdělení
+OBRÁZEK
+Např. pravděpodobnost přesunu dlužníka do kreditní skupiny CCC je tak dána
+\begin{equation*}
+P[CCC] = P[Z_D < R < Z_{CCC}] = N(Z_{CCC}) - N(Z_D)
+\end{equation*}
+Kvantily $Z_D$, $Z_{CCC}$, ..., $Z_{AAA}$ jsou stanoveny tak, aby jim odpovídající plocha části pravděpodobnostního rozdělení odpovídala migrační matici. Např. je-li pravděpodobnost defaultu rovna $0.18\%$, pak je $Z_D$ dáno
+\begin{equation*}
+Z_D = N^{-1}[P[default]] = N^{-1}[0.0018] = -2.912
+\end{equation*}
+Tímto způsobem je pravděpodobnostní rozdělení "rozřezáno" na jednotlivé kreditní regiony.
+OBRÁZEK
+OBRÁZEK
+Pokusme se odvodit sdruženou pravděpodobnost kreditních migrací dlužníka A a B. S její pomocí je možné kvantifikovat pravděpodobnost, že se dlužník A přesune z kreditní skupiny BBB do skupiny AA a zároveň dlužník B zůstane v kreditní skupině AA. Podobně jako v případě dvoustavového modelu předpokládejme, že tuto sdruženou pravděpodobnost lze modelovat pomocí dvourozměrného normálního rozdělení, tj.
+\begin{equation*}
+f(x, y, \rho) = \frac{1}{2 \pi \sqrt{1 - \rho^2}}e^{-\frac{1}{2(1 - \rho^2)}(x^2 + y^2 - 2\rho x y)}
+\end{equation*}
+kde $\rho$ představuje korelaci aktiv mezi oběma dlužníky a kterou lze odhadnout pomocí
+\begin{equation*}
+\rho = \alpha \times corr(ind_1, ind_2)
+\end{equation*}
+kde $ind_1$ a $ind_2$ představují odvětvové indexy, do kterých náleží dlužnící A a B a koeficient $\alpha$ slouží k redukci korelace v případě, kdy oba dlužníci náleží do téhož odvětví.
+
+\begin{example}
+Přepodkládejme, že korelace mezi aktivy je $\rho = 30\%$. Jaká je pravděpodobnost, že se dlužník A přesune ze kreditní skupiny BBB do skupiny AA a dlužník B zůstane v kreditní skupině A?
+\begin{equation*}
+P_{23} - P_2P_3 = \int_{2.696}^{3.54} \int_{-1.51}^{1.98}f(x,y,\rho)dxdy - 0.0033 \times 0.9105 = -1.41 \times 10^{-4}
+\end{equation*}
+Hodnoty integračních mezí byly převzaty z výše uvedených tabulek.
+\end{example}

@@ -1,0 +1,151 @@
+\chapter{Neparametrické metody}
+
+Při aplikaci obecného věrohodnostního poměru jsme pracovali s parametrickým prostorem, který definoval určitou rodinu pravděpodobnostních rozdělení. Při testování hypotéz jsme tak znali funkční předpis pravděpodobnostního rozdělení. Jediné, co jsme neznali, byly parametry tohoto rozdělení. Metody, které představíme v následujícím textu, se neopírají o znalost funkčního předpisu ani o znalost parametrů a jsou tak aplikovatelné pro široké spektrum pravděpodobnostních rozdělení\footnote{To znamená, že pro svou aplikaci nevyžadují určité konkrétní pravděpodobnostní rozdělení jako např. normální rozdělní.}. Význam těchto metod pro praxi je zřejmý, protože pravděpodobnostní rozdělení populace, ze které provádíme náhodný výběr, obvykle neznáme.
+
+\section{Kumulativní distribuční funkce}
+
+\subsection{Výběrová kumulativní distribuční funkce}
+
+V kapitole (6.4.3) jsme výběrovou kumulativní distribuční funkci definovali jako
+\begin{equation*}
+F_n(x) = \frac{1}{n}(\textit{počet} ~ X_i ~ \textit{menších nebo rovných} ~ x) = \frac{1}{n}\sum_{i = 1}^n I_{(-\infty, x]}(X_i)
+\end{equation*}
+kde $X_1, ..., X_n$ představuje náhodný výběr z určité kumulativní distribuční funkce $F(\cdot)$. Dle věty (6.19) platí
+\begin{equation}
+P\left[F_n(x) = \frac{k}{n}\right] = \binom{n}{k}[F(x)]^k[1 - F(x)]^{n - k}, ~~~ k = 0, 1, ..., n
+\end{equation}
+kde $F_n(\cdot)$ je výběrovou kumulativní distribuční funkcí odpovídající $F(\cdot)$. Z rovnice (11.2) vyplývá
+\begin{equation}
+E[F_n(x)] = \sum_{k = 0}^n \frac{k}{n}\binom{n}{k}[F(x)]^k[1 - F(x)]^{n - k} = F(x)
+\end{equation}
+a podobně
+\begin{equation}
+D[F_n(x)] = \frac{1}{n}F(x)[1 - F(x)]
+\end{equation}
+
+Protože je $F_n(x)$ výběrovou střední hodnotou náhodných veličin $I_{(-\infty, x]}, ..., I_{-\infty, x}(X_n)$, sleduje $F_n(x)$ dle centrálního limitního teorému
+asymptoticky normální rozdělení se střední hodnotou $F(x)$ a rozptylem $\frac{1}{n}F(x)[1 - F(x)]$.
+
+Z rovnic (11.3) a (11.4) vyplývá, že pro fixní $x$ je $F_n(x)$ nezkreslenou a MSE konzistentní funkcí odhadu pro $F(x)$ bez ohledu na její konkrétní funkční předpis. Protože nás však zajímá odhad $F(x)$ pro všechny hodnoty $x$, potřebujeme vědět, jak blízké je $F_n(x)$ k $F(x)$ sdruženě přes všechny hodnoty $x$. To znamená, že předmětem našeho zájmu je
+\begin{equation*}
+P[\sup_{-\infty < x < \infty} |F_n(x) - F(x)| \xrightarrow{n \rightarrow \infty} 0] = 1
+\end{equation*}
+Tato rovnice, nazývaná Glivenko-Canteliovou větou, říká, že $F_n(x)$ konverguje s pravděpodobností k $F(x)$ pro libovolné $x$. Definujme
+\begin{equation*}
+D_n = \sup_{-\infty < x < \infty}|F_n(x) - F(x)|
+\end{equation*}
+kde $D_n$ náhodná veličina, která měří vzdálenost mezi $F_n(\cdot)$ a $F(\cdot)$. Rovnice (11.5) tedy říká, že $P[\lim_{n \rightarrow \infty} D_n = 0] = 1$. To znamená, že kumulativní distribuční funkce $F_{D_n}(\cdot)$ náhodné proměnné $D_n$ konverguje k diskrétní kumulativní distribuční funkce s jediným bodem koncentrace v 0.
+
+Namísto bodového odhadu $F(x) = P[X \le x]$ může být někdy žádoucí bodový odhad $F(y) - F(x) = P[x < X < y]$ pro fixní $x < y$. Následující tvrzení ukazuje, že $F_n(y) - F_n(x)$ je nezkreslenou MSE konsistení funkcí odhadu pro $F(y) - F(x)$.
+
+\begin{corollary}
+\begin{equation}
+cov[F_n(x), F_n(y)] = \frac{1}{n}F(x)[1 - F(y)] ~~~ \textit{pro} ~ y \ge x
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+\begin{multline*}
+cov[F_n(x), F_n(y)] = cov\left[\frac{1}{n}\sum_{i = 1}^n I_{(-\infty, x]}(X_i), \frac{1}{n}\sum_{j = 1}^n I_{(-\infty, y]}(X_j)\right]\\
+= \left(\frac{1}{n}\right)^2 cov \left[\sum_{i = 1}^n I_{(-\infty, x]}(X_i), \sum_{j = 1}^n I_{-\infty, y}(X_j)\right] = \left(\frac{1}{n}\right)^2 \sum_{i = 1}^n \sum_{j = 1}^n cov[I_{(-\infty, x]}(X_i), \sum_{(-\infty, y]}(X_j)]\\
+= \frac{1}{n}cov[I_{(-\infty, x]}(X_1), I_{(-\infty, x]}(X_1)] = \frac{1}{n}\left(E[I_{(-\infty, x]}(X_1)I_{(-\infty, y]}(X_1)] - E[I_{(-\infty, x]}(X_1)]E[I_{(-\infty, y]}(X_1)]\right)\\
+= \frac{1}{n}[F(x) - F(x)F(y)] = \frac{1}{n}F(x)[1 - F(y)]
+\end{multline*}
+\end{proof}
+
+Z tvrzení (11.1) je zřejmé, že
+\begin{equation*}
+D[F_n(y) - F_n(x)] = D[F_n(y)] - 2 cov[F_n(x), F_n(y)] + D[F_n(x)] = \frac{1}{n}[F(y) - F(x)][1 - F(y) + F(x)]
+\end{equation*}
+z čehož vyplývá konzistence $F_n(y) - F_n(x)$ s $F(x) - F(y)$ ve smyslu MSE.
+
+Namísto odhadu $P[x < X \le y]$ uvažujme obecnější $P[X \in B]$, kde $B$ představuje určitou množinu. Lze dokázat, že $\frac{1}{n}\sum_{i = 1}^n I_B(X_i)$ je nezkreslenou funkcí odhadu pro $P[X \in B]$ a že
+\begin{equation*}
+D\left[\frac{1}{n}\sum_{i = 1}^n I_B(X_i)\right] = \frac{1}{n}P[X \in B](1 - P[X \in B])
+\end{equation*}
+a proto je tato funkce odhadu také MSE konzistentní.
+
+\subsection{Kolmogorov-Smirnovův test dobré shody}
+
+V předchozím textu jsme uvedli, že $F_n(x)$ asymptoticky sleduje normální rozdělení. Analogicky pak $\sqrt{n}[F_n(x) - F(x)]$ limitně sleduje normální rozdělení se střední hodnotou 0 a rozptylem $F(x)[1 - F(x)]$. Následující věta, kterou nebudeme dokazovat, uvádí limitní rozdělení
+\begin{equation*}
+\sqrt{n}D_n = \sqrt{n} \sup_{-\infty < x < \infty}|F_n(x) - F(x)|
+\end{equation*}
+\begin{theorem}
+Uvažujme nezávislé náhodné veličiny $X_1, ..., X_n$ pocházející ze stejné kumulativní distribuční funkce $F(\cdot)$. Definujme
+\begin{equation*}
+D_n = \mathfrak{d}_n(X_1, ..., X_n) = \sup_{-\infty < x < \infty}|F_n(x) - F(x)|
+\end{equation*}
+kde $F_n(x)$ představuje výběrovou kumulativní distribuční funkci. Pak
+\begin{multline}
+\lim_{n \rightarrow \infty}F_{\sqrt{n}D_n}(x) = \lim_{n \rightarrow \infty}P[\sqrt{n}D_n \le x]\\
+=\left[1 - 2 \sum_{j = 1}^{\infty}(-1)^{j - 1}e^{-2j^2x^2}\right] I_{(0, \infty)}(x) = H(x)
+\end{multline}
+\end{theorem}
+Kumulativní distribuční funkce (11.5) náhodné veličiny $\sqrt{n}D_n$ nezávisí na konkrétním funkčním předpisu $F(\cdot)$ - jedinou podmínkou je, že se jedná o spojitou funkci. To umožňuje použít $D_n$ jako statistiku pro test dobré shody. Jako příklad předpokládejme, že testujeme $\mathscr{H}_0: X_i ~ F_0(\cdot)$, kde $F_0(\cdot)$ je určitá známá spojitá kumulativní distribuční funkce. Jestliže je $\mathscr{H}_0$ pravdivé, pak
+\begin{equation}
+K_n = \mathfrak{k}_n(X_1, ..., X_n) = \sqrt{n} ~~~ \sup_{-\infty < x < \infty}|F_n(x) - F_0(x)|
+\end{equation}
+sleduje přibližně stejné rozdělení jako $H(\cdot)$. Jestliže je $\mathscr{H}_0$ nepravdivé, pak má $F_n(\cdot)$ tendenci být blízko své skutečné kumulativní distribuční funkce, a proto $\sup_{-\infty < x < \infty}|F_n(x) - F_0(x)|$ má tendenci dosahovat relativně vysokých hodnot. Protože, je-li $\mathscr{H}_0$ pravdivé, shoduje se pravděpodobnostní rozdělení náhodné veličiny $K_n = \sqrt{n} \sup_{-\infty < x < \infty}|F_n(x) - F_0(x)|$ přibližně s $H(\cdot)$. Věta (11.1) dává přibližné rozdělení náhodné veličiny $D_n$, popř. pro $H(\cdot)$ existují tabulky pro různá $n$, s jejichž pomocí lze určit $k_{1 - \alpha}$ takové, aby $1 - H(k_{1 - \alpha}) = \alpha$, tj. $P[K_n > k_{1 - \alpha}] \approx \alpha$. Hypotézu $\mathscr{H}_0$ pak zamítneme, jestliže $K_n > k_{1 - \alpha}$. Kolmogor-Smirnovův test nám tedy říká, jak dobře náhodný výběr odpovídá určité specifikované kumulativní distribuční funkci $F_0(\cdot)$.
+
+\begin{example}
+V porodnici zaznamenali v průběhu několika dní následujících 37 časů narození dítěte.\\
+
+\noindent 19:02, 23:08, 03:56, 08:12, 8:40, 00:25, 01:24, 08:25, 14:02, 23:46, 10:07, 13:53, 18:45, 09:06, 15:57, 07:40, 03:02, 10:45, 15:06, 06:26, 16:44, 12:26, 14:17, 23:45, 05:08, 05:49, 06:32, 00:40, 13:30, 00:55, 15:22, 16:09, 19:46, 02:28, 10:06, 11:19 a 16:31\\
+
+\noindent Pokusme se otestovat, zda-li čas narození dítěte sleduje uniformní rozdělení.
+
+Hypotetická i výběrová kumulativní distribuční funkce jsou ilustrovány obrázkem (11.1)
+
+OBRÁZEK
+
+Kolmogorova statistika je rovna
+\begin{equation*}
+\sqrt{n} \sup_x |F_n(x) - F(x)| = \sqrt{37}|\frac{31}{37} - \frac{1004}{1440}| \approx 0.85
+\end{equation*}
+Kritická hodnota pro $\alpha = 0.10$ je 1.22, a proto nemůžeme $\mathscr{H}_0$ zamítnout.
+\end{example}
+
+Kolmogor-Smirnovův test dobré shody předpokládá plně specifikovanou nulovou hypotézu, tj. hypotézu, která neobsahuje žádné neznámé parametry. Přirozenou otázkou je, zda-li je možné tento test rozšířit také na případy, kdy kumulativní distribuční funkce nulové hypotézy patří mezi určitou rodinu pravděpodobnostních rozdělení, tj. $\{F(\cdot; \theta): \theta \in \overline{\underline{\Theta}} \}$. Pro takovéto hypotézy však již není $\sup_x|F_n(x) - F(x; \theta)|$ statistikou, protože závisí na neznámém parametru popř. parametrech $\theta$. Jedním z možných řešení se zdá být nahradit $\theta$ jeho odhadem $\hat{\Theta}$ podobně jako v případě klasického chi-kvadrátu testu dobré shody. Testovací statistika by pak měla podobu $\sup_x|F_n(x) - F(x;\hat{\Theta})|$. Pravděpodobnostní rozdělení této statistiky závisí na hypotetické rodině pravděpodobnostních rozdělení uvažovaných v nulové hypotéze, a proto není známo. Ačkoliv existuje řada studií, které se tento problém snaží řešit, Kolmogor-Smirnovův test dobré shody nelze v praxi použít pro testování obecnějších hypotéz.
+
+\subsection{Hranice spolehlivosti pro kumulativní distribuční funkci}
+
+Větu (11.1) lze mimojiné použít také pro stanovení hranice spolehlivosti pro kumulativní distribuční funkci $F(\cdot)$, na které realizujeme náhodný výběr. Definujme $k_{\gamma}$ takové, že $H(k_{\gamma}) = \gamma$, kde $H(\cdot)$ je kumulativní distribuční funkce definovaná rovnicí (11.5). Následující tabulka obsahuje hodnoty pro vybraná $\gamma$.
+\begin{center}
+  \begin{tabular}{|c|c c c c c|}
+    \hline
+    $\gamma$ & 0.99 & 0.95 & 0.90 & 0.85 & 0.80\\
+    \hline
+    $k_{\gamma}$ & 1.63 & 1.36 & 1.22 & 1.14 & 1.07\\
+    \hline
+  \end{tabular}
+\end{center}
+Z výše uvedeného vyplývá
+\begin{equation*}
+P[\sqrt{n} \sup_x|F_n(x) - F(x)| \le k_{\gamma}] \approx \gamma
+\end{equation*}
+právě tehdy a jen tehdy, jestliže
+\begin{equation*}
+F_n(x) - \frac{k_{\gamma}}{\sqrt{n}} \le F(x) \le F_n(x) + \frac{k_{\gamma}}{\sqrt{n}}
+\end{equation*}
+pro všechna $x$. Protože
+\begin{equation*}
+\sup_x |F_n(x) - F(x)| \le \frac{k_{\gamma}}{\sqrt{n}}
+\end{equation*}
+lze tento vztah vyjádřit ve tvaru
+\begin{multline*}
+P[\sqrt{n} \sup_x|F_n(x) - F(x)| \le k_{\gamma}] = P[\sup_x|F_n(x) - F(x)| \le k_{\gamma}/ \sqrt{n}]\\
+= P \left[F_n(x) - \frac{k_{\gamma}}{\sqrt{n}} \le F(x) \le F_n(x) + \frac{k_{\gamma}}{\sqrt{n}} ~~~ \textit{pro všechna} ~ x \right]
+\end{multline*}
+S využitím skutečnosti $0 \le F(x) \le 1$, pak lze vztah dále upravit do podoby
+\begin{equation*}
+P\left[\max \left(0, F_n(x) - \frac{k_{\gamma}}{\sqrt{n}}\right) \le F(x) \le \min \left(F_n(x) + \frac{k_{\gamma}}{\sqrt{n}}\right) ~~~ \textit{pro všechna} ~ x\right] \approx \gamma
+\end{equation*}
+čímž jsme definovali dolní hranici spolehlivosti $L(x) = \max[0, F_n(x) - k_{\gamma}/\sqrt{n}]$ a horní hranici spolehlivosti $U(x) = \min[F_n(x) + k_{\gamma} / \sqrt{n}, 1]$, které tvoří 100$\gamma$ procentní rozpětí spolehlivosti pro kumulativní distribuční funkci $F(\cdot)$.
+
+\section{Kvantily}
+
+V následujícím textu předpokládejme, že všechny náhodné výběry jsou realizovány ze spojité kumulativní distribuční funkce. Připomeňme, že $q$-tý kvatil $\xi_q$ kumulativní distribuční funkce $F(\cdot)$ je definován jako $F(\xi_q) = q$ pro dané $0 < q < 1$. Jestliže $q = \frac{1}{2}$, pak $\xi_q$ nazýváme mediánem. Jak jsme zmínili v předchozím textu, lze kvantily použít také k vyjádření polohy nebo rozpětí kumulativní distr
+
+\subsection{Bodový a intervalový odhad kvantilu}
+

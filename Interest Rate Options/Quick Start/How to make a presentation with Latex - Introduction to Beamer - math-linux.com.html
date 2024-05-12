@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="ltr en no-js"> <!--<![endif]-->
+  <head>
+<base href="http://www.math-linux.com/" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>How to make a presentation with Latex - Introduction to Beamer - math-linux.com</title>
+	<meta name="description" content=" We shall see in this article how to make a presentation with LaTeX, using the powerful class Beamer. If you want to make an outstanding (...) " />
+	<link rel="canonical" href="http://www.math-linux.com/latex-26/article/how-to-make-a-presentation-with-latex-introduction-to-beamer" />
+
+    <!-- Bootstrap core JavaScript
+    ===============================-->
+	<link rel="stylesheet" href="squelettes/bootstrap/css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="squelettes/bootstrap/css/blog.css" type="text/css" />
+	<link rel="stylesheet" href="squelettes/prism.css" type="text/css" />
+
+	
+	
+	<script src="squelettes/bootstrap/js/bootstrap.min.js"></script>
+	<script src="squelettes/prism.js"></script>
+
+	
+  </head>
+
+  <body>
+
+<div class="navbar navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="nav navbar-nav"><a href="http://www.math-linux.com">Home</a></li>
+				
+				<li class="nav navbar-nav"><a href="apache/">Apache</a></li>
+				
+				<li class="nav navbar-nav"><a href="c/">C++</a></li>
+				
+				<li class="nav navbar-nav"><a href="hardware/">Hardware</a></li>
+				
+				<li class="nav navbar-nav"><a href="latex-26/">Latex</a></li>
+				
+				<li class="nav navbar-nav"><a href="linux/">Linux</a></li>
+				
+				<li class="nav navbar-nav"><a href="mathematics/">Mathematics</a></li>
+				
+				<li class="nav navbar-nav"><a href="news/">News</a></li>
+				
+			</ul>
+			<form class="navbar-form navbar-right" role="search" action="spip.php?page=recherche" method="get">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" name="recherche" id="recherche" type="hidden">
+				</div>
+				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+			</form>
+		</div>
+	</div>
+</div>
+
+	
+
+<div class="container">
+
+	<div class="blog-header">
+	<h1 class="blog-title">Math-Linux.com</h1>
+	<p class="lead blog-description">Knowledge base dedicated to Linux and applied mathematics.</p>
+	</div>
+
+	<div class="row">
+
+					<div class="col-sm-8 blog-main">
+
+										
+						<p class="arbo">
+						<a href="http://www.math-linux.com/">Home</a> &gt; <a href="latex-26/">Latex</a> &gt; <strong class="on">How to make a presentation with Latex - Introduction to  Beamer</strong>
+
+						</p><!-- class="arbo" -->
+
+
+	
+	<div class="blog-post">		
+					<p class="blog-post-meta">
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- 728x90, date de création 19/05/10 -->
+						<ins class="adsbygoogle"
+						style="display:inline-block;width:728px;height:90px"
+						data-ad-client="ca-pub-8641698755297861"
+						data-ad-slot="8009326821"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</p>
+	
+				<h2 class="blog-post-title"><!-- <img class="spip_logos" alt="" src="IMG/rubon26.png?1399661698" width="96" height="96" />  -->How to make a presentation with Latex - Introduction to  Beamer</h2>
+					<p class="blog-post-meta">
+					<abbr class="published" title="2007-07-14T21:35:09Z">14 July 2007</abbr>, by 
+					<a href="spip.php?page=auteur&amp;id_auteur=0" class="btn btn-default btn-xs active"><span class="glyphicon glyphicon-user"></span> Astozzia, 
+Nadir SOUALEM</a>
+					
+						
+						<a href="mot/alertblock" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> alertblock</a>
+						
+						<a href="mot/alt" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> alt</a>
+						
+						<a href="mot/beamer" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> Beamer</a>
+						
+						<a href="mot/beamergotobutton" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> beamergotobutton</a>
+						
+						<a href="mot/block" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> block</a>
+						
+						<a href="mot/color" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> color</a>
+						
+						<a href="mot/colortbl" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> colortbl</a>
+						
+						<a href="mot/column" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> column</a>
+						
+						<a href="mot/compilation" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> compilation</a>
+						
+						<a href="mot/dvips" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> dvips</a>
+						
+						<a href="mot/exampleblock" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> exampleblock</a>
+						
+						<a href="mot/frame" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> frame</a>
+						
+						<a href="mot/hyperlink" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> hyperlink</a>
+						
+						<a href="mot/item" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> item</a>
+						
+						<a href="mot/itemize" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> itemize</a>
+						
+						<a href="mot/latex" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> Latex</a>
+						
+						<a href="mot/only" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> only</a>
+						
+						<a href="mot/onslide" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> onslide</a>
+						
+						<a href="mot/overlay" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> overlay</a>
+						
+						<a href="mot/pause" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> pause</a>
+						
+						<a href="mot/presentation" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> presentation</a>
+						
+						<a href="mot/ps2pdf" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> ps2pdf</a>
+						
+						<a href="mot/uncover" class="btn btn-default btn-primary btn-xs active"><span class="glyphicon glyphicon-tag"></span> uncover</a>
+						
+					
+					</p>
+					<p class="blog-post-meta">
+						<p class="traductions">
+	All the versions of this article:
+	 
+	<span lang="en" xml:lang="en" dir="ltr" class="on">&#91;English&#93;</span>
+	 
+	<span lang="fr" xml:lang="fr" dir="ltr">&#91;<a href="latex-4/article/introduction-a-beamer-faire-une-presentation-en-latex" rel="alternate" hreflang="fr" title="Introduction à Beamer - Faire une présentation en Latex">fran&#231;ais</a>&#93;</span>
+	
+</p></p>
+					<p class="blog-post-meta">
+					<div class='shareaholic-canvas' data-app='share_buttons' data-app-id='6771835'></div>
+					</p>
+
+						
+						
+						<p>
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- 728x15, date de création 20/05/10 -->
+						<ins class="adsbygoogle"
+						style="display:inline-block;width:728px;height:15px"
+						data-ad-client="ca-pub-8641698755297861"
+						data-ad-slot="3932806102"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+						</p>	
+			<div class="chapo surlignable"><p>We shall see in this article how to make a presentation with LaTeX, using the powerful class Beamer. If you want to make an outstanding "stressfree" presentation and bring your ideas or your work under a whole new light, let&#8217;s get started!!!</p></div>
+			
+
+			
+			<div class="texte surlignable"><h3 class="spip">Installing the Beamer class</h3>
+<p>You will first need to install the package <a href="https://sourceforge.net/projects/latex-beamer/" class='spip_out' rel='external'><strong>Beamer</strong></a>. <br class='autobr' />
+Under Debian or Ubuntu, you can type the following command:</p>
+<pre><code class="language-bash"># apt-get install latex-beamer</code></pre>
+
+<p>Once the latex-class Beamer is installed, you are definitely ready to stat your first presentation!!!</p>
+<h3 class="spip">Basic presentation with Beamer</h3><pre><code class="language-bash">\documentclass{beamer}<br />
+\usepackage[latin1]{inputenc}<br />
+\usetheme{Warsaw}<br />
+\title[Make a LaTeX presentation using Beamer]{Introduction &nbsp;to Beamer\\How to make a presentation with LaTeX?}<br />
+\author{Nadir Soualem -- Astozzia}<br />
+\institute{Math-linux.com}<br />
+\date{Jule 13, 2007}<br />
+\begin{document}<br />
+<br />
+\begin{frame}<br />
+\titlepage<br />
+\end{frame}<br />
+<br />
+<br />
+\begin{frame}{Introduction}<br />
+This is a short introduction to Beamer class.<br />
+\end{frame}<br />
+<br />
+\end{document}</code></pre>
+
+<p>A few explanations:</p>
+<pre><code class="language-bash">\documentclass{beamer}</code></pre>
+
+<p>means that our document is a Beamer presentation</p>
+<pre><code class="language-bash">\usepackage[latin1]{inputenc}</code></pre>
+
+<p>this package enables us to use special letters (with accents, cedillas, etc). You can discard this command when the presentation is in English.</p>
+<pre><code class="language-bash">\usetheme{Warsaw}</code></pre>
+
+<p>This is our outer theme (color and background). As you can imagine, there are tons of themes. You can refer to Beamer documentation for more details.</p>
+<pre><code class="language-bash">\title[Making a LaTeX presentation with Beamer]{Introduction to Beamer\\How to make a LaTeX presentation?}</code></pre>
+
+<p>this defines the title of the presentation. As you can see, there are two titles:<br /><img src="local/cache-vignettes/L8xH11/puce-cebf5.gif" width='8' height='11' class='puce' alt="-" />&nbsp;the first one, between brackets. [Making a LaTeX presentation with Beamer] is a substitute title which appears at the bottom of the page. This is useful especially if the original title is long. Since this is anoption only, if it is not mentioned, then the original title is the one shown in the bottom of the page.<br /><img src="local/cache-vignettes/L8xH11/puce-cebf5.gif" width='8' height='11' class='puce' alt="-" />&nbsp;the second one, between braces, is the principal title of the presentation.<br class='autobr' />
+The command</p>
+<pre><code class="language-bash" class='spip_code' dir='ltr'>\author{Nadir Soualem -- Astozzia}</code></pre>
+
+<p>defines Nadir Soualem and Astozzia (us!) as the authors of the presentation.</p>
+<pre><code class="language-bash" class='spip_code' dir='ltr'>\institute{Math-linux.com}</code></pre>
+
+<p>defines where the presentation was held. Finally, we use</p>
+<pre><code class="language-bash">\date{July 13, 2007}</code></pre>
+
+<p>as the date.</p>
+
+<p>To define the document, we use the markers</p>
+<pre><code class="language-bash">\begin{document}<br />
+...<br />
+\end{document}</code></pre>
+
+<p>To define a slide of the presentation, we use the markers</p>
+<pre><code class="language-bash">\begin{frame}<br />
+...<br />
+\end{frame}</code></pre>
+
+<p>To define a page title (frame), we mention it as follows</p>
+<pre><code class="language-bash">\begin{frame}{Introduction}</code></pre>
+
+<p><strong>Introduction</strong> will be the title of the page.<br class='autobr' />
+To define the first page, which contains details such as the title, the author, the date, etc - we use a frame in which we include the <strong>\titlepage</strong> command</p>
+<pre><code class="language-bash">\begin{frame}<br />
+\titlepage<br />
+\end{frame}</code></pre>
+
+<p>To define a frame containing the layout of the presentation, we proceed as follows:</p>
+<pre><code class="language-bash">\AtBeginSubsection[]<br />
+{<br />
+ &nbsp;\begin{frame}&lt;beamer&gt;<br />
+ &nbsp; &nbsp;\frametitle{Layout}<br />
+ &nbsp; &nbsp;\tableofcontents[currentsection,currentsubsection]<br />
+ &nbsp;\end{frame}<br />
+}</code></pre>
+
+<p>The layout is therefore mentioned at every section and subsection.<br class='autobr' />
+You should insert <strong>\section</strong> and <strong>\subsection</strong> throughout the presentation and out of the frames:</p>
+<pre><code class="language-bash">\section{Name_of_the_section}<br />
+\begin{frame}<br />
+...<br />
+\end{frame}<br />
+...<br />
+\section{Name_of_the_section}<br />
+\subsection{Name_of_the_subsection}<br />
+\begin{frame}<br />
+...<br />
+\end{frame}</code></pre><h3 class="spip">Animations &mdash; Overlays</h3>
+<p>A good presentation is one that is dynamic and attracts the audience&#8217;s interest. Generally, we resort to a dynamic type of presentations. Alternatively stated, when we speak, we simultaneously show significant points of the talk, or hide others, or keep just the important ones.<br class='autobr' />
+We shall see in this section how animations function in Beamer.</p>
+<h3 class="spip">Item-by-item list view: the \pause command</h3>
+<p>In order to view several items of a list on the same slide, we type the following commands inside a frame:</p>
+<pre><code class="language-bash">\begin{itemize}<br />
+\pause \item Beamer is a wonderful class<br />
+\pause \item One can make animations<br />
+\pause \item One uses the\textbf{pause} command, for example<br />
+\pause \item in order to bring in important ideas<br />
+\end{itemize}</code></pre>
+
+<p>We will thus see the items of our list, one by one.</p>
+<h3 class="spip">Item-by-item list view: the \item&lt;n-&gt; command</h3>
+<p>An alternative way to visualize the elements of a list  item by item is to use the <strong>\item&lt;n-&gt;</strong> command, where n is a natural number referring to the slide, beginning from which the item appears.</p>
+<pre><code class="language-bash">\begin{itemize}<br />
+\item&lt;2-&gt; appears from slide 2 on<br />
+\item&lt;3-&gt; appears from slide 3 on<br />
+\item&lt;4-&gt; appears from slide 4 on<br />
+\item&lt;5-&gt; appears from slide 5 on<br />
+\end{itemize}</code></pre><h3 class="spip">List item interval and isolated items: the \item&lt;n-m&gt; and \item&lt;p&gt; commands</h3>
+<p>An example is worth a long speech:</p>
+<pre><code class="language-bash">\begin{itemize}<br />
+\item&lt;2-&gt; appears from slide 2 on<br />
+\item&lt;2-4&gt; appears from slide 2 to slide 4<br />
+\item&lt;4&gt; appears on slide 4<br />
+\item&lt;3-&gt; appears from slide 3 on<br />
+\end{itemize}</code></pre>
+
+<p><strong>\item&lt;n-m&gt;</strong> means that the list item will appear on slides numbered n to m, whereas <strong>\item&lt;p&gt;</strong> means that the item will appear on slide p.</p>
+<h3 class="spip">Item-by-item long list view: the [&lt;+-&gt;] command</h3>
+<p>Sometimes the lists you want to display are long and it is not practical to use the<br class='autobr' />
+<strong>\item&lt;n-&gt;</strong> command. An alternative solution is the use of the <strong>[&lt;+-&gt;]</strong> command</p>
+<pre><code class="language-bash">\begin{itemize}[&lt;+-&gt;]<br />
+\item L<br />
+\item A<br />
+\item T<br />
+\item E<br />
+\item X<br />
+\end{itemize}</code></pre>
+<p>Up to now, we have dealt with lists. We shall now see how to use text and slides.</p>
+<h3 class="spip">Displaying and hiding text in slides: the \uncover&lt;n-&gt;, \uncover&lt;n-m&gt; and \uncover&lt;p&gt; commands</h3>
+<p><strong>\uncover&lt;n-&gt;</strong> will display the text from slide n on;<br class='autobr' />
+<strong>\uncover&lt;n-m&gt;</strong> means the text element will appear from slide n to m. Finally, <strong>\uncover&lt;p&gt;</strong> means that the text will appear on slide p.<br class='autobr' />
+Here is a case in point of a frame containing the <strong>\uncover</strong> command.</p>
+<pre><code class="language-bash">\begin{frame}<br />
+<br />
+\uncover&lt;2-&gt;<br />
+{appear from slide 2 on\\}<br />
+\uncover&lt;3-4&gt;<br />
+{appears from 3 to slide 4\\}<br />
+\uncover&lt;4&gt;{appears on slide 4\\}<br />
+\uncover&lt;3-&gt;{appears from slide 3 on\\}<br />
+<br />
+\end{frame}</code></pre>
+
+<p>Be careful not to forget the braces after the <strong>\uncover</strong> command. The syntax is as follows:</p>
+<pre><code class="language-bash">\uncover&lt;n&gt;{...}<br />
+\uncover&lt;n-m&gt;{...}<br />
+\uncover&lt;p&gt;{...}</code></pre><h3 class="spip">Displaying and hiding text in slides: the \only&lt;n-&gt;, \only&lt;n-m&gt; and \only&lt;p&gt; commands</h3>
+<p><strong>\only</strong> works like<strong>\uncover</strong> with the exception that the <strong>\only</strong> command is not as "cumbersome" on slides. Here is an example:</p>
+<pre><code class="language-bash">\begin{frame}<br />
+<br />
+\only&lt;2-&gt;<br />
+{appear from slide 2 on\\}<br />
+\only&lt;3-4&gt;<br />
+{appears from 3 to slide 4\}<br />
+\only&lt;4&gt;{appear on slide 4\\}<br />
+\only&lt;3-&gt;{appear from slide 2 on\\}<br />
+<br />
+\end{frame}</code></pre>
+<p>Here is an other example to better grasp the difference between <strong>\only</strong> and <strong>\uncover</strong></p>
+<pre><code class="language-bash">\begin{frame}<br />
+<br />
+\begin{itemize}<br />
+\item Language used by Beamer: L\uncover&lt;2-&gt;{A}TEX<br />
+\item Language used by Beamer: L\only&lt;2-&gt;{A}TEX<br />
+\end{itemize}<br />
+<br />
+\end{frame}</code></pre><h3 class="spip">Hide text in slides: the \invisible&lt;n&gt; commands</h3>
+<p><strong>\invisible&lt;n&gt;</strong> makes text invisible on slide n</p>
+<pre><code class="language-bash">\begin{frame}<br />
+<br />
+\invisible&lt;2&gt;{This text will be invisible on slide 2, but not on others slides}\\<br />
+This text is always visible\\<br />
+\uncover&lt;1-&gt;{Beamer} \uncover&lt;2-&gt;{is} &nbsp;\uncover&lt;3-&gt;{super} \uncover&lt;4-&gt;{powerful} <br />
+<br />
+\end{frame}</code></pre><h3 class="spip">Another alternative: the \alt&lt;n&gt;{...}{...} commands</h3>
+<p>As an alternative, one can use the <strong>\alt<n>{...}{...}</strong> command on a slide. The first argument is the value on slide n. The second is for values other than n. Here is an example:</p>
+<pre><code class="language-bash">\alt&lt;3&gt;{I am on slide 3\\}{I am not on slide 3\\}<br />
+\only&lt;2-&gt;<br />
+{appears from slide 2 on\\}<br />
+\only&lt;3-4&gt;<br />
+{appears from slide 3 to slide 4\\}<br />
+\only&lt;4&gt;{appears on slide 4\\}<br />
+\only&lt;3-&gt;{appears from slide 3 on\\}</code></pre><h3 class="spip">Highlighting text in red: the \alert&lt;n&gt;{...} command</h3>
+<p>To highlight text in red on slide n, we use the <strong>\alert&lt;n&gt;{...}</strong> command.</p>
+<pre><code class="language-bash" class='spip_code' dir='ltr'>\alert&lt;1&gt;{This text} \alert&lt;2&gt;{is} \alert&lt;3&gt;{red}</code></pre><h3 class="spip">Successively highlighting list items in red: the &lt;+-| alert@+> command</h3><pre><code class="language-bash">\begin{itemize}<br />
+\item &lt;+-| alert@+&gt; Robert De Niro<br />
+\item &lt;+-| alert@+&gt; Brian De Palma<br />
+\item &lt;+-| alert@+&gt; Gerard Depardieu<br />
+\item &lt;+-| alert@+&gt; Tux<br />
+\end{itemize}</code></pre><h3 class="spip">Using colors in a text on a slide: the \color&lt;n-&gt;{...}{...}, \color&lt;n-m&gt;{...}{...} and\color&lt;p&gt;{...}{...} commands</h3>
+<p>The first argument is the red, green, yellow, blue, etc ... The second is the text to be colored</p>
+<pre><code class="language-bash">Some colors ...\\<br />
+\color&lt;2&gt;{green}{Green color\\}<br />
+Great !!!</code></pre><h3 class="spip">Creating links: the \hyperlink{...}{\beamergotobutton{...}} commands</h3>
+<p>To define internal links, we should add the following package in the preamble</p>
+<pre><code class="language-bash">\usepackage{hyperref}</code></pre>
+
+<p>Then, we should define a label pointing on the frame:</p>
+<pre><code class="language-bash">\begin{frame}[label=MY_LABEL]<br />
+The link will point to this frame<br />
+\end{frame}</code></pre>
+
+<p>you define <strong>MY_LABEL</strong> as you please !<br class='autobr' />
+Finally, on the frame where the link is to be created, we proceed as follows:</p>
+<pre><code class="language-bash">\hyperlink{MY_LABEL}{\beamergotobutton{Refer to this page}}</code></pre>
+
+<p>There we are! We can see a button <strong>Refer to this page</strong> pointing to the frame labeled <strong>MY_LABEL</strong>.</p>
+
+<p>Thus, the first argument of <strong>\hyperlink{...}{\beamergotobutton{...}}</strong> is the name of the label to be pointed at and <strong>\beamergotobutton{...}</strong> has the name of the button as an argument.</p>
+<h3 class="spip">Defining blocks inside frames</h3>
+<p>For important stuff, we define blocks as follows:</p>
+<pre><code class="language-bash">\begin{block}{Block title}<br />
+This is a block in blue<br />
+\end{block}<br />
+<br />
+\begin{alertblock}{Alert-block title}<br />
+This is a block in red<br />
+\end{alertblock}<br />
+<br />
+\begin{exampleblock}{Example-block title}<br />
+This is a block in green<br />
+\end{exampleblock}</code></pre>
+<p>As clear as onion soup !!!</p>
+<h3 class="spip">Dynamic display of tables: the \pause and \onslide&lt;n-&gt; commands</h3>
+<p>First off, we should add the package <strong>colortbl</strong> to the preamble</p>
+<pre><code class="language-bash">\usepackage{colortbl}</code></pre>
+
+<p>To display rows dynamically, we shall use the <strong>\pause</strong> command as follows:</p>
+<pre><code class="language-bash">\begin{tabular}{lcccc}<br />
+ &nbsp;Class &amp; A &amp; B &amp; C &amp; D \\\hline<br />
+ &nbsp;X &nbsp; &nbsp; &amp; 1 &amp; 2 &amp; 3 &amp; 4 \pause\\<br />
+ &nbsp;Y &nbsp; &nbsp; &amp; 3 &amp; 4 &amp; 5 &amp; 6 \pause\\<br />
+ &nbsp;Z &nbsp; &nbsp; &amp;5&amp;6&amp;7&amp;8<br />
+\end{tabular}</code></pre>
+
+<p>To display columns dynamically, we shall use the <strong>\onslide&lt;n-&gt;</strong> command as follows:</p>
+<pre><code class="language-bash">\begin{tabular}{lc&lt;{\onslide&lt;2-&gt;}c&lt;{\onslide&lt;3-&gt;}c&lt;{\onslide&lt;4-&gt;}c&lt;{\onslide}c}<br />
+ &nbsp;Class &amp; A &amp; B &amp; C &amp; D \\<br />
+ &nbsp;X &nbsp; &nbsp; &amp; 1 &amp; 2 &amp; 3 &amp; 4 \\<br />
+ &nbsp;Y &nbsp; &nbsp; &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\<br />
+ &nbsp;Z &nbsp; &nbsp; &amp;5&amp;6&amp;7&amp;8<br />
+\end{tabular}</code></pre><h3 class="spip">Writing on several columns: the \begin{columns}...\end{columns} commands</h3>
+<p>For two columns, we proceed as follows:</p>
+<pre><code class="language-bash">\begin{columns}<br />
+\begin{column}[l]{5cm}<br />
+First column<br />
+\end{column}<br />
+\begin{column}[r]{5cm}<br />
+Second column<br />
+\end{column}<br />
+\end{columns}</code></pre>
+
+<p>l,r,c refers to the position: left, right, center.<br class='autobr' />
+The syntax is as follows:</p>
+<pre><code class="language-bash">\begin{columns}<br />
+\begin{column}[position]{column width}<br />
+...<br />
+\end{column}<br />
+\begin{column}[position]{column width}<br />
+...<br />
+\end{column}<br />
+\end{columns}</code></pre><h3 class="spip">Inserting a figure in a Beamer presentation</h3>
+<p>To insert an image or a figure, we proceed as in LaTeX by using the <strong>\includegraphics</strong> command. Here is an example:</p>
+<pre><code class="language-bash">\begin{figure}<br />
+ &nbsp; \includegraphics[options]{path_to_image}<br />
+\end{figure}</code></pre>
+
+<p>In Beamer, we should distinguish between two types of figures:<br /><img src="local/cache-vignettes/L8xH11/puce-cebf5.gif" width='8' height='11' class='puce' alt="-" />&nbsp;PS type: .eps, .ps and pspicture type (LaTeX)<br /><img src="local/cache-vignettes/L8xH11/puce-cebf5.gif" width='8' height='11' class='puce' alt="-" />&nbsp;General type: .pdf, .png, .jpg, .jpeg<br class='autobr' />
+You will need to compile a Beamer-class file.</p>
+<h3 class="spip">Compiling a Beamer presentation</h3>
+<p>I assume that the your file is called <strong>file.tex.</strong>. There are ways to compile, depending on the type of figure you inserted. For PS-type figures, we shall use the following commands</p>
+<pre><code class="language-bash">$ latex file.tex<br />
+$ latex file.tex<br />
+$ dvips file.dvi<br />
+$ ps2pdf file.ps</code></pre>
+
+<p>We shall obtain the file <strong>file.pdf.</strong></p>
+
+<p>For general-type figures, we shall use the command</p>
+<pre><code class="language-bash">$ latex2pdf file.tex<br />
+$ latex2pdf file.tex</code></pre>
+
+<p>We shall also obtain the file <strong>file.pdf.</strong></p>
+<h3 class="spip">Conclusion</h3>
+<p>It goes without saying that explaining all the possibilities that Beamer offers is way too long. This is why I am referring to this exhaustive documentation <a href="IMG/pdf/beameruserguide-2.pdf" class='spip_in' type='application/pdf'>documentation</a>.</p>
+
+<p>Have fun !!!</p></div>
+
+			
+			
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+			
+	
+			
+			
+											
+	</div>
+	
+	
+	
+	
+	<div class="blog-post">	
+
+
+	
+	<h2>Any message or comments?</h2>
+
+
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	var disqus_shortname = 'math-linux'; // required: replace example with your forum shortname
+
+	/* * * DON'T EDIT BELOW THIS LINE * * */
+	(function() {
+	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>    
+			
+			
+
+
+					</div><!-- /.col-sm-8 blog-main -->
+					
+					<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+						<div class="sidebar-module sidebar-module-inset">
+		<h3>Help Math-Linux !</h3>
+		<p>
+		This website is useful to you? Then it's a good reason to make a donation.
+		Your gratitude and finance help will motivate me to continue this development.
+		</p>
+		<h4>Thank you !!!</h4>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick"/>
+			<input type="hidden" name="hosted_button_id" value="7K5CREGHV4KU8"/>
+			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
+			<img alt="" border="0" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
+		</form>
+<!-- 		<p>
+		to everyone who contributed to Math-Linux.com.
+		Consider your donation as an investment in the future of this website or as a way to say thanks or support hosting costs and hardware.
+		</p> -->
+		
+	</div><!-- /.sidebar-module sidebar-module-inset -->
+		
+		<div class="sidebar-module">
+		<a href="https://twitter.com/mathlinux" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @mathlinux</a>
+		</div>
+		
+			
+
+<div class="sidebar-module">
+	<h2>Latex</h2>
+	<ol class="list-unstyled">
+	
+		<li>
+			<a href="latex-26/faq/">FAQ</a>
+			
+		</li>
+	
+
+	</ol>
+</div>
+
+
+
+
+		<div class="sidebar-module">
+		
+		<h4>Also in this section</h4>
+		<ol class="list-unstyled">
+		
+		<li><a href="latex-26/article/how-to-make-a-presentation-with-latex-introduction-to-beamer">How to make a presentation with Latex - Introduction to  Beamer</a></li>
+		
+		<li><a href="latex-26/article/useful-software-to-start-latex">Useful software to start LaTeX </a></li>
+		
+		</ol>
+		
+		</div>
+	
+		<div class="sidebar-module">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 160x600, date de création 12/12/09 -->
+		<ins class="adsbygoogle"
+		style="display:inline-block;width:160px;height:600px"
+		data-ad-client="ca-pub-8641698755297861"
+		data-ad-slot="1554057430"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		</div>									
+
+
+
+
+						
+					</div><!-- /.col-sm-3 col-sm-offset-1 blog-sidebar -->
+					
+	</div><!-- /.row -->
+</div><!-- /.container -->
+
+<div class="blog-footer">
+<p>Blog template built with <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://www.spip.net">Spip</a> by Nadir Soualem <a href="https://twitter.com/mathlinux">@mathlinux</a>.</p>
+<p><a href="/latex-26/article/how-to-make-a-presentation-with-latex-introduction-to-beamer#">Back to top</a></p>
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+  (function() {
+    var shr = document.createElement('script');
+    shr.setAttribute('data-cfasync', 'false');
+    shr.src = '//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js';
+    shr.type = 'text/javascript'; shr.async = 'true';
+    shr.onload = shr.onreadystatechange = function() {
+      var rs = this.readyState;
+      if (rs && rs != 'complete' && rs != 'loaded') return;
+      var site_id = '4fa9bb05e5c59418e7ba4a775991efb3';
+      try { Shareaholic.init(site_id); } catch (e) {}
+    };
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(shr, s);
+  })();
+//]]>
+</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</body>
+
+	
+</html>

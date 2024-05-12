@@ -1,0 +1,1427 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.9.23)  1 OCT 2018 22:57
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2017/01/01> patch level 3
+Babel <3.9r> and hyphenation patterns for 5 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2016/04/23 3.9r The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-czech/czech.ldf
+Language: czech 2008/07/06 v3.1a Czech support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2016/04/23 3.9r Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+Package babel Info: Making " an active character on input line 172.
+\cs@wordlen=\count89
+Package babel Info: Making - an active character on input line 226.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/02/22 v2.0g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/cslatex/base/il2enc.def
+File: il2enc.def 1997/08/20 CSLaTeX
+)
+LaTeX Font Info:    Try loading font information for IL2+cmr on input line 105.
+
+
+(/usr/share/texlive/texmf-dist/tex/cslatex/base/il2cmr.fd
+File: il2cmr.fd 1997/02/06 CSLaTeX font definitions
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0100 (decimal 256)
+   defining Unicode char U+0101 (decimal 257)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+0108 (decimal 264)
+   defining Unicode char U+0109 (decimal 265)
+   defining Unicode char U+010A (decimal 266)
+   defining Unicode char U+010B (decimal 267)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0112 (decimal 274)
+   defining Unicode char U+0113 (decimal 275)
+   defining Unicode char U+0114 (decimal 276)
+   defining Unicode char U+0115 (decimal 277)
+   defining Unicode char U+0116 (decimal 278)
+   defining Unicode char U+0117 (decimal 279)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011C (decimal 284)
+   defining Unicode char U+011D (decimal 285)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0120 (decimal 288)
+   defining Unicode char U+0121 (decimal 289)
+   defining Unicode char U+0122 (decimal 290)
+   defining Unicode char U+0123 (decimal 291)
+   defining Unicode char U+0124 (decimal 292)
+   defining Unicode char U+0125 (decimal 293)
+   defining Unicode char U+0128 (decimal 296)
+   defining Unicode char U+0129 (decimal 297)
+   defining Unicode char U+012A (decimal 298)
+   defining Unicode char U+012B (decimal 299)
+   defining Unicode char U+012C (decimal 300)
+   defining Unicode char U+012D (decimal 301)
+   defining Unicode char U+012E (decimal 302)
+   defining Unicode char U+012F (decimal 303)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0134 (decimal 308)
+   defining Unicode char U+0135 (decimal 309)
+   defining Unicode char U+0136 (decimal 310)
+   defining Unicode char U+0137 (decimal 311)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013B (decimal 315)
+   defining Unicode char U+013C (decimal 316)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0145 (decimal 325)
+   defining Unicode char U+0146 (decimal 326)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+014C (decimal 332)
+   defining Unicode char U+014D (decimal 333)
+   defining Unicode char U+014E (decimal 334)
+   defining Unicode char U+014F (decimal 335)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0156 (decimal 342)
+   defining Unicode char U+0157 (decimal 343)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015C (decimal 348)
+   defining Unicode char U+015D (decimal 349)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+0168 (decimal 360)
+   defining Unicode char U+0169 (decimal 361)
+   defining Unicode char U+016A (decimal 362)
+   defining Unicode char U+016B (decimal 363)
+   defining Unicode char U+016C (decimal 364)
+   defining Unicode char U+016D (decimal 365)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0172 (decimal 370)
+   defining Unicode char U+0173 (decimal 371)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+01CD (decimal 461)
+   defining Unicode char U+01CE (decimal 462)
+   defining Unicode char U+01CF (decimal 463)
+   defining Unicode char U+01D0 (decimal 464)
+   defining Unicode char U+01D1 (decimal 465)
+   defining Unicode char U+01D2 (decimal 466)
+   defining Unicode char U+01D3 (decimal 467)
+   defining Unicode char U+01D4 (decimal 468)
+   defining Unicode char U+01E2 (decimal 482)
+   defining Unicode char U+01E3 (decimal 483)
+   defining Unicode char U+01E6 (decimal 486)
+   defining Unicode char U+01E7 (decimal 487)
+   defining Unicode char U+01E8 (decimal 488)
+   defining Unicode char U+01E9 (decimal 489)
+   defining Unicode char U+01EA (decimal 490)
+   defining Unicode char U+01EB (decimal 491)
+   defining Unicode char U+01F0 (decimal 496)
+   defining Unicode char U+01F4 (decimal 500)
+   defining Unicode char U+01F5 (decimal 501)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+0232 (decimal 562)
+   defining Unicode char U+0233 (decimal 563)
+   defining Unicode char U+1E02 (decimal 7682)
+   defining Unicode char U+1E03 (decimal 7683)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2010 (decimal 8208)
+   defining Unicode char U+2011 (decimal 8209)
+   defining Unicode char U+2012 (decimal 8210)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2015 (decimal 8213)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+Now handling font encoding IL2 ...
+... no UTF-8 mapping file for font encoding IL2
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/pstricks/pstricks.sty
+Package: pstricks 2015/11/14 v0.62 LaTeX wrapper for `PSTricks' (RN,HV)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2016/07/10 v3.1a Driver-dependent file (DPC,SPQR)
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pstricks.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks16
+\XKV@tempa@toks=\toks17
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count90
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pst-fp.tex
+`pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count91
+\pstFP@xia=\count92
+\pstFP@xib=\count93
+\pstFP@xfa=\count94
+\pstFP@xfb=\count95
+\pstFP@rega=\count96
+\pstFP@regb=\count97
+\pstFP@regs=\count98
+\pstFP@times=\count99
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks18
+\pgfutil@tempdima=\dimen104
+\pgfutil@tempdimb=\dimen105
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks19
+\pgfkeys@temptoks=\toks20
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks21
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+\pgf@x=\dimen106
+\pgf@xa=\dimen107
+\pgf@xb=\dimen108
+\pgf@xc=\dimen109
+\pgf@y=\dimen110
+\pgf@ya=\dimen111
+\pgf@yb=\dimen112
+\pgf@yc=\dimen113
+\c@pgf@counta=\count100
+\c@pgf@countb=\count101
+\c@pgf@countc=\count102
+\c@pgf@countd=\count103
+\pgfutil@tempcnta=\count104
+\pgfutil@tempcntb=\count105
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen114
+\pgfmath@count=\count106
+\pgfmath@box=\box26
+\pgfmath@toks=\toks22
+\pgfmath@stack@operand=\toks23
+\pgfmath@stack@operation=\toks24
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count107
+))
+\pgffor@iter=\dimen115
+\pgffor@skip=\dimen116
+\pgffor@stack=\toks25
+\pgffor@toks=\toks26
+)
+\psLoopIndex=\count108
+
+`PSTricks' v2.71  <2016/12/23> (tvz)
+\pst@dima=\dimen117
+\pst@dimb=\dimen118
+\pst@dimc=\dimen119
+\pst@dimd=\dimen120
+\pst@dimg=\dimen121
+\pst@dimh=\dimen122
+\pst@dimm=\dimen123
+\pst@dimn=\dimen124
+\pst@dimo=\dimen125
+\pst@dimp=\dimen126
+\pst@hbox=\box27
+\pst@ibox=\box28
+\pst@boxg=\box29
+\pst@cnta=\count109
+\pst@cntb=\count110
+\pst@cntc=\count111
+\pst@cntd=\count112
+\pst@cntg=\count113
+\pst@cnth=\count114
+\pst@cntm=\count115
+\pst@cntn=\count116
+\pst@cnto=\count117
+\pst@cntp=\count118
+\@zero=\count119
+\pst@toks=\toks27
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen127
+\psxunit=\dimen128
+\psyunit=\dimen129
+\pst@C@@rType=\count120
+\pslinewidth=\dimen130
+\psk@startLW=\dimen131
+\psk@endLW=\dimen132
+\pst@customdefs=\toks28
+\pslinearc=\dimen133
+\pst@symbolStep=\dimen134
+\pst@symbolWidth=\dimen135
+\pst@symbolLinewidth=\dimen136
+\everypsbox=\toks29
+\psframesep=\dimen137
+\pslabelsep=\dimen138
+\sh@wgridXunit=\dimen139
+\sh@wgridYunit=\dimen140
+\pst@shift=\dimen141
+)
+File: pstricks.tex 2016/12/23 v2.71 `PSTricks' (tvz,hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pst-fp.tex)
+File: pst-fp.tex 2016/12/23 v2.71 `PST-fp' (hv)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/11/05 v2.16a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks30
+\ex@=\dimen142
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen143
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count121
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count122
+\leftroot@=\count123
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count124
+\DOTSCASE@=\count125
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box30
+\strutbox@=\box31
+\big@size=\dimen144
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count126
+\c@MaxMatrixCols=\count127
+\dotsspace@=\muskip10
+\c@parentequation=\count128
+\dspbrk@lvl=\count129
+\tag@help=\toks31
+\row@=\count130
+\column@=\count131
+\maxfields@=\count132
+\andhelp@=\toks32
+\eqnshift@=\dimen145
+\alignsep@=\dimen146
+\tagshift@=\dimen147
+\tagwidth@=\dimen148
+\totwidth@=\dimen149
+\lineht@=\dimen150
+\@envbody=\toks33
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks34
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 99.
+)
+\Gin@req@height=\dimen151
+\Gin@req@width=\dimen152
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2017/01/14 v0.5h Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count133
+\calc@Bcount=\count134
+\calc@Adimen=\dimen153
+\calc@Bdimen=\dimen154
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count135
+\calc@Cskip=\skip48
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)))
+\AM@pagewidth=\dimen155
+\AM@pageheight=\dimen156
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2017/01/14 v0.5h Pdfpages driver for pdfTeX (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/ppnull.def
+File: ppnull.def 2017/01/14 v0.5h Pdfpages dummy driver (AM)
+
+
+Package pdfpages Warning: I will use a dummy \includepdf command which
+(pdfpages)                will insert empty pages instead of the actual PDF,
+(pdfpages)                because we are running in DVI mode or with
+(pdfpages)                dvips driver.
+
+))
+\AM@pagebox=\box32
+\AM@global@opts=\toks35
+\AM@toc@title=\toks36
+\c@AM@survey=\count136
+\AM@templatesizebox=\box33
+) (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup4
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+\fancy@headwidth=\skip49
+\f@ncyO@elh=\skip50
+\f@ncyO@erh=\skip51
+\f@ncyO@olh=\skip52
+\f@ncyO@orh=\skip53
+\f@ncyO@elf=\skip54
+\f@ncyO@erf=\skip55
+\f@ncyO@olf=\skip56
+\f@ncyO@orf=\skip57
+) (./main.aux
+(./wool_chap1.aux) (./wool_chap2.aux
+
+LaTeX Warning: Label `figure_2_6' multiply defined.
+
+
+LaTeX Warning: Label `figure_2_6' multiply defined.
+
+) (./wool_chap3.aux) (./wool_chap4.aux) (./wool_chap5.aux) (./wool_chap6.aux)
+(./wool_chap7.aux) (./wool_chap8.aux) (./wool_chap9.aux) (./wool_chap10.aux)
+(./wool_chap11.aux) (./wool_chap12.aux) (./wool_chap13.aux) (./wool_chap14.aux)
+(./wool_chap15.aux) (./wool_chap16.aux) (./wool_chap17.aux) (./wool_chap18.aux)
+(./vocab.aux))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+\AtBeginShipoutBox=\box34
+ (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+Package pdflscape Info: Auto-detected driver: dvips (dvips) on input line 125.
+)
+\c@definition=\count137
+\c@theorem=\count138
+\c@proof=\count139
+\c@example=\count140
+\c@corollary=\count141
+\c@assumption=\count142
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 37.
+
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+) [1
+
+
+] [2
+
+] (./main.toc [3] [4] [5] [6] [7])
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [8]
+\openout2 = `wool_chap1.aux'.
+
+ (./wool_chap1.tex
+Kapitola 1.
+
+Underfull \vbox (badness 1067) has occurred while \output is active []
+
+ [9
+
+
+])
+[10]
+\openout2 = `wool_chap2.aux'.
+
+ (./wool_chap2.tex
+Kapitola 2.
+File: pictures/figure_2_1.eps Graphic file (type eps)
+<pictures/figure_2_1.eps> [11
+
+
+
+] [12] [13] [14]
+File: pictures/figure_2_6.eps Graphic file (type eps)
+ <pictures/figure_2_6.eps>
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 269--271
+[]
+ []
+
+[17] [18]
+File: pictures/figure_2_8.eps Graphic file (type eps)
+ <pictures/figure_2_8.eps>
+File: pictures/figure_2_9.eps Graphic file (type eps)
+ <pictures/figure_2_9.eps> [19] [20]
+Underfull \hbox (badness 4492) in paragraph at lines 450--451
+[]\IL2/cmr/m/it/10 Pøi spl-nìní pøed-po-kladù SLR.1 a¾
+ []
+
+[21]) [22]
+\openout2 = `wool_chap3.aux'.
+
+ (./wool_chap3.tex
+Kapitola 3.
+[23
+
+
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 76.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 76.
+ [24] [25]
+Underfull \hbox (badness 1831) in paragraph at lines 181--183
+[]\IL2/cmr/m/it/10 Máme k dis-po-zici ná-hodný
+ []
+
+
+Underfull \hbox (badness 2913) in paragraph at lines 188--193
+[]\IL2/cmr/m/it/10 V po-pu-
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
+[]\IL2/cmr/m/it/10 Chyba $\OML/cmm/m/it/10 u$ \IL2/cmr/m/it/10 má
+ []
+
+
+Underfull \hbox (badness 6758) in paragraph at lines 240--241
+[]\IL2/cmr/m/it/10 Pokud jsou spl-nìny pøed-po-klady
+ []
+
+[27]
+Underfull \hbox (badness 3058) in paragraph at lines 303--306
+[]\IL2/cmr/m/it/10 Chyba $\OML/cmm/m/it/10 u$ \IL2/cmr/m/it/10 re-gres-ního mo-
+
+ []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 303--306
+\IL2/cmr/m/it/10 delu má stejný roz-ptyl bez ohledu na hod-notu vy-svìtlu-jí-cí
+ch ve-lièiny, tj.
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
+[]\IL2/cmr/m/it/10 Pøi spl-nìní pøed-po-kladù
+ []
+
+[29]
+File: pictures/figure_3_1.eps Graphic file (type eps)
+ <pictures/figure_3_1.eps> [30]
+Underfull \hbox (badness 2343) in paragraph at lines 405--406
+[]\IL2/cmr/m/it/10 Pokud jsou spl-nìny Gauss-Markovy
+ []
+
+[31]) [32]
+\openout2 = `wool_chap4.aux'.
+
+ (./wool_chap4.tex
+Kapitola 4.
+File: pictures/figure_4_1.eps Graphic file (type eps)
+<pictures/figure_4_1.eps> [33
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+[]\IL2/cmr/m/it/10 Pøi spl-nìní CLM
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34]
+File: pictures/figure_4_2.eps Graphic file (type eps)
+ <pictures/figure_4_2.eps>
+File: pictures/figure_4_3.eps Graphic file (type eps)
+ <pictures/figure_4_3.eps>
+File: pictures/figure_4_4.eps Graphic file (type eps)
+
+<pictures/figure_4_4.eps> [35]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[36] [37]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[38]
+Underfull \hbox (badness 1231) in paragraph at lines 210--213
+\IL2/cmr/m/n/10 Pokud z pù-vod-ního ne-o-me-ze-ného mo-delu vy-pus-tíme vy-svìt
+lu-jící ve-lièiny
+ []
+
+[39])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[40]
+\openout2 = `wool_chap5.aux'.
+
+ (./wool_chap5.tex
+Kapitola 5.
+[41
+
+
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[42]
+Underfull \hbox (badness 7308) in paragraph at lines 106--107
+[]\IL2/cmr/m/it/10 Pøi spl-nìní pøed-po-
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
+[43]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[44] [45])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[46]
+\openout2 = `wool_chap6.aux'.
+
+ (./wool_chap6.tex
+Kapitola 6.
+[47
+
+
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[48] [49]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[50] [51]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[52]) [53]
+\openout2 = `wool_chap7.aux'.
+
+ (./wool_chap7.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[54
+
+
+
+]
+Kapitola 7.
+File: pictures/figure_7_1.eps Graphic file (type eps)
+<pictures/figure_7_1.eps> [55]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[56]
+File: pictures/figure_7_2.eps Graphic file (type eps)
+ <pictures/figure_7_2.eps>
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[57]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[58]) [59]
+\openout2 = `wool_chap8.aux'.
+
+ (./wool_chap8.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[60
+
+
+
+]
+Kapitola 8.
+[61] [62] [63] [64] [65] [66] [67] [68]) [69]
+\openout2 = `wool_chap9.aux'.
+
+ (./wool_chap9.tex [70
+
+
+
+]
+Kapitola 9.
+[71] [72] [73] [74] [75] [76] [77] [78]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[79]
+Underfull \hbox (badness 1715) in paragraph at lines 277--277
+[]\IL2/cmr/bx/n/14.4 Odhad me-to-dou nejme-n¹í ab-so-lutní od-
+ []
+
+) [80] [81]
+\openout2 = `wool_chap10.aux'.
+
+ (./wool_chap10.tex [82
+
+
+
+]
+Kapitola 10.
+[83]
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
+[]\IL2/cmr/m/it/10 Stochastický pro-ces
+ []
+
+
+Underfull \hbox (badness 5064) in paragraph at lines 107--110
+[]\IL2/cmr/m/it/10 V ná-hod-
+ []
+
+[84] [85]
+Overfull \hbox (17.09113pt too wide) in paragraph at lines 211--212
+[]
+ []
+
+[86] [87]
+File: pictures/figure_10_2.eps Graphic file (type eps)
+ <pictures/figure_10_2.eps>
+File: pictures/figure_10_3.eps Graphic file (type eps)
+ <pictures/figure_10_3.eps> [88] [89]
+[90]) [91]
+\openout2 = `wool_chap11.aux'.
+
+ (./wool_chap11.tex [92
+
+
+
+]
+Kapitola 11.
+[93] [94]
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
+[]\IL2/cmr/m/it/10 Uva¾ujme stejný
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
+[]\IL2/cmr/m/it/10 Stejný
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+[]
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 180--181
+\IL2/cmr/m/it/10 Vysvìtlující ve-lièiny $\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 =
+ (\OML/cmm/m/it/10 x[]; x[]; :::; x[]\OT1/cmr/m/n/10 )$ \IL2/cmr/m/it/10 jsou s
+oubì¾nì exo-genní tak,
+ []
+
+[95] [96]
+Underfull \hbox (badness 7649) in paragraph at lines 226--227
+[]\IL2/cmr/m/it/10 Chyby re-gres-ního mo-delu
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 242--243
+[]\IL2/cmr/m/it/10 Pøi spl-nìní pøed-po-
+ []
+
+[97] [98]
+File: pictures/figure_11_1.eps Graphic file (type eps)
+ <pictures/figure_11_1.eps>
+File: pictures/figure_11_2.eps Graphic file (type eps)
+ <pictures/figure_11_2.eps> [99] [100]
+[101] [102]) [103]
+\openout2 = `wool_chap12.aux'.
+
+ (./wool_chap12.tex [104
+
+
+
+]
+Kapitola 12.
+
+Underfull \hbox (badness 1902) in paragraph at lines 3--4
+\IL2/cmr/m/n/10 V pøed-chozí ka-pi-tole jsme uká-zali, ¾e po-kud je re-gresní m
+o-del "kom-
+ []
+
+[105]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.35599pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[106] [107]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.35599pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[108] [109]
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+[]\IL2/cmr/m/n/10 Tento test vy-¾a-duje spl-nìní pøed-po-kladu ho-mos-ke-das-ti
+-city, tj.
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.35599pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[110]
+Underfull \hbox (badness 2376) in paragraph at lines 200--200
+[]\IL2/cmr/bx/n/14.4 Zohlednìní au-to-ko-re-lace v pod-mín-kách
+ []
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 204--205
+\IL2/cmr/m/n/10 Pøedpokládejme spl-nìní Gauss-Markovových pøed-po-kladù TS.1 a¾
+ TS.4,
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[111]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.35599pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[112] [113]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.35599pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[114] [115]
+Underfull \hbox (badness 8132) in paragraph at lines 394--394
+[]\IL2/cmr/bx/n/12 Autokorelaènì ro-bustní smìro-datná od-chylka
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.35599pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[116] [117]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.35599pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[118]) [119]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.35599pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[120]
+\openout2 = `wool_chap13.aux'.
+
+ (./wool_chap13.tex
+Kapitola 13.
+) [121
+
+
+
+]
+\openout2 = `wool_chap14.aux'.
+
+ (./wool_chap14.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[122
+
+
+
+]
+Kapitola 14.
+) [123]
+\openout2 = `wool_chap15.aux'.
+
+ (./wool_chap15.tex [124
+
+
+
+]
+Kapitola 15.
+[125] [126]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[127] [128] [129] [130] [131] [132] [133] [134] [135] [136] [137]
+Underfull \hbox (badness 1845) in paragraph at lines 406--407
+[]\IL2/cmr/m/it/10 Populaèní mo-del mù¾e být
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
+[]\IL2/cmr/m/it/10 Chybový
+ []
+
+[138]
+Underfull \hbox (badness 2073) in paragraph at lines 472--473
+[]\IL2/cmr/m/it/10 Je spl-nìna rov-
+ []
+
+) [139]
+\openout2 = `wool_chap16.aux'.
+
+ (./wool_chap16.tex [140
+
+
+
+]
+Kapitola 16.
+[141] [142] [143]
+File: pictures/figure_16_1.eps Graphic file (type eps)
+ <pictures/figure_16_1.eps> [144] [145]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [146]
+[147] [148]) [149]
+\openout2 = `wool_chap17.aux'.
+
+ (./wool_chap17.tex [150
+
+
+
+]
+Kapitola 17.
+[151]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[152] [153]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[154] [155]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[156] [157]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[158] [159]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[160]
+Underfull \hbox (badness 1454) in paragraph at lines 286--287
+[]\IL2/cmr/m/n/10 Jestli¾e nelze pøed-po-klá-dat spl-nìní pøed-po-kladu Po-is-s
+o-nova roz-dìlení,
+ []
+
+[161]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[162] [163]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[164] [165]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[166]) [167]
+\openout2 = `wool_chap18.aux'.
+
+ (./wool_chap18.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.94034pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[168
+
+
+
+]
+Kapitola 18.
+[169] [170] [171] [172] [173] [174]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.10004pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[175] [176] [177] [178] [179]) [180]
+\openout2 = `vocab.aux'.
+
+ (./vocab.tex
+Kapitola 19.
+
+Overfull \hbox (67.70905pt too wide) in paragraph at lines 5--56
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 9.28888pt on input line 58.
+
+
+Overfull \hbox (146.72319pt too wide) in paragraph at lines 62--136
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 285.28888pt on input line 138.
+
+) [181
+
+
+
+] [182] [183] (./main.aux (./wool_chap1.aux) (./wool_chap2.aux)
+(./wool_chap3.aux) (./wool_chap4.aux) (./wool_chap5.aux) (./wool_chap6.aux)
+(./wool_chap7.aux) (./wool_chap8.aux) (./wool_chap9.aux) (./wool_chap10.aux)
+(./wool_chap11.aux) (./wool_chap12.aux) (./wool_chap13.aux) (./wool_chap14.aux)
+(./wool_chap15.aux) (./wool_chap16.aux) (./wool_chap17.aux) (./wool_chap18.aux)
+(./vocab.aux))
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 10769 strings out of 494912
+ 178046 string characters out of 6179761
+ 255474 words of memory out of 5000000
+ 13743 multiletter control sequences out of 15000+600000
+ 20150 words of font info for 57 fonts, out of 8000000 for 9000
+ 26 hyphenation exceptions out of 8191
+ 36i,19n,43p,1548b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on main.dvi (183 pages, 772860 bytes).

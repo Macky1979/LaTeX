@@ -1,0 +1,198 @@
+\documentclass[a4paper]{book}
+\usepackage{pstricks}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{mathrsfs}
+
+\setlength{\unitlength}{1.0mm}
+\sloppy
+
+\begin{document}
+
+\title{Stressing probability of default through stressed equity price}
+\author{Michal Mackanic (RMO/CZ)}
+\date{November 2019}
+\maketitle
+
+\tableofcontents{}
+
+\chapter{Approach based on Merton model}
+
+In this memo we introduce two approaches to stressing probability of default. The first approach is based on Merton model.
+
+\section{Introduction to Merton model}
+
+\subsection{Basic Idea}
+
+Merton model of 1974 is a variant of famous Black-Scholes model.\footnote{In fact, the model is sometimes referred to Black-Scholes-Merton model.} It models equity value as an option on company's assets. The model assumes that all company's liabilities are represented by a single zero coupon bond maturing at time $T$.
+
+The basic idea of Merton model is that equity value at time $T$ could be understood as residual company's value after its debt repayment. In other words,
+
+\begin{equation}
+E_T = \max(V_T - D, 0),
+\end{equation}
+where $V_T$ stands for company's asset value at time $T$ and $D$ represents liabilities modelled as a zero coupon bond with residual maturity of $T$ years. Please note that if $V_T < D$ at time $T$, the company defaults on its debt.
+
+\subsection{Merton model as Black-Scholes formula}
+
+\subsubsection{Assumptions}
+
+Let us remind standard assumptions of Black-Scholes model, i.e.
+\begin{enumerate}
+\item there are no transaction costs and taxes,
+\item all assets are continuously traded and perfectly divisible,
+\item there are no limitations on assets short-selling,
+\item every market participant can borrow / lend money at the same interest rate,
+\item interest rate term structure is flat over the considered time period and
+\item value of assets follows log-normal distribution.
+\end{enumerate}
+
+\subsubsection{Equity value as a call option}
+
+If we define
+\begin{itemize}
+\item value of company's assets as of time 0 (i.e. as of today) as $V_0$,
+\item value of company's assets as of time $T$ as $V_T$,
+\item value of company's equity as of time 0 (i.e. as of today) as $E_0$,
+\item nominal amount a zero coupon bond representing company's liabilities maturing at time $T$ as $D$,
+\item volatility of company's assets as $\sigma_V$ and
+\item volatility of company's equity as $\sigma_E$
+\end{itemize}
+it can be shown that under the above assumptions equity value follows standard Black-Scholes equation
+\begin{equation}
+E_0 = V_0 N(d_1) - De^{-rT} N(d_2)
+\end{equation}
+where
+\begin{equation}
+d_1 = \frac{\ln \Big(\frac{V_0}{De^{-rT}} \Big) + \frac{\sigma_V^2}{2}T}{\sigma_V \sqrt{T}}.
+\end{equation}
+and
+\begin{equation}
+d_2 = d_1 - \sigma_V \sqrt{T}.
+\end{equation}
+In other words, equity could be seen as a long call option on the underlying company's assets.
+
+\section{Risk neutral probability of default}
+
+It follows from Black-Scholes theory that $N(-d_2)$ is a risk-neutral probability covering a time period of $T$ years. To evaluate the probability we need $D$, $V_0$ and $\sigma_V$. Information on debt amount $D$ is available in financial statements of the company. Unfortunately neither $V_0$ nor $\sigma_V$ are readily available. However, if the equity is traded on a market, we can obtain both $E_0$ and $\sigma_E$.\footnote{The volatility $\sigma_E$ could be either obtained from equity option market or derived from historical prices.} Using Ito's lemma it could be shown that
+\begin{equation}
+\sigma_E E_0 = \frac{\partial E}{\partial V}\sigma_V V_0.
+\end{equation}
+Solving simultaneously (1.2) and (1.5) we evaluate $V_0$ a $\sigma_V$ and thus can compute risk-neutral probability $N(-d_2)$.
+
+\subsection{Risk neutral vs. real world probability of default}
+
+Risk neutral probability of default is based on market sentiment that is translated into market prices. However, the risk neural probability could be quite different from real world probability of default, i.e. probability that a given company will indeed default on its debt. Therefore we need to establish a link between risk neutral and real world probability.
+
+\section{KMV Credit Monitor and distance to default}
+
+\subsection{Distance to default and real world probability of default}
+
+KMV Credit Monitor, which is a market standard for prediction of credit rating migrations, utilizes a concept of distance to default. As its name suggests, the smaller the distance, the higher the probability of default. Please note that distance to default is just `rebranded' variable $d_2$ introduced above.
+
+Although we cannot use risk neutral probability default $N(-d_2)$ directly, we can use distance to default $d_2$ to rank individual companies. The basic idea is that companies with the same distance to default have the same credit rating and thus the same real world probability of default.
+
+The next logical step is that once credit rating (and thus also real world probability of default) is determined for several companies we can use their distance to default as a benchmark to determine real world probability of default for other companies. In other worlds, it is possible (at least in theory) to estimate a function describing relationship between distance to default and real world probabilities. Such a function could be then used to assign real world probability of default to new companies.
+
+\section{Stressing real world probability of default}
+
+\subsection{Basic idea}
+
+Let us get back to equations (1.2) and (1.5). The equations could be used to stress real world probability of default under two assumptions. First, let us assume that relation between distance to default and real world probability of default established in the above section does not change in time. Second, let us assume that equity price of companies under stress tends to drop. Thus we can
+\begin{enumerate}
+\item stress $E_0$,
+\item re-calculate $V_0$ and $\sigma_V$ using (1.2) and (1.5),
+\item update distance to default $d_2$ and
+\item determine stressed real world probability of default using the updated $d_2$.
+\end{enumerate}
+
+When under stress we can argue it is not only company's current equity price $E_0$ that drops but that we are also `more uncertain' about future values $E_T$. Thus we should consider increase of $\sigma_V$ as well. However, for the time being we abandon this option to keep the approach as simple as possible.
+
+\subsection{Stressing current equity price}
+
+There are many ways to quantify equity price drop due to stressed conditions. The most accurate is to analyse company's outlooks through an established valuation method such as discounted cash-flow analysis or comparable company analysis. Unfortunately, such an approach is time consuming and requires both accounting expertise and deep business knowledge.
+
+\subsubsection{Price to earnings ratio}
+
+A simple (and crude) approach is to stressed equity price via P/E ratio.\footnote{P/E ratio of 10 means that the company is being traded at ten times its current earnings. P/E ratio reflects factors as market sentiment, industry, region, long-term business sustainability and company's development phase.} If we believe that company's outlooks are weak, we can stress its equity price through lowering its P/E ratio. The stress could be based on expert opinion (for example we can set P/E ratio to level of already stressed peers) or we use the following simple rule. For a well established company we can assume its earnings are stable in time. Therefore following logic of P/E ratio we get
+\begin{equation}
+E_0 = \sum_{i = 1}^{P/E} \textit{earnings}_0.
+\end{equation}
+If we expect company's earnings to drop by 10\% on yearly basis (e.g. due to additional environmental costs imposed by government or due to dropping revenues), we can calculate the updated equity price as
+\begin{equation}
+E_0^* = \sum_{i = 1}^{P/E} 0.9^{i - 1} \textit{earnings}_0.
+\end{equation}
+
+\chapter{Approach based on Vasicek model}
+
+In the previous chapter we introduced a method based on Merton model. In this chapter we introduce an alternative method based on Vasicek model. Given that most inputs are available in CRE/ICM model, the below described approach is somewhat easier to implement.
+
+\section{Introduction to Vasicek Model}
+
+\subsection{Basic Idea}
+
+Vasicek model assumes that firm's log asset value is normally distributed and can be expressed as
+\begin{equation}
+X \sim \sqrt{\rho} + \sqrt{1 - \rho} \epsilon,
+\end{equation}
+where $Z \sim N[0, 1]$ represents the systematic and $\epsilon \sim N[0, 1]$ represents idiosyncratic risk factor, which are mutually independent. $\rho$ represents correlation between the asset returns and systematic risk factor $Z$. It follows that $X$ is normally distributed with zero mean and standard deviation of one.
+
+The basic idea of Vasicek model is that a firm defaults if value of its assets drops below some threshold value $TH$, i.e
+\begin{equation}
+PD = P[X < TH].
+\end{equation}
+
+\subsection{Vasicek formula}
+
+Given the above assumptions relation (2.2) could be further expanded into
+\begin{multline}
+PD = P[X < TH] = P[\sqrt{\rho}Z + \sqrt{1 - \rho} \epsilon < TH] =\\
+P \Big[\epsilon < \frac{TH - \sqrt{\rho}Z}{\sqrt{1 - \rho}}\Big] = \Phi \Big(\frac{TH - \sqrt{\rho}Z}{\sqrt{1 - \rho}}\Big).
+\end{multline}
+Using relation $TH = \Phi^{-1}[PD^{TTC}]$ we derive the well known Vasicek formula, which represents a corner stone of Basel regulation.
+\begin{equation}
+PD^{PIT} = \Phi \Big(\frac{\Phi^{-1}(PD^{TTC}) - \sqrt{\rho}Z}{\sqrt{1 - \rho}}\Big).
+\end{equation}
+In other words, using systematic factor $Z$ we can stress $PD^{TTC}$ to derive $PD^{PIT}$ that is coherent with state of economy as described by $Z$.
+
+\section{CRE/ICM model}
+
+\subsection{Systematic factor $Z$}
+
+In the above formulas we assume that systematic risk factor $Z$ represents a state of economy with negative values indicating down-turn and positive values indicating up-turn part of an economic cycle.
+
+In CRE/ICM model systematic risk factor $Z$ is further broken down into industry and region systematic risk subfactors, i.e.
+\begin{equation}
+Z = \frac{1}{K}(\beta Z_{IND} + (1 - \beta) Z_{REG}),
+\end{equation}
+where $Z_{IND} \sim N[0, 1]$ represents industry and $Z_{REG} \sim N[0, 1]$ represents region systematic risk factor with $\beta$ and $(1 - \beta)$ being their respective weights.\footnote{In the most common setup $\beta$ is assumed equal to 50\%.} $K$ is normalizing constant, i.e. constant ensuring $Z \sim [0, 1]$, defined as
+\begin{equation}
+K = \sqrt{\beta^2 + 2 \cdot corr(Z_{IND}, Z_{REG}) + (1 - \beta)^2}.
+\end{equation}
+
+CRE/ICM model recognizes several combinations of industries and regions for which correlation $corr(Z_{IND}, Z_{REG})$ is calibrated using industry and region equity indices.
+
+\subsection{Systematic subfactor $Z_{IND}$}
+
+In CRE/ICM model $Z_{IND}$ and $Z_{REG}$ are treated as random variables. On the other hand, climate scenarios typically stress selected industry in an explicit way. Therefore value of $Z_{IND}$ is given by the scenario contrary to CRE/ICM model where it results from Monte-Carlo simulation. Since we typically do not stress $Z_{REG}$ we can assume $Z_{REG}$ = 0 and thus equation (2.5) simplifies into
+\begin{equation}
+Z = \frac{1}{K}\beta Z_{IND}.
+\end{equation}
+The last step is to determine value of $Z_{IND}$ given the climate scenario.
+
+\section{Climate scenario vs $Z_{IND}$}
+
+In CRE/ICM model each industry is represented by an equity index for calibration purposes. If we knew its P/E and were able to translate climate scenario into a change in expected earnings, we could use approach outlined in section 1.4.2 to stress the index price. Once we know both the current and stressed equity index price, we can calculate its relative change as
+\begin{equation}
+E^{\%} = \ln(E^*_0 / E_0),
+\end{equation}
+where $E^*_0$ stands for the stressed index price. As index mean $\mu$ and standard deviation $\sigma$ are by-products of CRE/ICM model calibration, we can standardize the relative change. The result equals to $Z_{IND}$, i.e.
+\begin{equation}
+Z_{IND} = \frac{E^{\%} - \mu}{\sigma}.
+\end{equation}
+
+\section{Stressing probability of default}
+
+Plugging $Z_{IND}$ into (2.7) we get systematic risk driver $Z$, which - when used as an input to (2.4) - yields stressed average probability of default for a given industry. The stressed average probability of default could be used to stress through-the-cycle migration matrix using Z-hat approach or other suitable method.
+\end{document}

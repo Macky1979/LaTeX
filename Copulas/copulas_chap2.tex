@@ -1,0 +1,207 @@
+\chapter{Míra závislosti}
+
+\section{Korelace}
+
+Korelace $\rho(X_1, X_2)$ mezi náhodnými veličinami $X_1$ a $X_2$ je definována jako
+\begin{equation*}
+\rho(X_1, X_2) = \frac{cov(X_1, X_2)}{\sqrt{D(X_1)D(X_2)}}
+\end{equation*}
+kde
+\begin{equation*}
+cov(X_1, X_2) = E[(X_1 - E[X1])(X_2 - E[X_2])]
+\end{equation*}
+Korelace vyjadřuje míru lineární závislosti a nabývá hodnot z intervalu $[-1, 1]$. Jestliže jsou $X_1$ a $X_2$ nezávislé, pak $\rho(X_1, X_2) = 0$. Opačné trvzení však neplatí - pokud je korelace rovna nula, neznamená to, že jsou $X_1$ a $X_2$ nezávislé. Pokud $|\rho(X_1, X_2)| = 1$ jsou $X_1$ a $X_2$ dokonale lineárně korelované, což znamená, že $X_2 = \alpha + \beta X_1$ téměř jistě pro některé $\alpha \in R$ a $\beta \neq 0$\footnote{V případě $\beta > 0$ hovoříme o pozitivní lineární korelaci. V případě $\beta < 0$ hovoříme o negativní lineární korelaci.}. Pro $\beta_1, \beta_2 > 0$ navíc platí
+\begin{equation*}
+\rho(\alpha_1 + \beta_1 X_1, \alpha_2 + \beta_2 X_2) = \rho(X_1, X_2)
+\end{equation*}
+což znamená, že korelace je invariantní pro striktně rostoucí lineární transformaci. Nicméně je třeba zdůraznit, že korelace není invariantní pro nelineární striktně rostoucí trasformaci $T: R \rightarrow R$. Pro dvě náhodné veličiny tedy obecně platí $\rho(T(X_1), T(X_2)) \neq rho(X_1, X_2)$.
+
+\begin{fallacy}
+Sdružená distribuční funkce je jednoznačně definována pomocí marginálních distribučních funkcí a párových korelací.
+\end{fallacy}
+
+Toto tvrzení je platné pouze v případě vícerozměrných eliptických rozdělení. Kdyby toto tvrzení bylo platné obecně, nebylo by zapotřebí konceptu kopula funkce.
+
+\begin{example}
+Uvažujme dvě náhodné veličiny představující zisk / ztrátu dvou portfolií. Předpokládejme, že obě rizika sledují standardní normální rozdělení a že jejich korelace je rovna nule. Zkonstruujme dva náhodné vektory v souladu s těmito předpoklady.
+
+Uvažujme dvě modelové situaci. Model 1 je standardní dvourozměrné normální rozdělení $X \sim N_2(0, I_2)$. V modelu 2 nezávislá náhodná veličina $V$ s pravděpodobnostní funkcí $P(V = 1) = P(V = -1) = \frac{1}{2}$ použita při konstrukci nových náhodných veličin $(Y_1, Y_2) = (X_1, VX_1)$, kde $X_1$ je převzato z modelu 1. Marginální distribuční funkce náhodných veličin $Y_1$ a $Y_2$ sledují taktéž standardní normální rozdělení s nulovou korelací. Kopula funkce modelu 2 je
+\begin{equation*}
+C(u_1, u_2) = \frac{1}{2} \max(u_1 + u_2 - 1, 0) + \frac{1}{2}\min(u_1, u_2)
+\end{equation*}
+což je mix dvourozměrných kopula funkcí s Fréchetovou hraniční hodnotou. Náhodné velčiny $Y_1$ a $Y_2$ tedy nejsou nezávislé.
+\end{example}
+
+\begin{fallacy}
+Pro libovolné jednorozměrné distribuční funkce $F_1$ a $F_2$ a libovolnou korelaci $\rho$ z intervalu $[-1, 1]$ je vždy možné zkonstruovat sdruženou distribuční funkci $F$ s marginálními distribučními funkcemi $F_1$ a $F_2$ a korelací $\rho$.
+\end{fallacy}
+
+Toto tvrzení je opět platné pouze pro eliptické pravděpodobnostní rozdělení. Tzv. dosažitelné korelace mohou tvořit podmnožinu intervalu $[-1, 1]$.
+
+\begin{proposition}
+Jestliže $(X_1, X_2)$ sleduje sdruženou distribuční funkci $F$ a marginální distribuční funkce $F_1$ a $F_2$, pak je kovariance $X_1$ a $X_1$, pokud je konečná, dána vztahem
+\begin{equation}
+cov(X_1, X_2) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}(F(x_1, x_2) - F_1(x_1)F_2(x_2))dx_1 dx_2
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Nechť $(X_1, X_2)$ sleduje sdruženou distribuční funkci $F$ a nechť $(\tilde{X}_1, \tilde{X}_2)$ je její nezávislou kopií\footnote{Jedná se tedy o druhý pár, který sleduje sdruženou distribuční funkci $F$ a který je nezávislý na $(X_1, X_2)$.}. Platí
+\begin{multline*}
+E[(X_1 - \tilde{X}_1)(X_2 - \tilde{X}_2)] = E[X_1X_2 - X_1\tilde{X}_2 - \tilde{X}_1X_2 + \tilde{X}_1 \tilde{X}_2]\\
+= E[X_1X_2] - E[X_1 \tilde{X}_2] + E[\tilde{X}_1 \tilde{X}_2] - E[\tilde{X}_1X_2]\\
+= E[X_1X_2] - E[X_1]E[X_2] + E[X_1X_2] - E[X_1]E[X_2]\\
+= 2 cov(X_1, X_2)
+\end{multline*}
+Nyní použijme identitu, která říká, že pro libovolné $a \in R$ a $b \in R$ platí $(a - b) = \int_{-\infty}^{\infty}(I_{\{b \le x\}} - I_{\{a \le x\}})dx$, a aplikujeme ji na $(X_1 \tilde{X}_2)$ a $(X_2 - \tilde{X}_2)$. Získáme
+\begin{multline*}
+2cov(X_1, X_2)\\
+= E\left[\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\left(I_{\{\tilde{X}_1 \le x_1\}} - I_{\{X_1 \le x_1\}}\right)\left(I_{\{\tilde{X}_2 \le x_2\}} - I_{\{X_2 \le x_2\}}\right)dx_1 dx_2\right]\\
+= 2 \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \left(P(X_1 \le x_1, X_2 \le x_2) - P(X_1 \le x_1)P(X_2 \le x_2)\right)dx_1 dx_2
+\end{multline*}
+\end{proof}
+\begin{theorem}[Dosažitelné korelace]
+Nechť je $(X_1, X_2)$ náhodný vektor s marginálními distribučními funkce $F_1$ a $F_2$, které mají nenulový konečný rozptyl\footnote{Tj. předpokládáme, že $0 < D(X_1) < \infty$ a $0 < D(X_2) < \infty$.}, a blíže nespecifikovanou sdruženou distribuční funkcí. Pak platí následující tvrzení
+\begin{enumerate}
+\item Dosažitelné korelace formují uzavřený interval $[\rho_{min}, \rho_{max}]$, kde $\rho_{min} < 0 < \rho_{max}$.
+\item Minimální korelace $\rho_{min}$ je dosažena pouze v případě kontramonotonocity $X_1$ a $X_2$. Maximální korelace $\rho_{max}$ je dosaženo pouze jsou-li $X_1$ a $X_2$ komonotonické.
+\item Krajních hodnot $\rho_{min} = -1$ a $\rho_{max} = 1$ lze dosáhnout pouze tehdy a jen tehdy jsou-li $X_1$ a $-X_2$ téhož typu\footnote{Dvě náhodné veličiny $V$ a $W$ jsou stejného typu, jestliže existují konstanty $a > 0$ a $b \in R$ takové, že $V = aW + b$. Jinými slovy pravděpodobnostní rozdělení stejného typu lze získat jedno z druhého pomocí lokace a transformací měřítka.}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Začněme trvzením (2) a identitou (2.1). Připomeňme si, že dvourozměrná kopula funkce je omezena hraničními podmínkami
+\begin{equation*}
+max(F_1(x_1) + F_2(x_2) - 1, 0) \le F(x_1, x_2) \le min(F_1(x_1). F_2(x_2))
+\end{equation*}
+Pokud jsou $F_1$ a $F_2$ dané, je integrand v (2.1) maximalizován pro hraniční hodnotu $min(F_1(x_1), F_2(x_2))$, tj. v případě komonotonické kopula funkce. Analogicky je integrand minimalizován v případě kontramonotonické kopula funkce $max(F_1(x_1) + F_2(x_2) - 1, 0)$. Pro maximálně dosažitelnou korelaci platí $\rho_{max} \ge 0$. Nicméně $\rho_{max} = 0$ můžeme vyloučit, protože to by implikovalo $min(F_1(x_1), F_2(x_2)) = F_1(x_1)F_2(x_2)$ pro všechna $x_1$ a $x_2$. To by však vyžadovalo, aby $F_1$ a $F_2$ byly degenerované distribuční funkce s pravděpodobností koncentrovanou v jednou bodě. To je však vyloučeno předpokladem nenulového rozptylu. Podobnými argumenty lze prokázat $\rho < 0$. Jestliže pomocí $W(F_1, F_2)$ resp. $M(F_1, F_2)$ označíme Fréchetovu dolní resp. horní hraniční hodnotu, pak kopula funkce $\lambda W(F_1, F_2) + (1 - \lambda)M(F_1, F_2)$ pro $0 \le \lambda \le 1$ implikuje korelaci $\lambda \rho_{min} + (1 - \lambda)\rho_{max}$. Pro libovolné $\rho \in [\rho_{min}, \rho_{max}]$ tak získáváme $\lambda = \frac{\rho_{max} - rho}{\rho_{max} - \rho_{min}}$.
+
+Tvrzení (3) je zřejmé, protože $\rho_{min} = -1$ popř. $\rho_{max} = 1$ pouze tehdy a jen tehdy je-li mezi $X_1$ a $X_2$ téměř jistě nelineární vztah.
+\end{proof}
+
+\begin{example}[Dosažitelná korelace pro lognormální náhodné veličiny]
+Předpokládejme, že $\ln(X_1) \sim N(0, 1)$ a $\ln(X_2) \sim N(0, \sigma^2)$. Pro $\sigma \ne 1$ nejsou $X_1$ a $X_2$ shodného typu (ačkoliv $\ln(X_1)$ a $\ln(X_2)$ jsou), a proto dle bodu (3) výše uvedené věty platí $\rho_{max} < 1$. Náhodné veličiny $X_1$ a $-X_2$ taktéž nejsou stejného typu, a proto opět platí $\rho_{min} > -1$.
+
+Definujme $Z \sim N(0, 1)$ a všimněme si, že pokud jsou $X_1$ a $X_2$ komonotické, pak $(X_1, X_2) =^d (e^Z, e^{\sigma Z})$. Je zřejmé, že $\rho_{max} = \rho(e^Z, e^{\sigma Z})$. Analogicky lze dovodit $\rho_{min} = \rho(e^Z, e^{-\sigma Z})$. Analyckým řešením těchto dvou vztahů lze odvodit
+\begin{equation*}
+\rho_{min} = \frac{e^{-\sigma} - 1}{\sqrt{(e - 1)(e^{\sigma^2} - 1)}}, ~~~ \rho_{max} = \frac{e^{\sigma} - 1}{\sqrt{(e - 1)(e^{\sigma^2} - 1)}}
+\end{equation*}
+\end{example}
+
+Výše uvedený text lze z praktického hlediska shrnout do konstatování, že koncept korelace je bezobsažný, pokud není aplikován v kontextu řádně specifikovaného spojitého modelu.
+
+\section{Pořadová korelace}
+
+Pořadová korelace je měřítko závislosti, které je závislé pouze na dvourozměrné kopula funkci a nikoliv na marginálních distribučních funkcí. Připomeňme, že lineární korelace je závislá jak na kopula funkci, tak na marginálních distribučních funkcích. V praxi jsou jako měřítko pořadové korelace používány Kendallova a Spearmanova korelace.
+
+\subsection{Kendallova korelace}
+
+Kendalovu pořadovou korelaci je možné chápat jako měřítko shody pro dvourozměrné náhodné vektory. Dva body v $R^2$ označené jako $(x_1, x_2)$ a $(\tilde{x}_1, \tilde{x}_2)$ jsou ve shodě, jestliže $(x_1 - \tilde{x}_1)(x_2 - \tilde{x}_2) > 0$. Uvažujme dva náhodné vektory $(X_1, X_2)$ a $(\tilde{X}_1, \tilde{X}_2)$ z téhož pravděpodobnostního rozdělení. Jestliže má $X_2$ tendenci růst s $X_1$, pak očekáváme, že četnost shody $(x_1 - \tilde{x}_1)(x_2 - \tilde{x}_2) > 0$ bude relativně vyšší než neshody $(x_1 - \tilde{x}_1)(x_2 - \tilde{x}_2) < 0$. Analogické tvrzení platí také naopak. Tato myšlenka stojí za Kendallovou pořadovou korelací, která je definována jako rozdíl odpovídajících pravděpodobností, tj.
+\begin{equation}
+\rho_{\tau}(X_1, X_2) = P\left((X_1 - \tilde{X}_1)(X_2 - \tilde{X}_2) > 0 \right) - P\left((X_1 - \tilde{X}_1)(X_2 - \tilde{X}_2) < 0 \right)
+\end{equation}
+nebo-li
+\begin{equation*}
+\rho_{\tau}(X_1, X_2) = E\left[sign\left((X_1 - \tilde{X}_1)(X_2 - \tilde{X}_2)\right)\right]
+\end{equation*}
+kde $sign(x) = -1$ pro $x < 0$, $sign(x) = 0$ pro $x = 0$ a $sign(x) = 1$ pro $x > 0$.
+
+Související funkce \textit{CalcKendallTau.m} je k dispozici v adresáři \textit{libs}.
+
+\subsection{Spearmanova korelace}
+
+\begin{definition}
+Pro dvě náhodné veličiny $X_1$ a $X_2$ s marginálními distribučními funkcemi $F_1$ a $F_2$ je Spearmanova korelace definována jako
+\begin{equation*}
+\rho_S(X_1, X_2) = \rho(F_1(X_1), F_2(X_2))
+\end{equation*}
+\end{definition}
+
+\subsection{Vlastnosti pořadové korelace}
+
+Jak Kendallova tak Spearmanova korelace jsou symetrická měřítka závislosti, které nabývají hodnot z intervalu $[-1, 1]$. Pro nezávislé náhodné veličiny nabývají nulové hodnoty, nicméně, podobně jako u lineární korelace, nulová pořadová korelace neimplikuje nezávislé náhodné veličiny. Lze také dokázat, že pořadová korelace nabývá hodnoty 1 pro komonotonické náhodné veličiny a hodnoty -1 pro kontramonotonotické náhodné veličiny.
+
+Následující odstavec tvrdí, že pro spojité marginální distribuční funkce, obě pořadové korelace závisí pouze na kopule funkci, a proto sdílejí její vlastnost invariance pro monotónně rostoucí transformaci.
+
+\begin{proposition}
+Předpokládejme, že $X_1$ a $X_2$ mají spojité marginální distribuce a jedinečnou kopula funkci $C$. Pořadové korelace jsou pak dány
+\begin{multline}
+\rho_{\tau}(X_1, X_2) = 4 \int_0^1 \int_0^1 C(u_1, u_2)dC(u_1, u_2) - 1\\
+\rho_S(X_1, X_2) = 12 \int_0^1 \int_0^1 (C(u_1, u_2) - u_1 u_2)du_1 du_2
+\end{multline}
+\end{proposition}
+
+\begin{proof}
+Z (2.2) lze snadno odvodit, že Kendallovu korelaci lze také vyjádřit jako
+\begin{equation*}
+\rho_{\tau}(X_1, X_2) = 2 P((X_1 - \tilde{X}_1)(X_2 - \tilde{X}_2) > 0) - 1
+\end{equation*}
+a ze vzájemné zaměnitelnosti párů $(X_1, X_2)$ a $(\tilde{X}_1, \tilde{X}_2)$ vyplývá
+\begin{multline}
+\rho_{\tau}(X_1, X_2) = 4 P(X_1 < \tilde{X}_1, X_2 < \tilde{X}_2) - 1\\
+= 4 E(P(X_1 < \tilde{X_1}, X_2 < \tilde{X}_2 | \tilde{X_1}, \tilde{X_2})) - 1\\
+= 4 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}P(X_1 < x_1, X_2 < x_2)dF(x_1, x_2) - 1
+\end{multline}
+Protože $X_1$ a $X_2$ mají spojité marginální distribuční funkce, platí
+\begin{equation*}
+\rho_{\tau}(X_1, X_2) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} C(F_1(x_1), F_2(x_2)) dC(F_1(x_1), F_2(x_2)) - 1
+\end{equation*}
+z čehož po dosazení $u_1 := F_1(x_1)$ a $u_2 := F_2(x_2)$ vyplývá (2.3).
+
+Pro odvození (2.4) je klíčové si uvědomit, že $F_i(X_i)$ sleduje uniformní rozdělení nad intervalem $[0, 1]$ s rozptylem $\frac{1}{12}$. To má za následek $\rho_S(X_1, X_2) = 12 cov(F_1(X_1), F_2(X_2))$. Vztah (2.4) pak získáme přímou aplikací (2.1).
+\end{proof}
+
+Omyl (1), který jsme zmiňovali v souvislosti s lineární korelací, je relevantní také pro pořadovou korelaci - marginální distribuční funkce a pořadová korelace plně nedefinují vícerozměrné pravděpodobnostní rozdělení. Možnost omylu (2) však v případě pořadové korelace odpadá - pro libovolné marginální distribuční funkce je možné definovat dvourozměrné pravděpodobnostní rozdělení, které má požadovanou pořadovou korelaci z intervalu $[-1, 1]$. Jedním ze způsobů jak toho docílit je výše představená kombinace kontramonotonotické a komonotonické kopula funkce
+\begin{equation*}
+F(x_1, x_2) = \lambda W(F_1(x_1), F_2(x_2)) + (1 - \lambda)M(F_1(x_1), F_2(x_2))
+\end{equation*}
+Náhodný pár $(X_1, X_2)$ s touto kopula funkcí má pořadovou korelaci
+\begin{equation*}
+\rho_{\tau}(X_1, X_2) = \rho_S(X_1, X_2) = 1 - 2 \lambda
+\end{equation*}
+
+\subsection{Koeficienty závislosti v chvostech}
+
+Koeficienty závislosti v chvostech měří, jak jejich název napovídá, míru závislosti v chvostech dvourozměrného pravděpodobnostního rozdělení. Koeficienty, které si popíšeme v následujím textu, jsou definovány jako limitní podmíněné pravděpodobnosti v chvostu definovaného extrémním kvantilem.
+
+\begin{definition}
+Nechť $X_1$ a $X_2$ jsou náhodné veličiny s marginálními distribučními funkcemi $F_1$ a $F_2$. Koeficient závislosti v horním chvostu je definován
+\begin{equation*}
+\lambda_u := \lambda_u (X_1, X_2) = \lim_{q \rightarrow 1^-}P\left(X_2 > F_2^{\leftarrow}(q) | X_1 > F_1^{\leftarrow}(q)\right)
+\end{equation*}
+za předpokladu existence limitu $\lambda_u \in [0, 1]$. Je-li $\lambda_u \in (0, 1]$, říkáme o $X_1$ a $X_2$, že vykazují závislost z horním chvostu; $\lambda_u = 0$znamená, že $X_1$ a $X_2$ jsou v horním chvostu asymptoticky nezávislé. Analogicky koeficient závislosti v dolním chvostu je definován jako
+\begin{equation*}
+\lambda_l := \lambda_l(X_1, X_2) = \lim_{q \rightarrow 0^+} P \left(X_2 \le F_2^{\leftarrow}(q) | X_1 \le F_1^{\leftarrow}(q)\right)
+\end{equation*}
+za předpokladu existence $\lambda_l \in [0, 1]$.
+\end{definition}
+
+Pokud jsou distribuční funkce $F_1$ a $F_2$ spojité, lze $\lambda_u$ a $\lambda_l$ vyjádřit pomocí kopula funkce jako
+\begin{multline*}
+\lambda_l = \lambda_{q \rightarrow 0^+} \frac{P\left(X_2 \le F_2^{\leftarrow}(q), X_1 \le F_1^{\leftarrow}(q)\right)}{P\left(X_1 \le F_1^{\leftarrow}(q)\right)}\\
+= \lim_{q \rightarrow 0^+} \frac{C(q, q)}{q}
+\end{multline*}
+resp. jako
+\begin{multline*}
+\lambda_u = \lambda_{q \rightarrow 1^-} \frac{P\left(X_2 > F_2^{\leftarrow}(q), X_1 > F_1^{\leftarrow}(q)\right)}{P\left(X_1 > F_1^{\leftarrow}(q)\right)}\\
+= \lim_{q \rightarrow 0^+} \frac{\hat{C}(1 - q, 1 - q)}{1 - q} = \lim_{q \rightarrow 0^+} \frac{\hat{C}(q, q)}{q}
+\end{multline*}
+kde $\hat{C}$ je tzv. kopula funkce přežití (survival copula) definovaná jako
+\begin{equation*}
+\hat{C}(1 - u_1, 1 - u_2) = 1 - u_1 - u_2 + C(u_1, u_2)
+\end{equation*}
+Pro radiálně symetrické kopula funkce platí $\lambda_l = \lambda_u$, protože v jejich případě $C = \hat{C}$.
+
+\begin{example}[Gumbelova kopulace funkce]
+Gumbelova kopulace funkce je defivána jako $C_{\theta}^{Gu} = e^{-((-\ln(u_1))^{\theta} + (-\ln(u_2))^{\theta})^{1/\theta}}, ~~~ 1 \le \theta < \infty$. Koecifient závislosti v horním chvostu je tedy dán vztahem
+\begin{equation*}
+\lambda_u = \lim_{q \rightarrow 1^-} \frac{\hat{C}_{\theta}^{Gu}(1 - q, 1 - q)}{1 - q} = 2 - \lim_{q \rightarrow 1^-} \frac{C_{\theta}^{Gu}(q, q) - 1}{q - 1}
+\end{equation*}
+S využitím L'Hospitalova pravidla a skutečnosti $C_{\theta}^{Gu}(u, u) = u^{2^{1 / \theta}}$ lze dovodit
+\begin{equation*}
+\lambda_u = 2 - \lim_{q \rightarrow 1^-} \frac{dC_{\theta}^{Gu}(q, q)}{dq} = 2 - 2 ^ {1 / \theta}
+\end{equation*}
+Pro $\theta > 1$ tedy Gumbelova kopula funkce vykazuje závilost v horním chvostu. Síla této závoslosti se limitně blíží 1 s tím, jak $\theta \rightarrow \infty$. To v souladu s intuicí, protože pro $\theta \rightarrow \infty$ se Gumbelova kopula funkce stáva komonotonickou kopula funkcí.
+\end{example}
+
+Kód pro výpočet závoslosti v chvostech dvourozměrné kopula funkce je k dispozici v adresáři \textit{Copulas} ve funkci \textit{CopulaTailDependence}.

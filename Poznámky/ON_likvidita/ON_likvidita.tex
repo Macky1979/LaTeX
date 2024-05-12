@@ -1,0 +1,227 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{O/N likvidita}
+
+KB má s řadou zahraničních partnerských bank otevřeny tzv. loro a nostro účty\footnote{Z pohledu KB je loro účtem účet, který má KB otevřený u jiné banky; nostro úcet je naopak účtem, který má jiná banka otevřený u KB. Loro a nostro účty jsou souhrnně označovány jako tzv. korespondenské účty.}, které slouží pro účely mezibankovního zúčtování. Toto zúčtování generuje cash-flow, jenž je třeba řídit s ohledem na likviditu.
+
+\section{Oddělení Nostro a loro účty}
+
+Za sledování zůstatku na nostro a loro účtech KB je zodpovědné oddělení Nostro a loro účty. V průběhu dne posílá toto oddělení několik reportů. Zpravidla je zasílán jeden report ráno okolo 9:00 a jeden report odpoledne okolo 16:45 těsně před koncem obchodování. Tyto reporty obsahují informace o očekávaném O/N a T/N zůstatku na loro a nostro účtech KB. Report vždy zachycuje stav z počátku dne a případné změny, ke kterých došlo v průběhu dne.
+
+\subsection{Definice O/N a T/N zůstatku}
+
+O/N zůstatek je očekávaným zůstatkem pro daný pracovní den. Jestliže je tedy např. ranní O/N pozice -100 USD a nebudou uzavírány další obchody, bude souhrnná pozice na všech nostro a loro účtech na konci dne opět -100 USD.
+
+T/N zůstatek je analogicky očekávaným zůstatkem pro následující pracovní den. Jestliže je tedy např. ranní T/N pozice -40 USD a v průběhu aktuálního a následujícího pracovního dne nebudou uzavírány další obchody, bude celková pozice na všech nostro a loro úctech na konci příštího pracovního dne -40 USD.
+
+\subsubsection{Vztah mezi O/N a T/N zůstatkem}
+
+Z výše popsaného příkladu vyplývá, že T/N pozice na konci pracovního dne je výchozí O/N pozicí pro následující pracovní den.
+
+Z logiky věci také vyplývá, že pokud nejsou uzavřeny žádné obchody se splatností k aktuálnímu nebo následujícímu pracovnímu dni, je O/N a T/N pozice daného dne shodná\footnote{O/N a T/N pozice jsou v tomto případě shodné pouze, odhlédneme-li od nabíhajících úroků.}. Podrobnosti viz. kapitola \textit{Uzavírání O/N pozice}.
+
+Jestliže známe O/N a T/N zůstatek, je možné dopočítat celkovou hodnotu obchodů uzavřených v dané měně se splatností následující pracovní den. Pro ilustraci uvažujme den, ke kterému je O/N zůstatek roven -100 USD a T/N zůstatek roven -40 USD. Aby mohla tato situace nastat, musí existovat obchody s čistou hodnotou 60 USD, které jsou splatné následujíci pracovní den.
+\begin{center}
+	\begin{pspicture}(0.0,0.0)(10.0,3.5)
+		\rput(5.0,0.0){Zůstatek O/N a T/N účtu}
+
+		\psline(0.5,1.0)(9.5,1.0)
+		\psline(2.0,0.9)(2.0,1.1)
+		\psline(5.0,0.9)(5.0,1.1)
+		\psline(8.0,0.9)(8.0,1.1)
+
+		\rput(2.0,0.7){\small{$T_0$}}
+		\rput(5.0,0.7){\small{$T_1$}}
+		\rput(8.0,0.7){\small{$T_2$}}
+		
+		\pscurve[arrows=->](2.0,1,0)(3.5,1.5)(5.0,1.0)
+		\pscurve[arrows=->](5.0,1.0)(6.5,1.5)(8.0,1.0)
+		
+		\rput(3.5,2.2){\small{O/N}}
+		\rput(3.5,1.8){\tiny{-100 USD}}
+		\rput(6.5,2.2){\small{T/N}}
+		\rput(6.5,1.8){\tiny{-40 USD}}
+		
+		\psdots[dotstyle=square, dotscale=2](3.5,1.0)
+		\psdots[dotstyle=square, dotscale=2](6.5,1.0)
+		
+		\rput(3.5,0.7){\tiny{-100 USD}}
+		\rput(6.5,0.7){\tiny{ 60 USD}}
+
+	\end{pspicture}
+\end{center}
+
+\subsection{Uzavírání O/N pozice}
+
+Jestliže by KB na konci obchodního dne vykazovala na svých nostro nebo loro účtech záporný O/N zůstatek, musela by z tohoto zůstatku platit relativně vysoký úrok. Obecnou snahou tedy je na účtech udržovat kladný nebo alespoň nulový zůstatek. Reporty generované oddělením Nostro a loro účty jsou zasílány obchodníkům, kteří na základě nich řídí O/N zůstatek na korespondenských účtech. V případe záporného O/N zůstatku se jej snaží uzavřít na nulu.
+
+Jestliže je O/N pozice uzavřena pomocí spotového obchodu\footnote{Spotový obchod je transakce, v rámci které dochází ke směně jedné měny za jinou.}, je ovlivněna O/N pozice obou "zúčastněných" měn, pokud není jednou z nich CZK\footnote{Report zasílaný oddělením Nostro a loro účty zachycuje pouze cizoměnové zůstatky.}. Vzhledem k tomu, že se jakákoliv změna O/N stejnou měrou promítne také v T/N pozici, je ve stejném směru ovlivněna také T/N pozice. Uvažujme situaci s výchozí O/N pozicí -100 USD a T/N pozicí -40 USD. Jestliže obchodník nakoupí 100 USD za CZK, je výsledná USD O/N pozice 0 USD a T/N 60 USD. Změna CZK pozice se v reportu neprojeví.
+\begin{center}
+	\begin{pspicture}(0.0,0.0)(10.0,3.5)
+		\rput(5.0,0.0){Zůstatek O/N a T/N účtu po provedení spotového obchodu}
+
+		\psline(0.5,1.0)(9.5,1.0)
+		\psline(2.0,0.9)(2.0,1.1)
+		\psline(5.0,0.9)(5.0,1.1)
+		\psline(8.0,0.9)(8.0,1.1)
+
+		\rput(2.0,0.7){\small{$T_0$}}
+		\rput(5.0,0.7){\small{$T_1$}}
+		\rput(8.0,0.7){\small{$T_2$}}
+		
+		\pscurve[arrows=->](2.0,1,0)(3.5,1.5)(5.0,1.0)
+		\pscurve[arrows=->](5.0,1.0)(6.5,1.5)(8.0,1.0)
+		
+		\rput(3.5,2.2){\small{O/N}}
+		\rput(3.5,1.8){\tiny{0 USD}}
+		\rput(6.5,2.2){\small{T/N}}
+		\rput(6.5,1.8){\tiny{60 USD}}
+		
+		\psdots[dotstyle=square, dotscale=2](2.8,1.0)
+		\psdots[dotstyle=square, dotscale=2](6.5,1.0)
+		
+		\rput(2.8,0.7){\tiny{-100 USD}}
+		\rput(6.5,0.7){\tiny{ 60 USD}}
+		
+		\psdots[dotstyle=o, dotscale=2](4.0,1.0)
+		
+		\rput(4.0,0.7){\tiny{100 USD}}
+
+	\end{pspicture}
+\end{center}
+
+Uvažujme situaci, kdy je O/N pozice uzavřena pomocí obchodu, který má dvě časově oddělené nohy. Příkladem takového obchodu je IAM\footnote{IAM je krátkodobá půjčka popř. úvěr.}. Jestliže by první noha byla splatná v aktuální den a druhá noha v následující pracovní den, byla by tím ovlivněna pouze O/N pozice. V případě T/N pozice by se totiž vliv obou nohou vzájemně vyrušil.
+
+\begin{center}
+	\begin{pspicture}(0.0,0.0)(10.0,3.5)
+		\rput(5.0,0.0){Zůstatek O/N a T/N účtu po provedení IAM obchodu}
+
+		\psline(0.5,1.0)(9.5,1.0)
+		\psline(2.0,0.9)(2.0,1.1)
+		\psline(5.0,0.9)(5.0,1.1)
+		\psline(8.0,0.9)(8.0,1.1)
+
+		\rput(2.0,0.7){\small{$T_0$}}
+		\rput(5.0,0.7){\small{$T_1$}}
+		\rput(8.0,0.7){\small{$T_2$}}
+		
+		\pscurve[arrows=->](2.0,1,0)(3.5,1.5)(5.0,1.0)
+		\pscurve[arrows=->](5.0,1.0)(6.5,1.5)(8.0,1.0)
+		
+		\rput(3.5,2.2){\small{O/N}}
+		\rput(3.5,1.8){\tiny{0 USD}}
+		\rput(6.5,2.2){\small{T/N}}
+		\rput(6.5,1.8){\tiny{-40 USD}}
+		
+		\psdots[dotstyle=square, dotscale=2](2.8,1.0)
+		\psdots[dotstyle=square, dotscale=2](5.8,1.0)
+		
+		\rput(2.8,0.7){\tiny{-100 USD}}
+		\rput(5.8,0.7){\tiny{ 60 USD}}
+		
+		\psdots[dotstyle=o, dotscale=2](4.0,1.0)
+		\psdots[dotstyle=o, dotscale=2](7.0,1.0)
+		
+		\rput(4.0,0.7){\tiny{100 USD}}
+		\rput(7.0,0.7){\tiny{-100 USD}}
+
+	\end{pspicture}
+\end{center}
+
+Jestliže by však druhá noha byla splatná až po následujícím pracovním dni, do aktuální T/N pozice by nevstupovala a ta by se tak změnila stejně jako O/N pozice. Noha by však vstoupila do T/N pozice v budoucnu.
+ 
+\begin{center}
+	\begin{pspicture}(0.0,0.0)(10.0,3.5)
+		\rput(5.0,0.0){Zůstatek O/N a T/N účtu po provedení IAM obchodu}
+
+		\psline(0.5,1.0)(9.5,1.0)
+		\psline(2.0,0.9)(2.0,1.1)
+		\psline(5.0,0.9)(5.0,1.1)
+		\psline(8.0,0.9)(8.0,1.1)
+
+		\rput(2.0,0.7){\small{$T_0$}}
+		\rput(5.0,0.7){\small{$T_1$}}
+		\rput(8.0,0.7){\small{$T_2$}}
+		
+		\pscurve(2.0,1,0)(3.5,1.5)(5.0,1.0)
+		\pscurve(5.0,1.0)(6.5,1.5)(8.0,1.0)
+		
+		\rput(3.5,2.2){\small{O/N}}
+		\rput(3.5,1.8){\tiny{0 USD}}
+		\rput(6.5,2.2){\small{T/N}}
+		\rput(6.5,1.8){\tiny{60 USD}}
+		
+		\psdots[dotstyle=square, dotscale=2](2.8,1.0)
+		\psdots[dotstyle=square, dotscale=2](6.5,1.0)
+		
+		\rput(2.8,0.7){\tiny{-100 USD}}
+		\rput(6.5,0.7){\tiny{ 60 USD}}
+		
+		\psdots[dotstyle=o, dotscale=2](4.0,1.0)
+		\psdots[dotstyle=o, dotscale=2](8.8,1.0)
+		
+		\rput(4.0,0.7){\tiny{100 USD}}
+		\rput(8.8,0.7){\tiny{-100 USD}}
+
+	\end{pspicture}
+\end{center}
+
+\subsection{Report generovaný oddělením Nostro a loro účty}
+
+Jak již bylo zmíněno výše, za sledování O/N zůstatku je zodpovědné oddělení Nostro a loro účty. To za tímto účelem připravuje report, který kromě O/N pozice zahrnuje také údaje o T/N pozici. Report zachycuje vždy stav pozic ze začátku dne a případně aktuální zůstatek, jestliže byly v průběhu dne provedeny transankce v příslušné měně.
+
+Očekávané O/N a T/N zůstatky z počátku dne jsou uvedeny ve sloupcích "Objednávka". Aktuální O/N zůstatek je v případě změny pozice uváděn v části "O/N Balance" pod tabulkou počátečních zůstatků s položkou "upřesnění". Aktuální stav T/N zůstatku, došlo-li v průběhu dne ke změnám, je uváděn v části "T/N Balance" ve sloupci "Konečný stav". Reporty jsou v průběhu dne zasílány zpravidla dva - ranní před 9:00 a odpolední okolo 16:45.
+
+Obchodník je povinnen na základě odpoledního reportu zajistit, aby byly O/N pozice na všech měnách kladné popř. nulové. To, že se tak skutečně stalo, kontroluje oddělení Nostro a loro účty.
+
+\section{Limit O/N likvidita}
+
+\subsection{Teoretický úvod}
+
+Ačkoliv se limit sledovaný oddělením Tržní rizika oficiálně nazývá O/N likvidita, ve skutečnosti se jedná o limit, který se váže na T/N zůstatek.
+
+To, že je O/N zůstatek na denní bázi přivírán obchodníky na nulu, nám nic neříká o T/N zůstatku. Připomeňme, že T/N zůstatek z konce dne je O/N zůstatkem následujícího pracovního dne. Mohli bychom se tak dostat do situace, kdy O/N bude sice uzavřen na nulu, avšak T/N zůstatek bude výrazně v záporu. To by mělo za následek, že obchodník by musel následující pracovní den načerpat na trhu poměrně vysokou částku. Objem obchodů, které může obchodník daný den uzavírat, je však omezený tzv. limitem na O/N likviditu. Tento limit tedy patří do rodiny tzv. "squeeze" limitů a má zabránit tomu, aby byl obchodník, obrazně řečeno, tlačen trhem do "kouta".
+
+Uvažujme situaci, kdy T/N pozice na konci dne (tj. po té, co obchodník provedl uzavření O/N pozic na základě odpoledního reportu) je výrazně záporná. Jestliže bude chtít obchodník následující pracovní den uzavřít O/N na nulu, dojde nevyhnutelně k překročení limitu na O/N likviditu a to o\\
+
+\textit{ABS(T/N pozice z předchozího pracovního dne) - limit na O/N likviditu}\\
+
+p.j.
+
+\subsection{Technické pozadí limitu}
+
+Pro účely využití limitu v den $T$\footnote{Limity pro den $T$ jsou reportovány oddělením Tržních rizik následující den $T+1$.} je rozhodující poslední report zaslaný v den $T-1$, konkrétně pak jeho část "T/N Balance". Ta obsahuje ve sloupci "Objednávka očekávanou T/N pozici z počátku dne.
+
+Skutečnou T/N pozici na konci dne zjistíme tak, že T/N pozici z počátku dne $T-1$ upravíme o obchody, které obchodník uzavřel v den $T-1$ a jejichž cash-flow má splatnost v den $T-1$ a $T$. Tyto obchody totiž představují transakce, které ovliňují T/N pozici v den $T-1$. Jestliže by např. obchodník uzavřel v den $T-1$ spotový obchod, ovlivní tím bezprostředně O/N pozici pro $T-1$ a jejím prostřednictvím také T/N pozici pro $T-1$. Jestliže by však obchodník uzavřel v den $T-1$ IAM obchod, jehož jedna noha by byla splatná v den $T-1$ a druhá v den $T$, došlo by pouze ke změně O/N pozice pro $T-1$ a T/N pozice pro $T-1$ zůstala nezměněná - obě nohy by se totiž vzájemně vykompenzovaly.
+
+\subsection{Limit O/N likvidita pro CZK}
+
+Až dosud jsme v rámci limitu uvažovali pouze cizí měny. Tento limit je však aplikován také na CZK. Logika limitu je shodná s tím rozdílem, že namísto reportu oddělení Nostro a loro účty je používán zůstatek na účtu, který má KB pro účely mezibankovního zúčtování otevřen u ČNB. Tento zůstatek je zasílán z ČNB do KB každé ráno a představuje stav účtu ke konci předchozího pracovního dne. Pro účely limitu O/N likvidity ke dni $T$ je používán zůstatek ke konci dne $T-1$, tj. zůstatek zaslaný ráno dne $T$. 
+
+\subsection{Databáze}
+
+Uvažujme limit O/N likvidity ze dne $T$.
+\begin{itemize}
+\item Procedura REPp\_OverNightLiquidity plní tabulku LIM\_LQ\_REP obchody uzavřenými v den $T-1$, jejichž cash-flow je splatné v den $T-1$ a $T$. Tato tabulka tak obsahuje obchody, o které je třeba opravit T/N zůstatek z počátku dne $T-1$. Obchody jsou získávány z databáze Kondor+.
+\item Tabulka LIM\_LQTN obsahuje údaje převzaté z reportu zaslaného oddělením Nostro a loro účty v den $T-1$.
+\item V tabulce LIM\_LQClearing jsou údaje o zůstatcích na účtech u ČNB a NBS. Pro účely limitu je využíván pouze zůstatek u ČNB. Tato tabulka je plněna oddělením Risk Systems Projects.
+\item Pohled LIMv\_LQ je jednoduchou modifikací tabulky LIM\_LQ pro účely reportingu.
+\end{itemize}
+
+\subsection{Možné problémy}
+Limit na O/N likviditu se potýká s řadou problémů.
+\begin{itemize}
+\item Vymezení pracovních dní a tím pádem také vymezení O/N a T/N se liší podle měny. Pro účely reportu jsou však pracovní dny určovány podle CZK. To může mít za následek špatné vymezení obchodů, o které je třeba opravit T/N pozici. V minulosti byly problémy zejména s měnami patřícími do skupiny OTH\_A.
+\item Oprava T/N pozice z počátku dne není dokonalá. Kondor+, z kterého jsou čerpány obchody zavřené obchodníkem, totiž neobsahuje např. tzv. hladké platby, dokumentární akreditivy a inkasa nebo operace z platebních karet. Všechny tyto operace v čele s hladkými platbami, které jsou objemově nejvýznamnější, mají dopad na O/N a T/N zůstatek. Z pohledu oddělení tržních rizik tak může dojít k překročení limitu, ačkoliv k jeho faktickému překročení nedošlo. Případné překročení je tak nutné konzultovat s oddělením Nostro a loro účty, které má k dispozici seznam těchto transakcí.
+\item V případě překročení limitu na CZK spočívá často problém v tom, že do tabulky LIM\_LQClearing nebyl uložen zůstatek u ČNB.
+\end{itemize}
+
+\end{document}

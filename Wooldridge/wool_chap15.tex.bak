@@ -1,0 +1,475 @@
+\chapter{Pomocné veličiny a dvoufázová OLS}
+
+\section{Zkreslení jednoduchého regresního modelu z titulu opomenutí nezávislé veličiny}
+
+V předchozím textu jsme diskutovali zkreslení odhadů regresních parametrů z titulu opomenutí relevantní nezávislé veličiny. Existuje několik možností, jak se k tomuto zkreslení postavit. První možností je prosté ignorování problému a smíření se se zkreslenými odhady. Druhou možností, kterou jsme již také diskutovali, je použití vhodné proxy veličiny. Pokud se opomenutá veličina nemění v čase, existuje ještě třetí možnost, a to aplikace diference prvního řádu, pomocí které se vlivu této veličiny zbavíme.
+
+Existuje však ještě jedna varianta, která ponechává opomenuté veličiny v chybovém členu a namísto aplikace klasické OLS používá metodu, která tuto skutečnost zohledňuje. Touto metodou je metoda tzv. pomocné veličiny (instrumental variable). Pro ilustraci uvažujme jednoduchý regresní model
+\begin{equation}
+\ln(wage) = \beta_0 + \beta_1 educ + \beta_2 abil + e.
+\end{equation}
+V kapitole 9 jsme ukázali, že při splnění určitých předpokladů lze použít IQ skóre jako proxy veličinu pro schopnost ($abil$). Bohužel ne vždy je vhodná proxy veličina k dispozici. Pak nám nezbývá, než $abil$ přidat do chybového členu, čímž se nám model zredukuje na
+\begin{equation}
+\ln(wage) = \beta_0 + \beta_1 educ + u.
+\end{equation}
+Tento model můžeme použít, pokud se nám podaří nalézt pomocnou veličinu pro $abil$.
+
+Pro ilustraci metody uvažujme regresní model
+\begin{equation}
+y = \beta_0 + \beta_1 x + u,
+\end{equation}
+kde $cov(x, u) \ne 0$.\footnote{Metoda pomocné veličiny funguje bez ohledu na to, zda-li jsou $x$ a $u$ korelované či nikoliv. Nicméně z důvodů, které vysvětlíme později, je vhodnější použít OLS, pokud $cov(x, y) = 0$.} Veličinu $x$ označujeme jako endogenní veličinu. Předpokládejme, že máme k dispozici veličinu $z$, která splňuje podmínku
+\begin{equation}
+cov(z, u) = 0
+\end{equation}
+a
+\begin{equation}
+cov(z, x) \ne 0.
+\end{equation}
+Takovouto veličinu nazýváme pomocnou veličinou pro veličinu $x$.
+
+Veličinu, která splňuje podmínku (15.4) nazýváme exogenní veličinou. V kontextu opominuté veličiny exogenita znamená, že veličina $z$ nemá po zohlednění vlivu $x$ a opomenuté veličiny žádný parciální efekt na $y$. Zároveň by $z$ nemělo být korelováno s opominutou veličinou. Podmínka (15.5) nám pak říká, že $z$ musí být korelováno s endogenní veličinou $x$.
+
+Protože je podmínka (15.4) postavena na chybovém členu $u$, který nepozorujeme, nelze tuto podmínku v praxi ověřit. Předpoklad $cov(z, u) = 0$ tak můžeme ospravedlnit pouze ekonomickou argumentací. Podmínku $cov(z, x) \ne 0$ však otestovat lze. Uvažujme model
+\begin{equation}
+x = \pi_0 + \pi_1 z + v.
+\end{equation}
+Protože $\pi_1 = \frac{cov(z, x)}{var(z)}$, je podmínka (15.5) splněna pouze pokud $\pi_1 \ne 0$. K tomuto účelu stačí otestovat nulovou hypotézu $H_0: \pi_1 = 0$ pomocí $t$ statistiky. Pokud je nulová hypotéza zamítnuta, má se podmínka za splněnou.
+
+V případě modelu pro $\ln(wage)$ musí být pomocná veličina $z$ pro $educ$ nekorelovaná s $abil$ (a s ostatními nepozorovanými veličinami ovliňujícími výši mzdy) a korelovaná se vzděláním. Z tohoto důvodu je proxy veličina představená v kapitole 9 jako pomocná veličina nevhodná. V modelu pro $\ln(wage)$ s opomenutou veličinou $abil$ musí být proxy veličina pro $abil$ s touto veličinou co nejvíce korelována. Pomocná veličina však musí být s $abil$ nekorelována. Proto, ačkoliv je IQ skóre vhodnou proxy veličinou $abil$, není vhodnou pomocnou veličinou pro $educ$. Jako vhodnou pomocnou veličinou by však mohlo být např. vzdělání matky ($motheduc$) nebo počet sourozenců (\textit{sibs}).
+
+Podmínky (15.4) a (15.5) slouží k tzv. identifikaci parametru $\beta_1$. S využitím (15.2) lze dokázat
+\begin{equation}
+cov(z, y) = \beta_1 cov(z, x) + cov(z, u),
+\end{equation}
+což při splnění podmínek (15.4) a (15.5) implikuje
+\begin{equation}
+\beta_1 = \frac{cov(z, y)}{cov(z, x)}.
+\end{equation}
+Odhad parametru $\beta_1$ metodou pomocné veličiny je tedy
+\begin{equation}
+\hat{\beta}_1 = \frac{\sum_{i=1}^n (z_i - \overline{z})(y_i - \overline{y})}{\sum_{i=1}^n (z_i - \overline{z})(x_i - \overline{x})}
+\end{equation}
+a odhad parametru $\beta_0$ pak
+\begin{equation}
+\hat{\beta}_0 = \overline{y} - \hat{\beta}_1 \overline{x}.
+\end{equation}
+Není náhoda, že pokud $z = x$, dostaneme OLS odhad parametru $\beta_1$. Jinými slovy, pokud je $x$ exogenní, lze ji použít jako pomocnou veličinu sebe sama a odhad parametru metodou pomocné veličiny se pak shoduje s OLS odhadem.
+
+Prostá aplikace zákona velkých čísel ukazuje, že je odhad parametru $\beta_1$ metodou pomocné veličiny konzistentní, tj. $plim(\hat{\beta}_1) = \beta_1$ při splnění (15.4) a (15.5).
+
+Jednou z vlastností odhadu metodou pomocné veličiny je skutečnost, že pokud jsou $x$ a $u$ korelovány (a tudíž je použití pomocné veličiny žádoucí), je příslušný odhad prakticky vždy zkreslený a to zejména v případě náhodných výběrů malého rozsahu.
+
+\subsection{Konfidenční intervaly a testování hypotéz}
+
+V případě náhodných výběrů velkého rozsahu sleduje odhad získaný metodou pomocné veličiny přibližně normální rozdělení. Pro konstrukci konfidenčních intervalů a testování hypotéz potřebujeme znát směrodatnou odchylku. Pokud předpokládáme homoskedasticitu chybového členu, tj.
+\begin{equation}
+E[u^2|z] = \sigma^2 = var[u],
+\end{equation}
+pak lze při splnění podmínek (15.4), (15.5) dokázat
+\begin{equation}
+var[\hat{\beta}_1] = \frac{\sigma^2}{n \sigma^2_x \rho^2_{x,z}},
+\end{equation}
+kde $\sigma^2_x$ je populační rozptyl veličiny $x$ a $\rho_{x,z}$ je populační korelace mezi veličinami $x$ a $z$. Stejně jako v případě OLS odhadu klesá asymptotický rozptyl odhadu rychlostí $1/n$, kde $n$ je velikost náhodného výběru.
+
+Abychom odhadli $\sigma_x^2$ resp. $\rho^2_{x, z}$, vypočteme výběrový rozptyl nezávislé veličiny $x$ resp. $R^2_{x,z}$ regrese $x_i$ na $y_i$. Rozptyl $\sigma^2$ odhadneme pomocí reziduí z modelu
+\begin{equation}
+\hat{u}_i = y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i, \quad i = 1, 2, ..., n,
+\end{equation} 
+kde odhady $\hat{\beta}_0$ a $\hat{\beta}_1$ jsou získány metodou pomocné veličiny. Konkrétně platí
+\begin{equation}
+\hat{\sigma}^2 = \frac{1}{n - 2} \sum_{i = 1}^n \hat{u}_i^2.
+\end{equation}
+Asymptotická směrodatná odchylka $\hat{\beta}_1$ je pak rovna
+\begin{equation}
+se(\hat{\beta}_1) = \sqrt{\frac{\hat{\sigma}^2}{SST_x \hat{\rho}_{x, z}^2}},
+\end{equation}
+kde $SST_x$ je součet čtverců $x_i$.\footnote{Připomeňme, že výběrový rozptyl $x_i$ je $\frac{SST_x}{n}$, a proto je (15.15) přímo porovnatelné s (15.12).}
+
+Vztah (15.12) je zajímavý také tím, že nám umožňuje přímo porovnat asymptotický rozptyl odhadů získaných metodou pomocné veličiny a metodou OLS. Připomeňme, že rozptyl OLS odhadu je $\frac{\sigma^2}{SST_x}$. Oba odhady se tedy liší pouze o $\hat{\rho}_{x, z}^2$, a protože obvykle $\hat{\rho}_{x, z}^2 < 1$, je rozptyl odhadu metodou pomocné veličiny větší než rozptyl OLS odhadu. Výjimkou je situace $z = x$, kdy $\hat{\rho}_{x, z}^2 = 1$ a oba rozptyly jsou tudíž shodné.
+
+\subsection{Vlastnosti v případě nevhodné pomocné veličiny}
+
+Pokud jsou $z$ a $u$ nekorelované a $z$ a $x$ mají nenulovou korelaci, je odhad získaný metodou pomocné veličiny sice konzistentní, avšak může ``trpět'' velkou směrodatnou odchylkou, pokud je korelace mezi $z$ a $x$ slabá. Slabá korelace mezi $z$ a $x$ má však další důsledek - odhad může vykazovat velké asymptotické zkreslení i v případě, pokud jsou $z$ a $u$ pouze slabě korelovány. Pro odhad metodou pomocné veličiny totiž platí
+\begin{equation}
+plim \hat{\beta}_{1, IV} = \beta_1 + \frac{corr(z, u)}{corr(z, x)}\frac{\sigma_u}{\sigma_x}.
+\end{equation}
+Z této rovnice je zřejmé, že zkreslení odhadu může být značné navzdory nízké korelaci $corr(z, u)$, a to v případě, kdy je korelace $corr(z, x)$ ještě výrazně nižší. V takovýchto případech nemusí být vhodnější preferovat odhad metodou pomocné veličiny před tradiční OLS metodou. S využitím skutečnosti $corr(x,u) = \frac{cov(x, u)}{\sigma_x \sigma_u}$ a (15.3) lze analogicky vyjádřit OLS odhad jako
+\begin{equation}
+plim \hat{\beta}_{1, OLS} = \beta_1 + corr(x, u) \frac{\sigma_u}{\sigma_x}.
+\end{equation}
+Pokud porovnáme (15.16) a (15.17), je zřejmé, že se směr zkreslení pro oba typy odhadu může lišit a to v závislosti na znaménku jednotlivých korelací.
+
+V případě, že předpoklad $corr(z, x) \ne 0$ není splněn, postrádají odhady metodou pomocné veličiny zpravidla smysl. Problémem jsou však i případy, kdy je korelace mezi $z$ a $x$ příliš nízká. Asymptotické rozdělení odhadu se pak značně liší od standardní situace a závěry založené na $t$ statistice mohou být zavádějící.
+
+\subsection{Výpočet $R^2$}
+
+Většina ekonometrických balíčků vypočte $R^2$ po odhadu modelu metodou pomocné veličiny jako $R^2 = 1 - \frac{SSR}{SST}$, kde $SSR$ je součet čtverců reziduí a $SST$ je součet čtverců $y$. Na rozdíl od $R^2$ v OLS metodě může být $R^2$ pro metodu pomocné veličiny záporné, protože $SSR$ může být větší než $SST$. Pokud jsou $x$ a $u$ korelované, nelze rozložit rozptyl $y$ na klasické $\beta_1^2 var[x] + var[u]$, v důsledku čehož $R^2$ není příliš informativní. Takto získané $R^2$ nelze ze stejného důvodu použít pro obvyklou konstrukci $F$ testu.
+
+Pokud je naším cílem maxilizace $R^2$, měli bychom použít OLS. Metoda pomocné veličiny cílí na pokud možno co nejlepší odhad vlivu $x$ na $y$ za předpokladu korelace mezi $x$ a $u$; míra shody není v tomto případě směrodatným měřítkem. Na druhou stranu vysoké $R^2$ získané pomocí OLS nemusí být samo o sobě dostačující, pokud nejsme schopni konzistentně odhadnout $\beta_1$.
+
+\section{Vícerozměrný regresní model}
+
+Uvažujme případ, kdy je pouze jedna nezávislá veličina korelována s chybovým členem.
+\begin{equation}
+y_1 = \beta_0 + \beta_1 y_2 + \beta_2 z_1 + u_1
+\end{equation}
+Výše uvedený model nazýváme strukturálním modelem. Závislá veličina $y_1$ je zcela zřejmě endogenní, protože je korelovaná s $u_1$. V následujícím textu budeme používat písmeno $y$ k označení endogenních veličin a písmeno $z$ k označení exogenních veličin. To znamená, že $y_2$ resp. $z_1$ je endogenní resp. exogenní nezávislá veličina.
+
+Pokud bychom (15.18) odhadli pomocí metody OLS, byly by všechny odhady zkreslené a nekonzistentní. Proto je třeba nalézt pomocnou veličinu pro $y_2$. Přirozeně se nabízí veličina $z_1$. Tu však použít nemůžeme, protože figuruje v (15.18). Potřebuje tak jinou exogenní veličinu, kterou označme jako $z_2$. Předpokládejme
+\begin{equation}
+E[u_1] = 0, \quad cov[z_1, u_1] = 0, \quad cov[z_2, u_1] = 0.
+\end{equation}
+Díky předpokladu nulové střední hodnoty jsou zbývající dvě rovnice ekvivalentní $E[z_1 u_1] = 0$ a $E[z_2 u_1] = 0$ a rovnice (15.19) tak přejdou do tvaru
+\begin{align}
+\sum_{i = 1}^n (y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 y_{i2} - \hat{\beta}_2 z_{i1}) = 0\\
+\sum_{i = 1}^n z_{i1}(y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 y_{i2} - \hat{\beta}_2 z_{i1}) = 0\\
+\sum_{i = 1}^n z_{i2}(y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 y_{i2} - \hat{\beta}_2 z_{i1}) = 0.
+\end{align}
+Jejich řešením lze získat odhady parametrů $\beta_0$, $\beta_1$ a $\beta_2$. Pokud by bylo $y_2$ exogenní a zvolili bychom $z_2 = y_2$, pak by se výše uvedené rovnice shodovaly s odpovídajícími OLS rovnicemi.
+
+Uvažujme redukovanou formu $y_2$
+\begin{equation}
+y_2 = \pi_0 + \pi_1 z_1 + \pi_2 z_2 + v_2,
+\end{equation}
+kde $E[v_2] = 0$, $cov[z_1, v_2] = 0$ a $cov[z_2, v_2] = 0$. Pokud je $z_2$ vhodná pomocná veličina pro $y_2$, pak zcela zřejmě musí platit
+\begin{equation}
+\pi_2 \ne 0.
+\end{equation}
+Jinými slovy, po té, co jsme odstranili vliv $z_1$, musí být $y_2$ a $z_2$ stále korelované. Před tím, než aplikujeme metodu pomocné veličiny, bychom vždy měli odhadnout model (15.23) a následně pomocí $t$ statistiky otestovat platnost (15.24). Předpoklad $cov[z_1, u] = 0$ a $cov[z_2, u] = 0$ bohužel nejsme schopni otestovat a musíme se tak spolehnout na ekonomickou argumentaci.
+
+Přidání dalších exogenních vysvětlujících veličin do modelu je poměrně přímočaré. Pro ilustraci uvažujme strukturální model
+\begin{equation}
+y_1 = \beta_0 + \beta_1 y_2 + \beta_2 z_1 + ... + \beta_k z_{k - 1} + u_1
+\end{equation}
+a předpokládejme
+\begin{equation}
+E[u_1] = 0, \quad cov[z_j, u_1] = 0,  \quad j = 1, ..., k.
+\end{equation}
+Veličiny $z_1$, ..., $z_{k-1}$ jsou exogenní veličiny, které figurují v modelu (15.25), a můžeme je chápat jako pomocné veličiny sebe sama. Před aplikací metody pomocné veličiny bychom však měli odhadnout model redukované formy $y_2$ ve tvaru
+\begin{equation}
+y_2 = \pi_0 + \pi_1 z_1 + ... + \pi_{k - 1} z_{k - 1} + \pi_k z_k + v_2
+\end{equation}
+a otestovat platnost hypotézy
+\begin{equation}
+\pi_k \ne 0.
+\end{equation}
+Abychom mohli určit konfidenční intervaly nebo aplikovat $t$ popř. $F$ test na model (15.25), musí splněn předpoklad homoskedasticity chybového členu $u_1$. V opačném případě nejsou vypočtené intervaly a výsledky testů validní.
+
+\section{Dvoufázová OLS}
+
+\subsection{Jedna endogenní nezávislá veličina}
+
+Opět uvažujme strukturální model
+\begin{equation}
+y_1 = \beta_0 + \beta_1 y_2 + \beta_2 z_1 + u_1
+\end{equation}
+s jednou endogenní a jednou exogenní nezávislou veličinou. Předpokládejme, že máme k dispozici další dvě exogenní veličiny $z_2$ a $z_3$. Pokud jsou $z_2$ a $z_3$ korelované s $y_2$, můžeme je použít jako samostatné pomocné veličiny. Protože jsou však $z_2$ a $z_3$ nekorelované s $u_1$, je také jejich libovolná lineární kombinace nekorelovaná s $u_1$. Proto můžeme libovolnou lineární kombinaci $z_2$ a $z_3$ použít jako pomocnou veličinu. Abychom našli optimální pomocnou veličinu, vybereme takovou lineární kombinaci, která je maximálně korelována s $y_2$. Tu lze získat pomocí modelu redukované formy $y_2$
+\begin{equation}
+y_2 = \pi_0 + \pi_1 z_1 + \pi_2 z_2 + \pi_3 z_3 + v_2,
+\end{equation}
+pro kterou předpokládáme platnost
+\begin{equation}
+E[v_2] = 0, \quad cov[z_1, v_2] = 0, \quad cov[z_2, v_2] = 0, \quad cov[z_3, v_2] = 0.
+\end{equation}
+Nejlepší pomocná veličina pro $y_2$, označme ji jako $y_2^*$, je pak definována jako
+\begin{equation}
+y^*_2 = \pi_0 + \pi_1 z_1 + \pi_2 z_2 + \pi_3 z_3.
+\end{equation}
+Aby pomocná veličina nebyla perfektně korelovaná s $z_1$, je zapotřebí, aby $\pi_2 \ne 0$ nebo $\pi_3 \ne 0$. Tuto podmínku nazýváme klíčovým předpokladem identifikace (key identification assumption) a lze ji testovat pomocí $F$ statistiky.
+
+S využitím náhodného výběru tak nejprve odhadneme redukovanou formu $y_2$, čím získáme odhady jednotlivých parametrů, tj.
+\begin{equation}
+\hat{y}_2 = \hat{\pi}_0 + \hat{\pi}_1 z_1 + \hat{\pi}_2 z_2 + \hat{\pi}_3 z_3
+\end{equation}
+a následně se pomocí $F$ testu ujistíme, že $z_2$ a $z_3$ jsou sdruženě statisticky významné. Ve druhém kroku pak použijeme $\hat{y}_2$ jako pomocnou veličinu pro $y_2$. Parametry modelu (15.29) pak lze odhadnout pomocí rovnic (15.20) až (15.21) s tím, že poslední z nich se změní na
+\begin{equation}
+\sum_{i = 1}^n \hat{y}_{i2} (y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 y_{i2} - \hat{\beta}_2 z_{i1}).
+\end{equation}
+Výše popsanou metodu nazýváme dvoufázovou OLS metodou (two stage OLS) a příslušné odhady pak dvoufázové odhady metodou nejmenších čtverců [two stage least squares (2SLS) estimator].
+
+S využitím algebry lze dokázat, že odhady $\hat{\beta}_0$, $\hat{\beta}_1$ a $\hat{\beta}_2$ získané výše uvedeným způsobem jsou identické  s OLS odhady modelu
+\begin{equation}
+y_1 = \beta_0 + \beta_1 \hat{y}_2 + \beta_2 z_1 + w_3.
+\end{equation}
+Jinými slovy 2SLS odhady lze získat aplikací OLS metody ve dvou krocích. V prvním kroku je $y_2$ ``očištěno'' o korelaci s $u_1$, protože $\hat{y}_2$ (tj. odhad $y^*_2$) je nekorelované s $u_1$. V druhém kroku je pak $y^*_2$ použito namísto původního $y_2$ ve strukturálním modelu (15.29), čímž získáme
+\begin{equation}
+y_1 = \beta_0 + \beta_1 y^*_2 + \beta_2 z_1 + u_1 + \beta_1 v_2,
+\end{equation}
+kde složený chybový člen $u_1 + \beta_1 v_2$ má nulovou střední hodnotu a je nekorelovaný s $y^*_2$ a $z_1$, což je také důvod, proč lze aplikovat OLS.
+
+Většina ekonometrických balíčků má speciální příkaz pro 2SLS metodu. Ačkoliv se na první pohled zdá, že je možné 2SLS nahradit dvojicí po sobě jdoucích OLS odhadů, měli bychom se vyhnout ``manuálnímu'' odhadu pro druhou fázi, protože $t$ statistiky na ní založené nebudou validní. Důvodem je, že chybový člen v (15.36) zahrnuje $v_2$, kdežto rezidua získaná klasickým způsobem zohledňují pouze směrodatnou odchylku $u_1$.
+
+\subsection{Vícero nezávislých exogenních veličin}
+
+Přidání dalších nezávislých exogenních veličin vyžaduje pouze nepatrné změny ve výše uvedeném postupu. Pro ilustraci uvažujme strukturální model
+\begin{equation}
+\ln(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 exper^2 + u_1,
+\end{equation}
+kde $u_1$ je nekorelované jak s $exper$ tak s $exper^2$. Dále předpokládejme, že vzdělání matky ($motheduc$) a otce ($fatheduc$) je nekorelované s $u_1$, tj. obě veličiny mohou figurovat jako pomocné pro vzdělání ($educ$). Následně pak odhadneme model redukované formy
+\begin{equation}
+educ = \pi_0 + \pi_1 exper + \pi_2 exper^2 + \pi_3 motheduc + \pi_4 fatheduc + v_2
+\end{equation}
+a otestujeme sdruženou hypotézu $H_0: \pi_3 \ne 0$ nebo $\pi_4 \ne 0$.
+
+V obecném vyjádření mají výše uvedené rovnice podobu
+\begin{equation}
+y_1 = \beta_0 + \beta_1 y_2 + \beta_2 z_1 + ... + \beta_k z_{k - 1} + u_1
+\end{equation}
+a
+\begin{equation}
+y_2 = \pi_0 + \pi_1 z_1 + ... + \pi_{k - 1} z_{k - 1} + \pi_k z_k + ... + \pi_{k + p} z_{k + p}.
+\end{equation}
+
+\subsection{Multikolinearita}
+
+Problém multikolinearity je v případě 2SLS zásadnější než v případě OLS. Asymptotický rozptyl 2SLS odhadu parametru $\beta_1$ může být aproximován pomocí
+\begin{equation}
+\frac{\sigma^2}{\widehat{SST}^2(1 - \hat{R}^2_2)},
+\end{equation}
+kde $\sigma^2 = var[u_1]$, $\widehat{SST}$ je rozptyl $\hat{y}_2$ a $\hat{R}_2^2$ je $R^2$ regrese $\hat{y}_2$ na všechny ostatní exogenní veličiny, které figurují ve strukturálním modelu (15.39).\footnote{$\hat{R}_2^2$ v případě vícero exogenních veličin nahrazuje $\hat{\rho}^2_{x, z}$ v (15.15).} Za prvé, vzhledem ke své konstrukci vykazuje $\hat{y}_2$ nižší rozptyl než $y_2$. Za druhé, korelace mezi exogenními veličinami v (15.39) a $\hat{y}_2$ je obvykle vyšší než jejich korelace s $y_2$. Proto je směrodatná odchylka 2SLS odhadu zpravidla mnohem vyšší než v případě OLS odhadu. Nicméně stejně jako v případě OLS, také v případě 2SLS může náhodný výběr velkého rozsahu tuto směrodatnou odchylku snížit.
+
+\subsection{Vícero endogenních závislých veličin}
+
+Uvažujme strukturální model
+\begin{equation}
+y_1 = \beta_0 + \beta_1 y_2 + \beta_2 y_3 + \beta_3 z_1 + \beta_4 z_2 + \beta_5 z_3 + u_1,
+\end{equation}
+kde $E[u_1] = 0$ a $u_1$ je nekorelované se $z_1$, $z_2$ a $z_3$. Veličiny $y_2$ a $y_3$ jsou endogenní, a proto korelované s $u_1$.
+
+Abychom odhadli (15.42) pomocí 2SLS, potřebujeme alespoň dvě exogenní veličiny, které v tomto strukturálním modelu nefigurují, a které jsou korelované s $y_2$ a $y_3$. Řekněme, že se jedná o veličiny $z_4$ a $z_5$. Dále potřebujeme, aby se buď $z_4$ nebo $z_5$ objevili v modelech redukovaných forem endogenních veličin $y_2$ a $y_3$. Veličina $z_4$ a $z_5$ musí být zahrnuta alespoň do jednoho modelu a musí být statisticky významná. V opačném případě není podmínka splněna a odhady parametrů $\beta_j$ budou nekonzistentní. Pro ilustraci uvažujme situaci, kdy je do modelů redukovaných forem zahrnuta pouze veličina $z_4$, zatímco veličina $z_5$ zůstane nevyužita.
+
+Obecně tedy platí, že musíme mít k dispozici alespoň tolik ``volných'' exogenních veličin, jako máme endogenních veličin, a že tyto veličiny musí být zahrnuty do modelů redukovaných forem endogenních veličin typu (15.40). Počet těchto modelů pak logicky odpovídá počtu endogenních veličin.
+
+\subsection{Testování významnosti vícero parametrů}
+
+Jak již bylo zmíněno výše, pro účely testování statistické významnosti vícero 2SLS parametrů není možné použít $F$ statistiku založenou na $R^2$ odhadnutého modelu stejně, jako je tomu v případě OLS odhadů. Důvodem je, že nemusí nutně platit $SSR_r \ge SSR_{ur}$. Pokud však není tato podmínka splněna, je $F$ statistika záporná.
+
+Nicméně je možné zkombinovat sumu čtverců reziduí s $SSR_{ur}$ a získat tak statistiku, která v případě výběrů velkého rozsahu přibližně sleduje $F$ rozdělení. Protože většina ekonometrických balíčků tuto funkcionalitu obsahuje, nebudeme se zabývat detaily tohoto postupu.
+
+\section{Chyba měření nezávislé veličiny}
+
+V předchozím textu jsme pomocnou veličinou adresovali problematiku opominuté veličiny. Nicméně pomocnou veličinu lze použít také v případě chyby měření nezávislé veličiny.
+
+Uvažujme model
+\begin{equation}
+y = \beta_0 + \beta_1 x^*_1 + \beta_2 x_2 + u,
+\end{equation}
+kde $y$ a $x_2$ jsou přímo pozorované. Nezávislou veličinu $x^*_1$ nejsme schopni pozorovat, avšak jsme ji schopni aproximovat pomocí $x_1 = x^*_1 + e_1$, kde $e_1$ představuje chybu měření. Z kapitoly 9 víme, že korelace mezi $x_1$ a $e_1$, kde $x_1$ je použito namísto $x^*_1$, má za následek zkreslené a nekonzistentní OLS odhady. To je zřejmé, pokud výše uvedený model přepíšeme do tvaru
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 \beta_2 x_2 + (u - \beta_1 e_1).
+\end{equation}
+Pokud jsou splněny klasické předpoklady ohledně chyby měření (classical errors-in-variables [CEV] assumptions), konverguje zkreslení OLS odhadů k nule.
+
+V některých případech lze použít metodu pomocné veličiny k řešení problému chyby měření. Předpokládejme, že $u$ v (15.43) je nekorelované s $x^*_1$, $x_1$ a $x_2$. V případě platnosti CEV předpokladů navíc platí, že $e_1$ je nekorelované s $x_1^*$ a $x_2$. To znamená, že $x_2$ je exogenní veličina v (15.44) a že $x_1$ je korelované s $e_1$. Potřebujeme tedy pomocnou veličinu pro $x_1$. Tato pomocná veličina musí být korelována s $x_1$ a nekorelována s $u$ a nekorelovaná s chybou měření $e_1$.
+
+Jednou z možností je získat druhé měření $x^*_1$, řekněme $z_1$. Protože je to $x^*_1$, které ovlivňuje $y$, je přirozené předpokládat, že $z_1$ je nekorelované s $u$. Jestliže vyjádříme $z_1$ jako $z_1 = x^*_1 + a_1$, pak musíme předpokládat, že $a_1$ a $e_1$ jsou nekorelované. Jinými slovy, $x_1$ a $z_1$ představují měření $x^*_1$, avšak jejich chyby měření jsou nekorelované. Nicméně $x_1$ a $z_1$ jsou korelovány skrze vazbu na $x^*_1$, a proto můžeme použít $z_1$ jako pomocnou veličinu pro $x_1$. Nicméně v praxi není příliš obvyklé, abychom disponovali dvěma měřeními téže nezávislé veličiny.	Alternativou je použití jiných exogenních veličin v roli pomocných veličin, tak jak jsme např. použili $motheduc$ a $fatheduc$ v roli pomocných veličin pro $educ$.
+
+Metodu pomocné veličiny lze použít také v případech, kdy používáme nejrůznější skóre (např. IQ skóre) pro kvantifikaci charakteristik, které nejsme schopni na přímo pozorovat. Opět uvažujme model
+\begin{equation}
+\ln(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 exper^2 + abil + u,
+\end{equation}
+ve kterém čelíme problému opominuté veličiny, protože $abil$ není možné pozorovat. Předpokládejme však, že máme k dispozici skóre
+\begin{equation}
+test_1 = \gamma_1 abil + e_1
+\end{equation}
+a
+\begin{equation}
+test_2 = \delta_1 abil + e_2,
+\end{equation}
+kde $\gamma_1 > 0$ a $\delta_1 > 0$. Protože to je $abil$, které ovlivňuje výši mzdy, můžeme předpokládat, že $test_1$ a $test_2$ jsou nekorelované s $u$. S využitím $test_1$ lze (15.45) vyjádřit jako
+\begin{multline}
+ln(wage) = \beta_0 + \beta_1 educ + \beta_2 expert + \beta_3 exper^2\\
++ \alpha_1 test_1 + (u - \alpha_1 e_1),
+\end{multline}
+kde $\alpha_1 = \frac{1}{\gamma_1}$.
+
+Jestliže předpokládáme, že $e_1$ je nekorelované se všemi nezávislými veličinami v (15.45) včetně $abil$, pak musí být $e_1$ a $test_1$ korelované. Proto jsou OLS odhady $\beta_j$ a $\alpha_1$ nekonzistentní. Za těchto předpokladů nesplňuje $test_1$ podmínky proxy veličiny.
+
+Jestliže předpokládáme, že $e_2$ je také nekorelované se všemi nezávislými veličinami v (15.45) a že $e_1$ a $e_2$ jsou vzájemně nekorelované, pak je $e_1$ nekorelované s $test_2$. Proto lze $test_2$ použít jako pomocnou veličinu pro $test_1$.
+
+\section{Testování endogenity a nadbytečná identifikace}
+
+\subsection{Testování endogenity}
+
+2SLS odhad je méně efektivní než OLS odhad, pokud jsou nezávislé veličiny exogenní, protože 2SLS odhady typicky vykazují velkou směrodatnou odchylku. Proto je vhodné mít k dispozici test endogenity, který by nám pomohl rozhodnout, zda-li je použití 2SLS metody nezbytné.
+
+Pro ilustraci uvažujme model
+\begin{equation}
+y_1 = \beta_0 + \beta_1 y_2 + \beta_2 z_1 + \beta_3 z_2 + u_1
+\end{equation}
+s jednou nezávislou endogenní veličinou $y_2$ a dvěma nezávislými exogenními veličinami $z_1$ a $z_2$. Dále uvažujme dvě exogenní veličiny $z_3$ a $z_4$, které nejsou zahrnuty do modelu.
+
+Za tímto účelem je vhodné pro vzájemné porovnání vypočíst OLS a 2SLS odhady. Abychom zjistili, zda-li jsou tyto odhady statisticky významně odlišné, můžeme aplikovat následující regresní test. Nejprve odhadneme redukovanou formu pro $y_2$, tj.
+\begin{equation}
+y_2 = \pi_0 + \pi_1 z_1 + \pi_2 z_2 + \pi_3 z_3 + \pi_4 z_4 + v_2.
+\end{equation}
+Protože je každé $z_i$ z definice nekorelované s $u_1$, je $y_2$ nekorelované s $u_1$ pouze tehdy a jen tehdy, pokud je $v_2$ nekorelované s $u_1$. To je přesně to, co chceme testovat. Vyjádřeme $u_1$ jako $u_1 = \delta_1 v_2 + e_1$, kde $e_1$ je nekorelované s $v_2$ a má nulovou střední hodnotu. Je zřejmé, že $u_1$ a $v_2$ jsou nekorelované pouze a jen tehdy, pokud $\delta_1 = 0$. Nejjednodušším způsobem je tedy zahrnout $v_2$ jako nezávislou veličinu do (15.49) a aplikovat $t$ test. Nicméně chybový člen $v_2$ na přímo nepozorujeme a musíme ho proto nahradit rezidui $\hat{v}_2$. Proto odhadujeme
+\begin{equation}
+y_1 = \beta_0 + \beta_1 y_2 + \beta_2 z_1 + \beta_3 z_2 + \delta \hat{v}_2 + error
+\end{equation}
+pomocí OLS a následně testujeme nulovou hypotézu $\delta_1 = 0$ pomocí $t$ statistiky. Pokud $H_0$ zamítneme, přikláníme se k hypotéze, že $y_2$ je endogenní veličina, protože $v_2$ a $u_1$ jsou korelované.
+
+Zajímavostí na (15.51) je, že všechny koeficienty (pochopitelně s výjimkou $\hat{v}_2$) jsou identické s koeficienty (15.49). Jinými slovy odhad parametrů (15.51) pomocí OLS je shodný s odhadem parametrů (15.49) pomocí 2SLS.
+
+Endogenitu lze testovat také pro vícero nezávislých veličin. Pro každou veličinu, kterou ``podezíráme'' z endogenity, získáme odhad reziduí. Následně testujeme sdruženou významnost těchto reziduí ve strukturální rovnici (15.49) pomocí $F$ testu.
+
+\subsection{Nadbytečná identifikace}
+
+Pomocná veličina musí splňovat dva předpoklady. Za prvé musí být nekorelovaná s chybovým členem, což implikuje exogenitu. Za druhé musí být korelovaná s nezávislou endogenní veličinou, což implikuje její ``relevanci''. Druhý předpoklad lze testovat pomocí $t$ popř. $F$ testu. Naproti tomu předpoklad exogenity testovat nelze. Nicméně pokud máme více pomocných veličin než potřebujeme, můžeme otestovat, zda-li jsou některé z nich nekorelované se strukturálním chybovým členem.
+
+Opět uvažujme (15.49) s pomocnými veličinami $z_3$ a $z_4$. Připomeňme si, že $z_1$ a $z_2$ v rovnici figurují jako pomocné veličiny sebe sama. Protože máme dvě pomocné veličiny pro $y_2$, můžeme odhadnout (15.49) pouze s pomocí $z_3$ a odhad parametru $\beta_1$ označit jako $\check{\beta}_1$. Tento postup zopakujeme pro $z_4$ a výsledný odhad označíme jako $\tilde{\beta}_1$. Jestliže jsou všechna $z_j$ exogenní a jestliže jsou $z_3$ a $z_4$ korelované s $y_2$, pak jsou $\check{\beta}_1$ a $\tilde{\beta}_1$ konzistentními odhady parametru $\beta_1$. Proto by se odhady $\check{\beta}_1$ a $\tilde{\beta}_1$ měly lišit pouze o chybu výběru. Pokud budou $\check{\beta}_1$ a $\tilde{\beta}_1$ statisticky významně odlišné, pak $z_3$ anebo $z_4$ nesplňují předpoklad exogenity.
+
+Porovnávání různých odhadů získaných metodou pomocné veličiny je příkladem testování nadbytečné identifikace (overidenfication restrictions). Předpokládejme, že máme o $q$ pomocných veličin více, než potřebujeme. Pokud máme např. jednu endogenní nezávislou veličinu $y_2$ a k ní tři pomocné veličiny, pak máme celkem $q = 3 - 1 = 2$ nadbytečné identifikace. Pokud je $q$ dvě a více, je vzájemné porovnávání několika odhadů získaných metodou pomocné veličiny poněkud nepraktické. Namísto toho můžeme jednoduše vypočíst testovací statistiku založenou na 2SLS reziduích. Pokud jsou všechny pomocné veličiny exogenní, pak jsou tato rezidua s nimi nekorelovaná. Pokud máme v modelu $k + 1$ parametrů a $k + 1 + q$ pomocných veličin, pak mají 2SLS rezidua nulovou střední hodnotu a jsou identicky nekorelované s $k$ lineárními kombinacemi těchto pomocných veličin. Proto se test zaměřuje na to, zda-li jsou 2SLS rezidua korelovaná s $q$ lineárními funkcemi pomocných veličin. Vhodnou formu lineárních funkcí za nás zvolí sám test. Následující regresní test je platný pouze pokud je splněn předpoklad homoskedasticity, který je specifikován v dodatku.
+
+Při splnění standardních 2SLS předpokladů zlepšuje přidání pomocných veličin asymptotickou efektivitu 2SLS odhadů. Nicméně to vyžaduje, aby byla každá nová pomocná veličina exogenní. V opačném případě by 2SLS odhad nebyl konzistentní. Navyšování počtu pomocných veličin tak může způsobit zkreslení 2SLS odhadů. Tento problém označujeme jako nadbytečnou identifikaci.
+
+\subsubsection{Testování nadbytečné identifikace}
+\begin{itemize}
+\item Nejprve odhadneme strukturální rovnici pomocí metody 2SLS a získáme 2SLS rezidua $\hat{u}_1$.
+\item Aplikujeme regresi $\hat{u}_1$ na všechny exogenní veličiny a získáme její $R^2_1$.
+\item Pokud je nulová hypotéza, že jsou všechny pomocné veličiny nekorelované s $u_1$, platná, pak $nR_1^2 \sim^a \chi_q^2$, kde $q$ je počet pomocných veličin mimo strukturální model snížený o počet endogenních nezávislých veličin. Jestliže $n R_1^2$ překročí (řekněme) 5.00\% kritickou hodnotu $\chi_q^2$ rozdělení, zamítáme nulovou hypotézu a předpokládáme, že alespoň jedna pomocná veličina není exogenní.
+\end{itemize}
+
+Test nadbytečné identifikace můžeme použít kdykoliv máme více pomocných veličin, než je potřeba. Jestliže máme pomocných veličin přesně tolik, kolik potřebujeme, je model právě identifikován (just identified). V takovémto případě bude $R^2_1$ rovno nule. To znamená, že test nadbytečné identifikace nemůže být aplikován na právě identifikovaný model. Výše uvedený postup lze upravit tak, aby byl robustní vůči heteroskedasticitě libovolné formy.
+
+\section{Metoda 2SLS a heteroskedasticita}
+
+Heteroskedasticitu můžeme testovat pomocí Breush-Paganova testu, který jsme diskutovali v kapitole 8. Nechť $\hat{u}$ představuje 2SLS rezidua a $z_1$, $z_2$, ..., $z_m$ označují exogenní veličiny (včetně těch, které jsou použity jako pomocné veličiny). Při splnění určitých podmínek má asymptoticky validní statistika pro sdruženou významnost nezávislých veličin v regresi $\hat{u}^2$ na $z_1$, $z_2$, ..., $z_m$ podobu klasického $F$ testu. Nulová hypotéza o homoskedasticitě je zamítnuta, pokud jsou $z_j$ sdruženě signifikantní.
+
+Také v případě 2SLS metody je možné získat směrodatné odchylky a testovací statistiky, které jsou asymptoticky robustní vůči heteroskedasticitě libovolné formy. Výraz (8.8) je validní, pokud $\hat{r}_{ij}$ představuje rezidua z regrese $\hat{x}_ij$ na ostatní $\hat{x}_{ih}$, kde ``$\hat{~}$'' označuje odhadnuté hodnoty z první fáze 2SLS.
+
+Pokud víme, jakým způsobem je rozptyl chybového členu závislý na exogenních veličinách, můžeme použít váženou 2SLS metodu, která je blízkou analogií metody z kapitoly 8.4. Po té, co odhadneme model pro $var[u | z_1, z_2, ..., z_m]$, vydělíme závislou veličinu, nezávislé veličiny a všechny pomocné veličiny $\sqrt{\hat{h}_i}$, kde $\hat{h}_i$ představuje odhadnutý rozptyl. Následně na transformované veličiny aplikujeme metodu 2SLS.
+
+\section{Metoda 2SLS a časové řady}
+
+Uvažujme strukturální rovnici pro časovou periodu $t$ ve tvaru
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_{t1} + ... + \beta_k x_{tk} + u_t,
+\end{equation} 
+kde jedna nebo vícero nezávislých veličin $x_{tj}$ může být korelováno s $u_t$. Označme exogenní veličiny jako $z_{t1}, ..., z_{tm}$. Předpokládejme
+\begin{equation}
+E[u_t] = 0, \quad cov[z_{tj}, u_t], \quad j = 1, ..., m.
+\end{equation}
+Pro identifikaci modelu je nezbytné, aby $m \ge k$, tj. abychom měli alespoň tolik exogenních veličin jako nezávislých veličin.
+
+V případě časových řad závisí statistické vlastnosti 2SLS odhadů na vlastnostech těchto řad, tj. na případné existenci trendů, sezónnosti, autokorelace apod. Protože časový trend a sezónnost jsou exogenní, mohou plnit roli pomocných veličin sobě sama. K perzistentním časovým řadám, tj. řadám s jednotkovým kořenem, musíme přistupovat opatrně stejně jako v případě OLS. Často lze problém jednotkového kořene vyřešit aplikací diference prvního řádu.
+
+Při splnění předpokladů, které jsme představili v kapitole 11, jsou OLS odhady aplikované na časové řady konzistentní a asymptoticky normálně rozdělené. Při splnění analogických předpokladů\footnote{V podstatě stačí pouze v textaci předpokladů zaměnit nezávislé veličiny za pomocné veličiny a přidat předpoklady identifikace 2SLS.} jsou také 2SLS odhady aplikované na časové řady konzistentní a asymptoticky normálně rozdělené. Např. předpoklad homoskedasticity má podobu
+\begin{equation}
+E[u^2_t | z_1, ..., z_m] = \sigma^2
+\end{equation}
+a předpoklad neexistence autokorelace chybového členu podobu
+\begin{equation}
+E[u_t u_s | \pmb{z}_t, \pmb{z}_s] = 0, \quad t \ne s,
+\end{equation}
+kde $\pmb{z}_t$ označuje vektor všech exogenních veličin v čase $t$. Plné znění těchto podmínek je k dispozici v dodatku.
+
+Předpoklad neexistence autokorelace chybového členu je v případě časových řad často porušen. Naštěstí je velmi jednoduché aplikovat test pro AR(1) autokorelaci. Jestliže vyjádříme $u_t$ jako $u_t = \rho u_{t - 1} + e_t$, pak dosazením do (15.52) získáváme
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_{t1} + ... + \beta_k x_{tk} + \rho u_{t - 1} + e_t, \quad t \ge 2.
+\end{equation}
+Pro otestování $H_0: \rho = 0$ musíme nahradit $u_t$ 2SLS rezidui $\hat{u}_{t-1}$. Pokud je $x_{ti}$ endogenní v (15.52), pak je endogenní také v (15.55), takže je třeba použít pomocné veličiny. Protože je $e_t$ nekorelované se všemi minulými hodnotami $u_{t-1}$, může být $\hat{u}_{t - 1}$ použito jako pomocná veličina sebe sama.
+
+\subsubsection{Testování AR(1) autokorelace po aplikaci 2SLS}
+
+\begin{itemize}
+\item Odhadneme (15.52) pomocí 2SLS a získáme rezidua $\hat{u}_t$.
+\item Odhadneme
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_{t1} + ... + \beta_k x_{tk} + \rho \hat{u}_{t - 1} + error_t, \quad t = 2, ..., n
+\end{equation}
+pomocí 2SLS s využitím $\hat{u}_{t-1}$ a stejných pomocných veličin jako v předchozím bodě. Použijeme $t$ statistiku pro testování $H_0: \rho = 0$.
+\end{itemize}
+
+$t$ statistika platí pouze asymptoticky, nicméně v praxi funguje uspokojivě. Test lze snadno modifikovat tak, aby byl robustní vůči heteroskedasticitě. Do modelu je možné také zahrnout další zpožděná rezidua a pomocí $F$ testu testovat vyšší formy autokorelace.
+
+Pokud detekujeme autokorelaci, je k jejímu odstranění možné použít AR(1) model. Proces je podobný jako v případě OLS. Rovnice ekvivalentní k (12.32) má tvar
+\begin{equation}
+\tilde{y}_t = \beta_0 (1 - \rho) + \beta_1 \tilde{x}_{t1} + ... + \beta_k \tilde{x}_{tk} + e_t, \quad t \ge 2,
+\end{equation}
+kde $\tilde{x}_{tj} - x_{tj} - \rho x_{t-1, j}$. Jako přirozená volba pro pomocnou veličinu se zdá být $\tilde{z}_{tj} = z_{tj} - \rho z_{t - 1, j}$. Nicméně tato volba je vhodná pouze pokud je chybový člen v (15.52) nekorelovaný s pomocnými veličinami v čase $t$, $t - 1$ a $t + 1$. Jinými slovy, pomocné veličiny musí být v (15.52) striktně exogenní. Toto pravidlo tak diskvalifikuje zpožděné veličiny coby pomocné veličiny a také případy, kdy budoucí pohyby pomocné veličiny reagují na současné či minulé změny chybového členu $u_t$.
+
+\subsubsection{2SLS s AR(1) chybovým členem}
+
+\begin{itemize}
+\item Odhadneme (15.52) pomocí 2SLS a získáme rezidua $\hat{u}_t$.
+\item Získáme $\hat{\rho}$ z regrese $\hat{u}_t$ na $\hat{u}_{t - 1}$ pro $t = 2, ..., n$. Zkonstruujeme transformované veličiny $\tilde{y}_t = y_t - \hat{\rho}y_{t - 1}$, $\tilde{x}_{tj} - \hat{\rho} x_{t - 1, j}$ a $\tilde{z}_{tj} = z_{tj} - \hat{\rho} z_{t - 1, j}$ pro $t \ge 2$.\footnote{Ve většině případů budou některé pomocné veličiny současně také nezávislými veličinami.}
+\item Nahradíme $\rho$ jeho odhadem $\hat{\rho}$ a odhadneme (15.58) pomocí 2SLS se $\hat{z}_{tj}$ jako pomocnými veličinami. Pokud (15.58) splňuje 2SLS předpoklady uvedené v dodatku, jsou 2SLS statistiky asymptoticky validní.
+\end{itemize}
+
+\section{Dodatek 15A}
+
+Při splnění následujících předpokladů mají 2SLS odhady žádoucí vlastnosti výběru velkého rozsahu.
+
+\begin{assumption}[2SLS.1 - lineární model]
+Populační model může být zapsán ve tvaru
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + u,
+\end{equation}
+kde $\beta_0$, $\beta_1$, ..., $\beta_k$ jsou neznámé konstantní parametry a $u$ je chybový člen, který nejsme schopni pozorovat. Pomocné veličiny jsou označeny jako $z_j$.
+
+\raggedleft{$\clubsuit$}
+\end{assumption}
+
+Tento předpoklad je v podstatě totožný s předpokladem MLR.1.
+
+\begin{assumption}[2SLS.2 - náhodný výběr]
+Máme k dispozici náhodný výběr pro $y$, $x_j$ a $z_j$.
+
+\raggedleft{$\clubsuit$}
+\end{assumption}
+
+\begin{assumption}[2SLS.3 - počet pomocných veličin]
+Žádná z pomocných veličin není lineární kombinací zbývajících pomocných veličin. Máme k dispozici alespoň tolik exogenních veličin, které nejsou zahrnuty do strukturálního modelu, jako je endogenních veličin v tomto modelu.
+
+\raggedleft{$\clubsuit$}
+\end{assumption}
+
+Jinými slovy, pokud jsou $z_1$, ..., $z_m$ exogenními veličinami, kde $z_k$, ..., $z_m$ nefigurují ve strukturálním modelu a redukovaná forma $y_2$ má podobu
+\begin{equation}
+y_2 = \pi_0 + \pi_1 z_1 + \pi_2 z_2 + ... + \pi_k z_{k - 1} + \pi_k z_k + ... + \pi_m z_m + v_2,
+\end{equation}
+pak je třeba, aby alespoň jedno $\pi_k$, ... $\pi_m$ bylo nenulové.
+
+\begin{assumption}[2SLS.4 - exogenita pomocných veličin]
+Chybový člen $u$ má nulovou střední hodnotu a každá pomocná veličina je nekorelovaná s $u$.
+
+\raggedleft{$\clubsuit$}
+\end{assumption}
+
+\begin{theorem}[15A.1]
+Při splnění předpokladů 2SLS.1 až 2SLS.4 jsou 2SLS odhady konzistentní.
+
+\raggedleft{$\clubsuit$}
+\end{theorem}
+
+\begin{assumption}[2SLS.5 - homoskedasticita]
+Nechť $\pmb{z}$ představuje vektor všech pomocných veličin. Pak platí $E[u^2|\pmb{z}] = \sigma^2$.
+
+\raggedleft{$\clubsuit$}
+\end{assumption}
+
+\begin{theorem}[15A.2]
+Při splnění předpokladů 2SLS.1 až 2SLS.5 jsou 2SLS odhady asymptoticky normálně rozdělené. Konzistentní odhady asymptotických rozptylů jsou dány rovnicí (15.41), kde $\sigma^2$ je nahrazeno $\hat{\sigma}^2 = \frac{1}{n - k - 1} \sum_{i = 1}^n \hat{u}_i^2$ a kde $\hat{u}_i$ jsou 2SLS rezidua. 
+
+\raggedleft{$\clubsuit$}
+\end{theorem}
+
+Při splnění těchto pěti předpokladů je 2SLS odhad také nejlepším odhadem založeným na pomocné veličině.
+
+\begin{theorem}[15A.3]
+Při splnění předpokladů 2SLS.1 až 2SLS.5 je 2SLS odhad asymptoticky efektivní v množině odhadů, které používají lineárních kombinací exogenních veličin v roli pomocné veličiny.
+
+\raggedleft{$\clubsuit$}
+\end{theorem}
+
+Pokud není splněn předpoklad homoskedasticity, jsou 2SLS odhady stále asymptoticky normální, avšak směrodatné odchylky (a tím pádem také $t$ a $F$ statistiky) je třeba upravit. Nicméně 2SLS odhad již není asymptoticky efektivním odhadem na množině odhadů založených na pomocné veličině.
+
+V případě časových řad je vyžadován předpoklad slabé závislosti všech veličin (včetně pomocných veličin). To zajišťuje platnost zákona velkých číslem a centrální limitní věty. Aby byly klasické směrodatné odchylky a na nich založené testy validní a aby byly odhady asymptoticky efektivní, musí být splněn také předpoklad neexistence autokorelace chybového členu.
+
+\begin{assumption}[2SLS.6 - neexistence autokorelace]
+Je splněna rovnice (15.55).
+
+\raggedleft{$\clubsuit$}
+\end{assumption}

@@ -1,0 +1,40 @@
+\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{mathrsfs}
+
+%\includeonly{mood_chap5}
+
+\setlength{\unitlength}{1.0mm}
+\sloppy
+
+\begin{document}
+
+\newtheorem{definition}{Definice}[chapter]
+\newtheorem{theorem}{Věta}[chapter]
+\newtheorem{proof}{Důkaz}[chapter]
+\newtheorem{example}{Příklad}[chapter]
+\newtheorem{proposition}{Tvrzení}[chapter]
+\newtheorem{corollary}{Tvrzení}[chapter]
+\newtheorem{fallacy}{Omyl}[chapter]
+
+\hyphenation{prav-dě-po-dob-nost prav-dě-po-dob-nost-ní} 
+
+\title{Kopule - souhrn vybraných článků}
+\author{Michal Mackanič}
+\date{2014}
+\maketitle
+
+\tableofcontents
+
+\include{copulas_chap1}
+\include{copulas_chap2}
+\include{copulas_chap3}
+\include{copulas_references}
+
+\end{document}

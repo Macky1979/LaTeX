@@ -1,0 +1,478 @@
+\chapter{Omezené závislé veličiny a korekce náhodného výběru}
+
+Příkladem omezené závislé veličiny (limited dependent variable [LDV]) je binární závislá veličina. Obecně je omezená závislá veličina definována jako veličina, jejíž obor hodnot je zásadním způsobem omezen. Kromě veličin s taxativním oborem hodnot se jedná také o veličiny, které mohou nabývat hodnot pouze z určitého intervalu (např. pravděpodobnost vzniku pojistné události) nebo mohou z logiky věci nabývat pouze nezáporných hodnot (např. objem zemědělské produkce v určitém období, výše hodinové mzdy nebo počet návštěvníků výstavy).
+
+Souvisejícím problémem je tzv. hraniční řešení (corner solution response). Např. mnoho rodin nepřispívá na charitu, a proto bude výše poskytnutých příspěvků pokrývat široký interval kladných hodnot se zvýšenou koncentrací bodě nula. Klasický lineární model pak predikuje pro řadu rodin namísto nulových záporné příspěvky na charitu.
+
+V některých případech může být závislá proměnná omezená důsledkem toho, jak sbíráme a vyhodnocujeme data. Klasickým příkladem je stanovení určitého dolního či horního limitu při získávání informací o náhodném výběru (např. počet osob v domácnosti šest a více, měsíční příjem domácnosti do 20~000 CZK) nebo záměrné omezení výběru (např. omezení se pouze na aktuálně zaměstnané osoby při zjišťování příjmového potenciálu jednotlivých osob). 
+
+V řadě případů lze problém omezené závislé veličiny obejít pomocí vhodné transformace a použít tradiční OLS model. V některých případech je však třeba použít alternativním model.
+
+\section{Logit a probit model pro binární závislou veličinu}
+
+V případě binární závislé veličiny nás zajímá pravděpodobnostní model
+\begin{equation}
+P[y = 1 |x] = P[y = 1 | x_1, x_2, ..., x_k],
+\end{equation}
+pro jehož odhad lze použít logit popř. probit model.
+
+\subsection{Specifikace logit a probit modelu}
+
+Uvažujme model
+\begin{equation}
+P[y=1 | x] = G(\beta_0 + \beta_1 x_1 + ... + \beta_k x_k) = G(\beta_0 + x \beta),
+\end{equation}
+kde $G$ představuje funkci nabývající hodnot mezi nulou a jedničkou, tj. $0 < G(z) < 1$ pro všechny hodnoty $z$. V případě logit modelu má tato funkce tvar
+\begin{equation}
+G(z) = \frac{e^z}{1 + e^z} = \Lambda(z)
+\end{equation}
+a v případě probit modelu tvar
+\begin{equation}
+G(z) = \Phi(z) = \int_{-\infty}^{\infty}\phi(v)dv,
+\end{equation}
+kde $\phi(z) = \frac{1}{\sqrt{2 \pi}}e^{-\frac{z^2}{2}}$ představuje hustotu pravděpodobnosti standardního normálního rozdělení.
+
+Logit a probit model lze odvodit na základě latentní veličiny $y^*$ definované jako
+\begin{equation}
+y^* = \beta_0 + x \beta + e, ~~~ y = 1[y^* > 0].
+\end{equation}
+Funkce $1[\cdot]$ je tzv. indikační funkcí, která nabývá hodnoty jedna, pokud je výraz v závorkách pravdivý a nula, pokud je výraz nepravdivý. Dále předpokládáme, že $e$ a $x$ jsou nezávislé a že $e$ sleduje standardní logistické nebo standardní normální rozdělení. V obou těchto případech je $e$ rozděleno symetricky kolem nuly, což implikuje $1 - G(-z) = G(z)$. Ekonomové zpravidla preferují předpoklad normality $e$, a proto se praxi častěji setkáváme s probit než s logit modelem.
+
+S využitím (17.5) a $1 - G(-z) = G(z)$ tak lze $P[y = 1 | x]$ upravit do tvaru
+\begin{multline}
+P[y = 1 | x] = P[y^* > 0 | x] = P[e > -(\beta_0 + x \beta) | x]\\
+= 1 - G[-\beta_0 + x\beta] = G(\beta_0 + x \beta),
+\end{multline}
+což odpovídá (17.2).
+
+Stejně jako v klasickém lineární modelu je snahou odhadnout vliv $x_j$ na pravděpodobnost $P[y=1|x]$. To je však komplikováno nelinearitou $G(\cdot)$. Jestliže je $x_j$ alespoň přibližně spojitou veličinou, lze její dopad na $p(x) = P[y = 1 | x]$ získat pomocí parciální derivace
+\begin{equation}
+\frac{\partial p(x)}{\partial x_j} = g(\beta_0 + x \beta)\beta_j,
+\end{equation}
+kde $g(z) \equiv \frac{dG(z)}{dz}$. Protože $G$ je kumulativní distribuční funkce spojité náhodné veličiny, je $g$ hustotou pravděpodobnosti. V případě logit a probit modelu je $G$ striktně rostoucí, a proto $g(z) > 0$ pro všechna $z$. Dopad $x_j$ na $p(x)$ tak má vždy stejný směr jako $\beta_j$ bez ohledu na $x_j$. Je důležité si uvědomit, že ačkoliv nám stačí znalost znaménka $\beta_j$, abychom odhadli směr dopadu $x_j$ na $p(x)$, pro odhad jeho velikosti je třeba znát nejen velikost změny $x_j$, ale také celý vektor $x$ závislých veličin.
+
+Ze vztahu (17.7) je také patrné, že relativní dopad  dvou nezávislých veličin $x_j$ a $x_h$ je $\frac{\beta_j}{\beta_h}$ a nezáleží tak na vektoru nezávislých veličin $x$. Jestliže je $g$ symetrické kolem nuly, je dopad $x_j$ na $p(x)$ největší pro $\beta_0 + x \beta = 0$.\footnote{Např. pro probit model, kde $g(z) = \phi(0)$, se jedná o $g(0) = \phi(0) = \frac{1}{\sqrt{2 \pi}} \approx 0.40$. V případě logit model se jedná o $z(0) = 0.25$.}
+
+V případě, že je $x_1$ binární veličinou (a tudíž není možné aplikovat parciální derivaci), lze dopad změny $x_1$ z jedné na nulu (za předpokladu neměnnosti ostatních nezávislých veličin) kvantifikovat pomocí
+\begin{equation}
+G(\beta_0 + \beta_1 + \beta_2 x_2 + ... + \beta_k x_k) - G(\beta_0 + \beta_2 x_2 + ... + \beta_k x_k).
+\end{equation}
+Analogický postup lze aplikovat také na ostatní veličiny a to včetně spojitých veličin.
+
+Základní model (17.2) lze snadno rozšířit pomocí transformací nezávislých veličin. Jako příklad uveďme
+\begin{equation}
+P[y = 1 | x] = G(\beta_0 + \beta_1 x_1 + \beta_2 x_1^2 + \beta_3 log(x_2) + \beta_4 x_3).
+\end{equation}
+Vztahy (17.7) popř. (17.8) je pak třeba upravit odpovídajícím způsobem.
+
+\subsection{Metoda maximální věrohodnosti}
+
+Vzhledem k nelinearitě $E[y|x]$, nelze pro odhad logit popř. probit modelu použít OLS methodu. Proto pro odhad parametrů těchto modelů použijeme tzv. metodu maximální věrohodnosti (maximum likelihood method). Protože je odhad na základě maximální věrohodnosti (maximum likelihood estimation [MLE]) založen na distribuci $y$ podmíněné vektorem nezávislých veličin $x$, je heteroskedasticita obsažená ve $var[y|x]$ automaticky zohledněna.
+
+Pro odhad parametrů pomocí metody maximální věrohodnosti potřebujeme hustotu pravděpodobnosti $y_i$ pro daný vektor $x_i$, kterou lze vyjádřit jako
+\begin{equation}
+f(y|x_i; \beta) = [G(x_i \beta)]^y[1 - G(x_i\beta)]^{1-y}, ~~~ y = 0, 1,
+\end{equation}
+kde pro jednoduchost zahrneme průsečík do vektoru $x_i$. Aplikací logaritmu pak získáme tzv. logaritmickou funkci věrohodnosti (log-likelihood function)
+\begin{equation}
+\ell_i(\beta) = y_i log[G(x_i \beta)] + (1 - y_i)log[1 - G(x_i \beta)].
+\end{equation}
+Protože funkce $G$ nabývá hodnot z intervalu $(0, 1)$, je $\ell_i(\beta)$ definována pro všechny hodnoty $\beta$. Logaritmická věrohodnost (log-likelihood) pro náhodný výběr velikosti $n$ je pak definován jako
+\begin{equation}
+\mathscr{L}(\beta) = \sum_{i = 1}^n \ell_i(\beta).
+\end{equation}
+MLE odhad označovaný jako $\hat{\beta}$ je získán numerickou maximalizací $\mathscr{L}(\beta)$. Teorie MLE pro náhodný výběr pak implikuje, že při splnění velmi obecných předpokladů je takto získaný odhad konzistentní, asymptoticky normální a asymptoticky efektivní. Asymptotické směrodatné odchylky pro jednotlivá $\hat{\beta}_j$ lze vypočíst na základě relativně složitého vzorce, který je uveden v dodatku k této kapitole. S jejich pomocí lze zkonstruovat asymptotické $t$ testy a intervaly spolehlivosti stejně jako v případě klasického OLS modelu.
+
+\subsection{Testování vícero lineárních omezení}
+
+V následujícím textu se omezíme na testy významnosti. V případě, že lze odhadnout omezený i neomezený model, lze pro účely testování použít test založený na věrohodnostním poměru (likelihood ratio [LR]). Tento test je koncepčně shodný s $F$ testem pro lineární model. $F$ test měří nárůst součtu čtverce reziduí z titulu vynechání některých nezávislých veličin; LR test je založen na rozdílu logaritmických funkcí věrohodnosti neomezeného a omezeného modelu. LR statistika je definována jako
+\begin{equation}
+LR = 2(\mathscr{L}_{ur} - \mathscr{L}_r).
+\end{equation}
+Protože $\mathscr{L}_{ur} \ge \mathscr{L}_{r}$, je LR statistika vždy nezáporná a zpravidla striktně kladná. Vynásobení rozdílu $\mathscr{L}_{ur} - \mathscr{L}_r$ je zapotřebí k tomu, aby LR statistika při nulové hypotéze přibližně sledovala chi-kvadrát rozdělení s $q$ stupni volnosti, kde $q$ představuje počet nezávislých veličin odstraněných z původního modelu. Jinými slovy platí $LR \sim^a \chi_q^2$.
+
+\subsection{Interpretace logit a probit modelu}
+
+\subsubsection{Míra shody}
+
+Pro ohodnocení logit popř. probit modelu můžeme použít míru shody označovanou jako správně predikované procento (precent correctly predicted). Binární prediktor $y_i$ definujeme rovný jedné, pokud je predikovaná pravděpodobnost větší nebo rovna 0.50, a rovný nule v opačném případě, tj. $\tilde{y}_i = 1$ pro $G(\hat{\beta}_0 + x_i \hat{\beta}) \ge 0.50$ a $\tilde{y}_i = 0$ pro $G(\hat{\beta}_0 + x_i \hat{\beta}) < 0.50$. Je zřejmé, že můžeme získat pro pár $(y_i, \tilde{y}_i)$ čtyři možné kombinace a to $(0, 0)$, $(1, 1)$, $(1, 0)$ a $(0, 1)$. Procento správných predikcí je dáno poměrem párů, kde $y_i = \tilde{y}_i$, ku všem párům.
+
+Míra správně predikovatelného procenta však může být zavádějící. Např. v situaci, kdy pro 190 pozorování z celkového počtu 200 je $y_i = 1$, je úspěšnost modelu $y = 1$ rovna 95\%. V praxi však často požadujeme alespoň určitou schopnost predikovat i méně pravděpodobné výsledky. Proto je vhodné spočítat procento správných predikcí pro obě hodnoty binární závislé veličiny.
+
+Někteří také kritizují volbu 0.50 jako hraniční hodnoty a to zejména v případech, kdy je realizace jedné z hodnot závislé veličiny nepravděpodobná. Jestliže např. $\overline{y} = 0.08$ (tj. pouze 8\% úspěšnost v náhodném výběru), může se stát, že model nebude nikdy predikovat $y_i = 1$, protože jím odhadovaná pravděpodobnost nebude nikdy vyšší než 0.50. Jedním z řešení je tak použít hraniční hodnotu 0.08 namísto 0.50, tj. $\tilde{y}_i = 1$ pro $G(\hat{\beta}_0 + x_i \hat{\beta}) \ge 0.08$ a $\tilde{y}_i = 0$ pro $G(\hat{\beta}_0 + x_i \hat{\beta}) < 0.08$. Tento přístup sice zvýší počet predikovaných $\tilde{y}_i = 1$, ale zároveň se budeme dopouštět většího počtu chyb. Z tohoto důvodu může být míra správně predikovaného procenta dokonce horší než pro hraniční hodnotu 0.50.
+
+Další možností je zvolit hraniční hodnotu tak, aby relativní počet $\tilde{y}_i = 1$ byl co nejblíže $\overline{y}$. Jinými slovy se snažíme odvodit hraniční hodnotu $0 < \tau < 1$, aby pro $\tilde{y} = 1$ kdy $G(\hat{\beta}_0 + x_i \hat{\beta}) \ge \tau$ platilo $\sum_{i = 1}^n \tilde{y}_i \approx \sum_{i = 1}^n y_i$.
+
+Pro modely s binární závislou veličinou existují také nejrůznější pseudo $R^2$ ukazatele. Např. McFadden (1974) navrhuje míru $1 - \mathscr{L}_{ur} / \mathscr{L}_o$, kde $\mathscr{L}_{ur}$ je logaritmická funkce věrohodnosti odhadovaného modelu a $\mathscr{L}_o$ je logaritmická funkce věrohodnosti modelu, který zahrnuje pouze průsečík. Proč dává tato míra smysl? Platí, že $\mathscr{L}_{ur} / \mathscr{L}_o$ spadá do intervalu $(0, 1)$, a proto také takto definované pseudo $R^2$ nabývá hodnot z tohoto intervalu. Jestliže nezávislé veličiny nemají žádnou vysvětlující sílu, pak $\mathscr{L}_{ur} = \mathscr{L}_o$ a $1 - \mathscr{L}_{ur} / \mathscr{L}_o = 0$. V případě, kdy model velmi dobře popisuje realitu náhodného výběru, se $\mathscr{L}_{ur}$ blíží nule a $1 - \mathscr{L}_{ur} / \mathscr{L}_o \approx 1$. To odpovídá tradiční definici $R^2$.
+
+Další alternativní pseudo $R^2$ ukazatel je bližší standardnímu $R^2$. Nechť jsou $\hat{y}_i = G(\hat{\beta}_0 + x_i \hat{\beta})$ pravděpodobnosti odhadované logit popř. probit modelem. Protože jsou tyto pravděpodobnosti zároveň odhadem $E[y_i | x]$, můžeme jednoduše vypočíst korelaci mezi $y_i$ a $\hat{y}_i$. To je v případě lineárního regresního modelu ekvivalentní ke klasickému výpočtu $R^2$. Takto získané pseudo $R^2$ je tedy přímo porovnatelné se standardním $R^2$.
+
+\subsubsection{Vliv nezávislých veličin}
+
+V praxi velmi často potřebujeme odhadnout vliv $x_j$ na pravděpodobnost $P[y = 1 | x]$. Jestliže je $x_j$ ``přibližně'' spojité, pak
+\begin{equation}
+\Delta \hat{P}[y = 1 | x] \approx [g(\hat{\beta}_0 + x \hat{\beta})\hat{\beta}_j]\Delta x_j
+\end{equation}
+pro ``dostatečně'' malé změny $x_j$. V porovnání s klasickým lineárním modelem je tedy v případě logit popř. probit modelu kvantifikace vlivu vysvětlující veličiny $x_j$ komplikovanější kvůli členu $g(\hat{\beta}_0 + x \hat{\beta})$, který závisí na vektoru nezávislých veličin $x$. V praxi často kvantifikuje vliv změny $x_j$ pro vektor $x$, který je reprezentován středními hodnotami nezávislých veličin, tj.
+\begin{equation}
+g(\hat{\beta}_0 + \overline{x} \hat{\beta}) = g(\hat{\beta}_0 + \hat{\beta}_1 \overline{x}_1 + \hat{\beta}_2 \overline{x}_2 + ... + \hat{\beta}_k \overline{x}_k).
+\end{equation}
+Tento přístup nazýváme parciálním efektem na průměr (partial effect at the average [PEA]). Problém může nastat v případě diskrétním nezávislých veličin, kdy průměr nemusí odpovídat žádné v reálu pozorované hodnotě.\footnote{Jako příklad takovéto nezávislé veličiny uvažujme pohlaví, které nabývá hodnoty 0, pokud se jedná o muže a hodnoty 1, pokud se jedná o ženu. Je zřejmě, že pokud budeme mít v náhodně vybraném vzorku jak muže tak ženy, pak průměrná hodnota této nezávislé veličiny nebude dávat smysl.} Další problém nastává, pokud nezávislá veličina figuruje jako vstup do nelineární funkce jako je např. přirozený logaritmus. Není totiž zřejmé, zda-li máme použít $\log(\overline{x}_j)$ nebo $\overline{\log(x_j)}$.
+
+Alternativním přístupem je tzv. průměrný parciální efekt (average partial effect [APE]). Pokud je nezávislá veličina $x_j$ spojitá, pak je APE definován jako
+\begin{equation}
+\frac{1}{n}\sum_{i = 1}^n [g(\hat{\beta}_0 + x_j \hat{\beta})\hat{\beta}_j] = \hat{\beta}_j\Big[\frac{1}{n}\sum_{i = 1}^n [g(\hat{\beta}_0 + x_j \hat{\beta})\Big],
+\end{equation}
+kde $\frac{1}{n}\sum_{i = 1}^n [g(\hat{\beta}_0 + x_j \hat{\beta})$ funguje jako škálovací faktor.
+
+Výše uvedené postupy spoléhaly na to, že je $x_j$ spojitá nezávislá veličina. V případě diskrétních nezávislých veličin je pro kvantifikaci změny z $c_j$ na $c_j + 1$ možné použít 
+\begin{multline}
+G[\hat{\beta}_0 + \hat{\beta}_1 \overline{x}_1 + ... + \hat{\beta}_{j - 1} \overline{x}_{j - 1} + \hat{\beta}_j (c_j + 1) + ... + \hat{\beta}_k \overline{x}_k]\\
+- G[\hat{\beta}_0 + \hat{\beta}_1 \overline{x}_1 + ... + \hat{\beta}_{j - 1} \overline{x}_{j - 1} + \hat{\beta}_j c_j + ... + \hat{\beta}_k \overline{x}_k]
+\end{multline}
+v případě PEA a
+\begin{multline}
+\frac{1}{n}\sum_{i = 1}^n \Big(G[\hat{\beta}_0 + \hat{\beta}_1 x_{i1} + ... + \hat{\beta}_{ij - 1} x_{ij - 1} + \hat{\beta}_ij] (c_j + 1) + \hat{\beta}_k x_ik]\\
+- G[\hat{\beta}_0 + \hat{\beta}_1 x_{i1} + ... + \hat{\beta}_{ij - 1} x_{ij - 1} + \hat{\beta}_ij] c_j + \hat{\beta}_k x_ik] \Big)
+\end{multline}
+v případě APE.
+
+V případě, že na náhodném výběru kalibrujeme logit, probit i klasický lineární regresní model, je vhodné porovnat parciální vlivy jednotlivých nezávislých veličin napříč modely. Je důležité mít na paměti, že je třeba porovnávat parciální efekty a nikoliv přímo odhadnuté koeficienty. V případě logit a probit modelu je třeba koeficienty vynásobit škálovacím faktorem dle PEA popř. APE přístupu; v případě klasického lineárního regresního modelu je škálovací faktor implicitně roven jedné. Dále je třeba si uvědomit, že klasický lineární regresní model předpokládá konstantní efekt, kdežto v případě logit a probit modelu tento efekt závisí na úrovni nezávislých veličin. Ačkoliv to není pravidlo, parciální vlivy by měly být ve většině případů stejného řádu.
+
+\subsubsection{Problémy logit a probit modelu}
+
+Probit model předpokládá, že $e$ v (17.5) sleduje standardní normální rozdělení. Tento předpoklad však nemusí být v praxi splněn - pravděpodobnost $P[y=1|x]$ pak nelze popsat pomocí probit modelu. Někteří ekonometrové v tomto případě zdůrazňují nekonzistenci v odhadu $\beta_j$. To je však poněkud zavádějící poznámka, s výjimkou situace, kdy nás zajímá pouze směr parciálního efektu nezávislé veličiny $x_j$. Protože neznáme pravděpodobnost $P[y=1|x]$, nejsme schopni odhadnout velikost parciálního efektu, ani kdybychom měli k dispozici konzistentní odhad $\beta_j$.
+
+Další problém logit a probit modelu souvisí s heteroskedasticitou. Jestliže $var[e|x]$ závisí na vektoru nezávislých veličin $x$, pak pravděpodobnost $P[y=1|x]$ nemá formu $G(\beta_0 + x \beta)$. Namísto toho by bylo třeba zvolit obecnější model. Takovéto modely však nejsou v praxi příliš používané, protože logit a probit modely ve většině případů fungují velmi dobře.
+
+\section{Tobit model}
+
+Důležitým příkladem omezené závislé veličiny je model s hraničním řešením. V takovémto modelu je závislá veličina ``přibližně'' spojitá a rovna nule pro netriviální část populace.\footnote{Jako příklad takovéto veličiny můžeme uvažovat částku, kterou daný jedinec měsíčně utratí za alkohol.}
+
+Nechť $y$ představuje veličinu, která je spojitá na striktně kladném intervalu a která nabývá nulové hodnoty s nenulovou pravděpodobností. Nic nám nebrání použít klasický lineární model. Lineární model může být dobrou aproximací $E[y|x]$ zvláště pro $x_j$ v okolí střední hodnoty; nicméně lineární model může také predikovat záporné hodnoty. Také předpoklad, že nezávislá veličina má konstantní parciální efekt na $E[y|x]$ může být zavádějící. Protože $y$ je omezeno na striktně pozitivní interval se zvýšenou pravděpodobností v bodě nula, nemůže $y$ podmíněně sledovat normální rozdělení. Pro takovýto typ vysvětlující veličiny je proto vhodnější použít jiný typ modelu.
+
+V případě Tobit modelu je latentní veličina $y^*$ definována jako
+\begin{equation}
+y^* = \beta_0 + x \beta + u, ~~~ u|x ~ N(0, \sigma^2)
+\end{equation}
+a výstup Tobit modelu pak jako
+\begin{equation}
+y = \max(0, y^*).
+\end{equation}
+Latentní veličina $y^*$ splňuje klasické předpoklady lineárního modelu, tj. sleduje normální homoskedasticitní rozdělení s lineárním podmíněnou střední hodnotou. Protože je $y^*$ normálně rozdělené, má pro striktně kladné hodnoty spojitou distribuci. Proto platí
+\begin{multline}
+P[y = 0 | x] = P[y^* < 0 | x] = P[y^* < 0 | x] = P[u < -x|\beta|x]\\
+=P\Big[\frac{u}{\sigma} < -\frac{x\beta}{\sigma}|x\Big] = \Phi\Big(-\frac{x \beta}{\sigma}\Big) = 1 - \Phi\Big(\frac{x\beta}{\sigma}\Big),
+\end{multline}
+kde $\frac{u}{\sigma}$ sleduje standardní normální rozdělení a je nezávislé na vektoru $x$. S cílem zjednodušit zápis jsme průsečík zahrnuli do vektoru $x$. Jestliže je $(x_i, y_i)$ náhodným výběr z populace, pak je hustota pravděpodobnosti $y_i$ podmíněna vektor $x_i$ definována jako
+\begin{equation}
+\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{(y - x_i \beta)^2}{2 \sigma^2}} = \frac{1}{\sigma}\phi\Big(\frac{y - x_i \beta}{\sigma}\Big)
+\end{equation}
+pro $y > 0$, popř. jako
+\begin{equation}
+P[y_i = 0 | x_i] = 1 - \Phi(\frac{x_i \beta}{\sigma})
+\end{equation}
+pro $y = 0$.
+
+Z (17.21) a (17.22) pak lze odvodit logaritmickou funkci věrohodnosti pro jednotlivá pozorování ve tvaru
+\begin{multline}
+\ell_i(\beta, \sigma) = 1(y_i = 0) \log\Big[1 - \Phi\Big(\frac{x_i \beta}{\sigma}\Big)\Big]\\
++ 1(y_i > 0) \log\Big[\frac{1}{\sigma} \phi\Big(\frac{y_i - x_i \beta}{\sigma}\Big)\Big].
+\end{multline}
+Logaritmickou věrohodnost pro náhodný výběr velikosti $n$ lze získat součtem $\ell_i(\beta, \sigma)$ přes všechna $i$. Její numerickou maximalizací lze odhadnout hodnoty parametrů $\beta$ a $\sigma$. Standardní směrodatné odchylky těchto odhadů lze použít při konstrukci $t$ testů a konfidenčních intervalů. Vzorec pro jejich výpočet je však příliš složitý, a proto jej neuvádíme.
+
+Testování vícenásobných omezení lze implementovat skrze Waldův test nebo pomocí věrohodnostního poměru stejně jako v případě logit a probit modelu.
+
+\subsection{Interpretace Tobit modelu}
+
+V Tobit modelu nás zajímají dvě střední hodnoty a to (a) $E[y|y > 0, x]$, kterou nazýváme podmíněnou střední hodnotou, protože je podmíněná $y > 0$ a (b) $E[y|x]$, která je poněkud nesprávně nazývána nepodmíněnou střední hodnotou.\footnote{Tato střední hodnota je pochopitelně podmíněna vektorem nezávislých veličin $x$. Proto je pojem ``nepodmíněná'' poněkud zavádějící.} Jestliže známe $E[y | y > 0, x]$, lze snadno vypočíst $E[y|x]$, protože
+\begin{equation}
+E[y|x] = P[y > 0 | x] E[y | y > 0, x] = \Phi\Big(\frac{x \beta}{\sigma}\Big)E[y | y > 0, x].
+\end{equation}
+Abychom získali $E[y|y > 0, x]$, využijeme skutečnosti, že pro $z \sim N(0, 1)$ platí $E[z | z > c] = \frac{\phi(c)}{1 - \Phi(c)}$. Platí tedy
+\begin{multline}
+E[y | y > 0, x] = x \beta + E[u | u > -x \beta] = x \beta + \sigma E\Big[\frac{u}{\sigma}| \frac{u}{\sigma} > -\frac{x\beta}{\sigma}\Big]\\
+= x \beta + \sigma \frac{\phi\Big(\frac{x \beta}{\sigma}\Big)}{\Phi\Big(\frac{x \beta}{\sigma}\Big)},
+\end{multline}
+protože $\phi(-c) = \phi(c)$, $1 - \Phi(-c) = \Phi(c)$ a $\frac{u}{\sigma}$ sleduje standardní normální rozdělení nezávislé na vektoru $x$. Výše uvedené lze shrnout do
+\begin{equation}
+E[y|y>0, x] = x \beta + \sigma \lambda \Big(\frac{x \beta}{\sigma}\Big),
+\end{equation}
+kde $\lambda(c) = \frac{\phi(c)}{\Phi(c)}$ je tzv. inverzní Millsův poměr.
+
+Rovnice (17.27) je důležitá. Ukazuje, že očekávaná hodnota $y$ podmíněná na $y > 0$ je rovna $x \beta$ plus striktně kladný člen, který je $\sigma$ krát inverzní Millsův poměr v bodě $\frac{x \beta}{\sigma}$. Tato rovnice také ilustruje, proč aplikace OLS pouze na pozorování, kde $y_i > 0$, nevede ke konzistentnímu odhadu vektoru koeficientů $\beta$. Inverzní Millsův poměr zde totiž hraje roli vynechané nezávislé veličiny, která je korelována s vektorem $x$.
+
+Kombinací (17.25) a (17.27) pak získáváme
+\begin{equation}
+E[y|x] = \Phi\Big(\frac{x \beta}{\sigma}\Big)\Big[x \beta + \sigma \lambda\Big(\frac{x \beta}{\sigma}\Big)\Big] = \Phi\Big(\frac{x \beta}{\sigma}\Big)x \beta + \sigma \phi\Big(\frac{x \beta}{\sigma}\Big),
+\end{equation}
+kde druhá část vyplývá ze skutečnosti $\Phi\Big(\frac{x \beta}{ \sigma}\Big) \lambda\Big(\frac{x \beta}{\sigma}\Big)$. Pokud tedy $y$ sleduje Tobit model, je $E[y|x]$ nelineární funkcí $x$ a $\beta$. Stojí za povšimnutí, že pravá strana rovnice (17.28) je kladná pro libovolné hodnoty $x$ a $\beta$, a proto je také $E[y|x]$ vždy kladné. Je také zřejmé, že parciální efekt nezávislé veličiny $x_j$ na $E[y|y>0,x]$ a $E[y|x]$ má stejný směr jako koeficient $\beta_j$, ale jeho výše závisí na všech vysvětlujících veličinách a všech parametrech Tobit modelu (a to včetně $\sigma$).
+
+Pokud je $x_j$ spojitá veličina, pak lze parciální efekt kvantifikovat s pomocí derivace
+\begin{equation}
+\frac{\partial E[y|y>0, x]}{\partial x_j} = \beta_j + \beta_j \frac{d \lambda}{dc}\frac{x \beta}{\sigma}
+\end{equation}
+za předpokladu, že $x_j$ není funkcionálně spojeno s ostatními závislými veličinami. Derivací $\lambda(c) = \frac{\phi(c)}{\Phi(c)}$ a s využitím $\frac{d \Phi(c)}{dc} = \phi(c)$ a $\frac{d \phi}{d c} = -c \phi(c)$ lze dokázat, že $\frac{d \lambda}{dc} = - \lambda(c)[c + \lambda(c)]$. Proto
+\begin{equation}
+\frac{\partial E[y|y > 0, x]}{\partial x_j} = \beta_j\Big(1 - \lambda \frac{x \beta}{\sigma}\Big[\frac{x \beta}{\sigma} + \lambda \frac{x \beta}{\sigma}\Big]\Big).
+\end{equation}
+Lze dokázat, že faktor $\Big(1 - \lambda \frac{x \beta}{\sigma}\Big[\frac{x \beta}{\sigma} + \lambda \frac{x \beta}{\sigma}\Big]\Big)$ spadá do intervalu $(0, 1)$. V praxi lze (17.30)  odhadnout pomocí MLE odhadů $\beta_j$ a $\sigma$. Stejně jako v případě logit a probit modelů je třeba zvolit hodnoty pro vektor nezávislých veličin $x$. Pro tento účel se nejčastěji používá vektor jejich středních hodnot.
+
+Jestliže je $x_j$ binární veličinou, pak lze získat parciální efekt jako rozdíl $E[y|y > 0, x]$ pro $x_j = 1$ a $x_j = 0$. Parciální efekt obecné diskrétní veličiny lze určit analogicky.
+
+S pomocí (17.28) lze získat parciální efekt spojité veličiny $x_j$ na $E[y|x]$. Tato derivace bere v potaz skutečnost, že lidé ``začínající'' v $y = 0$ si mohou zvolit $y > 0$, pokud se $x_j$ změní.
+\begin{equation}
+\frac{\partial E[y|x]}{\partial x_j} = \frac{\partial P[y > 0 | x]}{\partial x_j} E[y | y > 0, x] + P[y > 0 | x] \frac{\partial E[y | y > 0, x]}{\partial x_j}.
+\end{equation}
+Protože $P[y > 0 | x] = \Phi\Big(\frac{x \beta}{\sigma}\Big)$, pak
+\begin{equation}
+\frac{\partial P[y > 0 | x]}{\partial x_j} = \frac{\beta_j}{\sigma} \Phi\Big(\frac{x \beta}{\sigma}\Big).
+\end{equation}
+Tato rovnice nám umožňuje porovnat OLS a Tobit odhady.
+
+Stejně jako v logit a probit modelu také v Tobit modelu lze škálovací faktor $\Phi\Big(\frac{x \beta}{\sigma}\Big)$ kvantifikovat dvěma způsoby - pomocí PEA a APE přístupu. V PEA přístupu má tento faktor podobu $\Phi\Big(\frac{\overline{x}\hat{\beta}}{\hat{\sigma}}\Big)$ a případě APE pak podobu $\frac{1}{n}\sum_{i = 1}^n \Phi\Big(\frac{x_i \hat{\beta}}{\hat{\sigma}}\Big)$. V obou případech spadají škálovací faktory do intervalu $(0, 1)$, protože $0 < \Phi\Big(\frac{x \hat{\beta}}{\hat{\sigma}}\Big) < 1$ pro libovolné hodnoty nezávislých veličin. Protože $\hat{P}[y_i > 0 | x_i] = \Phi\Big(\frac{x_i \hat{\beta}}{\hat{\sigma}}\Big)$, je PEA i APE škálovací faktor blízký jedné, pokud pouze omezené množství pozorování $y_i = 0$. V případě, že všechna pozorování jsou větší než nula, tj. $y_i > 0$ pro všechna $i$, jsou OLS a Tobit odhady identické.
+
+Bohužel pro diskrétní veličiny není srovnání OLS a Tobit modelu stejně přímočaré jako pro spojité veličiny. V případě Tobit modelu je vhodné kvantifikovat parciální efekt skrze rozdíl dvou $E[y | x]$ pro odlišné hodnoty uvažované nezávislé veličiny. $E[y | x]$ lze vypočíst dle (17.25). Tento postup lze aplikovat jak pro EPA tak pro APE varianty odhadů. Stejný přístup jsem aplikovali také v případě logit a probit modelu.
+
+\subsection{Problémy Tobit modelu}
+
+Tobit model a konkrétně pak rovnice (17.27) a (17.28) závisí na předpokladu normality a homoskedasticity latentního modelu (17.19). V případě, že tyto předpoklady nejsou splněny, je velmi komplikované Tobit model správně interpretovat. Nicméně v případě mírného odchýlení se od těchto předpokladů bude nejspíše Tobit model stále poskytovat dobrý odhad parciálních efektů na $E[y|x]$.
+
+Jedním z významných omezení Tobit modelu je skutečnost, že $E[y|y > 0]$ je úzce provázána s pravděpodobností $P[y > 0]$. To je patrné z (17.30) a (17.32). Konkrétně vliv $x_j$ na $E[y|y > 0, x]$ a $P[y > 0 | x]$ je proporcionální $\beta_j$ a škálovací faktory násobící $\beta_j$ jsou kladné a závisí na vektoru $x$ pouze skrze $\frac{x \beta}{\sigma}$. Pro ilustraci uvažujme  vztah mezi pokrytím životním pojištění a věkem. Pravděpodobnost sjednání pojištění je nižší u mladých lidí, a proto $P[y > 0]$ roste s věkem. Podmíněně na sjednání životního pojištění však hodnota pojistné smlouvy s věkem klesá, protože se pojištění ke konci života stává méně důležité. Tento vztah však není možné podchytit pomocí Tobit modelu.
+
+Jedním ze způsobů, jak neformálně zhodnotit, zda-li je Tobit model vhodným pro daný problém, je odhadnout probit model, kde binární závislá veličina $w$ je rovna jedné, jestliže $y > 0$, popř. rovna nule, jestliže $y = 0$. Pak dle (17.23) sleduje $w$ probit model, kde koeficient pro $x_j$  je $\gamma_j = \frac{\beta_j}{\sigma}$. Tímto způsobem můžeme odhadnout poměr $\beta_j$ ku $\sigma$ pro každé $j$. Jestliže je použití Tobit modelu vhodné, pak $\hat{\gamma}_j$ by mělo být ``blízké'' $\frac{\hat{\beta}_j}{\hat{\sigma}}$, kde $\hat{\beta}_j$ a $\hat{\sigma}$ jsou odhadnuty z Tobit modelu. Tyto odhady však nebudou nikdy identické. Nicméně je možné se soustředit na určité indikace, které signalizují možné problémy. Např. je-li $\hat{\gamma}_j$ významné a záporné, avšak $\hat{\beta}$ je kladné, nemusí být použití Tobit modelu vhodné. Stejně tak možný problém indikuje příliš ``velký'' rozdíl mezi $|\hat{\beta}_j / \hat{\sigma}|$ a $|\hat{\gamma}_j|$. Pokud dojdeme k závěru, že použití Tobit modelu není vhodné, je možné použít alternativní modely jako je např. prahový model (hurdle model) nebo dvousložkový model (two-part model). Tyto modely však přesahují záběr knihy.
+
+\section{Poissonův model}
+
+Dalším příkladem nezáporné závislé veličiny je veličina, která vyjadřuje počet. Takovouto náhodnou veličinu je možné modelovat pomocí exponenciální funkce
+\begin{equation}
+E[y| x_1, x_2, ..., x_k] = e^{\beta_0 + \beta_1 x_1 + ... + \beta_k x_k}.
+\end{equation}
+Protože $exp(\bullet)$ je vždy kladné, je také $E[y|x]$ vždy kladné. Zlogaritmováním pak získáme
+\begin{equation}
+\log(E[y|x_1, x_2, ..., x_k]) = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k.
+\end{equation}
+Připomeňme si, že $100 \beta_j$ přibližně vyjadřuje procentní změnu v $E[y|x]$ pro jednotkovou změnu $x_j$. Pokud tuto změnu chceme vyjádřit přesněji, je třeba použít
+\begin{equation}
+\frac{e^{\beta_0 + \beta_1 x_1 + ... + \beta_j x_j^1 + ... + \beta_k x_k}}{e^{\beta_0 + \beta_1 x_1 + ... + \beta_j x_j^0 + ... + \beta_k x_k}} - 1
+\end{equation}
+
+Protože (17.33) není lineární funkcí ve svých parametrech, nemůžeme na odhad Poissonova modelu použít OLS metodu. Pro tento účel použijeme metodu maximální věrohodnosti a příbuznou metodu kvazimaximální věrohodnosti.
+
+Veličina, která vyjadřuje počet, nemůže ze své definice sledovat normální rozdělení. Namísto normálního rozdělení tak použijeme Poissonovo rozdělení. Poissonovo rozdělení je zcela definováno střední hodnotou $E[y|x]$. Předpokládejme, že tuto střední hodnotu lze popsat pomocí modelu (17.33), jehož zápis pro účely následujícího textu zkrátíme do podoby $E[y|x] = e^{x\beta}$. Pravděpodobnost, že $y$ je rovno $h$ podmíněně na $x$ je pak
+\begin{equation}
+P[y = h | x] = e^{-e^{x\beta}}\frac{\Big(e^{x\beta}\Big)^h}{h!}.
+\end{equation}
+Toto pravděpodobnostní rozdělení, které je základem pro Poissonův regresní model, nám umožňuje najít podmíněnou pravděpodobnost pro libovolné hodnoty nezávislých veličin.
+
+Pro náhodný výběr $\{(x_i, y_i): i = 1, 2, ..., n\}$ definujeme logaritmickou věrohodnostní funkci jako
+\begin{equation}
+\mathscr{L}(\beta) = \sum_{i = 1}^n \ell_i(\beta) = \sum_{i = 1}^n \Big(y_i x_i \beta - e(x_i \beta) \Big),
+\end{equation}
+kde jsme vynechali konstantní člen $-\log(y_i!)$. Optimální hodnotu vektoru $\beta$ pak získáme numerickou maximalizací (17.37).
+
+Stejně jako v případě logit, probit a Tobit modelu nelze přímo srovnat odhadnuté koeficienty Poissonova modelu s koeficienty OLS modelu. Pokud jsou předpoklady (17.33) splněny lze pro ``přibližně'' spojitou závislou veličinu Poissonova modelu odhadnout parciální efekt s pomocí
+\begin{equation}
+\frac{\partial E[y | x_1, x_2, ..., x_k]}{\partial x_j} = e^{\beta_0 + \beta_1 x_1 + ... + \beta_k x_k} \beta_j.
+\end{equation}
+Jestliže regresní koeficient OLS modelu nezávislé veličiny $x_j$ označíme jako $\gamma_j$, pak lze $\gamma_j$ porovnat s průměrným parciálním efektem. Stejně jako v předchozích případech tento průměrný parciální efekt existuje v EPA a APE. V případě APE přístupu je zajímavé, že $\frac{1}{n}\sum_{i = 1}^n e^{\hat{\beta}_0 + \hat{\beta}_1 x_{i1} + ... + \hat{\beta}_1 x_{ik}} = \frac{1}{n} \sum_{i = 1}^n \hat{y}_i = \overline{y}$. Pro je pro ``přibližně'' spojitou veličinu nejjednodušší porovnat $\hat{\gamma}_j$ s $\overline{y}\hat{\beta}_j$.
+
+Ačkoliv je Poissonův model přirozenou volbou pro závislé veličiny, které vyjadřují počet, je tento model v řadě případů příliš omezující. Např. všechny pravděpodobnosti a vyšší momenty Poissonova pravděpodobnostního rozdělení jsou definovány střední hodnotou. Konkrétně platí
+\begin{equation}
+var[y|x] = E[y|x],
+\end{equation}
+což v řadě reálných případů není splněno. Nicméně Poissonův model je velmi robustní - bez ohledu na to, zda je splněn předpoklad Poissonova rozdělení, získáme konzistentní a asymptoticky normální odhady koeficientů $\beta_j$.\footnote{To je analogické s OLS odhady, které jsou taktéž konzistentní a asymptoticky normální, i když není splněn předpoklad normality.}
+
+Jestliže nelze předpokládat splnění předpokladu Poissonova rozdělení, můžeme pro odhad modelu použít metodu kvazimaximální věrohodnosti (quasi-maximum likelihood estimation [QMLE]). Pokud předpoklad (17.39) není splněn, je třeba upravit chybový člen modelu. Nejjednodušší způsob úpravy je založen na předpokladu, že rozptyl je násobek střední hodnoty, tj.
+\begin{equation}
+var[y|x] = \sigma^2 E[y|x],
+\end{equation}
+kde $\sigma^2 > 0$ je neznámý parametr a obvykle platí $\sigma^2 > 1$.
+
+Nechť $\hat{\beta}_j$ označuje Poisson QMLE a definujme rezidua jako $\hat{u}_i = y_i - \hat{y}_i$, kde $\hat{y}_i = e^{\hat{\beta}_0 + \hat{\beta}_1 x_{i1} + ... + \hat{\beta}_k x_{ik}}$. Konzistentní funkce odhadu $\sigma^2$ je $\frac{1}{n - k - 1} \sum_{j = 1}^n \frac{\hat{u}^2_i}{\hat{y}_i}$, kde jmenovatel $\hat{y}_i$ představuje ``vhodnou'' úpravu o heteroskedasticitu. Na závěr vynásobíme směrodatné odchylky odhadů Poissonova modelu parametrem $\hat{\sigma}$.
+
+Za předpokladu splnění Poissonova rozdělení je možné testovat vícero lineárních omezení pomocí testu založeném na věrohodnostním poměru (17.13) stejně jako v případě logit / probit modelu. Při $q$ vylučovacích omezeních (tj. nulové hypotéze o statisticky nevýznamném regresním parametru) sleduje příslušná statistika přibližně $\chi^2_q$ rozdělení. Při méně restriktivním předpokladu (17.40) je třeba (17.13) vydělit $\hat{\sigma}^2$ z neomezeného modelu.
+
+\section{Cenzurované a omezené regresní modely}
+
+V případě, že při sběru dat byla závislá veličina omezena zdola nebo shora určitou hodnotou, používáme tzv. cenzurovaný regresní model (censored regression model). Omezený regresní model (truncated regression model) pak použijeme v případě populaci omezíme na základě závislé veličiny $y$ tím, že např. vyloučíme všechny domácnosti s ročním příjmem nad 10 miliónů korun.
+
+\subsection{Cenzurovaný regresní model}
+
+Předpokládejme, že $y$ sleduje klasický lineární model
+\begin{equation}
+y_i = \beta_0 + x_i \beta + u_i, ~~~ u_i|x_i, ~ c \sim N(0, \sigma^2.)
+\end{equation}
+Nicméně namísto $y_i$ máme k dispozici pouze informace o cenzurované hodnotě $w_i$, která je definována jako
+\begin{equation}
+w_i = \min(y_i, c_i),
+\end{equation}
+kde $c_i$ může být konstantní popř. být funkcí nezávislých veličin.
+
+Vzhledem k ``cenzuře'' závislé veličiny není možné získat odhady modelu pomocí OLS - tyto odhady by totiž byly zkreslené. Proto, stejně jako v případě předchozích modelů, je třeba použít metodu maximální věrohodnosti. Za tímto účelem potřebujeme znát hustotu pravděpodobnosti pro $w_i$ podmíněnou $(x_i, c_i)$. Pro necenzurovaná pozorování $w_i = y_i$ je tato hustota pravděpodobnosti stejná jako pro $y_i$, tj. $N(x_i\beta, \sigma^2)$. Pro cenzurované hodnoty je pak tato funkce definována jako
+\begin{equation}
+P[w_i = c_i|x_i] = P[y_i \ge c_i | x_i] = P[u_i \ge c_i - x_i \beta] = 1 - \Phi\Big[\frac{c_i - x_i \beta}{\sigma}\Big].
+\end{equation}
+Kombinací těchto dvou hustot pravděpodobnosti pak získáváme
+\begin{equation}
+\begin{split}
+f(w|x_i, c_i) & = 1 - \Phi\Big(\frac{c_i - x_i \beta}{\sigma}\Big), \quad w = c_i,\\
+ & = \frac{1}{\sigma} \phi\Big(\frac{w - x_i \beta}{\sigma}\Big), \quad w < c_i.
+\end{split}
+\end{equation}
+Logaritmickou věrohodnost lze vypočíst tak, že zlogaritmujeme hustotu pravděpodobnosti pro každé pozorování $i$. Maximalizací součtu přes všechna pozorování $i$ pak získáme optimální odhady vektoru $\beta$ a $\sigma$.
+
+Regresní koeficient $\beta_j$ cenzurovaného modelu lze na rozdíl od předchozích modelů přímo porovnat s OLS odhady. To je dáno tím, že (17.41) a (17.42) představují lineární model.
+
+Důležitou aplikací cenzurovaného regresního modelu je tzv. durační analýzu. Durací rozumíme veličinu, která měří čas, jenž uplyne do realizace určité události. Při durační analýze často aplikujeme logaritmus na závislou veličinu, což znamená, že musí logaritmus aplikovat také na prahovou hodnotu $c_i$. Regresní koeficienty jsou pak interpretovány jako procentní změna.
+
+Pokud nejsou splněny některé z předpokladů cenzurovaného modelu, tj. pokud chybový člen vykazuje známky heteroskedasticity nebo nesleduje normální rozdělení, pak jsou MLE odhady nekonzistentní. Proto je cenzůra dat poměrně potenciálně problematická - při OLS může chybový člen trpět heteroskedasticitou a nemít normální rozdělení, a přesto budou odhady konzistentní.
+
+\subsection{Omezený regresní model}
+
+V případě omezeného regresního modelu nebereme v potaz celou populaci, ale pouze její část. Typickým příkladem je např. výzkum veřejného mínění, který se omezuje pouze na určitou věkovou kategorii. V tomto případě je porušeno pravidlo náhodného výběru. I když jsou výsledky výzkumu založené na OLS metodě relevantní pro danou věkovou kategorii, nelze je zobecňovat na celou populaci.
+
+Uvažujme klasický lineární model
+\begin{equation}
+y = \beta_0 + x \beta + u, \quad u|x \sim N(0, \sigma^2).
+\end{equation}
+Předpokládejme, že je porušen předpoklad MLR.2 o náhodném výběru. Konkrétně předpokládejme, že náhodné pozorování $(x_i, y_i)$ je k dispozici pouze v případě, že $y_i \le c_i$, kde $c_i$ je prahová hodnota závislá na $x_i$. Stejně jako v předchozích případech potřebujeme podmíněnou funkci hustoty pro $y_i$. Ta je definována jako
+\begin{equation}
+g(y|x_i, c_i) = \frac{f(y|x_i \beta, \sigma^2)}{F(c_i | x_i \beta, \sigma^2)}, \quad y \le c_i,
+\end{equation}
+kde $f(y|x_i \beta, \sigma^2)$ označuje hustotu pravděpodobnosti normálního rozdělení se střední hodnotou $\beta_0 + x_i \beta$ a rozptylem $\sigma^2$ a $F(c_i | x_i \beta, \sigma^2)$ je hodnota odpovídající kumulativní pravděpodobnostní funkci v bodě $c_i$. Rovnice tedy přeškáluje hustotu pravděpodobnosti tím, že ji vydělíme plochou $f(\bullet | x_i \beta, \sigma^2)$ nalevo od $c_i$.
+
+Pokud zlogaritmujeme (17.46), sečteme přes všechna $i$ a maximalizujeme s ohledem na $\beta$ a $\sigma^2$, získáme odhady regresních parametrů pomocí metody maximální věrohodnosti. Stejně jako v případě předchozích modelů lze standardním způsobem konstruovat konfidenční intervaly, testovat jednoduché hypotézy pomocí $t$ statistiky  nebo vícenásobné vylučovací hypotézy pomocí LR statistiky. Stejně jako v případě cenzurovaného modelu platí, že pokud nejsou splněny předpoklady homoskedasticity a normality, jsou odhadnuté regresní parametry zkreslené a nekonzistentní.
+
+\section{Neúplný náhodný výběr}
+
+Velice často se stává, že při výzkumu nejsou respondenti schopni zodpovědět některou z otázek. Výsledkem pak je neúplný set odpovědí. Protože nejsme schopni tato pozorování přímo použít pro odhad regresního modelu, nabízí se otázka, zda-li by jejich ignorování mělo za následek zkreslení OLS odhadů. S dalším podobným příkladem se můžeme setkat u panelových dat, kdy pro daného jedince máme k dispozici data např. po dobu dvou let, přičemž třetí rok již tento jedinec není součástí výběru.
+
+\subsection{OLS a náhodný výběr}
+
+Uvažujme populační model
+\begin{equation}
+y = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k + u, \quad E[u | x_1, x_2, ..., x_k] = 0
+\end{equation}
+a zkrácený zápis tohoto modelu pro náhodné pozorování
+\begin{equation}
+y_i = x_i \beta + u_i.
+\end{equation}
+Nechť $n$ představuje velikost náhodného výběru z dané populace. Pokud pro každé náhodné pozorování $i$ máme k dispozici $y_i$ a všechna $x_{ij}$, můžeme použít OLS metodu pro odhadu modelu. Předpokládejme však, že pro některá pozorování toto není splněno. Definujme výběrový indikátor $s_i$, kde $s_i = 1$, pokud je předpoklad splněn a $s_i = 0$, pokud splněn není. Model (17.48) pak můžeme přepsat do tvaru
+\begin{equation}
+s_i y_i = s_i x_i \beta + s_i u_i.
+\end{equation}
+Tento model odpovídá situaci, pokud bychom model (17.48) aplikovala pouze na ta pozorování, pro která $s_i = 1$.
+
+Z kapitoly 5 víme, že OLS odhady modelu (17.49) jsou konzistentní, pokud má chybový člen nulovou střední hodnotu a je nekorelovaný se všemi nezávislými veličinami, tj.
+\begin{equation}
+E[su] = 0
+\end{equation}
+a
+\begin{equation}
+E[(sx_j)(su)] = E[sx_ju] = 0,
+\end{equation}
+kde jsme nezávislou veličinu $x_j$ předefinovali na $s x_j$.
+
+Klíčovým předpokladem pro nezkreslenost odhadu je $E[su | x x_1, ..., s x_k] = 0$. Jako obvykle se jedná o silnější předpoklad, než jaký je zapotřebí pro jeho konzistentnost.
+
+Jestliže je $s$ funkcí nezávislých veličin, pak $s x_j$ je funkcí $x_1, x_2, ..., x_k$. Na základě předpokladu, který je součástí (17.47), je $s x_j$ také nekorelované s $u$. Ve skutečnosti platí $E[su|s x_1, ..., sx_k] = s E[u|sx_1, ..., s x_k] = 0$. To je příklad exogenního náhodného výběru, kde $x_i = 1$ je určeno pouze $x_{i1}, x_{i2}, ..., x_{ik}$.
+
+Pokud je výběr zcela náhodný ve smyslu, že $s_i$ je nezávislé na $(x_i, u_i)$, pak $E[s x_j u] = E[s]E[x_j u] = 0$, protože dle (17.47)$E[x_ju] = 0$. Proto, pokud z náhodného výběru náhodně vyloučíme některá pozorování, jsou OLS odhady stále nezkreslené a konzistentní.
+
+Příkladem, kdy jsou OLS odhady založené na náhodném výběru nekonzistentní, jsou tzv. omezené výběry (truncated sample). Jedná se např. o situaci, kdy $s_i = 1$ pro $u_i \le c_i - x_i \beta$. Protože $s_i$ přímo závisí na $u_i$, $s_i$ a $u_i$ nejsou nekorelované a to ani podmíněně na $x_i$. To vysvětluje, proč jsou OLS odhady na takovémto výběru nekonzistentní.
+
+Lze dokázat, že pokud je výběr funkcí exogenních veličin, je odhad nelineárního modelu pomocí metody maximální věrohodnosti (jako např. logit a  probit modelu) konzistentní, asymptoticky normální a že směrodatné odchylky a standardní testovací statistiky jsou platné.
+
+\subsection{Náhodné omezení výběru}
+
+O náhodném omezení výběru (incidental truncation) hovoříme v případě, kdy pozorujeme $y$ pouze pro podmnožinu populace. Pravidlo výběru přitom nezávisí přímo na hodnotě $y$. Obvyklý přístup k náhodnému omezení výběru je přidání explicitní výběrové rovnice do populačního modelu
+\begin{gather}
+y = x \beta + u, \quad E[u|x] = 0\\
+s = 1[z \gamma + v \ge 0],
+\end{gather}
+kde $s = 1$, pokud pozorujeme $y$, a $s = 0$ v opačném případě. Předpokládáme, že prvky vektorů $x$ a $z$ jsme schopni vždy pozorovat a že $x \beta = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k$ a $z \gamma = \gamma_0 + \gamma_1 z_1 + ... + \gamma_m z_m$.
+
+Předmětem našeho zájmu je (17.52) a vektor $\beta$ můžeme odhadnout pomocí OLS za předpokladu náhodného výběru. Výběrová podmínka (17.53) závisí na vektoru pozorovaných veličin $z$ a nepozorované chybě $v$. Standardním předpokladem je exogenita veličiny $z$, tj.
+\begin{equation}
+E[u |x,z] = 0.
+\end{equation}
+Aby níže popsaná metoda fungovala, je zapotřebí, aby vektor $x$ byl striktní podmnožinou $z$, tj. aby libovolné $x_j$ bylo podmnožinou $z$ a zároveň aby existovaly prvky $z$, které nejsou obsaženy v $x$.
+
+Předpokládáme, že chybový člen $v$ je nezávislý na $z$ (a tím pádem také na $x$). Dále předpokládáme, že chybový člen $v$ sleduje standardní normální rozdělení. Je zřejmé, že korelace mezi $u$ a $v$ vede k problémům s náhodným výběrem. Pro ilustraci uvažujme, že $(u, v)$ je nezávislé na $z$. Střední hodnota (17.52) podmíněná $z$ a $v$ a s využitím skutečnosti, že $x$ je podmnožinou $z$, je
+\begin{equation}
+E[y|z, v] = x \beta + E[u | z, v] = x \beta + E[u | v],
+\end{equation}
+kde $E[u | z, v] = E[u|v]$, protože $(u, v)$ jsou nezávislé na $z$. Jestliže $u$ a $v$ jsou sdruženě normální s nulovou střední hodnotou, pak $E[u|v] = \rho v$ pro vhodně zvolené $\rho$. Proto
+\begin{equation}
+E[y|z, v] = x \beta + \rho v.
+\end{equation}
+I když nepozorujeme $v$, můžeme tuto rovnici použít pro výpočet $E[y|z,s]$ a následně zúžit pro $s = 1$. Nejprve tedy uvažujeme
+\begin{equation}
+E[y|z,s] = x \beta + \rho E[v|z,s].
+\end{equation}
+Protože $s$ a $y$ jsou propojeny skrze (17.53) a protože $v$ sleduje normální rozdělení, lze dokázat, že $E[y|z,s]$ je Millsův inverzní poměr pro $s = 1$, tj.
+\begin{equation}
+E[y|z, s = 1] = x \beta + \rho \lambda (z \gamma).
+\end{equation}
+Připomeňme si, že naším primárním cílem je odhad vektoru $\beta$. Výše uvedená rovnice nám říká, že to je v případě omezeného výběru možné pouze, pokud přidáme člen $\lambda(z \gamma)$ jako dodatečnou nezávislou veličinu. Jestliže $\rho = 0$, pak můžeme $\lambda(z \gamma)$ vypustit a metoda OLS vede ke konzistentnímu odhadu vektoru $\beta$. Protože neznáme $\gamma$, nemůžeme kvantifikovat $\lambda (z_i \gamma)$ pro každé $i$. Nicméně díky výše uvedeným předpokladům platí
+\begin{equation}
+P[s = 1 | z] = \Phi(z \gamma).
+\end{equation}
+Proto můžeme odhadnout $\gamma$ pomocí probit modelu $s_i$ na $z_i$, kde využijeme celý náhodný výběr. Na závěr pak odhadneme $\beta$. Následující text shrnuje krok za krokem tuto tzv. Heckitovu metodu.
+
+\begin{enumerate}
+\item S využitím všech $n$ pozorování odhadneme probit model $s_i$ na $z_i$, čímž získáme odhad vektoru $\hat{\gamma}$.
+\item Vypočteme Millsův inverzní poměr $\hat{\lambda}_i = \lambda(z_i \hat{\gamma})$ pro všechna $i$.\footnote{Ve skutečnosti potřebujeme výpočet pouze pro ta $i$, pro která $s_i = 1$.}
+\item S využitím omezeného výběru (tj. pro pozorování pro která $s_i = 1$) definujeme regresní model
+\begin{equation}
+y_i = x_i \beta + \hat{\lambda}_i \rho.
+\end{equation}
+Odhad $\hat{\beta}$ je konzistentní a přibližně normálně rozdělený.
+\end{enumerate}
+
+Jednoduchý test na chybějící nezávislou veličinu je možné založit na (17.60). Konkrétně lze použít obvyklou $t$ statistiku k tomu, abychom testovali $H_0: \rho = 0$. Připomeňme, že v případě platnosti nulové hypotézy nemáme problém s náhodným výběrem. V případě $\rho \ne 0$ nejsou standardní odchylky OLS odhadů správné.
+
+V předchozím textu jsme zmiňovali, že $x$ musí být skriktní podmnožinou $z$, což má dva důsledky. Zaprvé, libovolný prvek, který se objeví  v (17.52) jako vysvětlující veličina musí také figurovat jako vysvětlující veličina v (17.53). Zadruhé, musí být alespoň jeden prvek $z$, který není součástí $x$. Potřebujeme tedy veličinu, která vstupuje do rovnice výběru, avšak nemá parciální efekt na $y$. Důvodem je, že i když je Millsův inverzní poměr nelineární funkcí $z$, lze ho lineární funkcí velmi dobře aproximovat. Pokud tedy $z = x$, $\hat{\lambda}_i$ může být silně korelováno s $x_i$. Jak již víme z dřívějška, takováto multikolinearita vede k vysokým směrodatným odchylkám odhadů $\hat{\beta}$. Jinými slovy - pokud nemáme veličinu, která vstupuje pouze do výběrové funkce bez toho, aniž by ovlivňovala $y$, je extrémně složité rozlišit mezi omezeným výběrem a špatnou funkční specifikací modelu (17.52).
+
+Alternativou k předchozímu postupu je odhad metodou maximální věrohodnosti. Tento postup je však komplikovanější, protože vyžaduje sdruženou pravděpodobnost $y$ a $s$ a překračuje tak záběr této knihy.
+
+\section{Dodatek 17A}
+
+\subsection{Metoda maximální věrohodnosti}
+
+Nechť $f(y|x,\beta)$ představuje hustotu pravděpodobnosti náhodného výběru $y_i$ podmíněně na $x = x_i$. Odhad vektoru parametrů $\beta$ na základě metody maximální věrohodnosti maximalizuje logaritmickou funkci věrohodnosti
+\begin{equation}
+\max_{b} \sum_{i = 1}^n log f(y_i|x_i, b).
+\end{equation}
+
+V případě binární závislé veličiny (logit a probit model) je podmíněná pravděpodobnost definována dvěma hodnotami a to $f(1|x, \beta) = P[y_i = 1 | x_i] = G(x_i\beta)$ a $f(0|x,\beta) = P[y_i = 0 | x_i] = 1 - G(x_i \beta)$, což je možné zkráceně zapsat jako $f(y|x \beta) = [1 - G(x\beta)]^{1 - y}[G(x\beta)]^y$ pro $y = 0, 1$. Výše uvedenou rovnici je tak možné zapsat ve tvaru
+\begin{equation}
+\max_{b} \Big(\sum_{i = 1}^n (1 - y_i)log[1 - G(x_i b)] + y_i log[G(x_i b)]\Big).
+\end{equation}
+Tuto rovnici je třeba řešit numericky iterativním způsobem.
+
+\section{Dodatek 17B}
+
+\subsection{Omezená závislá veličina a asymptotické směrodatné odchylky}
+
+Odvození obecného vzorce pro výpočet asymptotických směrodatných odchylek v modelu s omezenou závislou veličinou překračuje záběr této knihy. Proto pouze uvedeme pro některé z modelů.
+
+\subsubsection{Logit a probit model}
+
+V případě binárního modelu $P[y = 1|x] = G(x \beta)$, kde $G(\cdot)$ představuje logit nebo probit funkci a $\beta$ je vektor parametrů, lze asymptotickou matici rozptylů pro odhady $\hat{\beta}$ vypočíst dle
+\begin{equation}
+\widehat{avar}(\hat{\beta}) \equiv \Big(\sum_{i = 1}^n \frac{[g(x_i \hat{\beta})]^2 x_i'x_i}{G(x_i \hat{\beta})[1 - G(x_i \hat{\beta})]}\Big)^{-1}.
+\end{equation}
+Tato rovnice bere v potaz nelinearitu $G(\cdot)$ a heteroskedasticitu $var[y|x] = G(x \beta)[1 - G(x \beta)]$.
+
+Druhá odmocnina hlavní diagonály matice $\widehat{avar}(\hat{\beta})$ představuje vektor asymptotických směrodatných odchylek. Ty lze použít standardním způsobem při konstrukci asymptotických $t$ statistik a intervalů spolehlivosti.
+
+\subsubsection{Poissonův model}
+
+V případě Poissonova modelu má matice rozptylu tvar
+\begin{equation}
+\widehat{avar}(\hat{\beta}) = \hat{\sigma}^2 \Big(\sum_{i = 1}^n e^{x_i \hat{\beta}x_i'x_i}\Big)^{-1}.
+\end{equation}
+
+Druhá odmocnina hlavní diagonály matice $\widehat{avar}(\hat{\beta})$ představuje vektor asymptotických směrodatných odchylek. Ty lze použít standardním způsobem při konstrukci asymptotických $t$ statistik a intervalů spolehlivosti.

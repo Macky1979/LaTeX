@@ -1,0 +1,83 @@
+\chapter{Slovník}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{l l} 
+\bf{anglicky} & \bf{česky}\\
+\hline
+time series & časová řada\\
+cross-sectional data & průřezová data\\
+pooled cross section data & sdružená průřezová data\\
+panel data & panelová data\\
+regression model & regresní model\\
+explanatory variable & vysvětlující veličina\\
+independent variable & nezávislá veličina\\
+dependent variable & závislá veličina\\
+error term / disturbance & chybová složka / chyba\\
+slope parameter & parametr sklonu\\
+intercept parameter & parametr průsečíku\\
+population regression function (PRF) & populační regresní funkce\\
+ordinary least square (OLS) estimates & odhad nejmenších čtverců\\
+OLS regression line & OLS regresní přímka\\
+sample regression function (SRF) & výběrová regresní funkce\\
+residual & reziduum\\
+sum of squared residuals & součet čtverců reziduí\\
+total sum of squares (SST) & celkový součet čtverců\\
+explained sum of squares (SSE) & vysvětlený součet čtverců\\
+residual sum of squares (SSR) & reziduální součet čtverců\\
+goodnes of fit & míra shody\\
+unbiasedness of OLS & nestrannost OLS odhadů\\
+standard error of regression (SER) & standardní směrodatná odchylka regrese\\
+omitted variable bias & zkreslení z titulu vynechání\\
+ & relevantní vysvětlující proměnné\\
+variance inflation factor (VIF) & inflační faktor rozptylu\\
+degrees of freedom & stupně volnosti\\
+standard deviation & směrodatná odchylka\\
+standard error & směrodatná chyba\\
+best linear unbiased estimator (BLUE) & nejlepší nezkreslený lineární odhad\\
+sampling distribution & výběrové rozdělení\\
+classical liner model (CLM) assumptions & předpoklady klasického lineárního modelu\\
+one-sided test & jednostranný test\\
+two-sided test & dvoustranný test\\
+significance level & hladina významnosti\\
+p-value & p-hodnota\\
+confidence interval & interval spolehlivosti\\
+multiple (joint) hypothesis & vícenásobná (sdružená) hypotéza\\
+unrestricted model & neomezený model\\
+restricted model & omezený model\\
+adjusted $R^2$ & korigované $R^2$\\
+resampling method & metoda opakovaného výběru\\
+binary (dummy) variable & binární veličina\\
+dummy variable trap & past binární veličiny\\
+linear probability model (LPM) & lineární pravděpodobnostní model\\
+generalized least squares (GLS) estimators & obecný odhady metodou nejmenších čtverců\\
+weighted least squares (WLS) estimators & odhady metodou vážených nejmenších čtverců\\
+\end{tabular}
+\caption{Anglicko-český slovník vybraných statistických pojmů}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{l l} 
+\bf{anglicky} & \bf{česky}\\
+\hline
+finit distributed lag (FDL) model & modely s konečným zpožděním\\
+impact propensity & propensitní účinek\\
+long-run propensity & dlouhodobá propensita\\
+comtemporaneous exogenous & souběžně exogenní\\
+spurious correlation & zdánlivá korelace\\
+stationary time series & stacionární časové řada\\
+weakly dependent time series & slabě závislá časová řada\\
+covariance stationary proces & kovariančně stacionární proces\\
+independent identically distributed (iid) & nezávislé stejnoměrně rozdělené (náhodné veličiny)\\
+moving average process of order one [MA(1)] & proces klouzavého průměru řádu jedna\\
+autoregressive process of order one [AR(1)] & autoregresivní proces řádu jedna\\
+trend-stacionary process & trendově stacionární proces\\
+law of iterated expectations & zákon iterované střední hodnoty\\
+unit root process & proces s jednotkovým kořenem\\
+integrated process of order zero & integrovaný proces řádu nula\\
+\end{tabular}
+\caption{Anglicko-český slovník vybraných statistických pojmů}
+\end{center}
+\end{table}

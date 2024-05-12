@@ -1,0 +1,34 @@
+\chapter{Sériová korelace a heteroskedasticita v časových řadách}
+
+V předchozí kapitole jsme ukázali, že pokud je regresní model "kompletně" specifikován, netrpí chybové členy sériovou korelací. Testování sériové korelace tak může být použito pro účely detekce chybné dynamické specifikace regresního modelu. Navíc chybové členy statických modelů a modelů s konečným zpožděním mohou vykazovat sériovou korelaci, i když samotný model není chybně specifikován. Proto je vhodné znát důsledy této sériové korelace a nástroje na její potlačení.
+
+\section{Vlastnosti OLS odhadů a sériová korelace}
+
+\subsection{Nezkreslenost a konzistentnost odhadu}
+
+Pokud jsou vysvětlující veličiny striktně exogenní, jsou odhady $\hat{\beta}_j$ nezkreslené bez ohledu na míru sériové korelace chybových členů regresního modelu. Jedná se o analogii tvrzení, že heteroskedasticita chybových členů nemá za následek zkreslení $\hat{\beta}_j$. V kapitole 11 jsme oslabili předpoklad striktní exogenity na $E[u_t | x_t] = 0$ a ukázali, že pokud jsou data slabě závislá, je odhad $\hat{\beta}_j$ stále konzistetní (i když ne nutně nezkreslený). Tento závěr není závislý na předpokladu neexistence sériové korelace.
+
+\subsection{Efektivnost odhadu}
+
+Protože Gaus-Markovova věta vyžaduje jak homoskedasticitu tak sériově nekorelované chyby regresního modelu, nejsou OLS odhady v přítomnosti sériové korelace BLUE. Navíc $t$ a $F$ statistiky nejsou platné a to ani asymptoticky.
+
+Pro ilustraci uvažujme AR(1) proces
+\begin{equation}
+u_t = \rho u_{t - 1} + e_t, ~~~ t = 1, 2, ..., n ~~~ |\rho| < 1,
+\end{equation}
+kde $e_t$ jsou nekorelované náhodné veličiny s nulovou střední hodnotou a rozptylem $\sigma_e^2$. V návaznosti na AR(1) uvažujme jednoduchý regresní model
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_t + u_t,
+\end{equation}
+kde pro zjednodušení navazujících výpočtů předpokládáme $E[x_t] = 0$. OLS odhad $\hat{\beta}_1$ pak lze vyjádřit jako
+\begin{equation}
+\hat{\beta}_1 = \beta_1 + \frac{\sum_{t = 1}^n x_t u_t}{SST_x},
+\end{equation}
+kde $SST_x = \sum_{t = 1}^n x_t^2$. Při výpočtu podmíněného rozptylu $\hat{\beta}_1$ musíme vzít v potaz sériovou korelaci $u_t$, tj.
+\begin{multline}
+  var[\hat{\beta}_1] = \frac{var\Big[\sum_{t = 1}^n x_t u_t \Big]}{SST_x^2}\\
+  = \frac{\sum_{t = 1}^n x_t^2 var[u_t] + 2 \sum_{t = 1}^{n - 1}\sum_{j = 1}^{n - 1}x_tx_{t + 1}E[u_t u_{t + j}]}{SST_x^2}\\
+  = \frac{\sigma^2}{SST_x} + 2\frac{\sigma^2}{SST_x^2}\sum_{t = 1}^{n - 1} \sum_{j = 1}^{n - 1} \rho^j x_t x_{t + j},
+\end{multline}
+kde $\sigma^2 = var[u_t]$ a kde jsme využili skutečnosti $E[u_t u_{t + j}] = cov[u_t, u_{t + j}] = \rho^j \sigma^2$ [viz. (11.6)]. První člen rovnice (12.4) představuje rozptyl $\hat{\beta}_j$ pro $\rho = 0$, což odpovídá OLS rozptylu při splnění Gaus-Markovových předpokladů. Pokud trpí regresní model (12.2) sériovou korelací chybového členu, tj. $\rho \ne 0$, je odhad zkreslený, protože ignorujeme druhý člen (12.4).
+

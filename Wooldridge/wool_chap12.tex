@@ -1,0 +1,488 @@
+\chapter{Autokorelace a heteroskedasticita v časových řadách}
+
+V předchozí kapitole jsme ukázali, že pokud je regresní model "kompletně" specifikován, nevykazují chybové členy známky autokorelace. Testování autokorelace tak může být použito pro účely detekce chybné dynamické specifikace regresního modelu. Navíc chybové členy statických modelů a modelů s konečným rozdělením zpoždění mohou vykazovat autokorelaci, i když samotný model není chybně specifikován. Proto je vhodné znát důsledky autokorelace a nástroje na její potlačení.
+
+\section{Autokorelace a vlastnosti OLS odhadů}
+
+\subsection{Nezkreslenost a konzistentnost odhadu}
+
+Pokud jsou vysvětlující veličiny striktně exogenní, jsou odhady $\hat{\beta}_j$ nezkreslené bez ohledu na míru autokorelace chybových členů regresního modelu. Jedná se o analogii tvrzení, že heteroskedasticita chybových členů nemá za následek zkreslení $\hat{\beta}_j$. V kapitole 11 jsme oslabili předpoklad striktní exogenity na $E[u_t | x_t] = 0$ a ukázali, že pokud jsou data slabě závislá, je odhad $\hat{\beta}_j$ stále konzistentní (i když ne nutně nezkreslený). Tento závěr není závislý na předpokladu neexistence autokorelace.
+
+\subsection{Efektivnost odhadu}
+
+Protože Gaus-Markovova věta vyžaduje jak homoskedasticitu, tak sériově nekorelované chyby regresního modelu, nejsou OLS odhady v přítomnosti sériové korelace BLUE. Navíc $t$ a $F$ statistiky nejsou platné a to ani asymptoticky.
+
+Pro ilustraci uvažujme AR(1) proces
+\begin{equation}
+u_t = \rho u_{t - 1} + e_t, ~~~ t = 1, 2, ..., n ~~~ |\rho| < 1,
+\end{equation}
+kde $e_t$ jsou nekorelované náhodné veličiny s nulovou střední hodnotou a rozptylem $\sigma_e^2$. V návaznosti na AR(1) uvažujme jednoduchý regresní model
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_t + u_t,
+\end{equation}
+kde pro zjednodušení navazujících výpočtů předpokládáme $E[x_t] = 0$. OLS odhad $\hat{\beta}_1$ pak lze vyjádřit jako
+\begin{equation}
+\hat{\beta}_1 = \beta_1 + \frac{\sum_{t = 1}^n x_t u_t}{SST_x},
+\end{equation}
+kde $SST_x = \sum_{t = 1}^n x_t^2$. Při výpočtu podmíněného rozptylu $\hat{\beta}_1$ musíme vzít v potaz autokorelaci $u_t$, tj.
+\begin{multline}
+  var[\hat{\beta}_1] = \frac{var\Big[\sum_{t = 1}^n x_t u_t \Big]}{SST_x^2}\\
+  = \frac{\sum_{t = 1}^n x_t^2 var[u_t] + 2 \sum_{t = 1}^{n - 1}\sum_{j = 1}^{n - 1}x_tx_{t + 1}E[u_t u_{t + j}]}{SST_x^2}\\
+  = \frac{\sigma^2}{SST_x} + 2\frac{\sigma^2}{SST_x^2}\sum_{t = 1}^{n - 1} \sum_{j = 1}^{n - 1} \rho^j x_t x_{t + j},
+\end{multline}
+kde $\sigma^2 = var[u_t]$ a kde jsme využili skutečnosti $E[u_t u_{t + j}] = cov[u_t, u_{t + j}] = \rho^j \sigma^2$ [viz. (11.6)]. První člen rovnice (12.4) představuje rozptyl $\hat{\beta}_j$ pro $\rho = 0$, což odpovídá OLS rozptylu při splnění Gauss-Markovových předpokladů. Pokud trpí regresní model (12.2) sériovou korelací chybového členu, tj. $\rho \ne 0$, je odhad zkreslený, protože ignorujeme druhý člen (12.4).
+
+Závěrem výše uvedeného příkladu tedy je, že v případě existence autokorelace nelze testovat hypotézy pomocí standardní $t$ a $F$ statistiky, protože je odhad rozptylu parametrů regresního modelu zkreslený.
+
+\subsection{Míra shody}
+
+Populační $R^2$ jsme v případě průřezových dat definovali jako $1 - \frac{\sigma^2_u}{\sigma^2_y}$ (viz. kapitola 6). Tato definice je stále platná v případě časové řady, která je stacionární a slabě závislá, protože rozptyl chybového členu a závislé proměnné se v čase nemění. Dle zákona velkých čísel jsou $R^2$ a $\bar{R}^2$ konzistentními odhady populačního $R^2$. Argument pro toto tvrzení je v podstatě shodný jako v případě průřezových dat při existenci heteroskedasticity (viz. kapitola 8). Toto tvrzení však neplatí, pokud je $\{y_t\}$ $I(1)$ procesem, protože v takovém případě roste $var[y_t]$ v čase a $R^2$ jako míra shody tak nedává smysl. V kapitole 10 jsme také tvrdili, že případný časový trend či sezónnost mají být při výpočtu $R^2$ zohledněny. Ostatní odchylky od předpokladu stacionarity by neměly způsobovat problémy při interpretaci $R^2$ a $\bar{R}^2$.
+
+\subsection{Autokorelace a zpožděné závislé veličiny}
+
+Téměr každá kniha o ekonometrii obsahuje tvrzení, že OLS odhady jsou v případě autokorelace chybového členu nekonzistentní. Toto tvrzení však není obecně platné.
+
+Pro ilustraci uvažujme model
+\begin{equation}
+y_t = \beta_0 + \beta_1 y_{t - 1} + u_t,
+\end{equation}
+kde $E[u_t | y_{t - 1}] = 0$ a $|\beta_1| < 1$. Tento model ze své definice splňuje předpoklad TS.3' o konzistentnosti OLS odhadů. Je zřejmé, že $\{u_t\}$ může být autokorelované - předpoklad $E[u_t | y_{t - 1}] = 0$ sice zakazuje korelaci mezi $u_t$ a $y_{t - 1}$, nicméně např. korelace mezi $u_t$ a $y_{t - 2}$ vyloučena není. Protože $u_{t - 1} = y_{t - 1} - \beta_0 - \beta_1 y_{t - 2}$, je kovariance mezi $u_t$ a $u_{t - 1}$ rovna $-cov[u_t, y_{t - 2}]$, což nemusí být nezbytně rovno nule. Chybový člen tak vykazuje známky autokorelace, model obsahuje zpožděnou závislou veličinu, avšak OLS konzistentně odhaduje $\beta_0$ a $\beta_1$. Autokorelace tak způsobí, že OLS statistiky jsou neplatné pro konstrukci konfidenčních intervalů, nicméně jejich konzistentnost není dotčena.
+
+OLS odhady jsou však nekonzistentní, jestliže uvažujeme regresní model (12.5), nicméně tentokrát předpokládáme, že $\{u_t\}$ sleduje AR(1) proces jako v případě (12.1), kde
+\begin{equation}
+E[e_t | u_{t - 1}, u_{t - 2}, ...] = E[e_t | y_{t - 1}, y_{t - 2}, ...] = 0.
+\end{equation}
+Protože předpokládáme, že $e_t$ je nekorelované s $y_{t - 1}$, platí $cov[y_{t - 1}, u_t] = \rho cov[y_{t - 1}, u_{t - 1}]$, což není rovno nule pokud $\rho \ne 0$. To má za následek nekonzistentnost OLS odhadů. Jestliže totiž zkombinujeme (12.5) a (12.1), sleduje $y_t$ autoregresivní model druhého řádu, neboli AR(2) model. To je zřejmé, pokud napíšeme $u_{t - 1} = y_{t - 1} - \beta_0 - \beta_1 y_{t - 2}$ a dosadíme do $u_t = \rho u_{t - 1} + e_t$. Pak lze (12.5) vyjádřit jako
+\begin{multline}
+y_t = \beta_0 + \beta_1 y_{t - 1} + \rho (y_{t - 1} - \beta_0 - \beta_1 y_{t - 2}) + e_t\\
+= \beta_0(1 - \rho) + (\beta_1 + \rho) y_{t - 1} - \rho \beta_1 y_{t - 2} + e_t\\
+= \alpha_0 + \alpha_1 y_{t - 1} + \alpha_2 y_{t - 2} + e_t.
+\end{multline}
+To znamená, že
+\begin{equation}
+E[y_t | y_{t - 1}, y_{t - 2}, ...] = E[y_t | y_{t - 1}, y_{t - 2}] = \alpha_0 + \alpha_1 y_{t - 1} + \alpha_2 y_{t - 2}.
+\end{equation}
+
+Závěr tedy zní, že je vždy nutné mít dobrý důvod, proč do regresního modelu zahrnout jak zpožděnou vysvětlující veličinu, tak určitý model popisující autokorelaci chybového členu. V praxi autokorelace chybového členu v dynamickém modelu často signalizuje jeho neúplnou specifikaci - např. do předchozího modelu jsme měli přidat $y_{t - 2}$.
+
+\section{Testování autokorelace}
+
+V této kapitole budeme diskutovat metody testování autokorelace chybového členu v regresních modelech typu
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_{t1} + ... + \beta_k x_{tk} + u_t.
+\end{equation}
+
+\subsection{$t$ test pro AR(1) v podmínkách striktní exogenity}
+
+V následujícím textu odvodíme test pro výběr velkého rozsahu za předpokladu striktní exogenity nezávislých veličin. Pro danou historii nezávislých veličin je tak očekávaná hodnota $u_t$ rovna nule. Dále předpokládejme, že v rámci modelu (12.1) je splněno
+\begin{equation}
+E[e_t | u_{t - 1}, u_{t - 2}, ...] = 0
+\end{equation}
+a
+\begin{equation}
+var[e_t | u_{t - 1}] = var[e_t] = \sigma_e^2.
+\end{equation}
+Pro AR(1) model je nulová hypotéza o neexistenci autokorelace chybového členu definována jako
+\begin{equation}
+H_0: \rho = 0.
+\end{equation}
+Pokud bychom měli k dispozici $u_t$, pak při splnění (12.10) a (12.11) lze aplikovat větu 11.2 o asymptoticky normálním rozdělení OLS odhadů na regresní model
+\begin{equation}
+u_t = \rho u_{t - 1} + e_t, ~~~ t = 1, 2, ..., n.\footnote{Při splnění nulové hypotézy $\rho = 0$ je $\{u_t\}$ slabě závislé.}
+\end{equation}
+Bohužel v praxi chyby $u_t$ neznáme, a proto je musíme nahradit rezidui $\hat{u}_t$. Protože $\hat{u}_t$ závisí na OLS odhadech $\hat{\beta}_0$, $\hat{\beta}_1$, ..., $\hat{\beta}_k$, není zcela zřejmé, zda-li nemá nahrazení $u_t$ odhadem $\hat{u}_t$ dopad na pravděpodobnostní rozdělení $t$ statistiky. Naštěstí díky předpokladu striktní exogenity je $t$ statistika pro náhodné výběry velkého rozsahu touto záměnou nedotčena. Důkaz tohoto tvrzení však překračuje záběr naší knihy.
+
+\subsubsection{Testování AR(1) procesu na autokorelaci v podmínkách striktní exogenity}
+\begin{enumerate}
+\item Aplikujeme OLS regresi
+\begin{equation}
+y_t = \alpha_0 + \alpha_1 x_{t1} + ... + \alpha_t x_{tk} + u_t
+\end{equation}
+a získáme OLS rezidua $\hat{u}_t$ pro všechna $t = 1, 2, ..., n$.
+\item Aplikujeme OLS regresi
+\begin{equation}
+\hat{u}_t = \rho \hat{u}_{t - 1} + e_t
+\end{equation}
+pro všechna $t = 2, ..., n$ s cílem získat odhad $\hat{\rho}$ a jeho $t$ statistiku $t_{\hat{\rho}}$.
+\item Použijeme $t_{\hat{\rho}}$ pro standardní testování nulové hypotézy $H_0: \rho = 0$ proti alternativní hypotéze $H_1: \rho \ne 0$.
+\end{enumerate}
+
+Při rozhodování o tom, zda-li představuje sériová korelace problém či nikoliv, bychom měli mít na paměti rozdíl mezi praktickou a statistickou významností. V případě výběru velkého rozsahu je možné indikovat sériovou korelace i případě, kdy je $\hat{\rho}$ z praktického pohledu malé. Nutno však podotknout, že praxi je tento případ spíše výjimečný, protože rozsah zkoumaných časových řad je většinou omezený.
+
+Výše popsaný postup implicitně předpokládal splnění předpokladu homoskedasticity. Nicméně je poměrně snadné modifikovat tento test tak, aby byl robustní vůči případné heteroskedasticitě - jednoduše použijeme heteroskedasticitně robustní $t$ statistiku z kapitoly 8.
+
+\subsection{Durbin-Watsonův test a klasické předpoklady}
+
+Dalším testem pro sériovou korelaci v AR(1) modelu je tzv. Durbin-Watsonův test. Durbin-Watsonova ($DW$) statistika je taktéž založena na OLS reziduích.
+\begin{equation}
+DW = \frac{\sum_{t = 2} ^ n (\hat{u}_t - \hat{u}_{t - 1})^2}{\sum_{t = 1}^n \hat{u}^2_t}
+\end{equation}
+Lze jednoduše dokázat, že $DW$ a odhad $\hat{\rho}$ z regresního modelu (12.15) spolu úzce souvisí, konkrétně
+\begin{equation}
+DW \approx 2(1 - \hat{\rho}).
+\end{equation}
+Proto jsou testy založené na $DW$ a testy založené na $\hat{\rho}$ ve své podstatě shodné. Durbin a Watson (1950) odvodili pravděpodobnostní rozdělení $DW$ (podmíněné maticí nezávislých proměnných). Jejich odvození však vyžaduje splnění všech klasických CLM předpokladů lineárního modelu a to včetně předpokladu normality chybového členu. Navíc toto pravděpodobnostní rozdělení závisí na hodnotách nezávislých veličin.
+
+DW test je pravidla založen nulové hypotéze
+\begin{equation}
+H_0: \rho = 0
+\end{equation}
+a jednostranné alternativní hypotéze
+\begin{equation}
+H_1: \rho > 0.
+\end{equation}
+Výše uvedená aproximace pro $\hat{\rho} \approx 0$ implikuje $DW \approx 2$ a pro $\hat{\rho} > 0$ implikuje $DW < 2$. Abychom tak mohli zamítnout nulovou hypotézu, musí být $DW$ výrazně menší než dva. V praxi však musíme DW porovnat se dvěma kritickými hodnotami. Ty jsou označeny jako $d_U$ a $d_L$. Jestliže $DW < d_L$, pak $H_0$ zamítneme ve prospěch $H_1$. Pokud je $DW > d_U$, pak nemůžeme $H_0$ zamítnout. Pro $d_L \le DW \le d_U$, pak nám test nedává jednoznačnou odpověď.
+
+Skutečnost, že výběrové rozdělení $DW$ statistiky může být tabulováno, je jediná výhoda DW testu oproti $t$ testu. Největším omezením DW testu je jeho závislost na splnění všech CLM předpokladů a mnohdy poměrně široká ``šedá" zóna, ve které není DW test schopen rozhodnout mezi $H_0$ a $H_1$. Naproti tomu je $t$ statistika poměrně jednoduchá na výpočet a je asymptoticky platná bez požadavku na normalitu chybového členu. $t$ statistika lze navíc snadno upravit tak, aby byla robustní vůči případné heteroskedasticitě.
+
+\subsection{Testování AR(1) procesu na autokorelaci bez splnění podmínky striktní exogenity}
+
+Pokud nezávislé veličiny nesplňují podmínky striktní exogenity, tj. jedno nebo více $x_{ij}$ jsou korelovány s $u_{t - 1}$, pak ani $t$ test ani $DW$ statistika nejsou platné a to ani pro výběry velkého rozsahu. Nejčastějším příkladem této situace jsou případy, kdy regresní model obsahuje zpožděné závislé veličiny - $y_{t - 1}$ a $u_{t - 1}$ jsou zcela zřejmě korelované.
+
+\subsubsection{Testování autokorelace pro obecné vysvětlující proměnné}
+
+\begin{enumerate}
+\item Aplikujeme OLS regresi na model
+\begin{equation}
+y_t = \alpha_0 + \alpha_1 x_{t1} + ... + \alpha_k x_{tk} + u_t
+\end{equation}
+a získáme OLS rezidua $\hat{u}_t$ pro všechna $t = 1, 2, ..., n$.
+\item Aplikujeme OLS regresi na model
+\begin{equation}
+\hat{u}_i = \beta_1 x_{t1} + ... + \beta_k x_{tk} + \rho \hat{u}_{t - 1} + v_t
+\end{equation}
+pro všechna $t = 2, ..., n$ s cílem získat odhad $\hat{\rho}$ a jeho $t$ statistiku $t_{\hat{\rho}}$.
+\item Použijeme $t_{\hat{\rho}}$ pro standardní testování $H_0: \rho = 0$ proti $H_1: \rho \ne 0$ za předpokladu $var[u_t|x_t, u_{t - 1}] = \sigma^2$.
+\end{enumerate}
+
+Explicitní zahrnutí $x_{t1}, ..., x_{tk}$ do (12.21) zohledňuje případnou korelaci mezi libovolným $x_{tj}$ a $u_{t - 1}$, což zajišťuje přibližné $t$ rozdělení $t_{\hat{\rho}}$ pro výběry velkého rozsahu. $t$ statistika pro (12.15) ignoruje možnost korelace mezi $x_{tj}$ a $u_{t - 1}$ a je proto platná pouze při splnění předpokladu striktní exogenity.
+
+$t$ statistiku pro (12.21) lze, stejně jako v předchozích případech, snadno učinit robustní vůči heteroskedasticitě.
+
+\subsection{Testování autokorelace vyššího stupně}
+
+Pro ilustraci uvažujme test autokorelace druhého stupně
+\begin{equation}
+H_0: \rho_1 = 0, \rho_2 = 0 ~~~ vs. ~~~ H_1: \rho_1 \ne 0, \rho_2 \ne 0
+\end{equation}
+pro AR(2) model
+\begin{equation}
+u_t = \rho_1 u_{t - 1} + \rho_2 u_{t - 2} + e_t.
+\end{equation}
+Stejně jako v předchozím případě nejprve odhadneme regresní model pomocí OLS s cílem získat rezidua $\hat{u}_t$. Následně odhadneme regresní model
+\begin{equation}
+\hat{u}_t = \beta_1 x_{t1} + ... + \beta_k x_{tk} + \rho_1 u_{t - 1} + \rho_2 u_{t - 2}
+\end{equation}
+pro všechna $t = 3, ..., n$ a aplikujeme $F$ test pro odhad sdružené statistické významnosti $\hat{u}_{t - 1}$ a $\hat{u}_{t - 2}$. Testování obecného autoregresního modelu $u_t = \rho_1 u_{t - 1} + \rho_2 u_{t - 2} + ... + \rho_q u_{t - q} + e_t$ je analogické.
+
+\subsubsection{Testování AR(q) procesu na autokorelaci}
+
+\begin{enumerate}
+\item Aplikujeme OLS regresi na
+\begin{equation}
+y_t = \alpha_0 + \alpha_1 x_{t1} + ... + \alpha_k x_{tk} + e_t
+\end{equation}
+s cílem získat OLS rezidua $\hat{u}_t$ pro všechna $t = 1, 2, ..., n$.
+\item Aplikujeme regresi na
+\begin{equation}
+\hat{u}_t = \beta_1 x_{t1} + \beta_2 x_{t2} + ... + \beta_k x_{tk} + \rho_1 \hat{u}_{t - 1} + \rho_2 \hat{u}_{t - 2} + ... + \rho_q \hat{u}_{t - q}
+\end{equation}
+pro všechna $t = (q + 1), ..., n$.
+\item Vypočteme $F$ test pro sdruženou statistickou významnost parametrů $\hat{u}_{t - 1}$, $\hat{u}_{t - 2}$, ..., $\hat{u}_{t - q}$.
+\end{enumerate}
+
+Tento test vyžaduje splnění předpokladu homoskedasticity, tj. $var[u_t|x_t, u_{t-1}, ..., u_{t - q}] = \sigma^2$. $F$ statistika, která je robustní vůči případné heteroskedasticitě může zkonstruována dle postupu popsaného v kapitole 8. Alternativou k $F$ testu jak pak statistika ve formě Lagrangova multiplikátoru, tj.
+\begin{equation}
+LM = (n - q)R^2_{\hat{u}},
+\end{equation}
+kde $R^2_{\hat{u}}$ je $R^2$ modelu (12.26). Při platnosti nulové hypotézy platí $LM \sim^a \chi_q^2$. Test založený na $LM$ statistice obvykle nazýváme Breush-Godfreyovým testem. $LM$ statistika taktéž vyžaduje splnění předpokladu homoskedasticity, nicméně ji lze upravit tak, aby byla heteroskedasticitně robustní.
+
+\section{Zohlednění autokorelace v podmínkách striktní exogenity}
+
+\subsection{BLUE a AR(1)}
+
+Předpokládejme splnění Gauss-Markovových předpokladů TS.1 až TS.4, nicméně odhlédněme od předpokladu TS.5. Dále předpokládejme, že chybový člen sleduje AR(1) proces, tj.
+\begin{equation}
+u_t = \rho u_{t - 1} + e_t, ~~~ t = 1, 2, ...
+\end{equation}
+Splnění předpokladu TS.3 implikuje $E[u_t|x_t] = 0$. Rozptyl $u_t$ je definován jako $var[u_t] = \frac{\sigma^2_e}{1 - \rho^2}$. Pro zjednodušení uvažujme pouze jednu vysvětlující veličinu, tj.
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_t + u_t, ~~~ t = 1, 2, ..., n.
+\end{equation}
+Dále pro $t \ge 2$ zkombinujeme rovnice
+\begin{equation}
+\rho y_{t - 1} = \rho (\beta_0 + \beta_1 x_{t - 1} + u_{t - 1})
+\end{equation}
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_t + u_t
+\end{equation}
+do
+\begin{equation}
+y_t - \rho y_{t - 1} = (1 - \rho)\beta_0 + \beta_1 (x_1 - \rho x_{t - 1}) + e_t, ~~~ t \ge 2,
+\end{equation}
+kde jsme využili skutečnost $e_t = u_t - \rho u_{t - 1}$. Tuto rovnici lze přepsat do tvaru
+\begin{equation}
+\tilde{y}_t = (1 - \rho) \beta_0 + \beta_1 \tilde{x}_t + e_t, ~~~ t \ge 2,
+\end{equation}
+kde $\tilde{y}_t = y_t - \rho y_{t - 1}$ a $\tilde{x}_t = x_t - \rho x_{t - 1}$ nazýváme quasi diferencovanými daty (quasi-differenced data). Chybový člen v (12.33) není autokorelovaný; regresní model (12.33) splňuje všechny Gauss-Markovovy předpoklady. To znamená, že pokud bychom znali $\rho$, mohli bychom přímo odhadnout $\beta_0$ a $\beta_1$. OLS odhady (12.33) však nejsou OLS, protože regresní model nezahrnuje první časovou periodu. To lze však snadno napravit pomocí definice modelu pro $t = 1$ ve tvaru
+\begin{equation}
+y_1 = \beta_0 + \beta_1 x_1 + u_t.
+\end{equation}
+Protože $e_t$ a $u_t$ nejsou korelované, lze (12.34) přidat k (12.30) a stále splňovat předpoklad sériově nekorelovaného chybového členu. Nicméně vzhledem k výše uvedené definici $var[u_t]$ platí $var[u_t] = \frac{\sigma^2_e}{1 - \rho^2} > \sigma^2_e = var[e_t]$.\footnote{Definice $var[u_t] = \frac{\sigma^2_e}{1 - \rho^2}$ je platná pouze za předpokladu $|\rho| < 1$. Proto předpokládáme splnění podmínky stability.} Proto musíme (12.34) násobit $\sqrt{1 - \rho^2}$, abychom zachovali rozptyl chybového členu. Pomocí OLS tak odhadujeme model
+\begin{equation}
+\tilde{y_1} = \sqrt{1 - \rho^2} \beta_0 + \beta_1 \tilde{x}_1 + \tilde{u}_1
+\end{equation}
+\begin{equation}
+\tilde{y}_t = (1 - \rho) \beta_0 + \beta_1 \tilde{x}_t + error_t, ~~~ t \ge 2,
+\end{equation}
+kde $\tilde{y}_1 = \sqrt{1 - \sigma^2}y_1$, $\tilde{x}_1 = \sqrt{1 - \rho^2}x_1$ a $\tilde{u}_1 = \sqrt{1 - \rho^2}u_1$. Tímto způsobem získáme BLUE odhady $\beta_0$ a $\beta_1$ při splnění předpokladů TS.1 až TS.4 a AR(1) procesu pro $u_t$. Jedná se o další příklad obecných odhadů metodou nejmenších čtverců (GLS estimator).\footnote{Poprvé jsme se obecným odhadem metodou nejmenších čtverců setkali v kapitole 8 v souvislosti s heteroskedasticitou.}
+
+Výše uvedený postup lze snadno zobecnit pro regresní model založený na vícero vysvětlujících veličinách.
+
+\section{Dosažitelné GLS odhady a AR(1) proces}
+
+Je zřejmé, že hlavním praktickým problémem GLS je neznalost $\rho$. Nicméně z předchozího textu víme, že odhad $\hat{\rho}$ lze získat z regresního modelu (12.15). Tento odhad pak použijeme pro získání quasi diferencovaných vysvětlujících veličin. Následně použijeme model
+\begin{equation}
+\tilde{y_t} = \beta_0\tilde{x}_{t0} + \beta_1\tilde{x}_{t1} + ... + \beta_k\tilde{x}_{tk} + error_t,
+\end{equation}
+kde $\tilde{x}_{t0} = (1 - \hat{\rho})$ pro $t \ge 2$ a $\tilde{x}_{t0} = \sqrt{1 - \hat{\rho}^2}$. Takto získané odhady nazýváme dosažitelnými odhady $\beta_j$ [feasible GLS (FGLS) estimators]. Chybový člen (12.37) obsahuje $e_t$ a chybu z titulu odhadu $\hat{\rho}$. Naštěstí chyba z titulu odhadu $\hat{\rho}$ nemá vliv na asymptotické rozdělení FGLS odhadů.
+
+\subsection{Dosažitelné GLS odhady a AR(1) proces}
+
+\begin{enumerate}
+\item Aplikujeme OLS na regresní model
+\begin{equation}
+y_t = \alpha_0 + \alpha_1 x_{t1} + ... + \alpha_k x_{tk} + u_t, ~~~ t = 1, 2, ..., n
+\end{equation}
+s cílem získat rezidua $\hat{u}_t$.
+\item Aplikujeme OLS na regresní model
+\begin{equation}
+\hat{u}_t = \rho \hat{u}_{t - 1} + e_t, ~~~ t = 2, ..., n,
+\end{equation}
+čímž získáme odhad $\hat{\rho}$.
+\item Aplikujeme OLS na regresní model
+\begin{equation}
+\tilde{y}_t = (1 - \rho) \beta_0 + \beta_1 \tilde{x}_t + e_t, ~~~ t \ge 2
+\end{equation}
+a odhadneme hodnoty parametrů $\beta_0$, $\beta_1$, ..., $\beta_k$. Obvyklé $t$ a $F$ statistiky jsou asymptoticky platné.
+\end{enumerate}
+
+Daní za používání $\hat{\rho}$ namísto $\rho$ je to, že FGLS funkce odhadů nemají některé žádoucí vlastnosti výběrových odhadů. Konkrétně nejsou nestranné, ačkoliv jsou konzistentní, pokud je splněn předpoklad slabé závislosti. Dále, ačkoliv $e_t$ v (12.37) sleduje normální rozdělení, sledují $t$ a $F$ statistiky kvůli chybě odhadu v $\hat{\rho}$ pravděpodobnostní rozdělení $t$ a $F$ pouze přibližně. Proto musíme být opatrní při interpretaci výsledků získaných na základě výběru menšího rozsahu.
+
+Pro FGLS odhady založené na AR(1) procesu existuje několik odlišných metod pro odhad $\rho$. Cochrane-Orcuttův (CO) odhad ignoruje první pozorování a používá $\rho$ získané z (12.15). Naproti tomu Prais-Winsten (PW) odhad používá první pozorování tak, jsme popsali v předchozím textu. Ačkoliv se konstrukce CO a PW odhadů mírně liší, asymptoticky mezi nimi není rozdíl. V praxi jsou oba přístupy používané iterativně. To znamená, že jakmile jsou s pomocí $\hat{\rho}$ získány GFDL odhady, je vypočtena nová sada reziduí, získán nový odhad $\rho$, provedena transformace dat na základě nové hodnoty $\rho$ a následně odhad (12.37) pomocí OLS. Tento postup můžeme aplikovat tak dlouho, dokud změny v odhadu $\rho$ mezi jednotlivými iteracemi neklesnou pod určitou prahovou hodnotu.
+
+\section{Porovnání OLS a FGLS}
+
+V některých případech aplikace Cochrane-Orcuttovy či Prais-Winstenovy metody se mohou FGLS odhady významně lišit od OLS odhadů. To se v minulosti interpretovalo jako potvrzení nadřazenosti FGLS odhadů. Situace však bohužel není tak jednoduchá. Uvažujme regresní model
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_t + u_t,
+\end{equation}
+kde je uvažovaná časová řada stacionární. Pokud předpokládáme splnění zákona velkých čísel, pak je OLS odhad $\beta_1$ konzistentní, jestliže
+\begin{equation}
+cov[x_t, u_t] = 0.
+\end{equation}
+V předchozím textu jsme argumentovali, že FGLS odhad je konzistentní pro striktní předpoklad exogenity, který je však více restriktivní než (12.42). Lze dokázat, že nejslabším předpokladem kromě (12.42), který musí být splněn pro dosažení konzinstence FGLS, je
+\begin{equation}
+cov[(x_{t - 1} + x_{t + 1}), u_t] = 0.
+\end{equation}
+V praxi tato podmínka znamená, že $u_t$ musí být nekorelováno s $x_{t - 1}$, $x_t$ a $x_{t + 1}$.
+
+Jak můžeme prokázat, že kromě podmínky (12.42) musí být splněna také podmínka (12.43)? Předpokládejme, že známe $\rho$ a že vynecháme první pozorování tak, jak je tomu v Cochrane-Orcuttově metodě. GLS funkce odhadu pak používá $x_t - \rho x_{t - 1}$ jako vysvětlující proměnnou v regresním modelu s chybovým členem $u_t - \rho u_{t - 1}$. Z věty 11.1 víme, že nezávislost vysvětlující proměnné a chybového členu je klíčová pro konzistentnost OLS odhadů, tj. musí být splněno $E[(x_t - \rho x_{t - 1})(u_t - \rho u_{t-1})] = 0$. Rozvojem této střední hodnoty pak získáváme
+\begin{multline}
+E[(x_t - \rho u_{t - 1})(u_t - \rho u_{t - 1})]\\
+= E(x_t u_t) - \rho E[x_{t-1}u_t] - \rho E[x_t u_{t - 1}] + \rho^2 E[x_{t - 1}u_{t - 1}]\\
+=-\rho \big(E[x_{t - 1}u_t] + E[x_t u_{t - 1}] \big),
+\end{multline}
+protože dle našeho výchozího předpokladu $E[x_t u_t] = E[x_{t - 1}u_{t - 1}] = 0$. Při splnění předpokladu stacionarity platí $E[x_t, u_{t - 1}] = E[x_{t - 1} u_t]$, protože jsme se pouze posunuli o jednu časovou period vpřed. Proto
+\begin{equation}
+E[x_{t - 1}] + E[x_t u_{t - 1}] = E[(x_{t - 1} + x_{t + 1})u_t],
+\end{equation}
+kde $E[(x_{t - 1} + x_{t + 1})u_t]$ představuje kovarianci (12.43), protože $E[u_t] = 0$. Tímto jsme dokázali, že pro konzistentnost GLS odhadů je třeba splnit předpoklad (12.42) společně s předpokladem (12.43).
+
+Výše uvedené odvození také ukazuje, že OLS a FGLS odhady mohou být signifikantně jiné v případě, kdy není splněn předpoklad (12.43). V tomto případě je OLS odhad, který je konzistentní při splnění (12.42), preferován před FGLS odhadem, který konzistentní není. Jestliže v modelu figuruje zpožděná vysvětlující veličina $x_{t - 1}$, popř. jestliže $x_{t + 1}$ reaguje na změny $u_t$, pak FGLS produkuje zavádějící výsledky.
+
+Jestliže jsou OLS a FGLS odhady podobné a máme podezření na autokorelaci chybového členu, preferujeme FGLS odhad. Důvodem je skutečnost, že FGLS odhad je efektivnější a jeho testovací statistiky jsou asymptoticky platné. Problém však nastává, pokud jsou OLS a FGLS odhady významně odlišné.
+
+\subsection{Zohlednění autokorelace vyššího řádu}
+
+Pro ilustraci uvažujme AR(2) proces
+\begin{equation}
+u_t = \rho_1 u_{t - 1} + \rho_2 u_{t - 2} + e_t,
+\end{equation}
+kde $\{e_t\}$ splňuje předpoklady AR(1) modelu. Lze dokázat, že podmínky stability nyní mají podobu
+\begin{equation}
+\rho_2 > -1, ~~~ \rho_2 - \rho_1 < 1, ~~~ \rho_1 + \rho_2 < 1.
+\end{equation}
+Odvození těchto podmínek však přesahuje záběr naší knihy.
+
+Jestliže jsou výše uvedené podmínky stability splněny, lze aplikovat transformaci, která sériovou korelaci chybového členu eliminuje.
+\begin{multline}
+y_t - \rho_1 y_{t - 1} - \rho_2 y_{t - 2}\\
+= \beta_0(1 - \rho_1 - \rho_2) + \beta_1 (x_t - \rho_1 x_{t - 1} - \rho x_{t - 2}) + e_t
+\end{multline}
+\begin{equation}
+\tilde{y}_t = \beta_0(1 - \rho_1 - \rho_2) + \beta_1 \tilde{x}_t + e_t, ~~~ t = 3, 4, ..., n
+\end{equation}
+V případě, že známe $\rho_1$ a $\rho_2$, můžeme provést transformaci vysvětlujících veličin a (12.49) odhadnout pomocí OLS. V praxi bohužel musíme $\rho_1$ a $\rho_2$ nejprve odhadnout na základě regresního modelu
+\begin{equation}
+\hat{u}_t = \rho_1 u_{t - 1} + \rho_2 u_{t - 2}, ~~~ t = 3, ..., n.
+\end{equation}
+Následně pomocí $\hat{\rho_1}$ a $\hat{\rho_2}$ provedeme transformaci $x_t$ a $x_{t - 1}$ a odhadneme (12.49). Postup lze snadno rozšířit na vícero vysvětlujících veličin, kdy každou z nich transformujeme pomocí $\tilde{x}_{tj} = x_{tj} - \hat{\rho}_1 x_{t - 1} - \hat{\rho}_2 x_{t - 2}$ pro $t > 2$. Co se prvních dvou pozorování týče, lze dokázat, že závislou veličinu a všechny nezávislé veličiny bychom měli transformovat pomocí
+\begin{equation}
+\tilde{z}_1 = \sqrt{\frac{(1 + \rho_2)[(1 - \rho_2)^2 - \rho_1^2]}{1 - \rho_2}}z_1
+\end{equation} 
+a
+\begin{equation}
+\tilde{z}_2 = \sqrt{1 - \rho_2^2}z_2 + \frac{\rho_1 \sqrt{1 - \rho_1^2}}{1 - \rho_2}z_1,
+\end{equation}
+kde $z_1$ resp. $z_2$ představují závislou popř. nezávislou veličinu v čase $t = 1$ resp. $t = 2$. Tyto transformace eliminují sériovou korelaci mezi prvními dvěma pozorováními a přeškálují jejich rozptyl na $\sigma^2_e$; jejich odvození však překračuje záběr naší knihy.
+
+\section{Diference a autokorelace}
+
+V kapitole 11 jsme aplikovali diferenci na časové řady s cílem učinit je slabě závislé. Nicméně diference přináší ještě jednu výhodu v případě perzistentních časových řad. Pro ilustraci uvažujme jednoduchý regresní model
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_t + u_t, ~~~ t = 1, 2, ...,
+\end{equation}
+kde $u_t$ sleduje AR(1) proces (12.28). Jak jsme již zmínili, může vést obvyklá OLS metoda odhadu k zavádějícím výsledkům, pokud jsou veličiny $y_t$ a $x_t$ integrovány stupněm jedna, tj. I(1). V extrémním případě, kdy je chybový člen $u_t$ náhodnou procházkou, nedává rovnice (12.53) smysl, protože (mezi jiným) rozptyl $u_t$ roste v čase. Proto dává smysl aplikovat první diferenci, čímž získáváme
+\begin{equation}
+\Delta y_t = \beta_1 \Delta x_t + \Delta u_t, ~~~ t = 2, ..., n.
+\end{equation}
+Jestliže $u_t$ sleduje náhodnou procházku, pak $e_t \equiv \Delta u_t$ má nulovou střední hodnotu a konstantní rozptyl a není autokorelované.
+
+Také v případech, kdy $u_t$ sice nesleduje náhodnou procházku, nicméně vykazuje známky autokorelace, pak diference prvního řádu často eliminuje její větší část.
+
+Výrazně odlišné odhady sklonu v modelech (12.53) a (12.54) indikují, že vysvětlující veličiny buďto (a) nejsou striktně exogenní nebo že (b) jedna či více vysvětlujících veličin má jednotkový kořen.
+
+\section{Autokorelačně robustní OLS standardní směrodatná odchylka}
+
+V minulosti se stal poměrně populárním odhad modelů pomocí OLS s korekcí chybového členu o arbitrární formu autokorelace (a heteroskedasticity).
+
+Pro ilustraci uvažujme lineární regresní model
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_{t1} + ... + \beta_k x_{tk} + u_t, ~~~ t = 1, 2, ..., n,
+\end{equation}
+který jsme odhadli pomocí OLS. Předpokládejme, že chceme zjistit autokorelačně robustní směrodatnou odchylku pro $\hat{\beta}_1$. Nejprve vyjádřeme $x_{t1}$ jako
+\begin{equation}
+x_{t1} = \delta_0 + \delta_2 x_{t2} + ... + \delta_k x_{tk} + r_t,
+\end{equation}
+kde $r_t$ má nulovou střední hodnotu a je nekorelované s $x_{t2}, x_{t3}, ..., x_{tk}$. Lze dokázat, je asymptotický rozptyl OLS odhadu $\hat{\beta}$ je
+\begin{equation}
+avar[\hat{\beta}_1] = \frac{var\Big[\sum_{t = 1}^n r_t u_t\Big]}{\Big(\sum_{t = 1}^n E[r_t^2]\Big) ^ 2}.
+\end{equation}
+Při splnění předpokladu TS.5' není řada $\{a_t \equiv r_t u_t\}$ autokorelovaná, a proto jsou klasické OLS standardní směrodatné odchylky (při splnění předpokladu homoskedasticity) i heteroskedasticitně robustní OLS standardní směrodatné odchylky platné. Pokud však předpoklad TS.5' splněn není, musí $avar[\hat{\beta}_1]$ vzít v potaz korelaci mezi $a_t$ a $a_s$, jestliže $t \ne s$. V praxi se běžně předpokládá, že pokud jsou od sebe chybové členy vzdálené několik časových period, bližší se korelace nule. Připomeňme, že tento předpoklad je v souladu se koncepcí slabé závislosti.
+
+Předpokládejme, že $se(\hat{\beta}_1)^*$ označuje klasickou (a zkreslenou) OLS směrodatnou odchylku a $\hat{\sigma}^2$ představuje obvyklou směrodatnou odchylku chybového členu regresního modelu (12.55). Nechť $\hat{r}_t$ představuje rezidua z pomocné regrese
+\begin{equation}
+x_{t1} = \alpha_0 + \alpha_2 x_{t2} + \alpha_3 x_{t3} + ... + \alpha_k x_{tk}.
+\end{equation}
+Pro vybrané celé číslo $g > 0$ definujme
+\begin{equation}
+\hat{v} = \sum_{t = 1}^n \hat{a}_t^2 + 2 \sum_{h = 1}^g \frac{1 - h}{g + 1}\sum_{t = h + 1}^n \hat{a}_t \hat{a}_{t - h},
+\end{equation}
+kde
+\begin{equation}
+\hat{a}_t = \hat{r}_t \hat{u}_t, ~~~ t = 1, 2, ..., n.
+\end{equation}
+Parametr $g$ určuje, kolik autokorelace vstupuje do výpočtu směrodatné odchylky. Autokorelačně robustní směrodatná odchylka pro $\hat{\beta}_1$ je pak definována jako
+\begin{equation}
+se(\hat{\beta}_1) = \frac{se(\hat{\beta}_1)^*}{\hat{\sigma}} \sqrt{\hat{v}}.
+\end{equation}
+Takto získanou směrodatnou odchylku lze použít při konstrukci intervalů spolehlivosti a $t$ statistik pro $\hat{\beta}$. Směrodatná odchylka (12.61) je také robustní vůči arbitrární formě heteroskedasticity. Lze totiž prokázat, že (12.61) je platné pro v podstatě libovolnou formu autokorelace za předpokladu, že $g$ roste společně s velikostí náhodného výběru $n$.\footnote{Pro roční data je zpravidla dostačující zvolit $g = 1$ popř. $g = 2$. V případě čtvrtletních popř. měsíčních dat pak obvykle volíme $g = 4$ či $g = 8$ (pro čtvrtletní data) popř. $g = 12$ či $g = 24$ (pro měsíční data). Obecné doporučení je zvolit $g$ blízké $\Big(\frac{4n}{100}\Big)^{2/9}$ nebo $n^{1/4}$.} V případě existence autokorelace jsou autokorelačně robustní směrodatné odchylky jsou zpravidla vyšší než klasické OLS směrodatné odchylky, protože v většině případů jsou chybové členy kladně autokorelované. Autokorelačně robustní směrodatná odchylku lze použít zejména v případě, kdy máme pochybnosti o striktní exogenitě vysvětlujících veličin, tj. v případech, kdy Prais-Winsten a Cochrane-Orcutt metody nejsou ani konzistentní. Bohužel autokorelačně robustní směrodatné odchylky nejsou spolehlivé v případě silné autokorelace a náhodného výběru malého rozsahu (kde ``malý'' může znamenat i $n = 100$). Proto se tento typ robustní směrodatné odchylky v praxi příliš nerozšířil. 
+
+Pokud bychom ve (12.59) vypustili druhý člen, pak se (12.61) stane klasickou heteroskedasticitně robustní standardní směrodatnou odchylkou, kterou jsme představili v kapitole 8.
+
+\subsection{Autokorelačně robustní směrodatná odchylka $se(\hat{\beta}_1)$}
+
+\begin{enumerate}
+\item Odhadneme (12.55) pomocí OLS, čímž získáme $se(\hat{\beta}_1)^*$, $\hat{\sigma}$ a OLS rezidua $\{\hat{u}_t: t = 1, ..., n\}$.
+\item Vypočteme rezidua $\{\hat{r}_t: t = 1, ..., n\}$ z pomocného regresního modelu (12.56) a definujeme $\hat{a}_t = \hat{r}_t\hat{u}_t$.
+\item Pro vhodně zvolené $g$ vypočteme $\hat{v}$ na základě (12.59).
+\item Vypočteme $se(\hat{\beta}_1)$ na základě (12.61).
+\end{enumerate}
+
+\section{Heteroskedasticita v časových řadách}
+
+Heteroskedasticita, ačkoliv nemá za následek zkreslení nebo nekonzistenci odhadu $\hat{\beta}_j$, způsobuje, že $t$ a $F$ statistiky nesledují $t$ a $F$ rozdělení. Jinými slovy závěry založené na konfidenčních intervalech odhadů mohou být zavádějící. V případě časových řad se však heteroskedasticita těší poměrně omezené publicitě, protože problém sériové korelace chybového členu zpravidla představuje zásadnější problém.
+
+\subsection{Heteroskedasticitně robustní statistiky}
+
+V kapitole 8 jsme se zabývali tím, jak pro průřezová data zmírnit problém heteroskedasticity a jak upravit $t$ a $F$ statistiky tak, aby byly heteroskedasticitně robustní. Jestliže jsou splněny předpoklady TS.1', TS.2', TS.3' a TS.5', pak lze tyto postupy aplikovat také na časové řady.
+
+\subsection{Testování heteroskedasticity}
+
+Testy heteroskedasticity, které jsme představili v kapitole 8, lze aplikovat také přímo na časové řady. Existuje však několik věcí, kterým bychom měli věnovat pozornost. Prvně, chyby $u_t$ nesmí být sériově korelované, protože případná sériová korelace zneplatní testy na heteroskedasticitu. Proto bychom nejprve měli testovat časovou řadu na sériovou korelaci a teprve po té testovat heteroskedasticitu. Za druhé, uvažujme následující rovnici, která slouží jako podklad pro Breusch-Pagan test heteroskedasticity, tj.
+\begin{equation}
+u^2_t = \delta_0 + \delta_1 x_{t1} + ... + \delta_k x_{tk} + v_t,
+\end{equation}
+kde testujeme nulovou hypotézu $H_0: \delta_1 = \delta_2 = ... = \delta_k = 0$. Pro výpočet $F$ statistiky, kdy $\hat{u}_t$ nahrazuje $u_t$ v roli závislé proměnné, musíme předpokládat, že $\{v_t\}$ je homoskedasticitní a sériově nekorelované. Jestliže je heteroskedasticita přítomná v $u_t$ (avšak $u_t$ není sériově korelované), pak lze použít heteroskedasticitně robustní statistiky. Alternativně lze použít metodu nejmenších čtverců, kterou jsme taktéž diskutovali v kapitole 8.
+
+\subsection{Autoregresivní podmíněná heteroskedasticity}
+
+Uvažujme jednoduchý regresní model
+\begin{equation}
+y_t = \beta_0 + \beta_1 z_t + u_t
+\end{equation}
+a předpokládejme splnění Gaus-Markovových předpokladů. I když je $u$ pro dané $Z$ konstantní, můžeme se stále potýkat s problémem heteroskedasticity. Pro ilustraci takovéhoto případu uvažujme tzv. model autoregresivní podmíněné heteroskedasticity (autoregressive conditional heteroskedasticity - ARCH)
+\begin{equation}
+E[u^2_t | u_{t-1}, u_{t-2}, ...] = E[u^2_t|u_{t-1}] = \alpha_0 + \alpha_1 u^2_{t-1}
+\end{equation}
+s implicitním podmíněním na $Z$. Tato rovnice představuje podmíněný rozptyl $u_t$ pouze, je-li $E[u_t | u_{t - 1}, u_{t - 2}, ...] = 0$, což znamená, že chybové členy nejsou korelovány. Protože podmíněný rozptyl musí být vždy kladný, musí platí $\alpha_0 > 0$ a $\alpha_1 \ge 0$. Vztah (12.64) tak můžeme vyjádřit také jako
+\begin{equation}
+u^2_t = \alpha_0 + \alpha_1 u^2_{t - 1} + v_t,
+\end{equation}
+kde dle definice $E[y_t | u_{t - 1}, u_{t - 2}, ...] = 0$.\footnote{Nicméně $y_t$ není nezávislé na předchozích hodnotách $u_t$, protože platí omezení $y_t \ge -\alpha_0 + \alpha_1 u^2_{t - 1}$.} Podmínkou stability modelu je $\alpha_1 < 1$. Jestliže $\alpha_1 > 0$, pak $u_t^2$ je kladně autokorelováno, ačkoliv $u_t$ autokorelováno není.
+
+Pomocí metody nejmenších čtverců založené na (12.65) lze získat konzistentní (nikoliv však nezkreslené) odhady $\beta_j$, které jsou asymptoticky efektivnější než klasické OLS odhady. Pro tento účel lze aplikovat také metodu maximální věrohodnosti za předpokladu, že $u_t$ podmíněně sleduje normální rozdělení. Protože $u_t^2$ je měřítkem volatility, a protože je volatilita jedním ze základních vstupů pro nejrůznější oceňovací teorie, je ARCH model velmi oblíbený ve financích.
+
+ARCH model lze aplikovat také v případě dynamicky podmíněné střední hodnoty. Uvažujme závislou veličinu $y_t$, souběžně exogenní veličinu $z_t$ a nechť
+\begin{equation}
+E[y_t|z_t, y_{t-1}, z_{t-1}, y_{t-2}, ...] = \beta_0 + \beta_1 z_t + \beta_2 y_{t-1} + \beta_3 z_{t - 1}.
+\end{equation}
+Standardně předpokládáme konstantní rozptyl $var[y_t|z_t, y_{t - 1}, z_{t - 1}, y_{t - 2}, ...]$, nicméně rozptyl můžeme popsat také pomocí ARCH modelu
+\begin{multline}
+var[y_t|z_t, y_{t - 1}, z_{t - 1}, y_{t - 2}, ...]\\
+= var[u_t|z_t, y_{t - 1}, z_{t - 1}, y_{t - 2}, ...]\\
+= \alpha_0 + \alpha_1 u_{t - 1}^2,
+\end{multline}
+kde $u_t = y_t - E[y_t|z_t, y_{t - 1}, z_{t - 1}, y_{t - 2}, ...]$. Jak již víme z kapitoly 11, přítomnost ARCH modelu nemá vliv na konzistentnost OLS odhadů a obvyklé heteroskedasticitně robustní směrodatné odchylky a na nich založené statisticky jsou platné.
+
+\subsection{Heteroskedasticita a autokorelace v regresních modelech}
+
+Regresní model může současně ``trpět'' jak heteroskedasticitou tak autokorelací chybového členu. Většinou je autokorelace vnímána jako větší z těchto dvou problémů, protože má zpravidla větší dopad na směrodatné odchylky a efektivnost odhadů.
+
+Pokud máme podezření na autokorelaci, můžeme aplikovat Cochrane-Orcuttovu nebo Prais-Winstenovu transformaci a na transformovaných datech vypočíst heteroskedasticitně robustní směrodatné odchylky a testovací statistiky. Popř. můžeme také testovat model (12.33) na přítomnost heteroskedasticity pomocí Breush-Paganova nebo Whiteova testu.
+
+Alternativně můžeme modelovat heteroskedasticitu a autokorelaci a z modelu odstranit obojí pomocí kombinované AR(1) metody nejmenších čtverců. Konkrétně uvažujme model
+\begin{equation}
+y_t = \beta_0 + \beta_1 x_{t1} + ... + \beta_k x_{tk} + u_t
+\end{equation}
+\begin{equation}
+u_t = \sqrt{h_t}v_t
+\end{equation}
+\begin{equation}
+v_t = \rho v_{t - 1} + e_t, ~~~ |\rho| < 1,
+\end{equation}
+kde vysvětlující veličiny $x_{tj}$ jsou nezávislé na $e_t$ a $h_t$ je funkcí $x_{tj}$. Proces $\{e_t\}$ má nulovou střední hodnotu a konstantní rozptyl $\sigma_e^2$ a netrpí autokorelací. $\{e_t\}$ je tak stabilním AR(1) procesem. Chyba $u_t$ je heteroskedasticitní a autokorelovaná, tj.
+\begin{equation}
+var[u_t|x_t] = \sigma^2_v h_t,
+\end{equation}
+kde $\sigma_v^2 = \frac{\sigma_e^2}{1 - \rho^2}$. Nicméně $v_t = \frac{u_t}{\sqrt{h_t}}$ je homoskedasticitní a sleduje AR(1) model. Transformovaná rovnice
+\begin{equation}
+\frac{y_t}{\sqrt{h_t}} = \beta_0\frac{1}{\sqrt{h_t}} + \beta_1 \frac{_{t1}}{\sqrt{h_t}} + ... + \beta_k \frac{x_{tk}}{\sqrt{h_t}} + v_t
+\end{equation}
+má tak AR(1) chybové členy. Pokud máme určitou představu o typu heteroskedasticity, tj. známe $h_t$, můžeme (12.68) až (12.70) odhadnout pomocí Cochrane-Orcuttovou nebo Prais-Winstenovou metodou. V praxi však nejprve musíme odhadnout $h_t$.
+
+\subsubsection{Dosažitelné GLS odhady s heteroskedasticitou a AR(1) autokorelací}
+
+\begin{enumerate}
+\item Odhadneme (12.68) až (12.70) pomocí OLS, čímž mimo jiné získáme rezidua $\hat{u}_t$.
+\item Aplikujeme regresi na $\log(\hat{u}^2_t) = \alpha_0 + \alpha_1 x_{t1} + ... + \alpha_k x_{tk}$ a získáme odhady pro $\log(\hat{u}^2_t)$, které označíme jako $\hat{g}_t$.
+\item Získáme odhady $h_t$, které označíme jako $\hat{h}_t = e^{\hat{g}_t}$.
+\item Odhadneme transformovanou rovnici
+\begin{equation}
+\sqrt{\hat{h}_t} y_t = \frac{1}{\sqrt{\hat{h}_t}} \beta_0 + \frac{1}{\sqrt{\hat{h}_t}} \beta_1 x_{t1} + ... + \frac{1}{\sqrt{\hat{h}_t}} \beta_k x_{tk} + error_t
+\end{equation}
+pomocí Cochrane-Orcuttovy nebo Prais-Winstenovy metody.
+\end{enumerate}
+
+Pokud $|\rho| < 1$, jsou GLS odhady získané na základě výše uvedeného postupu asymptoticky efektivní. Navíc jsou jejich směrodatné odchylky získané pomocí Cochrane-Orcuttovy nebo Prais-Winstenovy metody asymptoticky platné. Pokud by funkce rozptylu byla špatně specifikována nebo pokud by autokorelace nesledovala AR(1) proces, pak bychom mohli na (12.73) aplikovat quasi diferenci a výslednou rovnici odhadnout pomocí OLS a následně získat Newey-West směrodatné odchylky. Tak bychom používali proceduru, která je asymptoticky efektivní a zároveň bychom získali asymptoticky platné směrodatné odchylky a to navzdory chybné specifikaci heteroskedasticity nebo autokorelaci.

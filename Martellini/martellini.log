@@ -1,0 +1,3223 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2009.12.31)  7 FEB 2010 19:34
+entering extended mode
+ %&-line parsing enabled.
+**martellini.tex
+(./martellini.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/book.cls
+Document Class: book 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/bk10.clo
+File: bk10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
+Package: babel 2005/11/23 v3.8h The Babel package
+
+(/usr/share/texmf-texlive/tex/generic/babel/czech.ldf
+Language: czech 2005/03/29 v1.3k Czech support from the babel system
+
+(/usr/share/texmf-texlive/tex/generic/babel/babel.def
+File: babel.def 2005/11/23 v3.8h Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `Czech'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@czech = a dialect from \language0
+)) (/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
+Package: inputenc 2006/05/05 v1.1b Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+(/usr/share/texmf-texlive/tex/latex/base/utf8.def
+File: utf8.def 2006/03/30 v1.1i UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encodingT1
+
+(/usr/share/texmf-texlive/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2006/03/30 v1.1i UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encodingOT1
+
+(/usr/share/texmf-texlive/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2006/03/30 v1.1i UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encodingOMS
+
+(/usr/share/texmf-texlive/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2006/03/30 v1.1i UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+(/usr/share/texmf-texlive/tex/latex/pstricks/pstricks.sty
+Package: pstricks 2006/08/10 v0.32 LaTeX wrapper for `PSTricks' (RN,HV)
+
+(/usr/share/texmf-texlive/tex/generic/pstricks/pstricks.tex
+`PSTricks' v1.15  <2006/12/22> (tvz)
+\pst@dima=\dimen104
+\pst@dimb=\dimen105
+\pst@dimc=\dimen106
+\pst@dimd=\dimen107
+\pst@dimg=\dimen108
+\pst@dimh=\dimen109
+\pst@hbox=\box26
+\pst@boxg=\box27
+\pst@cnta=\count89
+\pst@cntb=\count90
+\pst@cntc=\count91
+\pst@cntd=\count92
+\pst@cntg=\count93
+\pst@cnth=\count94
+\pst@toks=\toks16
+(/usr/share/texmf-texlive/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen110
+\psxunit=\dimen111
+\psyunit=\dimen112
+\pslinewidth=\dimen113
+\pst@customdefs=\toks17
+\pslinearc=\dimen114
+\everypsbox=\toks18
+\psframesep=\dimen115
+\pslabelsep=\dimen116
+\psk@shift=\dimen117
+\pst@shift=\dimen118
+\theoverlaybox=\box28
+)
+File: pstricks.tex 2006/12/22 v1.15 `PSTricks' (tvz)
+
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Package option `override' ignored on input line 216.
+Package xcolor Info: Driver file: dvips.def on input line 225.
+
+(/usr/share/texmf-texlive/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen119
+))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen120
+)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen121
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip10
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks20
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks21
+\eqnshift@=\dimen122
+\alignsep@=\dimen123
+\tagshift@=\dimen124
+\tagwidth@=\dimen125
+\totwidth@=\dimen126
+\lineht@=\dimen127
+\@envbody=\toks22
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks24
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 90.
+)
+\Gin@req@height=\dimen128
+\Gin@req@width=\dimen129
+)
+(/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen130
+) (./martellini.aux)
+\openout1 = `martellini.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+
+[1
+
+
+] [2
+
+] (./martellini.toc [3] [4] [5] [6] [7])
+\tf@toc=\write3
+\openout3 = `martellini.toc'.
+
+ [8] [9
+
+] [10]
+Kapitola 1.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 40.
+ [11
+
+]
+Overfull \hbox (1.47513pt too wide) in paragraph at lines 51--52
+[]\OT1/cmr/m/n/10 konvence pro stanoven^^S^^P po^^Tctu dn^^S^^P - Ac-tual/Actua
+l, Ac-tual/365, Ac-tual/360
+ []
+
+File: czgb.bmp Graphic file (type bmp)
+<czgb.bmp>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 68--69
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+[12]
+Overfull \hbox (9.77844pt too wide) in paragraph at lines 79--80
+[]\OT1/cmr/m/n/10 V^^Synosov^^Sa m^^S^^Pra do splat-nosti (yield to ma-tu-rity,
+ zkr^^Sacen^^Te t^^Se^^Tz YTM) p^^Tredstavuje
+ []
+
+
+Overfull \hbox (10.44621pt too wide) in paragraph at lines 79--80
+\OT1/cmr/m/n/10 diskontn^^S^^P sazbu, pro kterou se rovn^^Sa diskon-to-van^^Se 
+cash-flow gen-erovan^^Se dluhopisem
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
+
+ []
+
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+
+ []
+
+[15]
+Overfull \hbox (5.11853pt too wide) in paragraph at lines 152--153
+\OT1/cmr/m/n/10 stanove-nou ^^Tc^^Sastku k ur^^Tcit^^Semu datu pokud tak neu^^T
+cin^^S^^P im-port^^Ser. Bankovn^^S^^P sm^^Tenky
+ []
+
+[16]
+Overfull \hbox (17.91743pt too wide) in paragraph at lines 164--165
+\OT1/cmr/m/n/10 Repo ob-chody a reverzn^^S^^P repo ob-chody jsou pou^^Tz^^S^^Pv
+^^Sany jako n^^Sastroj ^^Tr^^S^^Pzen^^S^^P kr^^Satkodob^^Se
+ []
+
+[17] [18
+
+]
+Kapitola 2.
+[19]
+Overfull \hbox (6.95181pt too wide) in paragraph at lines 223--224
+[]\OT1/cmr/m/n/10 Rovnice (2.3) p^^Tredpokl^^Sad^^Sa ro^^Tcn^^S^^P v^^Syplatu k
+up^^Son^^Wu. Obecn^^Sa rovnice pro frekvenci
+ []
+
+[20] [21]
+Underfull \hbox (badness 10000) in paragraph at lines 281--283
+
+ []
+
+
+Overfull \hbox (1.02269pt too wide) in paragraph at lines 310--311
+\OT1/cmr/m/n/10 Kup^^Sonov^^Sa sazba $\OML/cmm/m/it/10 c$ \OT1/cmr/m/n/10 dluho
+pisu je uv^^Sad^^Tena v ro^^Tcn^^S^^Pm vyj^^Sad^^Tren^^S^^P a spole^^Tcn^^Te s 
+frekvenc^^S^^P
+ []
+
+
+Overfull \hbox (13.14633pt too wide) in paragraph at lines 322--323
+\OT1/cmr/m/n/10 rovnice (2.4) plo-chou ^^Surokovou k^^Trivku. V^^Synosov^^Sa m^
+^S^^Pra do splat-nosti tak p^^Tredstavuje
+ []
+
+[22] [23] [24] [25
+
+] [26]
+Kapitola 3.
+
+Overfull \hbox (27.27628pt too wide) in paragraph at lines 361--361
+[]\OT1/cmr/bx/n/14.4 Definice a vlast-nosti ^^Tcasov^^Se struk-tury ^^Surokov^^
+Sych
+ []
+
+
+Overfull \hbox (0.36726pt too wide) in paragraph at lines 363--364
+\OT1/cmr/m/n/10 sazeb se^^Trazen^^Sych po-dle je-jich splat-nosti. V n^^Sasledu
+j^^S^^Pc^^S^^Pm textu se budeme zab^^Syvat
+ []
+
+
+Overfull \hbox (26.91714pt too wide) in paragraph at lines 365--375
+ [] 
+ []
+
+[27
+
+]
+File: curve_flat.bmp Graphic file (type bmp)
+ <curve_flat.bmp>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 384--385
+[][] 
+ []
+
+File: curve_increasing.bmp Graphic file (type bmp)
+<curve_increasing.bmp>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 389--390
+[][] 
+ []
+
+File: curve_decreasing.bmp Graphic file (type bmp)
+<curve_decreasing.bmp>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 394--395
+[][] 
+ []
+
+File: curve_humped_min.bmp Graphic file (type bmp)
+<curve_humped_min.bmp>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 399--400
+[][] 
+ []
+
+File: curve_humped_max.bmp Graphic file (type bmp)
+<curve_humped_max.bmp>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 404--405
+[][] 
+ []
+
+
+Overfull \hbox (3.52846pt too wide) in paragraph at lines 411--412
+[]\OT1/cmr/m/n/10 ^^Surokov^^Se sazby maj^^S^^P ten-denci os-cilo-vat kolem dlo
+uhodob^^Seho pr^^Wum^^Teru (mean-
+ []
+
+
+Overfull \hbox (6.88966pt too wide) in paragraph at lines 413--414
+[]\OT1/cmr/m/n/10 volatilita kr^^Satkodob^^Sych ^^Surokov^^Sych sazeb je vy^^Ts
+^^Ts^^S^^P ne^^Tz volatil-ity dlouhodob^^Sych
+ []
+
+
+Overfull \hbox (15.4959pt too wide) in paragraph at lines 416--416
+[]\OT1/cmr/bx/n/12 Faktory vysv^^Tetluj^^S^^Pc^^S^^P zm^^Teny ^^Tcasov^^Se stru
+k-tury ^^Surokov^^Sych
+ []
+
+[28]
+Overfull \hbox (27.36179pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 3.1.  DEFINICE A VLASTNOSTI []CASOV[]E STRUKTURY []UROKOV[]YCH
+ SAZEB \OT1/cmr/m/n/10 29
+ []
+
+[29] [30]
+Overfull \hbox (27.36179pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 3.1.  DEFINICE A VLASTNOSTI []CASOV[]E STRUKTURY []UROKOV[]YCH
+ SAZEB \OT1/cmr/m/n/10 31
+ []
+
+[31]
+File: components.eps Graphic file (type eps)
+ <components.eps>
+File: irs_orig.eps Graphic file (type eps)
+ <irs_orig.eps>
+Overfull \hbox (16.34999pt too wide) in paragraph at lines 447--448
+ [][] 
+ []
+
+File: irs_output.eps Graphic file (type eps)
+<irs_output.eps>
+Overfull \hbox (16.34999pt too wide) in paragraph at lines 453--454
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 454--454
+[]\OT1/cmr/m/n/10 Obr^^Sazek 3.8: Swapov^^Sa k^^Trivka Spo-jen^^Sych st^^Sat^^W
+u pro ob-dob^^S^^P 03.08.2007 -
+ []
+
+File: irs_profile.eps Graphic file (type eps)
+<irs_profile.eps>
+Overfull \hbox (2.54176pt too wide) in paragraph at lines 457--464
+\OT1/cmr/m/n/10 nejv^^Syznamn^^Tej^^Ts^^S^^Pch t^^Tr^^S^^P eigen-vek-tor^^Wu. V
+^^Tsimn^^Teme si ^^Tctvrt^^Seho tenoru. Swapov^^Sa k^^Trivka
+ []
+
+
+Overfull \hbox (14.0351pt too wide) in paragraph at lines 469--470
+\OT1/cmr/m/n/10 enc^^S^^Pch ^^Su^^Tcastn^^S^^Pk^^Wu trhu. Jestli^^Tze by ^^Su^^
+Tcastn^^S^^Pci trhu byli in-difer-entn^^S^^P mezi kr^^Satkodob^^Symi
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32]
+Overfull \hbox (27.36179pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 3.1.  DEFINICE A VLASTNOSTI []CASOV[]E STRUKTURY []UROKOV[]YCH
+ SAZEB \OT1/cmr/m/n/10 33
+ []
+
+[33]
+Overfull \hbox (7.69516pt too wide) in paragraph at lines 479--480
+\OT1/cmr/m/n/10 Podle t^^Seto teorie odr^^Sa^^Tz^^S^^P ^^Tcasov^^Sa struk-tura 
+^^Surokov^^Sych sazeb o^^Tcek^^Sav^^San^^S^^P kr^^Satkodob^^Sych
+ []
+
+
+Overfull \hbox (17.45952pt too wide) in paragraph at lines 479--480
+\OT1/cmr/m/n/10 bu-douc^^S^^Pch ^^Surokov^^Sych sazeb na trhu. Ros-touc^^S^^P, 
+kle-saj^^S^^Pc^^S^^P resp. ploch^^Sa k^^Trivka ^^Surokov^^Sych
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--484
+
+ []
+
+[34]
+Overfull \hbox (11.46178pt too wide) in paragraph at lines 485--486
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Uva^^Tzujme in-vestora s dvou
+let^^Sym in-vesti^^Tcn^^S^^Pm hori-zotem. P^^Tredpokl^^Sadejme,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--506
+
+ []
+
+
+Overfull \hbox (16.73956pt too wide) in paragraph at lines 507--508
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Uva^^Tzujme in-vestora s dvou
+let^^Sym in-vesti^^Tcn^^S^^Pm hor-i-zon-tem. P^^Tredpokl^^Sadejme,
+ []
+
+[35]
+Overfull \hbox (22.11197pt too wide) in paragraph at lines 515--516
+\OT1/cmr/m/n/10 k^^Trivky ^^Surokov^^Sych sazeb je tak de-ter-mi-nov^^San ne-je
+n o^^Tcek^^Savan^^Symi bu-douc^^S^^Pmi ^^Surokov^^Symi
+ []
+
+
+Overfull \hbox (33.02855pt too wide) in paragraph at lines 534--535
+[]\OT1/cmr/m/n/10 Line^^Sarn^^S^^P trans-for-mace vek-torov^^Seho pros-toru m^^
+Wu^^Tze b^^Syt vizual-i-zov^^Sana prost^^Trednictv^^S^^Pm
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 547--549
+
+ []
+
+
+Overfull \hbox (5.62677pt too wide) in paragraph at lines 601--602
+[]\OT1/cmr/m/n/10 Matici vs-tupn^^S^^Pch dat $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/
+10 lze ch^^Sapat jako matici, jej^^S^^P^^Tz ^^Tr^^Sadky p^^Tredstavuj^^S^^P n^^
+Sahodn^^Se
+ []
+
+[37]
+File: data_adj.eps Graphic file (type eps)
+ <data_adj.eps>
+Overfull \hbox (16.34999pt too wide) in paragraph at lines 608--609
+ [][] 
+ []
+
+File: data_adj_axis.eps Graphic file (type eps)
+<data_adj_axis.eps>
+Overfull \hbox (16.34999pt too wide) in paragraph at lines 614--615
+ [][] 
+ []
+
+
+Overfull \hbox (12.23123pt too wide) in paragraph at lines 637--639
+\OT1/cmr/m/n/10 po-moc^^S^^P ko-var-ian^^Tcn^^S^^P mat-ice $\OML/cmm/m/it/10 C[
+]$ \OT1/cmr/m/n/10 a trans-forma^^Tcn^^S^^P mat-ice $\OML/cmm/m/it/10 P$\OT1/cm
+r/m/n/10 . V dal^^Ts^^S^^Pm kroce pou^^Tzijeme
+ []
+
+[38] [39]
+Overfull \hbox (0.96336pt too wide) in paragraph at lines 660--661
+\OT1/cmr/m/n/10 b^^Saze jed-notkovou d^^Selku. Li-bo-voln^^Sy vek-tor $\OML/cmm
+/m/it/10 v$ \OT1/cmr/m/n/10 z vek-torov^^Seho pros-toru $\OML/cmm/m/it/10 L$ \O
+T1/cmr/m/n/10 lze vyj^^Sad^^Trit
+ []
+
+[40]
+File: data.eps Graphic file (type eps)
+ <data.eps>
+Overfull \hbox (16.34999pt too wide) in paragraph at lines 725--726
+ [][] 
+ []
+
+[41]
+Overfull \hbox (36.84793pt too wide) detected at line 757
+\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = []
+ []
+
+[42] [43] [44
+
+]
+Kapitola 4.
+
+Underfull \hbox (badness 1496) in paragraph at lines 821--821
+\OT1/cmr/m/n/8 nadm^^Ternou popt^^Savkou. Typ-ick^^Sym p^^Tr^^S^^Pkladem jsou t
+zv. bench-markov^^Se dluhopisy pop^^Tr.
+ []
+
+
+Overfull \hbox (20.6185pt too wide) in paragraph at lines 821--822
+\OT1/cmr/m/n/10 stick^^Sym cash-flow emi-to-van^^Se centr^^Saln^^S^^P vl^^Sadou
+ v jej^^S^^P dom^^Sac^^S^^P m^^Ten^^Te. Dal^^Ts^^S^^Pm v^^Syznamn^^Sym
+ []
+
+
+Overfull \hbox (3.60461pt too wide) in paragraph at lines 821--822
+\OT1/cmr/m/n/10 likvidn^^S^^P av^^Tsak nesm^^S^^P b^^Syt p^^Tresp^^Tr^^S^^Pli^^
+Ts ex-pono-van^^Se[]. D^^Sale je d^^Wule^^Tzit^^Se vy-brat dluhopisy
+ []
+
+
+Overfull \hbox (14.64606pt too wide) in paragraph at lines 830--832
+\OT1/cmr/m/n/10 generuj^^S^^P cash-flow v^^Tzdy ke stejn^^Sym dat^^Wum $\OML/cm
+m/m/it/10 t[]$\OT1/cmr/m/n/10 , kde $\OML/cmm/m/it/10 i \OT1/cmr/m/n/10 = 1\OML
+/cmm/m/it/10 ; :::; n$\OT1/cmr/m/n/10 . Cash-flow uva^^Tzovan^^Sych
+ []
+
+[45] [46]
+Overfull \hbox (6.26227pt too wide) in paragraph at lines 921--922
+\OT1/cmr/m/n/10 n^^Sasleduj^^S^^Pc^^S^^P. Ne-jprve vy-berme $\OML/cmm/m/it/10 n
+$ \OT1/cmr/m/n/10 dluhopis^^Wu. Cenu $\OML/cmm/m/it/10 j$\OT1/cmr/m/n/10 -t^^Se
+ho dluhopisu v ^^Tcase $\OML/cmm/m/it/10 t$ \OT1/cmr/m/n/10 ozna^^Tcme
+ []
+
+[47]
+Overfull \hbox (38.60132pt too wide) in paragraph at lines 940--950
+ [] 
+ []
+
+
+Overfull \hbox (3.36855pt too wide) in paragraph at lines 978--980
+\OT1/cmr/m/n/10 v^^Sahu jed-notliv^^Sych dluhopis^^Wu v op-ti-mal-iza^^Tcn^^S^^
+P rovnici (4.1). []Rada au-tor^^Wu jednodu^^Tse
+ []
+
+[48]
+Overfull \hbox (1.33401pt too wide) in paragraph at lines 986--988
+\OT1/cmr/m/n/10 ocen^^Ten^^S^^P dlouhodob^^Sych dluhopis^^Wu je obt^^S^^P^^Tzn^
+^Tej^^Ts^^S^^P ne^^Tz ocen^^Ten^^S^^P dluhopis^^Wu se zbytkovou
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1001
+
+ []
+
+
+Overfull \hbox (0.86308pt too wide) in paragraph at lines 1002--1003
+\OT1/cmr/bx/n/10 Polynomick^^Sa seg-men-tov^^Sa funkce  \OT1/cmr/m/n/10 Uva^^Tz
+ujme diskontn^^S^^P funkci, kter^^Sa se skl^^Sad^^Sa
+ []
+
+[49]
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 1023.
+
+
+Overfull \hbox (22.31927pt too wide) detected at line 1025
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; s\OT1/cmr/m/n/10 ) = []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1034
+
+ []
+
+[50]
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 1110.
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 1115.
+
+
+Overfull \hbox (73.68607pt too wide) detected at line 1117
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; s\OT1/cmr/m/n/10 ) = []
+ []
+
+
+Overfull \hbox (6.16318pt too wide) in paragraph at lines 1124--1124
+[] 
+ []
+
+
+Overfull \hbox (5.28755pt too wide) in paragraph at lines 1124--1126
+\OT1/cmr/m/n/10 V rovnici (4.8) fig-u-ruj^^S^^P parame-try $\OML/cmm/m/it/10 c[
+]; b[]; a[]; a[]; a[]$\OT1/cmr/m/n/10 , kter^^Se tvo^^Tr^^S^^P vek-tor $\OML/cm
+m/m/it/10 ^^L$\OT1/cmr/m/n/10 , a parametr
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1128--1130
+
+ []
+
+[51]
+Overfull \hbox (6.45265pt too wide) in paragraph at lines 1131--1132
+\OT1/cmr/bx/n/10 B-segmentov^^Sa funkce  \OT1/cmr/m/n/10 B-segmentov^^Sa funkce
+ je line^^Sarn^^S^^P kom-binac^^S^^P ohrani^^Tcen^^Sych
+ []
+
+
+Overfull \hbox (0.36963pt too wide) in paragraph at lines 1131--1132
+\OT1/cmr/m/n/10 poly-nomick^^Sych funkc^^S^^P. P^^Tredpokl^^Sadejme, ^^Tze pro 
+^^Su^^Tcely kon-strukce diskontn^^S^^P k^^Trivky
+ []
+
+
+Overfull \hbox (3.37914pt too wide) in paragraph at lines 1142--1144
+\OT1/cmr/m/n/10 co^^Tz je nezbytn^^Sa matem-at-ick^^Sa podm^^S^^Pnka pro ex-is-
+tenci B-segmentov^^Se funkce $\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 (\OML/cmm/m/i
+t/10 ^^R\OT1/cmr/m/n/10 )$.
+ []
+
+[52]
+Overfull \hbox (16.6448pt too wide) in paragraph at lines 1216--1218
+$\OML/cmm/m/it/10 Z[]$ \OT1/cmr/m/n/10 lze ch^^Sapat jako vek-tor v^^Sa^^Tzen^^
+Seho cash-flow gen-erovan^^Seho uva^^Tzovan^^Sym dluhopisem,
+ []
+
+[53]
+Overfull \hbox (5.83409pt too wide) in paragraph at lines 1245--1247
+\OT1/cmr/m/n/10 kde ^^Tr^^Sadky matic $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 a $\
+OML/cmm/m/it/10 Z$ \OT1/cmr/m/n/10 p^^Tredstavuj^^S^^P hod-noty pro jed-notliv^
+^Se dluhopisy dle pou^^Tzit^^Seho
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1245--1247
+
+ []
+
+
+Overfull \hbox (6.16159pt too wide) in paragraph at lines 1248--1249
+\OT1/cmr/bx/n/10 Odhad parametr^^Wu seg-men-tov^^Se funkce  \OT1/cmr/m/n/10 P^^
+Tredpokl^^Sadejme, ^^Tze konkr^^Setn^^S^^P podoba
+ []
+
+
+Overfull \hbox (1.30856pt too wide) in paragraph at lines 1262--1263
+[]\OT1/cmr/m/n/10 Pomoc^^S^^P Newtonovy metody zp^^Tresn^^S^^Pme odhad $\OML/cm
+m/m/it/10 u$ \OT1/cmr/m/n/10 a s jeho po-moc^^S^^P p^^Trepo^^Tcteme
+ []
+
+[54]
+Overfull \hbox (16.66954pt too wide) in paragraph at lines 1273--1274
+[]\OT1/cmr/m/n/10 Dal^^Ts^^S^^Pm probl^^Semem, kter^^Sy ^^Suzce sou-vis^^S^^P s
+ po^^Tctem seg-men-tov^^Sych funkc^^S^^P, p^^Tredstavuj^^S^^P
+ []
+
+
+Overfull \hbox (2.64069pt too wide) in paragraph at lines 1279--1280
+\OT1/cmr/m/n/10 V p^^Tr^^S^^Ppad^^Te, ^^Tze toto rozd^^Telen^^S^^P neb-ude d^^S
+avat ^^Tz^^Sadouc^^S^^P v^^Sysledky, je mo^^Tzn^^Se p^^Trehodnotit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1279--1280
+
+ []
+
+
+Overfull \hbox (19.39969pt too wide) in paragraph at lines 1281--1282
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Na z^^Saklad^^Te port-fo-lia 
+vy-bran^^Sych dluhopis^^Wu zkon-stru-u-jme k^^Trivku diskontn^^S^^Pch
+ []
+
+
+Overfull \hbox (3.53516pt too wide) in paragraph at lines 1281--1282
+\OT1/cmr/m/n/10 dluhopis^^Wu. Pro ^^Su^^Tcely kon-strukce k^^Trivky uva^^Tzujme
+ n^^Sasleduj^^S^^Pc^^S^^Pch ^^Tctrn^^Sact dluhopis^^Wu. 
+ []
+
+
+Overfull \hbox (9.77065pt too wide) detected at line 1309
+\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; s\OT1/cmr/m/n/10 ) = []
+ []
+
+[55]
+File: df.eps Graphic file (type eps)
+ <df.eps>
+File: zero.eps Graphic file (type eps)
+ <zero.eps> [56] [57]
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1403
+
+ []
+
+[58]
+Underfull \hbox (badness 10000) in paragraph at lines 1425--1427
+
+ []
+
+
+Overfull \hbox (13.33981pt too wide) in paragraph at lines 1428--1429
+\OT1/cmr/m/n/10 Va^^Ts^^S^^P^^Tckova mod-elu (1977), ve kter^^Sem kr^^Satkodob^
+^Se ^^Surokov^^Se m^^S^^Pry $\OML/cmm/m/it/10 r[]$ \OT1/cmr/m/n/10 sle-dovaly O
+rnstein-
+ []
+
+[59]
+Overfull \hbox (12.05736pt too wide) in paragraph at lines 1473--1474
+\OT1/cmr/m/n/10 Depozitn^^S^^P sazba p^^Tredstavuje ^^Surokovou sazbu, za ktero
+u je mo^^Tzn^^Se na mez-ibankovn^^S^^Pm
+ []
+
+
+Overfull \hbox (11.84065pt too wide) in paragraph at lines 1481--1482
+\OT1/cmr/m/n/10 ibankovn^^S^^P zero k^^Trivky. Tyto sazby se mo-hou z hlediska 
+splat-nosti ^^Tc^^Saste^^Tcn^^Te p^^Trekr^^Syvat
+ []
+
+[60]
+Overfull \hbox (2.8462pt too wide) in paragraph at lines 1507--1508
+\OT1/cmr/m/n/10 Uva^^Tzujme ^^Surokov^^Sy swap se splat-nost^^S^^P $\OML/cmm/m/
+it/10 ^^R$ \OT1/cmr/m/n/10 rok^^Wu. Necht[] m^^Sa floa-tov^^Sa noha ^^Tsestim^^
+Tes^^S^^P^^Tcn^^S^^P
+ []
+
+
+Overfull \hbox (0.64404pt too wide) in paragraph at lines 1513--1514
+[]\OT1/cmr/m/n/10 Abychom mohli z v^^Sy^^Tse uve-den^^Se rovnice vyj^^Sad^^Trit
+ $\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; ^^R\OT1/cmr/m/n/10 )$,
+ mus^^S^^Pme zn^^Sat v^^Tsechna
+ []
+
+[61]
+Overfull \hbox (17.8686pt too wide) in paragraph at lines 1534--1535
+\OT1/cmr/m/n/10 k^^Trivky toto^^Tzn^^Sa s ap-likac^^S^^P t^^Seto metody p^^Tri 
+odvozen^^S^^P diskontn^^S^^P k^^Trivky. P^^Tredpokl^^Sadejme,
+ []
+
+
+Overfull \hbox (27.49028pt too wide) in paragraph at lines 1549--1549
+[]\OT1/cmr/bx/n/12 Metoda ne-j-men^^Ts^^S^^Pch ^^Tctverc^^Wu zalo^^Tzen^^Sa na 
+cen^^Sach dluhopis^^Wu 
+ []
+
+[62]
+Overfull \hbox (0.92404pt too wide) in paragraph at lines 1576--1577
+\OT1/cmr/m/n/10 dluhopis^^Wu zkon-struov^^Sana zero k^^Trivka. K^^Trivka kred-i
+tn^^S^^Pch spread^^Wu je d^^Sana rozd^^S^^Plem
+ []
+
+
+Overfull \hbox (3.78511pt too wide) in paragraph at lines 1578--1579
+\OT1/cmr/m/n/10 mod-elu pro v^^Sypo^^Tcet zero k^^Trivek a po^^Tctu seg-ment^^W
+u. Dal^^Ts^^S^^P nev^^Syhodou je skute^^Tcnost,
+ []
+
+
+Overfull \hbox (13.33414pt too wide) in paragraph at lines 1578--1579
+\OT1/cmr/m/n/10 ^^Tze takto zkon-struo-van^^Sa k^^Trivka kred-itn^^S^^Pch sprea
+d^^Wu ne-mus^^S^^P b^^Syt hladk^^Sa ani monot^^Sonn^^S^^P. 
+ []
+
+
+Overfull \hbox (14.50414pt too wide) in paragraph at lines 1582--1583
+\OT1/cmr/m/n/10 P^^Tredpokl^^Sadejme, ^^Tze chceme zkon-struo-vat k^^Trivku kre
+d-itn^^S^^Pch spread^^Wu pro $\OML/cmm/m/it/10 n$ \OT1/cmr/m/n/10 rizikov^^Sych
+
+ []
+
+
+Overfull \hbox (39.38103pt too wide) in paragraph at lines 1584--1597
+ [] 
+ []
+
+[63]
+Overfull \hbox (19.72964pt too wide) in paragraph at lines 1604--1606
+\OT1/cmr/m/n/10 Houweling a kol. (1999) navrhuj^^S^^P mod-e-lo-vat diskontn^^S^
+^P funkce po-moc^^S^^P B-segmentov^^Sych
+ []
+
+
+Overfull \hbox (16.50728pt too wide) in paragraph at lines 1604--1606
+\OT1/cmr/m/n/10 funkc^^S^^P. Jestli^^Tze budeme stejn^^Te jako v p^^Tredchoz^^S
+^^Pch p^^Tr^^S^^Ppadech uva^^Tzovat t^^Tr^^S^^Psegmentovou
+ []
+
+
+Overfull \hbox (18.11845pt too wide) in paragraph at lines 1611--1613
+\OT1/cmr/m/n/10 umo^^Tz^^Tnuje odhad parametr^^Wu po-moc^^S^^P metody ne-j-men^
+^Ts^^S^^Pch ^^Tctverc^^Wu. Ve-dle B-segmentov^^Se
+ []
+
+
+Overfull \hbox (6.95181pt too wide) in paragraph at lines 1626--1628
+\OT1/cmr/m/n/10 Srovn^^Savac^^S^^P zero k^^Trivku je mo^^Tzn^^Se mod-e-lo-vat p
+o-moc^^S^^P B-segmentov^^Se funkce. Almeida
+ []
+
+[64] [65]
+Overfull \hbox (8.33522pt too wide) in paragraph at lines 1739--1741
+\OT1/cmr/m/n/10 t^^Treba tento postup n^^Tekolikr^^Sat zopako-vat, dokud nez^^S
+^^Psk^^Same v^^Sysledek s po^^Tzadovanou
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1743--1745
+
+ []
+
+[66] [67] [68
+
+] [69] [70]
+Kapitola 5.
+
+Overfull \hbox (5.56296pt too wide) in paragraph at lines 1776--1777
+\OT1/cmr/m/n/10 nost^^S^^P. Ceny dlouhodob^^Sych dluhopis^^Wu jsou proto volati
+ln^^Tej^^Ts^^S^^P ne^^Tz ceny kr^^Satkodob^^Sych
+ []
+
+
+Overfull \hbox (0.5973pt too wide) in paragraph at lines 1784--1785
+\OT1/cmr/m/n/10 nosti dluhopisu. Mezi rein-vesti^^Tcn^^S^^Pm rizikem a kup^^Son
+ovou sazbou pop^^Tr. zbytkovou
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1790--1791
+
+ []
+
+[71
+
+]
+Overfull \hbox (7.28856pt too wide) in paragraph at lines 1792--1793
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Uva^^Tzujme dvoulet^^Sy dluho
+pis s nomin^^Saln^^S^^P hod-no-tou 100 CZK, kup^^Sonovou
+ []
+
+
+Overfull \hbox (2.30861pt too wide) in paragraph at lines 1840--1842
+\OT1/cmr/m/n/10 to-hoto probl^^Semu je nahrazen^^S^^P uva^^Tzovan^^Sych $\OML/c
+mm/m/it/10 m$ \OT1/cmr/m/n/10 ^^Surokov^^Sych sazeb jed-nou pr^^Wum^^Ternou
+ []
+
+[72]
+Overfull \hbox (0.70448pt too wide) in paragraph at lines 1852--1854
+\OT1/cmr/m/n/10 kde $\OML/cmm/m/it/10 n$ \OT1/cmr/m/n/10 p^^Tredstavuje frekven
+ci vypl^^Sacen^^S^^P kup^^Sonu, $\OML/cmm/m/it/10 y[]$ \OT1/cmr/m/n/10 je YTM u
+va^^Tzovan^^Seho dluhopisu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1868--1870
+
+ []
+
+
+Overfull \hbox (1.90067pt too wide) in paragraph at lines 1871--1872
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Uva^^Tzujme de-setilet^^Sy dl
+uhopis s kup^^Sonovou sazbou 6.0%, ro^^Tcn^^S^^P frekvenc^^S^^P
+ []
+
+[73]
+Overfull \hbox (12.39517pt too wide) in paragraph at lines 1883--1884
+\OT1/cmr/m/n/10 V p^^Tredchoz^^S^^P kapi-tole jsme si p^^Tredstavili dolarovou 
+a mod-i-fiko-vanou du-raci. Dolarov^^Sa
+ []
+
+
+Overfull \hbox (17.14063pt too wide) in paragraph at lines 1893--1894
+[]\OT1/cmr/m/n/10 P^^Tredpokl^^Sadejme, ^^Tze se in-vesti^^Tcn^^S^^P hor-i-zont
+ ma-jitele dluhopisu shoduje s Macauley-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1893--1894
+
+ []
+
+
+Overfull \hbox (1.90067pt too wide) in paragraph at lines 1895--1896
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Uva^^Tzujme de-setilet^^Sy dl
+uhopis s kup^^Sonovou sazbou 6.0%, ro^^Tcn^^S^^P frekvenc^^S^^P
+ []
+
+
+Underfull \vbox (badness 3690) has occurred while \output is active []
+
+ [74]
+Underfull \hbox (badness 10000) in paragraph at lines 1933--1934
+
+ []
+
+[75] [76]
+Kapitola 6.
+
+Overfull \hbox (1.59781pt too wide) in paragraph at lines 1971--1971
+[]\OT1/cmr/bx/n/14.4 Opu^^Tst^^Ten^^S^^P p^^Tredpokladu in-fin-i-tyzim^^Saln^^S
+^^P zm^^Teny
+ []
+
+[77
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 2011--2012
+
+ []
+
+[78]
+Overfull \hbox (13.2212pt too wide) in paragraph at lines 2062--2062
+[]\OT1/cmr/bx/n/14.4 Opu^^Tst^^Ten^^S^^P p^^Tredpokladu ploch^^Se v^^Synosov^^S
+e k^^Trivky 
+ []
+
+
+Overfull \hbox (9.47954pt too wide) in paragraph at lines 2074--2075
+[]\OT1/cmr/m/n/10 Zm^^Tenu ceny dluhopisu lze aprox-i-mo-vat po-moc^^S^^P Tay-l
+orova rozvoje. Pro jednodu-
+ []
+
+[79]
+Overfull \hbox (16.25964pt too wide) in paragraph at lines 2103--2105
+[]\OT1/cmr/m/n/10 Re^^Tsen^^S^^Pm to-hoto line^^Sarn^^S^^Pho syst^^Semu pro $\O
+ML/cmm/m/it/10 ^^^[]; j \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; :::; m$ \OT1/cmr/
+m/n/10 z^^S^^Psk^^Same op-tim^^Saln^^S^^P zaji^^Tst[]ovac^^S^^P
+ []
+
+
+Overfull \hbox (0.56293pt too wide) in paragraph at lines 2139--2140
+\OT1/cmr/m/n/10 N^^Tekdy m^^Wu^^Tze na-s-tat situ-ace, kdy riziko zaji^^Tst[]ov
+ac^^S^^Pho in-stru-mentu je m^^S^^Prn^^Te odli^^Tsn^^Se
+ []
+
+
+Overfull \hbox (4.97847pt too wide) in paragraph at lines 2139--2140
+\OT1/cmr/m/n/10 mus^^S^^P mezi ob^^Tema rizikov^^Symi fak-tory ex-is-to-vat ko-
+relace. V tomto p^^Tr^^S^^Ppad^^Te hovo^^Tr^^S^^Pme
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2152--2154
+
+ []
+
+[80]
+Overfull \hbox (1.04315pt too wide) in paragraph at lines 2170--2172
+\OT1/cmr/m/n/10 kde $\OML/cmm/m/it/10 y[]$ \OT1/cmr/m/n/10 p^^Tredstavuje par-a
+leln^^S^^P po-sun, zm^^Tenu sklonu resp. zm^^Tenu zak^^Triven^^S^^P v^^Synosov^
+^Se
+ []
+
+
+Overfull \hbox (9.72394pt too wide) in paragraph at lines 2173--2174
+[]\OT1/cmr/m/n/10 Je z^^Trejm^^Se, ^^Tze metoda vek-torov^^Se dekom-poz-ice umo
+^^Tz^^Tnuje sn^^S^^P^^Tzen^^S^^P po^^Tctu rizikov^^Sych
+ []
+
+[81]
+Overfull \hbox (3.93468pt too wide) in paragraph at lines 2237--2239
+\OT1/cmr/m/n/10 Vektor parametr^^Wu $\OML/cmm/m/it/10 ^^L$ \OT1/cmr/m/n/10 se p
+ro dan^^Sy den odhadne po-moc^^S^^P metody ne-j-men^^Ts^^S^^Pch ^^Tctverc^^Wu,
+ []
+
+
+Overfull \hbox (13.90555pt too wide) in paragraph at lines 2243--2245
+\OT1/cmr/m/n/10 Durace $\OML/cmm/m/it/10 D[] \OT1/cmr/m/n/10 = []$ pro $\OML/cm
+m/m/it/10 i \OT1/cmr/m/n/10 = 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/i
+t/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3$ p^^Tredstavuje v 
+Nielson-Siegelov^^Te resp. Svenssonov^^Te
+ []
+
+[82] [83] [84
+
+] [85] [86]
+Kapitola 7.
+
+Overfull \hbox (0.77843pt too wide) in paragraph at lines 2300--2301
+\OT1/cmr/m/n/10 P^^Tr^^S^^Pmo^^Tcar^^Sa rep-likace bench-marku je z teo-ret-ick
+^^Seho hlediska ne-j-jednodu^^Ts^^Ts^^S^^P zp^^Wusob,
+ []
+
+[87
+
+] [88] [89]
+Overfull \hbox (4.61647pt too wide) in paragraph at lines 2369--2371
+\OT1/cmr/m/n/10 kde $\OML/cmm/m/it/10 ^^[[]$ \OT1/cmr/m/n/10 p^^Tredstavuje roz
+ptyl tr^^Tzn^^S^^Pho port-fo-lia a $^^A$ je di-agon^^Saln^^S^^P mat-ice rezidu^
+^Saln^^S^^Pch
+ []
+
+
+Overfull \hbox (1.73329pt too wide) in paragraph at lines 2376--2377
+\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; ^^R[]\OT1/cmr/m/n/10 )$ 
+p^^Tredstavuje znor-movan^^Sy v^^Synos dluhopisu splatn^^Seho v ^^Tcase $\OML/c
+mm/m/it/10 ^^R[]$ \OT1/cmr/m/n/10 k ^^Tcasov^^Semu
+ []
+
+
+Overfull \hbox (15.56294pt too wide) in paragraph at lines 2414--2415
+\OT1/cmr/m/n/10 riziko vzorku a nulov^^Se riziko mod-elu. Druh^^Sym typem je od
+had ko-vari-ance vych^^Sazej^^S^^Pc^^S^^P
+ []
+
+
+Overfull \hbox (4.47966pt too wide) in paragraph at lines 2414--2415
+\OT1/cmr/m/n/10 dos^^Sahnout rovnov^^Sahy mezi chy-bou vzorku a chy-bou mod-elu
+. Ex-is-tuj^^S^^P dv^^Te z^^Sakladn^^S^^P
+ []
+
+[90]
+Overfull \hbox (5.59955pt too wide) in paragraph at lines 2448--2448
+[]\OT1/cmr/bx/n/14.4 Replikace zalo^^Tzen^^Sa na vek-torov^^Se dekom-pozici 
+ []
+
+[91]
+Overfull \hbox (14.34073pt too wide) in paragraph at lines 2481--2482
+\OT1/cmr/m/n/10 volatil-ity. Tento p^^Tr^^S^^Pstup tak^^Se ig-noruje mo^^Tzn^^S
+e ko-relace mezi jed-notliv^^Symi v^^Syb^^Terov^^Symi
+ []
+
+[92]
+Overfull \hbox (16.44518pt too wide) in paragraph at lines 2483--2484
+[]\OT1/cmr/m/n/10 Slab^^Sym m^^S^^Pstem mod-e-lov^^Seho p^^Tr^^S^^Pstupu je jeh
+o z^^Savislost na his-torick^^Sych volatilit^^Sach
+ []
+
+
+Overfull \hbox (1.69621pt too wide) in paragraph at lines 2483--2484
+\OT1/cmr/m/n/10 obava, ^^Tze in-for-mace obsa^^Tzen^^Sa v his-torick^^Sych dat-
+ech neko-re-spon-duje s o^^Tcek^^Sav^^San^^S^^Pm
+ []
+
+[93] [94
+
+]
+Kapitola 8.
+
+Overfull \hbox (2.09076pt too wide) in paragraph at lines 2487--2488
+\OT1/cmr/m/n/10 no-log-ick^^Sa a znalostn^^S^^P p^^Trevaha nad os-tatn^^S^^Pmi 
+^^Su^^Tcastn^^S^^Pky trhu. Ex-is-tuj^^S^^P dv^^Te z^^Sakladn^^S^^P
+ []
+
+
+Overfull \hbox (0.27838pt too wide) in paragraph at lines 2487--2488
+\OT1/cmr/m/n/10 ak-tivn^^S^^P in-vesti^^Tcn^^S^^P strate-gie - (a) strate-gie v
+ych^^Sazej^^S^^Pc^^S^^P z predikce v^^Syvoje ^^Surokov^^Sych
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2502--2503
+
+ []
+
+
+Overfull \hbox (4.53957pt too wide) in paragraph at lines 2504--2505
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 P^^Tredpokl^^Sadejme, ^^Tze m
+^^Same k dis-pozici n^^Sasleduj^^S^^Pc^^S^^P t^^Tri diskontn^^S^^P dluhopisy
+ []
+
+[95]
+Underfull \hbox (badness 10000) in paragraph at lines 2521--2523
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2530--2531
+
+ []
+
+
+Overfull \hbox (16.65071pt too wide) in paragraph at lines 2532--2533
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 P^^Tredpokl^^Sadejme, ^^Tze n
+^^Sami uva^^Tzovan^^Se port-fo-lio je tvo^^Treno tro-jic^^S^^P diskontn^^S^^Pch
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2546--2548
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2549--2550
+
+ []
+
+[96]
+Underfull \hbox (badness 10000) in paragraph at lines 2558--2560
+
+ []
+
+
+Overfull \hbox (7.84077pt too wide) in paragraph at lines 2569--2570
+\OT1/cmr/m/n/10 ment^^Wum v^^Synosov^^Se k^^Trivky. Kla-sick^^Sym p^^Tr^^S^^Pkl
+adem je port-fo-lio skl^^Sad^^Saj^^S^^Pc^^S^^P se z kr^^Satk^^Seho
+ []
+
+File: bullet_vs_barbell.eps Graphic file (type eps)
+<bullet_vs_barbell.eps> [97]
+Underfull \hbox (badness 10000) in paragraph at lines 2585--2586
+
+ []
+
+[98]
+Underfull \hbox (badness 10000) in paragraph at lines 2640--2642
+
+ []
+
+
+Overfull \hbox (1.14513pt too wide) in paragraph at lines 2677--2678
+\OT1/cmr/m/n/10 du-race mezi ob^^Te k^^Tr^^S^^Pdla. V praxi jsou v^^Tsak kr^^Sa
+tkodob^^Se ^^Surokov^^Se sazby v^^S^^Pce volatitn^^S^^P
+ []
+
+
+Overfull \hbox (18.83957pt too wide) in paragraph at lines 2677--2678
+\OT1/cmr/m/n/10 odch^^Sylit v^^S^^Pce ne^^Tz YTM druh^^Seho k^^Tr^^S^^Pdla. T^^
+Seto skute^^Tcnosti v^^S^^Pce odpov^^S^^Pd^^Sa nerovnom^^Tern^^Se
+ []
+
+[99]
+Overfull \hbox (5.69618pt too wide) in paragraph at lines 2732--2733
+[]\OT1/cmr/m/n/10 P^^Tredpokl^^Sadejme, ^^Tze v^^Tsechny uva^^Tzovan^^Se sc^^Se
+n^^Sa^^Tre jsou vy^^Tcerp^^Savaj^^S^^Pc^^S^^Pm p^^Trehledem
+ []
+
+
+Overfull \hbox (43.73524pt too wide) in paragraph at lines 2732--2733
+\OT1/cmr/m/n/10 mo^^Tzn^^Seho bu-douc^^S^^Pho v^^Syvoje v^^Synosov^^Se k^^Trivk
+y. Ka^^Tzd^^Semu sc^^Sen^^Sa^^Tri p^^Tri^^Trad[]me pravd^^Tepodobnost.
+ []
+
+[100]
+Overfull \hbox (10.69633pt too wide) in paragraph at lines 2754--2755
+\OT1/cmr/m/n/10 dluhopis^^Wu, ko-r-por^^Satn^^S^^Pch dluhopis^^Wu s in-vesti^^T
+cn^^S^^Pm ratingem a ko-r-por^^Satn^^S^^Pch dluhopis^^Wu
+ []
+
+[101]
+Overfull \hbox (0.47403pt too wide) in paragraph at lines 2770--2771
+\OT1/cmr/m/n/10 v^^Synos ne^^Tz ko-r-por^^Satn^^S^^P dluhopisy s in-vesti^^Tcn^
+^S^^Pm ratingem a st^^Satn^^S^^P dluhopisy, jestli^^Tze 
+ []
+
+[102] [103]
+Overfull \hbox (9.95175pt too wide) in paragraph at lines 2816--2817
+\OT1/cmr/m/n/10 anal^^Syza (Z-score anal-y-sis). P^^Tredpokl^^Sadejme, ^^Tze YT
+M spread m^^Sa charak-ter n^^Sahodn^^Se
+ []
+
+
+Overfull \hbox (9.9796pt too wide) in paragraph at lines 2832--2833
+\OT1/cmr/m/n/10 pou^^Tz^^S^^Pt n^^Tekterou z imu-niza^^Tcn^^S^^Pch metod pop-sa
+n^^Sych v kapi-tol^^Sach 5 a 6. P^^Tredpokladem
+ []
+
+
+Overfull \hbox (8.30621pt too wide) in paragraph at lines 2832--2833
+\OT1/cmr/m/n/10 uva^^Tzovan^^Se in-vesti^^Tcn^^S^^P strate-gie je, ^^Tze YTM sp
+read bude kon-ver-go-vat k dluhodob^^Semu
+ []
+
+
+Overfull \hbox (18.97636pt too wide) in paragraph at lines 2834--2835
+\OT1/cmr/m/n/10 zero k^^Trivky, ne-mus^^S^^P, nejsou-li podep^^Treny skute^^Tcn
+^^Symi ob-chody, odpov^^S^^Pdat skute^^Tcnosti.
+ []
+
+[104]
+Overfull \hbox (9.14626pt too wide) in paragraph at lines 2848--2849
+\OT1/cmr/m/n/10 kurzu k ofici^^Saln^^S^^Pmu zafixo-van^^Semu kurzu platn^^Seho 
+v dob^^Te kon-verze m^^Teny. P^^Tr^^S^^Pkladem
+ []
+
+[105] [106
+
+]
+Kapitola 9.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2864--2866
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2879--2881
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2882--2883
+
+ []
+
+[107]
+Underfull \hbox (badness 10000) in paragraph at lines 2887--2889
+
+ []
+
+
+Overfull \hbox (0.27351pt too wide) in paragraph at lines 2897--2899
+\OT1/cmr/m/n/10 kde $\OML/cmm/m/it/10 F[]$ \OT1/cmr/m/n/10 je cash-flow gen-ero
+van^^Se port-foliem v ^^Tcase $\OML/cmm/m/it/10 t \OT1/cmr/m/n/10 + \OML/cmm/m/
+it/10 i$ \OT1/cmr/m/n/10 a $\OML/cmm/m/it/10 V[]$ \OT1/cmr/m/n/10 resp. $\OML/c
+mm/m/it/10 V[]$ \OT1/cmr/m/n/10 p^^Tredstavuj^^S^^P
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2897--2899
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2903--2905
+
+ []
+
+[108]
+Underfull \hbox (badness 10000) in paragraph at lines 2914--2916
+
+ []
+
+
+Overfull \hbox (4.61845pt too wide) in paragraph at lines 2917--2918
+\OT1/cmr/m/n/10 jev^^S^^P hod-no-tov^^Te v^^Sa^^Tzen^^Sy ge-o-met-rick^^Sy pr^^
+Wum^^Ter. Tato vari-anta toti^^Tz zohled^^Tnuje sn^^S^^P^^Tzen^^S^^P
+ []
+
+[109]
+File: probability_distribution.eps Graphic file (type eps)
+ <probability_distribution.eps>
+Overfull \hbox (17.0019pt too wide) in paragraph at lines 2943--2950
+\OT1/cmr/m/n/10 sm^^Terodatn^^Se od-chylce, kter^^Se p^^Tredstavuj^^S^^P prvn^^
+S^^P a druh^^Sy mo-ment pravd^^Tepodobnostn^^S^^Pho
+ []
+
+[110]
+Overfull \hbox (3.86182pt too wide) in paragraph at lines 2960--2961
+\OT1/cmr/m/n/10 Ne-jprve je t^^Treba defi-no-vat pravd^^Tepodobnostn^^S^^P rozd
+^^Telen^^S^^P zisk^^Wu a ztr^^Sat uva^^Tzovan^^Seho
+ []
+
+
+Overfull \hbox (51.36087pt too wide) in paragraph at lines 2963--2964
+[]\OT1/cmr/m/n/10 analyticky - V p^^Tr^^S^^Ppad^^Te an-a-lyt-ick^^Seho p^^Tr^^S
+^^Pstupu je sna-hou odvodit z pravd^^Tepodobnostn^^S^^Pch
+ []
+
+
+Overfull \hbox (14.13962pt too wide) in paragraph at lines 2963--2964
+\OT1/cmr/m/n/10 rozd^^Telen^^S^^P jed-notliv^^Sych rizikov^^Sych fak-tor^^Wu sl
+o^^Tzen^^Se pravd^^Tepodobnostn^^S^^P rozd^^Telen^^S^^P
+ []
+
+
+Overfull \hbox (12.3684pt too wide) in paragraph at lines 2964--2965
+\OT1/cmr/m/n/10 n^^Sasledn^^Se sim-u-laci. V^^Sysledky sim-u-lace n^^Sasledn^^T
+e slou^^Tz^^S^^P jako vstup pro oce^^Tnovac^^S^^P
+ []
+
+
+Overfull \hbox (10.81953pt too wide) in paragraph at lines 2964--2965
+\OT1/cmr/m/n/10 pop^^Tr. ztr^^Satu. Na je-jich z^^Saklad^^Te lze zkon-struo-vat
+ em-pir-ick^^Se pravd^^Tepodobnostn^^S^^P
+ []
+
+
+Overfull \hbox (6.31404pt too wide) in paragraph at lines 2971--2972
+\OT1/cmr/m/n/10 por^^Satn^^S^^Pch dluhopis^^Wu. P^^Tredpokl^^Sadejme, ^^Tze pro
+-centn^^S^^P r^^Wust in-dexu st^^Satn^^S^^Pch dluhopis^^Wu
+ []
+
+[111]
+Overfull \hbox (15.42201pt too wide) in paragraph at lines 2989--2991
+\OT1/cmr/m/n/10 kde $\OML/cmm/m/it/10 $ \OT1/cmr/m/n/10 je rizikov^^Te o^^Tci^
+^Tst^^Ten^^Sy v^^Synos port-fo-lia, $[]$ pr^^Wum^^Tern^^Sy v^^Synos port-fo-lia
+, $\OML/cmm/m/it/10 r[]$ \OT1/cmr/m/n/10 bezrizikov^^Sa
+ []
+
+
+Overfull \hbox (4.55539pt too wide) in paragraph at lines 2993--2995
+\OT1/cmr/m/n/10 kde $[]$ p^^Tredstavuje pr^^Wum^^Tern^^Sy v^^Synos tr^^Tzn^^S^^
+Pho port-fo-lia aprox-i-movan^^Seho dostate^^Tcn^^Te
+ []
+
+
+Overfull \hbox (3.97401pt too wide) in paragraph at lines 2996--2997
+\OT1/cmr/m/n/10 pozici, kter^^Sa slou^^Tz^^S^^P k z^^S^^Psk^^San^^S^^P rizikov^
+^Sych fak-tor^^Wu z his-torick^^Se ^^Trady v^^Synosov^^Sych
+ []
+
+[112]
+Overfull \hbox (27.90073pt too wide) in paragraph at lines 3003--3004
+\OT1/cmr/m/n/10 Vrat[]me se zp^^Tet k fak-torov^^Semu mod-elu zalo^^Tzen^^Sem n
+a in-dex-ech. V p^^Tr^^S^^Ppad^^Te dluhopisov^^Seho
+ []
+
+
+Overfull \hbox (3.6268pt too wide) in paragraph at lines 3013--3014
+[]\OT1/cmr/m/n/10 Barclays Cap-i-tal Bond Com-pos-ite Global In-dex, kter^^Sy r
+eprezen-tuje glob^^Saln^^S^^P
+ []
+
+
+Overfull \hbox (7.05748pt too wide) in paragraph at lines 3021--3022
+\OT1/cmr/m/n/10 to-hoto probl^^Semu je ^^Suprava b^^Saze ex-is-tuj^^S^^Pc^^S^^P
+ho in-dexu tak, aby odpov^^S^^Pdal po^^Tzadovan^^Se
+ []
+
+[113] [114] [115
+
+] [116]
+Kapitola 10.
+[117
+
+]
+Overfull \hbox (0.31174pt too wide) in paragraph at lines 3096--3097
+[]\OT1/cmr/m/n/10 V p^^Tr^^S^^Ppad^^Te floa-tov^^Se nohy je situ-ace slo^^Tzit^
+^Tej^^Ts^^S^^P. V^^Sy^^Tse platby pro aktu^^Saln^^S^^P ^^Surokov^^Se
+ []
+
+
+Overfull \hbox (2.07358pt too wide) detected at line 3103
+[][] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 N[] [] I[][]B\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 t; T[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ [] \OML/cmm/m/it/10 I[][]B
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; T[]\OT1/cmr/m/n/10 )[]
+ []
+
+
+Overfull \hbox (69.13506pt too wide) in paragraph at lines 3106--3124
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [118]
+Overfull \hbox (54.11711pt too wide) detected at line 3133
+[][] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 N[] [] I[][]B\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 t; T[]\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m
+/it/10 t; T[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 (1 + \OML/c
+mm/m/it/10 I[][]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/
+it/10 t; T[]\OT1/cmr/m/n/10 )[]
+ []
+
+
+Overfull \hbox (76.87166pt too wide) detected at line 3142
+[][] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 N[]I[][]B\OT1/cmr/m/n/10 (\OML/cmm/m/it
+/10 t; T[]\OT1/cmr/m/n/10 ) + [] \OML/cmm/m/it/10 I[][]B\OT1/cmr/m/n/10 (\OML/c
+mm/m/it/10 t; T[]\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cm
+m/m/it/10 t; T[]\OT1/cmr/m/n/10 )[]
+ []
+
+[119]
+Overfull \hbox (63.68866pt too wide) detected at line 3150
+[][] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 N[]I[][]B\OT1/cmr/m/n/10 (\OML/cmm/m/it
+/10 t; T[]\OT1/cmr/m/n/10 ) + [] []\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 t; T[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 B\OT1/cmr
+/m/n/10 (\OML/cmm/m/it/10 t; T[]\OT1/cmr/m/n/10 )[] + \OML/cmm/m/it/10 B\OT1/cm
+r/m/n/10 (\OML/cmm/m/it/10 t; T[]\OT1/cmr/m/n/10 )[]
+ []
+
+
+Overfull \hbox (2.41747pt too wide) in paragraph at lines 3153--3155
+\OT1/cmr/m/n/10 Hodnota fixn^^S^^P nohy v^^Tcetn^^Te fik-tivn^^S^^P sm^^Teny no
+min^^Salu na konci splat-nosti ^^Surokov^^Seho
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3167--3169
+
+ []
+
+
+Overfull \hbox (15.92747pt too wide) in paragraph at lines 3170--3171
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Uva^^Tzujme plain-vanilla ^^S
+urokov^^Sy swap s pod-kladov^^Sym nomin^^Salem 1 000 000
+ []
+
+
+Overfull \hbox (19.79398pt too wide) in paragraph at lines 3172--3186
+ [] 
+ []
+
+
+Overfull \hbox (1.89734pt too wide) in paragraph at lines 3187--3188
+\OT1/cmr/m/n/10 N^^Sasleduj^^S^^Pc^^S^^P tab-ulka p^^Tredstavuje ocen^^Ten^^S^^
+P ^^Surokov^^Seho swapu dle (10.1), tj. z pohledu
+ []
+
+[120]
+Overfull \hbox (7.78777pt too wide) in paragraph at lines 3189--3207
+ [] 
+ []
+
+
+Overfull \hbox (9.02863pt too wide) in paragraph at lines 3208--3209
+\OT1/cmr/m/n/10 Hodnota fixn^^S^^P nohy v^^Tcetn^^Te fik-tivn^^S^^P v^^Sym^^Ten
+y nomin^^Salu na konci splat-nosti ^^Surokov^^Seho
+ []
+
+
+Overfull \hbox (29.00049pt too wide) detected at line 3211
+[] \OML/cmm/m/it/10 I[][]B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; T[]\OT1/cmr/m/n/
+10 ) + \OML/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; T[]\OT1/cmr/m/n/1
+0 ) = 82 310\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 74 + 1 000 000 \OMS/cmsy/m/n/10 ^
+^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 9150716 = 997 382\OML/cmm
+/m/it/10 :\OT1/cmr/m/n/10 34
+ []
+
+
+Overfull \hbox (9.36191pt too wide) in paragraph at lines 3215--3217
+\OT1/cmr/m/n/10 Ob^^Te metody v^^Sypo^^Tctu hod-noty ^^Surokov^^Seho swapu tedy
+ ve-dou ke shodn^^Semu v^^Sysledku. 
+ []
+
+
+Overfull \hbox (75.21117pt too wide) detected at line 3221
+\OML/cmm/m/it/10 N [] I[][]B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; T[]\OT1/cmr/m/
+n/10 ) + \OML/cmm/m/it/10 N \OMS/cmsy/m/n/10 ^^A \OML/cmm/m/it/10 B\OT1/cmr/m/n
+/10 (\OML/cmm/m/it/10 t; T[]\OT1/cmr/m/n/10 ) = 84 928\OML/cmm/m/it/10 :\OT1/cm
+r/m/n/10 40 + 1 000 000 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 
+:\OT1/cmr/m/n/10 9150716 = 1 000 000
+ []
+
+File: irs_czk.bmp Graphic file (type bmp)
+<irs_czk.bmp>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 3229--3230
+[][] 
+ []
+
+
+Overfull \hbox (1.4796pt too wide) in paragraph at lines 3238--3239
+\OT1/cmr/m/n/10 Firmy mo-hou b^^Syt schopny z^^S^^Pskat ^^Suv^^Ter na trhu za r
+ozd^^S^^Pln^^Sych podm^^S^^Pnek. Uva^^Tzujme
+ []
+
+[121] [122]
+Overfull \hbox (30.72015pt too wide) in paragraph at lines 3273--3273
+[] 
+ []
+
+[123]
+Overfull \hbox (1.07365pt too wide) in paragraph at lines 3281--3281
+[]\OT1/cmr/bx/n/12 Zaji^^Tst^^Ten^^S^^P ^^Surokov^^Seho rizika po-moc^^S^^P ^^S
+urokov^^Sych swap^^Wu 
+ []
+
+
+Overfull \hbox (6.54887pt too wide) in paragraph at lines 3289--3290
+\OT1/cmr/m/n/10 Uva^^Tzujme dluhopisov^^Se port-fo-lio, jeho^^Tz du-race je rov
+na $\OML/cmm/m/it/10 D[]$\OT1/cmr/m/n/10 . D^^Sale uva^^Tzujme ^^Surokov^^Sy
+ []
+
+
+Overfull \hbox (11.3074pt too wide) in paragraph at lines 3289--3290
+\OT1/cmr/m/n/10 je rel-a-tivn^^Te zaned-bateln^^Sa, lze dolarovou du-raci swapu
+ aprox-i-mo-vat po-moc^^S^^P dolarov^^Se
+ []
+
+[124]
+Overfull \hbox (6.78957pt too wide) in paragraph at lines 3356--3357
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Uva^^Tzujme m^^Tenov^^Sy swap
+ typu float-float, v r^^Samci kter^^Seho bude sm^^Te^^Tnov^^San
+ []
+
+
+Overfull \hbox (4.39738pt too wide) in paragraph at lines 3356--3357
+\OT1/cmr/m/n/10 t^^Tr^^S^^Pm^^Tes^^S^^P^^Tcn^^S^^P Li-bor za ^^Tsestim^^Tes^^S^
+^P^^Tcn^^S^^P Eu-ri-bor. P^^Tredpokl^^Sadejme, ^^Tze pod-kladov^^Sy nomin^^Sal
+ []
+
+
+Overfull \hbox (13.00192pt too wide) in paragraph at lines 3356--3357
+\OT1/cmr/m/n/10 pod-kladov^^Se nomin^^Saly, po dobu ^^Tzivostnosti swapu si bu-
+dou vypl^^Sacet platby odvozen^^Se
+ []
+
+[125]
+Underfull \hbox (badness 10000) in paragraph at lines 3404--3405
+
+ []
+
+
+Overfull \hbox (17.36182pt too wide) in paragraph at lines 3406--3407
+[]\OT1/cmr/m/n/10 Hodnota m^^Tenov^^Seho swapu je ve-dle ^^Surokov^^Sych sazeb 
+ovlivn^^Tena v^^Syvojem m^^Tenov^^Sych
+ []
+
+
+Overfull \hbox (4.84076pt too wide) in paragraph at lines 3406--3407
+\OT1/cmr/m/n/10 hod-notu m^^Tenov^^Seho swapu. V^^Sypo^^Tcet hod-noty jed-notli
+v^^Sych no-hou m^^Tenov^^Seho swapu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3408--3409
+
+ []
+
+
+Overfull \hbox (1.89514pt too wide) in paragraph at lines 3412--3413
+\OT1/cmr/m/n/10 uzav^^Tren^^S^^P ob-chodu. V p^^Tr^^S^^Ppad^^Te for-war-dov^^Se
+ho ^^Surokov^^Seho swapu za^^Tc^^S^^Pn^^Sa ^^Surok nab^^S^^Phat
+ []
+
+
+Underfull \vbox (badness 1337) has occurred while \output is active []
+
+ [126]
+[127] [128
+
+]
+Kapitola 11.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3444--3445
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3446--3447
+
+ []
+
+
+Overfull \hbox (9.36186pt too wide) in paragraph at lines 3452--3453
+\OT1/cmr/m/n/10 Futures je stan-dard-i-zo-van^^Sy konk-trakt uzav^^Tren^^Sy mez
+i dv^^Tema stranami mezi kter^^Symi
+ []
+
+[129]
+Overfull \hbox (12.99959pt too wide) in paragraph at lines 3461--3463
+\OT1/cmr/m/n/10 a pro CBOT fu-tures na t^^Tricetilet^^Sy st^^Satn^^S^^P dluhopi
+s Spo-jen^^Sych st^^Sat^^Wu s nomin^^Saln^^S^^P
+ []
+
+[130]
+Overfull \hbox (3.30637pt too wide) in paragraph at lines 3484--3485
+\OT1/cmr/m/n/10 ak-tivum m^^Sa charak-ter fik-tivn^^S^^Pho dluhopisu s danou ku
+p^^Sonovou sazbou a frekvenc^^S^^P
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3488--3489
+
+ []
+
+
+Overfull \hbox (20.2607pt too wide) in paragraph at lines 3490--3491
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Uva^^Tzujme t^^Tr^^S^^Pm^^Tes
+^^S^^P^^Tcn^^S^^P EUR-Schatz dluhopisovou fu-tures s datem vypo^^Tr^^Sad^^San^^
+S^^P
+ []
+
+
+Overfull \hbox (4.75073pt too wide) in paragraph at lines 3490--3491
+\OT1/cmr/m/n/10 Vypo^^Tct^^Teme kon-verzn^^S^^P fak-tor pro n^^Temeck^^Sy st^^S
+atn^^S^^P dluhopis s 5% kup^^Sonovou sazbou,
+ []
+
+
+Overfull \hbox (5.4452pt too wide) in paragraph at lines 3492--3493
+[]\OT1/cmr/m/n/10 Konverzn^^S^^P fak-tor vy-jad^^Truje netto cenu uva^^Tzovan^^
+Seho dluhopisu za p^^Tredpokladu,
+ []
+
+
+Overfull \hbox (1.00188pt too wide) in paragraph at lines 3499--3501
+\OT1/cmr/m/n/10 p^^Tred datem vypo^^Tr^^Sad^^S^^P fu-tures a t^^S^^Pmto datem u
+p-lyne 340 kalend^^Sa^^Trn^^S^^P dn^^S^^P, je nab^^Tehl^^Sy
+ []
+
+[131]
+Overfull \hbox (3.55638pt too wide) in paragraph at lines 3511--3512
+\OT1/cmr/m/n/10 Volba konkr^^Setn^^S^^Pho dluhopisu do-dan^^Seho v dob^^Te vypo
+^^Tr^^Sad^^San^^S^^P je rozhod-nut^^S^^Pm strany,
+ []
+
+
+Overfull \hbox (17.22961pt too wide) in paragraph at lines 3528--3529
+\OT1/cmr/m/n/10 Z^^Sakladn^^S^^Pm v^^Sychoz^^S^^Pm bo-dem pro v^^Sypo^^Tcet for
+-war-dov^^Se resp. fu-tures ceny je p^^Tredpoklad
+ []
+
+[132] [133]
+Underfull \hbox (badness 10000) in paragraph at lines 3574--3575
+
+ []
+
+
+Overfull \hbox (13.00836pt too wide) in paragraph at lines 3579--3580
+\OT1/cmr/m/n/10 v^^Wu^^Tci mar^^Tzov^^Semu ^^Su^^Tctu, kter^^Sy mus^^S^^P in-ve
+stor dr^^Tzet u burzy. Postup je n^^Sasleduj^^S^^Pc^^S^^P. 
+ []
+
+[134]
+Overfull \hbox (1.75069pt too wide) in paragraph at lines 3621--3623
+\OT1/cmr/m/n/10 V^^Synosov^^Sa m^^S^^Pra pro in-ves-tici do dluhopisu je 1.965%
+ a pro in-ves-tici do dluhopisov^^Se
+ []
+
+
+Overfull \hbox (1.77837pt too wide) in paragraph at lines 3630--3631
+\OT1/cmr/m/n/10 Futures lze pou^^Tz^^S^^Pt pro p^^Treveden^^S^^P po-hy-blivn^^T
+e ^^Suro^^Tcen^^Seho cash-flow na fixn^^Te ^^Suro^^Tcen^^Se
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3630--3631
+
+ []
+
+[135]
+Overfull \hbox (5.47408pt too wide) in paragraph at lines 3654--3655
+\OT1/cmr/m/n/10 tento rozd^^S^^Pl nen^^S^^P kom-pen-zov^^San transak^^Tcn^^S^^P
+mi n^^Saklady, lze dos^^Sahnout bezrizikov^^Seho
+ []
+
+
+Overfull \hbox (12.11961pt too wide) in paragraph at lines 3656--3657
+\OT1/cmr/m/n/10 hovo^^Tr^^S^^Pme o cash-and-carry ar-bitr^^Sa^^Tzi. Jestli^^Tze
+ ak-tivum naopak prod^^Sav^^Same, hovo^^Tr^^S^^Pme
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3656--3657
+
+ []
+
+
+Overfull \hbox (4.47299pt too wide) in paragraph at lines 3661--3662
+[]\OT1/cmr/m/n/10 V^^Synosov^^Sa m^^S^^Pra pok-ladni^^Tcn^^S^^P pouk^^Sazky se 
+zby-tovou splat-nost^^S^^P 106 dn^^S^^P splatn^^Se
+ []
+
+[136]
+Overfull \hbox (13.00076pt too wide) in paragraph at lines 3671--3673
+\OT1/cmr/m/n/10 N^^Sasledn^^Te prod^^Same fu-tures v^^Sy^^Tse uva^^Tzovanou pok
+-ladni^^Tcn^^S^^P pouk^^Sazku za cenu 9 860 972
+ []
+
+
+Overfull \hbox (16.70195pt too wide) in paragraph at lines 3675--3677
+\OT1/cmr/m/n/10 Dne 30.11.2001 dod^^Same v r^^Samci fu-tures kon-traktu pok-lad
+ni^^Tcn^^S^^P pouk^^Sazku. Vytvo^^Tr^^S^^Pme
+ []
+
+
+Overfull \hbox (1.63962pt too wide) in paragraph at lines 3675--3677
+\OT1/cmr/m/n/10 ^^Suv^^Ter, ve kter^^Sem 15.11.2001 plat^^S^^Pme 9 837 172 USD 
+a 30.11.2001 z^^S^^Psk^^Same 9 860 972
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3687--3689
+
+ []
+
+[137]
+Overfull \hbox (14.46335pt too wide) in paragraph at lines 3730--3731
+\OT1/cmr/m/n/10 parame-try $\OML/cmm/m/it/10 ^^L[]$\OT1/cmr/m/n/10 , $\OML/cmm/
+m/it/10 ^^L[]$ \OT1/cmr/m/n/10 a $\OML/cmm/m/it/10 ^^L[]$\OT1/cmr/m/n/10 . Prot
+o budeme k zaji^^Tst^^Ten^^S^^P port-fo-lia pot^^Trebovat t^^Tri dluhopisov^^Se
+
+ []
+
+[138] [139
+
+] [140]
+Kapitola 12.
+
+Overfull \hbox (1.74625pt too wide) in paragraph at lines 3759--3759
+[]\OT1/cmr/bx/n/14.4 Konstrukce bi-nomick^^Seho stromu ^^Surokov^^Sych
+ []
+
+
+Overfull \hbox (22.47408pt too wide) in paragraph at lines 3761--3762
+\OT1/cmr/m/n/10 P^^Tri kon-strukci bi-nomick^^Seho stromu ^^Surokov^^Sych sazeb
+ p^^Tredpokl^^Sad^^Same, ^^Tze se kr^^Satkodob^^Sa
+ []
+
+[141
+
+]
+Overfull \hbox (11.50192pt too wide) in paragraph at lines 3859--3861
+\OT1/cmr/m/n/10 ozna^^Tcuje n^^Sahodnou Bernoul-liho veli^^Tcinu, kter^^Sa nab^
+^Syv^^Sa se ste-j-nou pravd^^Tepodobnost^^S^^P
+ []
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 3868--3868
+[][]\OT1/cmr/m/n/8 Relativn^^S^^P zm^^Teny ^^Surokov^^Sych sazeb jsou aprox-i-m
+ov^^Sany v^^Syrazem $[] \OML/cmm/m/it/8 r[] \OMS/cmsy/m/n/8 ^^@ [] \OML/cmm/m/i
+t/8 r[] \OT1/cmr/m/n/8 =
+ []
+
+[142]
+Overfull \hbox (15.10255pt too wide) in paragraph at lines 3874--3875
+[]\OT1/cmr/m/n/10 P^^Tredpokl^^Sadanou volatil-itu ^^Surokov^^Sych sazeb ozna^^
+Tcme jako $\OML/cmm/m/it/10 ^^[$\OT1/cmr/m/n/10 , splat-nost dluhopisu,
+ []
+
+
+Overfull \hbox (27.42404pt too wide) in paragraph at lines 3894--3895
+[]\OT1/cmr/m/n/10 Nyn^^S^^P m^^Wu^^Tzeme p^^Tristoupit k samotn^^Se kali-braci 
+bi-nomick^^Seho stromu. Pro zjednodu^^Tsen^^S^^P
+ []
+
+[143]
+Underfull \hbox (badness 10000) in paragraph at lines 3951--3952
+
+ []
+
+[144]
+Overfull \hbox (6.08966pt too wide) in paragraph at lines 3966--3967
+\OT1/cmr/m/n/10 splat-nosti dvoulet^^Seho par dluhopisu je 2.04593%. V r^^Samci
+ mod-elu p^^Tredpokl^^Sad^^Same,
+ []
+
+
+Overfull \hbox (29.13124pt too wide) detected at line 3981
+[] \OT1/cmr/m/n/10 = 1
+ []
+
+[145]
+Overfull \hbox (4.66743pt too wide) in paragraph at lines 4118--4119
+\OT1/cmr/m/n/10 Modely dy-namiky kr^^Satkodob^^Se ^^Surokov^^Se sazby jsou zalo
+^^Tzeny na difer-enci^^Saln^^S^^P rovnici
+ []
+
+[146]
+Overfull \hbox (1.4251pt too wide) in paragraph at lines 4130--4131
+\OT1/cmr/m/n/10 jako funkce jedn^^Se prom^^Tenn^^Se. Ex-is-tuje shoda, ^^Tze v 
+p^^Tr^^S^^Ppad^^Te ap-likace pouze jedin^^Seho
+ []
+
+
+Overfull \hbox (14.16736pt too wide) in paragraph at lines 4139--4140
+[]\OT1/cmr/m/n/10 V n^^Sasleduj^^S^^Pc^^S^^Pm textu se budeme zab^^Syvat mod-el
+y, kter^^Se jsou speci-fickou variantou
+ []
+
+
+Overfull \hbox (17.81294pt too wide) in paragraph at lines 4147--4148
+\OT1/cmr/m/n/10 Va^^Ts^^S^^P^^Tcek (1977) defin-uje tzv. Ornstein-Uhlenbeck^^Wu
+v pro-ces pro kr^^Satkodobou ^^Surokovou
+ []
+
+
+Overfull \hbox (0.6739pt too wide) in paragraph at lines 4153--4154
+[]\OT1/cmr/m/n/10 P^^Tredpokl^^Sadejme kon-stantn^^S^^P cenu rizika ^^Surokov^^
+Se sazby a ozna^^Tcme je $\OML/cmm/m/it/10 ^^U$\OT1/cmr/m/n/10 . Va^^Ts^^S^^P^^
+Tcek
+ []
+
+[147]
+Overfull \hbox (0.44621pt too wide) in paragraph at lines 4164--4166
+\OT1/cmr/m/n/10 dostatkem Va^^Ts^^S^^P^^Tckova mod-elu je v^^Tsak skute^^Tcnost
+, ^^Tze p^^Tripou^^Tst^^S^^P ex-is-tenci z^^Saporn^^Sych
+ []
+
+[148]
+Overfull \hbox (10.91855pt too wide) in paragraph at lines 4214--4215
+\OT1/cmr/m/n/10 Fong a Va^^Ts^^S^^P^^Tcek p^^Tredstavili v roce 1991 dvo-ufak-t
+orov^^Sy model, kde zm^^Tena kr^^Satkodob^^Se
+ []
+
+
+Overfull \hbox (1.75461pt too wide) detected at line 4231
+\OML/cmm/m/it/10 dr[] \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 ^^M \OT1/cmr/m/n/10
+ + \OML/cmm/m/it/10 ^^L^^Q \OMS/cmsy/m/n/10 ^^@ []\OML/cmm/m/it/10 r[] \OMS/cms
+y/m/n/10 ^^@ []\OML/cmm/m/it/10 v[][]dt \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 []d
+W[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^L[]dW[]
+ []
+
+
+Overfull \hbox (29.1025pt too wide) detected at line 4234
+\OML/cmm/m/it/10 dv[] \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 []^^M \OT1/cmr/m/n/
+10 + \OML/cmm/m/it/10 ^^L[]^^Q \OMS/cmsy/m/n/10 ^^@ []\OML/cmm/m/it/10 r[] \OMS
+/cmsy/m/n/10 ^^@ [][]\OML/cmm/m/it/10 dt \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 []
+[]dW[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^L[][]dW[]
+ []
+
+[149]
+Overfull \hbox (3.41847pt too wide) in paragraph at lines 4283--4284
+\OT1/cmr/m/n/10 mod-elu jsou t^^Tri stocha-stick^^Se pro-cesy, kdy prvn^^S^^P d
+efin-uje zm^^Tenu kr^^Satkdob^^Se ^^Surokov^^Se
+ []
+
+[150]
+Overfull \hbox (2.6129pt too wide) in paragraph at lines 4312--4313
+[]\OT1/cmr/m/n/10 V^^Syhodou to-hoto Bal-duzziho mod-elu je skute^^Tcnost, ^^Tz
+e umo^^Tz^^Tnuje se p^^Trizp^^Wusobit
+ []
+
+[151]
+Overfull \hbox (8.69733pt too wide) in paragraph at lines 4324--4325
+\OT1/cmr/m/n/10 P^^Tredpokl^^Sadejme, ^^Tze v r^^Samci ur^^Tcit^^Seho ^^Tcasov^
+^Seho in-ter-valu $^^A\OML/cmm/m/it/10 t$\OT1/cmr/m/n/10 , m^^Wu^^Tze cena disk
+ontn^^S^^Pho
+ []
+
+[152]
+Overfull \hbox (95.83182pt too wide) detected at line 4379
+\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 + 1) = 
+\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 + 1\OML
+/cmm/m/it/10 ; T \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1) + \OML/cmm/m/it/10 ^^^
+B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 + 1\OML/cmm/m/it/10 ; T[
+] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1) = [][]\OML/cmm/m/it/10 B[]\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 n; T\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (
+\OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1) + \OML/cmm/m/it/10 ^
+^^B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n; T[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 
+h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1)[
+]
+ []
+
+
+Overfull \hbox (74.65114pt too wide) detected at line 4383
+\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 + 1) = 
+\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 + 1\OML
+/cmm/m/it/10 ; T \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1) + \OML/cmm/m/it/10 ^^^
+B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 + 1\OML/cmm/m/it/10 ; T[
+] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1) = [][]\OML/cmm/m/it/10 B[]\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 n; T\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10
+ (\OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1) + \OML/cmm/m/it/10
+ ^^^B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n; T[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/1
+0 h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10
+ 1)[]
+ []
+
+
+Overfull \hbox (8.62502pt too wide) detected at line 4395
+\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n; T\OT1/cmr/m/n/10 ) + \
+OML/cmm/m/it/10 ^^^B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n; T[]\OT1/cmr/m/n/10 )
+ = [][]\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n; T\OT1/cmr/m/n/1
+0 )\OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 ^^@
+ \OT1/cmr/m/n/10 1) + \OML/cmm/m/it/10 ^^^B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
+n; T[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[
+] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1)[]\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 
+(\OML/cmm/m/it/10 n; \OT1/cmr/m/n/10 1)
+ []
+
+
+Overfull \hbox (1.28859pt too wide) in paragraph at lines 4407--4409
+\OT1/cmr/m/n/10 kde $\OML/cmm/m/it/10 ^^Y$ \OT1/cmr/m/n/10 p^^Tredstavuje kon-s
+tantu a lze jej ch^^Sapat jako pravd^^Tepodobnost. Pro prost^^Tred^^S^^P
+ []
+
+[153]
+Overfull \hbox (8.61296pt too wide) in paragraph at lines 4423--4425
+\OT1/cmr/m/n/10 T^^S^^Pmto se dost^^Sav^^Same k z^^Sav^^Teru, ^^Tze za podm^^S^
+^Pnky rizikov^^Te neutr^^Saln^^S^^P pravd^^Tepodobnosti
+ []
+
+
+Overfull \hbox (3.19513pt too wide) in paragraph at lines 4428--4429
+\OT1/cmr/m/n/10 dluhopisu vede ke stejn^^Semu v^^Sysledku jako pok-les a n^^Sas
+ledn^^Sy r^^Wust ceny diskontn^^S^^Pho
+ []
+
+[154]
+Overfull \hbox (4.61848pt too wide) in paragraph at lines 4514--4515
+\OT1/cmr/m/n/10 z^^S^^Pskat po-moc^^S^^P ne-line^^Sarn^^S^^Pch op-ti-mal-iza^^T
+cn^^S^^Pch metod. Tyto metody byly p^^Tredstaveny
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4514--4515
+
+ []
+
+[155]
+Overfull \hbox (15.50189pt too wide) in paragraph at lines 4542--4544
+\OT1/cmr/m/n/10 Analogicky lze vypo^^Tc^^S^^Pst tak^^Se for-war-dovou hod-notu 
+dvou, t^^Tr^^S^^P a ^^Tcty^^Trlet^^Seho diskontn^^S^^Pho
+ []
+
+[156]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [157]
+Overfull \hbox (17.72418pt too wide) in paragraph at lines 4859--4860
+\OT1/cmr/m/n/10 Model je zkon-struov^^San tak, aby se o^^Tcek^^Savan^^Sa hod-no
+ta diskontn^^S^^Pho fak-toru vypo^^Tcetn^^Sa
+ []
+
+
+Overfull \hbox (19.28531pt too wide) in paragraph at lines 4859--4860
+\OT1/cmr/m/n/10 k^^Trivky. O^^Tcek^^Savanou hod-notu diskontn^^S^^Pho fak-toru 
+pro p^^Tr^^S^^Pslu^^Tsnou splat-nost vypo^^Tcteme
+ []
+
+
+Overfull \hbox (4.72412pt too wide) in paragraph at lines 4859--4860
+\OT1/cmr/m/n/10 jako v^^Sa^^Tzen^^Sy pr^^Wum^^Ter diskontn^^S^^Pch fak-tor^^Wu,
+ kde va-hami je pravd^^Tepodobnost dosa^^Tzen^^S^^P
+ []
+
+[158]
+Overfull \hbox (36.11212pt too wide) detected at line 4950
+\OT1/cmr/m/n/10 91\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 19351 \OMS/cmsy/m/n/10 ^^A 
+\OT1/cmr/m/n/10 20\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 250% + 92\OML/cmm/m/it/10 :
+\OT1/cmr/m/n/10 11466 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 24\OML/cmm/m/it/10 :
+\OT1/cmr/m/n/10 750% + 93\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04511 \OMS/cmsy/m/n/
+10 ^^A \OT1/cmr/m/n/10 24\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 750% + 93\OML/cmm/m/
+it/10 :\OT1/cmr/m/n/10 98496 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 30\OML/cmm/m/
+it/10 :\OT1/cmr/m/n/10 250% = 92\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 72418
+ []
+
+
+Overfull \hbox (4.27855pt too wide) in paragraph at lines 4959--4960
+\OT1/cmr/m/n/10 P^^Wuvodn^^S^^P model Heath-Jarrow-Morton m^^Sa po-vahu obecn^^
+Seho v^^S^^Pcefaktorov^^Seho mod-
+ []
+
+[159]
+Overfull \hbox (12.50186pt too wide) in paragraph at lines 4980--4982
+\OT1/cmr/m/n/10 Ceny diskontn^^S^^Pch dluhopis^^Wu tak z^^Savis^^S^^P pouze na 
+aktu^^Saln^^S^^P v^^Synosov^^Se k^^Trivce, konkr^^Setn^^Te
+ []
+
+
+Overfull \hbox (42.73209pt too wide) detected at line 4984
+\OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; T \OMS/cmsy/m/n/10 ^^@
+ \OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = [][] [] [] \OMS/cmsy/m/n/10 ^^@ [][] []\
+OML/cmm/m/it/10 ^^[\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; T\OT1/cmr/m/n/10 ) \OMS
+/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^[\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; t\OT1
+/cmr/m/n/10 )[]\OML/cmm/m/it/10 d[] \OT1/cmr/m/n/10 + [] [][] []\OML/cmm/m/it/1
+0 ^^[[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; T\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10
+ ^^@ \OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; t\OT1/cmr/m/n/1
+0 )[][]\OML/cmm/m/it/10 ds
+ []
+
+
+Overfull \hbox (19.32681pt too wide) in paragraph at lines 4996--4997
+\OT1/cmr/m/n/10 ne-mus^^S^^P b^^Syt Markov^^Sym pro-ce-sem[]. Chyb^^Tej^^S^^Pc^
+^S^^P Markova vlast-nost ^^Tcin^^S^^P pro-ces v^^Sypo^^Tcetn^^Te
+ []
+
+
+Overfull \hbox (3.69519pt too wide) in paragraph at lines 5000--5001
+\OT1/cmr/m/n/10 Jarrow-Mortonova mod-elu charak-ter Markova mod-elu s c^^S^^Ple
+m lim-i-to-vat v^^Sypo^^Tcetn^^S^^P
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5000--5001
+
+ []
+
+[160]
+Underfull \hbox (badness 10000) in paragraph at lines 5030--5031
+
+ []
+
+
+Overfull \hbox (21.5301pt too wide) detected at line 5049
+\OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; T \OMS/cmsy/m/n/10 ^^@
+ \OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (0\OML
+/cmm/m/it/10 ; t; T \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) + 
+[]\OML/cmm/m/it/10 r[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (
+0\OML/cmm/m/it/10 ; t\OT1/cmr/m/n/10 )[][] + []
+ []
+
+[161]
+Underfull \hbox (badness 10000) in paragraph at lines 5063--5065
+
+ []
+
+
+Overfull \hbox (5.20262pt too wide) in paragraph at lines 5066--5067
+\OT1/cmr/bx/n/10 Moraleda-Vorst model \OT1/cmr/m/n/10 je op^^Tet speci-fick^^Sy
+m p^^Tr^^S^^Ppadem Heath-Jarrow-Mortonova
+ []
+
+
+Overfull \hbox (9.58954pt too wide) in paragraph at lines 5077--5079
+\OT1/cmr/m/n/10 V r^^Samci mod-elu m^^Sa kr^^Satkodob^^Sa sazba charak-ter stav
+ov^^Se veli^^Tciny. Ceny Diskontn^^S^^Pch
+ []
+
+
+Overfull \hbox (4.80739pt too wide) in paragraph at lines 5077--5079
+\OT1/cmr/m/n/10 dluhopis^^Wu, spo-tov^^Se ^^Surokov^^Se sazby a okam^^Tzit^^Se 
+for-war-dov^^Se sazby mo-hou b^^Syt z^^S^^Psk^^Sany
+ []
+
+[162]
+Overfull \hbox (15.53519pt too wide) in paragraph at lines 5101--5102
+\OT1/cmr/m/n/10 dlouhodob^^Seho pr^^Wum^^Teru. N^^Sasleduj^^S^^Pc^^S^^P p^^Tr^^
+S^^Ploha se tak bude v^^Tenovat pr^^Sav^^Te tri-nomick^^Semu
+ []
+
+
+Overfull \hbox (2.77846pt too wide) in paragraph at lines 5105--5106
+\OT1/cmr/m/n/10 V^^Sychoz^^S^^P my^^Tslenkou je vyj^^Sad^^Tren^^S^^P (12.16)ve 
+form^^Te stocha-stick^^Se difer-enci^^Saln^^S^^P rovnice
+ []
+
+[163] [164]
+Underfull \hbox (badness 10000) in paragraph at lines 5267--5268
+
+ []
+
+[165] [166]
+Overfull \hbox (8.75667pt too wide) in paragraph at lines 5443--5443
+[] 
+ []
+
+
+Overfull \hbox (57.83179pt too wide) detected at line 5447
+\OML/cmm/m/it/10 Q[]e[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 Q[]e[] \OT1/cmr/m/n/
+10 + \OML/cmm/m/it/10 Q[]e[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 Q[]e[] \OT1/cmr
+/m/n/10 + \OML/cmm/m/it/10 Q[]e[] \OT1/cmr/m/n/10 = 0\OML/cmm/m/it/10 :\OT1/cmr
+/m/n/10 90303
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [167]
+Underfull \hbox (badness 10000) in paragraph at lines 5571--5573
+
+ []
+
+
+Overfull \hbox (13.48126pt too wide) detected at line 5581
+\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 91 \OMS/cmsy/m/n/10 ^^A \OML
+/cmm/m/it/10 Q[] \OT1/cmr/m/n/10 + 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 61 \OMS/c
+msy/m/n/10 ^^A \OML/cmm/m/it/10 Q[] \OT1/cmr/m/n/10 + 0\OML/cmm/m/it/10 :\OT1/c
+mr/m/n/10 31 \OMS/cmsy/m/n/10 ^^A \OML/cmm/m/it/10 Q[] \OT1/cmr/m/n/10 = 2\OML/
+cmm/m/it/10 :\OT1/cmr/m/n/10 91 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/
+m/it/10 :\OT1/cmr/m/n/10 02217 + 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 61 \OMS/cms
+y/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 20430 + 0\OML/c
+mm/m/it/10 :\OT1/cmr/m/n/10 31 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 0\OML/cmm/m
+/it/10 :\OT1/cmr/m/n/10 45399 = 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 534
+ []
+
+
+Overfull \hbox (0.4795pt too wide) in paragraph at lines 5586--5587
+\OT1/cmr/m/n/10 jit^^Sych v ^^Tcase. []Z^^Sadn^^Se ze zde p^^Tredkl^^Sadan^^Syc
+h tvrzen^^S^^Pch ne-j-sou podlo^^Tzena form^^Saln^^S^^Pmi
+ []
+
+
+Overfull \hbox (6.9241pt too wide) in paragraph at lines 5586--5587
+\OT1/cmr/m/n/10 matem-at-ick^^Symi d^^Wukazy. Po-drobn^^Sy ^^Suvod do t^^Seto p
+rob-lematiky v^^Tcetn^^Te v^^Tsech d^^Wukaz^^Wu
+ []
+
+[168]
+Overfull \hbox (3.51099pt too wide) in paragraph at lines 5590--5591
+\OT1/cmr/m/n/10 Funkce pravd^^Tepodobnosti n^^Sahodn^^Se veli^^Tciny $\OML/cmm/
+m/it/10 " ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 N\OT1/cmr/m/n/10 (0\OML/cmm/m/
+it/10 ; \OT1/cmr/m/n/10 1)$ gen-erovan^^Se nor-movan^^Sym
+ []
+
+
+Overfull \hbox (24.68246pt too wide) in paragraph at lines 5608--5609
+[]\OT1/cmr/m/n/10 stacionarita - pravd^^Tepodobnostn^^S^^P rozd^^Telen^^S^^P $\
+OML/cmm/m/it/10 W[]$ \OT1/cmr/m/n/10 je toto^^Tzn^^Se s pravd^^Tepodobnostn^^S^
+^Pm
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5610--5611
+
+ []
+
+
+Overfull \hbox (7.44513pt too wide) in paragraph at lines 5624--5625
+\OT1/cmr/m/n/10 pova^^Tzovat za nekone^^Tcnou sumu nekone^^Tcn^^Te mal^^Sych vz
+^^Sajemn^^Te nez^^Savisl^^Sych p^^Tr^^S^^Pr^^Wustk^^Wu.
+ []
+
+[169]
+Overfull \hbox (10.02347pt too wide) in paragraph at lines 5664--5665
+[]\OT1/cmr/m/n/10 Necht[] $(
+\OML/cmm/m/it/10 ; F; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 )\OM
+L/cmm/m/it/10 ; P\OT1/cmr/m/n/10 )$ je stan-dardn^^S^^P pravd^^Tepodobnostn^^S^
+^P pros-tor a $\OML/cmm/m/it/10 W[]$ \OT1/cmr/m/n/10 je Brown^^Wuv
+ []
+
+[170] [171]
+Overfull \hbox (16.47958pt too wide) in paragraph at lines 5727--5729
+\OT1/cmr/m/n/10 spo-jit^^Se zprava a maj^^S^^P lim-itu zl-eva a t^^Sem^^Te^^Tr 
+jist^^Te spl^^Tnuj^^S^^P podm^^S^^Pnku $\OML/cmm/m/it/10 E[] [][] ^^[[]\OT1/cmr
+/m/n/10 (\OML/cmm/m/it/10 s; !\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ds[] <
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5734--5736
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5761--5763
+
+ []
+
+[172]
+Underfull \hbox (badness 10000) in paragraph at lines 5777--5779
+
+ []
+
+[173]
+Overfull \hbox (13.4463pt too wide) in paragraph at lines 5816--5817
+[]\OT1/cmr/m/n/10 N^^Sasleduj^^S^^Pc^^S^^P teor^^Sem tvrd^^S^^P, ^^Tze v^^Tsech
+ny Brownovy mar-tin-galy mo-hou b^^Syt vyj^^Sad^^Treny
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5816--5817
+
+ []
+
+
+Overfull \hbox (3.11406pt too wide) in paragraph at lines 5821--5823
+\OT1/cmr/m/n/10 mar-ti-gale in-tegr^^Sal, ex-is-tuje podobn^^Se vyj^^Sad^^Tren^
+^S^^P, ve kter^^Sem fig-u-ruje pro-ces spl^^Tnuj^^S^^Pc^^S^^P
+ []
+
+[174]
+Overfull \hbox (11.53505pt too wide) in paragraph at lines 5889--5891
+\OT1/cmr/m/n/10 kladn^^Sy. Tento ^^Tclen vy-jad^^Truje rozd^^S^^Pl mezi $\OML/c
+mm/m/it/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 X[]\OT1/cmr/m/n/10 )]$ a $\OML/cmm/m/it/10 fE\OT1/cmr/m/n/10 [\OML/cmm/m/it/1
+0 X[]\OT1/cmr/m/n/10 ]$ v Jensenov^^Te nerovnosti.
+ []
+
+[175]
+Underfull \hbox (badness 10000) in paragraph at lines 5936--5938
+
+ []
+
+[176]
+Underfull \hbox (badness 10000) in paragraph at lines 5946--5948
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5960--5962
+
+ []
+
+
+Overfull \hbox (14.6271pt too wide) in paragraph at lines 5967--5968
+[]\OT1/cmr/m/n/10 Lze dok^^Sazat, ^^Tze $\OML/cmm/m/it/10 M[]$ \OT1/cmr/m/n/10 
+je $\OML/cmm/m/it/10 Q$\OT1/cmr/m/n/10 -martingale tehdy a jen tehdy, je-li $\O
+ML/cmm/m/it/10 L[]M[]$ $P$\OT1/cmr/m/n/10 -martingalem. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5967--5968
+
+ []
+
+[177]
+Underfull \hbox (badness 10000) in paragraph at lines 5982--5984
+
+ []
+
+
+Overfull \hbox (1.64323pt too wide) in paragraph at lines 5985--5986
+\OT1/cmr/bx/n/10 Aplikace: \OT1/cmr/m/n/10 Uva^^Tzujme pro-ces $(\OML/cmm/m/it/
+10 S[]; t \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 0)$, kter^^Sy spl^^Tnuje $\OML/c
+mm/m/it/10 dS[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm
+/m/it/10 b\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 
+dt \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^[\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT
+1/cmr/m/n/10 )\OML/cmm/m/it/10 dW[]\OT1/cmr/m/n/10 )$.
+ []
+
+
+Overfull \hbox (0.70392pt too wide) in paragraph at lines 5985--5986
+\OT1/cmr/m/n/10 ^^Surokov^^Sa sazba. Toho doc^^S^^Pl^^S^^Pme, zvol^^S^^Pme-li $
+\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OMS
+/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 b\OT1/c
+mr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/
+it/10 r\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )]$ za p^^Tredpokladu
+,
+ []
+
+[178]
+Overfull \hbox (13.68625pt too wide) in paragraph at lines 6029--6031
+\OT1/cmr/m/n/10 kde $\OML/cmm/m/it/10 ^^V[]$ \OT1/cmr/m/n/10 resp. $\OML/cmm/m/
+it/10 ^^[[]$ \OT1/cmr/m/n/10 p^^Tredstavuj^^S^^P o^^Tcek^^Savanou v^^Synosovou 
+m^^S^^Pru resp. volatil-itu diskontn^^S^^Pho
+ []
+
+[179] [180] [181] [182
+
+]
+Kapitola 13.
+
+Overfull \hbox (2.34189pt too wide) in paragraph at lines 6134--6135
+\OT1/cmr/m/n/10 spreadu, v porovn^^San^^S^^P s k^^Trivkou st^^Satn^^S^^Pch dluh
+opis^^Wu pop^^Tr. mez-ibankovn^^S^^P v^^Synosovou
+ []
+
+[183]
+Overfull \hbox (20.00041pt too wide) in paragraph at lines 6177--6192
+ [] 
+ []
+
+[184]
+File: probability_of_default.eps Graphic file (type eps)
+ <probability_of_default.eps>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 6200--6201
+ [][] 
+ []
+
+
+Overfull \hbox (7.36969pt too wide) in paragraph at lines 6215--6216
+\OT1/cmr/m/n/10 ur^^Tcit^^Sym konkr^^Setn^^S^^Pm ma-jetkem, jako je nap^^Tr. ne
+movi-tost nebo pohled^^Savka dlu^^Tzn^^S^^Pka
+ []
+
+[185]
+Overfull \hbox (4.61292pt too wide) in paragraph at lines 6241--6242
+\OT1/cmr/m/n/10 zalo^^Tzeny na p^^Tredpokladu ne-ex-is-tence ar-bitr^^Sa^^Tze, 
+co^^Tz umo^^Tz^^Tnuje ig-norovat o^^Tcek^^Sav^^San^^S^^P
+ []
+
+
+Overfull \hbox (8.42511pt too wide) in paragraph at lines 6247--6248
+[]\OT1/cmr/m/n/10 Merton u^^Tcinil dva p^^Tredpoklady. Prvn^^S^^Pm p^^Tredpokla
+dem je, ^^Tze spole^^Tcnost nem^^Wu^^Tze
+ []
+
+[186]
+Overfull \hbox (5.81299pt too wide) in paragraph at lines 6249--6250
+\OT1/cmr/m/n/10 cen^^S^^P dluhopisu. Rozd^^S^^Pl mezi hod-no-tou ak-tiv a nomin
+^^Saln^^S^^P hod-no-tou dluhopisu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6252--6253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6286--6288
+
+ []
+
+[187]
+Underfull \hbox (badness 10000) in paragraph at lines 6298--6300
+
+ []
+
+
+Overfull \hbox (19.33171pt too wide) in paragraph at lines 6306--6308
+\OT1/cmr/m/n/10 Za p^^Tredokladu kon-stantn^^S^^P bezrizikov^^Se ^^Surokov^^Se 
+m^^S^^Pry $\OML/cmm/m/it/10 r$ \OT1/cmr/m/n/10 je kred-itn^^S^^P spread $\OML/c
+mm/m/it/10 S$ \OT1/cmr/m/n/10 diskontn^^S^^Pho
+ []
+
+File: credit_spread_1.eps Graphic file (type eps)
+<credit_spread_1.eps>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 6315--6316
+ [][] 
+ []
+
+
+Overfull \hbox (1.16736pt too wide) in paragraph at lines 6312--6320
+[]\OT1/cmr/m/n/10 Vztah mezi kred-itn^^S^^Pm sprea-dem a splat-nost^^S^^P disko
+ntn^^S^^Pho dluhopisu naz^^Syv^^Same
+ []
+
+File: credit_spread_2.eps Graphic file (type eps)
+<credit_spread_2.eps>
+Overfull \hbox (6.3125pt too wide) in paragraph at lines 6324--6325
+ [][] 
+ []
+
+
+Overfull \hbox (11.55737pt too wide) in paragraph at lines 6321--6328
+[]\OT1/cmr/m/n/10 Naopak, je-li sou^^Tcasn^^Sa hod-nota z^^Savazk^^Wu vy^^Ts^^T
+s^^S^^P ne^^Tz sou^^Tcasn^^Sa hod-nota spole^^Tcnosti,
+ []
+
+
+Overfull \hbox (1.64745pt too wide) in paragraph at lines 6329--6330
+\OT1/cmr/m/n/10 spread^^Wu, z^^S^^Pskali by-chom podobn^^Sy pro-fil jako v p^^T
+r^^S^^Ppad^^Te Mertonova mod-elu. K^^Trivka
+ []
+
+[188] [189]
+Overfull \hbox (11.97957pt too wide) in paragraph at lines 6335--6336
+\OT1/cmr/m/n/10 ex-o-genn^^S^^P hranici defi-no-vanou v ^^Suv^^Terov^^Se sm-lou
+v^^Te. V^^Te^^Tritel tak m^^Wu^^Tze poslat spole^^Tcnost
+ []
+
+
+Overfull \hbox (24.61855pt too wide) in paragraph at lines 6337--6338
+[]\OT1/cmr/m/n/10 Black-Cox^^Wuv model slou^^Tzil jako z^^Saklad pro dal^^Ts^^S
+^^P navazuj^^S^^Pc^^S^^P mod-ely. Pravd^^Tepodobn^^Te
+ []
+
+
+Overfull \hbox (2.44405pt too wide) in paragraph at lines 6345--6346
+\OT1/cmr/m/n/10 V r^^Samci re-duko-van^^Seho mod-elu m^^Sa de-fault spole^^Tcno
+sti charak-ter n^^Sahodn^^Se veli^^Tciny.
+ []
+
+
+Overfull \hbox (3.94626pt too wide) in paragraph at lines 6345--6346
+\OT1/cmr/m/n/10 kon-stantn^^S^^P okam^^Tzit^^Se pravd^^Tepodobnosti lze pravd^^
+Tepodobnost, ^^Tze spole^^Tcnost nezde-
+ []
+
+[190]
+Overfull \hbox (0.16739pt too wide) in paragraph at lines 6364--6365
+\OT1/cmr/m/n/10 V roce 1994 navrhl Fons zjednodu^^Tsen^^Sy model, kter^^Sy umo^
+^Tz^^Tnuje in-vestor^^Wum propo-
+ []
+
+
+Overfull \hbox (13.67867pt too wide) in paragraph at lines 6373--6375
+\OT1/cmr/m/n/10 Ozna^^Tcme m^^S^^Pru n^^Sahrady jako $\OML/cmm/m/it/10 ^^V$\OT1
+/cmr/m/n/10 . O^^Tcek^^Savan^^Sa v^^Sy^^Tse n^^Sahodn^^Seho cash-flow $[]$ obdr
+^^Tzen^^Seho
+ []
+
+[191]
+Overfull \hbox (14.16739pt too wide) in paragraph at lines 6388--6389
+[]\OT1/cmr/m/n/10 Z^^Sasadn^^S^^Pm probl^^Semem v^^Sy^^Tse pop-san^^Seho mod-el
+u je p^^Tredpoklad rizikov^^Te neutr^^Saln^^S^^Pch
+ []
+
+
+Overfull \hbox (1.88972pt too wide) in paragraph at lines 6388--6389
+\OT1/cmr/m/n/10 pravd^^Tepodobnosti de-faultu pou^^Tz^^S^^Pt rizikov^^Te up-rav
+enou pravd^^Tepodobnost de-faultu.
+ []
+
+
+Overfull \hbox (3.58755pt too wide) in paragraph at lines 6390--6390
+[]\OT1/cmr/bx/n/12 Historick^^Sa a rizikov^^Te up-raven^^Sa pravd^^Tepodobnost 
+de-
+ []
+
+
+Overfull \hbox (5.18077pt too wide) in paragraph at lines 6392--6393
+\OT1/cmr/m/n/10 spread 50 bps. P^^Tredpokl^^Sadejme m^^S^^Pru n^^Sahrady 10%. I
+m-p-liko-van^^Sa pravd^^Tepodobnost
+ []
+
+[192]
+Overfull \hbox (7.61739pt too wide) in paragraph at lines 6409--6411
+\OT1/cmr/m/n/10 kde $\OML/cmm/m/it/10 p[]$ \OT1/cmr/m/n/10 vy-jad^^Truje pravd^
+^Tepodobnost v ^^Tcase $\OML/cmm/m/it/10 t$\OT1/cmr/m/n/10 , ^^Tze spole^^Tcnos
+t zde-fault-uje do ^^Tcasov^^Seho
+ []
+
+
+Overfull \hbox (4.87773pt too wide) in paragraph at lines 6412--6413
+\OT1/cmr/m/n/10 rozd^^S^^Plem, ^^Tze $\OML/cmm/m/it/10 ^^V[]$ \OT1/cmr/m/n/10 j
+e nahrazeno bezrizikovou ^^Surokovou m^^S^^Prou $\OML/cmm/m/it/10 r$\OT1/cmr/m/
+n/10 . S vyu^^Tzit^^S^^Pm Sharpeho
+ []
+
+[193] [194
+
+] [195] [196]
+Kapitola 14.
+
+Underfull \vbox (badness 5203) has occurred while \output is active []
+
+ [197
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 6448--6449
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6465--6466
+
+ []
+
+
+Overfull \hbox (2.80627pt too wide) in paragraph at lines 6470--6471
+[]\OT1/cmr/m/n/10 Kup^^Sonov^^Se platby gen-erovan^^Se dluhopisem jsou rein-ves
+tov^^Sany za v^^Synos rovn^^Sy
+ []
+
+
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 198 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[198]
+Underfull \hbox (badness 10000) in paragraph at lines 6481--6482
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6491--6493
+
+ []
+
+
+Overfull \hbox (8.53069pt too wide) in paragraph at lines 6494--6495
+[]\OT1/cmr/m/n/10 P^^Tr^^S^^Pstup, kter^^Sy jsme pop-sali ve v^^Sy^^Tse uve-den
+^^Sem p^^Tr^^S^^Pklad^^Te, je kl^^S^^P^^Tcov^^Sy pro oce^^Tnov^^San^^S^^P
+ []
+
+
+Overfull \hbox (47.3608pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 14.1.  SVOLATELN[]Y DLUHOPIS A DLUHOPIS S PR[]AVEM ZP[]ETN[]EH
+O PRODEJE \OT1/cmr/m/n/10 199
+ []
+
+[199]
+Overfull \hbox (6.00519pt too wide) in paragraph at lines 6576--6578
+\OT1/cmr/m/n/10 Cash-flow, kter^^Se v pe-riod^^Te $\OML/cmm/m/it/10 n \OMS/cmsy
+/m/n/10 ^^@ \OT1/cmr/m/n/10 1$ diskon-tu-jeme, je men^^Ts^^S^^P z ceny dluhopis
+u vypo^^Tcten^^Se
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6588--6590
+
+ []
+
+
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 200 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[200]
+Overfull \hbox (42.15077pt too wide) in paragraph at lines 6591--6592
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 Uva^^Tzujme n^^S^^P^^Tze uve-
+den^^Sy bi-nomick^^Sy strom ^^Surokov^^Sych sazeb, kde pravd^^Tepodobnost
+ []
+
+
+Overfull \hbox (6.92557pt too wide) detected at line 6659
+\OT1/cmr/m/n/10 +[][] + [] = 98\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 46666
+ []
+
+
+Overfull \hbox (14.2297pt too wide) in paragraph at lines 6659--6662
+\OT1/cmr/m/n/10 Hodnota uva^^Tzovan^^Seho svolateln^^Seho dluhopisu je tedy rov
+na 98.46666. Pro porovn^^San^^S^^P
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6659--6662
+
+ []
+
+
+Overfull \hbox (47.3608pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 14.1.  SVOLATELN[]Y DLUHOPIS A DLUHOPIS S PR[]AVEM ZP[]ETN[]EH
+O PRODEJE \OT1/cmr/m/n/10 201
+ []
+
+[201]
+Overfull \hbox (7.33517pt too wide) in paragraph at lines 6668--6669
+[]\OT1/cmr/m/n/10 Problematick^^Sa je tak^^Se volatilita kr^^Satkodob^^Se ^^Sur
+okov^^Se sazby, kter^^Sa p^^Tredstavuje
+ []
+
+
+Overfull \hbox (1.45778pt too wide) in paragraph at lines 6676--6678
+\OT1/cmr/m/n/10 kde $^^A\OML/cmm/m/it/10 t$ \OT1/cmr/m/n/10 je d^^Selkou ^^Tcas
+ov^^Seho kroku, $^^A\OML/cmm/m/it/10 r$ \OT1/cmr/m/n/10 p^^Tredstavuje zm^^Tenu
+ ^^Surokov^^Se sazby v pr^^Wub^^Tehu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6687--6689
+
+ []
+
+
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 202 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[202]
+Underfull \hbox (badness 10000) in paragraph at lines 6717--6718
+
+ []
+
+
+Overfull \hbox (47.3608pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 14.1.  SVOLATELN[]Y DLUHOPIS A DLUHOPIS S PR[]AVEM ZP[]ETN[]EH
+O PRODEJE \OT1/cmr/m/n/10 203
+ []
+
+[203]
+Underfull \hbox (badness 10000) in paragraph at lines 6740--6741
+
+ []
+
+
+Overfull \hbox (8.44511pt too wide) in paragraph at lines 6742--6743
+[]\OT1/cmr/m/n/10 Posledn^^S^^Pm krokem je v^^Sypo^^Tcet pr^^Wum^^Tern^^Se ceny
+ svolateln^^Seho dluhopisu na z^^Saklad^^Te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6742--6743
+
+ []
+
+
+Overfull \hbox (13.23291pt too wide) in paragraph at lines 6744--6745
+\OT1/cmr/bx/n/10 P^^Tr^^S^^Pklad: \OT1/cmr/m/n/10 V^^Sysledn^^Sa cena svolateln
+^^Seho dluhopisu uva^^Tzovan^^Seho v p^^Tredchoz^^S^^Pm p^^Tr^^S^^Pklad^^Te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6747--6749
+
+ []
+
+
+Overfull \hbox (1.86841pt too wide) in paragraph at lines 6750--6751
+\OT1/cmr/m/n/10 sazeb. Mezi po^^Tctem tra-jek-tori^^S^^P a p^^Tresnost^^S^^P v^
+^Sypo^^Tctu v^^Tsak ex-is-tuje p^^Tr^^S^^Pm^^Sa ^^Sum^^Ternost.
+ []
+
+
+Overfull \hbox (14.50066pt too wide) in paragraph at lines 6750--6751
+\OT1/cmr/m/n/10 V praxi je t^^Treba pou^^Tz^^S^^Pt ale-spo^^Tn 500 tra-jek-tori
+^^S^^P, jestli^^Tze chceme dos^^Sahnout dostate^^Tcn^^Te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6754--6755
+
+ []
+
+
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 204 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[204]
+Overfull \hbox (11.12192pt too wide) in paragraph at lines 6766--6767
+[]\OT1/cmr/m/n/10 Aktu^^Saln^^S^^P cenu dluhopisu s vno^^Trenou opc^^S^^P ozna^
+^Tcme $\OML/cmm/m/it/10 P$\OT1/cmr/m/n/10 . Uva^^Tzujme po-sun v^^Synosov^^Se
+ []
+
+
+Overfull \hbox (1.18907pt too wide) in paragraph at lines 6766--6767
+\OT1/cmr/m/n/10 k^^Trivky st^^Satn^^S^^Pch dluhopis^^Wu o $^^A\OML/cmm/m/it/10 
+y$\OT1/cmr/m/n/10 . Vypo^^Tct^^Teme cenu dluhopisu $\OML/cmm/m/it/10 P[]$ \OT1/
+cmr/m/n/10 pro r^^Wust v^^Synosov^^Se
+ []
+
+
+Overfull \hbox (23.50075pt too wide) in paragraph at lines 6787--6788
+[]\OT1/cmr/m/n/10 Vypo^^Tcteme cenu dluhopisu pro ka^^Tzdou ze zmod-i-fiko-van^
+^Sych tra-jek-tori^^S^^P ^^Surokov^^Sych
+ []
+
+
+Overfull \hbox (1.75069pt too wide) in paragraph at lines 6795--6796
+\OT1/cmr/m/n/10 pohledu in-vestora nab^^S^^Pz^^S^^P bezpe^^Tcnost kla-sick^^Seh
+o dluhopisu v kom-bi-naci s mo^^Tznost^^S^^P
+ []
+
+[205]
+Overfull \hbox (0.95175pt too wide) in paragraph at lines 6799--6800
+[]\OT1/cmr/m/n/10 Cenu kon-vert-ibiln^^S^^Pho dluhopisu ozna^^Tcujeme jako kon-
+verzn^^S^^P cenu. Uva^^Tzujme
+ []
+
+
+Overfull \hbox (13.02863pt too wide) in paragraph at lines 6814--6815
+\OT1/cmr/m/n/10 Konvertibiln^^S^^Pho dluhopis lze rep-liko-vat po-moc^^S^^P sta
+n-dardn^^S^^Pho kup^^Sonov^^Seho dluhopisu
+ []
+
+
+Overfull \hbox (6.33961pt too wide) in paragraph at lines 6818--6819
+\OT1/cmr/m/n/10 V praxi je ^^Tcasto pou^^Tz^^S^^Pv^^San tzv. syn-tet-ick^^Sy mo
+del ocen^^Ten^^S^^P kon-vert-ibiln^^S^^Pho dluhopisu.
+ []
+
+
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 206 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[206]
+Overfull \hbox (3.03629pt too wide) in paragraph at lines 6844--6845
+\OT1/cmr/m/n/10 moc^^S^^P pod-kladov^^Se ak-cie a bezrizikov^^Seho dluhopisu. P
+^^Tredpokl^^Sadejme, ^^Tze nakoup^^S^^Pme
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6862--6864
+
+ []
+
+[207]
+Overfull \hbox (14.62044pt too wide) detected at line 6882
+\OML/cmm/m/it/10 C \OT1/cmr/m/n/10 = [][]\OML/cmm/m/it/10 p[] []\OT1/cmr/m/n/10
+ (\OML/cmm/m/it/10 u[]S \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 K; \OT1/cmr/m/n/1
+0 0) + 2\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it
+/10 p\OT1/cmr/m/n/10 ) [](\OML/cmm/m/it/10 S \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it
+/10 K; \OT1/cmr/m/n/10 0) + (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 p\OT1/cmr/
+m/n/10 )[] [](\OML/cmm/m/it/10 d[]S \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 K; \O
+T1/cmr/m/n/10 0)[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6914--6915
+
+ []
+
+
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 208 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[208]
+Overfull \hbox (15.22957pt too wide) in paragraph at lines 6982--6983
+\OT1/cmr/m/n/10 dluhopis^^Wu z navazuj^^S^^Pc^^S^^Pch uzl^^Wu. []Urokov^^Se saz
+by maj^^S^^P charak-ter o^^Tcek^^Savan^^Sych ^^Surokov^^Sych
+ []
+
+
+Overfull \hbox (1.1396pt too wide) in paragraph at lines 6984--6985
+[]\OT1/cmr/m/n/10 P^^Tri oce^^Tnov^^San^^S^^P dluhopisu za^^Tc^^S^^Pn^^Same jak
+o ob-vykle na konci bi-nomick^^Seho stromu.
+ []
+
+
+Overfull \hbox (3.59074pt too wide) in paragraph at lines 6986--6987
+\OT1/cmr/m/n/10 pou^^Tz^^S^^Pt bezrizikovou ^^Surokovou sazbu 3.0%. Sou^^Tcasn^
+^Sa hod-nota dluhopisu v p^^Tr^^S^^Ppad^^Te,
+ []
+
+[209]
+Overfull \hbox (11.50189pt too wide) in paragraph at lines 6990--6991
+\OT1/cmr/m/n/10 nomick^^Seho stromu, pro kter^^Sy z^^S^^Psk^^Same sou^^Tcasnou 
+hod-notu kon-vert-ibiln^^S^^Pho dluhopisu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6990--6991
+
+ []
+
+
+Overfull \hbox (5.3063pt too wide) in paragraph at lines 6992--6993
+[]\OT1/cmr/m/n/10 V^^Sy^^Tse na^^Tctrnut^^Sy zp^^Wusob oce^^Tnov^^San^^S^^P kon
+-vert-ibiln^^S^^Pho dluhopisu m^^Sa v^^Tsak v^^Syraznou
+ []
+
+
+Overfull \hbox (10.33417pt too wide) in paragraph at lines 6992--6993
+\OT1/cmr/m/n/10 uva^^Tzovat vz^^Sajemnou ko-relaci mezi v^^Syvojem ceny pod-kla
+dov^^Seho ak-tiva a kr^^Satkodob^^Se
+ []
+
+
+Underfull \vbox (badness 1194) has occurred while \output is active []
+
+
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 210 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[210]
+Overfull \hbox (20.59074pt too wide) in paragraph at lines 7033--7034
+[]\OT1/cmr/m/n/10 Uva^^Tzujme plain-vanilla fixn^^S^^P dluhopis. Cena dluhopisu
+ roste p^^Tri pok-lesu ^^Surokov^^Sych
+ []
+
+[211]
+Overfull \hbox (2.70303pt too wide) in paragraph at lines 7095--7096
+\OT1/cmr/m/n/10 pop^^Tr. pro-dat pod-kladov^^Sy dluhopis, je jeho maxim^^Saln^^
+S^^P ztr^^Sata ohrani^^Tcena pr^^Semiem,
+ []
+
+
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 212 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[212]
+Overfull \hbox (8.8963pt too wide) in paragraph at lines 7111--7112
+\OT1/cmr/m/n/10 dluhopis nakoupit, zvy^^Tsuje tato skute^^Tcnost hod-notu opce.
+ V p^^Tr^^S^^Ppad^^Te prodejn^^S^^P
+ []
+
+
+Overfull \hbox (7.19626pt too wide) in paragraph at lines 7112--7113
+\OT1/cmr/m/n/10 kladov^^Seho dluhopisu, co^^Tz m^^Sa za n^^Sasledek r^^Wust for
+-war-dov^^Se ceny pod-kladov^^Seho
+ []
+
+[213]
+Overfull \hbox (10.63972pt too wide) in paragraph at lines 7113--7114
+[]\OT1/cmr/m/n/10 Dal^^Ts^^S^^Pm fak-torem jsou kup^^Sonov^^Se platby gen-erova
+n^^Se pod-kladov^^Sym dluhopisem.
+ []
+
+
+Overfull \hbox (11.31293pt too wide) in paragraph at lines 7113--7114
+\OT1/cmr/m/n/10 Ma-ji-tel dluhopisov^^Se opce nen^^S^^P p^^Tr^^S^^Pjemcem kup^^
+Sonov^^Sych plateb. Vy^^Ts^^Ts^^S^^P kup^^Sonov^^Sa
+ []
+
+
+Overfull \hbox (11.20287pt too wide) in paragraph at lines 7114--7115
+\OT1/cmr/m/n/10 tak prodejn^^S^^P dluhopisov^^Se opce. To je d^^Wusledkem skute
+^^Tcnosti, ^^Tze vy^^Ts^^Ts^^S^^P volatilita
+ []
+
+
+Overfull \hbox (11.00726pt too wide) in paragraph at lines 7119--7120
+\OT1/cmr/m/n/10 Scholes model. Pro dluhopisov^^Se opce se v^^Tsak tento model n
+e-hod^^S^^P a to z n^^Sasleduj^^S^^Pc^^S^^Pch
+ []
+
+
+Overfull \hbox (3.0563pt too wide) in paragraph at lines 7121--7122
+[]\OT1/cmr/m/n/10 Black-Scholes model p^^Tredpokl^^Sad^^Sa log-norm^^Saln^^S^^P
+ rozd^^Telen^^S^^P ceny pod-kladov^^Seho
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7125--7126
+
+ []
+
+
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 214 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[214] [215]
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 216 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[216] [217]
+Overfull \hbox (21.52742pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10 218 \OT1/cmr/m/sl/10 KAPITOLA 14.  DLUHOPISY S VNO[]RENOU OPC[]
+I A OPCE NA DLUHOPISY
+ []
+
+[218
+
+]
+Kapitola 15.
+[219]
+Overfull \hbox (2.91742pt too wide) in paragraph at lines 7326--7327
+[]\OT1/cmr/m/n/10 Vega je prvn^^S^^P derivac^^S^^P hod-noty opce po-dle volatil
+-ity a vy-jad^^Truje tak citlivost
+ []
+
+[220]
+Underfull \hbox (badness 10000) in paragraph at lines 7379--7381
+
+ []
+
+[221]
+Overfull \hbox (2.28821pt too wide) in paragraph at lines 7414--7416
+\OT1/cmr/m/n/10 sazby platn^^Se v ^^Tcase $\OML/cmm/m/it/10 t$ \OT1/cmr/m/n/10 
+pro ob-dob^^S^^P $\OML/cmm/m/it/10 T[]$ \OT1/cmr/m/n/10 a^^Tz $\OML/cmm/m/it/10
+ T[]$\OT1/cmr/m/n/10 . Plat^^S^^P $\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 T[]; T[]; T[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 (\
+OML/cmm/m/it/10 T[]; ^^N\OT1/cmr/m/n/10 )$.
+ []
+
+[222] [223] [224] [225] [226]
+Overfull \hbox (20.58119pt too wide) in paragraph at lines 7568--7568
+[]\OT1/cmr/bx/n/14.4 P^^Tr^^S^^Ploha A: D^^Wukaz plat-nosti oce^^Tnovan^^S^^Pch
+ rovnic
+ []
+
+
+Overfull \hbox (26.04979pt too wide) in paragraph at lines 7583--7585
+\OT1/cmr/m/n/10 V p^^Tr^^S^^Ppad^^Te ne-ex-is-tence mo^^Tznosti ar-bitr^^Sa^^Tz
+e je obdr^^Tzen^^S^^P ^^Tc^^Sastky $1 + \OML/cmm/m/it/10 ^^NF\OT1/cmr/m/n/10 (\
+OML/cmm/m/it/10 T[]; T[]; T[]\OT1/cmr/m/n/10 )$ USD
+ []
+
+
+Overfull \hbox (126.80531pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 15.4.  P[]R[]ILOHA A: D[]UKAZ PLATNOSTI OCE[]NOVAN[]ICH ROVNIC
+ PRO BLACK-SCHOLES MODEL \OT1/cmr/m/n/10 227
+ []
+
+[227]
+Overfull \hbox (10.73213pt too wide) in paragraph at lines 7627--7629
+\OT1/cmr/m/n/10 takov^^Sa, pro kterou je swapov^^Sa sazba $\OML/cmm/m/it/10 F[]
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$ mar-tin-gale. Pro tutu pr
+avd^^Tepodobnostn^^S^^P
+ []
+
+[228]
+Overfull \hbox (17.28404pt too wide) in paragraph at lines 7644--7645
+\OT1/cmr/m/n/10 V n^^Sasleduj^^S^^Pc^^S^^Pm textu budeme pou^^Tz^^S^^Pvat stejn
+^^Se zna^^Tcen^^S^^P jako v kapi-tole 12. P^^Tredstav^^S^^Pme
+ []
+
+[229]
+Overfull \hbox (2.6237pt too wide) detected at line 7683
+\OML/cmm/m/it/10 C[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 	
+[](\OML/cmm/m/it/10 T; T[]; T[]\OT1/cmr/m/n/10 )	[](\OML/cmm/m/it/10 T; T[]; T[
+]\OT1/cmr/m/n/10 )[]^^H(\OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10
+ ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 KB\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t;
+ T[]\OT1/cmr/m/n/10 )^^H(\OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/1
+0 )
+ []
+
+
+Overfull \hbox (56.79892pt too wide) detected at line 7703
+\OML/cmm/m/it/10 C[] \OT1/cmr/m/n/10 = []^^@[](\OML/cmm/m/it/10 T; T[]; T[] \OT
+1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )^^@[](\OML/cmm/m/it/10 T; T
+[]; T[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )[]^^H(\OMS/cmsy/
+m/n/10 ^^@\OML/cmm/m/it/10 f[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 v[]\OT1/cm
+r/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ []\OML/cmm/m/it/10 K \OT1/cmr/m/n/10 + [][]\OML
+/cmm/m/it/10 B\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; T\OT1/cmr/m/n/10 )^^H(\OMS/c
+msy/m/n/10 ^^@\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 )
+ []
+
+
+Overfull \hbox (16.89497pt too wide) in paragraph at lines 7711--7711
+[] 
+ []
+
+[230] [231] [232]
+Kapitola 16.
+
+Overfull \hbox (4.25067pt too wide) in paragraph at lines 7774--7775
+[]\OT1/cmr/m/n/10 V^^Syplata gen-erovan^^Sa ko-rela^^Tcn^^S^^P opc^^S^^P je zal
+o^^Tzena na vz^^Sajemn^^Se ko-relaci n^^Tekolika
+ []
+
+[233
+
+]
+Overfull \hbox (3.30728pt too wide) in paragraph at lines 7788--7789
+[]\OT1/cmr/m/n/10 Caplet bari^^Serov^^Seho up-and-in capu se deak-tivuje, jestl
+i^^Tze ref-eren^^Tcn^^S^^P ^^Surokov^^Sa
+ []
+
+
+Overfull \hbox (0.84059pt too wide) in paragraph at lines 7792--7793
+\OT1/cmr/m/n/10 ni^^Tz^^Ts^^S^^P cena. Ta je v^^Tsak do-prov^^Sazena tak^^Se ni
+^^Tz^^Ts^^S^^P ochra-nou ma-jitele p^^Tred nep^^Tr^^S^^Pzniv^^Sym
+ []
+
+
+Overfull \hbox (26.64659pt too wide) in paragraph at lines 7817--7817
+[] 
+ []
+
+
+Underfull \vbox (badness 1748) has occurred while \output is active []
+
+ [234]
+Overfull \hbox (33.70773pt too wide) in paragraph at lines 7835--7835
+[] 
+ []
+
+[235]
+Overfull \hbox (4.0084pt too wide) in paragraph at lines 7854--7855
+\OT1/cmr/m/n/10 ^^Surove^^Tn, kterou je ochoten ak-cep-to-vat. []Re^^Tsen^^S^^P
+m t^^Seto situ-ace je prodej ko-r-por^^Satn^^S^^Pho
+ []
+
+
+Overfull \hbox (4.14624pt too wide) in paragraph at lines 7854--7855
+\OT1/cmr/m/n/10 m^^Wu^^Tze m^^S^^Pt ve-dle ne-spl^^Sacen^^S^^P dluhopisu tak^^S
+e nap^^Tr. podobu sn^^S^^P^^Tzen^^S^^P kred-itn^^S^^Pho ratingu
+ []
+
+[236]
+Overfull \hbox (26.72963pt too wide) in paragraph at lines 7858--7859
+\OT1/cmr/m/n/10 kupuj^^S^^Pc^^S^^Pho. Kupuj^^S^^Pc^^S^^P m^^Wu^^Tze kom-binac^^
+S^^P dlouh^^Se poz-ice v kred-itn^^S^^P pouk^^Sazce a bezrizikov^^Sem
+ []
+
+
+Overfull \hbox (0.16742pt too wide) in paragraph at lines 7858--7859
+\OT1/cmr/m/n/10 dluhopisu syn-tet-icky vytvo^^Trit fi-nan^^Tcn^^S^^P in-stru-me
+nt s po-tenci^^Saln^^Te vy^^Ts^^Ts^^S^^Pm v^^Synosem. 
+ []
+
+
+Overfull \hbox (11.16733pt too wide) in paragraph at lines 7860--7861
+[]\OT1/cmr/m/n/10 V^^Synosov^^Sy swap je charak-teti-stick^^Sy sm^^Tenou kom-pl
+etn^^S^^Pho cash-flow gen-erovan^^Seho
+ []
+
+[237] [238
+
+]
+Kapitola 17.
+
+Overfull \hbox (14.75735pt too wide) in paragraph at lines 7881--7882
+\OT1/cmr/m/n/10 sazba. Ni^^Tz^^Ts^^S^^P ^^Surokov^^Sa m^^S^^Pra toti^^Tz dlu^^T
+zn^^S^^Pk^^Wum umo^^Tz^^Tnuje se re-fi-nan-co-vat za v^^Syhodn^^Tej^^Ts^^S^^Pch
+
+ []
+
+[239]
+Overfull \hbox (3.8118pt too wide) in paragraph at lines 7883--7884
+\OT1/cmr/m/n/10 douc^^S^^Pho cash-flow kom-p-liko-van^^Sy. D^^S^^Pky mo^^Tznost
+i p^^Tredsplacen^^S^^P lze na MBS pohl^^S^^P^^Tzet
+ []
+
+
+Overfull \hbox (17.28403pt too wide) in paragraph at lines 7889--7890
+[]\OT1/cmr/m/n/10 Kolateralizovan^^Se hy-pote^^Tcn^^S^^P dluhopisy (CMO) jsou c
+harak-ter-i-stick^^Se tzv. tran^^Tsemi.
+ []
+
+
+Overfull \hbox (1.00185pt too wide) in paragraph at lines 7889--7890
+\OT1/cmr/m/n/10 Jed-notliv^^Se tran^^Tse maj^^S^^P p^^Trid^^Telen^^Sy kred-itn^
+^S^^P rat-ing, kter^^Sy vy-jad^^Truje je-jich rizikovost.
+ []
+
+
+Overfull \hbox (6.55511pt too wide) in paragraph at lines 7891--7892
+[]\OT1/cmr/m/n/10 Stripov^^Se MBS d^^Tel^^S^^Pme na interest-only (IO), do kter
+^^Sych jsou sm^^Te^^Trov^^Sany ^^Surokov^^Se
+ []
+
+
+Overfull \hbox (0.88849pt too wide) in paragraph at lines 7891--7892
+\OT1/cmr/m/n/10 Stripov^^Sy MBS je extr^^Semn^^Te citliv^^Sy na m^^S^^Pru p^^Tr
+edsplacen^^S^^P a t^^S^^Pm p^^Sadem v^^S^^Pce rizikov^^Sy
+ []
+
+[240]
+Overfull \hbox (1.973pt too wide) in paragraph at lines 7905--7906
+[]\OT1/cmr/m/n/10 V^^Synosov^^Sa m^^S^^Pra pod-kladov^^Sych ak-tiv je zpravidla
+ v^^Syrazn^^Te vy^^Ts^^Ts^^S^^P ne^^Tz v^^Synosov^^Sa
+ []
+
+
+Overfull \hbox (11.63966pt too wide) in paragraph at lines 7905--7906
+\OT1/cmr/m/n/10 m^^S^^Pra ABS. Rozd^^S^^Pl mezi t^^Temito v^^Synosov^^Symi m^^S
+^^Prami sn^^S^^P^^Tzen^^Sy o spr^^Savn^^S^^P poplatky
+ []
+
+
+Overfull \hbox (9.70071pt too wide) in paragraph at lines 7911--7912
+\OT1/cmr/m/n/10 notu emi-to-van^^Sych ABS. V tomto p^^Tr^^S^^Ppad^^Te hovo^^Tr^
+^S^^Pme o tzv. p^^Trekolateralizov^^San^^S^^P.
+ []
+
+[241] (./martellini.aux) ) 
+Here is how much of TeX's memory you used:
+ 3162 strings out of 95087
+ 35717 string characters out of 1183277
+ 127652 words of memory out of 1500000
+ 6292 multiletter control sequences out of 10000+50000
+ 11941 words of font info for 42 fonts, out of 1200000 for 2000
+ 28 hyphenation exceptions out of 8191
+ 30i,20n,37p,1509b,269s stack positions out of 5000i,500n,6000p,200000b,5000s
+
+Output written on martellini.dvi (241 pages, 1178340 bytes).

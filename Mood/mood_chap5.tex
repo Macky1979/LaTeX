@@ -1,0 +1,55 @@
+\chapter{Distribuce funkcí náhodných veličin}
+
+\section{Střední hodnota a rozptyl funkcí náhodných veličin}
+
+\subsection{Dvojí pojetí}
+
+Uvažujme funkci $g(\cdot, ..., \cdot)$ a náhodné veličiny $X_1, ..., X_n$. Definujme náhodnou veličinu $Y = g(X_1, ..., X_n)$. Střední hodnotu náhodné veličiny $Y$ lze vypočíst dvěma způsoby a to buď jako
+\begin{equation*}
+E[Y] = \int_{-\infty}^{\infty} y f_Y(y)dy
+\end{equation*}
+nebo jako
+\begin{equation*}
+E[Y] = E[g(X_1, ..., X_n)] = \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty} g(x_1, ..., x_2)f_{X_1, ..., X_2}(x_1, ..., x_n)dx_1 \cdots dx_n
+\end{equation*}
+Na první pohled by se mohlo zdát, že je výhodnější řešit $E[Y]$ prvním způsobem, protože se tak vyhneme vícenásobnému intergrálu. Situaci však může značně zkomplikovat pravděpodobnostní funkce $f_Y(\cdot)$, jejíž znalost je nezbytným předpokladem pro zahájení výpočtu.
+
+\begin{example}
+Nechť náhodná veličina $X$ sleduje normované normální rozdělení a nechť $g(x) = x^2$. Střední hodnotu náhodné veličiny $Y = g(X)$ tak lze vypočíst jako
+\begin{equation*}
+E[Y] = \int_0^{\infty} y \frac{1}{\Gamma(1/2)}\Big(\frac{1}{2} \Big)^{\frac{1}{2}}y^{-\frac{1}{2}}e^{-\frac{1}{2}y}dy = 1
+\end{equation*}
+kde jsme využili skutečnost, že náhodná veličina $Y$ sleduje gamma rozdělení s parametry $r = \frac{1}{2}$ a $\lambda = \frac{1}{2}$. Alternativně lze $E[Y]$ vypočíst ze vztahu
+\begin{equation*}
+E[X^2] = \int_{-\infty}^{\infty}x^2 \frac{1}{\sqrt{2 \pi}}e^{-\frac{1}{2}x^2}dx = 1
+\end{equation*}
+\end{example}
+
+\subsection{Součet náhodných veličin}
+
+\begin{theorem}
+Pro náhodné veličiny $X_1, ..., X_n$ platí
+\begin{equation*}
+E\Big[\sum_1^n X_i \Big] = \sum_1^n E[X_i]
+\end{equation*}
+a
+\begin{equation*}
+D\Big[\sum_1^n X_i \Big] = \sum_1^n D[X_i] + 2 \sum \sum_{i < j} \sigma_{X_i, X_j}
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+Dokažme tvrzení o rozptylu součtu náhodoných veličin.
+\begin{gather*}
+D\Big[\sum_1^n X_i \Big] = E \Big[\Big(\sum_1^n X_i - E\Big[\sum_1^n X_i\Big] \Big)^2 \Big] = E\Big[\Big(\sum_1^n(X_i - E[_i]) \Big)^2 \Big]\\
+= E \Big[\sum_{i = 1}^n \sum_{j = 1}^n (X_i - E[X_i])(X_j - E[X_j]) \Big] = \sum_{i = 1}^n \sum_{j = 1}^nE[(X_ - E[X_i])(X_j - E[X_j])]\\
+= \sum_{i = 1}^n D[X_i] + 2 \sum \sum_{i < j} \sigma_{X_i, X_j}
+\end{gather*}
+\end{proof}
+
+\begin{corollary}
+Jestliže jsou $X_1, ..., X_n$ nekorelované náhodné veličiny, pak
+\begin{equation*}
+D\Big[\sum_1^n X_i  \Big] = \sum_1^n D[X_i]
+\end{equation*}
+\end{corollary}

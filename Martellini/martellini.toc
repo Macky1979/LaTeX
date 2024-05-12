@@ -1,0 +1,313 @@
+\select@language {czech}
+\contentsline {part}{I\hspace {1em}Investi\IeC {\v c}n\IeC {\'\i } prost\IeC {\v r}ed\IeC {\'\i }}{9}
+\contentsline {chapter}{\numberline {1}Dluhopisy a instrumenty pen\IeC {\v e}\IeC {\v z}n\IeC {\'\i }ho trhu}{11}
+\contentsline {section}{\numberline {1.1}Dluhopisy}{11}
+\contentsline {subsection}{\numberline {1.1.1}Obecn\IeC {\'a} charakteristika dluhopis\IeC {\r u}}{11}
+\contentsline {subsubsection}{Definice standardn\IeC {\'\i }ho dluhopisu}{11}
+\contentsline {subsubsection}{Terminologie a konvence}{11}
+\contentsline {subsubsection}{Tr\IeC {\v z}n\IeC {\'\i } kotace}{13}
+\contentsline {subsection}{\numberline {1.1.2}Typologie dluhopis\IeC {\r u}}{14}
+\contentsline {subsubsection}{Rozd\IeC {\v e}len\IeC {\'\i } dluhopis\IeC {\r u} s ohledem na stanoven\IeC {\'\i } kup\IeC {\'o}nov\IeC {\'y}ch plateb}{14}
+\contentsline {subsubsection}{Rozd\IeC {\v e}len\IeC {\'\i } dluhopis\IeC {\r u} podle emitenta}{14}
+\contentsline {section}{\numberline {1.2}Instrumenty pen\IeC {\v e}\IeC {\v z}n\IeC {\'\i }ho trhu}{15}
+\contentsline {subsection}{\numberline {1.2.1}Typologie instrument\IeC {\r u} pen\IeC {\v e}\IeC {\v z}n\IeC {\'\i }ho trhu}{15}
+\contentsline {subsubsection}{Podkladni\IeC {\v c}n\IeC {\'\i } pouk\IeC {\'a}zky}{15}
+\contentsline {subsubsection}{Depositn\IeC {\'\i } certifik\IeC {\'a}ty}{16}
+\contentsline {subsubsection}{Bankovn\IeC {\'\i } sm\IeC {\v e}nka}{16}
+\contentsline {subsubsection}{Komer\IeC {\v c}n\IeC {\'\i } pap\IeC {\'\i }r}{16}
+\contentsline {subsubsection}{Mezibankovn\IeC {\'\i } depozitum}{17}
+\contentsline {subsubsection}{Repo obchody a reverzn\IeC {\'\i } repo obchody}{17}
+\contentsline {chapter}{\numberline {2}Cena dluhopisu a v\IeC {\'y}nosov\IeC {\'a} m\IeC {\'\i }ra}{19}
+\contentsline {section}{\numberline {2.1}\IeC {\'U}vod}{19}
+\contentsline {section}{\numberline {2.2}Sou\IeC {\v c}asn\IeC {\'a} hodnota}{19}
+\contentsline {subsection}{\numberline {2.2.1}\IeC {\v C}asov\IeC {\'a} hodnota pen\IeC {\v e}z}{20}
+\contentsline {subsection}{\numberline {2.2.2}Sou\IeC {\v c}et geometrick\IeC {\'e} posloupnosti}{20}
+\contentsline {subsection}{\numberline {2.2.3}Nomin\IeC {\'a}ln\IeC {\'\i } a re\IeC {\'a}ln\IeC {\'a} \IeC {\'u}rokov\IeC {\'a} m\IeC {\'\i }ra}{21}
+\contentsline {subsection}{\numberline {2.2.4}Frekvence \IeC {\'u}ro\IeC {\v c}en\IeC {\'\i }}{21}
+\contentsline {subsection}{\numberline {2.2.5}Slo\IeC {\v z}en\IeC {\'e} \IeC {\'u}ro\IeC {\v c}en\IeC {\'\i }}{21}
+\contentsline {section}{\numberline {2.3}Klasifikace sazeb}{22}
+\contentsline {subsection}{\numberline {2.3.1}Kup\IeC {\'o}nov\IeC {\'a} sazba a aktu\IeC {\'a}ln\IeC {\'\i } v\IeC {\'y}nosov\IeC {\'a} m\IeC {\'\i }ra}{22}
+\contentsline {subsection}{\numberline {2.3.2}V\IeC {\'y}nosov\IeC {\'a} m\IeC {\'\i }ra do splatnosti}{23}
+\contentsline {subsection}{\numberline {2.3.3}Diskontn\IeC {\'\i } sazba}{23}
+\contentsline {subsection}{\numberline {2.3.4}Forwardov\IeC {\'a} sazba}{23}
+\contentsline {subsection}{\numberline {2.3.5}V\IeC {\'y}nosov\IeC {\'a} par sazba dluhopisu}{24}
+\contentsline {part}{II\hspace {1em}\IeC {\v C}asov\IeC {\'a} struktura \IeC {\'u}rokov\IeC {\'y}ch sazeb}{25}
+\contentsline {chapter}{\numberline {3}Teorie \IeC {\v c}asov\IeC {\'e} struktury \IeC {\'u}rokov\IeC {\'y}ch sazeb}{27}
+\contentsline {section}{\numberline {3.1}Definice a vlastnosti \IeC {\v c}asov\IeC {\'e} struktury \IeC {\'u}rokov\IeC {\'y}ch sazeb}{27}
+\contentsline {subsection}{\numberline {3.1.1}Faktory vysv\IeC {\v e}tluj\IeC {\'\i }c\IeC {\'\i } zm\IeC {\v e}ny \IeC {\v c}asov\IeC {\'e} struktury \IeC {\'u}rokov\IeC {\'y}ch sazeb}{31}
+\contentsline {section}{\numberline {3.2}Klasick\IeC {\'e} teorie \IeC {\v c}asov\IeC {\'e} struktury \IeC {\'u}rokov\IeC {\'y}ch sazeb}{34}
+\contentsline {subsection}{\numberline {3.2.1}Teorie \IeC {\v c}ist\IeC {\'e}ho o\IeC {\v c}ek\IeC {\'a}v\IeC {\'a}ni}{34}
+\contentsline {subsection}{\numberline {3.2.2}Teorie rizikov\IeC {\'e} pr\IeC {\'e}mie}{35}
+\contentsline {subsection}{\numberline {3.2.3}Teorie odd\IeC {\v e}len\IeC {\'y}ch trh\IeC {\r u}}{36}
+\contentsline {subsection}{\numberline {3.2.4}Teorie zkreslen\IeC {\'e}ho o\IeC {\v c}ek\IeC {\'a}v\IeC {\'a}n\IeC {\'\i }}{36}
+\contentsline {section}{\numberline {3.3}P\IeC {\v r}\IeC {\'\i }loha A: Vektorov\IeC {\'a} dekompozice}{36}
+\contentsline {subsection}{\numberline {3.3.1}Eigenvalue a eigenvektory}{36}
+\contentsline {subsection}{\numberline {3.3.2}Vektorov\IeC {\'a} dekompozice}{37}
+\contentsline {chapter}{\numberline {4}Odvozen\IeC {\'\i } zero k\IeC {\v r}ivky}{45}
+\contentsline {section}{\numberline {4.1}Odvozen\IeC {\'\i } zero k\IeC {\v r}ivky pro st\IeC {\'a}tn\IeC {\'\i } dluhopisy}{45}
+\contentsline {subsection}{\numberline {4.1.1}V\IeC {\'y}b\IeC {\v e}r dluhopis\IeC {\r u}}{45}
+\contentsline {subsection}{\numberline {4.1.2}P\IeC {\v r}\IeC {\'\i }m\IeC {\'a} metoda konstrukce k\IeC {\v r}ivky}{45}
+\contentsline {subsubsection}{Teoretick\IeC {\'y} p\IeC {\v r}\IeC {\'\i }stup}{45}
+\contentsline {subsubsection}{Metoda bootstrapingu}{46}
+\contentsline {subsubsection}{Line\IeC {\'a}rn\IeC {\'\i } a kubick\IeC {\'a} interpolace}{47}
+\contentsline {subsection}{\numberline {4.1.3}Nep\IeC {\v r}\IeC {\'\i }m\IeC {\'a} metoda konstrukce k\IeC {\v r}ivky}{47}
+\contentsline {subsubsection}{Konstrunkce diskontn\IeC {\'\i } k\IeC {\v r}ivky}{49}
+\contentsline {subsubsection}{Konstrukce zero k\IeC {\v r}ivky}{58}
+\contentsline {section}{\numberline {4.2}Odvozen\IeC {\'\i } mezibankovn\IeC {\'\i } zero k\IeC {\v r}ivky}{60}
+\contentsline {subsection}{\numberline {4.2.1}Depozitn\IeC {\'\i } sazby}{60}
+\contentsline {subsection}{\numberline {4.2.2}FRA a futures}{60}
+\contentsline {subsubsection}{Forward rate agreement}{60}
+\contentsline {subsection}{\numberline {4.2.3}Futures}{61}
+\contentsline {subsubsection}{V\IeC {\'y}po\IeC {\v c}et zero sazby}{61}
+\contentsline {subsection}{\numberline {4.2.4}Swapov\IeC {\'e} sazby}{61}
+\contentsline {subsection}{\numberline {4.2.5}Line\IeC {\'a}rn\IeC {\'\i }, kubick\IeC {\'a} a log-line\IeC {\'a}rn\IeC {\'\i } interpolace}{61}
+\contentsline {subsection}{\numberline {4.2.6}Metoda nejmen\IeC {\v s}\IeC {\'\i }ch \IeC {\v c}tverc\IeC {\r u} zalo\IeC {\v z}en\IeC {\'a} na sazb\IeC {\'a}ch}{62}
+\contentsline {subsection}{\numberline {4.2.7}Metoda nejmen\IeC {\v s}\IeC {\'\i }ch \IeC {\v c}tverc\IeC {\r u} zalo\IeC {\v z}en\IeC {\'a} na cen\IeC {\'a}ch dluhopis\IeC {\r u}}{62}
+\contentsline {section}{\numberline {4.3}V\IeC {\'y}po\IeC {\v c}et kreditn\IeC {\'\i }ho spreadu}{63}
+\contentsline {subsection}{\numberline {4.3.1}Nep\IeC {\v r}\IeC {\'\i }m\IeC {\'a} metoda}{63}
+\contentsline {subsection}{\numberline {4.3.2}P\IeC {\v r}\IeC {\'\i }m\IeC {\'a} metoda}{63}
+\contentsline {subsubsection}{Aditivn\IeC {\'\i } kreditn\IeC {\'\i } spread}{63}
+\contentsline {subsubsection}{Multiplikativn\IeC {\'\i } kreditn\IeC {\'\i } spread}{64}
+\contentsline {section}{\numberline {4.4}P\IeC {\v r}\IeC {\'\i }loha A: Metoda nejmej\IeC {\v s}\IeC {\'\i }ch \IeC {\v c}tverc\IeC {\r u}}{65}
+\contentsline {section}{\numberline {4.5}P\IeC {\v r}\IeC {\'\i }loha B: Newton\IeC {\r u}v algoritmus}{66}
+\contentsline {part}{III\hspace {1em}Zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } \IeC {\'u}rokov\IeC {\'e}ho rizika}{69}
+\contentsline {chapter}{\numberline {5}Durace}{71}
+\contentsline {section}{\numberline {5.1}Z\IeC {\'a}klady \IeC {\'u}rokov\IeC {\'e}ho rizika}{71}
+\contentsline {subsection}{\numberline {5.1.1}Splatnost a kup\IeC {\'o}nov\IeC {\'a} sazba}{71}
+\contentsline {subsection}{\numberline {5.1.2}Reinvesti\IeC {\v c}n\IeC {\'\i } riziko}{71}
+\contentsline {subsection}{\numberline {5.1.3}Kapit\IeC {\'a}lov\IeC {\'e} riziko}{71}
+\contentsline {subsection}{\numberline {5.1.4}Kvantifikace \IeC {\'u}rokov\IeC {\'e}ho rizika}{72}
+\contentsline {section}{\numberline {5.2}Durace}{73}
+\contentsline {subsection}{\numberline {5.2.1}Odvozen\IeC {\'\i } durace pomoc\IeC {\'\i } Taylorova rozvoje}{73}
+\contentsline {subsection}{\numberline {5.2.2}Macauleyova durace}{74}
+\contentsline {subsection}{\numberline {5.2.3}Zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } v praxi}{75}
+\contentsline {chapter}{\numberline {6}Durace - pokra\IeC {\v c}ov\IeC {\'a}n\IeC {\'\i }}{77}
+\contentsline {section}{\numberline {6.1}Opu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } p\IeC {\v r}edpokladu infinityzim\IeC {\'a}ln\IeC {\'\i } zm\IeC {\v e}ny YTM}{77}
+\contentsline {section}{\numberline {6.2}Opu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } p\IeC {\v r}edpokladu ploch\IeC {\'e} v\IeC {\'y}nosov\IeC {\'e} k\IeC {\v r}ivky}{79}
+\contentsline {subsection}{\numberline {6.2.1}Teoretick\IeC {\'y} p\IeC {\v r}\IeC {\'\i }stup}{79}
+\contentsline {subsection}{\numberline {6.2.2}Korela\IeC {\v c}n\IeC {\'\i } riziko}{80}
+\contentsline {subsection}{\numberline {6.2.3}Metoda vektorov\IeC {\'e} dekompozice}{81}
+\contentsline {subsection}{\numberline {6.2.4}Modely v\IeC {\'y}nosov\IeC {\'e} k\IeC {\v r}ivky}{82}
+\contentsline {part}{IV\hspace {1em}Investi\IeC {\v c}n\IeC {\'\i } strategie}{85}
+\contentsline {chapter}{\numberline {7}Pasivn\IeC {\'\i } investi\IeC {\v c}n\IeC {\'\i } strategie}{87}
+\contentsline {section}{\numberline {7.1}Replikace benchmarku}{87}
+\contentsline {section}{\numberline {7.2}Replikace pomoc\IeC {\'\i } v\IeC {\'y}b\IeC {\v e}rov\IeC {\'y}ch vzork\IeC {\r u}}{87}
+\contentsline {section}{\numberline {7.3}Aplikace rizikov\IeC {\'y}ch model\IeC {\r u}}{88}
+\contentsline {subsection}{\numberline {7.3.1}Optimaliza\IeC {\v c}n\IeC {\'\i } proces}{88}
+\contentsline {subsection}{\numberline {7.3.2}Odhad kovarian\IeC {\v c}n\IeC {\'\i } matice}{89}
+\contentsline {subsubsection}{V\IeC {\'y}b\IeC {\v e}rov\IeC {\'a} kovarian\IeC {\v c}n\IeC {\'\i } matice}{89}
+\contentsline {subsubsection}{Modelovan\IeC {\'a} kovarian\IeC {\v c}n\IeC {\'\i } matice}{89}
+\contentsline {subsubsection}{Reduk\IeC {\v c}n\IeC {\'\i } odhad}{91}
+\contentsline {section}{\numberline {7.4}Replikace zalo\IeC {\v z}en\IeC {\'a} na vektorov\IeC {\'e} dekompozici}{92}
+\contentsline {section}{\numberline {7.5}Replikace s vyu\IeC {\v z}it\IeC {\'\i }m \IeC {\'u}rokov\IeC {\'y}ch deriv\IeC {\'a}t\IeC {\r u}}{92}
+\contentsline {section}{\numberline {7.6}V\IeC {\'y}b\IeC {\v e}rov\IeC {\'e} vzorky vs modelov\IeC {\'y} p\IeC {\v r}\IeC {\'\i }stup}{93}
+\contentsline {chapter}{\numberline {8}Aktivn\IeC {\'\i } investi\IeC {\v c}n\IeC {\'\i } strategie}{95}
+\contentsline {section}{\numberline {8.1}Predikce v\IeC {\'y}voje \IeC {\'u}rokov\IeC {\'y}ch sazeb}{95}
+\contentsline {subsection}{\numberline {8.1.1}Konstantn\IeC {\'\i } v\IeC {\'y}nosov\IeC {\'a} k\IeC {\v r}ivka}{95}
+\contentsline {subsection}{\numberline {8.1.2}Paraleln\IeC {\'\i } posun v\IeC {\'y}nosov\IeC {\'e} k\IeC {\v r}ivky}{96}
+\contentsline {subsection}{\numberline {8.1.3}Zm\IeC {\v e}na sklonu a zak\IeC {\v r}iven\IeC {\'\i } v\IeC {\'y}nosov\IeC {\'e} k\IeC {\v r}ivky}{97}
+\contentsline {subsubsection}{Bullet, barbell a ladder strategie}{97}
+\contentsline {subsubsection}{Butterfly strategie}{98}
+\contentsline {subsection}{\numberline {8.1.4}Anal\IeC {\'y}za sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}\IeC {\r u}}{100}
+\contentsline {subsection}{\numberline {8.1.5}Aloka\IeC {\v c}n\IeC {\'\i } strategie}{101}
+\contentsline {subsubsection}{Volba faktor\IeC {\r u} slou\IeC {\v z}\IeC {\'\i }c\IeC {\'\i }ch k predikci}{101}
+\contentsline {section}{\numberline {8.2}Neefektivita trhu}{103}
+\contentsline {subsection}{\numberline {8.2.1}Neefektivity v r\IeC {\'a}mci jednoho trhu}{103}
+\contentsline {subsubsection}{St\IeC {\'a}tn\IeC {\'\i } dluhopis vs stripov\IeC {\'e} dluhopisy}{103}
+\contentsline {subsubsection}{Cena dluhopisu vzta\IeC {\v z}en\IeC {\'a} k v\IeC {\'y}nosov\IeC {\'e} k\IeC {\v r}ivce}{104}
+\contentsline {subsection}{\numberline {8.2.2}Neefektivita nap\IeC {\v r}\IeC {\'\i }\IeC {\v c} trhy}{105}
+\contentsline {subsubsection}{Spreadov\IeC {\'e} obchody}{105}
+\contentsline {subsubsection}{Konvergen\IeC {\v c}n\IeC {\'\i } obchody}{105}
+\contentsline {chapter}{\numberline {9}M\IeC {\v e}\IeC {\v r}en\IeC {\'\i } v\IeC {\'y}konnosti}{107}
+\contentsline {section}{\numberline {9.1}M\IeC {\v e}\IeC {\v r}en\IeC {\'\i } v\IeC {\'y}nosov\IeC {\'e} m\IeC {\'\i }ry}{107}
+\contentsline {subsection}{\numberline {9.1.1}Aritmetick\IeC {\'y} pr\IeC {\r u}m\IeC {\v e}r}{107}
+\contentsline {subsection}{\numberline {9.1.2}Geometrick\IeC {\'y} pr\IeC {\r u}m\IeC {\v e}r}{108}
+\contentsline {section}{\numberline {9.2}Zohledn\IeC {\v e}n\IeC {\'\i } rizika}{109}
+\contentsline {subsection}{\numberline {9.2.1}Absolutn\IeC {\'\i } v\IeC {\'y}\IeC {\v s}e rizika}{109}
+\contentsline {subsubsection}{Markowitz a Sharpeho pom\IeC {\v e}r}{109}
+\contentsline {subsubsection}{Zohledn\IeC {\v e}n\IeC {\'\i } vy\IeC {\v s}\IeC {\v s}\IeC {\'\i }ch moment\IeC {\r u}}{110}
+\contentsline {subsection}{\numberline {9.2.2}Relativn\IeC {\'\i } v\IeC {\'y}\IeC {\v s}e rizika}{112}
+\contentsline {subsubsection}{Faktorov\IeC {\'e} modely}{112}
+\contentsline {subsubsection}{Dluhopisov\IeC {\'e} indexy jako vstup faktorov\IeC {\'e}ho modelu}{113}
+\contentsline {part}{V\hspace {1em}Swapy a futures}{115}
+\contentsline {chapter}{\numberline {10}Swapy}{117}
+\contentsline {section}{\numberline {10.1}Plain-vanilla \IeC {\'u}rokov\IeC {\'y} swap}{117}
+\contentsline {subsection}{\numberline {10.1.1}Definice}{117}
+\contentsline {subsection}{\numberline {10.1.2}Ocen\IeC {\v e}n\IeC {\'\i }}{118}
+\contentsline {subsubsection}{P\IeC {\v r}esn\IeC {\'y} tvar rovnice v\IeC {\'y}po\IeC {\v c}tu hodnoty \IeC {\'u}rokov\IeC {\'e}ho swapu}{118}
+\contentsline {subsubsection}{Zjednodu\IeC {\v s}en\IeC {\'y} tvar rovnice v\IeC {\'y}po\IeC {\v c}tu hodnoty \IeC {\'u}rokov\IeC {\'e}ho swapu}{119}
+\contentsline {subsection}{\numberline {10.1.3}Tr\IeC {\v z}n\IeC {\'\i } kotace}{121}
+\contentsline {section}{\numberline {10.2}Vyu\IeC {\v z}it\IeC {\'\i } \IeC {\'u}rokov\IeC {\'y}ch swap\IeC {\r u}}{121}
+\contentsline {subsection}{\numberline {10.2.1}Optimalizace finan\IeC {\v c}n\IeC {\'\i }ch podm\IeC {\'\i }nek p\IeC {\r u}j\IeC {\v c}ky}{121}
+\contentsline {subsection}{\numberline {10.2.2}Konverze \IeC {\'u}v\IeC {\v e}ru}{122}
+\contentsline {subsection}{\numberline {10.2.3}Asset swap}{123}
+\contentsline {subsection}{\numberline {10.2.4}Zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } \IeC {\'u}rokov\IeC {\'e}ho rizika pomoc\IeC {\'\i } \IeC {\'u}rokov\IeC {\'y}ch swap\IeC {\r u}}{124}
+\contentsline {subsubsection}{Durace}{124}
+\contentsline {subsubsection}{Konvexita}{124}
+\contentsline {subsubsection}{Nelson-Siegel model}{125}
+\contentsline {section}{\numberline {10.3}Dal\IeC {\v s}\IeC {\'\i } typy swap\IeC {\r u}}{125}
+\contentsline {subsection}{\numberline {10.3.1}M\IeC {\v e}nov\IeC {\'y} swap}{125}
+\contentsline {subsection}{\numberline {10.3.2}Forwardov\IeC {\'y} swap}{126}
+\contentsline {subsection}{\numberline {10.3.3}Akru\IeC {\'a}ln\IeC {\'\i } a amortiza\IeC {\v c}n\IeC {\'\i } \IeC {\'u}rokov\IeC {\'y} swap}{126}
+\contentsline {subsection}{\numberline {10.3.4}Bazick\IeC {\'y} swap}{127}
+\contentsline {subsection}{\numberline {10.3.5}\IeC {\'U}rokov\IeC {\'y} swap s konstantn\IeC {\'\i } maturitou}{127}
+\contentsline {subsection}{\numberline {10.3.6}Infla\IeC {\v c}n\IeC {\'\i } swap}{127}
+\contentsline {subsection}{\numberline {10.3.7}Swap zalo\IeC {\v z}en\IeC {\'y} na v\IeC {\'y}nosov\IeC {\'e} k\IeC {\v r}ivce}{127}
+\contentsline {subsection}{\numberline {10.3.8}Diskontn\IeC {\'\i } swap}{127}
+\contentsline {chapter}{\numberline {11}Forwardy a futures}{129}
+\contentsline {section}{\numberline {11.1}Definice}{129}
+\contentsline {section}{\numberline {11.2}Futures}{129}
+\contentsline {subsection}{\numberline {11.2.1}Role burzy}{130}
+\contentsline {subsection}{\numberline {11.2.2}Dluhopisov\IeC {\'a} futures}{131}
+\contentsline {subsubsection}{Konverzn\IeC {\'\i } faktor}{131}
+\contentsline {subsubsection}{Cheapest to Deliver}{132}
+\contentsline {section}{\numberline {11.3}Ocen\IeC {\v e}n\IeC {\'\i } forwardov\IeC {\'y}ch obchod\IeC {\r u} a futures}{132}
+\contentsline {subsection}{\numberline {11.3.1}Forwardov\IeC {\'a} cena dluhopisu}{133}
+\contentsline {subsection}{\numberline {11.3.2}Forwardov\IeC {\'a} \IeC {\'u}rokov\IeC {\'a} sazba}{133}
+\contentsline {subsection}{\numberline {11.3.3}V\IeC {\'y}plata z forwardov\IeC {\'e}ho obchodu}{134}
+\contentsline {subsection}{\numberline {11.3.4}Vztah mezi forwardovou a futures cenou}{134}
+\contentsline {section}{\numberline {11.4}Vyu\IeC {\v z}it\IeC {\'\i } forward\IeC {\r u} a futures}{135}
+\contentsline {subsection}{\numberline {11.4.1}Spekulace s vyu\IeC {\v z}it\IeC {\'\i }m p\IeC {\'a}kov\IeC {\'e}ho efektu}{135}
+\contentsline {subsection}{\numberline {11.4.2}Transformace budouc\IeC {\'\i }ho cash-flow}{136}
+\contentsline {subsection}{\numberline {11.4.3}Futures jako n\IeC {\'a}stroj arbitr\IeC {\'a}\IeC {\v z}e}{136}
+\contentsline {subsection}{\numberline {11.4.4}Zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } \IeC {\'u}rokov\IeC {\'e}ho rizika pomoc\IeC {\'\i } futures}{137}
+\contentsline {subsubsection}{Durace}{138}
+\contentsline {subsubsection}{Konvexita}{138}
+\contentsline {subsubsection}{Nelson-Siegel model}{138}
+\contentsline {part}{VI\hspace {1em}Modelov\IeC {\'a}n\IeC {\'\i } \IeC {\'u}rokov\IeC {\'y}ch sazeb a kreditn\IeC {\'\i }ch spread\IeC {\r u}}{139}
+\contentsline {chapter}{\numberline {12}Modelov\IeC {\'a}n\IeC {\'\i } dynamiky v\IeC {\'y}nosov\IeC {\'e} k\IeC {\v r}ivky}{141}
+\contentsline {section}{\numberline {12.1}Konstrukce binomick\IeC {\'e}ho stromu \IeC {\'u}rokov\IeC {\'y}ch sazeb}{141}
+\contentsline {subsection}{\numberline {12.1.1}Kalibrace binomick\IeC {\'e}ho \IeC {\'u}rokov\IeC {\'e}ho stromu}{143}
+\contentsline {section}{\numberline {12.2}Modely spojit\IeC {\'e} v \IeC {\v c}ase}{146}
+\contentsline {subsection}{\numberline {12.2.1}Jednofaktorov\IeC {\'e} modely}{147}
+\contentsline {subsubsection}{Va\IeC {\v s}\IeC {\'\i }\IeC {\v c}ek (1977)}{147}
+\contentsline {subsubsection}{Merton (1973)}{148}
+\contentsline {subsubsection}{Cox-Ingersoll-Ross (1985)}{148}
+\contentsline {subsubsection}{Omezen\IeC {\'\i } jednofaktorov\IeC {\'y}ch model\IeC {\r u}}{149}
+\contentsline {subsection}{\numberline {12.2.2}V\IeC {\'\i }cefaktorov\IeC {\'e} modely}{149}
+\contentsline {subsubsection}{Fong a Va\IeC {\v s}\IeC {\'\i }\IeC {\v c}ek (1991)}{149}
+\contentsline {subsubsection}{Longstaff a Schwartz (1992)}{149}
+\contentsline {subsubsection}{Balduzzi (1996)}{151}
+\contentsline {subsubsection}{Omezen\IeC {\'\i } v\IeC {\'\i }cefaktorov\IeC {\'y}ch model\IeC {\r u}}{151}
+\contentsline {section}{\numberline {12.3}Arbitr\IeC {\'a}\IeC {\v z}n\IeC {\'\i } modely}{152}
+\contentsline {subsection}{\numberline {12.3.1}Diskr\IeC {\'e}tn\IeC {\'\i } arbitr\IeC {\'a}\IeC {\v z}n\IeC {\'\i } model}{152}
+\contentsline {subsubsection}{Odchylkov\IeC {\'a} funkce}{152}
+\contentsline {subsubsection}{Rizikov\IeC {\v e} neutr\IeC {\'a}ln\IeC {\'\i } pravd\IeC {\v e}podobnost}{153}
+\contentsline {subsubsection}{Podm\IeC {\'\i }nka rekomibance binomick\IeC {\'e}ho stromu}{154}
+\contentsline {subsubsection}{Kalibrace binomick\IeC {\'e}ho stromu}{155}
+\contentsline {subsection}{\numberline {12.3.2}Spojit\IeC {\'y} arbitr\IeC {\'a}\IeC {\v z}n\IeC {\'\i } model}{159}
+\contentsline {subsubsection}{Heath, Jarrow a Morton}{159}
+\contentsline {subsubsection}{Vybran\IeC {\'e} arbitr\IeC {\'a}\IeC {\v z}n\IeC {\'\i } modely}{160}
+\contentsline {section}{\numberline {12.4}P\IeC {\v r}\IeC {\'\i }loha A: Trinomick\IeC {\'y} strom}{163}
+\contentsline {subsection}{\numberline {12.4.1}Diskretizace procesu}{163}
+\contentsline {subsubsection}{Norm\IeC {\'a}ln\IeC {\'\i } profil}{163}
+\contentsline {subsubsection}{Rostouc\IeC {\'\i } profil}{164}
+\contentsline {subsubsection}{Klesaj\IeC {\'\i }c\IeC {\'\i } profil}{165}
+\contentsline {subsubsection}{P\IeC {\v r}esun mezi sch\IeC {\'e}maty}{165}
+\contentsline {subsubsection}{P\IeC {\v r}echod od $r^{*}$ k $r$}{166}
+\contentsline {section}{\numberline {12.5}P\IeC {\v r}\IeC {\'\i }loha B: Spojit\IeC {\'e} stochastick\IeC {\'e} procesy}{169}
+\contentsline {subsection}{\numberline {12.5.1}Brown\IeC {\r u}v pohyb}{169}
+\contentsline {subsubsection}{N\IeC {\'a}hodn\IeC {\'a} proch\IeC {\'a}zka}{170}
+\contentsline {subsubsection}{Vlastnosti martingalu}{170}
+\contentsline {subsection}{\numberline {12.5.2}Stochastick\IeC {\'y} integr\IeC {\'a}l}{171}
+\contentsline {subsubsection}{Vlastnosti stochastick\IeC {\'e}ho integr\IeC {\'a}lu}{171}
+\contentsline {subsubsection}{It\^o proces}{172}
+\contentsline {subsection}{\numberline {12.5.3}Stochastick\IeC {\'a} diferenci\IeC {\'a}ln\IeC {\'\i } rovnice}{172}
+\contentsline {subsubsection}{Markovova vlastnost}{173}
+\contentsline {subsection}{\numberline {12.5.4}Modelov\IeC {\'a}n\IeC {\'\i } ceny aktiva}{173}
+\contentsline {subsection}{\numberline {12.5.5}Vyj\IeC {\'a}d\IeC {\v r}en\IeC {\'\i } Brownova martingalu}{174}
+\contentsline {subsection}{\numberline {12.5.6}Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } aktiva}{174}
+\contentsline {subsubsection}{It\^o lemma}{174}
+\contentsline {subsubsection}{It\^o lemma - v\IeC {\'\i }ce prom\IeC {\v e}nn\IeC {\'y}ch}{176}
+\contentsline {subsubsection}{Zm\IeC {\v e}na pravd\IeC {\v e}podobnostn\IeC {\'\i } m\IeC {\'\i }ry}{177}
+\contentsline {subsection}{\numberline {12.5.7}Feynman-Kacova rovnice}{178}
+\contentsline {subsection}{\numberline {12.5.8}V\IeC {\'y}nosov\IeC {\'a} k\IeC {\v r}ivka - modely rovnov\IeC {\'a}hy}{179}
+\contentsline {subsubsection}{Parci\IeC {\'a}ln\IeC {\'\i } diferenci\IeC {\'a}ln\IeC {\'\i } rovnice}{179}
+\contentsline {subsubsection}{Martingale}{180}
+\contentsline {chapter}{\numberline {13}Modelov\IeC {\'a}n\IeC {\'\i } kreditn\IeC {\'\i }ch spread\IeC {\r u}}{183}
+\contentsline {section}{\numberline {13.1}Rating}{183}
+\contentsline {subsection}{\numberline {13.1.1}Pravd\IeC {\v e}podobnost defaultu}{185}
+\contentsline {subsection}{\numberline {13.1.2}M\IeC {\'\i }ra n\IeC {\'a}hrady v p\IeC {\v r}\IeC {\'\i }pad\IeC {\v e} defaultu}{185}
+\contentsline {subsubsection}{Klasifikace pohled\IeC {\'a}vek}{185}
+\contentsline {subsubsection}{M\IeC {\'\i }ra n\IeC {\'a}hrady v n\IeC {\'a}vaznosti na klasifikaci pohled\IeC {\'a}vek}{186}
+\contentsline {section}{\numberline {13.2}Modelov\IeC {\'a}n\IeC {\'\i } kreditn\IeC {\'\i }ch spread\IeC {\r u}}{186}
+\contentsline {subsection}{\numberline {13.2.1}Strukturovan\IeC {\'e} modely}{186}
+\contentsline {subsubsection}{Merton\IeC {\r u}v model}{186}
+\contentsline {subsection}{\numberline {13.2.2}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'\i } Mertonova modelu}{190}
+\contentsline {subsection}{\numberline {13.2.3}Redukovan\IeC {\'e} modely}{191}
+\contentsline {subsubsection}{Zjednodu\IeC {\v s}en\IeC {\'y} model}{191}
+\contentsline {subsection}{\numberline {13.2.4}Historick\IeC {\'a} a rizikov\IeC {\v e} upraven\IeC {\'a} pravd\IeC {\v e}podobnost defaultu}{192}
+\contentsline {part}{VII\hspace {1em}Plain-vanilla opce a exotick\IeC {\'e} deriv\IeC {\'a}ty}{195}
+\contentsline {chapter}{\numberline {14}Dluhopisy s vno\IeC {\v r}enou opc\IeC {\'\i } a opce na dluhopisy}{197}
+\contentsline {section}{\numberline {14.1}Svolateln\IeC {\'y} dluhopis a dluhopis s pr\IeC {\'a}vem zp\IeC {\v e}tn\IeC {\'e}ho prodeje}{197}
+\contentsline {subsection}{\numberline {14.1.1}Charakteristika}{197}
+\contentsline {subsection}{\numberline {14.1.2}Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i }}{198}
+\contentsline {subsubsection}{Yield-to-worst metoda}{198}
+\contentsline {subsubsection}{Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } dluhopisu pomoc\IeC {\'\i } spotov\IeC {\'y}ch a forwardov\IeC {\'y}ch \IeC {\'u}rokov\IeC {\'y}ch sazeb}{198}
+\contentsline {subsubsection}{Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } pomoc\IeC {\'\i } binomick\IeC {\'e}ho stromu}{199}
+\contentsline {subsubsection}{Metoda Monte-Carlo}{202}
+\contentsline {subsection}{\numberline {14.1.3}OAS spread}{204}
+\contentsline {subsection}{\numberline {14.1.4}Efektivn\IeC {\'\i } durace a konvexita}{205}
+\contentsline {section}{\numberline {14.2}Konvertibiln\IeC {\'\i } dluhopisy}{205}
+\contentsline {subsection}{\numberline {14.2.1}Definice a terminologie}{205}
+\contentsline {subsection}{\numberline {14.2.2}Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } konvertibiln\IeC {\'\i }ch dluhopis\IeC {\r u}}{206}
+\contentsline {subsubsection}{Syntetick\IeC {\'y} model}{206}
+\contentsline {subsubsection}{Binomick\IeC {\'y} model}{206}
+\contentsline {subsubsection}{Akciov\IeC {\'y} binomick\IeC {\'y} strom a evropsk\IeC {\'a} akciov\IeC {\'a} opce}{206}
+\contentsline {subsubsection}{Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } konvertibiln\IeC {\'\i }ho dluhopisu pomoc\IeC {\'\i } binomick\IeC {\'e}ho stromu}{208}
+\contentsline {subsection}{\numberline {14.2.3}Mo\IeC {\v z}nost arbitr\IeC {\'a}\IeC {\v z}e}{210}
+\contentsline {section}{\numberline {14.3}Opce na dluhopisy}{211}
+\contentsline {subsection}{\numberline {14.3.1}Definice}{211}
+\contentsline {subsection}{\numberline {14.3.2}Put-Call parita}{211}
+\contentsline {subsection}{\numberline {14.3.3}Op\IeC {\v c}n\IeC {\'\i } strategie}{211}
+\contentsline {subsubsection}{Naked strategie}{211}
+\contentsline {subsubsection}{Covered strategie}{213}
+\contentsline {subsubsection}{Parametry ovliv\IeC {\v n}uj\IeC {\'\i }c\IeC {\'\i } hodnotu dluhopisov\IeC {\'y}ch opc\IeC {\'\i }}{213}
+\contentsline {subsubsection}{Oce\IeC {\v n}ovac\IeC {\'\i } modely}{214}
+\contentsline {section}{\numberline {14.4}P\IeC {\v r}\IeC {\'\i }loha A: Hull-White model}{217}
+\contentsline {chapter}{\numberline {15}Opce na futures, capy, floory a swapce}{219}
+\contentsline {section}{\numberline {15.1}Opce na futures}{219}
+\contentsline {subsection}{\numberline {15.1.1}Definice a terminologie}{219}
+\contentsline {subsection}{\numberline {15.1.2}Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } a zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{219}
+\contentsline {subsubsection}{V\IeC {\'y}po\IeC {\v c}et hodnoty opce na futures}{219}
+\contentsline {subsubsection}{\IeC {\v R}eck\IeC {\'a} p\IeC {\'\i }smena a zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{220}
+\contentsline {section}{\numberline {15.2}Cap, floor, collar}{222}
+\contentsline {subsection}{\numberline {15.2.1}Definice a terminologie}{222}
+\contentsline {subsection}{\numberline {15.2.2}Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } a zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{222}
+\contentsline {subsubsection}{V\IeC {\'y}po\IeC {\v c}et hodnoty capu, flooru a collaru}{222}
+\contentsline {subsubsection}{\IeC {\v R}eck\IeC {\'a} p\IeC {\'\i }smena a zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{223}
+\contentsline {subsubsection}{Cap a floor jako portfolio opc\IeC {\'\i } na diskontn\IeC {\'\i } dluhopis}{224}
+\contentsline {section}{\numberline {15.3}Swapce}{225}
+\contentsline {subsection}{\numberline {15.3.1}Definice a terminologie}{225}
+\contentsline {subsection}{\numberline {15.3.2}Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i }}{225}
+\contentsline {subsubsection}{V\IeC {\'y}po\IeC {\v c}et hodnoty swapce}{225}
+\contentsline {subsubsection}{\IeC {\v R}eck\IeC {\'a} p\IeC {\'\i }smena a zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{226}
+\contentsline {subsubsection}{Swapce jako portfolio opc\IeC {\'\i } na diskontn\IeC {\'\i } dluhopis}{226}
+\contentsline {section}{\numberline {15.4}P\IeC {\v r}\IeC {\'\i }loha A: D\IeC {\r u}kaz platnosti oce\IeC {\v n}ovan\IeC {\'\i }ch rovnic pro Black-Scholes model}{227}
+\contentsline {subsection}{\numberline {15.4.1}Cap a floor}{227}
+\contentsline {subsection}{\numberline {15.4.2}Swapce}{228}
+\contentsline {section}{\numberline {15.5}P\IeC {\v r}\IeC {\'\i }loha B: Aplikace Hull-Whitova modelu}{229}
+\contentsline {subsection}{\numberline {15.5.1}Forwardov\IeC {\'e} a futures opce}{229}
+\contentsline {subsubsection}{Evropsk\IeC {\'a} kupn\IeC {\'\i } opce na forwardov\IeC {\'e} kontrakty}{229}
+\contentsline {subsubsection}{Evropsk\IeC {\'a} kupn\IeC {\'\i } opce na futures kontrakty}{230}
+\contentsline {subsection}{\numberline {15.5.2}Cap, floor a swapce}{231}
+\contentsline {subsubsection}{Cap a floor}{231}
+\contentsline {subsubsection}{Swapce}{231}
+\contentsline {chapter}{\numberline {16}Exotick\IeC {\'e} opce a kreditn\IeC {\'\i } deriv\IeC {\'a}ty}{233}
+\contentsline {section}{\numberline {16.1}Exotick\IeC {\'e} \IeC {\'u}rokov\IeC {\'e} opce}{233}
+\contentsline {subsection}{\numberline {16.1.1}Bari\IeC {\'e}rov\IeC {\'e} capy a floory}{233}
+\contentsline {subsubsection}{Definice a terminologie}{233}
+\contentsline {subsubsection}{Oce\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } a zaji\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{234}
+\contentsline {subsection}{\numberline {16.1.2}Akru\IeC {\'a}ln\IeC {\'\i } \IeC {\'u}rokov\IeC {\'y} swap}{236}
+\contentsline {subsection}{\numberline {16.1.3}Spreadov\IeC {\'e} opce}{236}
+\contentsline {subsection}{\numberline {16.1.4}Kreditn\IeC {\'\i } deriv\IeC {\'a}ty}{236}
+\contentsline {subsubsection}{Typy kreditn\IeC {\'\i }ch deriv\IeC {\'a}t\IeC {\r u}}{236}
+\contentsline {chapter}{\numberline {17}Sekuritizovan\IeC {\'e} cenn\IeC {\'e} pap\IeC {\'\i }ry}{239}
+\contentsline {section}{\numberline {17.1}Mortage-backed cenn\IeC {\'e} pap\IeC {\'\i }ry (MBS)}{239}
+\contentsline {subsection}{\numberline {17.1.1}Definice a terminologie}{239}
+\contentsline {subsection}{\numberline {17.1.2}P\IeC {\v r}edsplacen\IeC {\'\i }}{240}
+\contentsline {subsection}{\numberline {17.1.3}Typologie MBS}{240}
+\contentsline {section}{\numberline {17.2}Asset-backed cenn\IeC {\'e} pap\IeC {\'\i }ry (ABS)}{240}
+\contentsline {subsection}{\numberline {17.2.1}Definice a terminologie}{240}
+\contentsline {subsection}{\numberline {17.2.2}Kreditn\IeC {\'\i } podpora}{241}
+\contentsline {subsection}{\numberline {17.2.3}Struktura cash-flow}{241}

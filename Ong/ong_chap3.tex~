@@ -1,0 +1,32 @@
+\chapter{Neočekávaná ztráta}
+
+V předchozí kapitole jsme očekávanou ztrátu definovali jako
+\begin{equation}
+EL = AE \times LGD \times EDF
+\end{equation}
+Z logiky věci je pak zřejmé, že banka by měla držet rezervy ve výši očekávané ztráty. Jak jsme však zmínili v přechozím textu, existuje vedle očekávané ztráty také ztráta neočekávaná. Skutečná ztráta se totiž může od té očekávané lišit a to jak v kladném tak záporném slova smyslu. Banka musí být kapitálově vybavena i pro případ těchto nečekaných výkyvů. Základní rozdíl mezi očekávanou a neočekávanou ztrátou je tedy ten, že očekávané ztráty jsou kryty rezervami, kdežto neočekávané ztráty kapitálem banky.
+
+Neočekávaná ztráta má charakter náhodné veličiny, a proto má také pravděpodobnostní rozdělení. Pro praktické účely však definujeme neočekávanou ztrátu pomocí směrodatné odchylky aktiva v čase $t_H$.
+\begin{equation}
+UL_H \equiv \sqrt{D[V_H]} = E[V_H^2] - E[V_H]^2
+\end{equation}
+V následujícím textu index $H$ vynecháme, i když se budeme implicitně odkazovat na hodnoty v čase $t_H$.
+
+V příloze A je dokázáno, že neočekávaná ztráta rizikového aktiva je dána vztahem
+\begin{equation}
+UL = V_1 \times \sqrt{EDF \times \sigma_{LGD}^2 + LGD \times \sigma_{EDF}^2}
+\end{equation}
+neboli
+\begin{equation}
+UL = AE \times \sqrt{EDF \times \sigma_{LGD}^2 + LGD \times \sigma_{EDF}^2}
+\end{equation}
+kde za předpokladu dvoustavového modelu (tj. default / přežití) je $\sigma_{EDF}^2$ definováno jako
+\begin{equation}
+\sigma_{EDF}^2 = EDF \times (1 - EDF)
+\end{equation}
+Z výše uvedené rovnice je patrné, že kdyby neexistovala nejistota ohledně očekávané míry defaultu, tj. $\sigma_{EDF}^2 = 0$, a ztráty v případě defaultu, tj. $\sigma_{LGD}^2 = 0$, pak by neočekávaná ztráta byla rovna nule.
+
+\begin{example}
+Vraťme se k předešlému příkladu, kde
+
+\end{example}

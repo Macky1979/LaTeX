@@ -1,0 +1,26 @@
+\contentsline {chapter}{\numberline {1}Notes}{5}
+\contentsline {section}{\numberline {1.1}Statistics}{5}
+\contentsline {section}{\numberline {1.2}Regression and OLS}{6}
+\contentsline {section}{\numberline {1.3}EWMA, GARCH}{7}
+\contentsline {section}{\numberline {1.4}VaR}{7}
+\contentsline {section}{\numberline {1.5}Ratings}{7}
+\contentsline {section}{\numberline {1.6}CAPM and Related Measures}{8}
+\contentsline {section}{\numberline {1.7}Bonds}{8}
+\contentsline {section}{\numberline {1.8}Mortgages}{9}
+\contentsline {section}{\numberline {1.9}Futures}{9}
+\contentsline {section}{\numberline {1.10}Options}{9}
+\contentsline {chapter}{\numberline {2}Time Series}{13}
+\contentsline {section}{\numberline {2.1}Model Selecting}{13}
+\contentsline {section}{\numberline {2.2}Characterizing Cycles}{14}
+\contentsline {section}{\numberline {2.3}MA, AR and ARMA Models}{16}
+\contentsline {subsection}{\numberline {2.3.1}MA Models}{16}
+\contentsline {subsubsection}{MA(1) Model}{16}
+\contentsline {subsubsection}{MA(q) Model}{18}
+\contentsline {subsection}{\numberline {2.3.2}AR Models}{19}
+\contentsline {subsubsection}{AR(1) Model}{19}
+\contentsline {subsubsection}{AR(q) Model}{21}
+\contentsline {subsection}{\numberline {2.3.3}ARMA Models}{21}
+\contentsline {subsection}{\numberline {2.3.4}Application}{21}
+\contentsline {subsubsection}{MA Processes}{22}
+\contentsline {subsubsection}{AR Processes}{22}
+\contentsline {subsubsection}{ARMA Processes}{22}

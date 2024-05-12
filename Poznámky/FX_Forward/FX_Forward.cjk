@@ -1,0 +1,91 @@
+\def\CJKpreproc{sjisconv (CJK ver. 4.6.0)}\documentclass[a4paper]{book}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{amsmath}
+
+\setlength{\unitlength}{1.0mm}
+
+\begin{document}
+
+\chapter{FX Forward}
+
+\section{��118od}
+
+V rámci FX forwardu se smluvní strany dohodnou o sm��110��32dvou ��195�stek denominovaných v různých m��110ách. Sm��110a probíhá v p��101dem sjednaném budoucím ��97se $T$ a za p��101dem sjednaný forwardový kurz $E^f_T$.\\
+
+\noindent \textbf{P��195�klad:} KB se dohodla 23.10.2006 se svým klientem, že dne 23.10.2007 provedou sm��110u 1~000 USD za 22~012 CZK. Spotový kurz k 23.10.2006 byl 22.51 CZK/USD a forwardový kurz byl sjednán na 22.01 CZK/USD\footnote{$E^f_T = \frac{22~012}{1~000}=22.01$}.
+
+\begin{center}
+	\begin{pspicture}(0,0)(8,8)
+		\rput(3,0.5){Výplata z FX forwardu}
+
+          \psline[linewidth=0.5mm](0.5,3)(5.5,3)
+          \psline(0.5,0.8)(5.5,1.2)
+		\psline[linestyle=dashed, arrows=->](5.5,3)(5.5,7)
+		\psline[arrows=->](5.5,3)(5.5,1)
+
+		\rput(0.5,2.7){$T_0$}
+		\rput(5.2,2.7){$K$}
+
+	\end{pspicture}
+\end{center}
+
+\begin{center}
+	\begin{pspicture}(0,0)(11,8)
+		\rput(5.5,0.5){Výplata z forwardového kontraktu: (a) dlouhá pozice, (b)
+		krátká pozice}
+		\rput(5.5,0){\small $K$ - realiza��110í cena, $S_T$ - spotová cena v dob��10		splatnosti}
+		\rput(3,1.5){(a)}
+		\rput(8.5,1.5){(b)}
+
+		\psline[arrows=->](0.5,5)(5.5,5)
+		\psline[arrows=->](0.5,2)(0.5,8)
+		\psline[linewidth=0.5mm](0.5,3)(4.5,7)
+		\rput(0.3,4.7){$0$}
+		\rput(2.7,4.7){$K$}
+		\rput(5,4.7){$S_T$}
+
+		\psline[arrows=->](6.5,5)(11,5)
+		\psline[arrows=->](6.5,2)(6.5,8)
+		\psline[linewidth=0.5mm](6.5,7)(10.5,3)
+		\rput(6.3,4.7){$0$}
+		\rput(8.3,4.7){$K$}
+		\rput(10.5,4.7){$S_T$}
+	\end{pspicture}
+\end{center}
+
+\section{Výpo��101t}
+Uvažujme obchodníka, který má k dispozici 1 USD. P��101dpokládejme, že za 1 rok bude chtít sm��110it USD na CZK. V tento okamžik má k dispozici dv��32možnosti a to (a) uzav��195�t FX forward s forwardovou sazbou $E^f_T$, úro��105t USD sazbou $i_{usd}$ a po jednom roce provést konverzi USD do CZK nebo (b) spotov��32sm��110it USD na CZK za spotový kurz $E_0$ a CZK úro��105t sazbou $i_{czk}$ po dobu jednoho roku. Za p��101dpokladu neexistence arbitráže musí být ob��32alternativy ekvivalentní. Obecn��32tedy platí
+\begin{equation*}
+(1 + i_{usd})^T E^f_T = E_0 (1 + i_{czk})^T
+\end{equation*} 
+Jedinou neznámou je forwardový kurz $E^f_T$. Ten lze vyjád��105t
+\begin{equation*}
+E^f_T =  E_0 \frac{(1 + i_{czk})^T}{(1 + i_{usd})^T} 
+\end{equation*}
+
+\noindent \textbf{P��195�klad:} Rovnovážný forwardový kurz pro výše uvedený p��195�klad za p��101dpokladu, že $i_{usd}=5.38\%$ a $i_{czk}=3.05\%$, je
+\begin{equation*}
+E^f_T = 22.51 \frac{1 + 0.0305}{1 + 0.0538} = 22.012
+\end{equation*}
+
+\noindent \textbf{Poznámka:} Teoreticky by m��108 být FX forward uzavírán práv��32za rovnovážný kurz. V praxi však banky vychýlí kurz ve svůj prosp��99h a tímto způsobem realizují zisk z transakce. Nap��195�klad v p��195�pad��44 kdy by KB v ��97se $T$ provád��108a nákup USD, nabídla by protistran��32nižší než rovnovážný forwardový kurz.\\
+
+Výraz
+\begin{equation*}
+\frac{(1 + i_{czk})^T}{(1 + i_{usd})^T}
+\end{equation*}
+je tzv. úrokový diferenciál. Jeho nosnou myšlenkou je, že vývoj m��110ových kurzů kompenzuje rozdíly v úrokových sazbách pro jednotlivé m��110y. Tímto způsobem je teoreticky zajišt��110 všem investorům stejný výnos bez ohledu na to, do které m��110y investují.
+
+\subsection{Forwardové body}
+
+V praxi se cena forwardu neuvádá ve form��32forwardového kurz ale tzv. forwardových bodů. Forwardové body p��101dstavují rozdíl mezi forwardovým a spotovým kurzem. V našem p��195�pad��32by se jednalo o -498 bodů.
+\begin{equation*}
+FW_bps = (E^f_T - E_0) \cdot 1~000 = (22.012 - 22.510) \cdot 1~000 = -498
+\end{equation*}
+
+\end{document}
+
+
+

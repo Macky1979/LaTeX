@@ -1,0 +1,261 @@
+\chapter{Formulas}
+
+\section{Book I}
+
+\subsection{VaR and Extreme Value Theory}
+\begin{itemize}
+	\item arithmetic return $r_t = \frac{P_t + D_t - P_{t - 1}}{P_{t - 1}}$
+	\item geometric return $r_t = ln \left(\frac{P_t + D_t}{P_{t - 1}}\right)$
+	\item normal VaR = $-\mu + \sigma z_{\alpha}$
+	\item log-normal VaR = $1 - e^{\mu - \sigma z_{\alpha}}$
+	\item spectral risk measure $M(\Phi) = \int_0^1 \Phi(p) q(p) dp$
+	\item standard deviation of a risk measure $\sigma = \frac{\sqrt{p(1 - p) / n}}{f(q)}$ where $p = 1 - \Phi(q + h/2)$ and $f(q) = \Phi(q + h/2) - \Phi(q - h/2)$
+	\item weight in age-weighted historical simulation $w_i = \lambda^{i - 1}; ~ w_1 = \frac{\lambda^{i - 1}(1 - \lambda)}{1 - \lambda^n}$
+	\item re-scaling of return under volatility-weighted historical simulation $r^*_{t,i} = \frac{\sigma_{T,i}}{\sigma_{t,i}}r_{t,i}$
+	\item probability distribution over threshold $F_u(x) = P[X - u \le u | X > u] = \frac{F(x + u) - F(u)}{1 - F(u)}$
+	\item $\mu_P = w_x \mu_x + w_y \mu_y$
+	\item $\sigma_P^2 = w_x^2 \sigma_x^2 + w_y^2 \sigma_y^2 + 2 w_x w_y cov(x, y)$
+	\item $VaR = \sqrt{\begin{bmatrix} x & y \end{bmatrix} \begin{bmatrix} \sigma_{x^2} & \rho_{xy}\\ \rho_{xy} & \sigma_{y^2} \end{bmatrix} \begin{bmatrix}x \\ y \end{bmatrix}}$
+	\item $VaR_{tot}^2 = VaR_{bnd}^2 + VaR_{eq}^2 + 2 \rho VaR_{bnd} VaR_{eq}$
+	\item joint default probability $P(AB) = \rho_{AB} \sqrt{PD_A(1 - PD_A) \cdot PD_B(1 - PD_B)} + PD_A \cdot PD_B$
+\end{itemize}
+
+\subsection{Covariance and Correlation}
+\begin{itemize}
+	\item $cov(x,y) = \frac{\sum(x_i - \mu_x)(y_i - \mu_y)}{n - 1}$
+	\item $\rho_{xy} = \frac{cov(x,y)}{\sigma_x \sigma_y}$
+	\item realised correlation from correlation swap $\rho_{realized} = \frac{2}{n^2 - n}\sum_{i > j}\rho_{ij}$
+	\item payoff for the investor buying the correlation swap $N \cdot (\rho_{realized} - \rho_{fixed})$
+	\item mean-reversion model
+	\begin{itemize}
+		\item $\Delta S_t = a(\mu - S_{t - t}) \Delta t + \sigma \epsilon \sqrt{\Delta t}$
+		\item assuming $\Delta t = 1$ we get $E[\Delta S_t] = a(\mu - S_{t - t})$
+		\item applying regression on historical data we get $E[\Delta S_t] = \alpha - a S_{t - 1}$
+		\item one-period lag autocorrelation equals $1 - a$
+	\end{itemize}
+	\item Pearson correlation $\rho_{xy} = \frac{cov(x,y)}{\sigma_x \sigma_y}$
+	\item Spearman's rank correlation $\rho_S = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}$
+	\item Kendall's rank correlation $\tau = \frac{n_c - n_d}{n(n - 1) / 2}$
+	\item copula
+	\begin{itemize}
+		\item $C: [0, 1]^n \rightarrow [0, 1]$
+		\item $C[G_1(u_1), ..., G_n(u_n)] = F_n[F_1^{-1}(G_1(u_1)), ..., F_n^{-1}(G_n(u_n)); \rho_F]$
+	\end{itemize}
+\end{itemize}
+
+\subsection{Empirical Approaches to Risk Metrics and Hedges}
+\begin{itemize}
+	\item hedging nominal yields with real yields
+	\begin{itemize}
+		\item $\Delta y_t^N = \alpha + \beta \Delta y_t^R + \epsilon_t$
+		\item $F^R = F^N \frac{DV01^N}{DV01^R}\beta$
+	\end{itemize}
+	\item hedging 20Y swap rate with 10Y and 30Y swap rates
+	\begin{itemize}
+		\item $\Delta y_t^{20} = \alpha + \beta^{10} \Delta y_t^{10} + \beta^{30} \Delta y_t^{30} + \epsilon_t$
+		\item $F^{10} = F^{20} \frac{DV01^{20}}{DV01^{10}} \beta^{10}$
+		\item $F^{30} = F^{20} \frac{DV01^{20}}{DV01^{30}} \beta^{30}$
+	\end{itemize}
+	\item change-on-change regression $\Delta y_t = \alpha + \beta \Delta x_t + \Delta \epsilon_t$
+	\item level-on-level regression $y_t = \alpha + \beta x_t + \epsilon_t$
+	\item to solve problem with serial correlation one can use $\epsilon_t = \rho \epsilon_{t - 1} + v_t$
+\end{itemize}
+
+\subsection{Interest Rate Models}
+\begin{itemize}
+	\item Jenson's inequality $E[B(y)] > B(E[y])$
+	\item risk premium to compensate interest rate uncertainty $(1 + r_{1Y})(1 + r_{2Y} + s)B_{t = 0}^{averse} = (1 + r_{1Y})(1 + r_{2Y})B_{t = 0}^{neutral}$
+	\item model 1 $dr = \sigma dw = \sigma \sqrt{\Delta t} \epsilon$
+	\item model 2 $dr = \lambda dt + \sigma dw$
+	\item Ho-Lee model $dr = \lambda(t) dt + \sigma dw$
+	\item Vasicek model
+	\begin{itemize}
+		\item $dr = k(\theta - r)dt + \sigma dw$
+		\item drift term $\lambda \approx k(\theta - r_l)$
+		\item $E[r_T] = \theta - (\theta - r_0)e^{-kt}$
+		\item half-life $T$ is defined through $e^{-kT} = \frac{1}{2}$
+	\end{itemize}
+	\item model 3
+	\begin{itemize}
+		\item $dr = \lambda(t)dt + \sigma(t)dw$
+		\item $dr = \lambda(t)dt + \sigma e^{-\alpha t}dw$
+	\end{itemize}
+	\item CIR model $dr = k(\theta - r)dt + \sigma \sqrt{r}dw$
+	\item log-normal model (model 4) $dr = ardt + \sigma r dw$
+	\item log-normal model with drift $d[ln(r)] = a(t) + \sigma dw$
+	\item Black-Karasinski model $d[ln(r)] = k(t)[ln(\theta(t)) - ln(r)]dt + \sigma(t) dw$
+\end{itemize}
+
+\subsection{OIS Discounting}
+\begin{itemize}
+	\item LIBOR discounting is based on $\frac{swp_{2Y}}{1 + r_{1Y}^{swp}} + \frac{swp_{2Y}}{(1 + r_{2Y}^{swp})^2} = 1.00$. We know all but $r_{2Y}^{swp}$, which we calculate based on the formula.
+	\item OIS discounting is based on $\frac{swp_{2Y}}{1 + r_{1Y}^{ois}} + \frac{swp_{2Y}}{(1 + r_{2Y}^{ois})^2} = \frac{fwd_{1Y}}{1 + r_{1Y}^{ois}} + \frac{fwd_{2Y}}{(1 + r_{2Y}^{ois})^2}$. We know all but $fwd_{2Y}$, which we calculate based on the formula.
+\end{itemize}
+
+\subsection{Volatility Smiles}
+\begin{itemize}
+	\item put-call parity $c + Xe^{-rT} = S_0 + p$
+	\item put-call parity holds both for Black-Scholes model and real market, therefore $p_{mkt} - p_{bsm} = c_{mkt} - c_{mbs}$
+\end{itemize}
+
+\section{Book II}
+
+\subsection{Credit Risk Models}
+\begin{itemize}
+	\item Black-Scholes-Merton option formula
+	\begin{itemize}
+		\item $c = S_0 N(d_1) - Xe^{-rT} N(d_2)$
+		\item $p = Xe^{-rT}N(-d_2) - S_0 N(-d_1)$
+		\item $d_1 = \frac{ln(S_0/X) + (r + \frac{1}{2}\sigma^2)T}{\sigma \sqrt{T}}$
+		\item $d_2 = \frac{ln(S_0/X) + (r - \frac{1}{2}\sigma^2)T}{\sigma \sqrt{T}} = d_1 - \sigma \sqrt{T}$
+	\end{itemize}
+	\item Merton model
+	\begin{itemize}
+		\item payment to shareholders = $max(A_T - D, 0)$
+		\item payment to debtholders = $A_T - max(A_T - D, 0) = D - max(D - A_T, 0)$
+		\item probability of default = $N(-d_2)$; using $r$ we get risk-neutral probability of default vs. using $E[ROA]$ we get real-world probability of default
+		\item LGD is absolute terms = $D N(-d_2) - A_0 e^{rT}N(-d_1)$
+		\item value of subordinated debt with nominal value of $U$ is defined as $call(D) - call(D + U)$ where $D$ represents senior debt
+	\end{itemize}
+	\item KMV model
+	\begin{itemize}
+		\item default threshold = short-term liabilities + 0.5 * long-term liabilities
+		\item distance to threshold = $\frac{\textit{expected asset value  - default threshold}}{\sigma_{\textit{expected asset value}}}$
+	\end{itemize}
+	\item credit factor model
+	\begin{itemize}
+		\item asset return is defined as $a_i^T = ln(A_i^T / A_i^t)$
+		\item asset return can be modelled as $a_i^T = \beta_i m + \sqrt{1 - \beta_i^2}\epsilon_i$
+		\item default occurs when $A_i^T < D_i$, which corresponds to $a_i^T < ln(D_i / A_i^t) = ln(1 - E_i^t / A_i^t) \approx - E_i^t / A_i^t$
+		\item default threshold is defined as $k_i = -E_i^t / A_i^t$ and is based on rating
+		\item default occurs when $a_i \le k_i$
+		\item correlation between assets $i$ and $j$ is $\beta_i \beta_j$
+		\item conditional cumulative default probability is $p(m) = \Phi\left(\frac{k_i - \beta_i \bar{m}}{\sqrt{1 - \beta_i^2}}\right)$
+	\end{itemize}
+	\item vulnerable option
+	\begin{itemize}
+		\item $c^* = max(min(V, S - X), 0)$
+		\item $c^* = (1 - PD) \cdot c + PD \cdot RR \cdot c$
+	\end{itemize}
+\end{itemize}
+
+\subsection{Credit Risk and Probability of Default}
+\begin{itemize}
+	\item $EL = PD \cdot LGD \cdot EAD$
+	\item investors would prefer a risky bond if $(1 - PD)(1 + r + z) + PD \cdot RR > 1 + r$
+	\item probability of default based on Bernoulli trial $PD_T = 1 - (1 - \pi)^T$
+	\item exponential distribution $f(x) = \frac{1}{\beta}e^{-x/\beta}, x \ge 0; E[x] = \beta = 1 / \lambda, D[x] = \beta^2 = 1 / \lambda ^ 2$
+	\item Poisson distribution $P[x = k] = \frac{\lambda^k e^{-\lambda}}{k!}; ~~~ E[x] = \lambda, ~~~ D[x] = \lambda^2$
+	\item cumulative default time distribution $P[t^* < t] = F(t) = 1 - e^{-\lambda t}$
+	\item survival distribution $P[t^* \ge t] = 1 - F(t) = e^{-\lambda t}$
+	\item marginal default $f(t) = \lambda e^{-\lambda t}$
+	\item instantaneous conditional default probability $\lambda dt$
+	\item risk-neutral hazard rate $\lambda \approx \frac{z}{1 - RR}$
+	\item time-varying hazard rate $\lambda(t)$ implies cumulative default time distribution in form of $F(t) = 1 - e^{-\int_0^t}\lambda(s)ds$
+	\item default correlation $\rho_{12} = \frac{\pi_{12} - \pi_1 \pi_2}{\sqrt{\pi_1(1 - \pi_1)}\sqrt{\pi_2(1 - \pi_2)}}$
+\end{itemize}
+
+\subsection{Credit Exposure}
+\begin{itemize}
+	\item netting factor = $\frac{\sqrt{n + n(n - 1)\rho}}{n}$
+	\item EE during remargin period = $0.40 \cdot \sigma_E \cdot \sqrt{T_M}$
+	\item PFE during remargin period = $z_{\alpha} \cdot \sigma_E \cdot \sqrt{T_M}$
+\end{itemize}
+
+\subsection{Credit Value Adjustment}
+\begin{itemize}
+	\item $CVA \approx LGD \cdot \sum_i DF_i \cdot EE_i \cdot PD_i$
+	\item CVA as running spread = $s_{CDS} \cdot EPE$
+	\item CVA as IRS spread = \textit{CVA / dollar duration}
+\end{itemize}
+
+\subsection{Other}
+\begin{itemize}
+	\item required number of defaults to breach a tranche = $n \left(\frac{X\%}{1 - RR}\right)$, where $n$ is number of underlying credits and $X\%$ is an attachment point
+\end{itemize}
+
+\section{Book III}
+
+\subsection{RAROC}
+\begin{itemize}
+	\item $RAROC = \frac{\textit{expected revenues - costs -expected losses - taxes + return on economic capital} \pm \textit{transfers}}{\textit{economic capital}}$
+	\item $h_{AT} = \frac{CE \cdot r_{CE} + PE \cdot r_{PE}}{CE + PE}$
+	\item $\textit{adjusted RAROC} = RAROC - \beta_E (r_M - r_F)$
+\end{itemize}
+
+\subsection{Repo Market}
+\begin{itemize}
+	\item penalty rate = $\max(3\% - \textit{federal funds rate}, 0)$
+	\item special spread $\in <0, \textit{penalty rate}>$
+\end{itemize}
+
+\subsection{Liquity}
+\begin{itemize}
+	\item constant spread approach
+	\begin{itemize}
+		\item $LC = \frac{1}{2} \cdot V \cdot spread$
+		\item $spread = \frac{\textit{ask price - bid price}}{(ask price + bid price) / 2}$
+		\item $LVaR = VaR + LC$
+	\end{itemize}
+	\item exogenous spread approach
+	\begin{itemize}
+		\item $LVaR = VaR + \frac{1}{2}(\mu + \sigma z_{\alpha})$
+	\end{itemize}
+	\item endogenous spread approach
+	\begin{itemize}
+		\item $E = \frac{\Delta P / P}{\Delta N / N}$
+		\item $LVaR = VaR \cdot \left(1 - \frac{\Delta P}{P} \right) = VaR \cdot \left(1 - E\frac{\Delta N}{N}\right)$
+	\end{itemize}
+	\item $\frac{LVAR}{VaR}|_{combined} = \frac{LVaR}{VaR}|_{exogenous} \cdot \frac{LVaR}{VaR}|_{endogenous}$
+	\item CrashMetric $\Pi = \delta \Delta S + \frac{\gamma}{2}(\Delta S)^2$; $\Pi$ is minimised (= maximum loss) at $\Pi = \frac{\delta^2}{2 \gamma}$ for $\Delta S = - \frac{\delta}{\gamma}$
+\end{itemize}
+
+\subsection{Liquidity}
+\begin{itemize}
+	\item $L = \frac{A}{E} = 1 + \frac{D}{E}$
+	\item $r_E = L \cdot {r_A} - (L - 1) r_D$
+\end{itemize}
+
+\subsection{Basel}
+\begin{itemize}
+	\item credit equivalent for OTC derivatives = $\max(V, 0) + a \cdot L$
+	\item worst case probability of default $WCDR_i = N\left[\frac{N^{-1}(PD_i) + \sqrt{\rho} N^{-1}(0.999)}{\sqrt{1 - \rho}}\right]$
+	\item $\rho = 0.12 \cdot (1 + e^{-50 \cdot PD})$
+\end{itemize}
+
+\section{Book IV}
+
+\subsection{Portfolio Construction}
+\begin{itemize}
+	\item alpha scaling \textit{$\alpha$ = volatility * information coefficient * score}
+	\item $\textit{risk aversion} = \frac{\textit{information ratio}}{\textit{2 * active risk}}$
+	\item \textit{marginal value added = $\alpha$ - 2 * risk aversion * active risk * marginal active risk}
+	\item no-trade range \textit{0 $<$ marginal value added $<$ transaction costs}
+\end{itemize}
+
+\subsection{Portfolio Risk Management}
+\begin{itemize}
+	\item $\sigma_P^2 = \sigma \sqrt{\frac{1}{N} + \left(1 - \frac{1}{N}\right)\rho}$
+	\item $MVaR_i = \frac{cov(r_i, r_p)}{\sigma_P} z_{\alpha} = \frac{VaR_P}{NPV_P}\beta_i$, $\beta_i = \frac{cov(r_i, r_P)}{\sigma_P^2}$
+	\item $VaR = \sum CVaR_i = VaR \sum w_i \beta_i$
+	\item portfolio risk will be at a global minimum when $MVaR_i = MVaR_j$
+	\item optimal portfolio is defined by $\frac{r_i - r_F}{MVaR_i} = \frac{r_j - r_F}{MVaR_j}$
+	\item optimal portfolio for eliptical distributions is defined by $\frac{r_i - r_F}{\beta_i} = \frac{r_j - r_F}{\beta_j}$
+	\item $r_{surplus} = \frac{\Delta Assets}{Assets} - \frac{\Delta Liabilities}{Liabilities}\frac{Liability}{Assets} = r_{asset} - r_{liability} \frac{Liabilities}{Assets}$
+	\item weight of portfolio managed by manager i = $\frac{IR_i \cdot \textit{portfolio's tracking error}}{IR_P \cdot \textit{manager's tracking error}}$
+	\item Sharpe ratio $S = \frac{r - r_F}{\sigma}$
+	\item Treynor ratio $T = \frac{r - r_F}{\beta}$
+	\item Jensen's alpha $r - r_F = \alpha + \beta(r_M - r_F)$
+	\item information ratio $IR = \frac{r_A - r_B}{\sigma_{A - B}} = \frac{\alpha_A}{\sigma(\epsilon_A)}$
+	\item alpha t-statics $t = \frac{\alpha - 0}{\sigma / \sqrt(N)}$
+	\item superior market timing skills $r_P - r_F = \alpha + \beta(r_M - r_F) + M(r_M - r_F)D + \epsilon$
+	\item style analysis $r_P = \beta_1 r_1 + \beta_2 r_2 + ... + \beta_b r_n + \epsilon$
+\end{itemize}
+
+\subsection{Liquidity}
+\begin{itemize}
+	\item liquidity duration $LD = \frac{Q}{0.10 \cdot V}$
+	\item Amihund measure of bond liquidity = $\frac{\text{daily absolute price change in bps}}{\text{trading volume}}$
+	\item Amihund measure of equity liquidity = $\frac{\text{daily absolute stock return}}{\text{trading volume}}$
+	\item market efficiency coefficient  = $\frac{\text{variance of long-term stock returns}}{\text{variance of short-term stock returns}}$
+\end{itemize}

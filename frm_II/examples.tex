@@ -1,0 +1,120 @@
+\chapter{Examples}
+
+\section{Example 1}
+
+\subsection{Question}
+Based on the following information, what are the risk-neutral and real-world default probabilities?
+\begin{itemize}
+	\item Market price of bond is 88.
+	\item Liquidity premium is 3\%.
+	\item Credit risk premium is 4\%.
+	\item Risk-free rate is 2.5\%.
+	\item Expected inflation is 1.5\%.
+	\item Recovery rate is 0\%.
+\end{itemize}
+
+\subsection{Answer}
+The risk-neutral default probability is approximately 12\% because the market price is 88\% of par. Risk-neutral probability = real-world probability + credit risk premium + liquidity premium. Therefore 12\% = real-world probability + 4\% + 3\% which implies real-world probability = 12\% - 7\% = 5\%.
+
+\section{Example 2}
+
+\subsection{Question}
+If a credit position has a correlation with the market factor of 0.4, what is the approximate realised market value at the 99\% confidence level?
+
+\subsection{Answer}
+The default loss level has a default probability of 1\%, which corresponds to a value of -2.33 on the standard normal distribution. Also, the credit position's correlation to the market is $\beta$, which equals 0.4. Using this information, realised market value is calculated as follows.
+\begin{equation*}
+p(m) = \Phi\left(\frac{k - \beta \bar{m}}{\sqrt{1 - \beta^2}} \right)
+\end{equation*}
+\begin{equation*}
+-2.33 = \Phi\left(\frac{-2.33 - 0.4 \bar{m}}{\sqrt{1 - 0.4^2}}\right)
+\end{equation*}
+\begin{equation*}
+\bar{m} = -0.486
+\end{equation*}
+
+\section{Example 3}
+
+\subsection{Question}
+Using the Merton model to value the firm's debt and equity, which of the following scenarios in not possible? Assume the other three are true.
+\begin{itemize}
+\item Equity = 0 USD; Debt = 20 USD
+\item Equity = 10 USD; Debt = 35 USD
+\item Equity = 10 USD; Debt = 20 USD
+\item Equity = 0 USD; Debt = 35 USD
+\end{itemize}
+
+\subsection{Answer}
+Combination of equity = 10 USD and debt = 20 USD is not possible, since equity cannot have a positive value until debt has reached its face value of 35 USD.
+
+\section{Example 4}
+
+\subsection{Question}
+The XYZ Retirement Fund has 400 MUSD in assets and 370 MUSD in liabilities. Assume that the expected return on the surplus scaled by assets is 6\% and the expected growth in liabilities is 5\%. The volatility of asset growth is 10\% and the volatility of the liability growth is 7\%. Compute the volatility of the surplus growth assuming the correlation between assets and liabilities is 0.4.
+
+\subsection{Answer}
+\begin{equation*}
+\sigma^2_{surpl} = w^2_{ass}\sigma^2_{ass} + w^2_{liab}\sigma^2_{liab} - 2 w_{ass} w_{liab} \sigma_{ass} \sigma_{liab} \rho
+\end{equation*}
+\begin{equation*}
+\sigma^2_{surpl} = 400^2 \cdot 0.010^2 + 370^2 \cdot 0.07^2 - 2 \cdot 400 \cdot 370 \cdot 0.10 \cdot 0.07 \cdot 0.40
+\end{equation*}
+\begin{equation*}
+\sigma^2_{surpl} = 1442.01
+\end{equation*}
+\begin{equation*}
+\sigma_{surpl} = 37.97
+\end{equation*}
+
+\section{Example 5}
+
+\subsection{Question}
+The ABC Retirement Fund has 300 MUSD in assets and 290 MUSD in liabilities. Assume that the expected return on the surplus scaled by assets is 6\%. This means that the surplus is expected to grow by 18 MUSD over the first year. The volatility of the surplus 10\%. Using a z-score of 1.65, compute VaR and the associated deficit that would occur with the loss associated with the VaR.
+
+\subsection{Answer}
+Surplus in 1Y is $300 - 290 + 18$ = 28 MEUR. 1Y VaR based on the z-score is $1.65 \cdot 300 \cdot 0.10 = 49.5$ MUSD. Therefore, the associated deficit is $28 - 49.5 = 21.5$ MUSD.
+
+\section{Example 6}
+
+\subsection{Question}
+A share of Avedon, Inc. currently has a bid price of 59.50 USD and ask price of 60.00 USD. The sample standard deviation of bid-ask spread is 0.0003. Given this information, determine the expected transactions costs and 99\% spread risk factor for transaction involving Avedon.
+
+\subsection{Answer}
+Midprice is defined as $P = (60.00 + 59.50) / 2 = 59.75$ USD and bid-ask spread as $s = (60.00 - 59.50) / 59.75 = 0.00837$. 99\% spread risk factor is $f = \frac{1}{2}(0.00837 + 2.33 \cdot 0.0003) = 0.0045345$. Expected transaction costs are defined as $59.75 \cdot 0.0045345 = 2.71$ USD.
+
+\section{Example 6}
+
+\subsection{Question}
+An analyst estimates that the hazard rate of a company is 0.16 per year. What is the probability of survival in the first year followed by a default in the second year?
+
+\subsection{Answer}
+\begin{equation*}
+p = \frac{\textit{probability of default in 2Y - probability of default in 1Y}}{\textit{probability of survival in 1Y}} = \frac{(1 - e^{-2 \lambda}) - (1 - e^{-\lambda})}{e^{-\lambda}} = 0.14786
+\end{equation*}
+
+\section{Example 7}
+
+\subsection{Question}
+Suppose that you want to estimate the implied default probability for a BB-rated discount corporate bond.
+\begin{itemize}
+	\item The T-bond (a risk-free bond) yields 8\% per year.
+	\item The one-year BB-rated discount bond yields 14\% per year.
+	\item The two-year BB-rated discount bond yields 21\% per year.
+\end{itemize}
+If the recovery on a BB-rated bond is expected to be 0\%, and the marginal default probability in year one is 7\%, what is the estimate of the risk-neutral probability that the BB-rated discount bond defaults within the next 2Y?
+
+\subsection{Answer}
+\begin{equation*}
+(1 + 0.08)^2 = PD_{2Y} \cdot (1 + 0.21^2)
+\end{equation*}
+\begin{equation*}
+PD_{2Y} = 0.2033
+\end{equation*}
+
+\section{Example 8}
+
+\subsection{Question}
+Let us assume yearly hazard rate of 0.2. What is a default probability in the second year and conditional default probability after one year?
+
+\subsection{Answer}
+The default probability in the second year is $(1 - e^{-0.2 \cdot 2}) - (1 - e^{-0.2 \cdot 1}) = 0.149$. Thus, the conditional probability of default after one year is $\frac{0.149}{e^{-0.2 \cdot 1}} = 0.182$. Is to be noted that the conditional probability is memoryless and constant.

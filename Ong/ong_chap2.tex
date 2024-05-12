@@ -1,0 +1,70 @@
+\chapter{Portfolio a očekávaná ztráta}
+
+\section{Očekávaná ztráta}
+
+Očekávanou ztrátu (expected loss - EL) jsme v předchozím textu definovali jako
+\begin{center}
+\textit{EL = expozice vůči dlužníkovi v čase T $\times$ ztráta v případě defaultu $\times$ pravděpodobnost defaultu před splatností v čase T}
+\end{center}
+Je zřejmé, že skutečná ztráta se může od té očekávané lišit na obě strany\footnote{Ve většině případů banka ztrátu neutrpí vůbec.}. A právě tato odchylka, tzv. neočekávaná ztráta, je z pohledu risk managementu klíčová veličina - banka musí disponovat dostatečným kapitálem, aby tuto případnou neočekávanou ztrátu pokryla.
+
+\section{Expozice vůči dlužníkovi}
+
+Označme hodnotu bankovního aktiva v čase $t_0$ jako $V_0$. Toto aktivum se skládá ze dvou základních částí - (a) čerpání (outstandings - OS)\footnote{Klasickým příkladem jsou již poskytnuté úvěry.} a (b) příslib čerpání (commitments - COM)\footnote{Nejběžnějším příkladem jsou kontokorentní účet a nejrůznější záruky a garance poskytnuté bankou ve prospěch klienta, které mohou být čerpány v budoucnu.}.
+\begin{equation}
+V_0 = OS + COM
+\end{equation}
+V případě defaultu klienta přijde banka o celou část čerpání. Ztráta z titulu příslibu čerpání je pouze částečná a odvíjí se od ratingu klienta. Obecně platí, že se zhoršujícím se ratingem roste míra, v jaké klient využívá příslibu čerpání.
+
+\section{Upravená expozice}
+
+Opět uvažujme bankovní aktivum, jehož hodnota v čase $t_0$ je rovna $V_0$. V případě, že před rozhodným okamžikem $t_H$ nedojde k defaultu, zůstává jeho hodnota rovna $V_0$. Jestliže však před $t_H$ dojde k defaultu, pak lze očekávat, že klient použije také část příslibu čerpání. Proto můžeme hodnotu aktiva $V_1$ v čase $t_1$ rozdělit na rizikovou a bezrizikou část.
+\begin{equation}
+V_1 =
+\begin{cases}
+OS + \alpha \times COM ~~~ \textit{riziková čast}\\
+(1 - \alpha) \times COM ~~~ \textit{bezriziková část}
+\end{cases}
+\end{equation}
+kde $\alpha$ představuje procentní využití příslibu čerpání, tzv. využití v případě defaultu (usage given default - UGD). Z historických pozorování je patrné, že hodnota $\alpha$ prudce narůstá s tím, jak se klient blíží defaultu. Ačkoliv by se teoreticky $\alpha$ mělo modelovat stochasticky, v praxi se používá pro jeho odhad deterministická funkce založená na ratingu klienta na konci rozhodného období.
+
+Je zřejmé, že potenciální ztrátu z titulu defaultu klienta zde představuje riziková část $V_1$, kterou označujeme jako upravenou expozici (adjusted exposure - AE). Očekávanou ztrátu tak můžeme vyjádřit jako
+\begin{equation}
+EL = AE \times LGD \times P_{default}
+\end{equation}
+
+\section{Ztráta v případě defaultu a riziková část $V_1$}
+
+Připomeňme, že upravená expozice je rizikovou částí $V_1$. Jestliže k defaultu dojde před $t_H$, je předmětem ztráty pouze riziková část $V_1$. Hodnota aktiva v držení banky je pak rovna
+\begin{equation}
+V_1(1 - LGD) + (V_0 - V_1) = V_0 - V_1 \times LGD
+\end{equation}
+kde $(V_0 - V_1)$ je rovno $(1 - \alpha) \times COM$ a představuje tak bezrizikovou část aktiva.
+
+\section{Matematické odvození očekávané ztráty}
+
+Nechť $\tilde{L}$ představuje náhodnou veličinu označující procentní výši ztráty se střední hodnotou $E[\tilde{L}] \equiv LGD$. Pravděpodobnost defaultu před $t_H$ označme jako $\tilde{Q}_t(\tau^* \le t_H)$. Pro střední hodnotu $\tilde{Q}_t(\tau^* \le t_H)$ platí $E[\tilde{Q}_t(\tau^* \le t_H)] \equiv EDF$.
+
+V čase $t_H$ mohou z pohledu hodnoty aktiva nastat dvě situace a to $\tilde{V}_{H|D}$ a $\tilde{V}_{H|\overline{D}}$, kde $D$ značí default a $\overline{D}$ přežití. Očekávanou ztrátu v čase $t_H$ tak lze vyjádřit jako
+\begin{equation}
+EL_H = E[\tilde{V}_{H|\overline{D}}] - E[V_H] = V_0 - E[\tilde{Q}(V_1(1-\tilde{L}) + (V_0 - V_1)) + (1 - \tilde{Q})V_0]
+\end{equation}
+což lze po úpravách vyjádřit jako
+\begin{equation}
+EL_H = V_1 \times LGD \times EDF
+\end{equation}
+neboli
+\begin{equation}
+EL_H = AE \times LGD \times EDF
+\end{equation}
+
+\begin{example}
+Předpokládejme aktivum s následujícími charakteristikami: COM = 10 000 000 USD, OS = 5 000 000 USD, UGD = 65\%, EDF = 0.15\% a LGD = 50\%. Prvním krokem je výpočet upravené expozice.
+\begin{equation}
+AE = OS + (COM - OS) \times UGD = 8~250~000
+\end{equation}
+Očekávanou ztrátu pak lze snadno vypočíst jako
+\begin{equation}
+EL = AE \times EDF \times LGD = 6~188~USD
+\end{equation}
+\end{example}
