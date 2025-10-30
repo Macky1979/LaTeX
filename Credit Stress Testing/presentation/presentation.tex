@@ -1,0 +1,596 @@
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usetheme{Warsaw}
+
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage{lmodern}
+\usefonttheme{professionalfonts}
+
+\newcommand\applyFontA{\fontsize{6}{6}\selectfont}
+\newcommand\applyFontB{\fontsize{8}{8}\selectfont}
+
+\title{Vasicek Model}
+\author{Michal Mackanic}
+\date{October 2025}
+
+\begin{document}
+
+% ==========================================================
+\begin{frame}
+	\titlepage
+\end{frame}
+
+% ==========================================================
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Section}
+    \begin{beamercolorbox}[sep=4pt,center]{part title}
+		\large{\insertsectionhead}\par%
+    \end{beamercolorbox}
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Section}
+    \begin{beamercolorbox}[sep=4pt,center]{part title}
+		\insertsubsectionhead\par%
+    \end{beamercolorbox}
+  \end{frame}
+}
+
+\AtBeginSubsubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Section}
+    \begin{beamercolorbox}[sep=2pt,center]{part title}
+		\insertsubsubsectionhead\par%
+    \end{beamercolorbox}
+  \end{frame}
+}
+
+\applyFontB
+
+\setbeamertemplate{itemize items}[ball]
+
+\section{Introduction}
+
+% ==========================================================
+\begin{frame}{Vasicek Model}
+\justifying
+\small
+
+The Vasicek model is a \textbf{cornerstone of modern credit risk analysis and regulation}. Originally introduced by Oldrich Vasicek in 1987, the model provides a simple yet powerful framework for quantifying portfolio credit risk by linking individual default probabilities to a common systematic risk factor.
+
+\medskip
+
+Its analytical tractability and intuitive structure make it particularly suitable for assessing the impact of macroeconomic shocks on portfolio-level losses. The model assumes that \textbf{defaults are driven by latent variables} representing the underlying credit quality of borrowers, which are correlated through their exposure to the \textbf{systematic factor}. This dependence structure allows the Vasicek model to capture the key feature of credit portfolios - default clustering during economic downturns - while remaining computationally efficient.
+
+\medskip
+
+Owing to these properties, the Vasicek model serves as the theoretical foundation for the Basel Internal Ratings-Based (IRB) approaches to \textbf{calculating regulatory capital requirements for credit risk}.
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Basic Definitions}
+\justifying
+\small
+
+\textbf{Basic terms and their definitions}:
+\begin{itemize}
+\item \textbf{Default} - the failure of a borrower to meet the legal obligations of a debt contract.
+\item \textbf{Probability of Default} (PD) - the likelihood that a borrower will default within 1 year.
+\item \textbf{Exposure at Default} (EAD) - the total amount a lender is exposed to at the time of a borrower's default.
+\item \textbf{Loss Given Default} (EAD) - the proportion of the exposure that is lost in the event of default, expressed as a percentage of EAD.
+\item \textbf{Expected Loss} (EL) - the average loss a incurred on a given loan or credit facility under normal conditions.
+\end{itemize}
+
+\medskip
+
+\textbf{One year expected loss} is defined as
+\begin{equation}
+EL = PD \cdot EAD \cdot LGD
+\end{equation}
+
+\end{frame}
+
+
+\section{Vasicek Model}
+
+% ==========================================================
+\begin{frame}{TTC vs. PIT PD}
+\justifying
+\small
+
+Equation (1) assumes a \textbf{long-term average}, the so-called \textbf{Through-the-Cycle (TTC)} Probability of Default (PD). As its name suggests, the TTC PD represents an average probability of default observed throughout the entire economic cycle. In practice, this value can be derived from a counterparty's external credit rating (for large corporates) or from internal scoring models (for retail exposures).
+
+\medskip
+
+The Vasicek model introduces the concept of adjusting the TTC PD to reflect the \textbf{current macroeconomic environment}. This stressed probability of default, conditional on the prevailing macroeconomic conditions, is referred to as the \textbf{Point-in-Time (PIT)} Probability of Default. Unlike the TTC PD, which is constant, the PIT PD varies with the macroeconomic environment - it is higher during recessions and lower during expansions.
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Latent Variable}
+\justifying
+\small
+
+The fundamental assumption of the Vasicek model is that each borrower $i$ is characterized by an \textbf{unobservable (latent) asset value} $x_{i,t}$, modeled as
+\begin{equation}
+x_{i,t} = a \cdot Z_t + b \cdot \varepsilon_{i,t},
+\end{equation}
+where
+\begin{itemize}
+    \item $Z_t$ is the \textbf{systematic (macroeconomic) factor}, with $Z_t \sim \mathcal{N}(0,1)$,
+    \item $\varepsilon_{i,t}$ is the \textbf{idiosyncratic (borrower-specific) factor}, with $\varepsilon_{i,t} \sim \mathcal{N}(0,1)$,
+    \item $a, b > 0$ are loading coefficients.
+\end{itemize}
+
+\medskip
+
+By definition, the variables $Z_t$ and $\varepsilon_{i,t}$ are independent. Since both $Z_t$ and $\varepsilon_{i,t}$ are normally distributed, the latent variable $x_{i,t}$ also follows a normal distribution.
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Latent Variable \textit{(cont. 1)}}
+\justifying
+\small
+
+Since $\mathrm{E}[Z_t] = 0$ and $\mathrm{E}[\varepsilon_{i,t}] = 0$, it follows that
+\begin{equation*}
+\mathrm{E}[x_{i,t}] = 0.
+\end{equation*}
+
+The Vasicek model further assumes that $\mathrm{Var}[x_{i,t}] = 1$, which implies
+\begin{equation*}
+\mathrm{var}[x_{i,t}] = a^2 + b^2 = 1.
+\end{equation*}
+
+\medskip
+
+Hence, we can express the latent variable $x_{i,t}$ as
+\begin{equation}
+x_{i,t} = \sqrt{\rho} \cdot Z_t + \sqrt{1 - \rho} \cdot \varepsilon_{i,t},
+\end{equation}
+where $0 < \rho < 1$ and $x_{i,t} \sim \mathcal{N}(0,1)$. In other words, the \textbf{latent variable follows standard normal distribution}.
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Dependence}
+\justifying
+\small
+
+Consider two latent variables $x_{i, t}$ and $x_{j, t}$
+{\tiny
+\begin{equation*}
+x_{i,t} = \sqrt{\rho}\cdot Z_t + \sqrt{1 - \rho} \cdot \varepsilon_{i,t}, \quad x_{j,t} = \sqrt{\rho} \cdot Z_t + \sqrt{1 - \rho} \cdot \varepsilon_{j,t}.
+\end{equation*}
+}
+Assuming independence between $Z_t$, $\varepsilon_{i, t}$, and $\varepsilon_{j, t}$, it can be proved that their correlation is equal to $\rho$.
+{\tiny
+\begin{align*}
+\mathrm{corr}[x_{i, t}, x_{j, t}] &= \frac{\mathrm{cov}[x_{i, t}, x_{j, t}]}{\sqrt{\mathrm{var}(x_{i,t})\cdot  \mathrm{var}(x_{j, t})}} \nonumber \\
+&= \mathrm{cov}[x_{i, t}, x_{j, t}] \nonumber \\
+&= \mathrm{E}[x_{i, t} \cdot x_{j, t}] \nonumber \\
+&= \mathrm{E}[(\sqrt{\rho} \cdot Z_t + \sqrt{1 - \rho} \cdot \varepsilon_{i, t}) \cdot (\sqrt{\rho} \cdot Z_t + \sqrt{1 - \rho} \cdot \varepsilon_{j, t})] \nonumber \\
+&= \mathrm{E}[\rho \cdot Z_t^2 + \sqrt{\rho} \cdot \sqrt{1 - \rho} \cdot Z_t \cdot \varepsilon_{j, t} + \sqrt{\rho} \cdot \sqrt{1 - \rho} \cdot Z_t \cdot \varepsilon_{i, j} + \rho \cdot (1 - \rho) \cdot \varepsilon_{i, t} \cdot \varepsilon_{j, t}] \nonumber \\
+&= \rho \cdot 1 + \sqrt{\rho} \cdot \sqrt{1 - \rho} \cdot 0 + \sqrt{\rho} \cdot \sqrt{1 - \rho} \cdot 0 + \rho \cdot (1 - \rho) \cdot 0 \nonumber \\
+&= \rho
+\end{align*}
+}
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Dependence \textit{(cont. 1)}}
+\justifying
+\small
+
+Similarly, if the two latent variables have distinct parameters $\rho_i$ and $\rho_j$, it can be shown that
+\begin{equation*}
+\mathrm{corr}[x_{i,t}, x_{j,t}] = \sqrt{\rho_i \cdot \rho_j}.
+\end{equation*}
+
+\medskip
+
+The above result explains why $\rho$ is often referred to as the \textbf{correlation parameter of the Vasicek model}.
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Threshold}
+\justifying
+\small
+
+In the Vasicek model, a \textbf{counterparty defaults if its asset value - represented by the latent variable $x_i$ - falls below a threshold $TH_i$}.
+\begin{equation*}
+PD_i = \mathrm{P}[x_i \le TH_i].
+\end{equation*}
+
+\medskip
+
+In the Merton model - another well-known framework for credit risk - the threshold $TH_i$ is derived from the firm's balance sheet. 
+In the Vasicek model, by contrast, the counterparty's \textbf{through-the-cycle probability of default}, denoted $PD_i^{TTC}$, is assumed to be known. Therefore, the above equation can be written as
+\begin{equation}
+PD_i^{TTC} = \mathrm{P}[x_i \le TH_i],
+\end{equation}
+and since $x_i \sim \mathcal{N}(0,1)$, it follows that
+\begin{equation*}
+PD_i^{TTC} = \Phi(TH_i)
+\end{equation*}
+or equivalently
+\begin{equation}
+TH_i = \Phi^{-1}(PD_i^{TTC})
+\end{equation}
+
+\end{frame}
+
+
+% ==========================================================
+\begin{frame}{Conditional Probability of Default}
+\justifying
+\small
+
+The latent variable $x_{i, t}$ is a function of a \textbf{systematic factor $Z_t$, which represents the state of the economic environment at time $t$}. This leads to \textbf{conditional, or Point-in-Time (PIT)}, version of Equation (4).
+{\tiny
+\begin{align}
+PD_{i, t} &= \mathrm{P}[x_i \le TH_i | Z_t] \nonumber \\
+&= \mathrm{P}\Bigg[\sqrt{\rho} \cdot Z_t + \sqrt{1 - \rho} \cdot \varepsilon_{i,t} \le TH_i | Z_t \Bigg] \nonumber \\
+&= \mathrm{P}\Bigg[\varepsilon_{i,t} \le \frac{TH_i - \sqrt{\rho} \cdot Z_t}{\sqrt{1 - \rho}} | Z_t\Bigg] \nonumber \\
+&= \mathrm{P}\Bigg[\varepsilon_{i,t} \le \frac{\Phi^{-1}(PD_i^{TTC}) - \sqrt{\rho} \cdot Z_t}{\sqrt{1 - \rho}} | Z_t\Bigg] \nonumber \\
+&= \Phi\left(\frac{\Phi^{-1}(PD_i^{TTC}) - \sqrt{\rho} \cdot Z_t}{\sqrt{1 - \rho}} | Z_t \right)
+\end{align}
+}
+In other words, unlike $PD_i^{TTC}$, which is assumed constant, the \textbf{conditional probability $PD_{i,t}$ varies with the macroeconomic environment through the systematic factor $Z_t$}.
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{RWA and the Vasicek Model}
+\justifying
+\small
+
+Under the Internal Ratings-Based (IRB) approach, the Risk-Weighted Assets (RWA) are defined as
+\begin{equation*}
+\textit{RWA}_i = K_i \cdot EAD_i,
+\end{equation*}
+where
+\begin{itemize}
+\item $EAD_i$ is the exposure at default, and
+\item $K_i$ is the \textbf{regulatory capital requirement per unit of exposure}.
+\end{itemize}
+
+\medskip
+
+The term $K_i$ represents the \textbf{unexpected loss} - the excess loss under a 1-in-1,000 adverse scenario over the expected loss.
+{\tiny
+\begin{multline*}
+K_i
+= \big(PD_i^{stress} - PD_i^{TTC}\big) \cdot LGD_i \\
+= \Bigg(\Phi \left[\frac{\Phi^{-1}(PD_i^{TTC}) - \sqrt{\rho} \cdot \Phi^{-1}(0.999)}{\sqrt{1 - \rho}}\right] - PD_i^{TTC}\Bigg) \cdot LGD_i.
+\end{multline*}
+}
+
+\medskip
+
+Thus, the Basel IRB capital formula is directly derived from the Vasicek model.
+\end{frame}
+
+\section{Systematic Factor}
+
+% ==========================================================
+\begin{frame}{Interpretation}
+\justifying
+\small
+
+The \textbf{systematic factor} $Z_t$ in the Vasicek model can be interpreted as an \textbf{indicator of the phase of the macroeconomic cycle}.
+
+\medskip
+
+When $Z_t$ takes \textbf{significantly negative} values, it corresponds to a period of economic recession; conversely, when $Z_t$ is \textbf{significantly positive}, it reflects an economic expansion.
+
+\end{frame}
+
+
+% ==========================================================
+\begin{frame}{Observed Default Rates vs. Systematic Driver}
+\justifying
+\small
+
+Observed default rates\footnote{\tiny{Observed default rates represent the proportion of a portfolio that defaults within a given time period. Unlike the probability of default, which is a theoretical (ex-ante) concept, the observed default rate is an empirical (ex-post) measure. For example, if a portfolio has 1,000 obligors at the beginning of the year and 10 default by year-end, the observed default rate for that year is 1\%.}} for a given portfolio can be used to infer historical realizations of the systematic factor $Z_t$.
+
+\medskip
+
+Since observed default rates are analogous to PIT PD, defined as
+\begin{equation*}
+PD_{i,t} = \Phi \left( \frac{\Phi^{-1}(PD_i^{TTC}) - \sqrt{\rho} \cdot Z_t}{\sqrt{1 - \rho}} \right),
+\end{equation*}
+the corresponding systematic factor $Z_t$ can be expressed as
+\begin{equation}
+Z_t = \frac{\Phi^{-1}(PD_i^{TTC}) - \sqrt{1 - \rho} \cdot \Phi^{-1}(PD_{i,t})}{\sqrt{\rho}}.
+\end{equation}
+
+\end{frame}
+
+
+% ==========================================================
+\begin{frame}{Requirements of Vasicek Model}
+\justifying
+\small
+
+Assuming $\mathrm{E}[Z_t] = 0$ and substituting from Equation (7), we can derive requirement of the Vasicek model on $PD_i^{TTC}$.
+{\tiny
+\begin{equation*}
+\begin{aligned}
+\mathrm{E}[Z_t] = 0 \\
+\mathrm{E} \Bigg[\frac{\Phi^{-1}(PD_i^{TTC}) - \sqrt{1 - \rho} \cdot \Phi^{-1}(PD_{i, t})}{\sqrt{\rho}} \Bigg] = 0 \\
+\mathrm{E} \Big[\Phi^{-1}(PD_i^{TTC}) - \sqrt{1 - \rho} \cdot \Phi^{-1}(PD_{i, t}) \Big] = 0 \\
+\Phi^{-1}(PD_i^{TTC}) - \sqrt{1 - \rho} \cdot \mathrm{E} \Big[\Phi^{-1}(PD_{i, t}) \Big] = 0 \\
+PD_i^{TTC} = \Phi \Big( \sqrt{1 - \rho} \cdot \mathrm{E} [\Phi^{-1}(PD_{i, t})] \Big)
+\end{aligned}
+\end{equation*}
+}
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Requirements of Vasicek Model \textit{(cont. 1)}}
+\justifying
+\small
+
+Similarly, imposing $\mathrm{var}[Z_t] = 1$ gives
+{\tiny
+\begin{equation*}
+\begin{aligned}
+\mathrm{var}[Z_t] = 1 \\
+\mathrm{E}[(Z_t)^2] = 1 \\
+\mathrm{E} \Bigg[\Bigg(\frac{\Phi^{-1}(PD_i^{TTC}) - \sqrt{1 - \rho} \cdot \Phi^{-1}(PD_{i,t})}{\sqrt{\rho}}\Bigg)^2\Bigg] = 1 \\
+\mathrm{E} \Bigg[\Bigg(\Phi^{-1}(PD_i^{TTC}) - \sqrt{1 - \rho} \cdot \Phi^{-1}(PD_{i,t})\Bigg)^2\Bigg] = \rho.
+\end{aligned}
+\end{equation*}
+}
+Expanding and simplifying with substitution
+{\tiny
+\begin{equation*}
+\Phi^{-1}(PD_i^{TTC}) = \sqrt{1 - \rho} \cdot \mathrm{E} \Big[\Phi^{-1}(PD_{i, t}) \Big]
+\end{equation*}
+}
+yields
+{\tiny
+\begin{equation*}
+(1 - \rho)  \mathrm{var}\Big( \Phi^{-1}(PD_{i, t}) \Big) = \rho
+\quad \small{\text{or equivalently}} \quad
+\rho = \frac{\mathrm{var} \Big( \Phi^{-1}(PD_{i, t}) \Big)}{1 + \mathrm{var} \Big(\Phi^{-1}(PD_{i, t}) \Big)}.
+\end{equation*}
+}
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Requirements of the Vasicek Model \textit{(cont. 2)}}
+\justifying
+\small
+
+If
+\begin{equation}
+\rho = \frac{\mathrm{var}(\Phi^{-1}(PD_{i,t}))}{1 + \mathrm{var}(\Phi^{-1}(PD_{i,t}))}, 
+\quad \text{and} \quad 
+PD_i^{\mathrm{TTC}} = \Phi \Big( \sqrt{1 - \rho} \cdot \mathrm{E}[\Phi^{-1}(PD_{i,t})] \Big),
+\end{equation}
+then the \textbf{mean and standard deviation of $Z_t$ computed via Equation (7) are 0 and 1, respectively}.
+
+\medskip
+
+In practice, however, practitioners often set $\rho$ equal to the value used in the Basel RWA calculations\footnote{\tiny{The choice of $\rho$ generally has limited impact on reported figures, provided it is applied consistently throughout the calculation process.}} and determine $PD_i^{TTC}$ simply as the average of observed default rates over a sufficiently long historical period.
+
+\end{frame}
+
+
+% ==========================================================
+\begin{frame}{Normality Assumption}
+\justifying
+\small
+
+It is important to note that Equations (8) ensure only that the derived systematic factor $Z_t$ has zero mean and unit variance; they do not guarantee that \textbf{$Z_t$ follows a normal distribution, which is an additional assumption of the Vasicek model}. 
+
+\medskip
+
+In practice, when $Z_t$ is estimated from a limited sample - e.g., twenty annual default rates roughly covering one full economic cycle - satisfying normality tests typically requires that the observed default rates themselves exhibit an approximately bell-shaped distribution.
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Alternative Interpretation of $\rho$}
+\justifying
+\small
+
+Equation (8) suggests an alternative interpretation of the parameter $\rho$ in the Vasicek model. Namely, \textbf{$\rho$ can be understood as a function of the volatility of observed default rates}. In other words, it measures the portfolio's sensitivity to changes in the macroeconomic environment.
+
+\medskip
+
+This intuitive interpretation is also consistent with Equation (6). Values of the parameter $\rho$ close to zero imply that PIT PD remains almost constant, irrespective of the actual macroeconomic environment.
+
+\end{frame}
+
+
+% ==========================================================
+\begin{frame}{Vasicek Distribution}
+\justifying
+\small
+
+If the systematic factor $Z_t$ follows a standard normal distribution, then $PD_{i,t}$ follows the so-called \textbf{Vasicek distribution}. Under these assumptions, $\Phi^{-1}(PD_{i,t})$ is normally distributed with mean
+\begin{equation}
+\mu = \frac{\Phi^{-1}(PD_i^{TTC})}{\sqrt{1 - \rho}}
+\end{equation}  
+and variance
+\begin{equation}
+\sigma^2 = \frac{\rho}{1 - \rho}.
+\end{equation}
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Relation between Observed Default Rates and the Systematic Factor}
+\justifying
+\small
+
+It is important to note that the \textbf{relationship between observed default rates and the systematic factor $Z_t$ is inverse}.
+
+\medskip
+
+Significantly positive values of $Z_t$ indicate periods of economic expansion, which are typically associated with low observed default rates. 
+Conversely, significantly negative values of $Z_t$ correspond to periods of economic recession, during which observed default rates tend to be high.
+
+\end{frame}
+
+\section{Estimation of Macroeconomic Model}
+
+% ==========================================================
+\begin{frame}{Example of Macroeconomic Model}
+\justifying
+\small
+
+One of the most challenging tasks in credit stress testing is to \textbf{estimate the relationship between the systematic factor $Z_t$ and the macroeconomic environment}, represented by variables such as real GDP growth or the unemployment rate.
+
+\medskip
+ 
+The current market standard is to model this relationship using a \textbf{linear regression}, which takes the form of
+\begin{equation*}
+\widehat{Z}_t = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot GDP_{t - t_{\mathrm{shift}}} + \widehat{\beta}_2 \cdot UNPL_{t - t_{shift}}, 
+\end{equation*}
+where the historical $Z_t$, derived from observed default rates, is used as the dependent variable; macroeconomic variables - such as real GDP growth and the unemployment rate - are used as independent variables; and $t_{shift}$ represents a lag, typically set to 0, 3, 6, or 12 months.
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Calibration Process}
+\justifying
+\small
+
+The calibration of the macroeconomic model can be decomposed into several steps:
+
+\begin{enumerate}
+\item \textbf{Pre-selection of Independent Variables}
+\begin{itemize}
+    \tiny{
+    \item Variable transformation or standardization
+    \item Economic justification (including correct sign of estimated coefficient, reasonable lag, etc.)
+    \item Statistical and economic significance
+    }
+\end{itemize}
+
+\item \textbf{Pre-selection of three to five model candidates based on a scoring procedure}
+\begin{itemize}
+    \tiny{
+    \item Explanatory power and multicollinearity
+    \item Number and type of macroeconomic variables and their signs
+    \item Statistical and economic significance of individual macroeconomic variables
+    \item Re-calibration stability of the model
+    }
+\end{itemize}
+
+\item \textbf{Discussion of the pre-selected models with stakeholders} to determine the most suitable specification.
+\end{enumerate}
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Pitfalls}
+\justifying
+\small
+
+
+There are several reasons why the estimation of a macroeconomic model might not be straightforward.
+\begin{itemize}
+\item \textbf{Calibration period}
+\begin{itemize}
+    \tiny{
+    \item Over-representation of ``good'' or ``bad'' economic periods may lead to a biased model.
+    \item Inevitably short calibration periods (15 - 20 annual data points) can cause re-calibration instability.
+    }
+\end{itemize}
+
+\item \textbf{Model Calibration}
+\begin{itemize}
+    \tiny{
+    \item Limited variability of observed default rates
+    \item Small number of default events - randomness can override trends due to changes in the macroeconomic environment
+    \item No clear link between observed default rates and macroeconomic variables
+    }
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+% ==========================================================
+\begin{frame}{Pitfalls \textit{(cont. 1)}}
+\justifying
+\small
+
+\begin{itemize}
+    \item \textbf{Competing macroeconomic models}
+    \begin{itemize}
+    \tiny{
+    \item Comparable on historical data but producing completely different outcomes under stress scenarios
+    }
+    \end{itemize}
+    \item \textbf{Stress scenarios outside the historical range}
+    \begin{itemize}
+    \tiny{
+    \item Unrealistic drop in output for energy demanding sectors
+    }
+    \end{itemize}    
+    \item \textbf{Historical consistency}
+    \begin{itemize}
+    \tiny{    
+    \item Past data may not always be relevant (e.g., economic transformation of Eastern Europe)
+    }
+    \end{itemize}
+    \item \textbf{Incomplete stress scenarios}
+    \begin{itemize}
+    \tiny{
+    \item For example, missing government transfers to households and the private sector
+    }
+    \end{itemize}
+    \item \textbf{Inconsistency across portfolios}
+    \begin{itemize}
+    \tiny{
+    \item Different explanatory macroeconomic variables for otherwise similar portfolios
+    }
+    \end{itemize}
+    \item \textbf{Changes in methodology and processes}
+    \begin{itemize}
+    \tiny{
+    \item Redefinition of default events
+    \item Changes in collection procedures
+    }
+    \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\section{Q \& A}
+
+% ==========================================================
+\begin{frame}{Q \& A}
+\justifying
+
+\begin{center}
+\Huge{\textbf{Q \& A}}
+\end{center}
+
+\end{frame}
+
+
+\end{document}

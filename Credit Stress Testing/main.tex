@@ -21,6 +21,8 @@
 The paper describes theoretical and practical aspects of credit stress testing in financial sector.
 \end{abstract}
 
+\tableofcontents{}
+
 \section{Introduction}
 
 The financial crisis of 2008 led to more rigorous regulation of the financial sector. One key component of the new regulatory framework was the introduction of credit stress testing.
@@ -43,9 +45,9 @@ In the Eurozone, large financial institutions are required to conduct the follow
 \section{Basic Definitions}
 
 \begin{enumerate}
-\item Default - the failure of a borrower to meet the legal obligations of a debt contract (typically by missing scheduled payments of interest or principal).
-\item Probability of Default ($PD$) - the likelihood that a borrower will default within a given time period (typically one year).
-\item Exposure at Default ($EAD$) - the total amount a lender is exposed to at the time of a borrower’s default.
+\item Default - the failure of an obligor to meet the legal obligations of a debt contract (typically by missing scheduled payments of interest or principal).
+\item Probability of Default ($PD$) - the likelihood that an obligor will default within a given time period (typically one year).
+\item Exposure at Default ($EAD$) - the total amount a lender is exposed to at the time of an obligor's default.
 \item Loss Given Default ($LGD$) - the proportion of the exposure that is lost in the event of default, expressed as a percentage of $EAD$.
 \item Expected Loss ($EL$) - the average loss a lender expects to incur on a given loan or credit facility under normal conditions.
 \end{enumerate}
@@ -80,7 +82,9 @@ In other words, the risk management approach is backward-looking, while the acco
 
 \section{Vasicek Model}
 
-The Vasicek model is a workhorse of credit risk modeling in the financial sector. It forms the backbone not only of credit stress testing but also of the regulatory formula for risk-weighted assets (RWA).
+The Vasicek model is a cornerstone of modern credit risk analysis and regulation. Originally introduced by Oldrich Vasicek in 1987, the model provides a simple yet powerful framework for quantifying portfolio credit risk by linking individual default probabilities to a common systematic risk factor. Its analytical tractability and intuitive structure make it particularly suitable for assessing the impact of macroeconomic shocks on portfolio-level losses. The model assumes that defaults are driven by latent variables representing the underlying credit quality of borrowers, which are correlated through their exposure to the systematic factor. This dependence structure allows the Vasicek model to capture the key feature of credit portfolios - default clustering during economic downturns - while remaining computationally efficient.
+
+Owing to these properties, the Vasicek model serves as the theoretical foundation for the Basel Internal Ratings-Based (IRB) approaches to calculating regulatory capital requirements for credit risk.
 
 \subsection{Latent Variable}
 
@@ -268,6 +272,17 @@ In practice, however, practitioners often set $\rho$ equal to the value used in 
 It is important to note that Equations (26) ensure only that the derived $Z_t$ has zero mean and unit variance; they do not guarantee that 
 $Z_t$ follows a normal distribution, which is an additional assumption of the Vasicek model. In practice, when $Z_t$ is estimated from a limited sample - for example, from twenty annual default rates roughly covering one full economic cycle - satisfying normality tests typically requires that the observed default rates themselves exhibit an approximately bell-shaped distribution.
 
+\subsection{Vasicek Distribution}
+
+If $Z_t$ comes from standard normal distribution, then $PD_{i, t}$ follows so-called Vasicek distribution. Under these assumptions $\Phi^{-1}(PD_{i, t})$ follows normal distribution with mean value
+\begin{equation}
+\mu = \frac{\Phi^{-1}(PD_i^{TTC})}{\sqrt{1 - \rho}}
+\end{equation}  
+and variance of
+\begin{equation}
+\sigma^2 = \frac{\rho}{1 - \rho}.
+\end{equation}
+
 \subsection{Relation between Observed Default Rates and the Systematic Risk Factor}
 
 It should be noted that the relationship between observed default rates and the systematic factor $Z_t$ is inverse. Significantly positive values of $Z_t$ indicate periods of economic expansion, which are typically associated with low observed default rates. Conversely, significantly negative values of $Z_t$ correspond to periods of economic recession, during which observed default rates tend to be high.
@@ -327,11 +342,11 @@ The parameter $\rho$ in the Vasicek model is often referred to as the correlatio
 
 \subsection{Negative Credit Default Correlation}
 
-From Equation~(6) it is evident that $\rho$, unlike an ordinary correlation coefficient, cannot take negative values. This restriction is not practically limiting, as $\rho$ represents credit default correlation, and it is not reasonable to assume that two obligors within a portfolio would exhibit an inverse relationship in their default probabilities.
+From Equation~(6) it is evident that $\rho$, unlike an ordinary correlation coefficient, cannot take negative values. This restriction is not practically limiting, as $\rho$ represents credit default correlation, and it is not reasonable to assume that two borrowers within a portfolio would exhibit an inverse relationship in their default probabilities.
 
 \subsection{Granularity}
 
-Although Equation~(9) might suggest that credit default correlation could be calibrated on a pairwise basis, a single parameter value is typically assumed for the entire portfolio. The reason is practical: there is usually insufficient data to estimate more granular correlations. For example, a corporate portfolio could be divided into several rating grades. In theory, $\rho$ could be estimated separately for each grade based on historical default rates. However, because default events are relatively rare - particularly among high-quality obligors - there are not enough observations to estimate the correlation parameter with reasonable statistical accuracy.
+Although Equation~(9) might suggest that credit default correlation could be calibrated on a pairwise basis, a single parameter value is typically assumed for the entire portfolio. The reason is practical: there is usually insufficient data to estimate more granular correlations. For example, a corporate portfolio could be divided into several rating grades. In theory, $\rho$ could be estimated separately for each grade based on historical default rates. However, because default events are relatively rare - particularly among high-quality borrowers - there are not enough observations to estimate the correlation parameter with reasonable statistical accuracy.
 
 \subsection{Portfolio Sensitivity to the Macroeconomic Cycle}
 
@@ -638,6 +653,183 @@ ECL^{\text{stage 3}} = EAD \cdot LGD \cdot DF,
 \end{equation}
 where $LGD$ reflects expected shortfalls after considering collateral and recoveries, and $DF$ applies the effective interest rate to discount the loss to present value.
 
+\section{What about Loss Given Default?}
+
+While the methodology for stressing the Probability of Default (PD) is well established and extensively covered in academic literature, the situation is different for the Loss Given Default (LGD). Estimating stressed LGD is more data-intensive than estimating stressed PD. Whereas default is a binary event, LGD estimation requires information on the actual loss incurred following an borrower’s default to calibrate a loss distribution. In addition, proper LGD modeling demands detailed collateral data, which is not always readily available in databases.
+
+The situation is further complicated by the fact that a single collateral item may secure multiple loans, or conversely, several collaterals may back a single loan. Moreover, collateral enforcement and valuation are often subject to various legal constraints, which can easily turn LGD modeling into a complex legal exercise.
+
+\subsection{Simple Model}
+
+Given these complications, in practice, fully fledged LGD models are typically developed only for mortgage and commercial real estate portfolios, or for other portfolios with relatively homogeneous collateral. For other asset classes, a simplified modeling approach is usually adopted.
+
+Regardless of the model used, the general consensus is that LGD should increase with increasing probability of default, i.e., LGD and PD are comonotonic. This means that LGD quantiles map directly to PD quantiles; for example, the 20\% quantile of PD corresponds to the 20\% quantile of LGD. Therefore, if we know the quantile of the stressed PD, we can use that quantile to determine the corresponding LGD.
+
+\subsubsection{Beta Distribution}
+
+A common simplification assumes that LGD follows a two-parameter probability distribution defined on the $\langle 0, 1 \rangle$ interval - typically a Beta distribution. Because the Beta distribution is characterized by two parameters, it can be calibrated using two points. For example:
+\begin{itemize}
+    \item The mean of the distribution can be set equal to the current borrower's LGD, and
+    \item The 90th percentile can be set equal to borrower's downturn LGD, which is borrower's LGD adjusted upward to reflect losses during an economic downturn and which is used IRB regulatory framework to calculate RWA.
+\end{itemize}
+
+Once the LGD distribution has been calibrated, it can be linked to the systematic risk factor $Z_t$ used for PD stress testing. Specifically, the same quantile of $Z_t$ can be used to determine the corresponding stressed LGD. For instance, if $Z_t$ follows a standard normal distribution, then $Z_t = -1.645$ corresponds to the 5\% quantile. The stressed LGD associated with the 5\% quantile can then be obtained directly from the calibrated Beta distribution.
+
+\subsubsection{Vasicek Distribution}
+
+Since LGD is constrained to the $\langle 0, 1 \rangle$ interval, just like the probability of default, the Vasicek model can also be used to describe its probability distribution - an approach increasingly discussed in credit risk research.
+
+The portfolio-level parameter $\rho_{LGD}$ can be estimated analogously to Equation~(26) as
+\begin{equation}
+\rho_{LGD} = \frac{var\big( \Phi^{-1}(LGD_t^{obs}) \big)}{1 + var\big( \Phi^{-1}(LGD_t^{obs}) \big)}, 
+\end{equation}
+where $LGD_t^{obs}$ represents observed LGD for historical period $t$, an analogy to observed default rates.
+
+The borrower's stressed LGD can then be determined analogously to Equation~(16):
+\begin{equation}
+LGD_{i,t} = \Phi\ \Bigg(\frac{ \Phi^{-1}(LGD_i^{TTC}) - \sqrt{\rho_{LGD}} Z_t}{\sqrt{1 - \rho_{LGD}}} \Bigg),
+\end{equation}
+where $Z_t \sim N(0,1)$ and $LGD_i^{TTC}$ is the current borrower's LGD, an analogy to $PD_i^{TTC}$.
+
+If $Z_t$, representing the systematic macroeconomic risk factor, follows a standard normal distribution, the same realization of $Z_t$ can be used consistently to stress both the probability of default and the loss given default.
+
+Alternatively, $\Phi^{-1}(LGD_{i,t})$ can be modeled as normally distributed, with its mean and standard deviation derived from Equations~(27) and (28), respectively. The quantile of the stressed PD,
+\begin{equation}
+q = \Phi \Bigg(\frac{\sqrt{1 - \rho} \Phi^{-1}(PD_{i,t}) - \Phi^{-1}(PD_i^{TTC})}{\sqrt{\rho}} \Bigg),
+\end{equation}
+can then be used to determine the corresponding $LGD_{i,t}$ as
+\begin{equation}
+LGD_{i,t} = \Phi\ \Bigg(\frac{\Phi^{-1}(LGD_i^{TTC})}{\sqrt{1 - \rho_{LGD}}} + \Phi^{-1}(q) \sqrt{\frac{\rho_{LGD}}{1 - \rho_{LGD}}} \Bigg).
+\end{equation}
+
+\subsection{Mortgage and Commercial Real-Estate Portfolios}
+
+Because collateral in mortgage and commercial real estate portfolios tends to be homogeneous, and real estate prices are typically included in the stress scenario, many financial institutions develop more advanced models to stress LGD for such portfolios.
+
+The main driver of LGD stress is the so-called Loan-to-Value (LTV) ratio, defined as the ratio between the outstanding loan balance and the value of the real estate used as collateral. Intuitively, borrower's LGD in its simplest form can be expressed as
+\begin{multline}
+LGD = \frac{\max(\textit{loan value} - \textit{real estate value}, 0)}{\textit{loan value}} 
+= \max\Bigg( \frac{\textit{loan value} - \textit{real estate value}}{\textit{loan value}}, 0 \Bigg) \\ 
+= \max\Bigg( 1 - \frac{\textit{real estate value}}{\textit{loan value}}, 0 \Bigg) 
+= \max\Bigg( 1 - \frac{1}{LTV},\, 0 \Bigg).
+\end{multline}
+
+If we wish to stress LGD using the projected change in a real estate price index for the coming year, the following relationship can be applied
+\begin{equation}
+LGD^{\textit{stress}} = \max\Bigg( 1 - \frac{1}{LTV} \cdot \Big(1 + RE^{\textit{stress}} \Big), 0 \Bigg),
+\end{equation}
+where $RE^{\textit{stress}}$ represents the relative change in the relevant real estate price index over the stress horizon.
+
+Note that the above equation is a simplification. In practice, LGD consists of several components, each of which should be stressed separately. A typical LGD decomposition can be represented as
+\begin{equation}
+LGD = (1 - \textit{collateral recovery}) + (1 - \textit{unsecured recovery}) + \textit{workout costs},
+\end{equation}
+and Equation~(54) refers only to the $(1 - \textit{collateral recovery})$ component.
+
+\section{Potential Pitfalls}
+
+Although the credit stress testing methodology described above may appear simple and sound at first glance, its practical implementation involves numerous challenges.
+
+\subsection{Macroeconomic Model}
+
+\subsubsection{Calibration Period}
+
+The macroeconomic model, which describes the relationship between the macroeconomic environment and the systematic risk factor $Z_t$, should be estimated over a complete economic cycle to capture both``good" and ``bad" periods. If only part of the cycle is covered, either the expansionary or recessionary phase will be overrepresented, leading to biased calibration.
+
+Unfortunately, historical data on observed default rates and loss given default are often insufficient to cover a full cycle. In practice, models are typically calibrated using data from the last five to seven years, which generally reflect only an upward or downward phase. The limited sample also causes instability - each new observation can substantially change the estimated parameters.
+
+Practitioners sometimes compensate for the lack of long historical data by using quarterly instead of annual frequencies. However, this approach often exacerbates the problem of autocorrelation, which is common in macroeconomic time series.
+
+\subsubsection{Historical Consistency}
+
+As stated above, the macroeconomic model should ideally be calibrated over a full economic cycle, typically spanning 15 - 20 years. Over such a long period, however, the economic structure may change substantially.
+
+Figure \ref{sk_unpl_rate} illustrates this issue using the unemployment rate in the Slovak Republic. The country has undergone a profound economic transformation over the past 25 years, raising questions about the relevance of its early-2000s data for model calibration. It is unlikely, for instance, that an unemployment rate of 20\%, observed in the early 2000s, could realistically occur in the next few years even under an adverse scenario.
+
+The same applies to most Central European economies. Using unadjusted historical time series in such cases can lead to seriously biased calibrations. Yet, any attempt to adjust these data is often challenged by model validation teams, auditors, or regulators.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.65]{pictures/sk_unpl_rate.png}
+  \caption{Slovak Republic - unemployment rate}
+  \label{sk_unpl_rate}
+\end{figure}
+
+\subsubsection{Model Risk and Parameter Uncertainty}
+
+Even if a macroeconomic model fits historical data well, its structure may be misspecified or overly simplistic. Moreover, parameter uncertainty is often underestimated, especially when the calibration sample is small. Ignoring parameter confidence intervals can lead to a false sense of precision in stress-testing results.
+
+\subsubsection{Macroeconomic Model Re-calibration}
+
+Macroeconomic models are expected to be re-calibrated on a regular basis. As discussed previously, such models are typically estimated using 15 to 20 years of annual data, corresponding to roughly 15 - 20 observations. This limited number of data points inevitably leads to model instability upon re-calibration. It is not uncommon for reported figures to change materially before and after re-calibration, which can be difficult to justify to stakeholders when the only difference stems from the inclusion of one or two additional years of data.
+
+In theory, extending the calibration period to at least 60 years would help mitigate this instability. In practice, however, historical data on observed default rates and loss given default are not available for such long horizons. Even if such data existed, they would likely be inconsistent due to structural economic changes over time, rendering the calibration unreliable.
+
+\subsubsection{Inability to Calibrate Macroeconomic Model}
+
+In some cases, it may not be possible to calibrate a meaningful macroeconomic model at all. This can occur when observed default rates show little or no sensitivity to macroeconomic variables, or when the two are not properly synchronized in time. As a result, the model may exhibit extremely low explanatory power, leading to non-intuitive outputs that are often rejected by stakeholders.
+
+\subsubsection{Competing Macroeconomic Models}
+
+It is common to end up with several plausible macroeconomic models, each with comparable explanatory power. Even in the absence of an objectively superior specification, these models may yield materially different stress-testing results. Consequently, the choice of macroeconomic model - inherently subjective - can have a major impact on reported figures.
+
+\subsubsection{Inconsistency across Portfolios}
+
+Large financial institutions often manage portfolios across multiple countries. Stakeholders typically expect that similar portfolios, such as Small-and-Medium-Enterprise (SME) exposures, will respond in similar ways to a given macroeconomic scenario.
+
+However, because each portfolio's model is calibrated independently, the key predictors may differ. For instance, GDP growth might be the dominant factor in one country, while unemployment is more influential in another. During the COVID-19 period, real GDP declined sharply but unemployment increased only slightly. Consequently, a COVID-like stress scenario would produce substantially different effects across the two portfolios, even though their economic exposure should be comparable.
+
+\subsection{Macroeconomic Scenarios}
+
+\subsubsection{Historical Time Series vs. Macroeconomic Stress Scenarios}
+
+Macroeconomic models are calibrated on historical data. Therefore, stress scenarios should ideally remain within the range observed in those data to ensure reasonable predictive performance.
+
+In practice, however, providers of macroeconomic scenarios often disregard this limitation. For example, regulators may require models to be calibrated on historical data, yet propose stress scenarios that are extreme outliers relative to history. Such inconsistencies undermine model credibility and can lead to unrealistic projections.
+
+\subsubsection{Incomplete Macroeconomic Stress Scenarios}
+
+Although macroeconomic stress scenarios typically include many key variables, some important ones are often omitted. Notably, fiscal variables such as government transfers to households and firms are frequently missing.
+
+Their omission can severely distort model results. During the 2008 - 2009 financial crisis, governments initially pursued austerity, whereas during the COVID-19 crisis they implemented massive fiscal transfers. Despite a sharper GDP contraction during COVID-19, default rates did not increase proportionally - largely because of these interventions.
+
+Calibrating a macroeconomic model on both periods without incorporating government transfers as an explanatory variable is therefore questionable. Nevertheless, scenario providers often avoid including such variables because of their political sensitivity.
+
+\subsection{Observed Default Rates}
+
+Observed default rates are a key input for calibrating macroeconomic models. However, there are several potential issues that may bias model estimation.
+
+\subsubsection{Randomness in Observed Default Rates}
+
+Default is a rare event. Therefore, in the case of smaller portfolios, the number of defaults may be driven more by randomness than by the actual evolution of the economic cycle. If a macroeconomic model is calibrated on a portfolio with, for example, fewer than ten default events per year within the calibration window, the quality of such a model is questionable. The portfolio must experience a sufficient number of defaults each year and exhibit reasonable sensitivity to changes in the economic cycle for the resulting model to be meaningful for credit stress testing.
+
+Another potential source of bias arises when the highest mother entity within an economically interconnected group defaults. Such an event typically triggers subsequent defaults among the group's subsidiaries or affiliates, creating a false impression of multiple independent defaults within the same period.
+
+\subsubsection{Number- vs. Amount-Weighted Observed Default Rates}
+
+In traditional PD modeling, observed default rates are typically number-weighted, meaning that the default of each borrower counts as a single event regardless of exposure size. However, in credit stress testing, borrowers with similar characteristics are often grouped to simplify computation. In this context, amount-weighted default rates are more appropriate. They can be calculated as the ratio of Exposure at Default (EAD) that defaulted during the year to the total non-defaulted EAD at the beginning of the year. This approach also mitigates the bias introduced by defaults of economically interconnected entities. Nevertheless, amount-weighted default rates are often not readily available in practice, leading institutions to rely on number-weighted rates instead.
+
+\subsubsection{Consistency over Time}
+
+When observed default rates are used as dependent variables in macroeconomic model estimation, it is implicitly assumed that the credit composition of the underlying portfolio remains stable over time. In reality, portfolio credit structure often changes substantially. In extreme cases, a portfolio with low credit quality in ``good" times may exhibit default rates similar to a portfolio with high credit quality in ``bad" times. Clearly, such time-varying portfolio credit quality complicates model calibration.
+
+A simple workaround is to base the calibration on default rates observed only within the lowest non-default credit grade, which tends to be the most sensitive to macroeconomic conditions and accounts for the majority of default events. However, even this approach may not fully resolve the issue, as definitions of credit grades themselves may evolve over time. 
+
+The key conclusion is that observed default rates alone are insufficient; it is equally important to assess whether they originate from portfolios that are at least approximately comparable across time.
+
+\subsection{Through-the-Cycle Migration Matrix}
+
+It is often useful to construct multi-year migration matrices based on a through-the-cycle (TTC) migration matrix to investigate how projected probabilities of default evolve over time for the current portfolio structure. If the TTC migration matrix is - despite its name - calibrated on only the upward or downward part of the economic cycle, rather than the full cycle, it may introduce a systematic trend in projected defaults. Such a biased TTC migration matrix can then easily dominate the impact of the macroeconomic scenario, leading to distorted stress test results.
+
+\subsubsection{Changes in the Definition of Default Event}
+
+Although the basic definition of a default event appears straightforward - the failure to meet contractual obligations under a debt agreement - a precise regulatory definition is often more complex. Over time, regulators may revise the criteria that determine when an exposure is considered to have defaulted (for example, the introduction or modification of the 90-days-past-due rule or the ``unlikeliness to pay" assessment).
+
+When such changes occur, it is essential to recalculate historical observed default rates in accordance with the new definition. Failing to do so may introduce structural breaks in the time series and bias the calibration of the macroeconomic model.
+
+\subsubsection{Workout Process}
+
+Observed default rates may also be influenced by changes in the workout and restructuring process. Financial institutions often manage distressed exposures through forbearance, renegotiation, or restructuring rather than immediate default classification. The criteria for when such exposures are recognized as defaulted may vary across time, institutions, or regulatory regimes. A more aggressive workout policy may delay or even prevent the recognition of default events, while stricter internal rules can increase reported default rates. Consequently, differences or changes in workout practices can introduce artificial volatility or structural breaks in observed default rate time series, potentially biasing the calibration of macroeconomic models.
+
 \section{Appendix}
 
 \subsection{$E[A \cdot B] = E[A] \cdot E[B]$}
@@ -673,7 +865,8 @@ IRB RWA & Internal Rating Based method for risk-weighted assets calculation\\
 A-IRB RWA & Advanced Internal Rating Based method for risk-weighted assets calculation\\
 F-IRB RWA & Foundation Internal Rating Based method for risk-weighted assets calculation\\
 SICR & Significant Increase in Credit Risk\\
-EIR & Effective Interest Rate
+EIR & Effective Interest Rate\\
+LTV ratio & Loan-to-Value ratio
 \end{tabular}
 \end{center}
 
