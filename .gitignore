@@ -7,4 +7,6 @@
 *.log
 *.pdf
 *.dvi
+*.nav
+*.snm
 tex2pdf
