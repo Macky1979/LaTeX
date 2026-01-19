@@ -69,19 +69,19 @@
 \justifying
 \small
 
-The \textbf{financial crisis of 2008} led to more rigorous regulation of the financial sector. One key component of the new regulatory framework was the \textbf{introduction of credit stress testing}.
+The \textbf{financial crisis of 2008} led to more rigorous regulation of the financial sector. One key component of the new regulatory framework was the \textbf{introduction of stress testing}.
 
 \medskip
 
-The purpose of a credit stress test is to demonstrate that a \textbf{financial institution can withstand a severe - but plausible - economic downturn}. Such a downturn is represented through a \textbf{detailed economic scenario} that typically specifies the projected evolution of real GDP growth, the unemployment rate, inflation, the house price index, stock indices, government bond yields, foreign exchange rates, and interest rates over the next three years.
+The purpose of a stress test is to demonstrate that a \textbf{financial institution can withstand a severe - but plausible - economic downturn}. Such a downturn is represented through a \textbf{detailed economic scenario} that typically specifies the projected evolution of real GDP growth, the unemployment rate, inflation, the house price index, stock indices, government bond yields, foreign exchange rates, and interest rates over the next three years.
 
 \medskip
 
-Every large financial institution is expected to have the \textbf{ability and capacity to conduct credit stress tests on both a regular and an ad-hoc basis}.
+Every large financial institution is expected to have the \textbf{ability and capacity to conduct stress tests on both a regular and an ad-hoc basis}.
 
 \medskip
 
-Credit stress testing plays a crucial role in \textbf{maintaining financial stability}, particularly amid evolving economic uncertainties and systemic risks.
+Stress testing plays a crucial role in \textbf{maintaining financial stability}, particularly amid evolving economic uncertainties and systemic risks.
 
 \end{frame}
 
@@ -90,11 +90,11 @@ Credit stress testing plays a crucial role in \textbf{maintaining financial stab
 \justifying
 \small
 
-In the Eurozone, large financial institutions are required to conduct the following \textbf{types of credit stress tests}:
+In the Eurozone, large financial institutions are required to conduct the following \textbf{types of stress tests}:
 \begin{enumerate}
-\item \textbf{ICAAP (Internal Capital Adequacy Assessment Process) stress test} - an annual internal stress test whose methodology and results are reviewed by the European Central Bank (ECB).
-\item \textbf{EU-wide EBA stress test} - a biannual stress test coordinated by the European Banking Authority (EBA) and the ECB. It follows a standardized methodology issued by the regulator to ensure comparability across institutions.
-\item \textbf{Ad-hoc credit stress test} - conducted in response to a specific adverse event (e.g., the U.S. - China trade conflict or the Russia - Ukraine war).
+\item \textbf{ICAAP (Internal Capital Adequacy Assessment Process)} - an annual internal stress test whose methodology, macroeconomic scenarios, and results are reviewed by the European Central Bank (ECB).
+\item \textbf{EU-wide EBA stress test} - a biannual stress test coordinated by ECB following a standardized methodology and macroeconomic scenarios issued by the European Banking Authority (EBA) to ensure comparability across institutions.
+\item \textbf{Ad-hoc stress test} - triggered by ECB in response to a specific adverse event (e.g., the U.S. - China trade conflict or the Russia - Ukraine war).
 \end{enumerate}
 
 \end{frame}
@@ -104,28 +104,15 @@ In the Eurozone, large financial institutions are required to conduct the follow
 \justifying
 \small
 
-Credit stress testing consists of \textbf{two main pillars}:
+Stress testing constists of \textbf{several modules} covering banking book, trading book, operational risk, liqudity risk, and \textbf{credit risk}. The following text is focused on credit stress testing.
+
+\medskip
+
+\textbf{Credit stress testing} consists of \textbf{two main components}:
 \begin{enumerate}
-\item \textbf{Macroeconomic model} - linear regression model that translates a macroeconomic scenario into a value for a systematic risk factor. This factor reflects the phase of the economic cycle (recession vs. expansion).
+\item \textbf{Macroeconomic model} - linear regression model that translates a macroeconomic scenario into a value for a systematic factor. This factor reflects the phase of the economic cycle (recession vs. expansion).
 \item \textbf{Vasicek model} - uses systematic factor estimated through macroeconomic model to stress Probability of Default (PD). The stressed probability of default is used to calculate various credit risk metrics such as Expected Loss (EL), Risk-weighted Assets (RWA), Expected Credit Loss (ECL), which is lifetime expected credit loss used for accounting purposes.
 \end{enumerate}
-
-\end{frame}
-
-% ==========================================================
-\begin{frame}{Vasicek Model}
-\justifying
-\small
-
-The Vasicek model is a \textbf{cornerstone of modern credit risk analysis and regulation}. Originally introduced by Oldrich Vasicek in 1987, the model provides a simple yet powerful framework for quantifying portfolio credit risk by linking individual default probabilities to a common systematic risk factor.
-
-\medskip
-
-Its analytical tractability and intuitive structure make it particularly suitable for assessing the impact of macroeconomic shocks on portfolio-level losses. The model assumes that \textbf{defaults are driven by latent variables} representing the underlying credit quality of borrowers, which are correlated through their exposure to the \textbf{systematic factor}. This dependence structure allows the Vasicek model to capture the key feature of credit portfolios - default clustering during economic downturns - while remaining computationally efficient.
-
-\medskip
-
-Owing to these properties, the Vasicek model serves as the theoretical foundation for the Basel Internal Ratings-Based (IRB) approaches to \textbf{calculating regulatory capital requirements for credit risk}.
 
 \end{frame}
 
@@ -156,15 +143,32 @@ EL = PD \cdot EAD \cdot LGD
 \section{Vasicek Model}
 
 % ==========================================================
+\begin{frame}{Introduction}
+\justifying
+\small
+
+The Vasicek model is a \textbf{cornerstone of modern credit risk analysis and regulation}. Originally introduced by Oldrich Vasicek in 1987, the model provides a simple yet powerful framework for quantifying portfolio credit risk by linking individual default probabilities to a common systematic factor.
+
+\medskip
+
+Its analytical tractability and intuitive structure make it particularly suitable for assessing the impact of macroeconomic shocks on portfolio-level losses. The model assumes that \textbf{defaults are driven by latent variables} representing the underlying credit quality of borrowers, which are correlated through their exposure to the \textbf{systematic factor}. This dependence structure allows the Vasicek model to capture the key feature of credit portfolios - \textbf{default clustering} during economic downturns - while remaining computationally efficient.
+
+\medskip
+
+Owing to these properties, the Vasicek model serves as the theoretical foundation for the Basel Internal Ratings-Based (IRB) approaches to \textbf{calculating regulatory capital requirements for credit risk}.
+
+\end{frame}
+
+% ==========================================================
 \begin{frame}{TTC vs. PIT PD}
 \justifying
 \small
 
-Equation (1) assumes a \textbf{long-term average}, the so-called \textbf{Through-the-Cycle (TTC)} Probability of Default (PD). As its name suggests, the TTC PD represents an average probability of default observed throughout the entire economic cycle. In practice, this value can be derived from a counterparty's external credit rating (for large corporates) or from internal scoring models (for retail exposures).
+Equation (1) for EL assumes a \textbf{long-term average}, the so-called \textbf{Through-the-Cycle (TTC)} Probability of Default (PD). As its name suggests, the TTC PD represents an average probability of default observed throughout the entire economic cycle. In practice, this value can be derived from a counterparty's external credit rating (for large corporates) or from internal scoring models (for retail exposures).
 
 \medskip
 
-The Vasicek model introduces the concept of adjusting the TTC PD to reflect the \textbf{current macroeconomic environment}. This stressed probability of default, conditional on the prevailing macroeconomic conditions, is referred to as the \textbf{Point-in-Time (PIT)} Probability of Default. Unlike the TTC PD, which is constant, the PIT PD varies with the macroeconomic environment - it is higher during recessions and lower during expansions.
+The Vasicek model introduces the concept of adjusting the TTC PD to reflect the \textbf{macroeconomic environment} described through macroeconomic scenario. This stressed probability of default, conditional on the prevailing macroeconomic conditions, is referred to as the \textbf{Point-in-Time (PIT)} Probability of Default. Unlike the TTC PD, which is constant, the PIT PD varies with the macroeconomic environment - it is higher during recessions and lower during expansions.
 
 \end{frame}
 
@@ -200,7 +204,7 @@ Since $\mathrm{E}[Z_t] = 0$ and $\mathrm{E}[\varepsilon_{i,t}] = 0$, it follows 
 \mathrm{E}[x_{i,t}] = 0.
 \end{equation*}
 
-The Vasicek model further assumes that $\mathrm{Var}[x_{i,t}] = 1$, which implies
+The Vasicek model further assumes that $\mathrm{Var}[x_{i,t}] = 1$, which implies the following restriction
 \begin{equation*}
 \mathrm{var}[x_{i,t}] = a^2 + b^2 = 1.
 \end{equation*}
@@ -285,6 +289,9 @@ PD_{i, t} &= \mathrm{P}[x_i \le TH_i | Z_t] \nonumber \\
 &= \Phi\left(\frac{\Phi^{-1}(PD_i^{TTC}) - \sqrt{\rho} \cdot Z_t}{\sqrt{1 - \rho}} | Z_t \right)
 \end{align}
 }
+
+\medskip
+
 In other words, unlike $PD_i^{TTC}$, which is assumed constant, the \textbf{conditional probability $PD_{i,t}$ varies with the macroeconomic environment through the systematic factor $Z_t$}.
 
 \end{frame}
@@ -423,7 +430,7 @@ If
 \begin{equation}
 \rho = \frac{\mathrm{var}(\Phi^{-1}(PD_{i,t}))}{1 + \mathrm{var}(\Phi^{-1}(PD_{i,t}))}, 
 \quad \text{and} \quad 
-PD_i^{\mathrm{TTC}} = \Phi \Big( \sqrt{1 - \rho} \cdot \mathrm{E}[\Phi^{-1}(PD_{i,t})] \Big),
+PD_i^{\mathrm{TTC}} = \Phi \Big( \sqrt{1 - \rho} \mathrm{E}[\Phi^{-1}(PD_{i,t})] \Big),
 \end{equation}
 then the \textbf{mean and standard deviation of $Z_t$ computed via Equation (7) are 0 and 1, respectively}.
 
@@ -520,7 +527,7 @@ There are several reasons why the estimation of a macroeconomic model might not 
 \begin{itemize}
     \tiny{
     \item Over-representation of ``good'' or ``bad'' economic periods may lead to a biased model as the latest economic cycle is not always fully covered.
-    \item Inevitably short calibration periods (15 - 20 annual data points) can cause re-calibration instability.
+    \item Inevitably short calibration periods (15 - 20 non-overlapping annual data points) can cause re-calibration instability.
     }
 \end{itemize}
 
